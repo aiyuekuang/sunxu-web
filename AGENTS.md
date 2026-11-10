@@ -15,7 +15,8 @@ Sunxu Web 是面向 React Web / PC 管理端的通用 UI 组件与页面容器�
 
 ## 设计系统与文档
 
-- 设计令牌维护在 `src/theme/**`，项目基线与示例细则维护在 `design-system/sunxu-web/MASTER.md`。
+- `design-system/sunxu-web/MASTER.md` 是唯一权威设计规范正文，也是 UI 设计工具读取的项目主规范；设计令牌的运行时实现位于 `src/theme/**`。
+- `docs/design-system.md` 仅作文档导航，不重复定义设计规则。组件公开 API 以 `docs/component-contracts.md` 为准；来源组件映射以 `docs/component-inventory.md` 为准；来源和适配证据以 `docs/migration-record.md` 为准；依赖版本以 `docs/dependencies.md` 为准。
 - 新增或变更公开组件时，同步更新 `docs/component-contracts.md`、`docs/component-inventory.md` 和可运行目录 `examples/catalog/**`。
 - 组件契约须说明职责、输入/事件、状态、布局、响应式、无障碍、组合边界和证据；没有实际渲染的状态标 `UNVERIFIED`。
 - 文档目录页的可见文字必须帮助定位组件、理解职责或完成集成，不加装饰性说明。

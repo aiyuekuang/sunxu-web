@@ -30,7 +30,7 @@ export function App() {
 }
 ```
 
-组件示例和 API 对照见 [`examples/catalog`](./examples/catalog)；完整规范见 [`docs/design-system.md`](./docs/design-system.md)、[`docs/component-contracts.md`](./docs/component-contracts.md) 和 [`docs/component-inventory.md`](./docs/component-inventory.md)。
+组件示例和 API 对照见 [`examples/catalog`](./examples/catalog)。唯一权威设计规范见 [`design-system/sunxu-web/MASTER.md`](./design-system/sunxu-web/MASTER.md)；[`docs/design-system.md`](./docs/design-system.md) 是规范导航页。组件 API、迁移映射和依赖版本分别以 [`docs/component-contracts.md`](./docs/component-contracts.md)、[`docs/component-inventory.md`](./docs/component-inventory.md) 和 [`docs/dependencies.md`](./docs/dependencies.md) 为准。
 
 ## 页面组合
 
