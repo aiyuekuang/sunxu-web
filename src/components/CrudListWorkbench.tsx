@@ -52,6 +52,18 @@ export type CrudListWorkbenchTableProps<
   rowKey: NonNullable<ProTableProps<T, Params>['rowKey']>;
 };
 
+export type CrudListWorkbenchTableRenderProps<
+  T extends object,
+  Params extends Record<string, unknown> = Record<string, unknown>,
+> = CrudListWorkbenchTableProps<T, Params> & {
+  /** Query form configuration remains owned by the workbench. */
+  search: ProTableProps<T, Params>['search'];
+  /** The workbench owns the list title and toolbar. */
+  headerTitle: false;
+  toolBarRender: false;
+  toolbar?: undefined;
+};
+
 export type CrudListWorkbenchProps<
   T extends object,
   Params extends Record<string, unknown> = Record<string, unknown>,
@@ -81,6 +93,12 @@ export type CrudListWorkbenchProps<
   filterBarLabel?: string;
   /** Use ProTable's column-driven QueryFilter, including its native responsive/collapse behavior. */
   proTableSearch?: ProTableProps<T, Params>['search'];
+  /**
+   * Render a host table adapter (for example, a resizable ProTable) inside the
+   * workbench result area. The adapter receives normalized table props while
+   * list-level title, filters, actions, and toolbar remain owned by this component.
+   */
+  renderTable?: (props: CrudListWorkbenchTableRenderProps<T, Params>) => ReactNode;
   /** Automatically move inline quick filters into an expandable row when they do not fit. Defaults to true. */
   responsiveQuickFilters?: boolean;
   tableProps: CrudListWorkbenchTableProps<T, Params>;
@@ -105,6 +123,7 @@ export function CrudListWorkbench<
   description,
   breadcrumbs,
   className,
+  as = 'section',
   primaryTabs,
   statusFilters,
   quickFilters,
@@ -119,6 +138,7 @@ export function CrudListWorkbench<
   facetSidebarBreakpoint = 1024,
   filterBarLabel = '列表筛选',
   proTableSearch,
+  renderTable,
   responsiveQuickFilters = true,
   tableProps,
 }: CrudListWorkbenchProps<T, Params>) {
@@ -389,9 +409,19 @@ export function CrudListWorkbench<
       </div>
     ) : undefined;
 
+  const renderTableProps: CrudListWorkbenchTableRenderProps<T, Params> = {
+    ...tableProps,
+    search: proTableSearch ?? false,
+    headerTitle: false,
+    toolBarRender: false,
+    toolbar: undefined,
+    options: tableProps.options ?? false,
+  };
+
   return (
     <>
       <ListScreenContainer
+        as={as}
         title={title}
         headingLevel={headingLevel}
         description={description}
@@ -423,14 +453,18 @@ export function CrudListWorkbench<
             </aside>
           ) : null}
           <div className="sxw-crud-list-workbench__table">
-            <ProTable<T, Params>
-              {...tableProps}
-              search={proTableSearch ?? false}
-              headerTitle={false}
-              toolBarRender={false}
-              toolbar={undefined}
-              options={tableProps.options ?? false}
-            />
+            {renderTable ? (
+              renderTable(renderTableProps)
+            ) : (
+              <ProTable<T, Params>
+                {...tableProps}
+                search={proTableSearch ?? false}
+                headerTitle={false}
+                toolBarRender={false}
+                toolbar={undefined}
+                options={tableProps.options ?? false}
+              />
+            )}
           </div>
         </div>
       </ListScreenContainer>

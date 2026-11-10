@@ -377,6 +377,7 @@ function ContainersPage({ onMessage }: { onMessage: (text: string) => void }) {
     <div className="sxw-docs-page-content">
       <SectionCard title="列表容器">
         <ListScreenContainer
+          as="section"
           title="示例记录"
           headingLevel={2}
           toolbar={
@@ -421,6 +422,7 @@ function ContainersPage({ onMessage }: { onMessage: (text: string) => void }) {
       <SectionCard title="表单容器" subtitle="字段滚动区与流程 footer 分离">
         <div className="sxw-form-preview-frame">
           <FormScreenContainer
+            as="section"
             title="编辑示例"
             headingLevel={2}
             footer={

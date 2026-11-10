@@ -15,7 +15,7 @@ import {
   Tree,
   Typography,
 } from 'antd';
-import type { ActionType, ProColumns } from '@ant-design/pro-components';
+import { ProTable, type ActionType, type ProColumns } from '@ant-design/pro-components';
 import type { Key } from 'react';
 import {
   CrudListWorkbench,
@@ -567,6 +567,16 @@ export function CrudListWorkbenchPage() {
               }}
             />
           ) : undefined
+        }
+        renderTable={
+          isComplex
+            ? (tableProps) => (
+                <ProTable<DemoProduct>
+                  {...tableProps}
+                  scroll={{ ...tableProps.scroll, x: tableProps.scroll?.x ?? 'max-content' }}
+                />
+              )
+            : undefined
         }
         tableProps={{
           actionRef,

@@ -1,0 +1,35 @@
+{
+  "route": "http://127.0.0.1:8101/ → CRUD 列表工作台 → 复杂视图",
+  "state": "host table adapter supplied through CrudListWorkbench.renderTable; quick filters expanded on mobile",
+  "browserErrors": [],
+  "desktop": {
+    "viewport": { "width": 1440, "height": 1000 },
+    "document": { "scrollWidth": 1440, "clientWidth": 1440, "scrollHeight": 1051, "clientHeight": 1000 },
+    "visibleMainLandmarks": 1,
+    "workbench": { "x": 273, "y": 346, "width": 1118, "height": 544, "scrollWidth": 1118, "clientWidth": 1118 },
+    "toolbar": { "x": 273, "y": 382, "width": 1118, "height": 126, "bottom": 508 },
+    "resultArea": { "x": 273, "y": 516, "width": 1118, "height": 374 },
+    "tableArea": { "x": 521, "y": 516, "width": 870, "height": 374 },
+    "tableViewport": { "width": 822, "scrollWidth": 1020, "height": 307 },
+    "documentHorizontalOverflow": 0
+  },
+  "mobile": {
+    "viewport": { "width": 390, "height": 844 },
+    "document": { "scrollWidth": 390, "clientWidth": 390, "scrollHeight": 1264, "clientHeight": 844 },
+    "visibleMainLandmarks": 1,
+    "workbench": { "x": 33, "y": 382, "width": 324, "height": 715 },
+    "toolbar": { "x": 33, "y": 418, "width": 324, "height": 297, "bottom": 715 },
+    "resultArea": { "x": 33, "y": 723, "width": 324, "height": 374 },
+    "tableArea": { "x": 33, "y": 723, "width": 324, "height": 374 },
+    "tableViewport": { "width": 276, "scrollWidth": 1020, "height": 307 },
+    "documentHorizontalOverflow": 0
+  },
+  "notes": [
+    "The table keeps its own 1020px horizontal content width; the document itself does not overflow horizontally.",
+    "The mobile page scrolls vertically to expose the remaining rows and footer."
+  ],
+  "screenshots": [
+    "renderTable-adapter-complex-desktop-1440x1000.png",
+    "renderTable-adapter-complex-mobile-390x844.png"
+  ]
+}

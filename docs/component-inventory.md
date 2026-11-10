@@ -11,7 +11,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `ScreenContainer` | Web 工作区主区和统一内边距 |
 | `PageHeader` | 有条件渲染的页面标题、说明、面包屑和操作插槽 |
 | `ListScreenContainer` | 标题 → 紧邻列表工具栏 → 结果区 |
-| `CrudListWorkbench` | 分类/状态、轻筛选、可选高级筛选与视图、ProTable 结果区组合 |
+| `CrudListWorkbench` | 分类/状态、轻筛选、可选高级筛选与视图、ProTable 或宿主表格适配器结果区组合 |
 | `SavedViewBar` | 受控的系统/个人视图切换和管理操作 |
 | `EditableDetailTable` | 受控重复明细编辑、行选择和批量字段设置 |
 | `BatchFieldSettingsButton` | 选择批量覆盖字段并在确认后生成宿主 patch |

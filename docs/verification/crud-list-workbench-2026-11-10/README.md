@@ -18,3 +18,7 @@ The first task is to locate a product and perform a list action. The first scree
 ## Limits
 
 Keyboard/screen-reader walkthroughs, dark theme, all intermediate widths, and every loading/error combination remain `UNVERIFIED`. The 390px table may use its own internal horizontal behavior for columns; document-level overflow stayed at 0.
+
+## Host table adapter
+
+The `renderTable` adapter state was checked on the real catalog route at 1440×1000 and 390×844. Its evidence is in [`renderTable-adapter-geometry.json`](./renderTable-adapter-geometry.json) with desktop and mobile screenshots. Both viewports had zero document-level horizontal overflow; the table retained its internal 1020px horizontal content width. No browser errors were recorded.

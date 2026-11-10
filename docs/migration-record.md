@@ -26,6 +26,16 @@
 - 目录页展示的是契约示例和组件映射，不代表每个宿主页面已经接入。
 - 每个可见 wrapper 的最终视口截图、DOM 几何、键盘/读屏和主题验收在 `docs/verification/` 记录；没有记录的状态标 `UNVERIFIED`。
 
+## CRUD 列表表格适配插槽
+
+- 组件使用评审发现：部分宿主已经有列宽拖拽等表格能力，直接用工作台内置 ProTable 会丢失有效交互；宿主另包一层列表工具栏则会复制工作台职责。
+- `CrudListWorkbench` 新增可选 `renderTable`，把表格结果区交给宿主适配器，标题、筛选和列表级操作仍由工作台统一拥有。默认仍直接渲染 ProTable。
+- `renderTable` 的公开 API、适配边界和目录路由示例同步更新在组件契约、使用规范和 `examples/catalog/CrudListWorkbenchPage.tsx`。表格数据请求、权限和领域行为仍由宿主负责。
+- 页面容器新增 `as="main|section"` 语义根元素；工作台默认嵌入现有应用 landmark，避免 CRM / 组件目录应用中出现嵌套 `<main>`。
+- ESM 发布构建将 React JSX runtimes 标记为外部依赖；真实 Umi 页面曾因打包的 `require('react')` 白屏，此次通过目录路由运行验证修正。
+- 包版本提升并发布为 `sunxu-web@0.2.1`；CRM Web 已将依赖范围和 lockfile 更新到 0.2.1。
+- 源码和目录需通过本仓的类型检查、构建；未实际渲染的适配状态继续标记为 `UNVERIFIED`。
+
 ## MES Web 基线组件库引入（2026-11-10）
 
 - 正确来源是 Web 管理端仓库 `../mes-main/mes-admin`，分支 `main-买断版本`，固定提交 `133e8673e92c24119024f9b4fbcfe2ce5247bf79`；本次只从提交对象读取，未读取来源工作区中 26 个未提交文件的内容，也未修改来源仓库。

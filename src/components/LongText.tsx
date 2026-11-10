@@ -34,7 +34,11 @@ export function LongText({
         width: 720,
         icon: null,
         okText: '关闭',
-        content: <Typography.Paragraph copyable>{text}</Typography.Paragraph>,
+        content: (
+          <Typography.Paragraph className="sxw-long-text__content" copyable>
+            {text}
+          </Typography.Paragraph>
+        ),
       });
     },
     [modal, modalTitle, text],

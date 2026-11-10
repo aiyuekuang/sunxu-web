@@ -14,7 +14,7 @@
 | `ScreenContainer` | 页面根结构；提供一致的工作区内边距 | `main` + `--sxw-space-*` |
 | `PageHeader` | 识别当前页面并放置页级动作 | AntD `Breadcrumb` / `Typography`；`headingLevel` 默认 1 |
 | `ListScreenContainer` | 组织特殊列表的标题、紧邻工具栏和结果区 | `ScreenContainer` + `PageHeader`；标准 CRUD 列表优先用 `CrudListWorkbench` |
-| `CrudListWorkbench` | 组合分类/状态、轻筛选、高级筛选、视图插槽与 ProTable | `ListScreenContainer` + `FilterBar` + `StatusTabs` + Pro Components 3 ProTable |
+| `CrudListWorkbench` | 组合分类/状态、轻筛选、高级筛选、视图插槽与表格结果适配器 | `ListScreenContainer` + `FilterBar` + `StatusTabs` + Pro Components 3 ProTable |
 | `SavedViewBar` | 选择和管理受控的系统/个人列表视图 | AntD Tabs / Dropdown / Modal；视图数据和持久化由宿主提供 |
 | `FormScreenContainer` | 分离可滚动表单内容和固定 footer | `ScreenContainer` + `StickyActionBar`；ProForm 归宿主 |
 | `DetailScreenContainer` | 组织详情内容和固定操作区 | `ScreenContainer` + `PageHeader` |
@@ -44,10 +44,11 @@
 
 ### 页面容器
 
-- **API**：`ScreenContainer` 接收 `children`、`className`、`style`。List/Form/Detail 容器接受插槽 `toolbar` / `children` / `footer`，页级 `title`、`description`、`actions` 仅在有内容时渲染；`headingLevel` 可用于嵌套预览，默认 `1`。
+- **API**：`ScreenContainer` 接收 `children`、`className`、`style` 和语义根元素 `as`（`main | section`，默认 `main`）。List/Form/Detail 容器接受插槽 `toolbar` / `children` / `footer`，页级 `title`、`description`、`actions` 仅在有内容时渲染；`headingLevel` 可用于嵌套预览，默认 `1`。
 - **状态**：容器不管理请求、加载、空结果或表单提交；对应内容由宿主传入。Form/Detail 的 footer 单独固定，内容滚动区不得覆盖它。
 - **响应式**：默认页面内边距桌面 24 px，窄屏 16 px；列表工具栏在 768 px 以下换行并保持在结果区之前。
 - **可访问性**：页面根使用 `main`，标题保持单一主标题，页级操作由 AntD Button/Menu 提供语义和键盘行为。
+- **组合语义**：应用外壳已经提供唯一 `<main>` 时，内层容器使用 `as="section"`；同一页面不得嵌套多个 main landmark。
 - **邻接规则**：`ListScreenContainer` 的 `toolbar` 紧贴结果区，不接受独立远置的 list action header。
 
 ### `CrudListWorkbench`
@@ -55,14 +56,15 @@
 - **职责**：标准 CRUD 列表的组合层。把分类 Tab、状态 `StatusTabs`、筛选栏、可选视图栏、可选层级筛选和 ProTable 放在统一的结果工作区；不实现基础表格、字段、查询服务或业务 CRUD。
 - **首开任务**：开发者打开目录的 CRUD 列表工作台示例，先看到产品列表与分类/状态入口；场景切换器可查看轻量、分类/状态、复杂视图和 ProTable 原生查询四种组合。组件运行时本身不持有最近列表或路由；宿主决定默认筛选和深链恢复。
 - **API**：`tableProps.columns` 与 `rowKey` 必填；其余公开 ProTable 参数可传入。为避免重复布局，`search`、`headerTitle`、`toolbar`、`toolBarRender` 由工作台控制。列 schema 能表达的查询字段通过 `proTableSearch` 启用 ProTable 原生查询表单；它支持 ProTable 的响应式 `span`、折叠数量和展开/收起行为。自定义 `search`、`quickFilters`、`filterActions`、`primaryTabs`、`statusFilters`、`toolbarActions`、`viewBar`、`appliedFilters`、`facetSidebar` 为可选插槽。`advancedFilters` 提供 `children`、已应用数量、受控/非受控 `open`、`onApply`、`onReset`、`onCancel` 和失败回调。
+- **表格适配插槽**：缺省直接渲染 ProTable；宿主需要可调整列宽等扩展时，可传 `renderTable` 接入宿主适配器。回调收到完整的 `tableProps`、工作台选定的 `search`、`options`，且 `headerTitle=false`、`toolBarRender=false`、`toolbar=undefined`。适配器只负责结果表格，不重复绘制列表标题、筛选和列表级操作；工作台仍拥有这些区域并将适配器放在结果区。
 - **状态/恢复**：高级筛选抽屉打开时由宿主字段控件持有草稿；“重置”只清草稿，“取消/关闭”调用 `onCancel` 保留已应用结果，“应用”调用宿主 `onApply`。返回 `false` 或抛错时抽屉保持打开，错误时显示可恢复提示。`open` 存在时为受控模式，宿主必须响应 `onOpenChange`；省略 `open` 时由工作台管理开关。加载、空、错误、分页、排序和行选择状态由 ProTable/宿主传入。
 - **Facet**：`facetSidebar` 只用于高频层级导航。工作区有效宽度低于 `facetSidebarBreakpoint`（默认 1024px）时，同一内容移入左侧 Drawer；组件用 ResizeObserver 测量列表内宽，不用浏览器 viewport 猜测。
 - **布局与响应式**：主分类 Tab 在左，状态 Segmented 与列表动作在右；少量外部快捷筛选与关键字在宽度允许时保持同一行。`responsiveQuickFilters` 默认启用，工作台测量实际容器和筛选控件宽度；宽度不足时将快捷筛选折叠到“展开筛选”区域，用户可展开查看并再次收起，空间恢复后自动回到单行。ProTable 原生查询表单按自身响应式 `span` / `defaultFormItemsNumber` / `defaultCollapsed` 规则处理；两种查询方式避免重复配置同一业务字段。内容不足 900px 时主操作换行；不足 767px 时筛选区纵向组织。ProTable 的横向滚动/列配置由 `tableProps` 公共 API 控制，不覆盖内部 class。
 - **状态筛选所有权**：分类由 `primaryTabs` 或 Facet 二选一；状态由 `statusFilters` 或宿主快捷条件二选一；不要在视图标签、快捷控件和抽屉重复同一字段。
-- **边界**：请求与 `params`、过滤值、表单/提交/删除、批量操作权限及失败语义由宿主提供。改变外部筛选应通过宿主 `tableProps.params` 或 `dataSource`；`onApply` 负责提交抽屉草稿。列/刷新等 ProTable options 默认关闭，仅在宿主明确传入时显示。
+- **边界**：请求与 `params`、过滤值、表单/提交/删除、批量操作权限及失败语义由宿主提供。改变外部筛选应通过宿主 `tableProps.params` 或 `dataSource`；`onApply` 负责提交抽屉草稿。列/刷新等 ProTable options 默认关闭，仅在宿主明确传入时显示。`renderTable` 不接管筛选、页面工具栏或数据请求，宿主的表格扩展不得删减当前业务仍需的列、行选择、排序、分页或恢复路径。
 - **可访问性**：筛选区用 `FilterBar` 的 `role=search` 和必需名称；分类 Tab 与状态 Segmented 分别提供可读名称和选中态；筛选图标按钮有 `aria-label`，Tooltip 可键盘聚焦；Drawer/ProTable 原生键盘和焦点行为不被覆盖。Facets 用具名 `<aside>` / Drawer。
-- **间距与主题**：父级 `ListScreenContainer` 拥有页面内边距；工作台只管工具组间距。颜色使用 `--sxw-*` 语义变量，ProTable/AntD 控件几何遵循上游 token。
-- **证据**：`examples/catalog` 的 CRUD 列表工作台真实路由覆盖自定义筛选自动折叠与 ProTable 原生查询模式；结果见 `docs/verification/crud-list-workbench-2026-11-10/`。未覆盖的状态仍为 `UNVERIFIED`。
+- **间距与主题**：父级 `ListScreenContainer` 拥有页面内边距；工作台默认使用 `section` 根元素并只管工具组间距。应用外壳不提供 main landmark 时可显式传 `as="main"`。颜色使用 `--sxw-*` 语义变量，ProTable/AntD 控件几何遵循上游 token。
+- **证据**：`examples/catalog` 的 CRUD 列表工作台真实路由覆盖自定义筛选自动折叠、ProTable 原生查询和宿主表格适配插槽；结果见 `docs/verification/crud-list-workbench-2026-11-10/`。未覆盖的状态仍为 `UNVERIFIED`。
 
 ### `SavedViewBar`
 
@@ -129,7 +131,7 @@
 ### `RemoteSelect` 与 `LongText`
 
 - `RemoteSelect` 继承 AntD Select API，`onSearch` 存在时启用搜索、关闭本地候选过滤，并以 `searchDebounceTime`（默认 300 ms）防抖。候选加载、请求竞态、分页和错误反馈由宿主负责。
-- `LongText` 接受文本或数字，按 `maxLength`（默认 64 个 Unicode code point）截断；只有超长时显示“更多”，点击打开包含完整内容的 AntD 对话框。空值显示 `-`。放入可点击表格行时，展开操作阻止事件冒泡。
+- `LongText` 接受文本或数字，按 `maxLength`（默认 64 个 Unicode code point）截断；只有超长时显示“更多”，点击打开包含完整内容的 AntD 对话框。弹层内容限高为 `min(60vh, 520px)` 并在内部滚动，保留换行且长字符串可换行。空值显示 `-`。放入可点击表格行时，展开操作阻止事件冒泡。
 - **目录示例**：`examples/catalog/TextControlsPage.tsx` 展示宿主候选搜索和长文本单元格；桌面、窄屏、搜索结果与全文弹层证据见 `docs/verification/mes-web-components-2026-11-10/`。
 
 ## 组件状态验收记录

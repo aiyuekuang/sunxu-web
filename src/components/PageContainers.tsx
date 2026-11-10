@@ -5,17 +5,25 @@ export type ScreenContainerProps = {
   children: ReactNode;
   className?: string;
   style?: CSSProperties;
+  /** Use `section` when the application shell already provides the main landmark. */
+  as?: 'main' | 'section';
 };
 
-export function ScreenContainer({ children, className, style }: ScreenContainerProps) {
+export function ScreenContainer({
+  children,
+  className,
+  style,
+  as = 'main',
+}: ScreenContainerProps) {
+  const Element = as;
   return (
-    <main className={['sxw-screen', className].filter(Boolean).join(' ')} style={style}>
+    <Element className={['sxw-screen', className].filter(Boolean).join(' ')} style={style}>
       {children}
-    </main>
+    </Element>
   );
 }
 
-export type ListScreenContainerProps = {
+export type ListScreenContainerProps = Omit<ScreenContainerProps, 'children'> & {
   title?: string;
   headingLevel?: PageHeaderProps['headingLevel'];
   description?: ReactNode;
@@ -23,7 +31,6 @@ export type ListScreenContainerProps = {
   breadcrumbs?: PageHeaderProps['breadcrumbs'];
   toolbar?: ReactNode;
   children: ReactNode;
-  className?: string;
 };
 
 export function ListScreenContainer({
@@ -35,9 +42,13 @@ export function ListScreenContainer({
   toolbar,
   children,
   className,
+  as,
 }: ListScreenContainerProps) {
   return (
-    <ScreenContainer className={['sxw-list-screen', className].filter(Boolean).join(' ')}>
+    <ScreenContainer
+      as={as}
+      className={['sxw-list-screen', className].filter(Boolean).join(' ')}
+    >
       {title ? (
         <PageHeader
           title={title}
@@ -74,6 +85,7 @@ export type FormScreenContainerProps = {
   children: ReactNode;
   footer?: ReactNode;
   className?: string;
+  as?: 'main' | 'section';
 };
 
 export function FormScreenContainer({
@@ -84,9 +96,10 @@ export function FormScreenContainer({
   children,
   footer,
   className,
+  as,
 }: FormScreenContainerProps) {
   return (
-    <ScreenContainer className={['sxw-form-screen', className].filter(Boolean).join(' ')}>
+    <ScreenContainer as={as} className={['sxw-form-screen', className].filter(Boolean).join(' ')}>
       {title ? <PageHeader title={title} headingLevel={headingLevel} description={description} breadcrumbs={breadcrumbs} /> : null}
       <div className="sxw-form-screen__scroll">{children}</div>
       {footer ? <StickyActionBar>{footer}</StickyActionBar> : null}
@@ -103,6 +116,7 @@ export type DetailScreenContainerProps = {
   children: ReactNode;
   footer?: ReactNode;
   className?: string;
+  as?: 'main' | 'section';
 };
 
 export function DetailScreenContainer({
@@ -114,9 +128,10 @@ export function DetailScreenContainer({
   children,
   footer,
   className,
+  as,
 }: DetailScreenContainerProps) {
   return (
-    <ScreenContainer className={['sxw-detail-screen', className].filter(Boolean).join(' ')}>
+    <ScreenContainer as={as} className={['sxw-detail-screen', className].filter(Boolean).join(' ')}>
       {title ? (
         <PageHeader
           title={title}
