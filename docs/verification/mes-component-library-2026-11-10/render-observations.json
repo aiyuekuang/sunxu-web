@@ -1,0 +1,257 @@
+{
+  "target": "http://127.0.0.1:4173/",
+  "route": "/",
+  "page": "mappings",
+  "title": "榫序 Web 组件目录",
+  "http": 200,
+  "searchResults": {
+    "BottomSheetContext": 1,
+    "entityPickerPagination": 1
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "clientHeight": 900,
+      "scrollHeight": 936
+    },
+    "workspace": {
+      "left": 224,
+      "top": 56,
+      "right": 1440,
+      "bottom": 935.78125,
+      "width": 1216,
+      "height": 879.78125
+    },
+    "surface": {
+      "left": 248,
+      "top": 80,
+      "right": 1416,
+      "bottom": 911.78125,
+      "width": 1168,
+      "height": 831.78125
+    },
+    "heading": {
+      "left": 273,
+      "top": 105,
+      "right": 1391,
+      "bottom": 200.28125,
+      "width": 1118,
+      "height": 95.28125
+    },
+    "content": {
+      "left": 273,
+      "top": 220.28125,
+      "right": 1391,
+      "bottom": 886.78125,
+      "width": 1118,
+      "height": 666.5
+    },
+    "mappingCard": {
+      "left": 273,
+      "top": 220.28125,
+      "right": 1391,
+      "bottom": 834.78125,
+      "width": 1118,
+      "height": 614.5
+    },
+    "summary": {
+      "left": 286,
+      "top": 233.28125,
+      "right": 1378,
+      "bottom": 255.78125,
+      "width": 1092,
+      "height": 22.5
+    },
+    "tableWrapper": {
+      "left": 286,
+      "top": 265.78125,
+      "right": 1378,
+      "bottom": 821.78125,
+      "width": 1092,
+      "height": 556
+    },
+    "tableViewport": {
+      "clientWidth": 1092,
+      "scrollWidth": 1092,
+      "clientHeight": 513,
+      "scrollHeight": 513,
+      "overflowX": "auto"
+    },
+    "firstVisibleRows": [
+      "ActionButton\tAntD Button\tUPSTREAM\t使用 Ant Design 原生变体、加载和禁用状态。",
+      "ActionMenu\tAntD Dropdown + Menu\tUPSTREAM\t菜单行为和键盘状态由上游负责。",
+      "AppText\tAntD Typography\tUPSTREAM\t使用 Text、Title 和 Paragraph。"
+    ],
+    "mappingHeading": []
+  },
+  "mobile": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "clientHeight": 812,
+      "scrollHeight": 1148
+    },
+    "workspace": {
+      "left": 0,
+      "top": 56,
+      "right": 375,
+      "bottom": 1148.28125,
+      "width": 375,
+      "height": 1092.28125
+    },
+    "surface": {
+      "left": 16,
+      "top": 72,
+      "right": 359,
+      "bottom": 1132.28125,
+      "width": 343,
+      "height": 1060.28125
+    },
+    "heading": {
+      "left": 33,
+      "top": 89,
+      "right": 342,
+      "bottom": 240.28125,
+      "width": 309,
+      "height": 151.28125
+    },
+    "content": {
+      "left": 33,
+      "top": 256.28125,
+      "right": 342,
+      "bottom": 1115.28125,
+      "width": 309,
+      "height": 859
+    },
+    "mappingCard": {
+      "left": 33,
+      "top": 256.28125,
+      "right": 342,
+      "bottom": 1019.28125,
+      "width": 309,
+      "height": 763
+    },
+    "summary": {
+      "left": 46,
+      "top": 269.28125,
+      "right": 329,
+      "bottom": 405.28125,
+      "width": 283,
+      "height": 136
+    },
+    "tableWrapper": {
+      "left": 46,
+      "top": 415.28125,
+      "right": 329,
+      "bottom": 1006.28125,
+      "width": 283,
+      "height": 591
+    },
+    "tableViewport": {
+      "clientWidth": 283,
+      "scrollWidth": 760,
+      "clientHeight": 513,
+      "scrollHeight": 513,
+      "overflowX": "auto"
+    },
+    "visibleStatusTags": [
+      "MES 基线：49 个通用组件文件",
+      "ADAPTED：Sunxu Web",
+      "UPSTREAM：AntD / Pro",
+      "HOST：宿主",
+      "DEFERRED：暂缓"
+    ]
+  },
+  "mobileHorizontalScroll": {
+    "scrollLeft": 477,
+    "maxScrollLeft": 477,
+    "clientWidth": 283,
+    "scrollWidth": 760,
+    "documentClientWidth": 375,
+    "documentScrollWidth": 375,
+    "visibleHeaderCells": [
+      "Web 权威实现",
+      "处理方式",
+      "职责说明"
+    ]
+  },
+  "darkDesktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "workspace": {
+      "left": 224,
+      "top": 56,
+      "right": 1440,
+      "bottom": 935.78125,
+      "width": 1216,
+      "height": 879.78125
+    },
+    "surface": {
+      "left": 248,
+      "top": 80,
+      "right": 1416,
+      "bottom": 911.78125,
+      "width": 1168,
+      "height": 831.78125
+    },
+    "heading": {
+      "left": 273,
+      "top": 105,
+      "right": 1391,
+      "bottom": 200.28125,
+      "width": 1118,
+      "height": 95.28125
+    },
+    "content": {
+      "left": 273,
+      "top": 220.28125,
+      "right": 1391,
+      "bottom": 886.78125,
+      "width": 1118,
+      "height": 666.5
+    },
+    "mappingCard": {
+      "left": 273,
+      "top": 220.28125,
+      "right": 1391,
+      "bottom": 834.78125,
+      "width": 1118,
+      "height": 614.5
+    },
+    "summary": {
+      "left": 286,
+      "top": 233.28125,
+      "right": 1378,
+      "bottom": 255.78125,
+      "width": 1092,
+      "height": 22.5
+    },
+    "tableWrapper": {
+      "left": 286,
+      "top": 265.78125,
+      "right": 1378,
+      "bottom": 821.78125,
+      "width": 1092,
+      "height": 556
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "clientHeight": 900,
+      "scrollHeight": 936
+    }
+  }
+}

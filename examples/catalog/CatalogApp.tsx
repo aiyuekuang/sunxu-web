@@ -201,7 +201,7 @@ function CatalogWorkspace({
                     {page === 'overview'
                       ? '面向多个 React Web 项目的共享组件与页面容器。'
                       : page === 'mappings'
-                        ? '逐项查看现有 Sunxu 组件在 Web 端的权威实现和宿主边界。'
+                        ? '查看 MES 基线通用组件在 Web 端的映射、可复用 API 和宿主边界。'
                         : page === 'tokens'
                           ? '沿用 Sunxu 的绿色语义主题，并通过 Ant Design ConfigProvider 应用。'
                           : page === 'containers'
@@ -438,6 +438,7 @@ function MappingsPage({ dataSource, search }: { dataSource: ComponentMapping[]; 
             {search ? `“${search}”匹配 ${dataSource.length} 项` : `当前映射 ${dataSource.length} 项`}
           </Typography.Text>
           <Space wrap size={4}>
+            {!search && <Tag color="cyan">MES 基线：49 个通用组件文件</Tag>}
             <Tag color="success">ADAPTED：Sunxu Web</Tag>
             <Tag color="processing">UPSTREAM：AntD / Pro</Tag>
             <Tag color="gold">HOST：宿主</Tag>

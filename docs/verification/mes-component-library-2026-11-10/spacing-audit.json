@@ -1,0 +1,425 @@
+{
+  "schema_version": 1,
+  "audit": {
+    "evidence_level": "E3",
+    "route_viewport_state_matrix": [
+      "/ (CatalogApp page=mappings) × 1440×900 × light",
+      "/ (CatalogApp page=mappings) × 1440×900 × dark",
+      "/ (CatalogApp page=mappings) × 375×812 × light"
+    ],
+    "executed_tool": "Playwright visible Chromium: TARGET_URL=http://127.0.0.1:4173/ node run.js /tmp/playwright-test-mes-mappings.js; selected 组件映射; searched BottomSheetContext and entity-picker-pagination; selected mobile navigation; horizontally scrolled the table; captured DOM rectangles and screenshots.",
+    "interaction_results": {
+      "BottomSheetContext": 1,
+      "entityPickerPagination": 1
+    },
+    "mobile_horizontal_scroll": {
+      "scrollLeft": 477,
+      "maxScrollLeft": 477,
+      "clientWidth": 283,
+      "scrollWidth": 760,
+      "documentClientWidth": 375,
+      "documentScrollWidth": 375,
+      "visibleHeaderCells": [
+        "Web 权威实现",
+        "处理方式",
+        "职责说明"
+      ]
+    },
+    "page_errors": [],
+    "console_errors": [],
+    "render_observations": "render-observations.json"
+  },
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "route": "/ (CatalogApp page=mappings)",
+        "state": "映射页；浅色；桌面 1440×900",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 935.78125,
+          "width": 1216,
+          "height": 879.78125
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 911.78125,
+          "width": 1168,
+          "height": 831.78125
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24.0,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24 px workspace frame around the primary surface",
+          "source": "examples/catalog/catalog.css:141-155"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected the settled full-page Chromium screenshot at 100%; workspace background and primary surface remain visibly distinct on all four sides.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-library-2026-11-10/mapping-light-1440x900-fullpage.png",
+        "screenshot_sha256": "8e48a8e6a5eee2f3e88016865210e2a699f667cf3df7b599b0fbc2a5dd505b6f",
+        "status": "PASS"
+      },
+      {
+        "route": "/ (CatalogApp page=mappings)",
+        "state": "映射页；深色；桌面 1440×900",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 935.78125,
+          "width": 1216,
+          "height": 879.78125
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 911.78125,
+          "width": 1168,
+          "height": 831.78125
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24.0,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24 px workspace frame around the primary surface",
+          "source": "examples/catalog/catalog.css:141-155"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected the settled full-page Chromium screenshot at 100%; workspace background and primary surface remain visibly distinct on all four sides.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-library-2026-11-10/mapping-dark-1440x900-fullpage.png",
+        "screenshot_sha256": "53b468938101544fc9db86073b3994ad4ecef5d001b99fed112c487aaff1ff8f",
+        "status": "PASS"
+      },
+      {
+        "route": "/ (CatalogApp page=mappings)",
+        "state": "映射页；浅色；窄屏 375×812",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 1148.28125,
+          "width": 375,
+          "height": 1092.28125
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 359,
+          "bottom": 1132.28125,
+          "width": 343,
+          "height": 1060.28125
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16.0,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16 px workspace frame around the primary surface",
+          "source": "examples/catalog/catalog.css:467-475"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected the settled full-page Chromium screenshot at 100%; workspace background and primary surface remain visibly distinct on all four sides.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-library-2026-11-10/mapping-light-375x812-fullpage.png",
+        "screenshot_sha256": "b36b27f160496f1fda9d09905b9f99fc64833f6e6cd6dc02903e4a7ee9237cf6",
+        "status": "PASS"
+      }
+    ]
+  },
+  "seams": [
+    {
+      "route": "/ (CatalogApp page=mappings)",
+      "state": "映射页标题与内容；浅色；桌面 1440×900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": ".sxw-docs-page-heading",
+      "next": ".sxw-docs-page-content",
+      "previous_rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 886.78125,
+        "width": 1118,
+        "height": 666.5
+      },
+      "gap_px": 20,
+      "expected": {
+        "kind": "contract",
+        "value": "页面标题区与内容区间距 20 px",
+        "source": "examples/catalog/catalog.css:158-162"
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-library-2026-11-10/mapping-light-1440x900.png",
+      "screenshot_sha256": "130140ca65500969940a6f713abe5248d0400faa13f19e91d09544dcf18b1095",
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected the rendered screenshot; a clear 20 px band separates the page heading and mapping panel.",
+        "observed_clear_band_px": 20
+      },
+      "executed_command": "Playwright visible Chromium: TARGET_URL=http://127.0.0.1:4173/ node run.js /tmp/playwright-test-mes-mappings.js; selected 组件映射; searched BottomSheetContext and entity-picker-pagination; selected mobile navigation; horizontally scrolled the table; captured DOM rectangles and screenshots.",
+      "status": "PASS"
+    },
+    {
+      "route": "/ (CatalogApp page=mappings)",
+      "state": "映射页标题与内容；浅色；窄屏 375×812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": ".sxw-docs-page-heading",
+      "next": ".sxw-docs-page-content",
+      "previous_rect": {
+        "left": 33,
+        "top": 89,
+        "right": 342,
+        "bottom": 240.28125,
+        "width": 309,
+        "height": 151.28125
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 256.28125,
+        "right": 342,
+        "bottom": 1115.28125,
+        "width": 309,
+        "height": 859
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "窄屏页面标题区与内容区间距 16 px",
+        "source": "examples/catalog/catalog.css:477-478"
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-library-2026-11-10/mapping-light-375x812.png",
+      "screenshot_sha256": "3a54ec585baff7a5d6de8c67f0e195953808c4237973bba0e1d07f17dab4685e",
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected the rendered screenshot; a clear 16 px band separates the page heading and mapping panel.",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "Playwright visible Chromium: TARGET_URL=http://127.0.0.1:4173/ node run.js /tmp/playwright-test-mes-mappings.js; selected 组件映射; searched BottomSheetContext and entity-picker-pagination; selected mobile navigation; horizontally scrolled the table; captured DOM rectangles and screenshots.",
+      "status": "PASS"
+    },
+    {
+      "route": "/ (CatalogApp page=mappings)",
+      "state": "映射页标题与内容；深色；桌面 1440×900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": ".sxw-docs-page-heading",
+      "next": ".sxw-docs-page-content",
+      "previous_rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 886.78125,
+        "width": 1118,
+        "height": 666.5
+      },
+      "gap_px": 20,
+      "expected": {
+        "kind": "contract",
+        "value": "页面标题区与内容区间距 20 px",
+        "source": "examples/catalog/catalog.css:158-162"
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-library-2026-11-10/mapping-dark-1440x900.png",
+      "screenshot_sha256": "d87612ae718f3a84ac8fe4416d12a22c27b302ceb5db50dac3cd21a347155fa3",
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected the rendered dark screenshot; the 20 px band remains visible.",
+        "observed_clear_band_px": 20
+      },
+      "executed_command": "Playwright visible Chromium: TARGET_URL=http://127.0.0.1:4173/ node run.js /tmp/playwright-test-mes-mappings.js; selected 组件映射; searched BottomSheetContext and entity-picker-pagination; selected mobile navigation; horizontally scrolled the table; captured DOM rectangles and screenshots.",
+      "status": "PASS"
+    },
+    {
+      "route": "/ (CatalogApp page=mappings)",
+      "state": "映射页摘要与表格；浅色；桌面",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": ".sxw-mapping-summary",
+      "next": ".sxw-mapping-table-card .ant-table-wrapper",
+      "previous_rect": {
+        "left": 286,
+        "top": 233.28125,
+        "right": 1378,
+        "bottom": 255.78125,
+        "width": 1092,
+        "height": 22.5
+      },
+      "next_rect": {
+        "left": 286,
+        "top": 265.78125,
+        "right": 1378,
+        "bottom": 821.78125,
+        "width": 1092,
+        "height": 556
+      },
+      "gap_px": 10,
+      "expected": {
+        "kind": "contract",
+        "value": "映射摘要与表格间距 10 px",
+        "source": "examples/catalog/catalog.css:353-358"
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-library-2026-11-10/mapping-light-1440x900.png",
+      "screenshot_sha256": "130140ca65500969940a6f713abe5248d0400faa13f19e91d09544dcf18b1095",
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected the screenshot; a clear 10 px band separates source/status tags from the table header.",
+        "observed_clear_band_px": 10
+      },
+      "executed_command": "Playwright visible Chromium: TARGET_URL=http://127.0.0.1:4173/ node run.js /tmp/playwright-test-mes-mappings.js; selected 组件映射; searched BottomSheetContext and entity-picker-pagination; selected mobile navigation; horizontally scrolled the table; captured DOM rectangles and screenshots.",
+      "status": "PASS"
+    },
+    {
+      "route": "/ (CatalogApp page=mappings)",
+      "state": "映射页摘要与表格；浅色；窄屏",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": ".sxw-mapping-summary",
+      "next": ".sxw-mapping-table-card .ant-table-wrapper",
+      "previous_rect": {
+        "left": 46,
+        "top": 269.28125,
+        "right": 329,
+        "bottom": 405.28125,
+        "width": 283,
+        "height": 136
+      },
+      "next_rect": {
+        "left": 46,
+        "top": 415.28125,
+        "right": 329,
+        "bottom": 1006.28125,
+        "width": 283,
+        "height": 591
+      },
+      "gap_px": 10,
+      "expected": {
+        "kind": "contract",
+        "value": "映射摘要与表格间距 10 px",
+        "source": "examples/catalog/catalog.css:353-358"
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-library-2026-11-10/mapping-light-375x812-fullpage.png",
+      "screenshot_sha256": "b36b27f160496f1fda9d09905b9f99fc64833f6e6cd6dc02903e4a7ee9237cf6",
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected the full-page screenshot; wrapped source/status tags remain separate from the table by 10 px.",
+        "observed_clear_band_px": 10
+      },
+      "executed_command": "Playwright visible Chromium: TARGET_URL=http://127.0.0.1:4173/ node run.js /tmp/playwright-test-mes-mappings.js; selected 组件映射; searched BottomSheetContext and entity-picker-pagination; selected mobile navigation; horizontally scrolled the table; captured DOM rectangles and screenshots.",
+      "status": "PASS"
+    }
+  ]
+}

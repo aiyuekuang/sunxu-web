@@ -1,0 +1,3555 @@
+{
+  "source_repository": "../mes-app",
+  "source_branch": "main-买断版本",
+  "source_commit": "e92d02d7cf2269cf8c564a60ff6a00255e903c8e",
+  "source_worktree": "dirty; only the fixed committed tree is referenced",
+  "source_scope": [
+    "src/components/**",
+    "src/screens/**/components/**"
+  ],
+  "source_file_count": 393,
+  "web_shared_library_file_count": 49,
+  "web_excluded_file_count": 344,
+  "source_audit_reference": "../sunxu/docs/migrations/mes-components.json",
+  "source_audit_sha256": "e788c692a8a41b531dbba640112c031da32aad3df7ee33d8aef71c5ec09c34ee",
+  "source_audit_limit": "The original ../mes-app checkout is absent from this workspace. Per-file source hashes and source dispositions are carried forward from the pinned audit; Web mapping is checked against this repository. Original source implementation behavior was not re-audited in this turn.",
+  "files": [
+    {
+      "source": "src/components/AppReleaseHistorySheet.tsx",
+      "source_sha256": "eadaf46140ab1ea08bb3cf39a34d16409ce4ff837d3acdc642f0af4284c9f95c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "AppReleaseHistorySheet"
+    },
+    {
+      "source": "src/components/AppUpdateChecker.tsx",
+      "source_sha256": "fd1120511a3b48a1494c8425da00908f77fc37bdfbccf1ba39317871ba9a1809",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "AppUpdateChecker"
+    },
+    {
+      "source": "src/components/HotUpdateChecker.tsx",
+      "source_sha256": "85bc5fc21bfeadbe96db98ac0abae773c51ce70058385ef401fad484c8238747",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "HotUpdateChecker"
+    },
+    {
+      "source": "src/components/common/AmountPolicySnapshotInfo.tsx",
+      "source_sha256": "c94338870f18ad208372dfe3f20a623d6378638affacbbd96fb84b6deb9ddb92",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "AmountPolicySnapshotInfo"
+    },
+    {
+      "source": "src/components/common/AnnouncementBanner.tsx",
+      "source_sha256": "6460a35ff823d6fb61a0203432b2471044fe7ba49cf30b61943636642c9713e7",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "AnnouncementBanner"
+    },
+    {
+      "source": "src/components/common/AppText.tsx",
+      "source_sha256": "98934cdf07755914524f28cce5a8462174a96369203a4d5b4644a7b4c5c27f49",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Typography.Text / Title / Paragraph",
+      "decision": "Ant Design owns Web text semantics and typography.",
+      "name": "AppText"
+    },
+    {
+      "source": "src/components/common/AppToast.tsx",
+      "source_sha256": "60580dd94b16bc7a8e8921a20d2deb83ffa9f3ed928dd3a10692d8e811dcece2",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design App.useApp() message / notification",
+      "decision": "Use provider-scoped feedback APIs; event and result remain host-owned.",
+      "name": "AppToast"
+    },
+    {
+      "source": "src/components/common/ApprovalActionBar.tsx",
+      "source_sha256": "ca22dbf07848a327eb4b8688394799fe0127ce01e5b13c9831cd489aa982c37f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ApprovalActionBar"
+    },
+    {
+      "source": "src/components/common/ApprovalBanner.tsx",
+      "source_sha256": "6197670bd5fe789f6c04873072458e03d5d06a72995f932b74982b8244480257",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ApprovalBanner"
+    },
+    {
+      "source": "src/components/common/ApprovalHistory.tsx",
+      "source_sha256": "3f241e45f234b380e93716454c3f8e50edffa3ae11f1a2d63e51efc3c119f3fc",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ApprovalHistory"
+    },
+    {
+      "source": "src/components/common/ApprovalTimeline.tsx",
+      "source_sha256": "71c66f193999efdf208561bfae1f0499a0d4dbac981622250b81566d5cea80ef",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ApprovalTimeline"
+    },
+    {
+      "source": "src/components/common/AttachmentFilesField.tsx",
+      "source_sha256": "81c83142a9973138be24fd609e5aba3ceb0904a7fde2e46fb15ba494cbf9c4f0",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "AttachmentFilesField"
+    },
+    {
+      "source": "src/components/common/Badge.tsx",
+      "source_sha256": "cb5e6100d51e4c559d07a999ba3ec50d266765409538a9fe186d1f93d79ae290",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Badge",
+      "decision": "Use the upstream status indicator.",
+      "name": "Badge"
+    },
+    {
+      "source": "src/components/common/BarcodeView.tsx",
+      "source_sha256": "343e751324fd233c9ad57c19afd53e50e2ca4103b8f772451198c5fd47cab935",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "BarcodeView"
+    },
+    {
+      "source": "src/components/common/BottomActionBar.tsx",
+      "source_sha256": "66cd469560c98d574fb19a20a64192c6a5b8f03edf894f423033132f844039e2",
+      "source_status": "RETAINED",
+      "web_status": "ADAPTED",
+      "target": "src/components/PageContainers.tsx#StickyActionBar",
+      "decision": "Shared page action footer with independent content scrolling.",
+      "name": "BottomActionBar"
+    },
+    {
+      "source": "src/components/common/BottomSheet.tsx",
+      "source_sha256": "221c64911cee0e27a9369692cbcf9446f7b8f901898b7eebb98bcd29e1c4b0a5",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Drawer / Modal",
+      "decision": "Choose overlay by Web task; no RN gesture behavior is copied.",
+      "name": "BottomSheet"
+    },
+    {
+      "source": "src/components/common/BottomSheetContext.ts",
+      "source_sha256": "53a0bdff5b9175c55fa9c560a4b351797d6b3c8304bf6c595fb2f621455dbbca",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Controlled Ant Design Drawer / Modal open and close props",
+      "decision": "The host owns visibility and close recovery.",
+      "name": "BottomSheetContext"
+    },
+    {
+      "source": "src/components/common/BusinessBatchResultSheet.tsx",
+      "source_sha256": "1ac9c0baad2930b256b3486f9edae75d627dfbf48156a08eadc10a87c5389efe",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "BusinessBatchResultSheet"
+    },
+    {
+      "source": "src/components/common/ChipSelectField.tsx",
+      "source_sha256": "10de9c73ffea962363dc04629bec27195d6ce68ebd82fc0231a2b716f8809682",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Select / Radio.Group + Form.Item",
+      "decision": "Choose single or multiple selection semantics.",
+      "name": "ChipSelectField"
+    },
+    {
+      "source": "src/components/common/CommercialLineFields.tsx",
+      "source_sha256": "b7e88bcd2d46740e52746f9d4e2492552d6f2bc3df4ded568d3cad599eb3a38c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CommercialLineFields"
+    },
+    {
+      "source": "src/components/common/ConfigListScreen.tsx",
+      "source_sha256": "53ee1c1b47b73430c26f74af2b4bdd87b5458967d5c18b3d79437a587b12b10a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ConfigListScreen"
+    },
+    {
+      "source": "src/components/common/ConfirmAlert.ts",
+      "source_sha256": "592c4d6c1b2c03d9ef55eef8cffd2be6052e5e887fe3657a44f85ec335ef4859",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Modal.useModal / Popconfirm",
+      "decision": "Choose confirmation surface by risk and context.",
+      "name": "ConfirmAlert"
+    },
+    {
+      "source": "src/components/common/DatePickerField.tsx",
+      "source_sha256": "8dd59c70dc3cd2724564c168b7cd6876f521dac363edb76fc9d0265f633b4f14",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design DatePicker + Form.Item",
+      "decision": "Date value and business validation remain host-owned.",
+      "name": "DatePickerField"
+    },
+    {
+      "source": "src/components/common/DateRangeQuickSelect.tsx",
+      "source_sha256": "44de0f5be358ceb8251c93af6acbcbd6c1c772eaf173202640e1c54894def8a7",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design RangePicker presets",
+      "decision": "Preset meaning and date bounds remain host-owned.",
+      "name": "DateRangeQuickSelect"
+    },
+    {
+      "source": "src/components/common/DetailCard.tsx",
+      "source_sha256": "be9cbafa9c63fce29bbf6b3be1a4d719b7caa6d3093b70cbe9fb2e0a43f9c0da",
+      "source_status": "RETAINED",
+      "web_status": "ADAPTED",
+      "target": "src/components/DetailCard.tsx",
+      "decision": "Shared property grouping using Ant Design Descriptions and ProCard.",
+      "name": "DetailCard"
+    },
+    {
+      "source": "src/components/common/DocumentActionBar.tsx",
+      "source_sha256": "a2570d3c9a387b393633c49b9c0014896139a20e62dd5c405247114d10fc182a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "DocumentActionBar"
+    },
+    {
+      "source": "src/components/common/DrillDownTreePicker.tsx",
+      "source_sha256": "76ce027425c45f4fc73ecd859249d344f0cb4d8b11223a7eaf4c84c0ccadfa82",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Cascader / TreeSelect",
+      "decision": "Choose path or tree selection semantics.",
+      "name": "DrillDownTreePicker"
+    },
+    {
+      "source": "src/components/common/EmptyState.tsx",
+      "source_sha256": "6ec2dc988cd228665638e758a94dbecd53a2b156d3932ae367d2c03a10d0aa0b",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Empty",
+      "decision": "Current-task copy and actions remain host-owned.",
+      "name": "EmptyState"
+    },
+    {
+      "source": "src/components/common/EntityFilterChip.tsx",
+      "source_sha256": "86d4beb136c9e8bc09bb375245f056c5dd0b8e1b784b1b98c01780622fbaedcf",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Tag.CheckableTag / Select",
+      "decision": "Choose by filter interaction semantics.",
+      "name": "EntityFilterChip"
+    },
+    {
+      "source": "src/components/common/EntityPickerField.tsx",
+      "source_sha256": "061159a7e43138d65336f70bcc2275aa174fe22ff2e99f54dad1692532858da1",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Select + Form.Item",
+      "decision": "Options, data requests and permission-filtered candidates remain host-owned.",
+      "name": "EntityPickerField"
+    },
+    {
+      "source": "src/components/common/EntityPickerModal.tsx",
+      "source_sha256": "7a42d53118f77327d7aee4c17949ad8d25a988b182f2ff4de0ee8632fd86ed7e",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Modal + Select / ProTable",
+      "decision": "Candidate data and result state remain host-owned.",
+      "name": "EntityPickerModal"
+    },
+    {
+      "source": "src/components/common/ErrorBoundary.tsx",
+      "source_sha256": "282daa4dc75c4fd4fbbf91f9500e427a090dad71c356b1d2edb2fd8e266edc32",
+      "source_status": "RETAINED",
+      "web_status": "ADAPTED",
+      "target": "src/components/ErrorBoundary.tsx",
+      "decision": "Shared render error boundary and host fallback contract.",
+      "name": "ErrorBoundary"
+    },
+    {
+      "source": "src/components/common/ErrorView.tsx",
+      "source_sha256": "8294faed5be59771366eea9f12442fdb6e9ecb64d4576f9f9bbd480ef96cfb28",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Alert / Result",
+      "decision": "Error details and recovery actions remain host-owned.",
+      "name": "ErrorView"
+    },
+    {
+      "source": "src/components/common/ExistingBatchPickerField.tsx",
+      "source_sha256": "dbe6ade1f176710445861cd80571c1c140282f883939550841e7850f5c483616",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ExistingBatchPickerField"
+    },
+    {
+      "source": "src/components/common/FAB.tsx",
+      "source_sha256": "88806b22f2da5127a8e7c74523df8a43d146c0b328cb5d2f6d48677b53576485",
+      "source_status": "RETAINED",
+      "web_status": "HOST",
+      "target": "ListScreenContainer toolbar + Ant Design Button",
+      "decision": "Primary list actions belong beside the result area in Web.",
+      "name": "FAB"
+    },
+    {
+      "source": "src/components/common/FilterActionButton.tsx",
+      "source_sha256": "cb25d5c8e5f7853b9682056185e59bdbc5eb71e65bb49105fe6e485af8e38640",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Button + FilterBar",
+      "decision": "The button remains an upstream primitive.",
+      "name": "FilterActionButton"
+    },
+    {
+      "source": "src/components/common/FilterBar.tsx",
+      "source_sha256": "51e2b08943dfe1c0b4c4f21bdbbc5e250cd8d8aec3baed621d9a90950af89ea6",
+      "source_status": "RETAINED",
+      "web_status": "ADAPTED",
+      "target": "src/components/FilterBar.tsx",
+      "decision": "Shared light filter and sibling actions contract.",
+      "name": "FilterBar"
+    },
+    {
+      "source": "src/components/common/FilterQuickControl.tsx",
+      "source_sha256": "c18af6fbf56839f03cce3b62a310651837dfd30c46756ad885bd33f64482edf6",
+      "source_status": "RETAINED",
+      "web_status": "ADAPTED",
+      "target": "src/components/StatusTabs.tsx",
+      "decision": "Controlled mutually-exclusive quick filter.",
+      "name": "FilterQuickControl"
+    },
+    {
+      "source": "src/components/common/FormField.tsx",
+      "source_sha256": "9cd1431bc58cece8eb43aaaac907b4313a7ad7d1bcb094df121d2dfba2a639d6",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Form.Item + field control",
+      "decision": "Labels, validation and errors use upstream form semantics.",
+      "name": "FormField"
+    },
+    {
+      "source": "src/components/common/FormLabel.tsx",
+      "source_sha256": "bebf71a735a72e817863ebdbb3de1b7f94de5ba6b00174ade483b01304d655e2",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Form.Item label",
+      "decision": "No separate label implementation.",
+      "name": "FormLabel"
+    },
+    {
+      "source": "src/components/common/FormPage.tsx",
+      "source_sha256": "d03c4568a97ed80658c6c0a94542261c0fd208b52907c8e0138f750431ffe010",
+      "source_status": "RETAINED",
+      "web_status": "ADAPTED",
+      "target": "src/components/PageContainers.tsx#FormScreenContainer",
+      "decision": "Shared scrolling content and fixed action footer.",
+      "name": "FormPage"
+    },
+    {
+      "source": "src/components/common/FullScreenModal.tsx",
+      "source_sha256": "a65b409f3b8624877d37ab405a4302a3147500e92deb7cc918536df6e6c9c204",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Modal / Drawer",
+      "decision": "Choose based on task length and list context.",
+      "name": "FullScreenModal"
+    },
+    {
+      "source": "src/components/common/GeneratePurchaseReceiptBatchNoButton.tsx",
+      "source_sha256": "ef4ee6dd3ca2def1c21574f5ceca97302c7de9629b60330b14898706db7edfa0",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "GeneratePurchaseReceiptBatchNoButton"
+    },
+    {
+      "source": "src/components/common/ImagePreviewModal.tsx",
+      "source_sha256": "e81dea883cb30801a246421c4d1712b5e755e6bc50abeec8884e2a742d1b9544",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Image.PreviewGroup",
+      "decision": "Image state and permissions remain host-owned.",
+      "name": "ImagePreviewModal"
+    },
+    {
+      "source": "src/components/common/ListCard.tsx",
+      "source_sha256": "e6eced3d32d885b35831effb737581af63be2f827dadd86533d6075ce7f48cf0",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Card / ProTable",
+      "decision": "Use a table for dense result sets; cards only for meaningful groups.",
+      "name": "ListCard"
+    },
+    {
+      "source": "src/components/common/ListSortSheet.tsx",
+      "source_sha256": "1938199b9673127f52ff3792a389060edfc7ae6b109737112535e75521eea15c",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "ProTable sorter / Ant Design Table sorter",
+      "decision": "Sort state and requests remain host-owned.",
+      "name": "ListSortSheet"
+    },
+    {
+      "source": "src/components/common/LoadingView.tsx",
+      "source_sha256": "c2f7d89e8d2a68f47cfc9792f748bb0d085c821ddba6f2900fafbc9df4aea71a",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Spin / Skeleton",
+      "decision": "Use local loading or structural placeholder as appropriate.",
+      "name": "LoadingView"
+    },
+    {
+      "source": "src/components/common/MaterialPickerField.tsx",
+      "source_sha256": "dc585bb0f3bf2dfd4bbd97f0361951048055949c66f42a29b2a750f1cc589995",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MaterialPickerField"
+    },
+    {
+      "source": "src/components/common/MessageAlert.ts",
+      "source_sha256": "1a05de51286b404eb3815212aaf2ff3bbc522081c82d8fdb9a72942b86f34e8b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MessageAlert"
+    },
+    {
+      "source": "src/components/common/ModalRequestCloseContext.ts",
+      "source_sha256": "47cb6ada6eda41ec9468dd83ea8f69cef0a26eadc0c41881827eee7f1d711c7a",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Controlled Modal / Drawer onCancel / onClose",
+      "decision": "Controlled overlay props replace RN request-close context.",
+      "name": "ModalRequestCloseContext"
+    },
+    {
+      "source": "src/components/common/MultiEntityPickerField.tsx",
+      "source_sha256": "b725a5b5650f06e198e425a5f9387acbb3e7cb3e6b72ddb500dbc4678ee651ba",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Select mode=\"multiple\" + Form.Item",
+      "decision": "Candidate options and paging remain host-owned.",
+      "name": "MultiEntityPickerField"
+    },
+    {
+      "source": "src/components/common/MultiSelectBar.tsx",
+      "source_sha256": "8771f17a4308c93a267c6763f97f61a757797f3a952562dc38fdd4466fb13e1c",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "ProTable rowSelection + adjacent toolbar",
+      "decision": "Selection and bulk callbacks remain host-owned.",
+      "name": "MultiSelectBar"
+    },
+    {
+      "source": "src/components/common/OfflineIndicator.tsx",
+      "source_sha256": "e8ae86d9cc86639a3735acc2f407dce523ec5288b1655ec4d28bed1a0a34c468",
+      "source_status": "RETAINED",
+      "web_status": "HOST",
+      "target": "Host connectivity state + Ant Design Alert / Badge",
+      "decision": "Connectivity must be observed by the host.",
+      "name": "OfflineIndicator"
+    },
+    {
+      "source": "src/components/common/OnboardingGuide.tsx",
+      "source_sha256": "659d725b7e75d35314e7229ab7e17b3f76bb153c99e9817eb996b99465b8e6fb",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "OnboardingGuide"
+    },
+    {
+      "source": "src/components/common/PageHeader.tsx",
+      "source_sha256": "021bd9b8865d1bb6bafeeef8114d0ab0ea6c243b75b5027d25b372218b7da465",
+      "source_status": "RETAINED",
+      "web_status": "ADAPTED",
+      "target": "src/components/PageHeader.tsx",
+      "decision": "Shared page identification and optional action slots.",
+      "name": "PageHeader"
+    },
+    {
+      "source": "src/components/common/PermissionGuard.tsx",
+      "source_sha256": "3e03940c5c802f99b2401bf6c071db4b75d0846e7c4ac9ad8eaf6c5e018635b8",
+      "source_status": "RETAINED",
+      "web_status": "ADAPTED",
+      "target": "src/components/PermissionGuard.tsx",
+      "decision": "Consumes a host-computed permitted boolean only.",
+      "name": "PermissionGuard"
+    },
+    {
+      "source": "src/components/common/PhotoPicker.tsx",
+      "source_sha256": "7e9fdda000fb73999974d89e863e79ab44a1e9bf04a2535bdc6e63de5c4f75ed",
+      "source_status": "RETAINED",
+      "web_status": "HOST",
+      "target": "Host upload flow + Ant Design Upload / Image.PreviewGroup",
+      "decision": "Upload policy, permissions and files remain host-owned.",
+      "name": "PhotoPicker"
+    },
+    {
+      "source": "src/components/common/PickerField.tsx",
+      "source_sha256": "5c4daa0f139045863eb6697cacc6c5ec28b7e8b3a61d4e9ba3272fe6b20f9cd0",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Select / Radio.Group + Form.Item",
+      "decision": "Use native Web selection controls.",
+      "name": "PickerField"
+    },
+    {
+      "source": "src/components/common/PolicyDisclosure.tsx",
+      "source_sha256": "60296683cc0afdb5f679a42421351ab67ee303d8820e9ee0aa2c93b9996e44e2",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PolicyDisclosure"
+    },
+    {
+      "source": "src/components/common/ProductionBomPickerField.tsx",
+      "source_sha256": "3d24f5757d8209371ad9cbcc54a1ccc3df9fc176b982d4aabe65565348673a8c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProductionBomPickerField"
+    },
+    {
+      "source": "src/components/common/ProgressBar.tsx",
+      "source_sha256": "986166efc80c7ab42028d1a358ea93e66a699b9616f8f8ad2299ca89cefe92cb",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Progress",
+      "decision": "Value, unit and completion meaning remain host-owned.",
+      "name": "ProgressBar"
+    },
+    {
+      "source": "src/components/common/QuickNumInput.tsx",
+      "source_sha256": "5eb5162fbb13b948f0a48b15ad9fb68804f144e2aec82d89c0ae4237689b40d9",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design InputNumber",
+      "decision": "Range, precision and unit remain host-owned.",
+      "name": "QuickNumInput"
+    },
+    {
+      "source": "src/components/common/ScanCameraModal.tsx",
+      "source_sha256": "1f0454b63468b54bd8354c83c9ffc6366beaf275ce5993e9a48d3651896e7db3",
+      "source_status": "RETAINED",
+      "web_status": "HOST",
+      "target": "Host browser camera / upload capability",
+      "decision": "Browser device permission and decoding remain host-owned.",
+      "name": "ScanCameraModal"
+    },
+    {
+      "source": "src/components/common/ScanInput.tsx",
+      "source_sha256": "d24fd1e66f4feab437043cd4b166d44b49b94d065577935d5d5dbdd7c0eb011c",
+      "source_status": "RETAINED",
+      "web_status": "HOST",
+      "target": "Ant Design Input + host scanner keyboard handling",
+      "decision": "Scanner events and parsing remain host-owned.",
+      "name": "ScanInput"
+    },
+    {
+      "source": "src/components/common/SearchBar.tsx",
+      "source_sha256": "d57ce2bae556c4c39c20ef5b87403fa6774d78b7e24f44a6be1841728dfb395d",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Input.Search",
+      "decision": "Submit, clear and query behavior remain host-owned.",
+      "name": "SearchBar"
+    },
+    {
+      "source": "src/components/common/SelectableChip.tsx",
+      "source_sha256": "12fc91170f6725234578c8f60b17f85f2708391e3cd7d30b6173fa589be12093",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Checkbox.Button / Tag.CheckableTag",
+      "decision": "Choose by selection semantics, not visual resemblance.",
+      "name": "SelectableChip"
+    },
+    {
+      "source": "src/components/common/SendActionSheet.tsx",
+      "source_sha256": "d410011f01609931511b9e0f1e980abd46a99cc9b0aa436c1e6f4c19dd142bd9",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SendActionSheet"
+    },
+    {
+      "source": "src/components/common/SerialNumbersField.tsx",
+      "source_sha256": "10ead3a8959efe533a0f4e0b697554cb5bcc18d1252be985943949153444e8c3",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SerialNumbersField"
+    },
+    {
+      "source": "src/components/common/ServerConfigModal.tsx",
+      "source_sha256": "be799f06dffa70179fa7af02dde346a098d254a6023716c25ad4bc79324eb625",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ServerConfigModal"
+    },
+    {
+      "source": "src/components/common/Skeleton.tsx",
+      "source_sha256": "64d4180941bdddd2f217c44583c97c9f336eaf8463352a83b7428e4aa9b7037e",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design Skeleton",
+      "decision": "Async state and placeholder size remain host-owned.",
+      "name": "Skeleton"
+    },
+    {
+      "source": "src/components/common/StatusTabs.tsx",
+      "source_sha256": "67ab3838d75b79246af645f4ba51a7887ab3cab84b671a4a577d2b73820af645",
+      "source_status": "RETAINED",
+      "web_status": "ADAPTED",
+      "target": "src/components/StatusTabs.tsx",
+      "decision": "Controlled result filtering, not route navigation.",
+      "name": "StatusTabs"
+    },
+    {
+      "source": "src/components/common/SupportWechatQr.tsx",
+      "source_sha256": "7cc16d429f6a7d26a112d41c999a795621fd0e1e81307105528281043b05597a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SupportWechatQr"
+    },
+    {
+      "source": "src/components/common/SwipeableRow.tsx",
+      "source_sha256": "91cc66d1300536f4a773dcd189c6279ef0b9ed316c9e19bfed6070bbe6182abd",
+      "source_status": "RETAINED",
+      "web_status": "DEFERRED",
+      "target": "—",
+      "decision": "Web uses explicit ProTable row actions / Dropdown instead of requiring swipe.",
+      "name": "SwipeableRow"
+    },
+    {
+      "source": "src/components/common/TreeListScreen.tsx",
+      "source_sha256": "47868433cdb25261d310e2da7988adc1e25a9296a61ff295d5e2ae7461a3e6f8",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "TreeListScreen"
+    },
+    {
+      "source": "src/components/common/TreePickerField.tsx",
+      "source_sha256": "71e0a1f670d586c76003ca4e2204fb403dbfd07260f12179d9032a6436bf25fa",
+      "source_status": "RETAINED",
+      "web_status": "UPSTREAM",
+      "target": "Ant Design TreeSelect + Form.Item",
+      "decision": "Tree values and constraints remain host-owned.",
+      "name": "TreePickerField"
+    },
+    {
+      "source": "src/components/common/WarehousePickerField.tsx",
+      "source_sha256": "4d22ec992c2b0718d8ddc8b7a3bc8d9333de33473bc3a7d560f3b265d449ab5f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WarehousePickerField"
+    },
+    {
+      "source": "src/components/common/entity-picker-pagination.ts",
+      "source_sha256": "e8457d763c112a84d652f52b42ee0e4d512fd8f058f8e9cc0ac59cd7c48efe64",
+      "source_status": "RETAINED",
+      "web_status": "HOST",
+      "target": "Host-provided options / request callback",
+      "decision": "Candidate data and paging policy are not UI-library responsibilities.",
+      "name": "entity-picker-pagination"
+    },
+    {
+      "source": "src/components/custom-fields/CustomFieldEditableValueSection.tsx",
+      "source_sha256": "cf3876758a4a225f02cbeb0da05ec0b76e90c7743b282d6a651e2d170ee654c0",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CustomFieldEditableValueSection"
+    },
+    {
+      "source": "src/components/custom-fields/CustomFieldFormSection.tsx",
+      "source_sha256": "f02df6c1b555635202d9d5aad611d792a1d9d5f8fb7ff9c4f5d55972557096c8",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CustomFieldFormSection"
+    },
+    {
+      "source": "src/components/custom-fields/CustomFieldValueSection.tsx",
+      "source_sha256": "b9d89c85b8a630b5ced96c5a1e510619f09bc5cfaa15972abdb71489149cb973",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CustomFieldValueSection"
+    },
+    {
+      "source": "src/components/custom-fields/InlineCustomFieldValueRows.tsx",
+      "source_sha256": "16ad3747894d8e99233bf761045600e86c9f07c7b0a29eae87ef8993198709b6",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InlineCustomFieldValueRows"
+    },
+    {
+      "source": "src/components/custom-fields/formatCustomFieldValue.ts",
+      "source_sha256": "48fa56f4d78e8557aea4158f9851675e7ecc5f0dd519517d212e335696981b3d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "formatCustomFieldValue"
+    },
+    {
+      "source": "src/components/custom-fields/useCustomFieldSchema.ts",
+      "source_sha256": "26db24f0b3b317bf43052e40afef82ca65a01811bdffcfc7cb88deea878560b0",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "useCustomFieldSchema"
+    },
+    {
+      "source": "src/components/custom-fields/useCustomFieldValueMap.ts",
+      "source_sha256": "fe0ad97f1e58e5248013d287530d86db12949290e7b2f8386d33f1b4c64fcf8a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "useCustomFieldValueMap"
+    },
+    {
+      "source": "src/components/production-plan/PlanWorkOrdersModal.tsx",
+      "source_sha256": "ae79ffbebdcc58520f3217437fce704eae448b0690486d1445b345206613fcdb",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PlanWorkOrdersModal"
+    },
+    {
+      "source": "src/components/purchase/MaterialSupplierPriceTierSummary.tsx",
+      "source_sha256": "a95238931cafed08d420efdbd78ad10f69ace0a6d5c2f05a1fbbd8672708912e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MaterialSupplierPriceTierSummary"
+    },
+    {
+      "source": "src/components/returns/ReturnDeductionLinesSection.tsx",
+      "source_sha256": "5b26edb7b402c53f3912fd7e69fdcd7652289b2e9299d46a8d26ada704563ab8",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReturnDeductionLinesSection"
+    },
+    {
+      "source": "src/components/sale-delivery/SaleDeliveryPackageUnitField.tsx",
+      "source_sha256": "1ce2f9429024122c0d87b781baef91ed6ea1525720bf32fd9fca4c1f65fbdda7",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SaleDeliveryPackageUnitField"
+    },
+    {
+      "source": "src/screens/announcements/components/AnnouncementCard.tsx",
+      "source_sha256": "458fc71f558af76e09053a699f2385440d3f296e03c43b6032f73d0cc098a316",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "AnnouncementCard"
+    },
+    {
+      "source": "src/screens/announcements/components/UrgentAnnouncementModal.tsx",
+      "source_sha256": "9ebab775f5b26ea5e51287b5ac93e40e46817ce83d8e1b7aa5eceeea28899031",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "UrgentAnnouncementModal"
+    },
+    {
+      "source": "src/screens/auth/components/RegisterStep1.tsx",
+      "source_sha256": "47c17dc8a1da298b08a64e32e99a7d319e53ba918e45490ecb9446ef1d6f344b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "RegisterStep1"
+    },
+    {
+      "source": "src/screens/auth/components/RegisterStep2.tsx",
+      "source_sha256": "7892239706f2c205423d368e577bbc51e65890797b58caf8d306f357ffb60c2a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "RegisterStep2"
+    },
+    {
+      "source": "src/screens/auth/components/StepsIndicator.tsx",
+      "source_sha256": "c37c315a7731eecb7cfac272c530fca2711466c7d418f1f73a3b113d370e1ea4",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StepsIndicator"
+    },
+    {
+      "source": "src/screens/batch/components/BatchCard.tsx",
+      "source_sha256": "74f8ae56fd1c225524e911acd6d5dcc7698e87e66e5851d605506ce3fcd7173c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "BatchCard"
+    },
+    {
+      "source": "src/screens/batch/components/BatchSerialSection.tsx",
+      "source_sha256": "bbbc067366db2195ddf5abe2e491bb8bb1ed51c1a6cccdb3a05257fc7c43e169",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "BatchSerialSection"
+    },
+    {
+      "source": "src/screens/batch/components/CreateBatchModal.tsx",
+      "source_sha256": "85ff5608bb9e658a3d48efb9fb422c28f1370942e910e8e82646a980a0662095",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CreateBatchModal"
+    },
+    {
+      "source": "src/screens/batch/components/RelatedDocsSection.tsx",
+      "source_sha256": "f4f5188a41291bb3c4d9633d63c1433aecb24d049e36b62962866e09b973e939",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "RelatedDocsSection"
+    },
+    {
+      "source": "src/screens/batch/components/TraceTimeline.tsx",
+      "source_sha256": "54da9b4b4997f81b1729abad16b72b0885c7c70b60c186d7288fb9c5606a009e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "TraceTimeline"
+    },
+    {
+      "source": "src/screens/batch/components/TraceTreeNode.tsx",
+      "source_sha256": "5fa540b86614a87b3860918ad23bf14c4a69c446b25398c46957bfd4a680ac66",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "TraceTreeNode"
+    },
+    {
+      "source": "src/screens/batch/components/TraceView.tsx",
+      "source_sha256": "3a686c77a757b90f72ab40ec6c8cb5cf15afa9e85f71200e18361204a4722cb5",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "TraceView"
+    },
+    {
+      "source": "src/screens/batch/components/trace-timeline.ts",
+      "source_sha256": "4d16fbf09df7aef086690cd83abe40a02f4bfbfac4a9dd7da4e5b8a617f6b288",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "trace-timeline"
+    },
+    {
+      "source": "src/screens/capa/components/AnalysisModal.tsx",
+      "source_sha256": "af60ae94f1df950a140e76f4779732382a0866a8b10ed8ef0433d7467b673c5f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "AnalysisModal"
+    },
+    {
+      "source": "src/screens/capa/components/InputModal.tsx",
+      "source_sha256": "0eb8c10c098dd82f972b53c8210647a505e20689ffdfbb361604d11a1c4e5ce0",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InputModal"
+    },
+    {
+      "source": "src/screens/capa/components/VerificationModal.tsx",
+      "source_sha256": "a36300ab7156795610638149a294817ab07be654d9125b5345e94bae6414d319",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "VerificationModal"
+    },
+    {
+      "source": "src/screens/customer-inbound/components/CustomerInboundActionBar.tsx",
+      "source_sha256": "48b69f0eb0492eb60086183e48e0762a13ecac86f60a72240651a7cdf8040a8e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CustomerInboundActionBar"
+    },
+    {
+      "source": "src/screens/customer-inbound/components/CustomerInboundActionSheet.tsx",
+      "source_sha256": "4584f5c52db324196e067f567f7e8c44e1d7506652de0c86b76a4e97e2a8892b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CustomerInboundActionSheet"
+    },
+    {
+      "source": "src/screens/customer-inbound/components/CustomerInboundCard.tsx",
+      "source_sha256": "dbfa967c034b440732175d8fc9e3f97f5678928d0fb61f905c7ce0659a19d50f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CustomerInboundCard"
+    },
+    {
+      "source": "src/screens/customer-inbound/components/CustomerInboundInfoSection.tsx",
+      "source_sha256": "11a61f8939ea8f82ecdf2ebb69b8f19ddbf4e645fb59a22b6dbf8a7d4460c64e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CustomerInboundInfoSection"
+    },
+    {
+      "source": "src/screens/customer-material-disposition/components/CustomerMaterialDispositionSourceSection.tsx",
+      "source_sha256": "5a3ad4cc250a513a9a761960bfd1a921cfc1ef3c42c445376803492a079fe262",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CustomerMaterialDispositionSourceSection"
+    },
+    {
+      "source": "src/screens/customer-material-disposition/components/CustomerMaterialDispositionStockSection.tsx",
+      "source_sha256": "90aabbe543a07ec230010cb4d8409739ccca92239a0d6221a3a1b285eb3f82c3",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CustomerMaterialDispositionStockSection"
+    },
+    {
+      "source": "src/screens/customers/components/CustomerMaterialsSection.tsx",
+      "source_sha256": "3f94b80ab9ea986a181faa84c8c9bf41f7bbfaa4a02e8bc0b0905d5d7e1d6275",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CustomerMaterialsSection"
+    },
+    {
+      "source": "src/screens/equipment-fault/components/CancelFaultModal.tsx",
+      "source_sha256": "4e5cb4decc88afb8e0ad765bfa5db131ac88baaf728849b391b80c2cb1eac7df",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CancelFaultModal"
+    },
+    {
+      "source": "src/screens/equipment-fault/components/RepairModal.tsx",
+      "source_sha256": "f2d3241f9f347bf7e38f6f358d546a246fbcf5dc58ccdcbc168123d78132904c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "RepairModal"
+    },
+    {
+      "source": "src/screens/equipment-fault/components/VerifyModal.tsx",
+      "source_sha256": "1c666e5f43dacc6fb3c931f048e50a08b55658d2c781b1496a8917388b676623",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "VerifyModal"
+    },
+    {
+      "source": "src/screens/equipment/components/CompleteMaintenanceSheet.tsx",
+      "source_sha256": "2fa81a5f25f354e54cfb0c3fa7217c20c7ba3350d3c6477edd5b74139be3d5c7",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CompleteMaintenanceSheet"
+    },
+    {
+      "source": "src/screens/equipment/components/CreateInspectionSheet.tsx",
+      "source_sha256": "cc741985605d71451a2127ec5dbcab45c003d49197a3da4486a45f9431d6d36b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CreateInspectionSheet"
+    },
+    {
+      "source": "src/screens/equipment/components/CreateMaintenanceSheet.tsx",
+      "source_sha256": "e0ab0b4556bf6e3eaa47155209fb6519fc6fbfafb3ab26cfed2a5823205ff252",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CreateMaintenanceSheet"
+    },
+    {
+      "source": "src/screens/equipment/components/EquipmentIdentitySection.tsx",
+      "source_sha256": "be163ab1b328728f84384d7fe40f53e9055fff67e0af6ebb5c1e83a0b30e2de5",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "EquipmentIdentitySection"
+    },
+    {
+      "source": "src/screens/equipment/components/EquipmentInfoSection.tsx",
+      "source_sha256": "6ae6adfa2572f60402fd28695ab55286fcb31bea1959a625c106f24e76883cff",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "EquipmentInfoSection"
+    },
+    {
+      "source": "src/screens/equipment/components/EquipmentStatusSheet.tsx",
+      "source_sha256": "d5c8739858ce21e8e922efae5d08a6acbd5ca088e081b3127c061380bef46eac",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "EquipmentStatusSheet"
+    },
+    {
+      "source": "src/screens/equipment/components/InspectionHistorySection.tsx",
+      "source_sha256": "ea1e479e743d348e184a1969717fafe03ecd8616ea37604168f1836ebe57087c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InspectionHistorySection"
+    },
+    {
+      "source": "src/screens/equipment/components/MachineSessionHistoryCard.tsx",
+      "source_sha256": "a54da031582780589901f7a38ae22441c1d1ee8b32de8323118e09d3e1db054c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MachineSessionHistoryCard"
+    },
+    {
+      "source": "src/screens/equipment/components/MaintenanceActionSheet.tsx",
+      "source_sha256": "9927ff94ec604c18c75b65d2535fb620e7b34904c63255553b2361a438bd0341",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MaintenanceActionSheet"
+    },
+    {
+      "source": "src/screens/equipment/components/MaintenanceHistorySection.tsx",
+      "source_sha256": "03aec3cae69afde0da7f8f0fe8d14c0249d448f511690437d33f736a9d0014e7",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MaintenanceHistorySection"
+    },
+    {
+      "source": "src/screens/finance/components/CashAdvanceActionBar.tsx",
+      "source_sha256": "83e6540d10ec863855c6d55571ea3a2eea00ca6ad4e134b595bee0bffdf5153c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CashAdvanceActionBar"
+    },
+    {
+      "source": "src/screens/finance/components/CashAdvanceBasicInfoSection.tsx",
+      "source_sha256": "571e24c48d2cc7dfba41f0fb05d8de70f67069851317ef91a6fc379530ab07e9",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CashAdvanceBasicInfoSection"
+    },
+    {
+      "source": "src/screens/finance/components/CashAdvanceCard.tsx",
+      "source_sha256": "659f932db0ad37a8a81e670d7650adbaad73634becd24dfb0247b46191eedc21",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CashAdvanceCard"
+    },
+    {
+      "source": "src/screens/finance/components/CashAdvanceCounterpartyField.tsx",
+      "source_sha256": "84f4d7ee2a2066931e737d2bac89f8c0c3fe96d975ba42d1201e615d0caf8fc5",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CashAdvanceCounterpartyField"
+    },
+    {
+      "source": "src/screens/finance/components/ExpenseBillActionBar.tsx",
+      "source_sha256": "922db5a138dd74625a6eb5cdc813a1dc09e84562a496eb39fc47dc9ff29fb70b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ExpenseBillActionBar"
+    },
+    {
+      "source": "src/screens/finance/components/ExpenseBillBasicInfoSection.tsx",
+      "source_sha256": "352ba951d8afb5615c92335c275f0e02bea96a43acb3a4af09a8054f5081e2c3",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ExpenseBillBasicInfoSection"
+    },
+    {
+      "source": "src/screens/finance/components/ExpenseBillCard.tsx",
+      "source_sha256": "8c9578d2233690081f8e35e43ffbeeb87613c344e5d044f68fd9cf1d5f61cde6",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ExpenseBillCard"
+    },
+    {
+      "source": "src/screens/finance/components/ExpenseBillCounterpartyField.tsx",
+      "source_sha256": "ab7272be5a67992a2a406e564fde6fda96d7bbc7c3cc7e8b58354c209d773e80",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ExpenseBillCounterpartyField"
+    },
+    {
+      "source": "src/screens/finance/components/ExpenseBillLineEditor.tsx",
+      "source_sha256": "3507906875338cde63e5b83397783b37b634d78117911b6cb0c5dfdf48c6c7b1",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ExpenseBillLineEditor"
+    },
+    {
+      "source": "src/screens/finance/components/FinanceMoreActionsSheet.tsx",
+      "source_sha256": "cef5c924257bf00c00d76b18733a2dfb0b08fecca219cf47fb46e8ed4d42da9e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "FinanceMoreActionsSheet"
+    },
+    {
+      "source": "src/screens/finance/components/FinanceReasonActionSheet.tsx",
+      "source_sha256": "8f668e9d022a138272d2878ae397a19a18c6695a34cdc880b88e73644693c84e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "FinanceReasonActionSheet"
+    },
+    {
+      "source": "src/screens/finance/components/FundsAccountActionFields.tsx",
+      "source_sha256": "726831abd7d8c85f1f7effe0b87b1208e61350ce0b4424be22ea1652cf292d84",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "FundsAccountActionFields"
+    },
+    {
+      "source": "src/screens/finance/components/FundsAccountActionSheet.tsx",
+      "source_sha256": "614d436f23bbaf3112127a9760d04c1301a0d72e6f62ca94740db5a2e9cf825c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "FundsAccountActionSheet"
+    },
+    {
+      "source": "src/screens/finance/components/FundsAccountPickerField.tsx",
+      "source_sha256": "699681e37a77472a922f6fcb2a727d2ef1d2ceb4e97e21f23ddac820fff58509",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "FundsAccountPickerField"
+    },
+    {
+      "source": "src/screens/finance/components/OpenCreditCard.tsx",
+      "source_sha256": "490620d3774e915910ab9f834a514d8b22f552e49aa38a7e6671e0242722043e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "OpenCreditCard"
+    },
+    {
+      "source": "src/screens/finance/components/PartnerSummaryCard.tsx",
+      "source_sha256": "7540f1a66619edb940440a3632ed46d2082672a50e3ad16e7a4eed64a5f2a1bf",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PartnerSummaryCard"
+    },
+    {
+      "source": "src/screens/finance/components/ProfitabilityTrialCard.tsx",
+      "source_sha256": "d0eb229e1a9a741e9449175e6b2c8987047ce52b3fce7908199b0f1df1060d1a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProfitabilityTrialCard"
+    },
+    {
+      "source": "src/screens/finance/components/ReconciliationInvoiceCard.tsx",
+      "source_sha256": "54aa364f33e00cf809deaf5b130a61edcadc0914a274477aeab4ee025fa52827",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReconciliationInvoiceCard"
+    },
+    {
+      "source": "src/screens/finance/components/SendStatementSheet.tsx",
+      "source_sha256": "9236294f6fea0933da9d55a01d1a3953d700b252f9c81c9b3836ab2e89f28cdf",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SendStatementSheet"
+    },
+    {
+      "source": "src/screens/forecast/components/GenerateTab.tsx",
+      "source_sha256": "82e3288b1e3103026bf79d409e7bae41f3fd3dd5717c44644d6efe1a78f21c59",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "GenerateTab"
+    },
+    {
+      "source": "src/screens/forecast/components/ResultsTab.tsx",
+      "source_sha256": "22da9dfc46406ab84d99914f657ce61188d2419e4e5acf6b284e193a24f95148",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ResultsTab"
+    },
+    {
+      "source": "src/screens/home/components/ApprovalSection.tsx",
+      "source_sha256": "a65b1161c0917b2201afe7a6e3167dc00ae4c1ff186f3bc33489be1abac74802",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ApprovalSection"
+    },
+    {
+      "source": "src/screens/home/components/EquipmentWorkbenchCard.tsx",
+      "source_sha256": "55e386ca34b1b578b8abbada06bcf23952dcbc90b8d9022d1dbf22341dd5b77e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "EquipmentWorkbenchCard"
+    },
+    {
+      "source": "src/screens/home/components/GroupFormModal.tsx",
+      "source_sha256": "e1be2b1fb06c1b49ef4d3a8b0546fe9de3f5424a78b2e196dd4f5dcf2e8e799e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "GroupFormModal"
+    },
+    {
+      "source": "src/screens/home/components/HomeCardEditItem.tsx",
+      "source_sha256": "a2d826fda54a113bcaa841d25293284477387ea6e2d4d1b97d5ee1808f525c81",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "HomeCardEditItem"
+    },
+    {
+      "source": "src/screens/home/components/HomeHeaderSection.tsx",
+      "source_sha256": "316a48525e66bf883b80a7e35b99ed850613d6e4a8d02e88992891c3d73b7d01",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "HomeHeaderSection"
+    },
+    {
+      "source": "src/screens/home/components/HomeWorkbenchCard.tsx",
+      "source_sha256": "82fdaa128a09720d25765c51d05f9220c2a82be9a82c934ec5885400273da0aa",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "HomeWorkbenchCard"
+    },
+    {
+      "source": "src/screens/home/components/MoveItemModal.tsx",
+      "source_sha256": "fdea37dd28d5f3d43f70af5643da11d5478e1e77c56bdbd8b50fa7bc626c2681",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MoveItemModal"
+    },
+    {
+      "source": "src/screens/home/components/MyOperationsSection.tsx",
+      "source_sha256": "cfed04559968e4b5573cc0cc8f8afb9f819876465db9a78aaacdfbbcb744a7fc",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MyOperationsSection"
+    },
+    {
+      "source": "src/screens/home/components/ProductionWorkbenchCard.tsx",
+      "source_sha256": "4aca3ca02f3a6892ab82c0d2d58791ff93aee808e3c6be31ae6910e4042de289",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProductionWorkbenchCard"
+    },
+    {
+      "source": "src/screens/home/components/QualityWorkbenchCard.tsx",
+      "source_sha256": "68b74808f7710e025568f27e7791ecb82a65aaa8198819e60901f63bf0060953",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "QualityWorkbenchCard"
+    },
+    {
+      "source": "src/screens/home/components/QuickMenuGrid.tsx",
+      "source_sha256": "971a06664c64f0031733c371f27b2e23ca1c0df0147a16a58750f9aa18683f83",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "QuickMenuGrid"
+    },
+    {
+      "source": "src/screens/home/components/StatCard.tsx",
+      "source_sha256": "6379d50353075575391c083a19e884ff205b224905a342906faf38e301637595",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StatCard"
+    },
+    {
+      "source": "src/screens/home/components/TodoSection.tsx",
+      "source_sha256": "b4ce3e3ecf4558455796d3cd7e7c550bd7eeab92d4563925a1f858b963599025",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "TodoSection"
+    },
+    {
+      "source": "src/screens/home/components/WarehouseWorkbenchCard.tsx",
+      "source_sha256": "f25c045f80b1b2c327611565598549c25741c5366511234e9df76b05b4e83024",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WarehouseWorkbenchCard"
+    },
+    {
+      "source": "src/screens/internal-issue/components/InternalIssueActionsSection.tsx",
+      "source_sha256": "69ac5da250580aa23eb84e54c0ad53c4d0c09b1e981fcb74ccaec2b80d03cb03",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InternalIssueActionsSection"
+    },
+    {
+      "source": "src/screens/internal-issue/components/InternalIssueCard.tsx",
+      "source_sha256": "1982ad37fdac13fbeb9e10a30badf17a53dad155eb6e20c1386b59132c7ab723",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InternalIssueCard"
+    },
+    {
+      "source": "src/screens/internal-issue/components/InternalIssueInfoSection.tsx",
+      "source_sha256": "b1fc40646c50f4929d52d7ae5b57d756937137c03a671d2644bb3c886a6c9d49",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InternalIssueInfoSection"
+    },
+    {
+      "source": "src/screens/internal-issue/components/InternalIssueItemsEditor.tsx",
+      "source_sha256": "14c450d66237a43784f1b1d0c35a6dfde897d262efc236ab26bd736f1129efb1",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InternalIssueItemsEditor"
+    },
+    {
+      "source": "src/screens/internal-issue/components/InternalIssueItemsSection.tsx",
+      "source_sha256": "0cb26fe2862bd6356c270c78869379593ecf285326ba72a7c4347f8f982932da",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InternalIssueItemsSection"
+    },
+    {
+      "source": "src/screens/material-issue/components/CompleteIssueItemForm.tsx",
+      "source_sha256": "582ffd9b2e2246842a1a1bd19909ffb03b05e963476c69f6b32f398a43ecd074",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CompleteIssueItemForm"
+    },
+    {
+      "source": "src/screens/material-issue/components/CompleteIssueSheet.tsx",
+      "source_sha256": "b9c15c9825e5904ca6039c50f03a20b798a2ad711e5d447e57cadfe5989d7220",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CompleteIssueSheet"
+    },
+    {
+      "source": "src/screens/material-issue/components/IssueItemRow.tsx",
+      "source_sha256": "b8cb28c936a906ea519e7c50a3c83b1d925f92d26e46533a1024445fab92ba2b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "IssueItemRow"
+    },
+    {
+      "source": "src/screens/material-issue/components/MaterialIssueReverseSheet.tsx",
+      "source_sha256": "8eb2529953ddb7c42b670e54e111264b766c656c97e84a6e1354c890656c5960",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MaterialIssueReverseSheet"
+    },
+    {
+      "source": "src/screens/material-issue/components/ReqCard.tsx",
+      "source_sha256": "8f322dfb0df4b1af57185b426095eb5517a1c2cbadb533019bb10abc86ae4a56",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReqCard"
+    },
+    {
+      "source": "src/screens/material/components/BomSection.tsx",
+      "source_sha256": "d20d95fc5a9b70bfe35a269446f70442a031d65073a6cfbce83b7ceadcb0d6ae",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "BomSection"
+    },
+    {
+      "source": "src/screens/material/components/DrawingsSection.tsx",
+      "source_sha256": "8dca01817f09262686a73a2aea360587266664a660c95e1afeeb77d2b2f1400c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "DrawingsSection"
+    },
+    {
+      "source": "src/screens/material/components/EffectiveProfileSection.tsx",
+      "source_sha256": "667e3906be02207d54a200073a88cdcf9358b554028afc71cabccc3aa714bb1b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "EffectiveProfileSection"
+    },
+    {
+      "source": "src/screens/material/components/MaterialArchiveSections.tsx",
+      "source_sha256": "a0cdd5204f530bdef37de68ed56179c3d9c85ae7868e3ca0ddf82aac004c6e2c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MaterialArchiveSections"
+    },
+    {
+      "source": "src/screens/material/components/MaterialCategoryFormSheet.tsx",
+      "source_sha256": "7971716b8a162a6e3568e58fe4b648251dc6c7bdeeae935699b91f908428787a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MaterialCategoryFormSheet"
+    },
+    {
+      "source": "src/screens/material/components/MaterialCategoryNode.tsx",
+      "source_sha256": "0599458525e071c6ca861f99efce6504839543751520d17790261aefe87f88e4",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MaterialCategoryNode"
+    },
+    {
+      "source": "src/screens/material/components/MaterialCustomersSection.tsx",
+      "source_sha256": "babe8ff4b23988eb8bac11f6c0c58d143970c21e8b26eed51c47151e36039515",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MaterialCustomersSection"
+    },
+    {
+      "source": "src/screens/material/components/MaterialListCard.tsx",
+      "source_sha256": "7c9ee29bfbe47e9def3de4265e0bbe93cbe0f462b44fadb49093e24fa06a487d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MaterialListCard"
+    },
+    {
+      "source": "src/screens/material/components/ProcessRouteSection.tsx",
+      "source_sha256": "9f74512b41d7e1d565ce4640ac4dbcff70c52330eae5369a871bf4d916187ecc",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProcessRouteSection"
+    },
+    {
+      "source": "src/screens/material/components/SuppliersSection.tsx",
+      "source_sha256": "2039333101807511cc1bf1f95268f62b0924d38b86397210d079310f1f7cc690",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SuppliersSection"
+    },
+    {
+      "source": "src/screens/mrp/components/MrpItemCard.tsx",
+      "source_sha256": "b753787528ee1283cfdaf22412356d6c40614325783d4cdcb5036d3c691bedb6",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MrpItemCard"
+    },
+    {
+      "source": "src/screens/notifications/components/NotificationItem.tsx",
+      "source_sha256": "2af182938e0a02d05f08dd67e578690e8ed774d7ebece991efeb964458ac2832",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "NotificationItem"
+    },
+    {
+      "source": "src/screens/oee/components/DashboardView.tsx",
+      "source_sha256": "16bd1677a198fd204d91e34a8af6da1ff94980183b15fedb7d071320026c2752",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "DashboardView"
+    },
+    {
+      "source": "src/screens/oee/components/OeeGauge.tsx",
+      "source_sha256": "97f259802e3557caafa8c571adb70101c58d69530a59c82246d83a2aedf3f1d4",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "OeeGauge"
+    },
+    {
+      "source": "src/screens/oee/components/OeeRecordCard.tsx",
+      "source_sha256": "1ed45bdc366e8235596b71cd7109f63d8bfa1656954e00543f1664cab8a10c2d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "OeeRecordCard"
+    },
+    {
+      "source": "src/screens/process-route/components/CopyProcessRouteAsNewModal.tsx",
+      "source_sha256": "f3aa8ec45ca15cea6c7cb9968770e97b088a6290b660bc1472091b9c7bb00d5f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CopyProcessRouteAsNewModal"
+    },
+    {
+      "source": "src/screens/process-route/components/ProcessOperationInspectionTemplateBindingsField.tsx",
+      "source_sha256": "e76528de37fc05c18c1430668360ee2ade8b456a8810519f6d18380dec41730f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProcessOperationInspectionTemplateBindingsField"
+    },
+    {
+      "source": "src/screens/process-route/components/ProcessRouteApplicabilitySection.tsx",
+      "source_sha256": "af083c5e970eba50dbdd1b9e323cd6006a3ff39d92c1fa825936bc69158a96df",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProcessRouteApplicabilitySection"
+    },
+    {
+      "source": "src/screens/process-route/components/ProcessRouteFormModal.tsx",
+      "source_sha256": "e41274ba31d2fd5c75a398ae6382a74fe492663ad1334a7b5b6b9a7616abf261",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProcessRouteFormModal"
+    },
+    {
+      "source": "src/screens/process-route/components/ProcessRouteOperationDetailSheet.tsx",
+      "source_sha256": "db359a8eacf187491c621a62155b4d1211a4192360482fccd87d95be74429837",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProcessRouteOperationDetailSheet"
+    },
+    {
+      "source": "src/screens/process-route/components/ProcessRouteOperationFlowSection.tsx",
+      "source_sha256": "11db755291384ce0fdddf909344dd147e4459c9b40e1939c7a395a8cabcbf28a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProcessRouteOperationFlowSection"
+    },
+    {
+      "source": "src/screens/process-route/components/ProcessRouteOperationFormModal.tsx",
+      "source_sha256": "87048dc9a6519138cc76dae5cce70d28070e05b3d35afc77ca8a793c2b6ce5cf",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProcessRouteOperationFormModal"
+    },
+    {
+      "source": "src/screens/process-route/components/RouteActivationModal.tsx",
+      "source_sha256": "29c3db5f1bfaabc61da3c7b697ebbd643961ea5f277bbf6f10174372d955558e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "RouteActivationModal"
+    },
+    {
+      "source": "src/screens/production-plan/components/PlanAchievementSection.tsx",
+      "source_sha256": "3fa591c05fcd724b85d0e8440b79b9bb5a4eb0d33fdf6aaa4e8716d9af119238",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PlanAchievementSection"
+    },
+    {
+      "source": "src/screens/production-plan/components/PlanActionBar.tsx",
+      "source_sha256": "39ddc50a1ddad07a6a71261c0198ebbe34e9fb552001ddab59bee4931f4ba169",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PlanActionBar"
+    },
+    {
+      "source": "src/screens/production-plan/components/PlanDemandBatchSection.tsx",
+      "source_sha256": "abb2f61c1eba966f61e96ed2649f023b72c39613b06be08d822bda7637ebc670",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PlanDemandBatchSection"
+    },
+    {
+      "source": "src/screens/production-plan/components/PlanInfoSection.tsx",
+      "source_sha256": "a81ce08689be6c2d57c16b2fb2e65563fe770522e5c6549aca625c207ad454a2",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PlanInfoSection"
+    },
+    {
+      "source": "src/screens/production-plan/components/PlanMoreActionsSheet.tsx",
+      "source_sha256": "d5215186c4847bef418290a0ec89664c112352ead5c83ae01b1652307c6a832e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PlanMoreActionsSheet"
+    },
+    {
+      "source": "src/screens/production-plan/components/PlanNetDemandSection.tsx",
+      "source_sha256": "df0352ddf10bb3b3d26e866f0d9ea97049e6b47a2e1e5dc40f0af9ad43ab18ad",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PlanNetDemandSection"
+    },
+    {
+      "source": "src/screens/production-plan/components/PlanRiskSection.tsx",
+      "source_sha256": "cbbf7f655516f54c0aacf881cdbb18619a6e3180407d34eefee5e73a1a9ed02b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PlanRiskSection"
+    },
+    {
+      "source": "src/screens/production-plan/components/PlanSummaryCard.tsx",
+      "source_sha256": "b5d6011298069199091a7c1c59704937cadc1c9fd943eca979362a55a2d3e17e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PlanSummaryCard"
+    },
+    {
+      "source": "src/screens/production-plan/components/WorkOrdersSection.tsx",
+      "source_sha256": "1bb849339a1abe273e2a82dc1366ba5c050a8d89c7188e639140f80dc713158d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WorkOrdersSection"
+    },
+    {
+      "source": "src/screens/production-progress/components/PlanProgressCard.tsx",
+      "source_sha256": "5425210bb2af7af7625a3ce5929e0ff7a58c439ecc352d9ba03161732890188b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PlanProgressCard"
+    },
+    {
+      "source": "src/screens/production-progress/components/WorkOrderOperationList.tsx",
+      "source_sha256": "78152a8bfd7cd0aa1b23f0576b94dfcae4700ebeec7ec6ed31ddf923df44f54a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WorkOrderOperationList"
+    },
+    {
+      "source": "src/screens/purchase-orders/components/PurchaseOrderIncomingInspectionInfo.tsx",
+      "source_sha256": "b07e25a2d2ef8419d5b8a580f220eaadbbd3ddf45d44ea0dcb2cca323c8aabc8",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseOrderIncomingInspectionInfo"
+    },
+    {
+      "source": "src/screens/purchase-orders/components/PurchaseOrderLifecycleReasonSheet.tsx",
+      "source_sha256": "080f323fef84240c7b18237c256bf13aae134e0518e9b253c97e7f1001285b88",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseOrderLifecycleReasonSheet"
+    },
+    {
+      "source": "src/screens/purchase-orders/components/PurchaseOrderMoreActionsSheet.tsx",
+      "source_sha256": "b0781f9292b29231f2fe2aaae568caa91dcb3ab18e96cfaa07be5d7052a457ef",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseOrderMoreActionsSheet"
+    },
+    {
+      "source": "src/screens/purchase-orders/components/PurchaseOrderReceiveItemCard.tsx",
+      "source_sha256": "d39b1aff04c10d8b2b7c3f93a014b4f9011973d3e1a111b437fe4f7ce49c8bfc",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseOrderReceiveItemCard"
+    },
+    {
+      "source": "src/screens/purchase-orders/components/PurchaseOrderReceiveOutcome.tsx",
+      "source_sha256": "fc382a04df3fdffdd835018ba99cb3586bb0bdd709111b1cb3c680312bfb8823",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseOrderReceiveOutcome"
+    },
+    {
+      "source": "src/screens/purchase-orders/components/PurchaseOrderReceiveSheet.tsx",
+      "source_sha256": "64c4a61a53597e3e4959a5b0508357cd0640cac05c4464a3e45f160929b724c1",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseOrderReceiveSheet"
+    },
+    {
+      "source": "src/screens/purchase-orders/components/SendPurchaseOrderSheet.tsx",
+      "source_sha256": "a7e0ab6e812da8ce05db3b55d818084f728636cbc4eb21c291ad87974512aea7",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SendPurchaseOrderSheet"
+    },
+    {
+      "source": "src/screens/purchase-orders/components/purchase-order-receive.test.ts",
+      "source_sha256": "a1071b10435b0591247e23b4a7160878e1e6a58f5c7dad848ef02d4c7f90c073",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "purchase-order-receive.test"
+    },
+    {
+      "source": "src/screens/purchase-orders/components/purchase-order-receive.ts",
+      "source_sha256": "03028efb4ee617d26121679c793bb2f9b595a2a14dcfedbd50a27bb13797a486",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "purchase-order-receive"
+    },
+    {
+      "source": "src/screens/purchase-receipt/components/PurchaseLandedCostSection.tsx",
+      "source_sha256": "5ab864924bdbb664c2a67ad946e256661c8dc5df47843c91c72b01648e6262a8",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseLandedCostSection"
+    },
+    {
+      "source": "src/screens/purchase-receipt/components/PurchaseReceiptReverseSheet.tsx",
+      "source_sha256": "a2286db17aa37a53ed193935f5e19499c5d97ac41eed491f66c4cc8d35156348",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseReceiptReverseSheet"
+    },
+    {
+      "source": "src/screens/purchase-receipt/components/ReceiptItemCard.tsx",
+      "source_sha256": "8e42819ef2c952f1cf495534d8fa4cce6030e1770d461c2786e115459832028a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReceiptItemCard"
+    },
+    {
+      "source": "src/screens/purchase-receipt/components/purchase-landed-cost-section.logic.ts",
+      "source_sha256": "e7fcec9e5f3b294621cb34509dd372ca49fee97c6bec5983f2a705c6167ec4fa",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "purchase-landed-cost-section.logic"
+    },
+    {
+      "source": "src/screens/purchase-receipt/components/purchase-receipt-warehouse-display.ts",
+      "source_sha256": "7015f76a548e7ae17847f2f55ff614405d6bbf6c606df3b8c41b264276797cce",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "purchase-receipt-warehouse-display"
+    },
+    {
+      "source": "src/screens/purchase-requisition/components/ConvertToOrderSheet.tsx",
+      "source_sha256": "8a216e41b1bbaf5c606f7f6f82cf1a934d306f6ca5ca8e4e0e768196568f4baf",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ConvertToOrderSheet"
+    },
+    {
+      "source": "src/screens/purchase-requisition/components/DetailModal.tsx",
+      "source_sha256": "d8e745d40cd9ce26bfd37b3b4e2dd0f749a4ad3d522c5e1c6c71492dba9c9a7e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "DetailModal"
+    },
+    {
+      "source": "src/screens/purchase-requisition/components/PrCard.tsx",
+      "source_sha256": "eb96d44e20b6fa5cf0c28f341e700ad0c451eb8b6fa5eeaae6a5a5e18a2af00a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PrCard"
+    },
+    {
+      "source": "src/screens/purchase-requisition/components/PrFormItemRow.tsx",
+      "source_sha256": "9f260d4054fb52f84cbce23c15af33cfebf5fd0bd01c4da70e947a17100dcee6",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PrFormItemRow"
+    },
+    {
+      "source": "src/screens/purchase-requisition/components/PurchaseRequisitionReverseAuditModal.tsx",
+      "source_sha256": "24dc4ce79d155f7d3c637c431ba1a6f0170c20513cab091e6ed09064419ae64f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseRequisitionReverseAuditModal"
+    },
+    {
+      "source": "src/screens/purchase-return/components/PurchaseReturnCard.tsx",
+      "source_sha256": "4003ec765c79ea3f49c407decb890d649a9d2353f75c365ae6859269046aca50",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseReturnCard"
+    },
+    {
+      "source": "src/screens/purchase-return/components/PurchaseReturnFromReceiptContent.tsx",
+      "source_sha256": "b320e5107fee4f957d31c3c80e971337d900ca54378c9939df3fde5ec100dc69",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseReturnFromReceiptContent"
+    },
+    {
+      "source": "src/screens/purchase-return/components/PurchaseReturnFromReceiptSheet.helpers.ts",
+      "source_sha256": "2e0bf72787c53ded632abb166fde9cad92a79aa0be10968ca9af05f64511c6ec",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseReturnFromReceiptSheet.helpers"
+    },
+    {
+      "source": "src/screens/purchase-return/components/PurchaseReturnFromReceiptSheet.tsx",
+      "source_sha256": "a9f19efb9947dcf746f99da038bfd3571022ca0a4f8b91bf9c48730111c90753",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseReturnFromReceiptSheet"
+    },
+    {
+      "source": "src/screens/purchase-return/components/PurchaseReturnItemEditor.tsx",
+      "source_sha256": "4517d7bbb606a45b60d451ec5d56dd5fbd391fee98a4eec0aded7abf2c5c6ddb",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseReturnItemEditor"
+    },
+    {
+      "source": "src/screens/purchase-return/components/PurchaseReturnItemsDetailSection.tsx",
+      "source_sha256": "9b65fbfdbe74ef75326b83c3f909983eec3adcd4cb7fd25d118fab280a45ce21",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseReturnItemsDetailSection"
+    },
+    {
+      "source": "src/screens/purchase-return/components/PurchaseReturnItemsSection.tsx",
+      "source_sha256": "3b58d762f61868ccdfb1cbfabd8460dc31770d8abc0613a7dad05074d49c79ea",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseReturnItemsSection"
+    },
+    {
+      "source": "src/screens/purchase-return/components/PurchaseReturnOutboundSheet.tsx",
+      "source_sha256": "1214ecbeee2faf9c88e48ec83ad108037fdeeda0f3add8605e6ca635f5ec975d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseReturnOutboundSheet"
+    },
+    {
+      "source": "src/screens/purchase-return/components/PurchaseReturnReverseSheet.tsx",
+      "source_sha256": "2cb43068c4454c7b40badc527d99169ef8163773e71e177ea8f7cf4234463f6d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseReturnReverseSheet"
+    },
+    {
+      "source": "src/screens/purchase-return/components/PurchaseReturnSourceItemsSection.tsx",
+      "source_sha256": "5b6e2252bf883ed274b83229708dec3f5028d08e42f0ca1fb93f6483590393ea",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PurchaseReturnSourceItemsSection"
+    },
+    {
+      "source": "src/screens/quality/components/BasicInfoSection.tsx",
+      "source_sha256": "c321d64e579c2786496c40cef576540933e1055178e73ab382ec1b55fda0a6d8",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "BasicInfoSection"
+    },
+    {
+      "source": "src/screens/quality/components/CancelAmendModal.tsx",
+      "source_sha256": "baf7120149c3bd007c327403b74b0f0c712f5f7e6a7e644da2b28bb35c195019",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CancelAmendModal"
+    },
+    {
+      "source": "src/screens/quality/components/CapaSection.tsx",
+      "source_sha256": "9f3ae79dcb4440a41aed6c37b00ccc121be6d9fb82c34fcd8180e8204ae7c722",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CapaSection"
+    },
+    {
+      "source": "src/screens/quality/components/DefectFormSheet.tsx",
+      "source_sha256": "252773db0a8efac384f2162ced0567e74ed01e1b94a4e457337c9d58a723bac0",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "DefectFormSheet"
+    },
+    {
+      "source": "src/screens/quality/components/EditModal.tsx",
+      "source_sha256": "d09084fd08758dd5c808c191e36f88e4438921666baf9dfbd4b44e17a46aaf5d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "EditModal"
+    },
+    {
+      "source": "src/screens/quality/components/InspectionDisposalsSection.tsx",
+      "source_sha256": "ed27bc280929fbeabd1f5cc72710d3257b0b1f78d36f0a31f4e2fa6dd058988e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InspectionDisposalsSection"
+    },
+    {
+      "source": "src/screens/quality/components/InspectionItemsDetailSection.tsx",
+      "source_sha256": "6630031e30cc825c67f7182b52a34df26525057bed024c2b4f90e7c677751523",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InspectionItemsDetailSection"
+    },
+    {
+      "source": "src/screens/quality/components/InspectionItemsSection.tsx",
+      "source_sha256": "e5a285f1320ee88f023a0add384fb3d6dba7a8100f1765a8a8474665dda99dd5",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InspectionItemsSection"
+    },
+    {
+      "source": "src/screens/quality/components/InspectionRecordsSection.tsx",
+      "source_sha256": "b74d0127171d30990db5e3dcc44c024e6ac9acaf5847f95ad73880fad869f9f1",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InspectionRecordsSection"
+    },
+    {
+      "source": "src/screens/quality/components/InspectionResultSection.tsx",
+      "source_sha256": "7043bc02ec30ab3a9db3d6e80be1259020bfccdc2444152fc8116d40052e1e4b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "InspectionResultSection"
+    },
+    {
+      "source": "src/screens/quality/components/QualityActionBar.tsx",
+      "source_sha256": "bfdf754d3ebd3d95c8df762a03d7c6af3c6ff0cf356a23946437cd4c7b52874f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "QualityActionBar"
+    },
+    {
+      "source": "src/screens/quality/components/QualityDefectList.tsx",
+      "source_sha256": "7f5c29c00b68822db68fbc0c203293c23e857e48cd15d0c563eba21e45c512eb",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "QualityDefectList"
+    },
+    {
+      "source": "src/screens/quality/components/QualityDefectsSection.tsx",
+      "source_sha256": "6f4a0e3c2ac8addd10b88dfb944a6395016234ef3e6fbceb566405774eeef9f8",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "QualityDefectsSection"
+    },
+    {
+      "source": "src/screens/quality/components/QualityPhotosSection.tsx",
+      "source_sha256": "44ec9953168a8f8c9a8da2f53fda710c1ccaa9b462f10ad5db43ed8bb51c7585",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "QualityPhotosSection"
+    },
+    {
+      "source": "src/screens/quality/components/SubmitModal.tsx",
+      "source_sha256": "eb7f655452b1b9f9305e5a00547c39250c0157be6a984b91e9f836351e4c7081",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SubmitModal"
+    },
+    {
+      "source": "src/screens/quality/components/TemplateSection.tsx",
+      "source_sha256": "55c1c4552ad25da45a62bff2005e067ffc7fb9088ba7008b4c8e4b4da29a3ef9",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "TemplateSection"
+    },
+    {
+      "source": "src/screens/quality/components/VoidInspectionRecordModal.tsx",
+      "source_sha256": "b90b84cb2bd0fcb0e4427a0e5362eb01c3aaca1d59c4f5430593b053f5b32b97",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "VoidInspectionRecordModal"
+    },
+    {
+      "source": "src/screens/quality/components/inspection-utils.ts",
+      "source_sha256": "adc8f4cde5025dc98cd5b243dbe6f3e60346a1a75898570dbc6ab2b2d37bf13f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "inspection-utils"
+    },
+    {
+      "source": "src/screens/quotation/components/SendQuotationSheet.tsx",
+      "source_sha256": "fd1d220e7817cc483b50f76c4095dc0404183358a384cde6ccdc114037d1ce50",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SendQuotationSheet"
+    },
+    {
+      "source": "src/screens/reports/components/DashboardHourlyProductionChart.tsx",
+      "source_sha256": "00ff1fc9b7493de81fc90bd3a828edab8302035ce7592029415c40cd25941d68",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "DashboardHourlyProductionChart"
+    },
+    {
+      "source": "src/screens/reports/components/DashboardOperationalCards.tsx",
+      "source_sha256": "59f4aa253ab061cbf6752dfb2bb121f737d3338abbee7f92841a46538d400aed",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "DashboardOperationalCards"
+    },
+    {
+      "source": "src/screens/reports/components/DashboardProductionSections.tsx",
+      "source_sha256": "f2efe76eb7556b546d17d1fb11f7dfd425c9a2cbaf503cda8aa50c53e56806db",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "DashboardProductionSections"
+    },
+    {
+      "source": "src/screens/reports/components/DashboardTab.tsx",
+      "source_sha256": "2fd210514ea3ca4bcb27d98bf69107572e9d31564974fbc9e34aa9aa6529e580",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "DashboardTab"
+    },
+    {
+      "source": "src/screens/reports/components/FinanceTab.tsx",
+      "source_sha256": "a05928b49a36247278acb1db16f1260d64b5072edc8a4907ecec5470ac0ae4a5",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "FinanceTab"
+    },
+    {
+      "source": "src/screens/reports/components/PieceworkSummaryCard.tsx",
+      "source_sha256": "4b9c9b6234a1f3fb0a76e06fd6c4aa15799e636c53625bdf0f3994c0040c568a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PieceworkSummaryCard"
+    },
+    {
+      "source": "src/screens/reports/components/PieceworkTab.tsx",
+      "source_sha256": "ef21b207883648143138785f96efabc1b5cf3dfaea13c8bc41052995711829c6",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PieceworkTab"
+    },
+    {
+      "source": "src/screens/reports/components/ProductionHealthRadarCard.tsx",
+      "source_sha256": "dc114bbde66bc5f011ca1ba6fe67e2f8d30316f580a6192be3bd93926c4dd4c3",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProductionHealthRadarCard"
+    },
+    {
+      "source": "src/screens/reports/components/ProductionTab.tsx",
+      "source_sha256": "d5ab3dc03c4b49fa90607214b293dd6c7142ab65c33f4848bbb1b3e9fbf187d9",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProductionTab"
+    },
+    {
+      "source": "src/screens/reports/components/ProductionTrendCard.tsx",
+      "source_sha256": "bc0f4a3d6d9988ade0ce48f4e358794d48783ad4adbfd265a6095dd7062781e9",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProductionTrendCard"
+    },
+    {
+      "source": "src/screens/reports/components/ProductionWorkCenterCard.tsx",
+      "source_sha256": "1a21e7b241cdd173fdf0fc2f9a3f474740c1f2a13afb83b4c593eae1baa6ca2c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProductionWorkCenterCard"
+    },
+    {
+      "source": "src/screens/reports/components/QualityTab.tsx",
+      "source_sha256": "deff1c06393ac119038deb93a50ad435024c3db76039a7718a8974c1e640b5b9",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "QualityTab"
+    },
+    {
+      "source": "src/screens/reports/components/ReportCatalogCard.tsx",
+      "source_sha256": "ef492504b2da225685825e01e5e3582da71f4aa0de5659ec0fa2995208e85cbf",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportCatalogCard"
+    },
+    {
+      "source": "src/screens/reports/components/ReportContextBar.tsx",
+      "source_sha256": "02851d1aa1f02b9f51c3b1f66596b6aaf7ca5bc046a5c1b28ba8def0ed340f9f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportContextBar"
+    },
+    {
+      "source": "src/screens/reports/components/ReportDashboardHeader.tsx",
+      "source_sha256": "f1312c051e3e30534ba4553d43e2121737d67ecabda702c11a428f9b3e3d14fe",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportDashboardHeader"
+    },
+    {
+      "source": "src/screens/reports/components/ReportDetailCard.tsx",
+      "source_sha256": "6284e970a66ed0e52ba482538aad0f17d29f44bc07105f62f7e92871e7d6758c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportDetailCard"
+    },
+    {
+      "source": "src/screens/reports/components/ReportDonutChart.tsx",
+      "source_sha256": "4d5f29ac36f5b4bcd8a8c001e9c413f6e45fd323d3825dc3baa2ec7b4a0dd4ed",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportDonutChart"
+    },
+    {
+      "source": "src/screens/reports/components/ReportFavoritesCard.tsx",
+      "source_sha256": "3ac64b6e76da0ab82115705ebb202260095f3fbe32f184aadd4253f3162db7f6",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportFavoritesCard"
+    },
+    {
+      "source": "src/screens/reports/components/ReportMenuGrid.tsx",
+      "source_sha256": "88b4a854b047079b5259f4d753c200225ee8573b626a004ae9e31fc62750387a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportMenuGrid"
+    },
+    {
+      "source": "src/screens/reports/components/ReportMetricCard.tsx",
+      "source_sha256": "37df609de620d756cdfca110020c7b10de08ee0bfae003c185e6a6b775633a1d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportMetricCard"
+    },
+    {
+      "source": "src/screens/reports/components/ReportMetricComparison.tsx",
+      "source_sha256": "a6d9498ffda6711942e8a522fb9e195c1c8b4b26dab4f723e56b66c4a0044760",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportMetricComparison"
+    },
+    {
+      "source": "src/screens/reports/components/ReportPageHeader.tsx",
+      "source_sha256": "32a9089743036b04635fe4f274fa4f36c60353285e896ac3e3251a6a47f2c0f0",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportPageHeader"
+    },
+    {
+      "source": "src/screens/reports/components/ReportPeriodHero.tsx",
+      "source_sha256": "35788cd3d7a1551450f7b1a7a5ed7becedb2313cffccc7ec48aa1d7bea6a5710",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportPeriodHero"
+    },
+    {
+      "source": "src/screens/reports/components/ReportPeriodNavigator.tsx",
+      "source_sha256": "30d9b6ca0260ca1caac897a2fe77554676878fbf60fe69584113f793602affa3",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportPeriodNavigator"
+    },
+    {
+      "source": "src/screens/reports/components/ReportPolicyDisclosure.tsx",
+      "source_sha256": "4b24ccc6e13806230f698632d07728385d038c4ab12417cb83b553ee2ad2120e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportPolicyDisclosure"
+    },
+    {
+      "source": "src/screens/reports/components/ReportQuickRangeBar.tsx",
+      "source_sha256": "15d7794fb91621d0c0364ddd7e316751ff22d4d511efe17c69fcfde581c20d4d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportQuickRangeBar"
+    },
+    {
+      "source": "src/screens/reports/components/ReportSectionHeader.tsx",
+      "source_sha256": "ff7bf3cdae65a023700d341239e929273a607195455dfb2b847c21c7233fbb19",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportSectionHeader"
+    },
+    {
+      "source": "src/screens/reports/components/ReportSummaryCard.tsx",
+      "source_sha256": "a56bfce0f20f79873385bba9d106803b55c760108be8edc59e756187aa51257c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportSummaryCard"
+    },
+    {
+      "source": "src/screens/reports/components/ResponsiveTrendChart.tsx",
+      "source_sha256": "aff82af676f475a262fa66d67db52337ae020c9c2e071bbe32d72f0b5f1f238d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ResponsiveTrendChart"
+    },
+    {
+      "source": "src/screens/reports/components/StockTab.tsx",
+      "source_sha256": "46197e8daca49c0c8033053ec036b0d252cd537303374fc98d9620efed344628",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StockTab"
+    },
+    {
+      "source": "src/screens/reports/components/StockWarehouseWarningsChart.tsx",
+      "source_sha256": "97c61234e1e718eb91f932614cbefc940c22444b14af65b89ce2295ac3ace2de",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StockWarehouseWarningsChart"
+    },
+    {
+      "source": "src/screens/reports/components/report-unit-trend.ts",
+      "source_sha256": "7501f6ab5b2b6e251fce740f3b3940b6428fc96d59b0444da3cd1bd04a024d1e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "report-unit-trend"
+    },
+    {
+      "source": "src/screens/sale-delivery/components/SaleDeliveryItemStockFields.tsx",
+      "source_sha256": "82ec7ad9ce8eff47d3cf6fd9d0d254330aa3f1a0549085039650647191f3a39c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SaleDeliveryItemStockFields"
+    },
+    {
+      "source": "src/screens/sale-delivery/components/SaleDeliveryReverseSheet.tsx",
+      "source_sha256": "1e13079f7be67d8b11b6454436c52be4f406b8c1b4d1c4ac327ea77c6abcfa6b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SaleDeliveryReverseSheet"
+    },
+    {
+      "source": "src/screens/sale-delivery/components/SaleReturnFromDeliverySheet.tsx",
+      "source_sha256": "1fa2693d63e49833ef3821a217f3295465fa8114d9299bc7e1ae4639924f982f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SaleReturnFromDeliverySheet"
+    },
+    {
+      "source": "src/screens/sale-orders/components/ConvertItemRow.tsx",
+      "source_sha256": "519d7b157becb18ad68a66f9d38a73121df6350f772c277b418002466e6093e9",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ConvertItemRow"
+    },
+    {
+      "source": "src/screens/sale-orders/components/PlanInfoSection.tsx",
+      "source_sha256": "bdea5084b62dc2e524cd428b002b0ad56da616e39973eed9d7d76631099c83bc",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PlanInfoSection"
+    },
+    {
+      "source": "src/screens/sale-orders/components/SaleOrderShipSheet.tsx",
+      "source_sha256": "c7f3263c397957abfdfef176e12b0db3c9694b742132fab1826a076210ec3097",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SaleOrderShipSheet"
+    },
+    {
+      "source": "src/screens/sale-return/components/EditSaleReturnApplicationModal.tsx",
+      "source_sha256": "1ce982e51ab1519638ddd8293dcaf0a5f2a892a13033b5290a6d0f0b286b3464",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "EditSaleReturnApplicationModal"
+    },
+    {
+      "source": "src/screens/sale-return/components/ReceiveSaleReturnModal.tsx",
+      "source_sha256": "aa232b6c10a9193c6d57493d372b209e8e88a1fbd3574656094bfe35fad9b22b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReceiveSaleReturnModal"
+    },
+    {
+      "source": "src/screens/sale-return/components/SaleReturnCard.tsx",
+      "source_sha256": "e951714f64dee54b444d8365d9cf9a64b67bc832415e149a8ab1f7f4bb214c53",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SaleReturnCard"
+    },
+    {
+      "source": "src/screens/sale-return/components/SaleReturnIdentityFields.tsx",
+      "source_sha256": "1087814abbd0d6698a5b9b27b1bd4d029f829ca5cb0777006f94ad3fa14c866e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SaleReturnIdentityFields"
+    },
+    {
+      "source": "src/screens/sale-return/components/SaleReturnItemsFormSection.tsx",
+      "source_sha256": "dac35340472e5b1e0e8cc76c5727e4a80c7dfdde8a8ee5d4021618d915aadc91",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SaleReturnItemsFormSection"
+    },
+    {
+      "source": "src/screens/sale-return/components/SaleReturnItemsSection.tsx",
+      "source_sha256": "e96036d29324ee65769350998064e4b4309c91f870f35416ae564baacea2bf16",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SaleReturnItemsSection"
+    },
+    {
+      "source": "src/screens/sale-return/components/SaleReturnReverseSheet.tsx",
+      "source_sha256": "490a336483dcaf15ef14ee5557b3bb27c18529f49fb908ff8af2fd9b651ff387",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SaleReturnReverseSheet"
+    },
+    {
+      "source": "src/screens/scan/components/EntityResultCard.tsx",
+      "source_sha256": "a32f52149f18b77223acca0abb4365622a6d61138c02edeb11a9910cfb01482d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "EntityResultCard"
+    },
+    {
+      "source": "src/screens/scan/components/OperationResultCard.tsx",
+      "source_sha256": "cbcf5beec385f89e1f8600a8fd89fec3c441863fbcf959099e0cb72f5ca2a95a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "OperationResultCard"
+    },
+    {
+      "source": "src/screens/scan/components/WorkOrderResultCard.tsx",
+      "source_sha256": "2b66f2d2fd699977168daab27364cf57c74ecbb14887670af301095eb3874d3b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WorkOrderResultCard"
+    },
+    {
+      "source": "src/screens/schedule/components/AutoScheduleModal.tsx",
+      "source_sha256": "59af94e6d91f974ee58c6e564a75a9d0adf9e3367fa31b7b97ea2c3fe8223678",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "AutoScheduleModal"
+    },
+    {
+      "source": "src/screens/schedule/components/BomOutsourcingSummary.tsx",
+      "source_sha256": "5ca3d0d5264179ae015e840a672e44ff7f6f066afdad5761447094f213e85295",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "BomOutsourcingSummary"
+    },
+    {
+      "source": "src/screens/schedule/components/BottleneckPanel.tsx",
+      "source_sha256": "e41faf669fb10c5e2229db489e4cae300d32a70a10e53e22ff23cf02da978220",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "BottleneckPanel"
+    },
+    {
+      "source": "src/screens/schedule/components/CalendarChangeHistoryModal.tsx",
+      "source_sha256": "f3ce8e6f17cb062f0173db82e0695d3896d77899c049930cb9faf91de56ac58e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CalendarChangeHistoryModal"
+    },
+    {
+      "source": "src/screens/schedule/components/CapacityPanel.tsx",
+      "source_sha256": "e7bb5c0700384b7b974c58926b2099a7bbb667f547c73f365353c15be89b9277",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CapacityPanel"
+    },
+    {
+      "source": "src/screens/schedule/components/CreateEntryModal.tsx",
+      "source_sha256": "b9f1196cd92b853a8bfe39045680c3bac4ffd65a37d7c24714e70ac08d54b3b7",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CreateEntryModal"
+    },
+    {
+      "source": "src/screens/schedule/components/EditEntryModal.tsx",
+      "source_sha256": "532e0be6343881d0e0b66a1cb43267091874fb96a03f9808aac72a6770921914",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "EditEntryModal"
+    },
+    {
+      "source": "src/screens/schedule/components/EntryCard.tsx",
+      "source_sha256": "d557e9911af66075e5332f5895e10687e1b48e47b294fe21a699dd09d65eb719",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "EntryCard"
+    },
+    {
+      "source": "src/screens/schedule/components/ExceptionCreateModal.tsx",
+      "source_sha256": "19c1ab6254be61c03ca5ddf1ef97759671494010b0811772fe73ff6d134d84de",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ExceptionCreateModal"
+    },
+    {
+      "source": "src/screens/schedule/components/GanttView.tsx",
+      "source_sha256": "35ef2746063ff25a6378deac0404d26caf6dfa45f6d6b9b57ddf02a1a4c46c7f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "GanttView"
+    },
+    {
+      "source": "src/screens/schedule/components/ScheduleActionSheet.tsx",
+      "source_sha256": "e310f8bf3d8692e8861a393e51c7a02795ad63004666b96d231fa5fb70a95440",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ScheduleActionSheet"
+    },
+    {
+      "source": "src/screens/schedule/components/ScheduleBatchConfirmSheet.tsx",
+      "source_sha256": "b9efc4c0ed2d1445cf0a379ff26cd437429490147b6d5c16c6940c4703feab41",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ScheduleBatchConfirmSheet"
+    },
+    {
+      "source": "src/screens/schedule/components/SchedulePolicyModal.tsx",
+      "source_sha256": "7dfc55f532962cc874b4370c0eaad87c8993d875644fb25221272b9f4d297e0b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SchedulePolicyModal"
+    },
+    {
+      "source": "src/screens/schedule/components/ShiftCard.tsx",
+      "source_sha256": "2a7ee21af0b86d0ba0cf0220da880059f7efb28586c450dd684198e338b83464",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ShiftCard"
+    },
+    {
+      "source": "src/screens/schedule/components/ShiftFormModal.tsx",
+      "source_sha256": "1f411d2b07b7f9613f8fde9e4c2e38ef510b7f04157fbdc36cc0dccaa9694511",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ShiftFormModal"
+    },
+    {
+      "source": "src/screens/schedule/components/WorkOrderScheduleModal.tsx",
+      "source_sha256": "88e063d36e0e531910fa77ae2944d8111003c9c7844bc29d153c2a40f232108a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WorkOrderScheduleModal"
+    },
+    {
+      "source": "src/screens/schedule/components/schedule-error-action.ts",
+      "source_sha256": "3e21d788c954de745da9e3523329481fd686781daebe9793749661ca7bd43fee",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "schedule-error-action"
+    },
+    {
+      "source": "src/screens/settings/departments/components/DepartmentNode.tsx",
+      "source_sha256": "8e1477d2eb2abd0489ed13d4b3b17edf51367900cd0e72b38a66a4068dfdf7d0",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "DepartmentNode"
+    },
+    {
+      "source": "src/screens/settings/dict/components/IndustryPackPreviewSheet.tsx",
+      "source_sha256": "f11bcd627c76ec09e0e35a981d88cf7a990b5d8af8fdfb4fea6eea132188577a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "IndustryPackPreviewSheet"
+    },
+    {
+      "source": "src/screens/settings/dict/components/IndustryPackSheet.tsx",
+      "source_sha256": "bee650b064d1792c6fd0ae800ea3e93c46cc62667db5449577f883c395af710d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "IndustryPackSheet"
+    },
+    {
+      "source": "src/screens/settings/dict/components/ItemFormModal.tsx",
+      "source_sha256": "c4519195fff68d5081536d4ad8d534c40e0184b2156bd174dc7b8021ed14794b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ItemFormModal"
+    },
+    {
+      "source": "src/screens/settings/profile/components/CancelAccountModal.tsx",
+      "source_sha256": "c6fd3d918026a2e62ac002e9838d7d1877d1a4ac899c956a94679f6902d1d63e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CancelAccountModal"
+    },
+    {
+      "source": "src/screens/settings/profile/components/PieceworkPeriodPicker.tsx",
+      "source_sha256": "8a01c2be7f1910d4fee8dfa11b356f16a21768955d5e166f16576370305dd65c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PieceworkPeriodPicker"
+    },
+    {
+      "source": "src/screens/settings/profile/components/ProfileActionsMenu.tsx",
+      "source_sha256": "72a29ba477fce408cd27d7a7798fb2eeee60d79be9e00327c54ba58eadedea63",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProfileActionsMenu"
+    },
+    {
+      "source": "src/screens/settings/profile/components/ProfileInfoSection.tsx",
+      "source_sha256": "2c67ee2ac3ce7c3b9c19134de261b0aed8a4d5b467036c41d54fa8b0a73ad904",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProfileInfoSection"
+    },
+    {
+      "source": "src/screens/settings/profile/components/UserPermissionsModal.tsx",
+      "source_sha256": "7a1c5753d1bf78574de4c4b58283883cd6485feb9d834221dce46fcb539b130d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "UserPermissionsModal"
+    },
+    {
+      "source": "src/screens/settings/roles/components/PermissionGroup.tsx",
+      "source_sha256": "c6a944fecaf48567024c6cb5a3bc300383e8eb80220145908fbacdb7a38e140e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "PermissionGroup"
+    },
+    {
+      "source": "src/screens/settings/tickets/components/TicketCard.tsx",
+      "source_sha256": "2a2e5c326e4cf11e98cc4e60afb6c7cb95d77dd6695a82b36c08fe2ca0b8aa06",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "TicketCard"
+    },
+    {
+      "source": "src/screens/spc/components/AlertsTab.tsx",
+      "source_sha256": "e8c9554392f412e029c02cb632b6c0454ed59c299f585e0d8329c4d4a7fc2baa",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "AlertsTab"
+    },
+    {
+      "source": "src/screens/spc/components/ChartTab.tsx",
+      "source_sha256": "8effcf17c0328e1f8213a28b703327802d5a17d82586bc4213c7a74e8608b8d7",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ChartTab"
+    },
+    {
+      "source": "src/screens/spc/components/ControlChart.tsx",
+      "source_sha256": "fba6b27780e066a302c19e6f8955a9a07d29f18c6bdac31fa9d3e162b364b8a8",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ControlChart"
+    },
+    {
+      "source": "src/screens/spc/components/CpkCard.tsx",
+      "source_sha256": "c08ead3734145a588ac4170241db191857d86cdc87cf3b16cb77ab6d50263ae0",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CpkCard"
+    },
+    {
+      "source": "src/screens/spc/components/CpkTab.tsx",
+      "source_sha256": "4f41408dc3069204ee402f313fd55f70ac561a16014555e38a320e2d6b6cce59",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CpkTab"
+    },
+    {
+      "source": "src/screens/spc/components/CreateTab.tsx",
+      "source_sha256": "ed9b536ed0070d82dc072773bce691ea9016f004c08d23d67355cd3851375545",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CreateTab"
+    },
+    {
+      "source": "src/screens/spc/components/SpcCharacteristicPicker.tsx",
+      "source_sha256": "5b2aff8dc39d360939d9bb6bc0d5b13ec49bb029a406191fa918c5abb8a084e9",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SpcCharacteristicPicker"
+    },
+    {
+      "source": "src/screens/stock-count/components/StockCountCancelModal.tsx",
+      "source_sha256": "d4d4c2ad0ae904bd28c1b6553bd4b25ac443ac5bfad58d48c1ac30f18dd27ceb",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StockCountCancelModal"
+    },
+    {
+      "source": "src/screens/stock-count/components/StockCountCard.tsx",
+      "source_sha256": "02da9a34d9d04619f1eaa3690a26c1516dbed23d8c93e6816ce6b7309b170e4d",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StockCountCard"
+    },
+    {
+      "source": "src/screens/stock-count/components/StockCountLineEditorSheet.tsx",
+      "source_sha256": "3221388cf2ee0af16acc68c91cb2892de31faa57f114191980c3fec572345fd0",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StockCountLineEditorSheet"
+    },
+    {
+      "source": "src/screens/stock-count/components/StockCountLineRow.tsx",
+      "source_sha256": "ace2adefc8e5c566bb1b524c0cfd82ee32a792203f8a1b9c22e9af5b15284467",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StockCountLineRow"
+    },
+    {
+      "source": "src/screens/stock-count/components/StockCountReverseModal.tsx",
+      "source_sha256": "aac43b5012416352787e483016a7c9fc5f327e4400e5272e2183f04219f36f0b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StockCountReverseModal"
+    },
+    {
+      "source": "src/screens/supplier/components/SupplierMaterialsSection.tsx",
+      "source_sha256": "eb275521bebc89aec9fd550d47f006cb36f80b69744c8bb997024dbb72be1910",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SupplierMaterialsSection"
+    },
+    {
+      "source": "src/screens/temporary-workers/components/TemporaryWorkerCard.tsx",
+      "source_sha256": "9775af951730eaf21ba3a5b5126c9906dccccfadf249bf36f2337f00ea745fa7",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "TemporaryWorkerCard"
+    },
+    {
+      "source": "src/screens/todo/components/TodoCard.tsx",
+      "source_sha256": "1990cc6f224ec18e0563a6631c8d02ed29485e33c3a4bd77254632e62ced0dbd",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "TodoCard"
+    },
+    {
+      "source": "src/screens/todo/components/TodoCompleteSheet.tsx",
+      "source_sha256": "94aaf5ae0e0d2b18f7869d73b1519c0c1d5e41e8aa81ed0160bfc7d9a0828c85",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "TodoCompleteSheet"
+    },
+    {
+      "source": "src/screens/tooling/components/EndSessionModal.tsx",
+      "source_sha256": "55138c7cf34148fc5db177bec5477d6862728bfc188380da3c106896ce864177",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "EndSessionModal"
+    },
+    {
+      "source": "src/screens/tooling/components/LifeSection.tsx",
+      "source_sha256": "99290814c7e1ebc69997808cea5c7d8d16c423bb432fbb38c8040d9091fc9e90",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "LifeSection"
+    },
+    {
+      "source": "src/screens/tooling/components/ScanToolingModal.tsx",
+      "source_sha256": "becb59600e07e69527affc2f33a355082e11ecf7a31280854f02276b1bbf9325",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ScanToolingModal"
+    },
+    {
+      "source": "src/screens/tooling/components/StartSessionModal.tsx",
+      "source_sha256": "3af50bfdc22ca3b3b7a272e287899fb100b5f33a22113575d7714704beaefc72",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StartSessionModal"
+    },
+    {
+      "source": "src/screens/tooling/components/ToolingSessionCard.tsx",
+      "source_sha256": "aacf8b2e23d28e7035111e1487f7d51cb665b644148dbe5e32c0834a933ac2ef",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ToolingSessionCard"
+    },
+    {
+      "source": "src/screens/tooling/components/ToolingUsageRecordCard.tsx",
+      "source_sha256": "6f800f057bcdbf2aa7c9d3df0956c70c069d777ea36920ae43533e5a7af0cd1c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ToolingUsageRecordCard"
+    },
+    {
+      "source": "src/screens/warehouse/components/AdjustModal.tsx",
+      "source_sha256": "f187ca79d72668aa77d87b8acbc006dd98f912be3075d5c6ad4a6f566dd754a7",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "AdjustModal"
+    },
+    {
+      "source": "src/screens/warehouse/components/OutputBufferActionSheet.tsx",
+      "source_sha256": "9eb0e478452720f304400a491aedc110185666619487f0b04915bd6bfdde8238",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "OutputBufferActionSheet"
+    },
+    {
+      "source": "src/screens/warehouse/components/ProductionReceiptReverseSheet.tsx",
+      "source_sha256": "72030131b43b0dce9912adfd9954d448d3cea92b01833e3038b37f4f02daeb27",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProductionReceiptReverseSheet"
+    },
+    {
+      "source": "src/screens/warehouse/components/StockBalancePreview.tsx",
+      "source_sha256": "fc86b7b83a2cc89f86f4f808fab24f87a828b01bf59486115a0c44e6647b9944",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StockBalancePreview"
+    },
+    {
+      "source": "src/screens/warehouse/components/StockInOutModal.tsx",
+      "source_sha256": "738722070cdca6bbaa148ac9d838c6f9d2dd385692f1e33660b5c2065aeebae3",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StockInOutModal"
+    },
+    {
+      "source": "src/screens/warehouse/components/StockLocationField.tsx",
+      "source_sha256": "4e59ce3cfd63565a1e31b8bb5d7c21869e7337e8df94e15978cb00b3b4933ea3",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StockLocationField"
+    },
+    {
+      "source": "src/screens/warehouse/components/StockTransactionCard.tsx",
+      "source_sha256": "dd0b62f6038a517703964e198c8e251434c8d7688a8db570dd71e30bfde1832b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StockTransactionCard"
+    },
+    {
+      "source": "src/screens/warehouse/components/TransferModal.tsx",
+      "source_sha256": "2fdd6da617b98bb9e515a5b92f8d8616e9b4981220ad76642464a20dc7106905",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "TransferModal"
+    },
+    {
+      "source": "src/screens/warehouse/components/WarehouseCandidateField.tsx",
+      "source_sha256": "f133b2d8818ee9bd63460e710f9b068ed75e0c6c82bbd2d012570e9f3fc695d3",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WarehouseCandidateField"
+    },
+    {
+      "source": "src/screens/warehouse/components/WarehouseFormModal.tsx",
+      "source_sha256": "a04e76815915796cc7097d97fb531af6d6a7203318e2e13cdde955fd048cd124",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WarehouseFormModal"
+    },
+    {
+      "source": "src/screens/warehouse/components/WarehouseQuickActions.tsx",
+      "source_sha256": "985c36627ebd12c79d5149abfdb7536dcee8f49a6054e20d85773c12550d7933",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WarehouseQuickActions"
+    },
+    {
+      "source": "src/screens/work-center/components/WorkCenterArchiveSections.tsx",
+      "source_sha256": "87be2f5498a87ea6b284e9b92d43cfe6b3c7f359fe88e99a1a32da602e962816",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WorkCenterArchiveSections"
+    },
+    {
+      "source": "src/screens/work-center/components/WorkCenterNode.tsx",
+      "source_sha256": "ed27ee96eedcdcf221beb5c8f98686269297fd89a7ee7306d92e74a9c861a94a",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WorkCenterNode"
+    },
+    {
+      "source": "src/screens/work-orders/components/ActivityTimeline.tsx",
+      "source_sha256": "885bff5ad8ce11bc1aa8cae7e309040eaf42b4ea73e67386d9eec7be540552e7",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ActivityTimeline"
+    },
+    {
+      "source": "src/screens/work-orders/components/AssignModal.tsx",
+      "source_sha256": "bb9c9f98e16cb19878204f2689aed618476fb97ac33b68a9123b4e40247f5114",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "AssignModal"
+    },
+    {
+      "source": "src/screens/work-orders/components/BatchReportModal.tsx",
+      "source_sha256": "85be5e3c8fa621bea2b405e6012876bcf8067e69cbf46400e4fe2796cd30fd13",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "BatchReportModal"
+    },
+    {
+      "source": "src/screens/work-orders/components/CancelModal.tsx",
+      "source_sha256": "30423f75fa24d3ad63269b95995aa84a885fafc37f8a109c0538bec17faea7f3",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "CancelModal"
+    },
+    {
+      "source": "src/screens/work-orders/components/ChildOrdersSection.tsx",
+      "source_sha256": "42f5fa147d4c61c6a557d500e0d043e842c87a7df1e5f618f77cbe764c3c758b",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ChildOrdersSection"
+    },
+    {
+      "source": "src/screens/work-orders/components/MaterialConsumptionSection.tsx",
+      "source_sha256": "f6236f366b3ebd49430cb33ae568508b5b47a1eed65f565e29d5cd35088fe9ae",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "MaterialConsumptionSection"
+    },
+    {
+      "source": "src/screens/work-orders/components/OperationFormModal.tsx",
+      "source_sha256": "e93cfb932979a4766d56e2c638042b96ba2c2ece453f803447123d5ae4c1dc15",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "OperationFormModal"
+    },
+    {
+      "source": "src/screens/work-orders/components/OperationsTimeline.tsx",
+      "source_sha256": "6cfd6012915f07bf3c0717311bac4a360a0acb6e1fbbf265a3cecae41aa92717",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "OperationsTimeline"
+    },
+    {
+      "source": "src/screens/work-orders/components/ProductionConfigSection.tsx",
+      "source_sha256": "fcf9d89d0cadb13dbf6172c8428f9ebe9f87a706152b64237aeccfb81086145c",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ProductionConfigSection"
+    },
+    {
+      "source": "src/screens/work-orders/components/QuantityActionModal.tsx",
+      "source_sha256": "38798b44b113d7889dc21e486e67c8bf839f32b50c44b253b9a7f3bb81ff8957",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "QuantityActionModal"
+    },
+    {
+      "source": "src/screens/work-orders/components/ReadinessOverrideModal.tsx",
+      "source_sha256": "28fb63045bbc71bce6ccd6a9a46bcb08c7ec59db5c3420e2acafb993df93e7c1",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReadinessOverrideModal"
+    },
+    {
+      "source": "src/screens/work-orders/components/RelatedDocumentsSection.tsx",
+      "source_sha256": "19fc90f087ba97c9a4bcefaef51f872f314a10b95f384e58ac15a3082b27689f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "RelatedDocumentsSection"
+    },
+    {
+      "source": "src/screens/work-orders/components/ReleaseModal.tsx",
+      "source_sha256": "2239ddd4bb14ed916e568d9f4f61a419b3be9e405f4f71ff7e740536e543bcfc",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReleaseModal"
+    },
+    {
+      "source": "src/screens/work-orders/components/ReopenModal.tsx",
+      "source_sha256": "2af73f2885cfd9f98d7c3aa181b13a1480dc644a16ef53a5e7463fc0d7350e65",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReopenModal"
+    },
+    {
+      "source": "src/screens/work-orders/components/ReportBatchNoField.tsx",
+      "source_sha256": "29cde40234a1764cf05461f3757c4129f7f8e51ad0894152950764ff773c027e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportBatchNoField"
+    },
+    {
+      "source": "src/screens/work-orders/components/ReportDemandSourceField.tsx",
+      "source_sha256": "700c4db4d54773c2eb54fc77399a0c444f632e8d405a2f285fe769c0a475b06e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportDemandSourceField"
+    },
+    {
+      "source": "src/screens/work-orders/components/ReportHistorySection.tsx",
+      "source_sha256": "1f3a09e8598ad3b8aee4e12657b29433f196041777a2e6d88217589373f2bce9",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportHistorySection"
+    },
+    {
+      "source": "src/screens/work-orders/components/ReportLogsSheet.tsx",
+      "source_sha256": "8d8f0ede7f1dac61c49756e068d864ba2aafcb14587ebf34bba623a10b0fa78e",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportLogsSheet"
+    },
+    {
+      "source": "src/screens/work-orders/components/ReportModal.tsx",
+      "source_sha256": "3bbb750ed9365008e62ab4cddcf95e066cf2aaee32c7521b095fcbdd425387a2",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportModal"
+    },
+    {
+      "source": "src/screens/work-orders/components/ReportPhotosSection.tsx",
+      "source_sha256": "de34e068bdeb770d3a761e0f43006901a9745df301cae722669e27907c185ebd",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportPhotosSection"
+    },
+    {
+      "source": "src/screens/work-orders/components/ReportReceiptSummarySheet.tsx",
+      "source_sha256": "56f7a8a361cd144be568664e48e30fdd125692c77c2ce2256ea4fb512e09f428",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "ReportReceiptSummarySheet"
+    },
+    {
+      "source": "src/screens/work-orders/components/RevokeModal.tsx",
+      "source_sha256": "e106f8a29094dee9748962bda2fe3c39f0f59b9380ec5cea6965c0c427ba06ea",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "RevokeModal"
+    },
+    {
+      "source": "src/screens/work-orders/components/SplitModal.tsx",
+      "source_sha256": "27a6895dc9e6bc36c4206d7b27820aa4219d8359a94e982879f2b2c410f70be8",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "SplitModal"
+    },
+    {
+      "source": "src/screens/work-orders/components/StartScheduleEntrySheet.tsx",
+      "source_sha256": "ebf105c3dcb2440e0f29ac911591c7226291b9afff19932240d864eb52e770a0",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StartScheduleEntrySheet"
+    },
+    {
+      "source": "src/screens/work-orders/components/StatusFlow.tsx",
+      "source_sha256": "218de7facb648244f4a7046e9c904a92383b8a6c513dc0e75e22ef195c3dc8e3",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "StatusFlow"
+    },
+    {
+      "source": "src/screens/work-orders/components/WorkOrderActionBar.tsx",
+      "source_sha256": "8fc62954127d12da37e5e245304e56cc157bc92102d0543b1844a9f0946e895f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WorkOrderActionBar"
+    },
+    {
+      "source": "src/screens/work-orders/components/WorkOrderDrawingsSection.tsx",
+      "source_sha256": "29e07a8b86b7d4062524cff0a156223729caa5e85ab0eda38d777cebaaf9aa5f",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WorkOrderDrawingsSection"
+    },
+    {
+      "source": "src/screens/work-orders/components/WorkOrderInfoSection.tsx",
+      "source_sha256": "e7bc95f4554a61df8c2df5b61d0347624651feea8082a8e2a1d3de2bb67ae0be",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WorkOrderInfoSection"
+    },
+    {
+      "source": "src/screens/work-orders/components/WorkOrderMoreActionsSheet.tsx",
+      "source_sha256": "7305f1de35c6257fb343a5305ffb263679bf4fc545086d222607504e773f2276",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WorkOrderMoreActionsSheet"
+    },
+    {
+      "source": "src/screens/work-orders/components/WorkOrderOutputReconciliationSection.tsx",
+      "source_sha256": "45a8c0fdedad5521d964bff6c727285436fa7becdb05d45a0f1d4bccca87f1f6",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WorkOrderOutputReconciliationSection"
+    },
+    {
+      "source": "src/screens/work-orders/components/WorkOrderProgressSection.tsx",
+      "source_sha256": "34ef4d3f3a5b07480d9eaff6b603194b3162fdc11abb3ac474d7d8b321af86d3",
+      "source_status": "EXCLUDED",
+      "web_status": "EXCLUDED",
+      "target": null,
+      "decision": "Excluded from runtime package at the user’s direction; retained in this ledger for source audit.",
+      "name": "WorkOrderProgressSection"
+    }
+  ]
+}

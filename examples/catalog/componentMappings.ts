@@ -17,6 +17,7 @@ export const componentMappings: ComponentMapping[] = [
   { source: 'Badge', target: 'AntD Badge', status: 'UPSTREAM', note: '沿用上游语义和状态样式。' },
   { source: 'BottomActionBar / DetailActionBar', target: 'StickyActionBar', status: 'ADAPTED', note: 'Web 固定页尾操作区。' },
   { source: 'BottomSheet', target: 'AntD Drawer', status: 'UPSTREAM', note: '根据任务选 Drawer 或 Modal，不维护 RN 手势。' },
+  { source: 'BottomSheetContext', target: 'AntD Drawer / Modal controlled open + onCancel', status: 'UPSTREAM', note: '可见状态和关闭恢复由宿主受控。' },
   { source: 'ChartPanel', target: 'ChartPanel', status: 'ADAPTED', note: 'ProCard + 加载、空、错误插槽；图表引擎归宿主。' },
   { source: 'CheckboxField', target: 'AntD Checkbox + Form.Item', status: 'UPSTREAM', note: '表单校验和受控值由宿主 Form 管理。' },
   { source: 'ChipSelectField', target: 'AntD Select / Radio.Group', status: 'UPSTREAM', note: '按单选、多选语义选择原生控件。' },
@@ -75,5 +76,5 @@ export const componentMappings: ComponentMapping[] = [
   { source: 'TreePickerField', target: 'AntD TreeSelect', status: 'UPSTREAM', note: '树数据和选择限制由宿主提供。' },
   { source: 'SunxuProvider / theme colors / tokens', target: 'SunxuWebProvider + semantic tokens', status: 'ADAPTED', note: '保留品牌语义，改用 Web/CSS 和 AntD ConfigProvider。' },
   { source: 'date / format / dict-label-map utilities', target: '宿主领域工具', status: 'HOST', note: '日期、字典和格式口径需要业务契约，不自动并入 UI 核心。' },
-  { source: 'entity-picker-pagination utility', target: '宿主数据函数', status: 'HOST', note: '候选数据请求和分页由宿主控制。' },
+  { source: 'entity-picker-pagination', target: '宿主 options / request 回调', status: 'HOST', note: '候选数据请求与分页策略由宿主控制。' },
 ];

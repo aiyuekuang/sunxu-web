@@ -73,3 +73,9 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 - **UPSTREAM**：由 Ant Design / Pro Components 原生 API 承担，不重复导出。
 - **HOST**：由宿主的 API、权限、路由、文件/地图/图表供应商承担。
 - **DEFERRED**：保留来源职责记录，等待明确的跨宿主 Web 需求。
+
+## MES 基线组件覆盖
+
+MES 固定提交 `e92d02d7cf2269cf8c564a60ff6a00255e903c8e` 的组件盘点共 393 个文件。Sunxu Web 纳入全部 49 个跨项目通用组件文件：9 个由本库现有 Web 语义组件承接，33 个直接使用 Ant Design / Pro Components，6 个由宿主组合平台能力，1 个触控滑动模式暂缓。页面私有、MES 领域和宿主集成的 344 个文件不进入共享 UI runtime。
+
+逐文件来源路径、原始 SHA-256、目标状态和目标 API 见 [MES 组件迁移账本](./migrations/mes-components.json)。目录的“组件映射”页展示可搜索映射；Ant Design 原生组件不由 Sunxu Web 再包一层或重新导出。来源 checkout 当前不在工作区，账本沿用固定提交的来源审计哈希，并注明了本轮无法重新读取原始实现的限制。
