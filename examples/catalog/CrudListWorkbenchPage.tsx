@@ -7,7 +7,6 @@ import {
   Input,
   InputNumber,
   Modal,
-  Popconfirm,
   Segmented,
   Select,
   Space,
@@ -16,9 +15,11 @@ import {
   Typography,
 } from 'antd';
 import { ProTable, type ActionType, type ProColumns } from '@ant-design/pro-components';
+import { TagOutlined } from '@ant-design/icons';
 import type { Key } from 'react';
 import {
   CrudListWorkbench,
+  RowActions,
   SavedViewBar,
   SectionCard,
   type SavedViewItem,
@@ -123,7 +124,7 @@ function isStatusFilter(value: string): value is StatusFilter {
 }
 
 export function CrudListWorkbenchPage() {
-  const { message } = AntdApp.useApp();
+  const { message, modal } = AntdApp.useApp();
   const actionRef = useRef<ActionType | undefined>(undefined);
   const [layoutMode, setLayoutMode] = useState<LayoutMode>('category');
   const [products, setProducts] = useState(seedProducts);
@@ -250,32 +251,50 @@ export function CrudListWorkbenchPage() {
         title: '操作',
         valueType: 'option',
         key: 'actions',
-        width: 120,
+        width: 100,
         fixed: 'right',
         render: (_, product) => [
           <Button key="edit" type="link" size="small" onClick={() => openEditor(product)}>
             编辑
           </Button>,
-          <Popconfirm
-            key="delete"
-            title={`删除“${product.name}”？`}
-            description="删除后不能恢复。"
-            okText="删除"
-            cancelText="取消"
-            okButtonProps={{ danger: true }}
-            onConfirm={() => {
-              setProducts((current) => current.filter((item) => item.id !== product.id));
-              setSelectedKeys((current) => current.filter((key) => key !== product.id));
-            }}
-          >
-            <Button type="link" size="small" danger>
-              删除
-            </Button>
-          </Popconfirm>,
+          <RowActions
+            key="more"
+            actions={[
+              {
+                key: 'duplicate',
+                label: `复制“${product.name}”编码`,
+                onClick: () => message.success(`已复制 ${product.code}`),
+              },
+              {
+                key: 'specification',
+                label: '规格与单位',
+                icon: <TagOutlined />,
+                onClick: () => message.info(`规格：${product.specification || '—'} / ${product.unit}`),
+              },
+              {
+                key: 'delete',
+                label: '删除',
+                danger: true,
+                onClick: () => {
+                  modal.confirm({
+                    title: `删除“${product.name}”？`,
+                    content: '删除后不能恢复。',
+                    okText: '删除',
+                    cancelText: '取消',
+                    okButtonProps: { danger: true },
+                    onOk: () => {
+                      setProducts((current) => current.filter((item) => item.id !== product.id));
+                      setSelectedKeys((current) => current.filter((key) => key !== product.id));
+                    },
+                  });
+                },
+              },
+            ]}
+          />,
         ],
       },
     ],
-    [message],
+    [message, modal],
   );
 
   const activeFilterCount = Number(Boolean(snapshot.code)) + Number(snapshot.missingSpecification);

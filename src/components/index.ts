@@ -12,6 +12,7 @@ export * from './PageHeader';
 export * from './PermissionGuard';
 export * from './ProfileIdentity';
 export * from './RemoteSelect';
+export * from './RowActions';
 export * from './SectionCard';
 export * from './SavedViewBar';
 export * from './SettingsRow';

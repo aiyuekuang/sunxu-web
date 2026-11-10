@@ -33,6 +33,7 @@
 | `BatchFieldSettingsButton` | 让用户勾选要覆盖的字段并应用到已选行 | AntD Modal / 表单控件；patch builder 由宿主提供 |
 | `RemoteSelect` | 用 AntD Select 展示远程候选并防抖搜索 | AntD Select；`onSearch` 由宿主提供 |
 | `LongText` | 在表格单元格显示截断文本并打开完整内容 | AntD Typography + Modal |
+| `RowActions` | 把表格行操作收纳进省略号菜单 | AntD Dropdown + Button；操作语义由宿主提供 |
 
 ## 关键契约
 
@@ -95,6 +96,13 @@
 - **可访问性**：使用 `role=search` 并有可读标签；字段继续使用 AntD 原生 label/aria 契约。
 - **状态与布局**：筛选值、提交、重置和查询请求都由宿主管理；字段区域可换行，操作区域保持在工具栏内。
 - **上游选择**：复杂查询表单优先使用 Pro Components `QueryFilter`；本组件只服务于已有控件组合的轻量筛选工具栏。
+
+### `RowActions`
+
+- **API**：`actions` 为行操作数组（`key`、`label`、`onClick`、`danger`、`disabled`、`icon`、`children` 子菜单）；全部操作收进单个竖向省略号菜单。`ariaLabel` 缺省“更多操作”。
+- **可访问性**：触发按钮有可读名称并通过 `title` 补充悬停说明；键盘走 AntD Dropdown 原生行为。
+- **状态与布局**：危险操作自动在其前加分隔线（首个之前不加）；操作列表为空时渲染 `null`，不留空按钮。
+- **边界**：不做权限判断、不弹确认框、不做跳转；这些语义由宿主在 `onClick` / `label` 中表达。行内主操作（如“编辑”链接）若需要平铺展示，直接用 AntD Button，不用本组件收纳。
 
 ### `MetricCard` 与 `DetailCard`
 

@@ -17,6 +17,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `BatchFieldSettingsButton` | 选择批量覆盖字段并在确认后生成宿主 patch |
 | `RemoteSelect` | 搜索候选时由宿主请求并由组件防抖的 Select |
 | `LongText` | 表格长文本截断和全文查看 |
+| `RowActions` | 表格行操作收纳为省略号菜单（来源：tel_admin `TableActions` 适配） |
 | `FormScreenContainer` | 表单内容滚动 + 固定底部操作 |
 | `DetailScreenContainer` | 详情内容滚动 + 固定底部操作 |
 | `StickyActionBar` | 页面级固定动作区 |

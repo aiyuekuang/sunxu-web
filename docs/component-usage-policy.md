@@ -28,6 +28,7 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 | 重复明细编辑/批量覆盖 | `EditableDetailTable` 与 `BatchFieldSettingsButton` | 不在业务页面复制同义的行选择、批量设置和明细编辑机制；字段 schema 和提交由宿主管理 |
 | 远程搜索候选 | `RemoteSelect` | 非远程/本地选项直接使用 AntD Select；请求和分页由宿主管理 |
 | 表格长文本截断并可查看全文 | `LongText` | 不复制截断、更多入口和全文查看弹层 |
+| 表格行操作收纳 | `RowActions` | 操作语义（权限、确认、跳转）由宿主决定；行内需要平铺展示的主操作直接用 AntD Button |
 | 图表区域含加载/空/错误状态 | `ChartPanel` | 普通图表无需额外容器时直接渲染；图表引擎和数据由宿主提供 |
 | 异步候选结果或详情内容 | AntD `Spin` / `Empty` / `Alert` / `Result`（按语义选择） | 不为每页另造通用加载、空、错误控件 |
 | 短编辑/确认覆盖层 | AntD `Modal`；保留列表上下文或承载较长滚动内容时用 `Drawer` | Sunxu Web 不包一层同义 Modal/Drawer；流程操作仍需固定在覆盖层 footer |
