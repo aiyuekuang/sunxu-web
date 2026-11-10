@@ -11,6 +11,12 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `ScreenContainer` | Web 工作区主区和统一内边距 |
 | `PageHeader` | 有条件渲染的页面标题、说明、面包屑和操作插槽 |
 | `ListScreenContainer` | 标题 → 紧邻列表工具栏 → 结果区 |
+| `CrudListWorkbench` | 分类/状态、轻筛选、可选高级筛选与视图、ProTable 结果区组合 |
+| `SavedViewBar` | 受控的系统/个人视图切换和管理操作 |
+| `EditableDetailTable` | 受控重复明细编辑、行选择和批量字段设置 |
+| `BatchFieldSettingsButton` | 选择批量覆盖字段并在确认后生成宿主 patch |
+| `RemoteSelect` | 搜索候选时由宿主请求并由组件防抖的 Select |
+| `LongText` | 表格长文本截断和全文查看 |
 | `FormScreenContainer` | 表单内容滚动 + 固定底部操作 |
 | `DetailScreenContainer` | 详情内容滚动 + 固定底部操作 |
 | `StickyActionBar` | 页面级固定动作区 |
@@ -74,8 +80,16 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 - **HOST**：由宿主的 API、权限、路由、文件/地图/图表供应商承担。
 - **DEFERRED**：保留来源职责记录，等待明确的跨宿主 Web 需求。
 
-## MES 基线组件覆盖
+## MES Web 基线组件覆盖
 
-MES 固定提交 `e92d02d7cf2269cf8c564a60ff6a00255e903c8e` 的组件盘点共 393 个文件。Sunxu Web 纳入全部 49 个跨项目通用组件文件：9 个由本库现有 Web 语义组件承接，33 个直接使用 Ant Design / Pro Components，6 个由宿主组合平台能力，1 个触控滑动模式暂缓。页面私有、MES 领域和宿主集成的 344 个文件不进入共享 UI runtime。
+来源是 MES Web 管理端 `../mes-main/mes-admin` 的固定提交 `133e8673e92c24119024f9b4fbcfe2ce5247bf79`，不是 App。`src/components/**` 共盘点 193 个跟踪文件；其中 4 个通用 Web 源文件适配为 `EditableDetailTable`、`BatchFieldSettingsButton`、`RemoteSelect`、`LongText` 四项共享 API。
 
-逐文件来源路径、原始 SHA-256、目标状态和目标 API 见 [MES 组件迁移账本](./migrations/mes-components.json)。目录的“组件映射”页展示可搜索映射；Ant Design 原生组件不由 Sunxu Web 再包一层或重新导出。来源 checkout 当前不在工作区，账本沿用固定提交的来源审计哈希，并注明了本轮无法重新读取原始实现的限制。
+明细表复合组件采用受控行数据与列渲染回调；选择状态、复制/删除、最少行数、逐字段批量应用由共享层管理。字段 schema、校验、逐行 patch 转换、服务请求、权限及提交副作用由宿主决定。MES 物料选择/价格联动、单据台账、打印、审批、权限码和页面容器不迁入通用 runtime。
+
+其余来源代码映射到目标已有契约或 Ant Design / Pro Components，或标记为宿主/MES 领域/待评估；来源测试和样式只作盘点，不复制。逐文件路径、SHA-256、处理决定见 [MES Web 组件迁移账本](./migrations/mes-web-components.json)。
+
+MES `DocumentViewBar` 的通用视图选择、脏状态切换和视图管理交互由 `SavedViewBar` 承接；`DocumentFilterDrawer` 的筛选草稿、应用/重置/取消容器由 `CrudListWorkbench` 承接。视图 API、权限、字段 schema、筛选值和持久化仍由 MES 宿主负责，来源账本中的页面/领域代码仍标为 HOST。
+
+## 东健 CRM 列表场景
+
+CRM 产品列表的一级产品分类、启用状态分段、关键字、列表操作及 ProTable 结果区可组合为 `CrudListWorkbench` 的分类场景；低频状态切换可以退化为轻筛选。CRM 的产品字段、字典设置、增删改表单、请求和权限仍由 CRM 宿主负责。综合示例位于目录的“CRUD 列表工作台”页，展示轻量、分类/状态、复杂视图和 ProTable 原生查询四种装配方式。

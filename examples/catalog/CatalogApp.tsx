@@ -43,8 +43,11 @@ import {
   SunxuWebProvider,
 } from '../../src';
 import { componentMappings, type ComponentMapping, type MappingStatus } from './componentMappings';
+import { CrudListWorkbenchPage } from './CrudListWorkbenchPage';
+import { EditableDetailTablePage } from './EditableDetailTablePage';
+import { TextControlsPage } from './TextControlsPage';
 
-type PageKey = 'overview' | 'tokens' | 'containers' | 'mappings' | 'states';
+type PageKey = 'overview' | 'tokens' | 'containers' | 'mappings' | 'states' | 'text-controls' | 'editable-table' | 'crud-workbench';
 
 const navItems: MenuProps['items'] = [
   { key: 'overview', icon: <AppstoreOutlined aria-hidden="true" />, label: '组件总览' },
@@ -54,6 +57,9 @@ const navItems: MenuProps['items'] = [
     { key: 'containers', icon: <BarsOutlined aria-hidden="true" />, label: '页面容器' },
     { key: 'mappings', icon: <CodeOutlined aria-hidden="true" />, label: '组件映射' },
     { key: 'states', icon: <AppstoreOutlined aria-hidden="true" />, label: '信息与状态' },
+    { key: 'text-controls', icon: <CodeOutlined aria-hidden="true" />, label: '选择与文本' },
+    { key: 'editable-table', icon: <BarsOutlined aria-hidden="true" />, label: '可编辑明细' },
+    { key: 'crud-workbench', icon: <BarsOutlined aria-hidden="true" />, label: 'CRUD 列表工作台' },
   ] },
 ];
 
@@ -149,6 +155,9 @@ function CatalogWorkspace({
     containers: '页面容器',
     mappings: '组件映射',
     states: '信息与状态',
+    'text-controls': '选择与文本',
+    'editable-table': '可编辑明细',
+    'crud-workbench': 'CRUD 列表工作台',
   };
 
   return (
@@ -201,12 +210,18 @@ function CatalogWorkspace({
                     {page === 'overview'
                       ? '面向多个 React Web 项目的共享组件与页面容器。'
                       : page === 'mappings'
-                        ? '查看 MES 基线通用组件在 Web 端的映射、可复用 API 和宿主边界。'
+                        ? '查看 MES Web 管理端公共组件在 Sunxu Web 中的适配、上游映射和宿主边界。'
                         : page === 'tokens'
                           ? '沿用 Sunxu 的绿色语义主题，并通过 Ant Design ConfigProvider 应用。'
                           : page === 'containers'
                             ? '让标题、工具栏、结果区、滚动内容和固定操作各有明确归属。'
-                            : '展示状态和身份组件如何组合 Ant Design 的原生反馈行为。'}
+                              : page === 'text-controls'
+                                ? '查看远程候选搜索与长文本展开的公开组件契约。'
+                            : page === 'editable-table'
+                              ? '查看明细行编辑、选择和批量字段设置的公开契约。'
+                              : page === 'crud-workbench'
+                                ? '组合分类、快捷筛选、视图、筛选抽屉与 ProTable；查询和业务动作由宿主控制。'
+                                : '展示状态和身份组件如何组合 Ant Design 的原生反馈行为。'}
                   </Typography.Paragraph>
                 </div>
                 <Tag color="green">Ant Design 6 · Pro Components 3 beta</Tag>
@@ -221,6 +236,12 @@ function CatalogWorkspace({
               <ContainersPage onMessage={(text) => message.success(text)} />
             ) : page === 'mappings' ? (
               <MappingsPage dataSource={filteredMappings} search={search} />
+            ) : page === 'text-controls' ? (
+              <TextControlsPage />
+            ) : page === 'editable-table' ? (
+              <EditableDetailTablePage />
+            ) : page === 'crud-workbench' ? (
+              <CrudListWorkbenchPage />
             ) : (
               <StatesPage onMessage={(text) => message.info(text)} />
             )}
@@ -438,7 +459,7 @@ function MappingsPage({ dataSource, search }: { dataSource: ComponentMapping[]; 
             {search ? `“${search}”匹配 ${dataSource.length} 项` : `当前映射 ${dataSource.length} 项`}
           </Typography.Text>
           <Space wrap size={4}>
-            {!search && <Tag color="cyan">MES 基线：49 个通用组件文件</Tag>}
+            {!search && <Tag color="cyan">MES Web：4 个通用源文件已适配</Tag>}
             <Tag color="success">ADAPTED：Sunxu Web</Tag>
             <Tag color="processing">UPSTREAM：AntD / Pro</Tag>
             <Tag color="gold">HOST：宿主</Tag>

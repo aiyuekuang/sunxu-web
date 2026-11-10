@@ -14,8 +14,9 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 
 | 场景 | MUST 使用 | 直接上游实现 / 禁止替代 |
 |---|---|---|
-| 列表管理页 | `ListScreenContainer`；若有搜索筛选，工具须在 `toolbar` 内 | 表格按复杂度用 ProTable 或 AntD Table；不得把列表操作单独放在远离结果区的页头行 |
-| 列表筛选 | 轻量条件组合用 `FilterBar`；复杂查询表单用 Pro Components `QueryFilter` | 不自绘平行筛选工具栏；筛选值、查询和请求仍由宿主管理 |
+| CRUD 列表工作台 | `CrudListWorkbench`；字段、请求、权限和编辑流程由宿主提供 | ProTable 列能表达的查询字段优先用 `proTableSearch` 和列 schema；外部业务控件用工作台筛选插槽，不复制 ProTable 查询表单 |
+| 特殊或只读列表 | `ListScreenContainer`；若有筛选，工具须在结果区紧邻 `toolbar` 内 | 表格按场景用 ProTable 或 AntD Table；不得把列表操作单独放在远置的页头行 |
+| 列表筛选 | `CrudListWorkbench` 组合 ProTable 原生查询表单、`FilterBar` 轻筛选与可选高级筛选抽屉 | 少量外部快捷筛选默认同行展示；宽度不足时自动移入可展开区域。筛选值、查询和请求仍由宿主管理 |
 | 互斥状态筛选 | `StatusTabs` | 不用可导航的页面 Tab 冒充结果集合筛选；不在标签旁堆叠重复说明 |
 | 标准表单页 | `FormScreenContainer` | 字段用 AntD `Form.Item` 与 Input/Select/DatePicker 等上游控件；长表单不自制滚动和固定页脚骨架 |
 | 复杂表单 | `FormScreenContainer` + Pro Components `ProForm`（按场景选择） | 不在 Sunxu Web 复制 Form.Item、表单校验或字段控件 |

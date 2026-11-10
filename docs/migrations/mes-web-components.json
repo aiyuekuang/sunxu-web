@@ -1,0 +1,1381 @@
+{
+  "source_repository": "../mes-main/mes-admin",
+  "source_platform": "React Web / PC admin",
+  "source_branch": "main-买断版本",
+  "source_commit": "133e8673e92c24119024f9b4fbcfe2ce5247bf79",
+  "source_worktree": "dirty at audit time; only blobs read from the pinned committed tree",
+  "source_worktree_modified_file_count": 26,
+  "source_scope": "All tracked files under src/components/**; page-local src/pages/**/components/** excluded by shared-library boundary.",
+  "source_file_count": 193,
+  "source_runtime_implementation_file_count": 145,
+  "public_barrel": "src/components/index.ts",
+  "target_repository": ".",
+  "target_platform": "React Web / PC shared component library",
+  "target_architecture": "React 19 + Ant Design 6 + Ant Design Pro Components 3 beta",
+  "disposition_counts": {
+    "ADAPTED": 4,
+    "DEFERRED": 1,
+    "HOST": 34,
+    "MES_DOMAIN": 89,
+    "REFERENCE_ONLY": 1,
+    "REFERENCE_TEST": 3,
+    "SOURCE_STYLE": 3,
+    "SOURCE_TEST": 42,
+    "TARGET_EXISTING": 4,
+    "UPSTREAM": 12
+  },
+  "scope_decision": "Adapt generic Web interactions only; do not import MES pages, domain fields, API requests, permission codes, or app integrations.",
+  "files": [
+    {
+      "source": "src/components/AccessFirstRedirect.tsx",
+      "source_sha256": "50401438470a29e31a59c8365871d558ee840854619ec4490ee5bec6f341610b",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Application integration or business content; not a cross-project UI contract."
+    },
+    {
+      "source": "src/components/AnnouncementBanner/index.tsx",
+      "source_sha256": "b721ea72b361fa04477c7ac265b24f4a64b7d0574778f99fbd773f0a00aef5dc",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Announcement content and display policy belong to the host application."
+    },
+    {
+      "source": "src/components/ApprovalPanel/index.tsx",
+      "source_sha256": "b7f2aa7c7f1fc4cc0e138c8d6ef12528b056836b5ef4dd7a9c5c08d1652b0c31",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Approval workflow and action states are business-specific."
+    },
+    {
+      "source": "src/components/ContextualHelp/index.test.tsx",
+      "source_sha256": "5a4aeb418839ea5aebc2074e0aaa9a173fd5875544b92493e1154c15ee372dd3",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/ContextualHelp/index.tsx",
+      "source_sha256": "b37ea3cc1d609cb6f1368194ec68636e97bba8d4535ef02df8c80e7f6ca1f1d2",
+      "disposition": "UPSTREAM",
+      "target": "Ant Design Tooltip / Popover",
+      "decision": "Context and help content remain page-provided."
+    },
+    {
+      "source": "src/components/CustomFields/CustomFieldValuePanel.tsx",
+      "source_sha256": "88bd1f88da07fa34677d0b34555ff878021a6d9626eb595b7d536c12f6a112e1",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/CustomFields/DocumentCustomFieldPanel.test.tsx",
+      "source_sha256": "4008020941cb80a5da1d0d6cbed4f7d1bef056e0fab203a3019d800ef0561583",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/CustomFields/DocumentCustomFieldPanel.tsx",
+      "source_sha256": "6be436607a1f2bd81ae499d479e0b305c836f9da4d25f42f2b118e78e08e735b",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/CustomFields/customFieldCell.test.tsx",
+      "source_sha256": "99a064e5ea23fcd7a7208d39cfe2a3d2735208d519539c69eb12adec6513a491",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/CustomFields/customFieldCell.tsx",
+      "source_sha256": "93a1fca357fdbb33b1b050c65134bf80f760493bec715dc08f12ce873d94b3ef",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/CustomFields/documentCustomFieldCoverage.test.ts",
+      "source_sha256": "79f67a180c0b8bb865d8587e58fde2f9d36ac322417da6815803f0c70f87067a",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/CustomFields/documentLineCustomFieldColumns.test.ts",
+      "source_sha256": "5bfdb02ca72eafc51ea2bb892a64e53d6f09dd6b9da7d5b638b537456e9a7117",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/CustomFields/documentLineCustomFieldColumns.tsx",
+      "source_sha256": "0450b3e762ff2aa1f208ea0a52bc5e4d916256215f3fc2945e3df753fd55a86a",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/CustomFields/formatCustomFieldValue.ts",
+      "source_sha256": "5f64068e50f52d9aaccda7b6df29b5f9ebd3e0849b92ed9f683a12d8e8be7f58",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/CustomFields/materialCustomFieldColumns.ts",
+      "source_sha256": "42927f771951cc7ae426867d7d7daa0545c057514815348b5606589d4d2a48f0",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/CustomFields/useDocumentCustomFieldDetailVisibility.test.tsx",
+      "source_sha256": "a7eb0417aa6a4d50784e402134f3fbc65227c13255c1724e6727605210639140",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/CustomFields/useDocumentCustomFieldDetailVisibility.ts",
+      "source_sha256": "f8cba95cb4813e7cb33e5253cdc3f11c3a17960f3f2fdd035550af861ff4c958",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/HeaderDropdown/index.tsx",
+      "source_sha256": "5ffaa695b47173b30a07c268729f2e69c13b3b7dcb61bc39646d7ed90ac44aa6",
+      "disposition": "UPSTREAM",
+      "target": "Ant Design Dropdown",
+      "decision": "No second dropdown abstraction is added."
+    },
+    {
+      "source": "src/components/ImportModal/index.tsx",
+      "source_sha256": "a8e658532457e1c4649b310a1b2a6f16ff8ff4461e237a68b8d6be5c040dd181",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Import result contract includes MES-specific material/family counters and workflow copy."
+    },
+    {
+      "source": "src/components/ImportWorkbenchDrawer/index.tsx",
+      "source_sha256": "f8bc83e8b95e4fb60f333965d3db115d602147701f3f8010e1a7cc6595c6e5e5",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Workbench is bound to the MES import protocol and business result states."
+    },
+    {
+      "source": "src/components/LabelTemplates/BatchLabel.tsx",
+      "source_sha256": "d5e693e9d611fe3daf38cf7a45af87daaf3eb38bbaec123e3f8612caf7c7c7f7",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/LabelTemplates/EquipmentLabel.tsx",
+      "source_sha256": "755f8f833956bddf33fd2ba457c06b2a51d882c10bd3f1ff933a6632691a4c08",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/LabelTemplates/LabelLayout.tsx",
+      "source_sha256": "a73303ca90ed121bc0b1dc30d32cb69621dfc691798213963ea150e392315dd8",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/LabelTemplates/MaterialLabel.tsx",
+      "source_sha256": "1d3498ba67c3f4acff0cd79c45c31b7181821dcbc3a9dfada60526a3e61340ee",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/LabelTemplates/PackageUnitLabel.tsx",
+      "source_sha256": "9a549f85889b49c1714479a5c07d27365f6dfdc51093c83bcc1e86fcd970e377",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/LabelTemplates/ToolingLabel.tsx",
+      "source_sha256": "96620411748b4884bdc2b4dda2341bb6adcfda63ab285f3256bcedd6a856b48c",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/LabelTemplates/WorkOrderLabel.tsx",
+      "source_sha256": "a8156a40e335b2d249954036725ad61596dab51e073c3f69e7f75cd4bab2e08a",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/LabelTemplates/index.ts",
+      "source_sha256": "fad1da8809156b457b497e73182f99cbb999a1f6f6e00e93059edeb9414f84ae",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/LabelTemplates/label-styles.ts",
+      "source_sha256": "7ac056c3c7e7c0e3336b0a2df844e6f83289e371227b37097422e69579265b2a",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/LabelTemplates/useLabelPrint.ts",
+      "source_sha256": "ca9ed3d2bd0393354d36c556260c66dfe90c012d26594c5fe8b7feba7aac3ead",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/DeliveryNoteDotMatrixPrint.tsx",
+      "source_sha256": "42e6c861c87a0a6165b82bf88a667f58ccca9c980d65f4a0088974431c0ae974",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/DeliveryNotePrint.tsx",
+      "source_sha256": "6e02be2c17e0fb53846ebc303dec8d77537fd82eb156f5d792fd2fc77d81c8c0",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/DotMatrixLayout.tsx",
+      "source_sha256": "3ac930cdef55cb9f479d4f526e8f505fab52e50a78d469d9342ec16a2b036a4e",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/InspectionReportPrint.tsx",
+      "source_sha256": "9c563bcd4670714527e423506c61f5d7460a7c43fbb86e11761c54d73d529156",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/MaterialIssuePrint.tsx",
+      "source_sha256": "34ef75362ec78d52f4f94a30d263f7902069c08255a823a3b8717a6a8690fcc2",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/PrintLayout.tsx",
+      "source_sha256": "f0b5dcb9514137723395d0d6f0ba5096f66f482a9ad78e75a3ebfd3bb252ca47",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/ProcessCardPrint.tsx",
+      "source_sha256": "f5a12c5758e88f12193a7effc822914f5b737bbf07b1152511d3569d1ac88851",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/PurchaseOrderDotMatrixPrint.tsx",
+      "source_sha256": "0f886e4e181f4c5c955a5a2f1e40cf2145933569607965358a5ac59aeffeea63",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/PurchaseOrderPrint.tsx",
+      "source_sha256": "574dde3803b23ebb76be17344bf1f9c5a0340ab9c75fa60ab920c95b752107d7",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/PurchaseReceiptPrint.tsx",
+      "source_sha256": "a166abc997a5494937f4ce91c1a18ec336cdb43d1366f646b2ccb316ac7ad91f",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/SaleOrderPrint.tsx",
+      "source_sha256": "dde76dab345b3c96030d099dfe9a3b170f6d957dd85c3c37715f54f9c58107b7",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/WorkOrderPrint.tsx",
+      "source_sha256": "41e18326c4e714de5b5ae3e9c63962de38f8f7df89d719fe831ba44ff2efaca8",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/dotmatrix-styles.ts",
+      "source_sha256": "08601779ca24997c4190e37326065068cf3d6dc23c7e8ef23413f5a65c43925c",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/index.ts",
+      "source_sha256": "631fa44fda63e5dfd39f5e01f1b055336020de4f2e3710c79309a172222a5fb9",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/print-styles.ts",
+      "source_sha256": "1f9d8c8ecf1a426ab2314bdf19d297688d4c0e4de88c9b5cd8b32b233e2050a6",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/useDotMatrixPrint.ts",
+      "source_sha256": "1411500b33125a02bccc574ff8a9410a6d38e5c8aadec8fbe97e5be02df70ee8",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/PrintTemplates/usePrint.ts",
+      "source_sha256": "7a0b47880feb6a6bdc694291692944500289523d6e5d463ab20fc70c10dab4c7",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/ReportQuickRangeButtons/index.tsx",
+      "source_sha256": "199b4ee20e98cce721c05505e7c006e287f0458cada7c051bb21657083f00533",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Application integration or business content; not a cross-project UI contract."
+    },
+    {
+      "source": "src/components/RightContent/AiIntegrationEntry.tsx",
+      "source_sha256": "b1c3c3ec960674b1c94038c04b60f8060b629a570abba2088afd0902df6f235b",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/RightContent/AppDownloadQRCode.tsx",
+      "source_sha256": "5a116023dfbdd8dca9e80425a656f46588436615a9ece82a36975cdf803108f7",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/RightContent/AvatarDropdown.tsx",
+      "source_sha256": "6d6f0e6e2adbd5eff6d76ccf429a4b140be204941b215c177ec3bb486c911962",
+      "disposition": "HOST",
+      "target": "Ant Design Avatar / Dropdown",
+      "decision": "Header identity, menus, and navigation are host-owned."
+    },
+    {
+      "source": "src/components/RightContent/NotificationBell.tsx",
+      "source_sha256": "d9c70a2541c83aca5d43a3ad210a8975ad03774894ad35223d7657c364aba914",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/RightContent/SkinSwitcher.tsx",
+      "source_sha256": "6ecf0d6cbc02c68af5c349005744c2906508e2253533fdf7bff6673cbd67a372",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/RightContent/TodoBell.tsx",
+      "source_sha256": "9025b4afccbf81c9147a8f401ab8c599362c972d8d846a3b6007b5f605a35d8f",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/RightContent/UpdateNotesEntry.tsx",
+      "source_sha256": "0ec1b4e6e55e07db28913fec9858af7474c629fcc87a8aebe8d93398463c0db7",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/RightContent/UsageGuideEntry.tsx",
+      "source_sha256": "f4f5daee5629643a674c5b7677edae2801e9d5c04fe75f93638fde43ce138367",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/RightContent/index.tsx",
+      "source_sha256": "a01ce6b726f69b41db9061e3a9a7b6598fc0ce12cf424941329ab07e3b87e0b5",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Application header composition."
+    },
+    {
+      "source": "src/components/SendActionModal/SendAttachmentRow.tsx",
+      "source_sha256": "eb4a3598f067b95e220ba21c9b7f9b997ab367d2a81b3a0ce551db7e688257f4",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Attachment transport and permissions are host-owned."
+    },
+    {
+      "source": "src/components/SendActionModal/index.tsx",
+      "source_sha256": "1115697c795648b6702f90d7e3cc5afdf6014d6e40a4eb12c65a2d558bb18ecc",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Message transport and attachment policy are host-owned."
+    },
+    {
+      "source": "src/components/StatusTag/index.tsx",
+      "source_sha256": "1e0cfacd8d102dd83144cc6d284d93732e86b1450a820cd62145d70f48b0dcf0",
+      "disposition": "UPSTREAM",
+      "target": "Ant Design Tag",
+      "decision": "Status color and enum policy remain host-provided."
+    },
+    {
+      "source": "src/components/SupportWechatQRCode.tsx",
+      "source_sha256": "54c256f481143b93e72a34c6130e279fb134f51a14f92d703a50f78848813b6b",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Application integration or business content; not a cross-project UI contract."
+    },
+    {
+      "source": "src/components/TableActions/index.test.tsx",
+      "source_sha256": "202b798340b0f4f18b8bf6c1a96f94483b0361d4d5b8b986cacb02020a59027f",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/TableActions/index.tsx",
+      "source_sha256": "652bc88d2c82d4bc7147234d611dddb0216fa9becc0cca4b6df09f342db9c448",
+      "disposition": "UPSTREAM",
+      "target": "Ant Design Dropdown / Popconfirm",
+      "decision": "Menus and confirmations use upstream interaction semantics."
+    },
+    {
+      "source": "src/components/accounting/AccountingCrudPage.tsx",
+      "source_sha256": "9411317ddafab6e0b19dcad1bddfd50a27fc9e64079eef361bbcfb0134b48fc1",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/accounting/options.ts",
+      "source_sha256": "c87afba5ca8ad0373aaef6a214710ea43a206240218d5832fe254273b5dba74b",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/accounting/period-selection.test.ts",
+      "source_sha256": "f4220c0416e50d10ea70381cd7fe9b0db05ddfb1b48d7ce39283b848823b76d7",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/accounting/period-selection.ts",
+      "source_sha256": "4cf5e25bc81e3f5a4b54915e0d5644a1bce576244919d955eb50dba81f1ce6d4",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/accounting/selectors.test.tsx",
+      "source_sha256": "b1bbadf30ff695811c4a89cbec9bd44c6d1da4fddd9fc58b044cacd51db1d1e1",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/accounting/selectors.tsx",
+      "source_sha256": "17fb4b605cc1adc74fd043b75fc572a24177c5c3d73d81ba801db7cb267d577b",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/business-invoice/BusinessInvoiceCoverageCard.test.tsx",
+      "source_sha256": "22d6da0f989438ea9bde06fecd28ec8d130b8e9571dbfa3ad1749c4737484192",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/business-invoice/BusinessInvoiceCoverageCard.tsx",
+      "source_sha256": "ee57f8d31b3b22d6b20fe0647ff1aef17247ef853bef1914b1b21ca850c729df",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/common/QuickDateRangePicker.tsx",
+      "source_sha256": "830babaf8255b5e08a6c9f6610ae433f5e8761f8087c56fe3149ae09f70d4864",
+      "disposition": "UPSTREAM",
+      "target": "Ant Design RangePicker presets",
+      "decision": "Preset values and business date rules stay host-owned."
+    },
+    {
+      "source": "src/components/document-view/DetailLedgerFilterDrawer.tsx",
+      "source_sha256": "66e6987fc4294c884c10b96765f20296ae99bd64422326308fc8ceb67fa00095",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/document-view/DocumentFilterDrawer.less",
+      "source_sha256": "0ea06558518a6280ea50427a2ab213d8dca9cc169a2b2f61cd68a081fde64f64",
+      "disposition": "SOURCE_STYLE",
+      "target": null,
+      "decision": "Source styling is MES-app specific; the target uses its own semantic tokens and component styles."
+    },
+    {
+      "source": "src/components/document-view/DocumentFilterDrawer.test.tsx",
+      "source_sha256": "3ff1912b2b0c330d90668b4a84c90b4d2ef927de5afb2155b28b478c104ccb92",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/document-view/DocumentFilterDrawer.tsx",
+      "source_sha256": "2c8182b832fd0684653473167b59eb492aa97ed23c467589fe2c1e65bfbdf009",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/document-view/DocumentKeywordSearch.tsx",
+      "source_sha256": "65d7bb02e7252d399b6e27efd123a62672addd3dc7e37e8b5dad345b4449d91e",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/document-view/DocumentTableTitle.tsx",
+      "source_sha256": "1cc2538c0fdc37e005ea03b4dbce38e87fa72e8b99bb958931f8b08c3a33da7f",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/document-view/DocumentViewBar.test.tsx",
+      "source_sha256": "a773b3581988426327448712bfe9a84fb6a42790bc28da37789a3017f4bf1915",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/document-view/DocumentViewBar.tsx",
+      "source_sha256": "2bf0a16bf8e261fe9961b8f8c9b92de8e48f3093b0ae1af890e39982059a825c",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/document-view/DocumentViewSortModal.tsx",
+      "source_sha256": "baa11731acb1bd7fb86c813ef8e1f24bc0758e16e5a242c807c6902effc58484",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/enhanced/AllowedEquipmentPriorityField.tsx",
+      "source_sha256": "5f0b0857db9a88951789a1a13d3c4fea358d9f6636b3ea6a188a807358c8940c",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/AmountPolicySnapshotTag.tsx",
+      "source_sha256": "1ae47d1f65a5d7d216d360fe9bf606dfe38d120f292049f94cab2ae6256a9a4d",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/AmountText.tsx",
+      "source_sha256": "2b40429c773594fc20630a705da274c9a3661ec81bd530b942b01577f9435251",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/BatchMaterialAddButton.test.tsx",
+      "source_sha256": "9fe90782d6b7a91c89b53986e2ce1095eda395ad7a14724577decbdb513b2bb8",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/enhanced/BatchMaterialAddButton.tsx",
+      "source_sha256": "7b0273b573059aca491a8fc456bc62c5a74459156bdcd65d65e69446e2d6765f",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/BatchSuggestInput.tsx",
+      "source_sha256": "feec6260e3c6d66226a0c3979b08ec191c27c7774719a4bcd2bb73fcb4591461",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/DateText.tsx",
+      "source_sha256": "8eb19efa13fbe97343fc2353fc09b2d1bbe710b6d799e5be91b08ae05b67124f",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/DefaultRouteHint.tsx",
+      "source_sha256": "2a0f71459450b65056e09714e2c7b4a65d6ae52b8319f3e6d6f70b32e1e59f4d",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/ExportButton.tsx",
+      "source_sha256": "e17eb865cb9b8f494d8f2a4c3e0ab33f8d10030785f23e87f31c7c2b8e118280",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Uses Umi access, route-based table layout injection, and MES download utilities."
+    },
+    {
+      "source": "src/components/enhanced/ExportDropdownButton.tsx",
+      "source_sha256": "bd6b6f0836c050096ce46b6a57e9bd23b86d95ef91c0ca0d7b75cc667dcb5cf9",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Export policy and file action are provided by the host."
+    },
+    {
+      "source": "src/components/enhanced/MaterialFilteredSelect.test.tsx",
+      "source_sha256": "72c884f38e0ede3f3152623ec17368394dac80462e91a3eb038572768a87dd95",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/enhanced/MaterialFilteredSelect.tsx",
+      "source_sha256": "c426983f918dadb96526c3987d6dffb1663248b03b2bea1454483b1aeba805a5",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/MaterialTablePicker.less",
+      "source_sha256": "dde6645ca428f8a084f27a5bd863da84464bc1605a5b46c98c204fa224feb9ab",
+      "disposition": "SOURCE_STYLE",
+      "target": null,
+      "decision": "Source styling is MES-app specific; the target uses its own semantic tokens and component styles."
+    },
+    {
+      "source": "src/components/enhanced/MaterialTablePicker.test.tsx",
+      "source_sha256": "a2b1c350045396444dee01eba263b626eb1c85e0f530a16daf0782c0de7efc00",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/enhanced/MaterialTablePicker.tsx",
+      "source_sha256": "49121eaa23adfc62a5ae2f6104b0a0e633dbf5a435fc10e12095f39cfa1d2a55",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/PermissionButton.test.tsx",
+      "source_sha256": "a53cc9b1296e15d0fd1aaf2aeb867275475d32deb46fc3482f8cc4592b9ce096",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/enhanced/PermissionButton.tsx",
+      "source_sha256": "1a09c91e531681fb8bf7598542c40eb139240da28bc80b652735e22f03139466",
+      "disposition": "HOST",
+      "target": "PermissionGuard",
+      "decision": "Authorization decisions stay in the host; target already accepts a precomputed permitted result."
+    },
+    {
+      "source": "src/components/enhanced/PermissionGate.tsx",
+      "source_sha256": "9d63efe5c28af8e0fec8f306a440c8583cd68b9a5cdbbecab8e09e243575fe89",
+      "disposition": "HOST",
+      "target": "PermissionGuard",
+      "decision": "Authorization decisions stay in the host; target already accepts a precomputed permitted result."
+    },
+    {
+      "source": "src/components/enhanced/ProductionBomSelect.tsx",
+      "source_sha256": "ea2cefe3e56e283450619d8144f17bbad1e9f0af5cd2b4849aba876e1e0a2d17",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/RemoteSelect.test.tsx",
+      "source_sha256": "fbb485e64735a73f40e7cfb85bcef783b9409f256b939da59975466d5540d8c3",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/enhanced/RemoteSelect.tsx",
+      "source_sha256": "579b5b953cca2709b182d5326475f49851dee45a5f502e921731b6909b3c63b2",
+      "disposition": "ADAPTED",
+      "target": "src/components/RemoteSelect.tsx",
+      "decision": "Ant Design Select with debounced server-side search and local filtering disabled."
+    },
+    {
+      "source": "src/components/enhanced/ScanAwareInput.tsx",
+      "source_sha256": "b3fdf34297af453aeadbc2a3fba3173c419cb3d955f4133b12804962f84b2a8f",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/StatusDisplay.tsx",
+      "source_sha256": "bac33276aca95e758b84d743da1b02ad037db9f17b71382f9d84aba0bbd08d67",
+      "disposition": "UPSTREAM",
+      "target": "Ant Design Tag / Badge",
+      "decision": "MES status enum utilities are not copied."
+    },
+    {
+      "source": "src/components/enhanced/UserText.tsx",
+      "source_sha256": "4f42049c4fa2733b543ef3b98861779e30b786268ac31802236dd4bb13a5eef8",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/WarehouseRemoteSelect.tsx",
+      "source_sha256": "687f15675715db690ec4b8b2e811797750d51310ea8d569636fde90f178a9f55",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/enhanced/WorkOrderScanSelect.tsx",
+      "source_sha256": "b6c2379c14fa4fb61944a8ff035636ee8d12d0dd01fb253aa89d1f8fa150c089",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+    },
+    {
+      "source": "src/components/factories/createDetailPage.tsx",
+      "source_sha256": "4127523e72656f82e1f0ecf250e4ad55f6435bbcad152ac3bd7a8a39f17a7542",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/factories/createListPage.tsx",
+      "source_sha256": "2a2632dc90279c08bae81c837b278b3f52a5543d267b22213e15833ab0904810",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/factories/index.ts",
+      "source_sha256": "555dddae7f8ed27817a4d307765453269867068dc3c74b86910a5b588100e9af",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/forms/ConfigEntryFieldLabel.tsx",
+      "source_sha256": "85afc5294bd2d1fe8e1da7384be77985b12e22cfe23f898bc70cbb79f990f982",
+      "disposition": "HOST",
+      "target": "Ant Design / ProComponents form controls",
+      "decision": "Dictionary data and application form policy stay host-owned."
+    },
+    {
+      "source": "src/components/forms/ConfigurableProFormSelect.tsx",
+      "source_sha256": "ab0c9ec5f779e4564896676ddca2819be88981573763c51589792e274f375a2d",
+      "disposition": "HOST",
+      "target": "Ant Design / ProComponents form controls",
+      "decision": "Dictionary data and application form policy stay host-owned."
+    },
+    {
+      "source": "src/components/forms/DictionaryFormItem.tsx",
+      "source_sha256": "b297f9f1e6a52563fd57ce920f7cb369491d913fe110f6f8d81468d1544fa885",
+      "disposition": "HOST",
+      "target": "Ant Design / ProComponents form controls",
+      "decision": "Dictionary data and application form policy stay host-owned."
+    },
+    {
+      "source": "src/components/forms/DictionaryProFormSelect.tsx",
+      "source_sha256": "e2baa8c74e501187484237a50794aac589c3624e7dbd464034f3e97285050b6a",
+      "disposition": "HOST",
+      "target": "Ant Design / ProComponents form controls",
+      "decision": "Dictionary data and application form policy stay host-owned."
+    },
+    {
+      "source": "src/components/index.ts",
+      "source_sha256": "80d4554ac2bef110732f5d23b50c9c9579cb0b505daa57818000373124b0111f",
+      "disposition": "REFERENCE_ONLY",
+      "target": null,
+      "decision": "Inspected to identify MES Web public barrel exports; the target keeps its own package barrel and does not copy the MES barrel wholesale."
+    },
+    {
+      "source": "src/components/layout/BusinessSideNav.less",
+      "source_sha256": "fd6770e1d31b32ec16c521436cd4c16dd5b1020b2fa19c74d4d33b75ce0b74c3",
+      "disposition": "SOURCE_STYLE",
+      "target": null,
+      "decision": "Source styling is MES-app specific; the target uses its own semantic tokens and component styles."
+    },
+    {
+      "source": "src/components/layout/BusinessSideNav.test.tsx",
+      "source_sha256": "3ae5eed5e917d65f2ea90097fbbec1ba94f49a184d2467397f2836dc839a7e58",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/layout/BusinessSideNav.tsx",
+      "source_sha256": "65c25aff73a00c4d642d614c3ec0d9d3c25b612d8225037f20e571493d8a2a68",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/layout/KeepAliveTabs.test.tsx",
+      "source_sha256": "c258e7598322b79640f49e7a0c04a3862e6a2c553010924103c1ec267c46bdcc",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/layout/KeepAliveTabs.tsx",
+      "source_sha256": "30a626649d0104283820b064d65fd4abbfadabe0e3d08fb6e39288b5385feafa",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/layout/MenuSearch.tsx",
+      "source_sha256": "c53cb03b7fb80dd2c75262f3d3d34499ae91752572ade157ab2acdc7c8e7cd03",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/layout/menuNavigation.test.ts",
+      "source_sha256": "b4ba672d2dc44a8f6b720e86176ddbac9d0fd9d9fd73f925bec34758add8180c",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/layout/menuNavigation.ts",
+      "source_sha256": "87242d09114481ecef9e4b4fb4a26883c04e711e67f7c953094d2b38f73c6e1b",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/manuals/ManualMarkdown.tsx",
+      "source_sha256": "5b036aad3ac65e0307b2f9d4a0586d367e332c2df1d348f974631d8e9b2e1535",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/manuals/PageManualButton.tsx",
+      "source_sha256": "cbacbd15cdbaffdec90df89b327ccb8dc42864b8eb9f953f65b4aca761b90170",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/manuals/PageManualEntry.tsx",
+      "source_sha256": "9783412ebfc5bb0d2b34a0f09c039c898a7a3f53f114fea5d451d9d8a49bdab3",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    },
+    {
+      "source": "src/components/master-data/CustomerQuickCreateDrawer.tsx",
+      "source_sha256": "7cef4989aef55b5342d6d8b15e2d8b973d65fa949dce2b2b82a3397dddacbad2",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/master-data/MasterDataQuickCreateSelect.test.tsx",
+      "source_sha256": "97940dd7485a924b0a223d9ac39be5dcdc273efe9cacbd7f8ec459f7e4ba49b8",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/master-data/MasterDataQuickCreateSelect.tsx",
+      "source_sha256": "556c2170b2a525191d35e3af147094502ff69194c06ea3e14537117c561bf843",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/master-data/SupplierQuickCreateDrawer.tsx",
+      "source_sha256": "604dd2be3cb7344a423958bde5d82ce0991e12c272ad019c13321f6b4e385ccb",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/patterns/BatchSelectionSummary.tsx",
+      "source_sha256": "2ea0704af953006198a5f12080ed1d8cf334b51f5b1374ec4a3647fa693aeba6",
+      "disposition": "UPSTREAM",
+      "target": "ProTable rowSelection alert",
+      "decision": "Selection count and clearing belong to ProTable rowSelection."
+    },
+    {
+      "source": "src/components/patterns/BomCostSnapshotEditor.test.ts",
+      "source_sha256": "1da15dca5451835176f44e0efb8be27b24926abbcafe76afceeb37cc4a2bb4b3",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/BomCostSnapshotEditor.tsx",
+      "source_sha256": "d59d443b9e79d2b5e2d5573792a1fff3e61f713e7846d99464a4fa7e5cc54d82",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/CustomerMaterialCell.test.tsx",
+      "source_sha256": "b7325f2bfed89caf9b5b90dfc0d400198204363c2f1099006b279085da5e15dd",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/CustomerMaterialCell.tsx",
+      "source_sha256": "25567b0031de049c7615c0357eb34a4ef37038500d905f7db77c861b5bc4a1e2",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/DetailDocumentActions.test.tsx",
+      "source_sha256": "5728966dd94ec4812b842dff2e53abc1d3ba9b615ee1c49b786bb2416e6a9528",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/DetailDocumentActions.tsx",
+      "source_sha256": "e95c82c975f9fa48946b3506a5c2cdb303d6794afdb53af46c4a66eba9f9372f",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/DetailHeader.tsx",
+      "source_sha256": "090baef23bf6a422bdb2ec54ccc1fd97f949ad71e5d907e47680f23791ede7c8",
+      "disposition": "TARGET_EXISTING",
+      "target": "src/components/PageHeader.tsx",
+      "decision": "The page identity and action slots are covered by the target page header contract."
+    },
+    {
+      "source": "src/components/patterns/DetailLedgerDocumentActions.test.tsx",
+      "source_sha256": "22a420f2360120f8e28def2a35f5c491df2e2562b9cbf95da4a453096ef1f768",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/DetailLedgerDocumentActions.tsx",
+      "source_sha256": "f47ae743ba236f668b888d226a93c89e8e39c6efc6574bc5b5d6694a86208b3b",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/DetailTable.test.tsx",
+      "source_sha256": "547120d96e0234eb84346652b0ad7aa39baa769e090d9e2e5a34d76dd3b86d98",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/DetailTable.tsx",
+      "source_sha256": "1dc8796f10168950a1e64bff5ddc04459208b1387c956bff750abe64499d650a",
+      "disposition": "UPSTREAM",
+      "target": "Ant Design ProTable",
+      "decision": "Table layout, pagination, sort, and filters use the upstream public API."
+    },
+    {
+      "source": "src/components/patterns/DocumentActionIntent.tsx",
+      "source_sha256": "5e7f7b7e98050bf04dc651b3bd4592be02cbb8c70c88eb6a022c576d60f1ac3d",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/DocumentActionsDropdown.test.tsx",
+      "source_sha256": "d01eac50aa7c23953a8ba6c0ac0abd4d51b5bc75df1cd06abd9206a61112971c",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/DocumentActionsDropdown.tsx",
+      "source_sha256": "dcc06254abf74fbd40bb14d3cae2617544d36614c878ed276a7b131b351a8434",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/DocumentBomDrawer.tsx",
+      "source_sha256": "511d5608481521968537c8a01201d98f37b6177edee2cf9252016dc9aac49cd4",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/DocumentDetailLedgerTable.test.tsx",
+      "source_sha256": "bd9624db24b9113622a0e50e38c5945aff9c4d4434ca7ec90211532ec7222877",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/DocumentDetailLedgerTable.tsx",
+      "source_sha256": "98485b099b47cd00705c619fa91f49582bfb684e9e8094cd7dae5a692bf416e3",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/DocumentLedgerViewSwitch.tsx",
+      "source_sha256": "0dbd1f09044a721cb7e8eeb8bdfdb941b958b07200794cc45500ba0d1a620b50",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/DocumentLineBatchSettings.test.tsx",
+      "source_sha256": "3fe37061a697dfe33c59eb187756e0ee21f73e8e52568a387e9ba5661fbff5aa",
+      "disposition": "REFERENCE_TEST",
+      "target": null,
+      "decision": "Committed source tests were inspected as behavior evidence; target tests were not copied or run."
+    },
+    {
+      "source": "src/components/patterns/DocumentLineBatchSettings.tsx",
+      "source_sha256": "5315628d1200f24a51eb03d3baaa987d0eb21e05a8db218f5a6b0fe57dd8c83e",
+      "disposition": "ADAPTED",
+      "target": "src/components/BatchFieldSettingsButton.tsx",
+      "decision": "Generic opt-in batch field editor; migrated with explicit per-field selection and host-provided patch builders."
+    },
+    {
+      "source": "src/components/patterns/DocumentLineEditableTable.batch.test.tsx",
+      "source_sha256": "1df6ecfdee5ec6cfd949b4118e59aa0ccea0fa450c8dcf02be10d5dd9c504379",
+      "disposition": "REFERENCE_TEST",
+      "target": null,
+      "decision": "Committed source tests were inspected as behavior evidence; target tests were not copied or run."
+    },
+    {
+      "source": "src/components/patterns/DocumentLineEditableTable.test.tsx",
+      "source_sha256": "6ee106600b271114c9af20f150487d0ee8c0432cb91d06cfa309cf00eff622e8",
+      "disposition": "REFERENCE_TEST",
+      "target": null,
+      "decision": "Committed source tests were inspected as behavior evidence; target tests were not copied or run."
+    },
+    {
+      "source": "src/components/patterns/DocumentLineEditableTable.tsx",
+      "source_sha256": "be5b302b190c0aa5e726af10e10a70a1cb9c2ae074b554ca9749cca10e4f86ac",
+      "disposition": "ADAPTED",
+      "target": "src/components/EditableDetailTable.tsx",
+      "decision": "Generic editable detail rows; data, field schema, validation, and business effects stay host-owned."
+    },
+    {
+      "source": "src/components/patterns/DocumentModalForm.tsx",
+      "source_sha256": "2a84fe458fd46ca3d98ff6f0aa1ddadc7e98812e02baddf56469a42bbfff346d",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/DocumentViewLegacyRedirect.test.tsx",
+      "source_sha256": "8ba4402d3eea2cecccb6aebadfcf5b852330a954e60865c1407946e30daaba17",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/DocumentViewLegacyRedirect.tsx",
+      "source_sha256": "01c28b724126828140330331c1aba18283878dd279f6bb0033ea170465227f6d",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/DocumentViewSwitch.test.tsx",
+      "source_sha256": "e299427c12f23345fd19aa1e0e1f8cd46290a7803a04fa90f7a97659caa1eb21",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/DocumentViewSwitch.tsx",
+      "source_sha256": "c602098203ab2e29baf22b98dd4a8192ca58f1dad099339b7e91154bf7ccb2e7",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/DrawingFilesInline.tsx",
+      "source_sha256": "2b8b327bcf2ae427123ea8be852d9ba880ac50af4898572e3c67ed1655f68e0e",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/EntityThumbnail.test.tsx",
+      "source_sha256": "2ef86fb7cbe5f3b75a4f2aa9e55209bea8dee0603418e117c8dca26f9d46d48e",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/EntityThumbnail.tsx",
+      "source_sha256": "96b1369bdac70f43ebd296bbdd34c7f78c7d4ff97060c610cc00f6eaf07dc61e",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/FormDrawer.tsx",
+      "source_sha256": "251b3d9fe7185cd7a190dd5e05c3bf578835173b815f05368e3b754f745cccb8",
+      "disposition": "UPSTREAM",
+      "target": "ProComponents ModalForm / DrawerForm",
+      "decision": "Form lifecycle and overlay use Pro Components public components."
+    },
+    {
+      "source": "src/components/patterns/InfoCard.tsx",
+      "source_sha256": "a8f49535fa3216fb753988684696f0ff8f2fc9bb6f74fa8b92679f1e11541c44",
+      "disposition": "TARGET_EXISTING",
+      "target": "src/components/DetailCard.tsx / src/components/SectionCard.tsx",
+      "decision": "Information grouping is already covered by target card contracts."
+    },
+    {
+      "source": "src/components/patterns/OrderItemEditor.tsx",
+      "source_sha256": "b5f57b9c324d838c4dfd9ddf014afbcc750065056f02a6a807d03831f0a32be9",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Couples material, price, unit, quantity, custom fields, and MES document rules; only its generic row-edit/batch interaction was adapted."
+    },
+    {
+      "source": "src/components/patterns/PriceControlPrecheckButton.tsx",
+      "source_sha256": "1f066775de9291bfb3e6ad0040e1f925dcf230fd4995691e9014df1551423a37",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/ReasonActionModal.tsx",
+      "source_sha256": "3ba812062ca6f3ac6c097610edf545c52df2b58a9ae0a69c9cf29d44cb8fa172",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.compact-actions.test.tsx",
+      "source_sha256": "0a1e4e150dde5cc9e0595664a297f570e6d61d2f1edb49bde5d4f627fed03278",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.controlled-columns-state.test.tsx",
+      "source_sha256": "2606d6a3ab48508584334194753b19c7b5e852aabdf3edff4baa6d33f6c7fba7",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.fit-height.test.tsx",
+      "source_sha256": "23c11abcbf00ae0505d2d75d36b27dd8f34c5238f7c38fb5b21ffb360449339d",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.header.test.tsx",
+      "source_sha256": "76ed01b63533bf80b85798e8c016d54200087d34b1436add16b0263f1065e1b7",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.material-priority.test.tsx",
+      "source_sha256": "d92dcaa2e8f1139ae9b45457f9b3a08e80ce30633b55eab51f179be8886167f5",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.row-index.test.tsx",
+      "source_sha256": "f65489401c685999df13a2153fee7ea77aee643632e9c5db8a6f6c64b0fb3a48",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.search-host.test.tsx",
+      "source_sha256": "a1d9804db91ce4190ab156b3da6547c7bcbbc710df0aad8c05e014e88d95d95d",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.tsx",
+      "source_sha256": "483b367574afbc140dcc22078252c4bcf306ea3a35112a76e7ecb9872096afae",
+      "disposition": "DEFERRED",
+      "target": null,
+      "decision": "Adds table resizing, persistence, fit-height, and MES table policy; not imported into the initial Web library."
+    },
+    {
+      "source": "src/components/patterns/TableDensityOption.tsx",
+      "source_sha256": "68966d23a67dbfff15349463422a93ebb03918159b6fcb8d197cbed87838aff0",
+      "disposition": "UPSTREAM",
+      "target": "ProTable options",
+      "decision": "Density control is configured through the table options API."
+    },
+    {
+      "source": "src/components/patterns/TableEmpty.tsx",
+      "source_sha256": "3697a8974b99ee02d0cd600e3fe8c39a68b3ccbfc46f9701c650dacc7c2f62ed",
+      "disposition": "UPSTREAM",
+      "target": "Ant Design Empty / ProTable locale",
+      "decision": "Empty feedback is supplied through the upstream empty component."
+    },
+    {
+      "source": "src/components/patterns/TableExportLayoutBoundary.tsx",
+      "source_sha256": "eaa8b327b7a2812b6a9eb8c811fffb3f19ac9a8ff288a5a1420bb88d5954d272",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/patterns/TableLongText.tsx",
+      "source_sha256": "957d9ebf89e01ca19b01dc89f4ceacd075ea44e1121f4cd2db8a9be646add082",
+      "disposition": "ADAPTED",
+      "target": "src/components/LongText.tsx",
+      "decision": "Table cell truncation with an accessible action to inspect full text."
+    },
+    {
+      "source": "src/components/patterns/TabsPanel.tsx",
+      "source_sha256": "ab0beb637d8c87d021ab50c5a706608bcdd32d679a37e0a802564554c318712d",
+      "disposition": "UPSTREAM",
+      "target": "Ant Design Tabs / ProCard",
+      "decision": "Tab and panel semantics are covered by upstream components."
+    },
+    {
+      "source": "src/components/patterns/document-modal-form-layout.test.tsx",
+      "source_sha256": "82905b41514adb5f0d31e712609683a87314eb0a6c7f35b6d6150aaab7200645",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/expanded-table-layout.test.ts",
+      "source_sha256": "01f08bd04b6aa2ce90936b0fd95757fc94e143b3492f5510677a7d4697d96565",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/materialColumnPriority.test.ts",
+      "source_sha256": "ef345620a77b88b6af881a46cdb7e34510b8efcc148eea7c0a85917cdce9017a",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/patterns/materialColumnPriority.ts",
+      "source_sha256": "633248509cb40815b217dcdc49c3a5b3c40a60b62f9a1a0a0d59515a5e173819",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+    },
+    {
+      "source": "src/components/print/options.ts",
+      "source_sha256": "64995c45a4af1f042a718ed8c7c24270eb9dcc8ab68fef53c75687c024f66016",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/print/usePrintJobAction.tsx",
+      "source_sha256": "b0c24ce0860b9fd85008511407ed678ddbbbe6b871b5b96a02c64805473cac80",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/purchase/GeneratePurchaseReceiptBatchNoButton.tsx",
+      "source_sha256": "19c0c2b53eb28a7e679e1cf7fad9030a584b5678f70b903e2ef0c338e1181433",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/purchase/MaterialSupplierPriceTiers.tsx",
+      "source_sha256": "81c7f988f5d53e8d00da25842d0aeb9067d74072805df3ba0547170ff7d27ed4",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/purchase/PurchaseReceiptCapacitySummary.tsx",
+      "source_sha256": "2f0a7c930e2a3bb186dbd8cfb40e9ce0d863422635a42a642adb235ed85ad001",
+      "disposition": "MES_DOMAIN",
+      "target": null,
+      "decision": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+    },
+    {
+      "source": "src/components/shells/DetailPageShell.tsx",
+      "source_sha256": "4fe11e42e4a5ec079ec7a3748e7eb2352529f3065ffd3aa4d203a91ca2cc7eb1",
+      "disposition": "TARGET_EXISTING",
+      "target": "src/components/PageContainers.tsx#DetailScreenContainer",
+      "decision": "Only the scrollable detail and footer structure is mapped."
+    },
+    {
+      "source": "src/components/shells/ListPageShell.tsx",
+      "source_sha256": "69590cd78e057a5e9b3f62220a353b293f4fca092111fa042ba038ec1448ac20",
+      "disposition": "TARGET_EXISTING",
+      "target": "src/components/PageContainers.tsx#ListScreenContainer",
+      "decision": "Only title/toolbar/result adjacency is mapped; request and route behavior stays host-owned."
+    },
+    {
+      "source": "src/components/shells/list-keyword-search.test.ts",
+      "source_sha256": "56e952fb4062aad8a0c6a1f73caf1b1ae80f740cf189379dd100f18a4cc5d67b",
+      "disposition": "SOURCE_TEST",
+      "target": null,
+      "decision": "Source test file inventoried; tests are not shipped in the target runtime package."
+    },
+    {
+      "source": "src/components/shells/list-keyword-search.ts",
+      "source_sha256": "4b0c8af53adc08eecf1031bb9e96e98dc414a6067a94087b032d80e13a4622cb",
+      "disposition": "HOST",
+      "target": null,
+      "decision": "Umi application shell, routing, navigation, or page factory behavior belongs to the host project."
+    }
+  ]
+}

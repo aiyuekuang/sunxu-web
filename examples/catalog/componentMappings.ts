@@ -8,6 +8,19 @@ export type ComponentMapping = {
 };
 
 export const componentMappings: ComponentMapping[] = [
+  { source: 'MES Web · DocumentLineEditableTable + DocumentLineBatchSettings', target: 'EditableDetailTable', status: 'ADAPTED', note: '明细数据、字段规则和联动由宿主提供；批量设置使用表格选中操作区。' },
+  { source: 'MES Web · RemoteSelect', target: 'RemoteSelect', status: 'ADAPTED', note: '保留 AntD Select 行为，服务端搜索关闭本地过滤并统一防抖。' },
+  { source: 'MES Web · TableLongText', target: 'LongText', status: 'ADAPTED', note: '表格长文本截断展示，完整内容通过当前页面弹层查看。' },
+  { source: 'MES Web · DocumentViewBar', target: 'SavedViewBar', status: 'ADAPTED', note: '适配视图切换、脏状态决策和视图管理交互；持久化与业务权限由宿主提供。' },
+  { source: 'MES Web · DocumentFilterDrawer', target: 'CrudListWorkbench.advancedFilters', status: 'ADAPTED', note: '复用筛选草稿抽屉和应用/重置/取消语义；字段及查询由宿主管理。' },
+  { source: '东健 CRM Web · 产品列表', target: 'CrudListWorkbench', status: 'ADAPTED', note: '组合主分类、状态分段、轻筛选、列表动作和 ProTable；CRM 字段与增删改由宿主管理。' },
+  { source: 'MES Web · patterns/DetailTable', target: 'AntD ProTable', status: 'UPSTREAM', note: '表格布局、筛选、分页和排序由 ProTable 原生 API 管理。' },
+  { source: 'MES Web · patterns/FormDrawer', target: 'ModalForm / DrawerForm', status: 'UPSTREAM', note: '表单和覆盖层生命周期使用 Pro Components 公开组件。' },
+  { source: 'MES Web · patterns/InfoCard', target: 'DetailCard / SectionCard', status: 'ADAPTED', note: '按信息组职责使用目标库已有容器。' },
+  { source: 'MES Web · patterns/ResizableTable', target: '—', status: 'DEFERRED', note: '列宽持久化和表格高度能力较重，待有跨项目需求时单独评估。' },
+  { source: 'MES Web · patterns/OrderItemEditor', target: '—', status: 'HOST', note: '物料、价格和数量联动属于 MES 单据宿主；通用行编辑能力由 EditableDetailTable 承接。' },
+  { source: 'MES Web · enhanced/ExportButton', target: '宿主导出回调 + AntD Button', status: 'HOST', note: '权限、下载策略和表格导出布局由宿主控制。' },
+  { source: 'MES Web · document-view/*', target: 'CrudListWorkbench + SavedViewBar', status: 'ADAPTED', note: '只适配筛选与视图交互模式；MES 单据字段、台账语义、权限、请求和持久化仍由宿主负责。' },
   { source: 'ActionButton', target: 'AntD Button', status: 'UPSTREAM', note: '使用 Ant Design 原生变体、加载和禁用状态。' },
   { source: 'ActionMenu', target: 'AntD Dropdown + Menu', status: 'UPSTREAM', note: '菜单行为和键盘状态由上游负责。' },
   { source: 'AppText', target: 'AntD Typography', status: 'UPSTREAM', note: '使用 Text、Title 和 Paragraph。' },
@@ -17,7 +30,6 @@ export const componentMappings: ComponentMapping[] = [
   { source: 'Badge', target: 'AntD Badge', status: 'UPSTREAM', note: '沿用上游语义和状态样式。' },
   { source: 'BottomActionBar / DetailActionBar', target: 'StickyActionBar', status: 'ADAPTED', note: 'Web 固定页尾操作区。' },
   { source: 'BottomSheet', target: 'AntD Drawer', status: 'UPSTREAM', note: '根据任务选 Drawer 或 Modal，不维护 RN 手势。' },
-  { source: 'BottomSheetContext', target: 'AntD Drawer / Modal controlled open + onCancel', status: 'UPSTREAM', note: '可见状态和关闭恢复由宿主受控。' },
   { source: 'ChartPanel', target: 'ChartPanel', status: 'ADAPTED', note: 'ProCard + 加载、空、错误插槽；图表引擎归宿主。' },
   { source: 'CheckboxField', target: 'AntD Checkbox + Form.Item', status: 'UPSTREAM', note: '表单校验和受控值由宿主 Form 管理。' },
   { source: 'ChipSelectField', target: 'AntD Select / Radio.Group', status: 'UPSTREAM', note: '按单选、多选语义选择原生控件。' },
@@ -76,5 +88,4 @@ export const componentMappings: ComponentMapping[] = [
   { source: 'TreePickerField', target: 'AntD TreeSelect', status: 'UPSTREAM', note: '树数据和选择限制由宿主提供。' },
   { source: 'SunxuProvider / theme colors / tokens', target: 'SunxuWebProvider + semantic tokens', status: 'ADAPTED', note: '保留品牌语义，改用 Web/CSS 和 AntD ConfigProvider。' },
   { source: 'date / format / dict-label-map utilities', target: '宿主领域工具', status: 'HOST', note: '日期、字典和格式口径需要业务契约，不自动并入 UI 核心。' },
-  { source: 'entity-picker-pagination', target: '宿主 options / request 回调', status: 'HOST', note: '候选数据请求与分页策略由宿主控制。' },
 ];

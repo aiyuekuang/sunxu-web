@@ -1,0 +1,542 @@
+{
+  "schema_version": 1,
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "route": "CatalogApp / 可编辑明细",
+        "state": "editable-table-desktop",
+        "workspace": "目录应用工作区（含导航）",
+        "content": "当前文档主内容区",
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-web-components-2026-11-10/editable-table-verified-1440x900.png",
+        "screenshot_sha256": "67c1280d374fa94ebd497de831dd67d5f7fa4cd2c9252577b1d432393c928e92",
+        "status": "PASS",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 1440,
+          "bottom": 900,
+          "width": 1440,
+          "height": 844
+        },
+        "content_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 900,
+          "width": 1216,
+          "height": 844
+        },
+        "relationship": "joined",
+        "required_sides": [],
+        "insets_px": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 224
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "Desktop content starts after the 224px navigation rail and spans the rest of the workspace.",
+          "source": "examples/catalog/CatalogApp.tsx and examples/catalog/catalog.css responsive workspace rules."
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Reviewed the full-page screenshot at the actual viewport and checked that the content rectangle remains inside the workspace rectangle.",
+          "exception": "The content intentionally shares top, right and bottom edges with the workspace; the desktop navigation rail occupies the 224px left inset, and the rail is hidden on mobile."
+        }
+      },
+      {
+        "route": "CatalogApp / 可编辑明细",
+        "state": "editable-table-mobile",
+        "workspace": "目录应用工作区（含导航）",
+        "content": "当前文档主内容区",
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-web-components-2026-11-10/editable-table-verified-375x812.png",
+        "screenshot_sha256": "0206a8eccbfb76d1f762ac04271227ac4d4fde287d7800ad865bea9e0ed7dfd2",
+        "status": "PASS",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 812,
+          "width": 375,
+          "height": 756
+        },
+        "content_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 812,
+          "width": 375,
+          "height": 756
+        },
+        "relationship": "joined",
+        "required_sides": [],
+        "insets_px": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "Mobile content uses the full workspace width after the header.",
+          "source": "examples/catalog/CatalogApp.tsx and examples/catalog/catalog.css responsive workspace rules."
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Reviewed the full-page screenshot at the actual viewport and checked that the content rectangle remains inside the workspace rectangle.",
+          "exception": "The content intentionally shares top, right and bottom edges with the workspace; the desktop navigation rail occupies the 224px left inset, and the rail is hidden on mobile."
+        }
+      },
+      {
+        "route": "CatalogApp / 选择与文本",
+        "state": "text-controls-desktop",
+        "workspace": "目录应用工作区（含导航）",
+        "content": "当前文档主内容区",
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-web-components-2026-11-10/text-controls-desktop-1440x900.png",
+        "screenshot_sha256": "2f8769e7b09fe5f9105f9ea0041f76895de6375261bc797fc6e6e1ebdf308544",
+        "status": "PASS",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 1440,
+          "bottom": 900,
+          "width": 1440,
+          "height": 844
+        },
+        "content_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 900,
+          "width": 1216,
+          "height": 844
+        },
+        "relationship": "joined",
+        "required_sides": [],
+        "insets_px": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 224
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "Desktop content starts after the 224px navigation rail and spans the rest of the workspace.",
+          "source": "examples/catalog/CatalogApp.tsx and examples/catalog/catalog.css responsive workspace rules."
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Reviewed the full-page screenshot at the actual viewport and checked that the content rectangle remains inside the workspace rectangle.",
+          "exception": "The content intentionally shares top, right and bottom edges with the workspace; the desktop navigation rail occupies the 224px left inset, and the rail is hidden on mobile."
+        }
+      },
+      {
+        "route": "CatalogApp / 选择与文本",
+        "state": "text-controls-mobile",
+        "workspace": "目录应用工作区（含导航）",
+        "content": "当前文档主内容区",
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-web-components-2026-11-10/text-controls-mobile-375x812.png",
+        "screenshot_sha256": "5c9bdd16129efcda58f067a7109b1877cb67856852012fd9d88843feae01bda7",
+        "status": "PASS",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 812,
+          "width": 375,
+          "height": 756
+        },
+        "content_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 812,
+          "width": 375,
+          "height": 756
+        },
+        "relationship": "joined",
+        "required_sides": [],
+        "insets_px": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 0
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "Mobile content uses the full workspace width after the header.",
+          "source": "examples/catalog/CatalogApp.tsx and examples/catalog/catalog.css responsive workspace rules."
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Reviewed the full-page screenshot at the actual viewport and checked that the content rectangle remains inside the workspace rectangle.",
+          "exception": "The content intentionally shares top, right and bottom edges with the workspace; the desktop navigation rail occupies the 224px left inset, and the rail is hidden on mobile."
+        }
+      }
+    ]
+  },
+  "seams": [
+    {
+      "route": "CatalogApp / 可编辑明细",
+      "state": "editable-table-desktop",
+      "previous": "页面标题区",
+      "next": "主要内容区",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/playwright-test-editable-detail-table.js and /tmp/playwright-test-text-controls.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-web-components-2026-11-10/editable-table-verified-1440x900.png",
+      "screenshot_sha256": "67c1280d374fa94ebd497de831dd67d5f7fa4cd2c9252577b1d432393c928e92",
+      "status": "PASS",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 532.421875,
+        "width": 1118,
+        "height": 312.140625
+      },
+      "gap_px": 20.0,
+      "expected": {
+        "kind": "token",
+        "value": "20px desktop page-heading margin and 16px mobile page-heading margin.",
+        "source": "examples/catalog/catalog.css:158 and the mobile override near line 496."
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Reviewed the actual-viewport screenshot at 100% and compared the painted boundary with the recorded DOM gap.",
+        "observed_clear_band_px": 20.0
+      }
+    },
+    {
+      "route": "CatalogApp / 可编辑明细",
+      "state": "editable-table-mobile",
+      "previous": "页面标题区",
+      "next": "主要内容区",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/playwright-test-editable-detail-table.js and /tmp/playwright-test-text-controls.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-web-components-2026-11-10/editable-table-verified-375x812.png",
+      "screenshot_sha256": "0206a8eccbfb76d1f762ac04271227ac4d4fde287d7800ad865bea9e0ed7dfd2",
+      "status": "PASS",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 33,
+        "top": 89,
+        "right": 342,
+        "bottom": 240.28125,
+        "width": 309,
+        "height": 151.28125
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 256.28125,
+        "right": 342,
+        "bottom": 614.421875,
+        "width": 309,
+        "height": 358.140625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "token",
+        "value": "20px desktop page-heading margin and 16px mobile page-heading margin.",
+        "source": "examples/catalog/catalog.css:158 and the mobile override near line 496."
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Reviewed the actual-viewport screenshot at 100% and compared the painted boundary with the recorded DOM gap.",
+        "observed_clear_band_px": 16.0
+      }
+    },
+    {
+      "route": "CatalogApp / 选择与文本",
+      "state": "text-controls-desktop",
+      "previous": "页面标题区",
+      "next": "主要内容区",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/playwright-test-editable-detail-table.js and /tmp/playwright-test-text-controls.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-web-components-2026-11-10/text-controls-desktop-1440x900.png",
+      "screenshot_sha256": "2f8769e7b09fe5f9105f9ea0041f76895de6375261bc797fc6e6e1ebdf308544",
+      "status": "PASS",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 440.421875,
+        "width": 1118,
+        "height": 220.140625
+      },
+      "gap_px": 20.0,
+      "expected": {
+        "kind": "token",
+        "value": "20px desktop page-heading margin and 16px mobile page-heading margin.",
+        "source": "examples/catalog/catalog.css:158 and the mobile override near line 496."
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Reviewed the actual-viewport screenshot at 100% and compared the painted boundary with the recorded DOM gap.",
+        "observed_clear_band_px": 20.0
+      }
+    },
+    {
+      "route": "CatalogApp / 选择与文本",
+      "state": "text-controls-mobile",
+      "previous": "页面标题区",
+      "next": "主要内容区",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/playwright-test-editable-detail-table.js and /tmp/playwright-test-text-controls.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-web-components-2026-11-10/text-controls-mobile-375x812.png",
+      "screenshot_sha256": "5c9bdd16129efcda58f067a7109b1877cb67856852012fd9d88843feae01bda7",
+      "status": "PASS",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 33,
+        "top": 89,
+        "right": 342,
+        "bottom": 218.28125,
+        "width": 309,
+        "height": 129.28125
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 234.28125,
+        "right": 342,
+        "bottom": 702.5625,
+        "width": 309,
+        "height": 468.28125
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "token",
+        "value": "20px desktop page-heading margin and 16px mobile page-heading margin.",
+        "source": "examples/catalog/catalog.css:158 and the mobile override near line 496."
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Reviewed the actual-viewport screenshot at 100% and compared the painted boundary with the recorded DOM gap.",
+        "observed_clear_band_px": 16.0
+      }
+    },
+    {
+      "route": "CatalogApp / 选择与文本",
+      "state": "text-controls-desktop",
+      "previous": "远程候选搜索卡片",
+      "next": "长文本单元格卡片",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/playwright-test-editable-detail-table.js and /tmp/playwright-test-text-controls.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-web-components-2026-11-10/text-controls-desktop-1440x900.png",
+      "screenshot_sha256": "2f8769e7b09fe5f9105f9ea0041f76895de6375261bc797fc6e6e1ebdf308544",
+      "status": "PASS",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 820,
+        "bottom": 360.421875,
+        "width": 547,
+        "height": 140.140625
+      },
+      "next_rect": {
+        "left": 832,
+        "top": 220.28125,
+        "right": 1379,
+        "bottom": 440.421875,
+        "width": 547,
+        "height": 220.140625
+      },
+      "gap_px": 12,
+      "expected": {
+        "kind": "token",
+        "value": "12px horizontal and vertical Row gutter between the example cards.",
+        "source": "examples/catalog/TextControlsPage.tsx:48-75, Row gutter={[12, 12]}."
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Reviewed the actual-viewport screenshot at 100% and compared the painted boundary with the recorded DOM gap.",
+        "observed_clear_band_px": 12
+      }
+    },
+    {
+      "route": "CatalogApp / 选择与文本",
+      "state": "text-controls-mobile",
+      "previous": "远程候选搜索卡片",
+      "next": "长文本单元格卡片",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/playwright-test-editable-detail-table.js and /tmp/playwright-test-text-controls.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-web-components-2026-11-10/text-controls-mobile-375x812.png",
+      "screenshot_sha256": "5c9bdd16129efcda58f067a7109b1877cb67856852012fd9d88843feae01bda7",
+      "status": "PASS",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 33,
+        "top": 234.28125,
+        "right": 330,
+        "bottom": 422.421875,
+        "width": 297,
+        "height": 188.140625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 434.421875,
+        "right": 330,
+        "bottom": 702.5625,
+        "width": 297,
+        "height": 268.140625
+      },
+      "gap_px": 12.0,
+      "expected": {
+        "kind": "token",
+        "value": "12px horizontal and vertical Row gutter between the example cards.",
+        "source": "examples/catalog/TextControlsPage.tsx:48-75, Row gutter={[12, 12]}."
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Reviewed the actual-viewport screenshot at 100% and compared the painted boundary with the recorded DOM gap.",
+        "observed_clear_band_px": 12.0
+      }
+    },
+    {
+      "route": "CatalogApp / 可编辑明细",
+      "state": "editable-table-desktop",
+      "previous": "明细表列表工具栏",
+      "next": "明细表结果区",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/playwright-test-editable-detail-table.js and /tmp/playwright-test-text-controls.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-web-components-2026-11-10/editable-table-verified-1440x900.png",
+      "screenshot_sha256": "67c1280d374fa94ebd497de831dd67d5f7fa4cd2c9252577b1d432393c928e92",
+      "status": "PASS",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 314,
+        "top": 277.421875,
+        "right": 1350,
+        "bottom": 345.421875,
+        "width": 1036,
+        "height": 68
+      },
+      "next_rect": {
+        "left": 314,
+        "top": 345.421875,
+        "right": 1350,
+        "bottom": 491.421875,
+        "width": 1036,
+        "height": 146
+      },
+      "gap_px": 0.0,
+      "expected": {
+        "kind": "contract",
+        "value": "List-level actions directly precede the result area.",
+        "source": "src/components/EditableDetailTable.tsx and Ant Design ProTable table layout."
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Reviewed the actual-viewport screenshot at 100% and compared the painted boundary with the recorded DOM gap.",
+        "exception": "The ProTable list toolbar and results area are adjacent regions within the same table surface; the measured gap is zero."
+      }
+    },
+    {
+      "route": "CatalogApp / 可编辑明细",
+      "state": "editable-table-mobile",
+      "previous": "明细表列表工具栏",
+      "next": "明细表结果区",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/playwright-test-editable-detail-table.js and /tmp/playwright-test-text-controls.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-web-components-2026-11-10/editable-table-verified-375x812.png",
+      "screenshot_sha256": "0206a8eccbfb76d1f762ac04271227ac4d4fde287d7800ad865bea9e0ed7dfd2",
+      "status": "PASS",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 74,
+        "top": 313.421875,
+        "right": 301,
+        "bottom": 397.421875,
+        "width": 227,
+        "height": 84
+      },
+      "next_rect": {
+        "left": 74,
+        "top": 397.421875,
+        "right": 301,
+        "bottom": 543.421875,
+        "width": 227,
+        "height": 146
+      },
+      "gap_px": 0.0,
+      "expected": {
+        "kind": "contract",
+        "value": "List-level actions directly precede the result area.",
+        "source": "src/components/EditableDetailTable.tsx and Ant Design ProTable table layout."
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Reviewed the actual-viewport screenshot at 100% and compared the painted boundary with the recorded DOM gap.",
+        "exception": "The ProTable list toolbar and results area are adjacent regions within the same table surface; the measured gap is zero."
+      }
+    }
+  ]
+}

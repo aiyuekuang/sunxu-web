@@ -8,7 +8,7 @@
 
 ## 安装与主题
 
-Sunxu Web 尚未发布到 npm。发布后，宿主应用按当前组合安装组件库及其 peer dependencies：
+宿主应用安装组件库及其 peer dependencies：
 
 ```bash
 npm install sunxu-web antd@^6.7.0 @ant-design/pro-components@3.1.15-9 @ant-design/icons@^6.3.4

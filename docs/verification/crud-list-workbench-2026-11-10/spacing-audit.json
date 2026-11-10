@@ -1,0 +1,415 @@
+{
+  "schema_version": 1,
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "route": "CatalogApp / CRUD 列表工作台",
+        "state": "category-desktop",
+        "workspace": "CatalogApp 工作区（含目录导航）",
+        "content": "CRUD 列表工作台主内容",
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-2026-11-10/category-desktop-1440x1000.png",
+        "screenshot_sha256": "120650b85a80d5647b3848b21a926171ed0c87fea513913582cc403a7a83914d",
+        "status": "PASS",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 1440,
+          "bottom": 1000,
+          "width": 1440,
+          "height": 944
+        },
+        "content_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 1000,
+          "width": 1216,
+          "height": 944
+        },
+        "relationship": "joined",
+        "required_sides": [],
+        "insets_px": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0,
+          "left": 224
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "Desktop content follows the 224px navigation rail; mobile navigation is drawer-based and content uses the full 390px width.",
+          "source": "examples/catalog/CatalogApp.tsx and examples/catalog/catalog.css responsive workspace rules."
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Reviewed full-page screenshot at 100% and verified the content rectangle is contained within the workspace rectangle.",
+          "exception": "This is an intentionally joined app frame: on desktop the navigation rail occupies the 224px left inset while content shares the workspace top, right, and bottom; at 390px the navigation rail is hidden and content joins all workspace edges."
+        }
+      },
+      {
+        "route": "CatalogApp / CRUD 列表工作台",
+        "state": "complex-mobile-collapsed-filters",
+        "workspace": "CatalogApp 工作区（含目录导航）",
+        "content": "CRUD 列表工作台主内容",
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-2026-11-10/complex-mobile-390x844.png",
+        "screenshot_sha256": "7707300ba92f96fd1a9cc88e38521dc4357e8de704e6efc0be2d4bd3ed524288",
+        "status": "PASS",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 390,
+          "bottom": 1125.0625,
+          "width": 390,
+          "height": 1069.0625
+        },
+        "content_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 390,
+          "bottom": 1125.0625,
+          "width": 390,
+          "height": 1069.0625
+        },
+        "relationship": "joined",
+        "required_sides": [],
+        "insets_px": {
+          "top": 0,
+          "right": 0,
+          "bottom": 0.0,
+          "left": 0
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "Desktop content follows the 224px navigation rail; mobile navigation is drawer-based and content uses the full 390px width.",
+          "source": "examples/catalog/CatalogApp.tsx and examples/catalog/catalog.css responsive workspace rules."
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Reviewed full-page screenshot at 100% and verified the content rectangle is contained within the workspace rectangle.",
+          "exception": "This is an intentionally joined app frame: on desktop the navigation rail occupies the 224px left inset while content shares the workspace top, right, and bottom; at 390px the navigation rail is hidden and content joins all workspace edges."
+        }
+      }
+    ]
+  },
+  "seams": [
+    {
+      "route": "CatalogApp / CRUD 列表工作台",
+      "state": "category-desktop",
+      "previous": "分类与状态工具行",
+      "next": "筛选工具行",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/playwright-test-crud-list-workbench.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-2026-11-10/category-desktop-1440x1000.png",
+      "screenshot_sha256": "120650b85a80d5647b3848b21a926171ed0c87fea513913582cc403a7a83914d",
+      "status": "PASS",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 273,
+        "top": 382.421875,
+        "right": 1391,
+        "bottom": 420.421875,
+        "width": 1118,
+        "height": 38
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 428.421875,
+        "right": 1391,
+        "bottom": 464.421875,
+        "width": 1118,
+        "height": 36
+      },
+      "gap_px": 8.0,
+      "expected": {
+        "kind": "contract",
+        "value": "8px",
+        "source": "src/styles.css: .sxw-crud-list-workbench__toolbar uses an 8px grid gap."
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Reviewed the rendered screenshot at 100% and cross-checked the visible blank band against DOM getBoundingClientRect measurements.",
+        "observed_clear_band_px": 8
+      }
+    },
+    {
+      "route": "CatalogApp / CRUD 列表工作台",
+      "state": "category-desktop",
+      "previous": "筛选工具行",
+      "next": "结果区工具栏",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/playwright-test-crud-list-workbench.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-2026-11-10/category-desktop-1440x1000.png",
+      "screenshot_sha256": "120650b85a80d5647b3848b21a926171ed0c87fea513913582cc403a7a83914d",
+      "status": "PASS",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 273,
+        "top": 382.421875,
+        "right": 1391,
+        "bottom": 464.421875,
+        "width": 1118,
+        "height": 82
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 472.421875,
+        "right": 1391,
+        "bottom": 822.421875,
+        "width": 1118,
+        "height": 350
+      },
+      "gap_px": 8.0,
+      "expected": {
+        "kind": "contract",
+        "value": "8px",
+        "source": "src/styles.css: .sxw-list-screen uses 12px gap and .sxw-list-screen__toolbar offsets 4px, producing an 8px effective toolbar-to-results gap."
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Reviewed the rendered screenshot at 100% and cross-checked the visible blank band against DOM getBoundingClientRect measurements.",
+        "observed_clear_band_px": 8
+      }
+    },
+    {
+      "route": "CatalogApp / CRUD 列表工作台",
+      "state": "complex-mobile-collapsed-filters",
+      "previous": "分类与视图工具行",
+      "next": "移动筛选行",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/playwright-test-crud-list-workbench.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-2026-11-10/complex-mobile-390x844.png",
+      "screenshot_sha256": "7707300ba92f96fd1a9cc88e38521dc4357e8de704e6efc0be2d4bd3ed524288",
+      "status": "PASS",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 33,
+        "top": 508.421875,
+        "right": 357,
+        "bottom": 588.421875,
+        "width": 324,
+        "height": 80
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 596.421875,
+        "right": 357,
+        "bottom": 676.421875,
+        "width": 324,
+        "height": 80
+      },
+      "gap_px": 8.0,
+      "expected": {
+        "kind": "contract",
+        "value": "8px",
+        "source": "src/styles.css: .sxw-crud-list-workbench__toolbar uses an 8px grid gap at narrow widths."
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Reviewed the rendered screenshot at 100% and cross-checked the visible blank band against DOM getBoundingClientRect measurements.",
+        "observed_clear_band_px": 8
+      }
+    },
+    {
+      "route": "CatalogApp / CRUD 列表工作台",
+      "state": "complex-mobile-collapsed-filters",
+      "previous": "列表工具栏",
+      "next": "结果区工具栏",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/playwright-test-crud-list-workbench.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-2026-11-10/complex-mobile-390x844.png",
+      "screenshot_sha256": "7707300ba92f96fd1a9cc88e38521dc4357e8de704e6efc0be2d4bd3ed524288",
+      "status": "PASS",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 33,
+        "top": 418.421875,
+        "right": 357,
+        "bottom": 706.921875,
+        "width": 324,
+        "height": 288.5
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 714.921875,
+        "right": 357,
+        "bottom": 957.921875,
+        "width": 324,
+        "height": 243
+      },
+      "gap_px": 8.0,
+      "expected": {
+        "kind": "contract",
+        "value": "8px",
+        "source": "src/styles.css: .sxw-list-screen uses 12px gap and .sxw-list-screen__toolbar offsets 4px, producing an 8px effective toolbar-to-results gap."
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Reviewed the rendered screenshot at 100% and cross-checked the visible blank band against DOM getBoundingClientRect measurements.",
+        "observed_clear_band_px": 8
+      }
+    }
+  ],
+  "first_screen_composition_gate": {
+    "status": "PASS",
+    "route": "CatalogApp / CRUD 列表工作台",
+    "state": "category-desktop",
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "first_screen_task": "查看产品列表并按类别、状态和名称快速定位，再创建或维护产品。",
+    "visible_modules": [
+      {
+        "module": "场景预览",
+        "responsibility": "在目录中切换轻量、分类状态、复杂视图和 ProTable 原生查询示例。"
+      },
+      {
+        "module": "产品管理分类与状态入口",
+        "responsibility": "承载高频业务分类和状态过滤。"
+      },
+      {
+        "module": "搜索与常用筛选",
+        "responsibility": "按名称搜索并选择常用单位条件。"
+      },
+      {
+        "module": "列表操作与 ProTable 结果",
+        "responsibility": "创建产品、打开分类字典并完成行级编辑/删除。"
+      }
+    ],
+    "evidence": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-2026-11-10/category-desktop-1440x1000.png"
+  },
+  "render_summary": {
+    "route": "CatalogApp / CRUD 列表工作台",
+    "states": [
+      {
+        "name": "category-desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "document_horizontal_overflow": false,
+        "document_scroll_width": 1440,
+        "document_client_width": 1440
+      },
+      {
+        "name": "advanced-filter-open-desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "document_horizontal_overflow": false,
+        "document_scroll_width": 1440,
+        "document_client_width": 1440
+      },
+      {
+        "name": "advanced-filter-applied-desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "document_horizontal_overflow": false,
+        "document_scroll_width": 1440,
+        "document_client_width": 1440
+      },
+      {
+        "name": "complex-desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "document_horizontal_overflow": false,
+        "document_scroll_width": 1440,
+        "document_client_width": 1440
+      },
+      {
+        "name": "complex-facet-sidebar-desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "document_horizontal_overflow": false,
+        "document_scroll_width": 1440,
+        "document_client_width": 1440
+      },
+      {
+        "name": "complex-mobile-collapsed-filters",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "document_horizontal_overflow": false,
+        "document_scroll_width": 390,
+        "document_client_width": 390
+      },
+      {
+        "name": "complex-mobile-expanded-filters",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "document_horizontal_overflow": false,
+        "document_scroll_width": 390,
+        "document_client_width": 390
+      },
+      {
+        "name": "complex-facet-drawer-mobile",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "document_horizontal_overflow": false,
+        "document_scroll_width": 390,
+        "document_client_width": 390
+      },
+      {
+        "name": "protable-native-query-desktop",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "document_horizontal_overflow": false,
+        "document_scroll_width": 1440,
+        "document_client_width": 1440
+      }
+    ],
+    "page_errors": [],
+    "validated_interactions": [
+      "Advanced filter apply narrowed the result to CRM-P-000004.",
+      "Saved-view dirty-state decision dialog opened and continued editing.",
+      "Saved a host-owned demo view through SavedViewBar.",
+      "Selected a product facet in the desktop sidebar.",
+      "Responsive facet moved into a left drawer at 390px.",
+      "ProTable native QueryFilter rendered from column search schema."
+    ]
+  },
+  "unverified": [
+    "键盘全流程与屏幕阅读器",
+    "深色主题",
+    "中间断点与超窄视口",
+    "高级筛选和视图管理所有错误/加载状态"
+  ]
+}

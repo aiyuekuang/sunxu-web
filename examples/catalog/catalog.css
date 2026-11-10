@@ -198,6 +198,17 @@ body {
   gap: 16px;
 }
 
+.sxw-crud-workbench-example__form-row {
+  display: flex;
+  flex-wrap: wrap;
+  width: 100%;
+}
+
+.sxw-crud-workbench-example__scene-mobile {
+  display: none;
+  width: min(240px, 100%);
+}
+
 .sxw-docs-page-content > *,
 .sxw-docs-page-content .ant-pro-card,
 .sxw-docs-page-content .ant-pro-card-body,
@@ -429,6 +440,27 @@ body {
 }
 
 @media (max-width: 767px) {
+  .sxw-text-controls__remote .ant-pro-core-label-tip,
+  .sxw-text-controls__long-text .ant-pro-core-label-tip {
+    align-items: flex-start;
+    flex-direction: column;
+    gap: 4px;
+    min-width: 0;
+  }
+
+  .sxw-text-controls__remote .ant-pro-core-label-tip-subtitle,
+  .sxw-text-controls__long-text .ant-pro-core-label-tip-subtitle {
+    white-space: normal;
+  }
+
+  .sxw-crud-workbench-example__scene-desktop {
+    display: none;
+  }
+
+  .sxw-crud-workbench-example__scene-mobile {
+    display: inline-flex;
+  }
+
   .sxw-docs-header {
     gap: 8px;
     padding: 0 12px;

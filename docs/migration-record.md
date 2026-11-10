@@ -5,7 +5,7 @@
 - 目标：`https://github.com/aiyuekuang/sunxu-web.git`，本地路径 `../sunxu-web`；仓库克隆时为空。
 - 参考：相邻 `../sunxu` 项目，HEAD `9617250e05c7dbb9413fa81053c7730bbe31fdfc`。
 - 参考 Sunxu 工作区盘点时存在未提交变更；未从中直接复制运行时代码。映射依据为其现有公开导出、`README.md`、`docs/component-migration.md` 和主题 token 定义；Web 组件均按 Ant Design / Pro Components 重新实现。
-- MES 固定提交 `e92d02d7cf2269cf8c564a60ff6a00255e903c8e` 的 49 个通用组件文件纳入 Web 端映射；按 Web 契约适配或由 Ant Design / Pro Components 原生 API 承担，不复制 React Native 运行时代码。MES 页面、领域模块和宿主集成仍排除。
+- MES Web 管理端固定提交 `133e8673e92c24119024f9b4fbcfe2ce5247bf79` 的共享组件目录纳入盘点；按 Sunxu Web 契约适配或由 Ant Design / Pro Components 原生 API 承担。MES 页面、领域模块和宿主集成仍排除。
 
 ## 适配策略
 
@@ -26,10 +26,10 @@
 - 目录页展示的是契约示例和组件映射，不代表每个宿主页面已经接入。
 - 每个可见 wrapper 的最终视口截图、DOM 几何、键盘/读屏和主题验收在 `docs/verification/` 记录；没有记录的状态标 `UNVERIFIED`。
 
-## MES 基线组件库引入（2026-11-10）
+## MES Web 基线组件库引入（2026-11-10）
 
-- 来源仓库：`../mes-app`，分支 `main-买断版本`，固定提交 `e92d02d7cf2269cf8c564a60ff6a00255e903c8e`。来源盘点范围为 `src/components/**` 和 `src/screens/**/components/**`，共 393 个文件。
-- 范围决策：纳入这份基线清单中全部 49 个跨项目通用组件文件；其余 344 个页面私有、MES 领域或宿主集成文件不进入共享 Web UI runtime。逐文件状态、SHA-256、映射目标和排除理由记录在 [`docs/migrations/mes-components.json`](./migrations/mes-components.json)。
-- Web 侧处理：9 项由现有 `src/**` 公共语义组件承接；33 项使用 Ant Design / Pro Components 公开组件；6 项将浏览器相机、扫描、网络或上传状态留给宿主；`SwipeableRow` 作为触控专属交互暂缓，桌面结果行由宿主组合明确的可点击/键盘操作。
-- 选择依据：React Native 官方支持将复杂平台差异拆成平台专属实现；Ant Design 是其 React 组件库官方实现。因此保留同一用户职责与语义，用 Web 原生交互重新映射，不把 React Native 样式、手势或安全区 API 复制进 Web 包。[React Native 平台专属代码](https://reactnative.dev/docs/platform-specific-code)、[Ant Design 介绍](https://ant.design/docs/spec/introduce/)
-- 来源限制：当前工作区不存在 `../mes-app` checkout。本账本沿用 Sunxu 固定提交审计记录中的 393 项来源路径、哈希和筛选理由；本次按目标仓公开 API 与组件映射核对 Web 归属，没有重新读取 MES 原始实现。若要对每个原始组件行为做差异级核验，需要恢复该固定提交的只读 checkout；来源行为的逐项比较目前为 `UNVERIFIED`。
+- 正确来源是 Web 管理端仓库 `../mes-main/mes-admin`，分支 `main-买断版本`，固定提交 `133e8673e92c24119024f9b4fbcfe2ce5247bf79`；本次只从提交对象读取，未读取来源工作区中 26 个未提交文件的内容，也未修改来源仓库。
+- 盘点范围为来源 `src/components/**` 的全部 193 个跟踪文件：145 个运行时代码文件、45 个测试文件、3 个样式文件。页面私有组件和 App 组件均不在来源范围内。
+- 4 个可复用 Web 源文件适配为目标 API：`DocumentLineEditableTable` + `DocumentLineBatchSettings` → `EditableDetailTable` / `BatchFieldSettingsButton`；`RemoteSelect` → `RemoteSelect`；`TableLongText` → `LongText`。远程数据、行模型、字段校验、权限和业务联动由宿主提供。
+- 其余源码逐文件记录为目标已有契约、Ant Design / Pro Components 原生实现、宿主职责、MES 领域排除、待评估或来源测试/样式，见 [`docs/migrations/mes-web-components.json`](./migrations/mes-web-components.json)。该清单含固定提交中每个文件的 SHA-256。
+- 之前错误引用的 MES App 清单与截图已撤下；App 与这份 Web 共享组件迁移无直接关系。
