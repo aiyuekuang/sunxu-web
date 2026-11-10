@@ -32,6 +32,8 @@ export function App() {
 
 组件示例和 API 对照见 [`examples/catalog`](./examples/catalog)。唯一权威设计规范见 [`design-system/sunxu-web/MASTER.md`](./design-system/sunxu-web/MASTER.md)；[`docs/design-system.md`](./docs/design-system.md) 是规范导航页。组件 API、迁移映射和依赖版本分别以 [`docs/component-contracts.md`](./docs/component-contracts.md)、[`docs/component-inventory.md`](./docs/component-inventory.md) 和 [`docs/dependencies.md`](./docs/dependencies.md) 为准。
 
+列表、表单、详情等场景的必用组件、业务专用组件标记和消费端 ESLint 门禁见 [`docs/component-usage-policy.md`](./docs/component-usage-policy.md) 与 [`eslint-plugin-sunxu-web`](./tooling/eslint-plugin-sunxu-web/README.md)。
+
 ## 页面组合
 
 ```tsx

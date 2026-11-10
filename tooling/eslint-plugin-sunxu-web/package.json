@@ -1,0 +1,19 @@
+{
+  "name": "eslint-plugin-sunxu-web",
+  "version": "0.1.0",
+  "description": "ESLint rules for Sunxu Web component usage contracts",
+  "license": "MIT",
+  "type": "module",
+  "main": "./index.js",
+  "exports": {
+    ".": "./index.js"
+  },
+  "files": [
+    "index.js",
+    "README.md",
+    "LICENSE"
+  ],
+  "peerDependencies": {
+    "eslint": ">=8.57.0"
+  }
+}
