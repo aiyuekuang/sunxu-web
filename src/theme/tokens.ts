@@ -1,0 +1,55 @@
+export const SunxuWebTokens = {
+  spacing: {
+    none: 0,
+    xs: 4,
+    sm: 8,
+    md: 12,
+    base: 16,
+    lg: 20,
+    xl: 24,
+    '2xl': 32,
+    '3xl': 40,
+    '4xl': 48,
+  },
+  fontSize: {
+    xs: 11,
+    sm: 13,
+    base: 15,
+    md: 16,
+    lg: 18,
+    xl: 20,
+    '2xl': 24,
+    '3xl': 28,
+    '4xl': 32,
+    display: 48,
+  },
+  fontWeight: {
+    light: 300,
+    regular: 400,
+    medium: 500,
+    semibold: 600,
+    bold: 700,
+  },
+  radius: {
+    none: 0,
+    xs: 4,
+    sm: 6,
+    md: 10,
+    lg: 14,
+    xl: 18,
+    '2xl': 24,
+    full: 9999,
+  },
+  controlHeight: {
+    compact: 32,
+    standard: 36,
+    comfortable: 40,
+  },
+  motionDurationMs: {
+    fast: 150,
+    normal: 220,
+    slow: 300,
+  },
+} as const;
+
+export type SunxuSpacingToken = keyof typeof SunxuWebTokens.spacing;

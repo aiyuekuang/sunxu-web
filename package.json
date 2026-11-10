@@ -1,0 +1,56 @@
+{
+  "name": "sunxu-web",
+  "version": "0.1.0",
+  "private": false,
+  "description": "Shared React web components and page containers for Sunxu projects",
+  "license": "MIT",
+  "type": "module",
+  "main": "./dist/index.cjs",
+  "module": "./dist/index.js",
+  "types": "./dist/types/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE"
+  ],
+  "exports": {
+    ".": {
+      "types": "./dist/types/index.d.ts",
+      "import": "./dist/index.js",
+      "require": "./dist/index.cjs"
+    },
+    "./styles.css": {
+      "default": "./dist/sunxu-web.css"
+    }
+  },
+  "sideEffects": [
+    "**/*.css"
+  ],
+  "scripts": {
+    "dev": "vite --config vite.config.ts",
+    "typecheck": "tsc --noEmit",
+    "build:lib": "vite build --config vite.lib.config.ts && node -e \"require('node:fs').rmSync('dist/types', { recursive: true, force: true })\" && tsc -p tsconfig.build.json",
+    "build:catalog": "vite build --config vite.config.ts",
+    "build": "npm run build:lib && npm run build:catalog",
+    "preview": "vite preview --config vite.config.ts"
+  },
+  "peerDependencies": {
+    "@ant-design/pro-components": ">=3.1.15-9 <4.0.0",
+    "@ant-design/icons": "^6.3.4",
+    "antd": "^6.7.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@ant-design/icons": "6.3.4",
+    "@ant-design/pro-components": "3.1.15-9",
+    "@types/react": "19.3.0",
+    "@types/react-dom": "19.3.0",
+    "@vitejs/plugin-react": "6.3.0",
+    "antd": "6.7.0",
+    "react": "19.3.1",
+    "react-dom": "19.3.1",
+    "typescript": "7.0.2",
+    "vite": "8.3.7"
+  }
+}

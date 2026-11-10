@@ -1,0 +1,276 @@
+{
+  "result": "RENDERED",
+  "target": "http://127.0.0.1:4173/",
+  "title": "榫序 Web 组件目录",
+  "initialStatus": 200,
+  "desktopFrame": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "horizontalOverflow": false
+    },
+    "workspace": {
+      "left": 224,
+      "top": 56,
+      "right": 1440,
+      "bottom": 900,
+      "width": 1216,
+      "height": 844
+    },
+    "content": {
+      "left": 248,
+      "top": 80,
+      "right": 1416,
+      "bottom": 876,
+      "width": 1168,
+      "height": 796
+    },
+    "heading": {
+      "left": 273,
+      "top": 105,
+      "right": 1391,
+      "bottom": 200.28,
+      "width": 1118,
+      "height": 95.28
+    },
+    "pageContent": {
+      "left": 273,
+      "top": 220.28,
+      "right": 1391,
+      "bottom": 685.56,
+      "width": 1118,
+      "height": 465.28
+    },
+    "frameStyles": {
+      "workspaceBg": "rgb(245, 246, 248)",
+      "contentBg": "rgb(255, 255, 255)",
+      "padding": "24px"
+    }
+  },
+  "desktopList": {
+    "toolbar": {
+      "left": 290,
+      "top": 321.42,
+      "right": 1374,
+      "bottom": 357.42,
+      "width": 1084,
+      "height": 36
+    },
+    "results": {
+      "left": 290,
+      "top": 365.42,
+      "right": 1374,
+      "bottom": 550.42,
+      "width": 1084,
+      "height": 185
+    },
+    "heading": {
+      "left": 273,
+      "top": 105,
+      "right": 1391,
+      "bottom": 200.28,
+      "width": 1118,
+      "height": 95.28
+    },
+    "pageContent": {
+      "left": 273,
+      "top": 220.28,
+      "right": 1391,
+      "bottom": 961.56,
+      "width": 1118,
+      "height": 741.28
+    },
+    "rows": [
+      "编号\n\t\n示例任务\n\t\n状态\n\t\n组件契约",
+      "EX-001\t筛选与结果区\t进行中\t容器示例",
+      "EX-004\t受控状态切换\t进行中\t筛选示例"
+    ],
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "horizontalOverflow": false
+    }
+  },
+  "mobileFrame": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "horizontalOverflow": false
+    },
+    "workspace": {
+      "left": 0,
+      "top": 56,
+      "right": 375,
+      "bottom": 1118.56,
+      "width": 375,
+      "height": 1062.56
+    },
+    "content": {
+      "left": 16,
+      "top": 72,
+      "right": 359,
+      "bottom": 1102.56,
+      "width": 343,
+      "height": 1030.56
+    },
+    "frameStyles": {
+      "workspaceBg": "rgb(245, 246, 248)",
+      "contentBg": "rgb(255, 255, 255)",
+      "padding": "16px"
+    }
+  },
+  "formMetrics": {
+    "preview": {
+      "left": 50,
+      "top": 458.06,
+      "right": 325,
+      "bottom": 762.06,
+      "width": 275,
+      "height": 304
+    },
+    "form": {
+      "left": 50,
+      "top": 458.06,
+      "right": 325,
+      "bottom": 762.06,
+      "width": 275,
+      "height": 304
+    },
+    "scroll": {
+      "left": 62,
+      "top": 512.06,
+      "right": 313,
+      "bottom": 691.06,
+      "width": 251,
+      "height": 179
+    },
+    "footer": {
+      "left": 62,
+      "top": 701.06,
+      "right": 313,
+      "bottom": 750.06,
+      "width": 251,
+      "height": 49
+    },
+    "scrollState": {
+      "clientHeight": 179,
+      "scrollHeight": 180,
+      "overflowY": "auto"
+    },
+    "footerBackground": "rgb(255, 255, 255)"
+  },
+  "skipFocus": {
+    "className": "sxw-skip-link",
+    "label": "跳转到主要内容",
+    "rect": {
+      "left": 8,
+      "top": 8,
+      "right": 130,
+      "bottom": 46,
+      "width": 122,
+      "height": 38
+    }
+  },
+  "captures": [
+    {
+      "name": "overview-light-1440x900-final",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/catalog-ui-2026-11-10/overview-light-1440x900-final.png",
+      "fullPage": false,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "keyboard-skip-link-focused-1440x900",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/catalog-ui-2026-11-10/keyboard-skip-link-focused-1440x900.png",
+      "fullPage": false,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "containers-filtered-light-1440x900-final",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/catalog-ui-2026-11-10/containers-filtered-light-1440x900-final.png",
+      "fullPage": false,
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "containers-filtered-light-375x812-final",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/catalog-ui-2026-11-10/containers-filtered-light-375x812-final.png",
+      "fullPage": false,
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "containers-filtered-light-375x812-fullpage",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/catalog-ui-2026-11-10/containers-filtered-light-375x812-fullpage.png",
+      "fullPage": true,
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "form-preview-light-375x812",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/catalog-ui-2026-11-10/form-preview-light-375x812.png",
+      "fullPage": false,
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scrollY": 306.5
+    },
+    {
+      "name": "mobile-navigation-open-375x812-final",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/catalog-ui-2026-11-10/mobile-navigation-open-375x812-final.png",
+      "fullPage": false,
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scrollY": 306.5
+    },
+    {
+      "name": "containers-filtered-dark-375x812-final",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/catalog-ui-2026-11-10/containers-filtered-dark-375x812-final.png",
+      "fullPage": false,
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scrollY": 0
+    },
+    {
+      "name": "component-mappings-dark-375x812-final",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/catalog-ui-2026-11-10/component-mappings-dark-375x812-final.png",
+      "fullPage": false,
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scrollY": 0
+    }
+  ],
+  "pageErrors": [],
+  "consoleErrors": []
+}
