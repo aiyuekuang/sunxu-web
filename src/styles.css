@@ -279,6 +279,12 @@
   min-width: 180px;
 }
 
+.sxw-crud-list-workbench__search > * {
+  box-sizing: border-box;
+  min-width: 0;
+  max-width: 100%;
+}
+
 .sxw-crud-list-workbench__quick-filters {
   display: flex;
   width: max-content;
@@ -354,7 +360,8 @@
 
 .sxw-crud-list-workbench__facet {
   min-width: 0;
-  padding-inline-end: 16px;
+  min-height: 0;
+  overflow: auto;
   border-inline-end: 1px solid var(--sxw-border);
 }
 

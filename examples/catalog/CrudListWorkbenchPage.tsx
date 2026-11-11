@@ -480,6 +480,7 @@ export function CrudListWorkbenchPage() {
                   aria-label="搜索产品名称"
                   placeholder="产品名称"
                   allowClear
+                  style={{ width: '100%' }}
                   value={keywordDraft}
                   onChange={(event) => {
                     const keyword = event.target.value;
@@ -571,20 +572,22 @@ export function CrudListWorkbenchPage() {
         facetLabel="产品分类"
         facetSidebar={
           isComplex ? (
-            <Tree
-              aria-label="产品分类"
-              selectedKeys={snapshot.baseType === 'all' ? ['all'] : [snapshot.baseType]}
-              treeData={[
-                { title: '全部产品', key: 'all' },
-                { title: '原材料', key: 'raw' },
-                { title: '半成品', key: 'semi' },
-                { title: '成品', key: 'finished' },
-              ]}
-              onSelect={(keys) => {
-                const selected = String(keys[0] ?? 'all');
-                if (isProductCategory(selected)) updateSnapshot({ baseType: selected });
-              }}
-            />
+            <div className="sxw-crud-workbench-example__facet">
+              <Tree
+                aria-label="产品分类"
+                selectedKeys={snapshot.baseType === 'all' ? ['all'] : [snapshot.baseType]}
+                treeData={[
+                  { title: '全部产品', key: 'all' },
+                  { title: '原材料', key: 'raw' },
+                  { title: '半成品', key: 'semi' },
+                  { title: '成品', key: 'finished' },
+                ]}
+                onSelect={(keys) => {
+                  const selected = String(keys[0] ?? 'all');
+                  if (isProductCategory(selected)) updateSnapshot({ baseType: selected });
+                }}
+              />
+            </div>
           ) : undefined
         }
         renderTable={

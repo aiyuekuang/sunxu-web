@@ -204,6 +204,26 @@ body {
   width: 100%;
 }
 
+.sxw-crud-workbench-example__facet {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  min-width: 0;
+  min-height: 0;
+  flex-direction: column;
+  padding: 12px;
+  overflow: auto;
+  border: 1px solid var(--sxw-border);
+  border-radius: 8px;
+  background: var(--sxw-surface);
+}
+
+.sxw-crud-workbench-example__facet > .ant-tree {
+  min-height: 0;
+  flex: 1 1 auto;
+  overflow-y: auto;
+}
+
 .sxw-crud-workbench-example__scene-mobile {
   display: none;
   width: min(240px, 100%);

@@ -63,13 +63,15 @@
 - **表格适配插槽**：缺省直接渲染 ProTable；宿主需要可调整列宽等扩展时，可传 `renderTable` 接入宿主适配器。回调收到完整的 `tableProps`、工作台选定的 `search`、`options`，且 `headerTitle=false`、`toolBarRender=false`、`toolbar=undefined`。适配器只负责结果表格，不重复绘制列表标题、筛选和列表级操作；工作台仍拥有这些区域并将适配器放在结果区。`fill` 模式下工作台会测量结果区并把解析后的 `scroll.y` 放进 `tableProps.scroll`，适配器直接消费，不得再自行实现页面级高度测量或删除分页。
 - **状态/恢复**：高级筛选抽屉打开时由宿主字段控件持有草稿；“重置”只清草稿，“取消/关闭”调用 `onCancel` 保留已应用结果，“应用”调用宿主 `onApply`。返回 `false` 或抛错时抽屉保持打开，错误时显示可恢复提示。`open` 存在时为受控模式，宿主必须响应 `onOpenChange`；省略 `open` 时由工作台管理开关。加载、空、错误、分页、排序和行选择状态由 ProTable/宿主传入；**`fill` 模式下分页的可见位置和表体高度由工作台负责**，宿主不得再用页面级 `:has()` CSS 或外部高度测量控制表体。
 - **高度与分页契约**：`fill` 只用于单列表视口页。工作台根节点、results、layout 和 table 容器形成确定高度的 flex 链；工作台用 `ResizeObserver` + `MutationObserver` 测量表头、footer、分页和 ProTable 工具栏之外的可滚动高度，并作为 `scroll.y` 传给 ProTable。分页始终渲染在结果区底部且不参与收缩；表格体在内部滚动。长页面（多卡片、图表或多个列表）不得开启 `fill`，保持默认文档流由页面整体滚动。
-- **Facet**：`facetSidebar` 只用于高频层级导航。工作区有效宽度低于 `facetSidebarBreakpoint`（默认 1024px）时，同一内容移入左侧 Drawer；组件用 ResizeObserver 测量列表内宽，不用浏览器 viewport 猜测。
+- **Facet**：`facetSidebar` 只用于高频层级导航。工作区有效宽度低于 `facetSidebarBreakpoint`（默认 1024px）时，同一内容移入左侧 Drawer；组件用 ResizeObserver 测量列表内宽，不用浏览器 viewport 猜测。桌面侧栏与结果区由 16px grid gap 分隔，间距由工作台单独拥有，Facet 不再叠加末端留白；竖向填充布局中 Facet 受结果区高度约束，超出内容在 Facet 内滚动。侧栏卡片的边框、内边距和内容布局由宿主负责，子内容不得超出 Facet 轨道宽度。
 - **布局与响应式**：主分类 Tab 在左，状态 Segmented 与列表动作在右；少量外部快捷筛选与关键字在宽度允许时保持同一行。`responsiveQuickFilters` 默认启用，工作台测量实际容器和筛选控件宽度；宽度不足时将快捷筛选折叠到“展开筛选”区域，用户可展开查看并再次收起，空间恢复后自动回到单行。ProTable 原生查询表单按自身响应式 `span` / `defaultFormItemsNumber` / `defaultCollapsed` 规则处理；两种查询方式避免重复配置同一业务字段。内容不足 900px 时主操作换行；不足 767px 时筛选区纵向组织。ProTable 的横向滚动/列配置由 `tableProps` 公共 API 控制，不覆盖内部 class。
 - **状态筛选所有权**：分类由 `primaryTabs` 或 Facet 二选一；状态由 `statusFilters` 或宿主快捷条件二选一；不要在视图标签、快捷控件和抽屉重复同一字段。
 - **边界**：请求与 `params`、过滤值、表单/提交/删除、批量操作权限及失败语义由宿主提供。改变外部筛选应通过宿主 `tableProps.params` 或 `dataSource`；`onApply` 负责提交抽屉草稿。列/刷新等 ProTable options 默认关闭，仅在宿主明确传入时显示。`renderTable` 不接管筛选、页面工具栏或数据请求，宿主的表格扩展不得删减当前业务仍需的列、行选择、排序、分页或恢复路径。
 - **可访问性**：筛选区用 `FilterBar` 的 `role=search` 和必需名称；分类 Tab 与状态 Segmented 分别提供可读名称和选中态；筛选图标按钮有 `aria-label`，Tooltip 可键盘聚焦；Drawer/ProTable 原生键盘和焦点行为不被覆盖。Facets 用具名 `<aside>` / Drawer。
 - **间距与主题**：父级 `ListScreenContainer` 拥有页面内边距；工作台默认使用 `section` 根元素并只管工具组间距。应用外壳不提供 main landmark 时可显式传 `as="main"`。颜色使用 `--sxw-*` 语义变量，ProTable/AntD 控件几何遵循上游 token。
-- **证据**：`examples/catalog` 的 CRUD 列表工作台真实路由覆盖自定义筛选自动折叠、ProTable 原生查询和宿主表格适配插槽；结果见 `docs/verification/crud-list-workbench-2026-11-10/`。未覆盖的状态仍为 `UNVERIFIED`。
+- **证据**：`examples/catalog` 的 CRUD 列表工作台真实路由覆盖自定义筛选自动折叠、ProTable 原生查询和宿主表格适配插槽；原组合验收见 `docs/verification/crud-list-workbench-2026-11-10/`，Facet 间距与目录轨道几何见 `docs/verification/crud-list-workbench-spacing-2026-11-11/`。未覆盖的状态仍标为 `UNVERIFIED`。
+
+- **搜索插槽宽度**：桌面搜索区以 `320px` 为宽度基准、最小 `180px`；搜索控件根节点受插槽宽度约束，不得溢出。工作区窄于 `767px` 时筛选区改为纵向布局，搜索控件仍限于可用宽度。
 
 ### `SavedViewBar`
 
