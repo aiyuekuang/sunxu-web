@@ -1,7 +1,7 @@
 import { DownOutlined, FilterOutlined, UpOutlined } from '@ant-design/icons';
 import { Alert, Button, Drawer, Space, Tabs, Tag, Tooltip } from 'antd';
-import type { ReactNode } from 'react';
-import { useEffect, useId, useRef, useState } from 'react';
+import type { ReactNode, RefObject } from 'react';
+import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import { ProTable } from '@ant-design/pro-components';
 import type { ProTableProps } from '@ant-design/pro-components';
 import { FilterBar } from './FilterBar';
@@ -9,6 +9,8 @@ import { ListScreenContainer } from './PageContainers';
 import type { ListScreenContainerProps } from './PageContainers';
 import { StatusTabs } from './StatusTabs';
 import type { StatusTabsProps } from './StatusTabs';
+
+export type CrudListWorkbenchLayout = 'page' | 'embedded';
 
 export type CrudListPrimaryTab = {
   key: string;
@@ -101,8 +103,112 @@ export type CrudListWorkbenchProps<
   renderTable?: (props: CrudListWorkbenchTableRenderProps<T, Params>) => ReactNode;
   /** Automatically move inline quick filters into an expandable row when they do not fit. Defaults to true. */
   responsiveQuickFilters?: boolean;
+  /**
+   * `page` owns the workspace frame; `embedded` is a section inside another page,
+   * Tab panel, Drawer or card and must not add a second page inset.
+   */
+  layout?: CrudListWorkbenchLayout;
+  /**
+   * Fill the available parent height and keep the table header and pagination
+   * visible while the table body scrolls. Use it for single-list viewport pages.
+   */
+  fill?: boolean;
   tableProps: CrudListWorkbenchTableProps<T, Params>;
 };
+
+const TABLE_MIN_BODY_HEIGHT = 80;
+const DEFAULT_PAGINATION_SPACE = 64;
+const FILL_BOTTOM_GAP = 2;
+const useIsomorphicLayoutEffect =
+  typeof window === 'undefined' ? useEffect : useLayoutEffect;
+
+/**
+ * Measure the height the ProTable body may consume inside a filled workbench.
+ * The table toolbar, header, footer and pagination sit outside the scroll body,
+ * so the body height cannot be derived from the container height alone.
+ */
+const getFillTableBodyHeight = (
+  container: HTMLElement,
+  paginationEnabled: boolean,
+): number | undefined => {
+  const tableWrapper = container.querySelector<HTMLElement>('.ant-table-wrapper');
+  if (!tableWrapper || container.clientHeight <= 0) return undefined;
+
+  const containerRect = container.getBoundingClientRect();
+  const tableRect = tableWrapper.getBoundingClientRect();
+  const tableTop = Math.max(0, tableRect.top - containerRect.top);
+  const tableHead = container.querySelector<HTMLElement>('.ant-table-thead');
+  const tableFooter = container.querySelector<HTMLElement>('.ant-table-footer');
+  const pagination = container.querySelector<HTMLElement>('.ant-table-pagination');
+  const paginationSpace = pagination
+    ? Math.ceil(pagination.getBoundingClientRect().height) + 24
+    : paginationEnabled
+      ? DEFAULT_PAGINATION_SPACE
+      : 0;
+  const availableHeight =
+    container.clientHeight -
+    tableTop -
+    (tableHead ? Math.ceil(tableHead.getBoundingClientRect().height) : 0) -
+    (tableFooter ? Math.ceil(tableFooter.getBoundingClientRect().height) : 0) -
+    paginationSpace -
+    FILL_BOTTOM_GAP;
+
+  return Math.max(TABLE_MIN_BODY_HEIGHT, Math.floor(availableHeight));
+};
+
+/**
+ * Resolve the table body height for `fill` workbenches. The workbench owns this
+ * measurement so hosts do not need page-level `:has()` CSS or their own
+ * adaptive-height table wrapper. A host-provided `scroll.y` always wins.
+ */
+function useFillTableHeight(
+  enabled: boolean,
+  paginationEnabled: boolean,
+  hostScrollY: number | string | undefined,
+  containerRef: RefObject<HTMLDivElement | null>,
+) {
+  const [height, setHeight] = useState<number>();
+
+  useIsomorphicLayoutEffect(() => {
+    if (!enabled || hostScrollY !== undefined) {
+      setHeight(undefined);
+      return undefined;
+    }
+    const container = containerRef.current;
+    if (!container) return undefined;
+
+    let frame = 0;
+    const measure = () => {
+      frame = 0;
+      const nextHeight = getFillTableBodyHeight(container, paginationEnabled);
+      if (nextHeight === undefined) return;
+      setHeight((previous) => (previous === nextHeight ? previous : nextHeight));
+    };
+    const schedule = () => {
+      if (frame) cancelAnimationFrame(frame);
+      frame = requestAnimationFrame(measure);
+    };
+
+    const resizeObserver =
+      typeof ResizeObserver !== 'undefined' ? new ResizeObserver(schedule) : undefined;
+    const mutationObserver =
+      typeof MutationObserver !== 'undefined' ? new MutationObserver(schedule) : undefined;
+    resizeObserver?.observe(container);
+    mutationObserver?.observe(container, { childList: true, subtree: true });
+    window.addEventListener('resize', schedule);
+    measure();
+    schedule();
+
+    return () => {
+      if (frame) cancelAnimationFrame(frame);
+      resizeObserver?.disconnect();
+      mutationObserver?.disconnect();
+      window.removeEventListener('resize', schedule);
+    };
+  }, [containerRef, enabled, hostScrollY, paginationEnabled]);
+
+  return height;
+}
 
 /**
  * @sunxu-component shared
@@ -140,9 +246,12 @@ export function CrudListWorkbench<
   proTableSearch,
   renderTable,
   responsiveQuickFilters = true,
+  layout = 'page',
+  fill = false,
   tableProps,
 }: CrudListWorkbenchProps<T, Params>) {
   const layoutRef = useRef<HTMLDivElement>(null);
+  const tableContainerRef = useRef<HTMLDivElement>(null);
   const filterBarRef = useRef<HTMLDivElement>(null);
   const quickFiltersRef = useRef<HTMLDivElement>(null);
   const filterActionsRef = useRef<HTMLDivElement>(null);
@@ -157,6 +266,16 @@ export function CrudListWorkbench<
   );
   const [applyingFilters, setApplyingFilters] = useState(false);
   const [filterApplyError, setFilterApplyError] = useState(false);
+  const fillTableHeight = useFillTableHeight(
+    fill,
+    tableProps.pagination !== false,
+    tableProps.scroll?.y,
+    tableContainerRef,
+  );
+  const resolvedScroll =
+    fillTableHeight !== undefined && tableProps.scroll?.y === undefined
+      ? { ...(tableProps.scroll ?? {}), y: fillTableHeight }
+      : tableProps.scroll;
 
   const hasFacetSidebar = facetSidebar !== undefined && facetSidebar !== null;
   const hasQuickFilters = quickFilters !== undefined && quickFilters !== null;
@@ -416,19 +535,24 @@ export function CrudListWorkbench<
     toolBarRender: false,
     toolbar: undefined,
     options: tableProps.options ?? false,
+    scroll: resolvedScroll,
   };
 
   return (
     <>
       <ListScreenContainer
         as={as}
-        title={title}
+        title={layout === 'embedded' ? undefined : title}
         headingLevel={headingLevel}
-        description={description}
-        breadcrumbs={breadcrumbs}
+        description={layout === 'embedded' ? undefined : description}
+        breadcrumbs={layout === 'embedded' ? undefined : breadcrumbs}
+        frame={layout === 'embedded' ? 'none' : 'inherit'}
+        fill={fill}
         toolbar={listToolbar}
         className={[
           'sxw-crud-list-workbench',
+          layout === 'embedded' ? 'sxw-crud-list-workbench--embedded' : '',
+          fill ? 'sxw-crud-list-workbench--fill' : '',
           hasFacetSidebar && !compactFacet
             ? 'sxw-crud-list-workbench--with-facet'
             : '',
@@ -452,7 +576,7 @@ export function CrudListWorkbench<
               {facetSidebar}
             </aside>
           ) : null}
-          <div className="sxw-crud-list-workbench__table">
+          <div ref={tableContainerRef} className="sxw-crud-list-workbench__table">
             {renderTable ? (
               renderTable(renderTableProps)
             ) : (
@@ -463,6 +587,7 @@ export function CrudListWorkbench<
                 toolBarRender={false}
                 toolbar={undefined}
                 options={tableProps.options ?? false}
+                scroll={resolvedScroll}
               />
             )}
           </div>

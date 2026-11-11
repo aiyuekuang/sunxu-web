@@ -61,6 +61,9 @@
 - 最低 Web pointer target 24×24 CSS px；图标大小与按钮命中尺寸分离。
 - 圆角 `4 / 6 / 10 / 14px`；边线 1px；交互动效 `150 / 220 / 300ms`。
 - 父布局拥有组件间 gap，组件只拥有内部 padding。
+- 一个页面只能有一个工作区外框所有者：`SunxuWebProvider.workspaceFrame="container"` 时由 Sunxu 页面容器应用 `--sxw-workspace-gutter`（桌面 24 px / 窄屏 16 px）；`"host"` 时由宿主 shell 提供外框，页面容器不得再叠加内边距。
+- 页面内嵌列表使用 `layout="embedded"` / `frame="none"`，不重复页面外框和页头。
+- 单列表视口页使用 `fill`：表头和分页保持可见，表格体内部滚动；长页面不得开启 `fill`。
 - 工作区背景和内容面板分离时，边框或背景框在四侧都要保持可见；不要让面板隐去本应表达层级的背景。
 
 ## 页面结构

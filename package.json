@@ -1,6 +1,6 @@
 {
   "name": "sunxu-web",
-  "version": "0.3.0",
+  "version": "0.4.4",
   "private": false,
   "description": "Shared React web components and page containers for Sunxu projects",
   "license": "MIT",

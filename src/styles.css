@@ -39,8 +39,28 @@
   display: flex;
   min-height: 100%;
   flex-direction: column;
-  gap: 16px;
-  padding: 24px;
+  gap: var(--sxw-page-gap, 16px);
+  padding: var(--sxw-workspace-gutter, 24px);
+}
+
+/* The host shell already owns the workspace frame; never add a second inset. */
+.sxw-screen--frame-none {
+  padding: 0;
+}
+
+/*
+ * Viewport page contract: the screen owns a definite height, and its direct
+ * children may hand the remaining space to the result area.
+ */
+.sxw-screen--fill {
+  height: 100%;
+  min-height: 0;
+  flex: 1 1 0;
+  overflow: hidden;
+}
+
+.sxw-screen--fill > * {
+  min-height: 0;
 }
 
 .sxw-long-text__content.ant-typography {
@@ -88,7 +108,20 @@
 }
 
 .sxw-list-screen {
-  gap: 12px;
+  gap: var(--sxw-list-gap, 12px);
+}
+
+/*
+ * Filled list: the result area consumes the remaining height so a single-list
+ * workbench can keep its table header and pagination visible.
+ */
+.sxw-list-screen--fill .sxw-list-screen__results,
+.sxw-list-screen__results--fill {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow: hidden;
 }
 
 .sxw-list-screen__toolbar {
@@ -103,6 +136,64 @@
   container-name: sxw-crud-list;
   container-type: inline-size;
 }
+
+/* Embedded workbenches live inside a page, Tab panel or card and never own a page inset. */
+.sxw-crud-list-workbench--embedded {
+  min-height: 0;
+}
+
+/*
+ * Filled workbench contract: toolbar stays auto-height, the result area and table
+ * container consume the remaining height, and the table body scrolls while the
+ * header and pagination remain visible. The table body height is measured by
+ * the component and passed to ProTable as `scroll.y`.
+ */
+.sxw-crud-list-workbench--fill {
+  height: 100%;
+  min-height: 0;
+  flex: 1 1 0;
+  overflow: hidden;
+}
+
+.sxw-crud-list-workbench--fill .sxw-list-screen__toolbar,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__toolbar {
+  flex: 0 0 auto;
+}
+
+.sxw-crud-list-workbench--fill .sxw-list-screen__results {
+  display: flex;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+}
+
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__layout[data-facet-layout='none'] {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  align-items: stretch;
+}
+
+/* Facet layout keeps its sidebar column and gives the table the remaining row height. */
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__layout[data-facet-layout='sidebar'] {
+  min-height: 0;
+  flex: 1 1 auto;
+  align-items: stretch;
+  grid-template-rows: minmax(0, 1fr);
+}
+
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table {
+  display: flex;
+  min-width: 0;
+  width: 100%;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow: hidden;
+}
+
 
 .sxw-editable-detail-table__scroll-hint {
   display: block;
@@ -496,8 +587,8 @@
 
 @media (max-width: 767px) {
   .sxw-screen {
-    gap: 12px;
-    padding: 16px;
+    --sxw-workspace-gutter: 16px;
+    --sxw-page-gap: 12px;
   }
 
   .sxw-page-header__row,

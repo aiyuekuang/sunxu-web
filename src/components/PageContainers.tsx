@@ -1,5 +1,9 @@
 import type { CSSProperties, ReactNode } from 'react';
 import { PageHeader, type PageHeaderProps } from './PageHeader';
+import { useWorkspaceFrame } from '../theme/WorkspaceFrame';
+
+/** Who owns the workspace frame around a page. `inherit` follows the provider default. */
+export type ScreenFrame = 'inherit' | 'page' | 'none';
 
 export type ScreenContainerProps = {
   children: ReactNode;
@@ -7,6 +11,18 @@ export type ScreenContainerProps = {
   style?: CSSProperties;
   /** Use `section` when the application shell already provides the main landmark. */
   as?: 'main' | 'section';
+  /** `page` owns the workspace gutter; `none` assumes the host shell owns it. */
+  frame?: ScreenFrame;
+  /** Fill the parent height so descendants can consume the remaining space. */
+  fill?: boolean;
+};
+
+const resolveFrame = (
+  frame: ScreenFrame,
+  providerFrame: 'container' | 'host',
+): Exclude<ScreenFrame, 'inherit'> => {
+  if (frame !== 'inherit') return frame;
+  return providerFrame === 'host' ? 'none' : 'page';
 };
 
 export function ScreenContainer({
@@ -14,10 +30,24 @@ export function ScreenContainer({
   className,
   style,
   as = 'main',
+  frame = 'inherit',
+  fill = false,
 }: ScreenContainerProps) {
+  const providerFrame = useWorkspaceFrame();
+  const resolvedFrame = resolveFrame(frame, providerFrame);
   const Element = as;
   return (
-    <Element className={['sxw-screen', className].filter(Boolean).join(' ')} style={style}>
+    <Element
+      className={[
+        'sxw-screen',
+        resolvedFrame === 'none' ? 'sxw-screen--frame-none' : null,
+        fill ? 'sxw-screen--fill' : null,
+        className,
+      ]
+        .filter(Boolean)
+        .join(' ')}
+      style={style}
+    >
       {children}
     </Element>
   );
@@ -43,10 +73,14 @@ export function ListScreenContainer({
   children,
   className,
   as,
+  frame,
+  fill,
 }: ListScreenContainerProps) {
   return (
     <ScreenContainer
       as={as}
+      frame={frame}
+      fill={fill}
       className={['sxw-list-screen', className].filter(Boolean).join(' ')}
     >
       {title ? (
@@ -59,7 +93,16 @@ export function ListScreenContainer({
         />
       ) : null}
       {toolbar ? <div className="sxw-list-screen__toolbar">{toolbar}</div> : null}
-      <section className="sxw-list-screen__results">{children}</section>
+      <section
+        className={[
+          'sxw-list-screen__results',
+          fill ? 'sxw-list-screen__results--fill' : null,
+        ]
+          .filter(Boolean)
+          .join(' ')}
+      >
+        {children}
+      </section>
     </ScreenContainer>
   );
 }
@@ -86,6 +129,8 @@ export type FormScreenContainerProps = {
   footer?: ReactNode;
   className?: string;
   as?: 'main' | 'section';
+  frame?: ScreenFrame;
+  fill?: boolean;
 };
 
 export function FormScreenContainer({
@@ -97,9 +142,16 @@ export function FormScreenContainer({
   footer,
   className,
   as,
+  frame,
+  fill,
 }: FormScreenContainerProps) {
   return (
-    <ScreenContainer as={as} className={['sxw-form-screen', className].filter(Boolean).join(' ')}>
+    <ScreenContainer
+      as={as}
+      frame={frame}
+      fill={fill}
+      className={['sxw-form-screen', className].filter(Boolean).join(' ')}
+    >
       {title ? <PageHeader title={title} headingLevel={headingLevel} description={description} breadcrumbs={breadcrumbs} /> : null}
       <div className="sxw-form-screen__scroll">{children}</div>
       {footer ? <StickyActionBar>{footer}</StickyActionBar> : null}
@@ -117,6 +169,8 @@ export type DetailScreenContainerProps = {
   footer?: ReactNode;
   className?: string;
   as?: 'main' | 'section';
+  frame?: ScreenFrame;
+  fill?: boolean;
 };
 
 export function DetailScreenContainer({
@@ -129,9 +183,16 @@ export function DetailScreenContainer({
   footer,
   className,
   as,
+  frame,
+  fill,
 }: DetailScreenContainerProps) {
   return (
-    <ScreenContainer as={as} className={['sxw-detail-screen', className].filter(Boolean).join(' ')}>
+    <ScreenContainer
+      as={as}
+      frame={frame}
+      fill={fill}
+      className={['sxw-detail-screen', className].filter(Boolean).join(' ')}
+    >
       {title ? (
         <PageHeader
           title={title}

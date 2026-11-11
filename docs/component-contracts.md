@@ -39,15 +39,18 @@
 
 ### `SunxuWebProvider`
 
-- **API**：`children` 必填；`appearance` 为 `light | dark`，缺省 `light`；`locale` 默认 `zhCN`；`theme` 按 AntD `ThemeConfig` 做 token 合并。
+- **API**：`children` 必填；`appearance` 为 `light | dark`，缺省 `light`；`locale` 默认 `zhCN`；`theme` 按 AntD `ThemeConfig` 做 token 合并；`workspaceFrame` 为 `container | host`，缺省 `container`。
+- **外框所有权**：`workspaceFrame="container"` 表示 Sunxu 页面容器拥有工作区外框并应用 `--sxw-workspace-gutter`；`workspaceFrame="host"` 表示宿主 shell 已经提供外框，页面容器不再叠加内边距。宿主只能有一个外框所有者。
 - **状态与恢复**：受控，不自行读写 localStorage 或系统偏好；宿主改变 `appearance` 即切主题。
 - **可访问性/组合**：只增加 AntD ConfigProvider / App 上下文，不增加可见文案或额外导航层。
 
 ### 页面容器
 
-- **API**：`ScreenContainer` 接收 `children`、`className`、`style` 和语义根元素 `as`（`main | section`，默认 `main`）。List/Form/Detail 容器接受插槽 `toolbar` / `children` / `footer`，页级 `title`、`description`、`actions` 仅在有内容时渲染；`headingLevel` 可用于嵌套预览，默认 `1`。
+- **API**：`ScreenContainer` 接收 `children`、`className`、`style`、语义根元素 `as`（`main | section`，默认 `main`）、`frame`（`inherit | page | none`，默认 `inherit`）和 `fill`（布尔，默认 `false`）。List/Form/Detail 容器同样接受 `frame` / `fill`，以及插槽 `toolbar` / `children` / `footer`；页级 `title`、`description`、`actions` 仅在有内容时渲染；`headingLevel` 可用于嵌套预览，默认 `1`。
+- **外框**：`frame="inherit"` 跟随 `SunxuWebProvider.workspaceFrame`；`frame="page"` 自己拥有外框；`frame="none"` 假定父级/宿主拥有外框。嵌套容器必须使用 `frame="none"` 或 `layout="embedded"`，不得叠加第二层页面内边距。
+- **填充高度**：`fill` 让容器成为确定高度的纵向 flex 容器（`height: 100%; min-height: 0; overflow: hidden`），`ListScreenContainer` 的 results 区同时成为可收缩的 flex 子项。仅在单列表视口页使用；长页面保持默认，由页面整体滚动。
 - **状态**：容器不管理请求、加载、空结果或表单提交；对应内容由宿主传入。Form/Detail 的 footer 单独固定，内容滚动区不得覆盖它。
-- **响应式**：默认页面内边距桌面 24 px，窄屏 16 px；列表工具栏在 768 px 以下换行并保持在结果区之前。
+- **响应式**：外框由 `--sxw-workspace-gutter` 控制（桌面 24 px，窄屏 16 px）；列表工具栏在 768 px 以下换行并保持在结果区之前。
 - **可访问性**：页面根使用 `main`，标题保持单一主标题，页级操作由 AntD Button/Menu 提供语义和键盘行为。
 - **组合语义**：应用外壳已经提供唯一 `<main>` 时，内层容器使用 `as="section"`；同一页面不得嵌套多个 main landmark。
 - **邻接规则**：`ListScreenContainer` 的 `toolbar` 紧贴结果区，不接受独立远置的 list action header。
@@ -56,9 +59,10 @@
 
 - **职责**：标准 CRUD 列表的组合层。把分类 Tab、状态 `StatusTabs`、筛选栏、可选视图栏、可选层级筛选和 ProTable 放在统一的结果工作区；不实现基础表格、字段、查询服务或业务 CRUD。
 - **首开任务**：开发者打开目录的 CRUD 列表工作台示例，先看到产品列表与分类/状态入口；场景切换器可查看轻量、分类/状态、复杂视图和 ProTable 原生查询四种组合。组件运行时本身不持有最近列表或路由；宿主决定默认筛选和深链恢复。
-- **API**：`tableProps.columns` 与 `rowKey` 必填；其余公开 ProTable 参数可传入。为避免重复布局，`search`、`headerTitle`、`toolbar`、`toolBarRender` 由工作台控制。列 schema 能表达的查询字段通过 `proTableSearch` 启用 ProTable 原生查询表单；它支持 ProTable 的响应式 `span`、折叠数量和展开/收起行为。自定义 `search`、`quickFilters`、`filterActions`、`primaryTabs`、`statusFilters`、`toolbarActions`、`viewBar`、`appliedFilters`、`facetSidebar` 为可选插槽。`advancedFilters` 提供 `children`、已应用数量、受控/非受控 `open`、`onApply`、`onReset`、`onCancel` 和失败回调。
-- **表格适配插槽**：缺省直接渲染 ProTable；宿主需要可调整列宽等扩展时，可传 `renderTable` 接入宿主适配器。回调收到完整的 `tableProps`、工作台选定的 `search`、`options`，且 `headerTitle=false`、`toolBarRender=false`、`toolbar=undefined`。适配器只负责结果表格，不重复绘制列表标题、筛选和列表级操作；工作台仍拥有这些区域并将适配器放在结果区。
-- **状态/恢复**：高级筛选抽屉打开时由宿主字段控件持有草稿；“重置”只清草稿，“取消/关闭”调用 `onCancel` 保留已应用结果，“应用”调用宿主 `onApply`。返回 `false` 或抛错时抽屉保持打开，错误时显示可恢复提示。`open` 存在时为受控模式，宿主必须响应 `onOpenChange`；省略 `open` 时由工作台管理开关。加载、空、错误、分页、排序和行选择状态由 ProTable/宿主传入。
+- **API**：`tableProps.columns` 与 `rowKey` 必填；其余公开 ProTable 参数可传入。为避免重复布局，`search`、`headerTitle`、`toolbar`、`toolBarRender` 由工作台控制。`layout` 为 `page | embedded`，默认 `page`；`layout="embedded"` 不拥有页面外框、不渲染页头，用于 Tab 面板、卡片或长页面中的子列表。`fill` 为布尔，默认 `false`；`fill` 让工作台成为确定高度的单列表视口页，表格体滚动而表头和分页保持可见。列 schema 能表达的查询字段通过 `proTableSearch` 启用 ProTable 原生查询表单；它支持 ProTable 的响应式 `span`、折叠数量和展开/收起行为。自定义 `search`、`quickFilters`、`filterActions`、`primaryTabs`、`statusFilters`、`toolbarActions`、`viewBar`、`appliedFilters`、`facetSidebar` 为可选插槽。`advancedFilters` 提供 `children`、已应用数量、受控/非受控 `open`、`onApply`、`onReset`、`onCancel` 和失败回调。
+- **表格适配插槽**：缺省直接渲染 ProTable；宿主需要可调整列宽等扩展时，可传 `renderTable` 接入宿主适配器。回调收到完整的 `tableProps`、工作台选定的 `search`、`options`，且 `headerTitle=false`、`toolBarRender=false`、`toolbar=undefined`。适配器只负责结果表格，不重复绘制列表标题、筛选和列表级操作；工作台仍拥有这些区域并将适配器放在结果区。`fill` 模式下工作台会测量结果区并把解析后的 `scroll.y` 放进 `tableProps.scroll`，适配器直接消费，不得再自行实现页面级高度测量或删除分页。
+- **状态/恢复**：高级筛选抽屉打开时由宿主字段控件持有草稿；“重置”只清草稿，“取消/关闭”调用 `onCancel` 保留已应用结果，“应用”调用宿主 `onApply`。返回 `false` 或抛错时抽屉保持打开，错误时显示可恢复提示。`open` 存在时为受控模式，宿主必须响应 `onOpenChange`；省略 `open` 时由工作台管理开关。加载、空、错误、分页、排序和行选择状态由 ProTable/宿主传入；**`fill` 模式下分页的可见位置和表体高度由工作台负责**，宿主不得再用页面级 `:has()` CSS 或外部高度测量控制表体。
+- **高度与分页契约**：`fill` 只用于单列表视口页。工作台根节点、results、layout 和 table 容器形成确定高度的 flex 链；工作台用 `ResizeObserver` + `MutationObserver` 测量表头、footer、分页和 ProTable 工具栏之外的可滚动高度，并作为 `scroll.y` 传给 ProTable。分页始终渲染在结果区底部且不参与收缩；表格体在内部滚动。长页面（多卡片、图表或多个列表）不得开启 `fill`，保持默认文档流由页面整体滚动。
 - **Facet**：`facetSidebar` 只用于高频层级导航。工作区有效宽度低于 `facetSidebarBreakpoint`（默认 1024px）时，同一内容移入左侧 Drawer；组件用 ResizeObserver 测量列表内宽，不用浏览器 viewport 猜测。
 - **布局与响应式**：主分类 Tab 在左，状态 Segmented 与列表动作在右；少量外部快捷筛选与关键字在宽度允许时保持同一行。`responsiveQuickFilters` 默认启用，工作台测量实际容器和筛选控件宽度；宽度不足时将快捷筛选折叠到“展开筛选”区域，用户可展开查看并再次收起，空间恢复后自动回到单行。ProTable 原生查询表单按自身响应式 `span` / `defaultFormItemsNumber` / `defaultCollapsed` 规则处理；两种查询方式避免重复配置同一业务字段。内容不足 900px 时主操作换行；不足 767px 时筛选区纵向组织。ProTable 的横向滚动/列配置由 `tableProps` 公共 API 控制，不覆盖内部 class。
 - **状态筛选所有权**：分类由 `primaryTabs` 或 Facet 二选一；状态由 `statusFilters` 或宿主快捷条件二选一；不要在视图标签、快捷控件和抽屉重复同一字段。

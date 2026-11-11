@@ -655,6 +655,40 @@ export function CrudListWorkbenchPage() {
         </Typography.Text>
       </SectionCard>
 
+      <SectionCard title="fill 模式：单列表视口页">
+        <Space direction="vertical" size={8} style={{ width: '100%' }}>
+          <Typography.Text type="secondary">
+            工作台拥有确定高度：工具栏和分页保持可见，表格体在内部滚动。仅用于整页只有一张列表的场景；
+            长页面中的子列表使用 <Typography.Text code>layout=&quot;embedded&quot;</Typography.Text>。
+          </Typography.Text>
+          <div style={{ display: 'flex', height: 360, minHeight: 0 }}>
+            <CrudListWorkbench<DemoProduct>
+              layout="embedded"
+              fill
+              tableProps={{
+                rowKey: 'id',
+                columns: [
+                  { title: '产品名称', dataIndex: 'name' },
+                  { title: '编码', dataIndex: 'code' },
+                  {
+                    title: '分类',
+                    dataIndex: 'baseType',
+                    render: (_, record) => baseTypeLabels[record.baseType],
+                  },
+                  {
+                    title: '状态',
+                    dataIndex: 'status',
+                    render: (_, record) => (record.status === 'active' ? '启用' : '停用'),
+                  },
+                ],
+                dataSource: products,
+                pagination: { defaultPageSize: 5, showSizeChanger: true },
+              }}
+            />
+          </div>
+        </Space>
+      </SectionCard>
+
       <Modal
         title={editingId ? '编辑产品' : '新增产品'}
         open={editorOpen}

@@ -4,12 +4,18 @@ import zhCN from 'antd/locale/zh_CN';
 import type { Locale } from 'antd/es/locale';
 import type { ThemeConfig } from 'antd';
 import { SunxuWebColors, type SunxuAppearance } from './colors';
+import { WorkspaceFrameProvider, type WorkspaceFrame } from './WorkspaceFrame';
 
 export type SunxuWebProviderProps = {
   children: ReactNode;
   appearance?: SunxuAppearance;
   locale?: Locale;
   theme?: ThemeConfig;
+  /**
+   * Declare who owns the workspace frame. Host shells that already provide the
+   * page gutter pass `host`; standalone apps keep the default `container`.
+   */
+  workspaceFrame?: WorkspaceFrame;
 };
 
 const fontFamily =
@@ -20,6 +26,7 @@ export function SunxuWebProvider({
   appearance = 'light',
   locale = zhCN,
   theme,
+  workspaceFrame = 'container',
 }: SunxuWebProviderProps) {
   const colors = SunxuWebColors[appearance];
   const antdConfig: ThemeConfig = {
@@ -49,9 +56,11 @@ export function SunxuWebProvider({
   return (
     <ConfigProvider locale={locale} componentSize="middle" theme={antdConfig}>
       <AntdApp>
-        <div className="sxw-provider" data-theme={appearance}>
-          {children}
-        </div>
+        <WorkspaceFrameProvider value={workspaceFrame}>
+          <div className="sxw-provider" data-theme={appearance}>
+            {children}
+          </div>
+        </WorkspaceFrameProvider>
       </AntdApp>
     </ConfigProvider>
   );
