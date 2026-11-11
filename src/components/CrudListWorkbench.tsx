@@ -76,7 +76,7 @@ export type CrudListWorkbenchProps<
   statusFilters?: StatusTabsProps;
   /** One or two frequently used controls, such as owner or date range. */
   quickFilters?: ReactNode;
-  /** Host-owned keyword/search control. */
+  /** Host-owned keyword/search control; fills the slot, capped at 320px on desktop. */
   search?: ReactNode;
   /** Optional host-owned actions placed beside search and filters. */
   filterActions?: ReactNode;
