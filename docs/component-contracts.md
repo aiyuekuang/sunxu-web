@@ -79,8 +79,8 @@
 - **API**：`views: { id, name, scope: system | personal, isDefault? }[]`、`onChange` 必填；`activeViewId`、`dirty`、`loading` 受控；`onSave`、`onSaveAs`、`onRename`、`onDelete`、`onSetDefault`、`onReorder` 可选。操作回调可以同步或返回 Promise；返回 `false` 或 reject 表示未成功。
 - **状态/恢复**：加载中有 Spin 并禁止重复变更；回调失败保留当前视图，显示通用恢复提示并把原错误传给 `onActionError`。删除个人视图要求二次确认；系统视图不可重命名/删除；仅个人视图可保存覆盖。
 - **持久化与快照**：不读写本地存储或调用 API。宿主提供系统/个人视图和访问权限，并只保存允许的筛选、排序、列可见性/顺序/固定状态；不保存授权决定、选择行、临时抽屉草稿或业务动作。
-- **布局与可访问性**：视图选择使用 AntD Tabs；保存/另存为、管理当前视图的动作在同一工具条；按钮有可读名称，切换确认使用 AntD Modal 并提供三个明确退出路径。
-- **证据**：随 `CrudListWorkbench` 复杂视图示例在上述目录记录；未验证的键盘/视口状态仍标 `UNVERIFIED`。
+- **布局与可访问性**：视图标签按基线 MES 的紧凑间距排列，当前标签文字下方显示主题色指示线；每个可管理视图在标签内提供菜单，排序与保存/另存操作紧邻标签区。窄屏下操作换到下一行并右对齐，选中标签自动滚动到可见位置；管理菜单、排序和命名弹窗提供可读名称及键盘可操作的按钮。
+- **证据**：`examples/catalog` CRUD 列表工作台的复杂视图真实路由，以及桌面/窄屏标签栏、管理菜单、排序、未保存、另存和切换确认的截图与 DOM 几何数据记录于 `docs/verification/saved-view-bar-mes-alignment-2026-11-16/`。未覆盖的键盘读屏流程、深色主题和其他视口仍标 `UNVERIFIED`。
 
 ### `SectionCard`
 

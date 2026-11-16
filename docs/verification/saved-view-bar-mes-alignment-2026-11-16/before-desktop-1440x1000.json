@@ -1,0 +1,126 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "document": {
+    "width": 1440,
+    "height": 1547,
+    "horizontalOverflow": 0
+  },
+  "geometry": {
+    "bar": {
+      "x": 273,
+      "y": 382,
+      "width": 1118,
+      "height": 38,
+      "right": 1391,
+      "bottom": 420
+    },
+    "tabs": {
+      "x": 273,
+      "y": 382,
+      "width": 1017,
+      "height": 38,
+      "right": 1290,
+      "bottom": 420
+    },
+    "actions": {
+      "x": 1302,
+      "y": 388,
+      "width": 89,
+      "height": 27,
+      "right": 1391,
+      "bottom": 415
+    },
+    "results": null
+  },
+  "tabs": [
+    {
+      "label": "启用产品\n默认",
+      "rect": {
+        "x": 273,
+        "y": 390,
+        "width": 102,
+        "height": 22,
+        "right": 375,
+        "bottom": 412
+      }
+    },
+    {
+      "label": "全部产品",
+      "rect": {
+        "x": 391,
+        "y": 390,
+        "width": 56,
+        "height": 22,
+        "right": 447,
+        "bottom": 412
+      }
+    },
+    {
+      "label": "待补规格",
+      "rect": {
+        "x": 463,
+        "y": 390,
+        "width": 56,
+        "height": 22,
+        "right": 519,
+        "bottom": 412
+      }
+    },
+    {
+      "label": "成品核对",
+      "rect": {
+        "x": 535,
+        "y": 390,
+        "width": 56,
+        "height": 22,
+        "right": 591,
+        "bottom": 412
+      }
+    }
+  ],
+  "buttons": [
+    {
+      "text": "",
+      "ariaLabel": null,
+      "rect": {
+        "x": 289,
+        "y": 382,
+        "width": 46,
+        "height": 43,
+        "right": 335,
+        "bottom": 425
+      }
+    },
+    {
+      "text": "另存为",
+      "ariaLabel": null,
+      "rect": {
+        "x": 1302,
+        "y": 388,
+        "width": 58,
+        "height": 27,
+        "right": 1360,
+        "bottom": 415
+      }
+    },
+    {
+      "text": "",
+      "ariaLabel": "管理视图：启用产品",
+      "rect": {
+        "x": 1364,
+        "y": 388,
+        "width": 27,
+        "height": 27,
+        "right": 1391,
+        "bottom": 415
+      }
+    }
+  ],
+  "errors": [
+    "Warning: [antd: Space] `direction` is deprecated. Please use `orientation` instead."
+  ]
+}

@@ -1,7 +1,29 @@
-import { MoreOutlined } from '@ant-design/icons';
-import { Alert, Button, Dropdown, Input, Modal, Space, Spin, Tabs, Tag } from 'antd';
+import {
+  DeleteOutlined,
+  DownOutlined,
+  EditOutlined,
+  MoreOutlined,
+  SaveOutlined,
+  SortAscendingOutlined,
+  StarOutlined,
+  UpOutlined,
+} from '@ant-design/icons';
+import {
+  Alert,
+  Button,
+  Dropdown,
+  Form,
+  Input,
+  Modal,
+  Space,
+  Spin,
+  Tabs,
+  Tag,
+  Tooltip,
+  Typography,
+} from 'antd';
 import type { MenuProps } from 'antd';
-import { useMemo, useRef, useState } from 'react';
+import { useEffect, useRef, useState } from 'react';
 
 export type SavedViewScope = 'system' | 'personal';
 
@@ -64,28 +86,34 @@ export function SavedViewBar({
 }: SavedViewBarProps) {
   const [pendingViewId, setPendingViewId] = useState<string>();
   const [switchDialogOpen, setSwitchDialogOpen] = useState(false);
+  const [sortDialogOpen, setSortDialogOpen] = useState(false);
+  const [orderedViewIds, setOrderedViewIds] = useState<string[]>([]);
   const [nameDialog, setNameDialog] = useState<NameDialog>(null);
   const [nameValue, setNameValue] = useState('');
   const [deleteTarget, setDeleteTarget] = useState<SavedViewItem>();
   const [busy, setBusy] = useState(false);
   const [error, setError] = useState<string>();
+  const tabsRef = useRef<HTMLDivElement>(null);
   const busyRef = useRef(false);
 
   const activeView = views.find((view) => view.id === activeViewId);
-  const tabItems = useMemo(
-    () =>
-      views.map((view) => ({
-        key: view.id,
-        label: (
-          <span className="sxw-saved-view-bar__tab-label">
-            {view.name}
-            {view.isDefault ? <Tag color="blue">默认</Tag> : null}
-          </span>
-        ),
-        children: null,
-      })),
-    [views],
-  );
+  const viewLayoutKey = JSON.stringify(views.map(({ id, name }) => [id, name]));
+  useEffect(() => {
+    const scrollToActiveTab = () => {
+      const activeTab = tabsRef.current?.querySelector<HTMLElement>(
+        '[role="tab"][aria-selected="true"]',
+      );
+      activeTab?.scrollIntoView({
+        block: 'nearest',
+        inline: window.matchMedia('(max-width: 768px)').matches
+          ? 'start'
+          : 'nearest',
+      });
+    };
+    scrollToActiveTab();
+    window.addEventListener('resize', scrollToActiveTab);
+    return () => window.removeEventListener('resize', scrollToActiveTab);
+  }, [activeViewId, viewLayoutKey]);
 
   const runAction = async (
     action: () => void | boolean | Promise<void | boolean>,
@@ -154,66 +182,103 @@ export function SavedViewBar({
     if (succeeded) setNameDialog(null);
   };
 
-  const moveActiveView = (direction: -1 | 1) => {
-    if (!activeView || !onReorder) return;
-    const currentIndex = views.findIndex((view) => view.id === activeView.id);
-    const targetIndex = currentIndex + direction;
-    if (currentIndex < 0 || targetIndex < 0 || targetIndex >= views.length) return;
-    const orderedIds = views.map((view) => view.id);
-    [orderedIds[currentIndex], orderedIds[targetIndex]] = [
-      orderedIds[targetIndex],
-      orderedIds[currentIndex],
-    ];
-    void runAction(() => onReorder(orderedIds));
-  };
-
-  const viewMenuItems: MenuProps['items'] = [
-    ...(activeView && onSetDefault && !activeView.isDefault
-      ? [{ key: 'default', label: '设为默认视图' }]
-      : []),
-    ...(activeView?.scope === 'personal' && onRename
-      ? [{ key: 'rename', label: '重命名' }]
-      : []),
-    ...(onReorder && views.length > 1
-      ? [
-          { key: 'move-up', label: '移至上一位', disabled: views[0]?.id === activeViewId },
-          {
-            key: 'move-down',
-            label: '移至下一位',
-            disabled: views.at(-1)?.id === activeViewId,
-          },
-        ]
-      : []),
-    ...(activeView?.scope === 'personal' && onDelete
-      ? [{ key: 'delete', label: '删除视图', danger: true }]
-      : []),
-  ];
-
-  const handleViewMenu: MenuProps['onClick'] = ({ key }) => {
-    if (!activeView) return;
-    if (key === 'default' && onSetDefault) {
-      void runAction(() => onSetDefault(activeView.id));
-    } else if (key === 'rename' && onRename) {
-      openNameDialog({ mode: 'rename', view: activeView });
-    } else if (key === 'move-up') {
-      moveActiveView(-1);
-    } else if (key === 'move-down') {
-      moveActiveView(1);
-    } else if (key === 'delete' && onDelete) {
-      setDeleteTarget(activeView);
-    }
-  };
-
   const confirmDelete = async () => {
     if (!deleteTarget || !onDelete) return;
     const succeeded = await runAction(() => onDelete(deleteTarget.id));
     if (succeeded) setDeleteTarget(undefined);
   };
 
+  const openSortDialog = () => {
+    setOrderedViewIds(views.map((view) => view.id));
+    setSortDialogOpen(true);
+  };
+
+  const moveView = (viewId: string, direction: -1 | 1) => {
+    setOrderedViewIds((current) => {
+      const currentIndex = current.indexOf(viewId);
+      const targetIndex = currentIndex + direction;
+      if (currentIndex < 0 || targetIndex < 0 || targetIndex >= current.length) {
+        return current;
+      }
+      const next = [...current];
+      [next[currentIndex], next[targetIndex]] = [
+        next[targetIndex],
+        next[currentIndex],
+      ];
+      return next;
+    });
+  };
+
+  const saveViewOrder = async () => {
+    if (!onReorder) return;
+    const succeeded = await runAction(() => onReorder(orderedViewIds));
+    if (succeeded) setSortDialogOpen(false);
+  };
+
+  const tabItems = views.map((view) => {
+    const menuItems: MenuProps['items'] = [
+      ...(onSetDefault && !view.isDefault
+        ? [{ key: 'default', icon: <StarOutlined />, label: '设为默认' }]
+        : []),
+      ...(view.scope === 'personal' && onRename
+        ? [{ key: 'rename', icon: <EditOutlined />, label: '重命名' }]
+        : []),
+      ...(view.scope === 'personal' && onDelete
+        ? [{ key: 'delete', icon: <DeleteOutlined />, label: '删除', danger: true }]
+        : []),
+    ];
+
+    const handleMenuClick: MenuProps['onClick'] = ({ key }) => {
+      if (key === 'default' && onSetDefault) {
+        void runAction(() => onSetDefault(view.id));
+      } else if (key === 'rename' && onRename) {
+        openNameDialog({ mode: 'rename', view });
+      } else if (key === 'delete' && onDelete) {
+        setDeleteTarget(view);
+      }
+    };
+
+    return {
+      key: view.id,
+      label: (
+        <span className="sxw-saved-view-bar__tab-label">
+          <span className="sxw-saved-view-bar__tab-text">{view.name}</span>
+          {view.isDefault ? (
+            <Tag className="sxw-saved-view-bar__default-tag" color="blue">
+              默认
+            </Tag>
+          ) : null}
+          {menuItems.length > 0 ? (
+            <Dropdown
+              trigger={['click']}
+              menu={{ items: menuItems, onClick: handleMenuClick }}
+            >
+              <Button
+                aria-label={`管理视图：${view.name}`}
+                className="sxw-saved-view-bar__tab-menu"
+                disabled={loading || busy}
+                icon={<MoreOutlined aria-hidden="true" />}
+                onClick={(event) => event.stopPropagation()}
+                onMouseDown={(event) => event.stopPropagation()}
+                size="small"
+                type="text"
+              />
+            </Dropdown>
+          ) : null}
+        </span>
+      ),
+      children: null,
+    };
+  });
+
   return (
     <div className="sxw-saved-view-bar" role="group" aria-label="列表视图">
       <div className="sxw-saved-view-bar__row">
-        <div className="sxw-saved-view-bar__tabs" aria-busy={loading}>
+        <div
+          className="sxw-saved-view-bar__tabs"
+          aria-busy={loading}
+          ref={tabsRef}
+        >
           <Spin spinning={loading} size="small">
             <Tabs
               activeKey={activeViewId}
@@ -221,20 +286,37 @@ export function SavedViewBar({
               items={tabItems}
               onChange={requestChange}
               size="small"
-              tabBarGutter={16}
+              tabBarGutter={12}
             />
           </Spin>
         </div>
-        <Space size={4} className="sxw-saved-view-bar__actions">
-          {dirty && activeView?.scope === 'personal' && onSave ? (
-            <Button
-              size="small"
-              loading={busy}
-              disabled={loading}
-              onClick={() => void runAction(onSave)}
-            >
-              保存
-            </Button>
+        <Space size={6} className="sxw-saved-view-bar__actions">
+          {onReorder ? (
+            <Tooltip title="调整视图栏顺序">
+              <Button
+                disabled={loading || busy || views.length < 2}
+                icon={<SortAscendingOutlined aria-hidden="true" />}
+                onClick={openSortDialog}
+                size="small"
+                type="text"
+              >
+                排序
+              </Button>
+            </Tooltip>
+          ) : null}
+          {dirty ? <Tag color="orange">未保存</Tag> : null}
+          {activeView?.scope === 'personal' && onSave ? (
+            <Tooltip title="更新当前视图">
+              <Button
+                disabled={loading || !dirty}
+                icon={<SaveOutlined aria-hidden="true" />}
+                loading={busy}
+                onClick={() => void runAction(onSave)}
+                size="small"
+              >
+                保存
+              </Button>
+            </Tooltip>
           ) : null}
           {onSaveAs ? (
             <Button
@@ -243,22 +325,8 @@ export function SavedViewBar({
               disabled={loading}
               onClick={() => openNameDialog({ mode: 'save-as' })}
             >
-              另存为
+              {activeView ? '另存为' : '保存为视图'}
             </Button>
-          ) : null}
-          {viewMenuItems.length > 0 ? (
-            <Dropdown
-              trigger={['click']}
-              menu={{ items: viewMenuItems, onClick: handleViewMenu }}
-            >
-              <Button
-                type="text"
-                size="small"
-                aria-label={`管理视图${activeView ? `：${activeView.name}` : ''}`}
-                icon={<MoreOutlined aria-hidden="true" />}
-                disabled={loading || busy}
-              />
-            </Dropdown>
           ) : null}
         </Space>
       </div>
@@ -274,7 +342,8 @@ export function SavedViewBar({
       ) : null}
 
       <Modal
-        title="切换视图"
+        title="当前视图有未保存修改"
+        width="min(520px, calc(100vw - 32px))"
         open={switchDialogOpen}
         closable={!busy && !loading}
         mask={{ closable: !busy && !loading }}
@@ -286,7 +355,7 @@ export function SavedViewBar({
           setError(undefined);
         }}
         footer={
-          <Space>
+          <Space wrap>
             <Button
               disabled={busy}
               onClick={() => {
@@ -294,7 +363,7 @@ export function SavedViewBar({
                 setPendingViewId(undefined);
               }}
             >
-              继续编辑
+              取消
             </Button>
             <Button danger loading={busy} onClick={() => void discardAndSwitch()}>
               放弃修改并切换
@@ -308,11 +377,17 @@ export function SavedViewBar({
         }
       >
         {error ? <Alert type="error" showIcon message={error} role="alert" /> : null}
-        当前视图有未保存修改。
+        保存会更新当前视图；放弃修改则直接切换到目标视图。
       </Modal>
 
       <Modal
-        title={nameDialog?.mode === 'rename' ? '重命名视图' : '另存为视图'}
+        title={
+          nameDialog?.mode === 'rename'
+            ? '重命名视图'
+            : activeView
+              ? '另存为视图'
+              : '保存为视图'
+        }
         open={Boolean(nameDialog)}
         confirmLoading={busy}
         closable={!busy && !loading}
@@ -320,6 +395,7 @@ export function SavedViewBar({
         keyboard={!busy && !loading}
         okText="保存"
         cancelText="取消"
+        width="min(440px, calc(100vw - 32px))"
         okButtonProps={{ disabled: !nameValue.trim() || loading }}
         onCancel={() => {
           if (!busy && !loading) setNameDialog(null);
@@ -327,19 +403,80 @@ export function SavedViewBar({
         onOk={() => void submitNameDialog()}
       >
         {error ? <Alert type="error" showIcon message={error} role="alert" /> : null}
-        <Input
-          aria-label="视图名称"
-          autoFocus
-          disabled={busy || loading}
-          maxLength={40}
-          value={nameValue}
-          onChange={(event) => setNameValue(event.target.value)}
-          onPressEnter={() => void submitNameDialog()}
-        />
+        <Form layout="vertical">
+          <Form.Item label="视图名称" required>
+            <Input
+              aria-label="视图名称"
+              autoFocus
+              disabled={busy || loading}
+              maxLength={40}
+              showCount
+              value={nameValue}
+              onChange={(event) => setNameValue(event.target.value)}
+              onPressEnter={() => void submitNameDialog()}
+            />
+          </Form.Item>
+        </Form>
+      </Modal>
+
+      <Modal
+        cancelText="取消"
+        confirmLoading={busy}
+        okButtonProps={{ disabled: orderedViewIds.length < 2 || loading }}
+        okText="保存排序"
+        open={sortDialogOpen}
+        title="排序视图"
+        width="min(440px, calc(100vw - 32px))"
+        onCancel={() => {
+          if (!busy && !loading) setSortDialogOpen(false);
+        }}
+        onOk={() => void saveViewOrder()}
+      >
+        <ol className="sxw-saved-view-bar__sort-list" aria-label="视图顺序">
+          {orderedViewIds.map((viewId, index) => {
+            const view = views.find((item) => item.id === viewId);
+            if (!view) return null;
+            return (
+              <li className="sxw-saved-view-bar__sort-item" key={view.id}>
+                <Typography.Text
+                  className="sxw-saved-view-bar__sort-index"
+                  type="secondary"
+                >
+                  {index + 1}
+                </Typography.Text>
+                <Typography.Text
+                  className="sxw-saved-view-bar__sort-name"
+                  ellipsis
+                >
+                  {view.name}
+                </Typography.Text>
+                <Space size={0}>
+                  <Button
+                    aria-label={`上移视图：${view.name}`}
+                    disabled={index === 0 || busy || loading}
+                    icon={<UpOutlined aria-hidden="true" />}
+                    onClick={() => moveView(view.id, -1)}
+                    size="small"
+                    type="text"
+                  />
+                  <Button
+                    aria-label={`下移视图：${view.name}`}
+                    disabled={index === orderedViewIds.length - 1 || busy || loading}
+                    icon={<DownOutlined aria-hidden="true" />}
+                    onClick={() => moveView(view.id, 1)}
+                    size="small"
+                    type="text"
+                  />
+                </Space>
+              </li>
+            );
+          })}
+        </ol>
       </Modal>
 
       <Modal
         title={`删除视图“${deleteTarget?.name ?? ''}”？`}
+        width="min(520px, calc(100vw - 32px))"
         open={Boolean(deleteTarget)}
         confirmLoading={busy}
         closable={!busy && !loading}
@@ -354,7 +491,9 @@ export function SavedViewBar({
         onOk={() => void confirmDelete()}
       >
         {error ? <Alert type="error" showIcon message={error} role="alert" /> : null}
-        只删除视图，不修改列表数据。
+        {deleteTarget?.id === activeViewId && dirty
+          ? '当前视图有未保存修改，删除后这些修改也会丢弃。删除视图不会修改列表数据。'
+          : '删除视图不会修改列表数据。'}
       </Modal>
     </div>
   );

@@ -1,0 +1,162 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "viewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "document": {
+    "width": 1440,
+    "height": 1323,
+    "horizontalOverflow": 0
+  },
+  "elements": {
+    "workbench": {
+      "rect": {
+        "x": 273,
+        "y": 346,
+        "width": 1118,
+        "height": 336,
+        "right": 1391,
+        "bottom": 682
+      },
+      "gap": "12px",
+      "flexDirection": "column"
+    },
+    "toolbar": {
+      "rect": {
+        "x": 273,
+        "y": 382,
+        "width": 1118,
+        "height": 121,
+        "right": 1391,
+        "bottom": 503
+      },
+      "gap": "8px",
+      "flexDirection": "row"
+    },
+    "viewRow": {
+      "rect": {
+        "x": 273,
+        "y": 382,
+        "width": 1118,
+        "height": 42,
+        "right": 1391,
+        "bottom": 424
+      },
+      "gap": "8px",
+      "flexDirection": "row"
+    },
+    "tabs": {
+      "rect": {
+        "x": 273,
+        "y": 382,
+        "width": 850,
+        "height": 40,
+        "right": 1123,
+        "bottom": 422
+      },
+      "gap": "normal",
+      "flexDirection": "row"
+    },
+    "tabsWrap": {
+      "rect": {
+        "x": 273,
+        "y": 382,
+        "width": 850,
+        "height": 40,
+        "right": 1123,
+        "bottom": 422
+      },
+      "gap": "normal",
+      "flexDirection": "row"
+    },
+    "actions": {
+      "rect": {
+        "x": 1131,
+        "y": 389,
+        "width": 260,
+        "height": 27,
+        "right": 1391,
+        "bottom": 416
+      },
+      "gap": "6px",
+      "flexDirection": "row"
+    },
+    "primaryRow": {
+      "rect": {
+        "x": 273,
+        "y": 432,
+        "width": 1118,
+        "height": 27,
+        "right": 1391,
+        "bottom": 459
+      },
+      "gap": "16px",
+      "flexDirection": "row"
+    },
+    "filterBar": {
+      "rect": {
+        "x": 273,
+        "y": 467,
+        "width": 1118,
+        "height": 36,
+        "right": 1391,
+        "bottom": 503
+      },
+      "gap": "8px",
+      "flexDirection": "row"
+    },
+    "layout": {
+      "rect": {
+        "x": 273,
+        "y": 511,
+        "width": 1118,
+        "height": 171,
+        "right": 1391,
+        "bottom": 682
+      },
+      "gap": "16px",
+      "flexDirection": "row"
+    },
+    "table": {
+      "rect": {
+        "x": 521,
+        "y": 511,
+        "width": 870,
+        "height": 171,
+        "right": 1391,
+        "bottom": 682
+      },
+      "gap": "normal",
+      "flexDirection": "row"
+    }
+  },
+  "activeTab": {
+    "rect": {
+      "x": 557,
+      "y": 390,
+      "width": 82,
+      "height": 24,
+      "right": 639,
+      "bottom": 414
+    },
+    "fullyVisibleInTabViewport": true
+  },
+  "modal": {
+    "rect": {
+      "x": 460,
+      "y": 100,
+      "width": 520,
+      "height": 142,
+      "right": 980,
+      "bottom": 242
+    },
+    "rightWithinViewport": true,
+    "width": "520px",
+    "scrollWidth": 520,
+    "clientWidth": 520
+  },
+  "consoleErrors": [
+    "Warning: [antd: Space] `direction` is deprecated. Please use `orientation` instead."
+  ]
+}
