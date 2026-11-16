@@ -1,0 +1,64 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "viewport": {
+    "width": 390,
+    "height": 844
+  },
+  "document": {
+    "width": 390,
+    "horizontalOverflow": 0
+  },
+  "row": {
+    "rect": {
+      "x": 33,
+      "y": 418.4,
+      "width": 324,
+      "height": 80,
+      "right": 357,
+      "bottom": 498.4
+    },
+    "flexDirection": "column"
+  },
+  "tabs": {
+    "x": 33,
+    "y": 418.4,
+    "width": 324,
+    "height": 43,
+    "right": 357,
+    "bottom": 461.4
+  },
+  "nav": {
+    "x": 33,
+    "y": 418.4,
+    "width": 324,
+    "height": 43,
+    "right": 357,
+    "bottom": 461.4
+  },
+  "sort": {
+    "x": 291,
+    "y": 426.4,
+    "width": 66,
+    "height": 27,
+    "right": 357,
+    "bottom": 453.4
+  },
+  "actions": {
+    "x": 33,
+    "y": 469.4,
+    "width": 324,
+    "height": 27,
+    "right": 357,
+    "bottom": 496.4
+  },
+  "tabsBottomLine": {
+    "display": "block",
+    "borderBottom": "1px solid rgb(235, 235, 235)",
+    "bottom": "0px",
+    "y": 460.4
+  },
+  "sortClearsLine": true,
+  "consoleErrors": [
+    "Warning: [antd: Space] `direction` is deprecated. Please use `orientation` instead."
+  ]
+}

@@ -270,6 +270,19 @@ export function SavedViewBar({
       children: null,
     };
   });
+  const sortAction = onReorder ? (
+    <Tooltip title="调整视图栏顺序">
+      <Button
+        disabled={loading || busy || views.length < 2}
+        icon={<SortAscendingOutlined aria-hidden="true" />}
+        onClick={openSortDialog}
+        size="small"
+        type="text"
+      >
+        排序
+      </Button>
+    </Tooltip>
+  ) : null;
 
   return (
     <div className="sxw-saved-view-bar" role="group" aria-label="列表视图">
@@ -286,24 +299,12 @@ export function SavedViewBar({
               items={tabItems}
               onChange={requestChange}
               size="small"
+              tabBarExtraContent={sortAction ? { right: sortAction } : undefined}
               tabBarGutter={12}
             />
           </Spin>
         </div>
         <Space size={6} className="sxw-saved-view-bar__actions">
-          {onReorder ? (
-            <Tooltip title="调整视图栏顺序">
-              <Button
-                disabled={loading || busy || views.length < 2}
-                icon={<SortAscendingOutlined aria-hidden="true" />}
-                onClick={openSortDialog}
-                size="small"
-                type="text"
-              >
-                排序
-              </Button>
-            </Tooltip>
-          ) : null}
           {dirty ? <Tag color="orange">未保存</Tag> : null}
           {activeView?.scope === 'personal' && onSave ? (
             <Tooltip title="更新当前视图">
