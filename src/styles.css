@@ -19,6 +19,16 @@
   --sxw-info: #1677ff;
 }
 
+.sxw-status-tag.ant-tag.sxw-status-tag--custom {
+  color: var(--sxw-status-tag-contrast-fallback, #fff);
+}
+
+@supports (color: contrast-color(#000)) {
+  .sxw-status-tag.ant-tag.sxw-status-tag--custom {
+    color: contrast-color(var(--sxw-status-tag-background, #000));
+  }
+}
+
 .sxw-provider[data-theme='dark'] {
   --sxw-primary: #1f7a45;
   --sxw-primary-surface: #10271a;

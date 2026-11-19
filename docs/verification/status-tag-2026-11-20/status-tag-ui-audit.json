@@ -1,0 +1,225 @@
+{
+  "schema_version": 1,
+  "audit": {
+    "component": "StatusTag",
+    "date": "2026-11-20",
+    "route": "/",
+    "states": [
+      "light desktop",
+      "dark desktop",
+      "light mobile",
+      "dark mobile"
+    ],
+    "interaction": "Select “信息与状态” in the catalog sidebar; inspect “状态标签”.",
+    "verification": "Rendered with the local Vite catalog in Chromium using Playwright. DOMRects and contrast ratios were recorded; screenshots were inspected at native scale.",
+    "horizontal_overflow": "none: document width equals viewport width at 1440px and 390px.",
+    "text_contrast": "All seven status labels measured at 5.12:1 or higher against their solid backgrounds."
+  },
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "route": "/",
+        "state": "light desktop, information-and-status page",
+        "workspace": ".sxw-docs-workspace",
+        "content": ".sxw-docs-surface",
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px frame inset on desktop",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected full-page screenshot at native scale; content surface boundary is visibly separated from the workspace on all four sides.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 1440,
+          "bottom": 1092.0546875,
+          "width": 1440,
+          "height": 1036.0546875
+        },
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 1068.0546875,
+          "width": 1168,
+          "height": 988.0546875
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/status-tag-2026-11-20/status-tags-light-fullpage.png",
+        "screenshot_sha256": "13d99b1b3ef309e822fa6c2f35cd5d6430d130e2cc09ff94a500588b3ccff6a1",
+        "status": "PASS"
+      },
+      {
+        "route": "/",
+        "state": "light mobile, information-and-status page",
+        "workspace": ".sxw-docs-workspace",
+        "content": ".sxw-docs-surface",
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px frame inset on narrow mobile",
+          "source": "examples/catalog/catalog.css: max-width 767px .sxw-docs-main and .sxw-docs-surface"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected full-page screenshot at native scale; content surface boundary is visibly separated from the workspace on all four sides.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 390,
+          "bottom": 1385.8359375,
+          "width": 390,
+          "height": 1329.8359375
+        },
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 374,
+          "bottom": 1369.8359375,
+          "width": 358,
+          "height": 1297.8359375
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/status-tag-2026-11-20/status-tags-light-390x844-fullpage.png",
+        "screenshot_sha256": "7ee5bfbd7a400b7637e99ab9a1133a564aca97123c79d7c2e17bd080e6ddf0de",
+        "status": "PASS"
+      }
+    ]
+  },
+  "seams": [
+    {
+      "route": "/",
+      "state": "light desktop, first status-tag row",
+      "previous": "草稿",
+      "next": "审批中",
+      "axis": "horizontal",
+      "gap_px": 8,
+      "previous_rect": {
+        "left": 290,
+        "top": 277.921875,
+        "right": 330,
+        "bottom": 299.921875,
+        "width": 40,
+        "height": 22
+      },
+      "next_rect": {
+        "left": 338,
+        "top": 277.921875,
+        "right": 390,
+        "bottom": 299.921875,
+        "width": 52,
+        "height": 22
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "expected": {
+        "kind": "contract",
+        "value": "8px horizontal gap",
+        "source": "examples/catalog/CatalogApp.tsx: <Space size={[8, 8]} wrap> in StatesPage"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected screenshot at native scale; an 8px clear background band separates the adjacent solid tags.",
+        "observed_clear_band_px": 8
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/status-tag-2026-11-20/status-tags-light-1440x900.png",
+      "screenshot_sha256": "42bdfe5ea205e7cf6362e0075c296fa01470bf0e3c74b8a40dc7eed690aa22ea",
+      "executed_command": "Playwright: navigate to http://127.0.0.1:4173/, select 信息与状态, set viewport 1440x900, record DOMRects and screenshot.",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "dark mobile, wrapped status-tag rows",
+      "previous": "已发货",
+      "next": "已完工",
+      "axis": "vertical",
+      "gap_px": 8.5,
+      "previous_rect": {
+        "left": 278,
+        "top": 313.921875,
+        "right": 330,
+        "bottom": 335.921875,
+        "width": 52,
+        "height": 22
+      },
+      "next_rect": {
+        "left": 50,
+        "top": 344.421875,
+        "right": 102,
+        "bottom": 366.421875,
+        "width": 52,
+        "height": 22
+      },
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "expected": {
+        "kind": "contract",
+        "value": "8px row gap",
+        "source": "examples/catalog/CatalogApp.tsx: <Space size={[8, 8]} wrap> in StatesPage"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected screenshot at native scale; wrapped tags remain on distinct rows with a clear background band.",
+        "observed_clear_band_px": 8.5
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/status-tag-2026-11-20/status-tags-dark-390x844.png",
+      "screenshot_sha256": "1f31b07c7db1d1910c1a308e940e8ec0adbc062b85d2307fb609c03f2fb2632f",
+      "executed_command": "Playwright: navigate to http://127.0.0.1:4173/, select 信息与状态, set dark theme and viewport 390x844, record DOMRects and screenshot.",
+      "status": "PASS"
+    }
+  ]
+}

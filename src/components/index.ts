@@ -16,4 +16,5 @@ export * from './RowActions';
 export * from './SectionCard';
 export * from './SavedViewBar';
 export * from './SettingsRow';
+export * from './StatusTag';
 export * from './StatusTabs';

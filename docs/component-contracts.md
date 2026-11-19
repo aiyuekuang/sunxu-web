@@ -21,6 +21,7 @@
 | `StickyActionBar` | 承载固定流程动作 | 语义 `<footer>` + AntD Button |
 | `SectionCard` | 分组可选标题的内容，不制造空 header | Pro Components `ProCard` |
 | `StatusTabs` | 在互斥状态中选择当前结果集合 | AntD `Segmented` |
+| `StatusTag` | 以实底高对比样式呈现单条只读状态 | AntD `Tag`，固定 `variant="solid"` |
 | `FilterBar` | 收纳查询条件和其右侧同级操作 | HTML `role=search` + 宿主控件 |
 | `MetricCard` | 显示一个可读的关键数值 | AntD `Statistic` + Pro `ProCard` |
 | `DetailCard` | 将属性按标签和值组成信息组 | AntD `Descriptions` + Pro `ProCard` |
@@ -96,6 +97,14 @@
 - **状态**：选中值由宿主保存；disabled 项不可选；不含请求或数据缓存。
 - **语义**：它表达互斥筛选值，因此基于 AntD `Segmented`（radiogroup 语义）而不是伪装成页面路由。数字 count 仅在帮助理解集合数量时传入。
 - **响应式**：可换行的父级优先；空间不足时由宿主明确选择滚动容器，不截断标签。
+
+### `StatusTag`
+
+- **API**：`children` 提供可见状态文案；`color` 接受 AntD 预设色或 CSS 颜色；可选 `icon`、`className`、`style`。缺少颜色或传入 `default` 时使用中性灰底。
+- **视觉与可读性**：固定使用 AntD `Tag` 的 `variant="solid"`；自定义颜色使用 `contrast-color()` 选择黑/白前景，并提供十六进制色的前景回退值，避免浅色实底上的白字难读。
+- **状态与边界**：展示型、不可关闭、不可点击；状态文案和颜色映射由宿主提供，颜色不是唯一状态线索。筛选交互由 `StatusTabs` 或宿主控件承担。
+- **布局与主题**：标签自身不拥有相邻间距；父级用 `Space`、行内流式布局或表格单元格管理间隔。保留 AntD 圆角、字号及主题焦点/禁用规范。
+- **目录示例**：`examples/catalog` 的“信息与状态”页展示灰、紫、蓝、橙、青、绿、红色标签；桌面、窄屏和深色主题以目录真实渲染记录。
 
 ### `FilterBar`
 

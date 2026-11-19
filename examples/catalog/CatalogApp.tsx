@@ -39,6 +39,7 @@ import {
   ProfileIdentity,
   SectionCard,
   SettingsRow,
+  StatusTag,
   StatusTabs,
   SunxuWebProvider,
 } from '../../src';
@@ -494,6 +495,18 @@ function StatesPage({ onMessage }: { onMessage: (text: string) => void }) {
 
   return (
     <div className="sxw-docs-page-content">
+      <SectionCard title="状态标签">
+        <Space size={[8, 8]} wrap>
+          <StatusTag color="#86909C">草稿</StatusTag>
+          <StatusTag color="#722ED1">审批中</StatusTag>
+          <StatusTag color="#1677FF">已确认</StatusTag>
+          <StatusTag color="#FF8F1F">生产中</StatusTag>
+          <StatusTag color="#13C2C2">已发货</StatusTag>
+          <StatusTag color="#00B578">已完工</StatusTag>
+          <StatusTag color="#FF3141">已取消</StatusTag>
+        </Space>
+      </SectionCard>
+
       <SectionCard title="状态预览">
         <div className="sxw-state-toolbar">
           <Typography.Text>图表面板状态</Typography.Text>
