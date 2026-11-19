@@ -1,6 +1,6 @@
 # 榫序 Web · Sunxu Web
 
-面向 React Web / PC 管理端的共享 UI 组件与页面容器库。它承接 Sunxu 的语义主题和跨项目组件契约，基础控件使用 Ant Design，复杂表单和数据页面优先组合 Ant Design Pro Components。
+面向 React Web / PC 管理端的 UI 组件库，包含 Sunxu 通用组件层和宿主注入能力的 MES UI 套件。基础控件由 Ant Design 提供，复杂表单和数据页面优先组合 Ant Design Pro Components。
 
 ## 技术版本
 
@@ -32,16 +32,17 @@ export function App() {
 
 组件示例和 API 对照见 [`examples/catalog`](./examples/catalog)。唯一权威设计规范见 [`design-system/sunxu-web/MASTER.md`](./design-system/sunxu-web/MASTER.md)；[`docs/design-system.md`](./docs/design-system.md) 是规范导航页。组件 API、迁移映射和依赖版本分别以 [`docs/component-contracts.md`](./docs/component-contracts.md)、[`docs/component-inventory.md`](./docs/component-inventory.md) 和 [`docs/dependencies.md`](./docs/dependencies.md) 为准。
 
-列表、表单、详情等场景的必用组件、业务专用组件标记和消费端 ESLint 门禁见 [`docs/component-usage-policy.md`](./docs/component-usage-policy.md) 与 [`eslint-plugin-sunxu-web`](./tooling/eslint-plugin-sunxu-web/README.md)。
+通用组件和当前 MES 使用的 AntD/Pro/图标从 `sunxu-web` 根出口导入；MES 专用 UI 从 `sunxu-web/mes` 导入。请求、路由、权限判断和业务副作用由宿主提供。组件映射、覆盖进度和消费端门禁见 [`docs/component-usage-policy.md`](./docs/component-usage-policy.md)、[`docs/component-inventory.md`](./docs/component-inventory.md) 与 [`eslint-plugin-sunxu-web`](./tooling/eslint-plugin-sunxu-web/README.md)。
 
 ## 页面组合
 
 ```tsx
-import { Button, Input } from 'antd';
-import { ProTable } from '@ant-design/pro-components';
 import {
+  Button,
   FilterBar,
+  Input,
   ListScreenContainer,
+  ProTable,
 } from 'sunxu-web';
 
 const records = [
@@ -76,7 +77,7 @@ export function RecordsPage() {
 }
 ```
 
-列表容器让工具栏紧邻结果区；数据请求、筛选值、权限和“新建”行为仍由宿主负责。若页面不需要 Sunxu 特有的组合契约，直接使用 Ant Design / Pro Components 即可，无需再套一层同义组件。
+列表容器让工具栏紧邻结果区；数据请求、筛选值、权限和“新建”行为仍由宿主负责。根出口对 Ant Design / Pro Components 只做直通导出，不复制基础控件；MES 专用 UI 通过 `sunxu-web/mes` 复用当前 MES 已有交互。
 
 ## 本地开发
 

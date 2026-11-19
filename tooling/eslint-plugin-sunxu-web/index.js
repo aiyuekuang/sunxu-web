@@ -8,15 +8,19 @@ const PAGE_CONTRACTS = Object.freeze({
 const USE_CONTRACTS = Object.freeze({
   filters: [
     { source: 'sunxu-web', name: 'FilterBar' },
+    { source: 'sunxu-web', name: 'QueryFilter' },
     { source: '@ant-design/pro-components', name: 'QueryFilter' },
   ],
   'status-tabs': [{ source: 'sunxu-web', name: 'StatusTabs' }],
   'data-table': [
+    { source: 'sunxu-web', name: 'ProTable' },
+    { source: 'sunxu-web', name: 'Table' },
     { source: '@ant-design/pro-components', name: 'ProTable' },
     { source: 'antd', name: 'Table' },
   ],
   'detail-properties': [
     { source: 'sunxu-web', name: 'DetailCard' },
+    { source: 'sunxu-web', name: 'Descriptions' },
     { source: 'antd', name: 'Descriptions' },
   ],
   'metric-summary': [{ source: 'sunxu-web', name: 'MetricCard' }],
@@ -180,10 +184,10 @@ function createClassificationRule() {
       docs: { description: 'Require exported React components to declare their Sunxu business scope.' },
       schema: [],
       messages: {
-        missing: 'Exported React component "{{name}}" must declare @sunxu-component shared or business-specific.',
-        invalid: 'Component "{{name}}" must use @sunxu-component shared or business-specific.',
-        domain: 'Business-specific component "{{name}}" must declare @sunxu-domain <domain>.',
-        reason: 'Business-specific component "{{name}}" must declare @sunxu-reason <why it stays business-specific>.',
+        missing: 'Exported React component "{{name}}" must declare @sunxu-component shared, mes-specific, or business-specific.',
+        invalid: 'Component "{{name}}" must use @sunxu-component shared, mes-specific, or business-specific.',
+        domain: 'MES/business-specific component "{{name}}" must declare @sunxu-domain <domain>.',
+        reason: 'MES/business-specific component "{{name}}" must declare @sunxu-reason <why it belongs to this scope>.',
       },
     },
     create(context) {
@@ -205,9 +209,9 @@ function createClassificationRule() {
             context.report({ node, messageId: 'missing', data: { name: component.name } });
             continue;
           }
-          if (match[1] !== 'shared' && match[1] !== 'business-specific') {
+          if (!['shared', 'mes-specific', 'business-specific'].includes(match[1])) {
             context.report({ node, messageId: 'invalid', data: { name: component.name } });
-          } else if (match[1] === 'business-specific') {
+          } else if (match[1] !== 'shared') {
             if (!hasTag(doc, 'sunxu-domain')) context.report({ node, messageId: 'domain', data: { name: component.name } });
             if (!hasTag(doc, 'sunxu-reason')) context.report({ node, messageId: 'reason', data: { name: component.name } });
           }

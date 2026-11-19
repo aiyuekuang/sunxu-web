@@ -6,10 +6,14 @@ export default defineConfig({
   build: {
     emptyOutDir: false,
     lib: {
-      entry: 'src/index.ts',
+      entry: {
+        index: 'src/index.ts',
+        mes: 'src/mes/index.ts',
+      },
       name: 'SunxuWeb',
       formats: ['es', 'cjs'],
-      fileName: (format) => (format === 'es' ? 'index.js' : 'index.cjs'),
+      fileName: (format, entryName) =>
+        `${entryName}.${format === 'es' ? 'js' : 'cjs'}`,
       cssFileName: 'sunxu-web',
     },
     rollupOptions: {
@@ -21,6 +25,8 @@ export default defineConfig({
         'antd',
         '@ant-design/pro-components',
         '@ant-design/icons',
+        'dayjs',
+        'use-antd-resizable-header',
       ],
     },
   },

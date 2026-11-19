@@ -1,0 +1,678 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES 表格组件 (/)",
+  "component": "ResizableProTable + ResizableTable",
+  "evidence": "./render-observations.json",
+  "evidence_command": "node /tmp/sunxu-qa-run.js > /tmp/sunxu-resizable-qa-output.json",
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES 表格组件 (/)",
+        "state": "desktop-populated",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 1135.984375,
+          "width": 1216,
+          "height": 1079.984375
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 1111.984375,
+          "width": 1168,
+          "height": 1031.984375
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px frame inset on all four sides",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main padding / .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Rendered Chromium screenshot inspection plus getBoundingClientRect geometry",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/desktop.png",
+        "screenshot_sha256": "efe9edc7f38d67c44be910e15284a6db25353100720b2bb801fb63a4855befc6",
+        "status": "PASS"
+      },
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES 表格组件 (/)",
+        "state": "desktop-business-empty",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 1135.984375,
+          "width": 1216,
+          "height": 1079.984375
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 1111.984375,
+          "width": 1168,
+          "height": 1031.984375
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px frame inset on all four sides",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main padding / .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Rendered Chromium screenshot inspection plus getBoundingClientRect geometry",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/desktop-empty.png",
+        "screenshot_sha256": "749a01371a7738a22f81124f79d664c668a4cafaadd5fdf4c4f7818178444add",
+        "status": "PASS"
+      },
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES 表格组件 (/)",
+        "state": "mobile-populated-keyboard-scroll-120",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 1245.984375,
+          "width": 375,
+          "height": 1189.984375
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 359,
+          "bottom": 1229.984375,
+          "width": 343,
+          "height": 1157.984375
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px frame inset on all four sides",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main padding / .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Rendered Chromium screenshot inspection plus getBoundingClientRect geometry",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/mobile-375.png",
+        "screenshot_sha256": "b9df75740a443128acb2cfbda784ea20a091220bd6a4f6b46933c0abe4f6fdca",
+        "status": "PASS"
+      }
+    ]
+  },
+  "seams": [
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES 表格组件 (/)",
+      "state": "desktop-populated",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": ".sxw-docs-page-heading",
+      "next": ".sxw-catalog-resizable-table-page > .ant-pro-card:first-child",
+      "previous_rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 762.421875,
+        "width": 1118,
+        "height": 542.140625
+      },
+      "gap_px": 20,
+      "expected": {
+        "kind": "contract",
+        "value": "20px desktop heading margin",
+        "source": "examples/catalog/catalog.css: .sxw-docs-page-heading { margin-bottom: 20px }"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the referenced rendered screenshot",
+        "observed_clear_band_px": 20
+      },
+      "executed_command": "node /tmp/sunxu-qa-run.js > /tmp/sunxu-resizable-qa-output.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/desktop.png",
+      "screenshot_sha256": "efe9edc7f38d67c44be910e15284a6db25353100720b2bb801fb63a4855befc6",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES 表格组件 (/)",
+      "state": "desktop-populated",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": "first .ant-pro-card",
+      "next": "last .ant-pro-card",
+      "previous_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 762.421875,
+        "width": 1118,
+        "height": 542.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 774.421875,
+        "right": 1391,
+        "bottom": 1086.984375,
+        "width": 1118,
+        "height": 312.5625
+      },
+      "gap_px": 12,
+      "expected": {
+        "kind": "contract",
+        "value": "12px card gap",
+        "source": "examples/catalog/catalog.css: .sxw-catalog-resizable-table-page { gap: 12px }"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the referenced rendered screenshot",
+        "observed_clear_band_px": 12
+      },
+      "executed_command": "node /tmp/sunxu-qa-run.js > /tmp/sunxu-resizable-qa-output.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/desktop.png",
+      "screenshot_sha256": "efe9edc7f38d67c44be910e15284a6db25353100720b2bb801fb63a4855befc6",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES 表格组件 (/)",
+      "state": "desktop-populated",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": ".ant-pro-table-list-toolbar",
+      "next": ".ant-table-wrapper",
+      "previous_rect": {
+        "left": 306,
+        "top": 315.421875,
+        "right": 1358,
+        "bottom": 389.421875,
+        "width": 1052,
+        "height": 74.0
+      },
+      "next_rect": {
+        "left": 306,
+        "top": 389.421875,
+        "right": 1358,
+        "bottom": 731.84375,
+        "width": 1052,
+        "height": 342.421875
+      },
+      "gap_px": 0,
+      "expected": {
+        "kind": "library",
+        "value": "0px joined ProTable toolbar and table wrapper",
+        "source": "Ant Design Pro Components ProTable generated sibling layout"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the referenced rendered screenshot",
+        "exception": "The table toolbar is the ProTable toolbar directly above its table wrapper; the zero gap is an intentional continuous list work area."
+      },
+      "executed_command": "node /tmp/sunxu-qa-run.js > /tmp/sunxu-resizable-qa-output.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/desktop.png",
+      "screenshot_sha256": "efe9edc7f38d67c44be910e15284a6db25353100720b2bb801fb63a4855befc6",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES 表格组件 (/)",
+      "state": "desktop-populated",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": ".ant-table-body",
+      "next": ".ant-table-pagination",
+      "previous_rect": {
+        "left": 306,
+        "top": 416.84375,
+        "right": 1358,
+        "bottom": 696.84375,
+        "width": 1052,
+        "height": 280.0
+      },
+      "next_rect": {
+        "left": 306,
+        "top": 704.84375,
+        "right": 1358,
+        "bottom": 731.84375,
+        "width": 1052,
+        "height": 27.0
+      },
+      "gap_px": 8,
+      "expected": {
+        "kind": "library",
+        "value": "8px table pagination top margin",
+        "source": "Ant Design Table pagination spacing (computed margin-top: 8px)"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the referenced rendered screenshot",
+        "observed_clear_band_px": 8
+      },
+      "executed_command": "node /tmp/sunxu-qa-run.js > /tmp/sunxu-resizable-qa-output.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/desktop.png",
+      "screenshot_sha256": "efe9edc7f38d67c44be910e15284a6db25353100720b2bb801fb63a4855befc6",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES 表格组件 (/)",
+      "state": "desktop-business-empty",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": ".sxw-docs-page-heading",
+      "next": ".sxw-catalog-resizable-table-page > .ant-pro-card:first-child",
+      "previous_rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 762.421875,
+        "width": 1118,
+        "height": 542.140625
+      },
+      "gap_px": 20,
+      "expected": {
+        "kind": "contract",
+        "value": "20px desktop heading margin",
+        "source": "examples/catalog/catalog.css: .sxw-docs-page-heading { margin-bottom: 20px }"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the referenced rendered screenshot",
+        "observed_clear_band_px": 20
+      },
+      "executed_command": "node /tmp/sunxu-qa-run.js > /tmp/sunxu-resizable-qa-output.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/desktop-empty.png",
+      "screenshot_sha256": "749a01371a7738a22f81124f79d664c668a4cafaadd5fdf4c4f7818178444add",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES 表格组件 (/)",
+      "state": "desktop-business-empty",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": "first .ant-pro-card",
+      "next": "last .ant-pro-card",
+      "previous_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 762.421875,
+        "width": 1118,
+        "height": 542.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 774.421875,
+        "right": 1391,
+        "bottom": 1086.984375,
+        "width": 1118,
+        "height": 312.5625
+      },
+      "gap_px": 12,
+      "expected": {
+        "kind": "contract",
+        "value": "12px card gap",
+        "source": "examples/catalog/catalog.css: .sxw-catalog-resizable-table-page { gap: 12px }"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the referenced rendered screenshot",
+        "observed_clear_band_px": 12
+      },
+      "executed_command": "node /tmp/sunxu-qa-run.js > /tmp/sunxu-resizable-qa-output.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/desktop-empty.png",
+      "screenshot_sha256": "749a01371a7738a22f81124f79d664c668a4cafaadd5fdf4c4f7818178444add",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES 表格组件 (/)",
+      "state": "desktop-business-empty",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": ".ant-pro-table-list-toolbar",
+      "next": ".ant-table-wrapper",
+      "previous_rect": {
+        "left": 306,
+        "top": 315.421875,
+        "right": 1358,
+        "bottom": 389.421875,
+        "width": 1052,
+        "height": 74.0
+      },
+      "next_rect": {
+        "left": 306,
+        "top": 389.421875,
+        "right": 1358,
+        "bottom": 656.6875,
+        "width": 1052,
+        "height": 267.265625
+      },
+      "gap_px": 0,
+      "expected": {
+        "kind": "library",
+        "value": "0px joined ProTable toolbar and table wrapper",
+        "source": "Ant Design Pro Components ProTable generated sibling layout"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the referenced rendered screenshot",
+        "exception": "The empty state retains the same joined ProTable toolbar and wrapper; pagination is intentionally not rendered when there are no records."
+      },
+      "executed_command": "node /tmp/sunxu-qa-run.js > /tmp/sunxu-resizable-qa-output.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/desktop-empty.png",
+      "screenshot_sha256": "749a01371a7738a22f81124f79d664c668a4cafaadd5fdf4c4f7818178444add",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES 表格组件 (/)",
+      "state": "mobile-populated-keyboard-scroll-120",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": ".sxw-docs-page-heading",
+      "next": ".sxw-catalog-resizable-table-page > .ant-pro-card:first-child",
+      "previous_rect": {
+        "left": 33,
+        "top": 89,
+        "right": 342,
+        "bottom": 262.28125,
+        "width": 309,
+        "height": 173.28125
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 278.28125,
+        "right": 342,
+        "bottom": 866.421875,
+        "width": 309,
+        "height": 588.140625
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px narrow-screen heading margin",
+        "source": "examples/catalog/catalog.css max-width: 767px: .sxw-docs-page-heading { margin-bottom: 16px }"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the referenced rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "node /tmp/sunxu-qa-run.js > /tmp/sunxu-resizable-qa-output.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/mobile-375.png",
+      "screenshot_sha256": "b9df75740a443128acb2cfbda784ea20a091220bd6a4f6b46933c0abe4f6fdca",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES 表格组件 (/)",
+      "state": "mobile-populated-keyboard-scroll-120",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "first .ant-pro-card",
+      "next": "last .ant-pro-card",
+      "previous_rect": {
+        "left": 33,
+        "top": 278.28125,
+        "right": 342,
+        "bottom": 866.421875,
+        "width": 309,
+        "height": 588.140625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 878.421875,
+        "right": 342,
+        "bottom": 1212.984375,
+        "width": 309,
+        "height": 334.5625
+      },
+      "gap_px": 12,
+      "expected": {
+        "kind": "contract",
+        "value": "12px card gap",
+        "source": "examples/catalog/catalog.css: .sxw-catalog-resizable-table-page { gap: 12px }"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the referenced rendered screenshot",
+        "observed_clear_band_px": 12
+      },
+      "executed_command": "node /tmp/sunxu-qa-run.js > /tmp/sunxu-resizable-qa-output.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/mobile-375.png",
+      "screenshot_sha256": "b9df75740a443128acb2cfbda784ea20a091220bd6a4f6b46933c0abe4f6fdca",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES 表格组件 (/)",
+      "state": "mobile-populated-keyboard-scroll-120",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": ".ant-pro-table-list-toolbar",
+      "next": ".ant-table-wrapper",
+      "previous_rect": {
+        "left": 66,
+        "top": 429.421875,
+        "right": 309,
+        "bottom": 619.421875,
+        "width": 243,
+        "height": 190.0
+      },
+      "next_rect": {
+        "left": 66,
+        "top": 619.421875,
+        "right": 309,
+        "bottom": 801.84375,
+        "width": 243,
+        "height": 182.421875
+      },
+      "gap_px": 0,
+      "expected": {
+        "kind": "library",
+        "value": "0px joined ProTable toolbar and table wrapper",
+        "source": "Ant Design Pro Components ProTable generated sibling layout"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the referenced rendered screenshot",
+        "exception": "The toolbar remains directly adjacent to the table wrapper at the 375px viewport."
+      },
+      "executed_command": "node /tmp/sunxu-qa-run.js > /tmp/sunxu-resizable-qa-output.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/mobile-375.png",
+      "screenshot_sha256": "b9df75740a443128acb2cfbda784ea20a091220bd6a4f6b46933c0abe4f6fdca",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES 表格组件 (/)",
+      "state": "mobile-populated-keyboard-scroll-120",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": ".ant-table-body",
+      "next": ".ant-table-pagination",
+      "previous_rect": {
+        "left": 66,
+        "top": 646.84375,
+        "right": 309,
+        "bottom": 766.84375,
+        "width": 243,
+        "height": 120.0
+      },
+      "next_rect": {
+        "left": 66,
+        "top": 774.84375,
+        "right": 309,
+        "bottom": 801.84375,
+        "width": 243,
+        "height": 27.0
+      },
+      "gap_px": 8,
+      "expected": {
+        "kind": "library",
+        "value": "8px table pagination top margin",
+        "source": "Ant Design Table pagination spacing (computed margin-top: 8px)"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the referenced rendered screenshot",
+        "observed_clear_band_px": 8
+      },
+      "executed_command": "node /tmp/sunxu-qa-run.js > /tmp/sunxu-resizable-qa-output.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-resizable-table-2026-11-20/mobile-375.png",
+      "screenshot_sha256": "b9df75740a443128acb2cfbda784ea20a091220bd6a4f6b46933c0abe4f6fdca",
+      "status": "PASS"
+    }
+  ],
+  "unverified": [
+    "MES host permission resolver wiring",
+    "VoiceOver/NVDA screen-reader workflow",
+    "dark theme and 844×390 landscape",
+    "overflow behavior in custom host containers beyond the catalog table boundary"
+  ]
+}

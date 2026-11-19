@@ -8,9 +8,9 @@ export type ComponentMapping = {
 };
 
 export const componentMappings: ComponentMapping[] = [
-  { source: 'MES Web · DocumentLineEditableTable + DocumentLineBatchSettings', target: 'EditableDetailTable', status: 'ADAPTED', note: '明细数据、字段规则和联动由宿主提供；批量设置使用表格选中操作区。' },
+  { source: 'MES Web · DocumentLineEditableTable + DocumentLineBatchSettings', target: 'EditableDetailTable + sunxu-web/mes DocumentLineBatchSettingsButton', status: 'ADAPTED', note: '保留明细编辑与日期字符串 patch 契约；字段规则、请求和提交由宿主提供。' },
   { source: 'MES Web · RemoteSelect', target: 'RemoteSelect', status: 'ADAPTED', note: '保留 AntD Select 行为，服务端搜索关闭本地过滤并统一防抖。' },
-  { source: 'MES Web · TableLongText', target: 'LongText', status: 'ADAPTED', note: '表格长文本截断展示，完整内容通过当前页面弹层查看。' },
+  { source: 'MES Web · TableLongText', target: 'sunxu-web/mes TableLongText + LongText', status: 'ADAPTED', note: '保留 MES 表格 class 与默认文案，全文查看由通用组件处理。' },
   { source: 'MES Web · DocumentViewBar', target: 'SavedViewBar', status: 'ADAPTED', note: '适配视图切换、脏状态决策和视图管理交互；持久化与业务权限由宿主提供。' },
   { source: 'MES Web · DocumentFilterDrawer', target: 'CrudListWorkbench.advancedFilters', status: 'ADAPTED', note: '复用筛选草稿抽屉和应用/重置/取消语义；字段及查询由宿主管理。' },
   { source: '东健 CRM Web · 产品列表', target: 'CrudListWorkbench', status: 'ADAPTED', note: '组合主分类、状态分段、轻筛选、列表动作和 ProTable；CRM 字段与增删改由宿主管理。' },

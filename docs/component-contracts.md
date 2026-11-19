@@ -33,9 +33,9 @@
 | `EditableDetailTable` | 编辑重复明细行，选择多行并按字段批量设置 | AntD ProTable + 受控 `rows`；请求和业务字段由宿主提供 |
 | `BatchFieldSettingsButton` | 让用户勾选要覆盖的字段并应用到已选行 | AntD Modal / 表单控件；patch builder 由宿主提供 |
 | `RemoteSelect` | 用 AntD Select 展示远程候选并防抖搜索 | AntD Select；`onSearch` 由宿主提供 |
-| `LongText` | 在表格单元格显示截断文本并打开完整内容 | AntD Typography + Modal |
-| `TableSummary` | 在表格底部统一呈现宿主提供的筛选结果汇总 | AntD `Table.Summary`；聚合口径由宿主提供 |
+| `LongText` | 在表格单元格显示多行预览并按需查看全文 | AntD Popover + Typography / Modal |
 | `RowActions` | 把表格行操作收纳进省略号菜单 | AntD Dropdown + Button；操作语义由宿主提供 |
+| `TableSummary` | 在表格底部统一呈现宿主提供的筛选结果汇总 | AntD `Table.Summary`；聚合口径由宿主提供 |
 
 ## 关键契约
 
@@ -62,10 +62,10 @@
 - **职责**：标准 CRUD 列表的组合层。把分类 Tab、状态 `StatusTabs`、筛选栏、可选视图栏、可选层级筛选和 ProTable 放在统一的结果工作区；不实现基础表格、字段、查询服务或业务 CRUD。
 - **首开任务**：开发者打开目录的 CRUD 列表工作台示例，先看到产品列表与分类/状态入口；场景切换器可查看轻量、分类/状态、复杂视图和 ProTable 原生查询四种组合。组件运行时本身不持有最近列表或路由；宿主决定默认筛选和深链恢复。
 - **API**：`tableProps.columns` 与 `rowKey` 必填；其余公开 ProTable 参数可传入。为避免重复布局，`search`、`headerTitle`、`toolbar`、`toolBarRender` 由工作台控制。`layout` 为 `page | embedded`，默认 `page`；`layout="embedded"` 不拥有页面外框、不渲染页头，用于 Tab 面板、卡片或长页面中的子列表。`fill` 为布尔，默认 `false`；`fill` 让工作台成为确定高度的单列表视口页，表格体滚动而表头和分页保持可见。列 schema 能表达的查询字段通过 `proTableSearch` 启用 ProTable 原生查询表单；它支持 ProTable 的响应式 `span`、折叠数量和展开/收起行为。自定义 `search`、`quickFilters`、`filterActions`、`primaryTabs`、`statusFilters`、`toolbarActions`、`viewBar`、`appliedFilters`、`facetSidebar` 为可选插槽。`onCreate` 可选，传入回调后工作台提供统一“新增”主按钮；宿主控制权限及回调，`onCreateDisabled` 控制按钮禁用状态。`toolbarActions` 承载其他列表级动作，不重复渲染新增。`advancedFilters` 提供 `children`、已应用数量、受控/非受控 `open`、`onApply`、`onReset`、`onCancel` 和失败回调。
-- **表格适配插槽**：缺省直接渲染 ProTable；宿主需要可调整列宽等扩展时，可传 `renderTable` 接入宿主适配器。回调收到完整的 `tableProps`、工作台选定的 `search`、`options`，且 `headerTitle=false`、`toolBarRender=false`、`toolbar=undefined`。适配器只负责结果表格，不重复绘制列表标题、筛选和列表级操作；工作台仍拥有这些区域并将适配器放在结果区。`fill` 模式下工作台会测量结果区并把解析后的 `scroll.y` 放进 `tableProps.scroll`，同时把适配器及 ProTable / Ant Design 表格内部设为可收缩的纵向填充链；适配器直接消费，不得再自行实现页面级高度测量或删除分页。
+- **表格适配插槽**：缺省直接渲染 ProTable；宿主需要可调整列宽等扩展时，可传 `renderTable` 接入宿主适配器。回调收到完整的 `tableProps`、工作台选定的 `search`、`options`，且 `headerTitle=false`、`toolBarRender=false`、`toolbar=undefined`。适配器只负责结果表格，不重复绘制列表标题、筛选和列表级操作；工作台仍拥有这些区域并将适配器放在结果区。`fill` 模式下工作台会测量结果区并把解析后的 `scroll.y` 放进 `tableProps.scroll`，同时通过 ProCard `cardProps` 与 Ant Design Table/Spin 的公开语义 `styles`、`classNames` API 建立可收缩的填充链；适配器必须把收到的属性传给 ProTable，不得再自行实现页面级高度测量或删除分页。
 - **结果卡片内边距**：为避免 ProTable 默认左右 24 px 内边距挤压宽表格，工作台在未显式提供 `tableProps.cardProps` 时，通过 ProTable 公共 `cardProps.styles.body` 将结果卡片的水平内边距统一为 16 px；纵向间距继续由 ProTable 管理。显式传入 `cardProps`（包括 `false`）时由宿主接管结果卡片外观；宿主需用该公开 API 设置样式，不覆盖内部 DOM class。页面工作区外框仍只由 `ListScreenContainer` 或宿主 shell 中的一方拥有。
 - **状态/恢复**：高级筛选抽屉打开时由宿主字段控件持有草稿；“重置”只清草稿，“取消/关闭”调用 `onCancel` 保留已应用结果，“应用”调用宿主 `onApply`。返回 `false` 或抛错时抽屉保持打开，错误时显示可恢复提示。`open` 存在时为受控模式，宿主必须响应 `onOpenChange`；省略 `open` 时由工作台管理开关。加载、空、错误、分页、排序和行选择状态由 ProTable/宿主传入；**`fill` 模式下分页的可见位置和表体高度由工作台负责**，宿主不得再用页面级 `:has()` CSS 或外部高度测量控制表体。
-- **高度与分页契约**：`fill` 只用于单列表视口页，宿主必须给工作台提供确定的可用高度。工作台根节点、results、layout、table 容器、表格适配器和 ProTable / Ant Design 表格内部形成可收缩的纵向 flex 链；工作台用 `ResizeObserver` + `MutationObserver` 测量表头、footer、分页和 ProTable 工具栏之外的可滚动高度，并作为 `scroll.y` 传给 ProTable。表头保持其内容所需的自然高度，不参与 flex 收缩；分页始终渲染在结果区底部且不参与收缩，短数据也不会让表格和分页停在结果区上方；表格体在内部滚动。长页面（多卡片、图表或多个列表）不得开启 `fill`，保持默认文档流由页面整体滚动。
+- **高度与分页契约**：`fill` 只用于单列表视口页，宿主必须给工作台提供确定的可用高度。工作台根节点、results、layout、table 容器、适配器和 ProTable 的公开卡片/表格/Spin 语义槽形成可收缩的纵向 flex 链；测量只查询工作台注入的语义 class，不依赖 Ant Design 或 Pro Components 的内部类名。工作台用 `ResizeObserver` + `MutationObserver` 测量表头、footer、分页和额外结果内容之外的可滚动高度，并作为 `scroll.y` 传给 ProTable。表头保持其内容所需的自然高度，不参与 flex 收缩；分页始终渲染在结果区底部且不参与收缩，短数据也不会让表格和分页停在结果区上方；表格体在内部滚动。长页面（多卡片、图表或多个列表）不得开启 `fill`，保持默认文档流由页面整体滚动。
 - **Facet**：`facetSidebar` 只用于高频层级导航。工作区有效宽度低于 `facetSidebarBreakpoint`（默认 1024px）时，同一内容移入左侧 Drawer；组件用 ResizeObserver 测量列表内宽，不用浏览器 viewport 猜测。桌面侧栏与结果区由 16px grid gap 分隔，间距由工作台单独拥有，Facet 不再叠加末端留白；竖向填充布局中 Facet 受结果区高度约束，超出内容在 Facet 内滚动。侧栏卡片的边框、内边距和内容布局由宿主负责，子内容不得超出 Facet 轨道宽度。
 - **布局与响应式**：主分类 Tab 在左，状态 Segmented 在右；列表动作与新增位于紧邻结果区的搜索/筛选行右侧，即使没有筛选也右对齐；少量外部快捷筛选与关键字在宽度允许时保持同一行。`responsiveQuickFilters` 默认启用，工作台测量实际容器和筛选控件宽度；宽度不足时将快捷筛选折叠到“展开筛选”区域，用户可展开查看并再次收起，空间恢复后自动回到单行。ProTable 原生查询表单按自身响应式 `span` / `defaultFormItemsNumber` / `defaultCollapsed` 规则处理；两种查询方式避免重复配置同一业务字段。内容不足 900px 时分类和状态换行；不足 767px 时筛选区纵向组织。ProTable 的横向滚动/列配置由 `tableProps` 公共 API 控制，不覆盖内部 class。
 - **状态筛选所有权**：分类由 `primaryTabs` 或 Facet 二选一；状态由 `statusFilters` 或宿主快捷条件二选一；不要在视图标签、快捷控件和抽屉重复同一字段。
@@ -149,15 +149,16 @@
 - **批量状态**：仅传入 `batchOperations` 才开启选择。`fields` 支持 text / number / date / select；每个字段须由用户单独勾选后才会覆盖。勾选后留空代表清空该字段；`required` 字段不能留空。可选 `autoSelectNewRows` 在新增行后选择新行。行顺序以 `rows` 为准，不以勾选顺序重排。
 - **宿主边界**：`mapRowPatch` 可按行转换同一批量 patch；`onBatchApplied` 用于通知上层已应用行和 patch。组件不做请求、权限、业务校验、字段联动或保存。
 - **删除/复制**：单行删除及批量删除都会遵守 `minRows`；`canRemoveRows` 由宿主提供额外约束。批量删除在 ProTable 选择操作区确认，批量复制需提供 `cloneRow`。操作结果仍只更新受控草稿，不自动提交。
-- **布局与响应式**：使用 ProTable 原生行选择提示和 `tableAlertOptionRender`，批量操作在表格选择提示区；新增明细在紧邻表格的工具栏。列宽超过可视区时由表格局部横向滚动，并显示“左右滚动查看其余列”提示；页面本身不横向溢出。
-- **可访问性**：列编辑控件按宿主提供的 AntD 控件名称呈现；行操作图标按钮带可读 `aria-label`。Modal 的焦点和键盘行为由 AntD 管理。组件须放在 `SunxuWebProvider` 或其他 AntD `App` 上下文内。
+- **布局与响应式**：使用 ProTable 原生行选择提示和 `tableAlertOptionRender`，批量操作在表格选择提示区；新增明细在紧邻表格的工具栏。列宽超过可视区时由表格局部横向滚动，并显示“左右滚动查看其余列”提示；溢出检测通过 Ant Design Table 的公开 `classNames.content` 语义槽标记滚动容器，不查询内部类名；页面本身不横向溢出。
+- **批量设置弹层**：Modal 垂直居中；标题和操作区固定可见，字段区最大高度为 `calc(100dvh - 200px)` 并在内部滚动，滚动边界不传递到背景页。短视口下仍可到达全部字段和底部操作。
+- **可访问性**：列编辑控件按宿主提供的 AntD 控件名称呈现；行操作图标按钮带可读 `aria-label`。Modal 的焦点和键盘行为由 AntD 管理；其字段区使用原生滚动容器。组件须放在 `SunxuWebProvider` 或其他 AntD `App` 上下文内。
 - **证据**：目录真实路由、桌面/窄屏几何、局部横向溢出提示、键盘行选择、批量设置应用和深色主题在 `docs/verification/mes-web-components-2026-11-10/` 记录；读屏器完整流程仍为 `UNVERIFIED`。
 
 ### `RemoteSelect` 与 `LongText`
 
 - `RemoteSelect` 继承 AntD Select API，`onSearch` 存在时启用搜索、关闭本地候选过滤，并以 `searchDebounceTime`（默认 300 ms）防抖。候选加载、请求竞态、分页和错误反馈由宿主负责。
-- `LongText` 接受文本或数字，按 `maxLength`（默认 64 个 Unicode code point）截断；只有超长时显示“更多”，点击打开包含完整内容的 AntD 对话框。弹层内容限高为 `min(60vh, 520px)` 并在内部滚动，保留换行且长字符串可换行。空值显示 `-`。放入可点击表格行时，展开操作阻止事件冒泡。
-- **目录示例**：`examples/catalog/TextControlsPage.tsx` 展示宿主候选搜索和长文本单元格；桌面、窄屏、搜索结果与全文弹层证据见 `docs/verification/mes-web-components-2026-11-10/`。
+- `LongText` 接受文本或数字。`displayMode="wrap"` 将文本最多显示为 `maxLines` 行（默认 2 行），仅在内容被截断时显示 Popover；完整原文保留在 DOM，悬停或点击可查看全文，触发单元格的点击不会冒泡到可点击行。Popover 内容保留换行并可滚动。`displayMode="truncate"` 按 `maxLength`（默认 64 个 Unicode code point）截断；当字符数超过上限或当前宽度触发省略时，显示“更多”并打开完整内容对话框。宽度溢出由 ResizeObserver 依据文本元素的 `scrollWidth > clientWidth` 检查，文本或容器宽度变化后重新测量。空值显示 `-`。
+- **目录示例**：`examples/catalog/TextControlsPage.tsx` 展示长于字数上限、短于上限但在 180px 列宽下溢出的备注，以及无需展开的短文本；桌面、窄屏、搜索结果与全文弹层证据见当前组件验收记录。
 
 ### `TableSummary`
 
@@ -166,7 +167,34 @@
 - **数据边界**：不请求数据、不按当前页累加、不推断字段能否相加、不做单位或币种换算、不处理权限。全量筛选结果的汇总由宿主接口返回，宿主页面映射到可见内容。
 - **布局与可访问性**：复用 `Table.Summary.Row/Cell` 的表格语义；单元格跨列表列显示，`Space` 在可用宽度内换行；表格设置横向滚动时，汇总行随表格共用横向滚动区域，不造成页面横向溢出。不读取 ProTable 私有列结构或覆盖 AntD 内部样式。
 - **目录示例**：`examples/catalog/TableSummaryPage.tsx` 用不同单位展示账面和可用数量分别汇总；组件只负责表格底部布局。
-- **证据**：目录真实路由和窄屏几何记录见 [`docs/verification/table-summary-2026-11-20/README.md`](./verification/table-summary-2026-11-20/README.md)；持久化截图文件及 MES 库存业务路由仍为 `UNVERIFIED`.
+- **证据**：目录真实路由和窄屏几何记录见 [`docs/verification/table-summary-2026-11-20/README.md`](./verification/table-summary-2026-11-20/README.md)；持久化截图文件及 MES 库存业务路由仍为 `UNVERIFIED`。
+
+### `ResizableProTable` 与 `ResizableTable`
+
+- **职责与入口**：`ResizableProTable<T, U>` 保留 ProTable API，`ResizableTable<T>` 保留 Ant Design Table API；列 schema、数据源、查询请求、权限、业务动作及分页策略仍由宿主提供。从 `sunxu-web/mes` 导入。`resizable={false}` 关闭宽度拖拽适配，但仍保留适用的 MES 表格行为。
+- **宽度和布局持久化**：`resizable` 可设为布尔值或 `ResizableTableConfig`。默认列宽 120px、最小 48px、最大不限、拖拽结束防抖 500ms；`defaultWidth`、`minConstraints`、`maxConstraints`、`debounceWaitTime` 可覆盖。`persistenceKey` 默认按列生成，也可提供稳定业务 key 或设为 `false`；`persistenceType` 默认 `localStorage`，可选 `sessionStorage`。ProTable 的列宽状态与可见/顺序状态分别保存，排序状态由独立的 `sortPersistenceKey` 保存；`sortMigration` 可只替换已知旧默认排序。用户显式重置列设置时，宽度缓存同步重置。
+- **行号与列策略**：分页列表默认增加固定左侧“序号”列，跨页使用全局行号；可用 `showRowIndex={false}` 关闭。`materialColumnPriority` 缺省按物料名称、编码、规格、单位、主数量、辅助数量、业务上下文、扩展列、辅助信息和操作列整理默认列序；`'preserve'` 或 `{ mode: 'preserve' }` 保留声明次序，`false` 完全关闭整理，ProTable 用户保存的显式列序仍优先。不会把隐藏查询字段导出为业务列。
+- **排序与查询**：ProTable 的 `request` 由宿主实现。默认对可排序业务字段发出服务端排序参数；设置 `serverSortFields` 后，仅白名单字段可排序。使用本地 `dataSource` 时按日期、数值和中文自然顺序比较；AntD Table 列可用 `sortValue`、`sortable` 控制。排序状态使用单独 key 持久化。外部 `params` 的 `undefined`、`null`、空字符串和空数组会在请求前移除；日期范围列合并通用快捷日期选项，`createdAt` / `updatedAt` 字段可补充仅日期展示列。表单 transform 和接口字段映射由宿主继续控制。
+- **筛选、空态和汇总**：保留 ProTable 查询表单与列设置 API；列变更会同步导出布局。`emptyGuidance` 可提供业务空态下一步建议，默认 `TableEmpty` 展示“暂无数据”和筛选/上游数据提示；宿主传入 `locale.emptyText` 时完全覆盖。`summary` 仍是 AntD/ProTable 的宿主回调；自动行号存在时组件为汇总行补齐首列。
+- **高度适配**：`fitContainerHeight` 缺省关闭；设为 `true` 或 `{ enabled, bottomOffset, minBodyHeight, maxBodyHeight }` 后，组件结合视口、`fitContainerHeight` 所在结果边界、表头、分页、汇总和 footer 动态计算纵向滚动高度。单列表视口页的外部父级必须提供确定高度和可收缩的 flex 布局；长页面/多表页面不启用。
+- **导出布局**：有 `request` 的表默认产出当前可见列、列序和排序布局；仅用本地 `dataSource` 的表需显式设 `exportLayoutEnabled`。`useTableExportLayout()` 读取当前表布局，表格边界在导出按钮点击捕获阶段激活对应布局，避免同一路由多个表格串用。导出 API 和服务仍由宿主实现；布局只能表达用户选择，不能扩大后端允许导出的字段集合。
+- **行操作和编辑宿主接缝**：`TableActions` 将有效按钮、链接、权限按钮和确认操作统一收入“更多”菜单；权限判断、确认和结果仍归动作节点/宿主。`MesUiProvider` 可选注入 `isTableActionColumn(column)` 识别宿主操作列，避免嵌套菜单；`resolveRowEditAction(columns, record)` 只返回宿主当前可见且允许执行的编辑回调，表格双击才调用它。未提供时不产生编辑副作用。不得在 Sunxu 中硬编码 Umi `useAccess`、权限码、MES API、路由或业务动作。
+- **密度和局部溢出**：ProTable 工具栏提供“宽松 / 中等 / 紧凑 / 0 间距”密度菜单，存储键为 `mes-admin:table-density`；主题 token 同步控制单元格纵向间距。列宽总和超过可视区时，仅表格容器横向滚动，页面保持视口宽度；宿主若需要纯键盘浏览，应提供命名且可聚焦的表格滚动区域。`TableActions` 的 `max` 只为旧调用签名兼容，不改变全动作收纳策略。
+- **本次行为边界**：排序恢复与宽度持久化使用稳定的列 schema 输入，排序指示在最终渲染列上合并，避免服务端排序状态更新把已保存列宽重置为默认值。此项是适配层修正，保留 MES 排序与列宽行为。
+- **目录示例和证据**：真实 Catalog 路由“MES 表格组件”覆盖 ProTable 与原生 Table、服务端/本地排序、列宽拖拽和刷新、列显隐与导出列数、密度、双击编辑回调、空态、汇总、视口内纵向高度及 375px 键盘横向滚动。截图、几何、接缝审计、build/typecheck 与未验收项见 [`docs/verification/mes-resizable-table-2026-11-20/README.md`](./verification/mes-resizable-table-2026-11-20/README.md)。宿主 MES 权限解析接线、读屏器、深色主题、844×390 横屏和自定义溢出容器仍为 `UNVERIFIED`。
+
+### `sunxu-web/mes` 兼容组件
+
+- `MesUiProvider` 接受 MES 宿主的 `hasPermission(permission)` 函数；`PermissionButton` 的 `permission` 由此函数判断，无 Provider 或无权限时 fail closed 并不渲染动作。确认文案、危险标记、异步 `onConfirm`、loading、成功提示和成功回调沿用 MES 当前实现；异步错误从 `info.msg`、`data.msg`、`response.data.msg` 或 `Error.message` 提取并显示可确认错误弹窗。请求和权限码的含义由宿主负责。
+- `DocumentModalForm<T, U>` 保持 Pro `ModalForm` 的泛型和其余 props 透传。默认宽度为 `100vw` 并实际铺满当前工作区，默认 `getContainer` 为 `false`，不穿透 keep-alive 标签容器；只有显式 `viewportFullscreen` 且仍采用默认标签容器时才固定到视口。最小化时取消遮罩并隐藏弹窗，但保持表单挂载与草稿；左下角还原条回到同一组件所在工作区。`open` 变化时清除最小化状态。默认 `destroyOnHidden=true`、`mask.closable=false`、`closable=false`，标题栏提供带无障碍名称的最小化和关闭按钮；可通过调用方 `modalProps.mask` 覆盖遮罩行为。完整宽度子节点由组件提供 `20px 24px 24px` 内边距，render-function children 原样透传；调用方自定义 Modal 语义样式槽及浮层 `style` 会与默认布局合并。固定数值宽度使用普通 Modal 布局；显式自定义 `getContainer` 保留自定义挂载容器，但仍应用完整宽度布局。完整宽度 Modal 保留 `document-form-modal` class 供 MES 宿主现有全局样式过渡使用。组件不负责草稿保存、请求、权限、路由或业务校验。
+- `DocumentLineQuantityInput` 是受控数值编辑器：有效数值变化立即交给宿主，清空时只保留本地空草稿、不发送 `null`；失焦时恢复宿主当前值。`InputNumber` 的范围、精度、步长和外观 props 继续透传。
+- `StatusDisplay` 只消费宿主传入的 `enumMap`，不内置 MES 状态常量；按 `mode` 呈现 `StatusTag`、Ant Design `Badge` 或彩色文本，未知枚举回退原始值、空值显示 `-`。令牌颜色和显式色值沿用 MES 当前映射规则。
+- `TableLongText` 保留 MES 表格现有的 `mes-table-long-text` class，默认使用 `LongText` 的两行换行模式；可用 `maxLines` 调整行数，也可显式选择 `displayMode="truncate"` 使用 64 字符截断和对话框。两行模式的全文 Popover 支持鼠标悬停、触摸点击和键盘 Enter/Space 打开，Escape 关闭；点击不冒泡到可点击表格行。`isTableLongTextValue` 只接受 string/number。
+- `DocumentLineBatchSettingsButton` 保留 MES 明细字段 schema；`number` 支持 `min/max/precision`，`date` 的 patch 收到 `YYYY-MM-DD` 字符串，`select` 的 patch 只接收字符串（数值选项仍归一为 `undefined`），`text` 保留最大长度。字段需独立勾选，勾选后留空表示清空；`required` 字段为空时阻止应用并提示。远程选择字段通过 `request(params, values)` 加载候选，竞态结果会丢弃；请求中对应 Select 显示 loading，失败在字段旁显示错误和“重试”入口，重试后清除错误。
+- MES 适配组件不请求 MES API、不查权限；远程候选请求、权限判断、状态字典和 `onApply` patch 提交由宿主提供。它们位于 `src/mes/**`，从 `sunxu-web/mes` 导入。
+- MES 套件目录中的表格固定列宽为 566px；窄屏将横向溢出限制在表格内，并提供可聚焦命名区域，以左右方向键、Home 和 End 浏览列。
+- 两个适配器的桌面/375px 触摸窄屏/844×390 横屏渲染、全文查看、批量字段区滚动、键盘表格滚动与 DOM 几何记录见 `docs/verification/mes-ui-suite-2026-11-19/README.md`。读屏器完整流程仍为 `UNVERIFIED`。
+- `DocumentModalForm` 的工作区全屏、视口全屏、固定宽度、遮罩点击不关闭、最小化保留草稿、键盘 Space/Enter 还原、关闭和宿主提交已在目录真实页面完成渲染验收；截图、DOM 几何和横向溢出数据见 `docs/verification/mes-document-modal-form-2026-11-20/README.md`。自定义 `getContainer` 组合和读屏器流程标为 `UNVERIFIED`。
 
 ## 组件状态验收记录
 

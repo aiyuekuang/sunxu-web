@@ -1,0 +1,2250 @@
+{
+  "source_repository": "../mes-main/mes-admin",
+  "source_branch": "main-买断版本",
+  "source_commit": "e185f6b68b6d8ef94ed0b5312340e1952be5f2f1",
+  "source_worktree": "tracked files clean; unrelated untracked paths excluded",
+  "captured_at": "2026-11-19",
+  "scope": "Every tracked file under mes-admin/src/components at the pinned source commit, including implementation, tests, styles, declarations and support files. JSX usage is joined from the runtime import census; 0 means not directly referenced by an imported JSX component in the scanned source.",
+  "counts": {
+    "total_tracked_files": 195,
+    "runtime_source": 146,
+    "source_test": 46,
+    "source_style": 3,
+    "used_runtime_source_files": 102,
+    "runtime_source_files_without_direct_jsx_import": 44,
+    "jsx_occurrences": 2137,
+    "migration_review_state": {
+      "CARRY_FORWARD_SAME_SOURCE": 162,
+      "REVIEW_CHANGED_SOURCE": 31,
+      "REVIEW_NEW_SOURCE": 2
+    }
+  },
+  "files": [
+    {
+      "source": "src/components/AccessFirstRedirect.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "50401438470a29e31a59c8365871d558ee840854619ec4490ee5bec6f341610b",
+      "jsx_usage": 18,
+      "consumer_file_count": 18,
+      "imported_symbols": [
+        "@/components/AccessFirstRedirect#default"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/AnnouncementBanner/index.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "b721ea72b361fa04477c7ac265b24f4a64b7d0574778f99fbd773f0a00aef5dc",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/AnnouncementBanner#AnnouncementBanner"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/ApprovalPanel/index.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "b7f2aa7c7f1fc4cc0e138c8d6ef12528b056836b5ef4dd7a9c5c08d1652b0c31",
+      "jsx_usage": 5,
+      "consumer_file_count": 5,
+      "imported_symbols": [
+        "@/components/ApprovalPanel#ApprovalPanel"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/ContextualHelp/index.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "5a4aeb418839ea5aebc2074e0aaa9a173fd5875544b92493e1154c15ee372dd3",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/ContextualHelp/index.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "b37ea3cc1d609cb6f1368194ec68636e97bba8d4535ef02df8c80e7f6ca1f1d2",
+      "jsx_usage": 36,
+      "consumer_file_count": 23,
+      "imported_symbols": [
+        "@/components/ContextualHelp#ContextualHelp"
+      ],
+      "previous_disposition": "UPSTREAM",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/CustomFields/CustomFieldValuePanel.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "e18287dc421efb95297febb5185eb48cc6eed52045c90cea53b9d20e43eeb68e",
+      "jsx_usage": 11,
+      "consumer_file_count": 10,
+      "imported_symbols": [
+        "./CustomFieldValuePanel#default",
+        "@/components/CustomFields/CustomFieldValuePanel#CustomFieldFormSection",
+        "@/components/CustomFields/CustomFieldValuePanel#default"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/CustomFields/DocumentCustomFieldPanel.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "4008020941cb80a5da1d0d6cbed4f7d1bef056e0fab203a3019d800ef0561583",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/CustomFields/DocumentCustomFieldPanel.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "6be436607a1f2bd81ae499d479e0b305c836f9da4d25f42f2b118e78e08e735b",
+      "jsx_usage": 37,
+      "consumer_file_count": 35,
+      "imported_symbols": [
+        "@/components/CustomFields/DocumentCustomFieldPanel#DocumentCustomFieldPanel"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/CustomFields/customFieldCell.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "99a064e5ea23fcd7a7208d39cfe2a3d2735208d519539c69eb12adec6513a491",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/CustomFields/customFieldCell.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "93a1fca357fdbb33b1b050c65134bf80f760493bec715dc08f12ce873d94b3ef",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/CustomFields/documentCustomFieldCoverage.test.ts",
+      "kind": "SOURCE_TEST",
+      "sha256": "79f67a180c0b8bb865d8587e58fde2f9d36ac322417da6815803f0c70f87067a",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/CustomFields/documentLineCustomFieldColumns.test.ts",
+      "kind": "SOURCE_TEST",
+      "sha256": "5bfdb02ca72eafc51ea2bb892a64e53d6f09dd6b9da7d5b638b537456e9a7117",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/CustomFields/documentLineCustomFieldColumns.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "f4995364497d5a689c390a93421a9949c198ba963e0aa59ef382c4ae36f3039b",
+      "jsx_usage": 18,
+      "consumer_file_count": 14,
+      "imported_symbols": [
+        "@/components/CustomFields/documentLineCustomFieldColumns#DocumentLineCustomFieldFormItems"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/CustomFields/formatCustomFieldValue.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "5f64068e50f52d9aaccda7b6df29b5f9ebd3e0849b92ed9f683a12d8e8be7f58",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/CustomFields/materialCustomFieldColumns.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "42927f771951cc7ae426867d7d7daa0545c057514815348b5606589d4d2a48f0",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/CustomFields/useDocumentCustomFieldDetailVisibility.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "a7eb0417aa6a4d50784e402134f3fbc65227c13255c1724e6727605210639140",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/CustomFields/useDocumentCustomFieldDetailVisibility.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "f8cba95cb4813e7cb33e5253cdc3f11c3a17960f3f2fdd035550af861ff4c958",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/HeaderDropdown/index.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "5ffaa695b47173b30a07c268729f2e69c13b3b7dcb61bc39646d7ed90ac44aa6",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "../HeaderDropdown#default"
+      ],
+      "previous_disposition": "UPSTREAM",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/ImportModal/index.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "6ce3bf1b8adaf23e578c5829be3eac310071f6040c9d267c742e262130468d7c",
+      "jsx_usage": 7,
+      "consumer_file_count": 7,
+      "imported_symbols": [
+        "@/components/ImportModal#default"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/ImportWorkbenchDrawer/index.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "b0fd04fe287fe3fc5a34ef90ea85a6594afc2b53e7b22632012eddb0ba51bf20",
+      "jsx_usage": 5,
+      "consumer_file_count": 5,
+      "imported_symbols": [
+        "@/components/ImportWorkbenchDrawer#default"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/LabelTemplates/BatchLabel.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "d5e693e9d611fe3daf38cf7a45af87daaf3eb38bbaec123e3f8612caf7c7c7f7",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/LabelTemplates/EquipmentLabel.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "755f8f833956bddf33fd2ba457c06b2a51d882c10bd3f1ff933a6632691a4c08",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/LabelTemplates/LabelLayout.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "a73303ca90ed121bc0b1dc30d32cb69621dfc691798213963ea150e392315dd8",
+      "jsx_usage": 6,
+      "consumer_file_count": 6,
+      "imported_symbols": [
+        "./LabelLayout#LabelLayout"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/LabelTemplates/MaterialLabel.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "1d3498ba67c3f4acff0cd79c45c31b7181821dcbc3a9dfada60526a3e61340ee",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/LabelTemplates/PackageUnitLabel.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "9a549f85889b49c1714479a5c07d27365f6dfdc51093c83bcc1e86fcd970e377",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/LabelTemplates/ToolingLabel.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "96620411748b4884bdc2b4dda2341bb6adcfda63ab285f3256bcedd6a856b48c",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/LabelTemplates/WorkOrderLabel.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "a8156a40e335b2d249954036725ad61596dab51e073c3f69e7f75cd4bab2e08a",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/LabelTemplates/index.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "fad1da8809156b457b497e73182f99cbb999a1f6f6e00e93059edeb9414f84ae",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/LabelTemplates/label-styles.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "7ac056c3c7e7c0e3336b0a2df844e6f83289e371227b37097422e69579265b2a",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/LabelTemplates/useLabelPrint.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "ca9ed3d2bd0393354d36c556260c66dfe90c012d26594c5fe8b7feba7aac3ead",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/DeliveryNoteDotMatrixPrint.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "42e6c861c87a0a6165b82bf88a667f58ccca9c980d65f4a0088974431c0ae974",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/DeliveryNotePrint.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "6e02be2c17e0fb53846ebc303dec8d77537fd82eb156f5d792fd2fc77d81c8c0",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/DotMatrixLayout.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "3ac930cdef55cb9f479d4f526e8f505fab52e50a78d469d9342ec16a2b036a4e",
+      "jsx_usage": 2,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "./DotMatrixLayout#DotMatrixLayout"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/InspectionReportPrint.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "9c563bcd4670714527e423506c61f5d7460a7c43fbb86e11761c54d73d529156",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/MaterialIssuePrint.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "34ef75362ec78d52f4f94a30d263f7902069c08255a823a3b8717a6a8690fcc2",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/PrintLayout.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "f0b5dcb9514137723395d0d6f0ba5096f66f482a9ad78e75a3ebfd3bb252ca47",
+      "jsx_usage": 8,
+      "consumer_file_count": 8,
+      "imported_symbols": [
+        "./PrintLayout#PrintLayout"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/ProcessCardPrint.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "f5a12c5758e88f12193a7effc822914f5b737bbf07b1152511d3569d1ac88851",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/PurchaseOrderDotMatrixPrint.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "0f886e4e181f4c5c955a5a2f1e40cf2145933569607965358a5ac59aeffeea63",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/PurchaseOrderPrint.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "574dde3803b23ebb76be17344bf1f9c5a0340ab9c75fa60ab920c95b752107d7",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/PurchaseReceiptPrint.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "a166abc997a5494937f4ce91c1a18ec336cdb43d1366f646b2ccb316ac7ad91f",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/SaleOrderPrint.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "dde76dab345b3c96030d099dfe9a3b170f6d957dd85c3c37715f54f9c58107b7",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/WorkOrderPrint.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "41e18326c4e714de5b5ae3e9c63962de38f8f7df89d719fe831ba44ff2efaca8",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/dotmatrix-styles.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "08601779ca24997c4190e37326065068cf3d6dc23c7e8ef23413f5a65c43925c",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/index.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "631fa44fda63e5dfd39f5e01f1b055336020de4f2e3710c79309a172222a5fb9",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/print-styles.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "1f9d8c8ecf1a426ab2314bdf19d297688d4c0e4de88c9b5cd8b32b233e2050a6",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/useDotMatrixPrint.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "1411500b33125a02bccc574ff8a9410a6d38e5c8aadec8fbe97e5be02df70ee8",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/PrintTemplates/usePrint.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "7a0b47880feb6a6bdc694291692944500289523d6e5d463ab20fc70c10dab4c7",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/ReportQuickRangeButtons/index.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "199b4ee20e98cce721c05505e7c006e287f0458cada7c051bb21657083f00533",
+      "jsx_usage": 8,
+      "consumer_file_count": 8,
+      "imported_symbols": [
+        "@/components/ReportQuickRangeButtons#default"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/RightContent/AiIntegrationEntry.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "b1c3c3ec960674b1c94038c04b60f8060b629a570abba2088afd0902df6f235b",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/RightContent/AiIntegrationEntry#AiIntegrationEntry"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/RightContent/AppDownloadQRCode.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "a942294e2bff8fbcfe7a3914ccb852ed0a0c5fb9992f2b256dad0f6fdcc75e32",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/RightContent/AppDownloadQRCode#AppDownloadQRCode"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/RightContent/AvatarDropdown.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "6d6f0e6e2adbd5eff6d76ccf429a4b140be204941b215c177ec3bb486c911962",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/RightContent/NotificationBell.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "d9c70a2541c83aca5d43a3ad210a8975ad03774894ad35223d7657c364aba914",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/RightContent/NotificationBell#NotificationBell"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/RightContent/SkinSwitcher.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "6ecf0d6cbc02c68af5c349005744c2906508e2253533fdf7bff6673cbd67a372",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/RightContent/SkinSwitcher#default"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/RightContent/TodoBell.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "9025b4afccbf81c9147a8f401ab8c599362c972d8d846a3b6007b5f605a35d8f",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/RightContent/TodoBell#TodoBell"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/RightContent/UpdateNotesEntry.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "2a6360e23d45ba85c800752c83ac4bd0112236ccf208b941282a8452ff364ff4",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/RightContent/UpdateNotesEntry#UpdateNotesEntry"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/RightContent/UsageGuideEntry.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "f4f5daee5629643a674c5b7677edae2801e9d5c04fe75f93638fde43ce138367",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/RightContent/UsageGuideEntry#UsageGuideEntry"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/RightContent/index.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "a01ce6b726f69b41db9061e3a9a7b6598fc0ce12cf424941329ab07e3b87e0b5",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/SendActionModal/SendAttachmentRow.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "eb4a3598f067b95e220ba21c9b7f9b997ab367d2a81b3a0ce551db7e688257f4",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "./SendAttachmentRow#SendAttachmentRow"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/SendActionModal/index.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "350273daf9a46b838c37e877880c279e8e2e31c44037e66fb60d517958250296",
+      "jsx_usage": 3,
+      "consumer_file_count": 3,
+      "imported_symbols": [
+        "@/components/SendActionModal#SendActionModal"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/StatusTag/index.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "1e0cfacd8d102dd83144cc6d284d93732e86b1450a820cd62145d70f48b0dcf0",
+      "jsx_usage": 58,
+      "consumer_file_count": 30,
+      "imported_symbols": [
+        "@/components/StatusTag#StatusTag"
+      ],
+      "previous_disposition": "UPSTREAM",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/SupportWechatQRCode.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "54c256f481143b93e72a34c6130e279fb134f51a14f92d703a50f78848813b6b",
+      "jsx_usage": 5,
+      "consumer_file_count": 4,
+      "imported_symbols": [
+        "../SupportWechatQRCode#SupportWechatQRCode",
+        "@/components/SupportWechatQRCode#SupportWechatQRCode"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/TableActions/index.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "202b798340b0f4f18b8bf6c1a96f94483b0361d4d5b8b986cacb02020a59027f",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/TableActions/index.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "652bc88d2c82d4bc7147234d611dddb0216fa9becc0cca4b6df09f342db9c448",
+      "jsx_usage": 2,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "@/components/TableActions#default"
+      ],
+      "previous_disposition": "UPSTREAM",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/accounting/AccountingCrudPage.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "81b6d6829fc63cfb08f77efaa3b0deb57484241e2c83cb9ac12deea1381dea2c",
+      "jsx_usage": 9,
+      "consumer_file_count": 9,
+      "imported_symbols": [
+        "@/components/accounting/AccountingCrudPage#AccountingCrudPage"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/accounting/options.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "c87afba5ca8ad0373aaef6a214710ea43a206240218d5832fe254273b5dba74b",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/accounting/period-selection.test.ts",
+      "kind": "SOURCE_TEST",
+      "sha256": "f4220c0416e50d10ea70381cd7fe9b0db05ddfb1b48d7ce39283b848823b76d7",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/accounting/period-selection.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "4cf5e25bc81e3f5a4b54915e0d5644a1bce576244919d955eb50dba81f1ce6d4",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/accounting/selectors.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "b1bbadf30ff695811c4a89cbec9bd44c6d1da4fddd9fc58b044cacd51db1d1e1",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/accounting/selectors.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "17fb4b605cc1adc74fd043b75fc572a24177c5c3d73d81ba801db7cb267d577b",
+      "jsx_usage": 32,
+      "consumer_file_count": 17,
+      "imported_symbols": [
+        "@/components/accounting/selectors#AccountField",
+        "@/components/accounting/selectors#AccountingBookField",
+        "@/components/accounting/selectors#FiscalPeriodField",
+        "@/components/accounting/selectors#VoucherWordField"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/business-invoice/BusinessInvoiceCoverageCard.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "22d6da0f989438ea9bde06fecd28ec8d130b8e9571dbfa3ad1749c4737484192",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/business-invoice/BusinessInvoiceCoverageCard.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "ee57f8d31b3b22d6b20fe0647ff1aef17247ef853bef1914b1b21ca850c729df",
+      "jsx_usage": 4,
+      "consumer_file_count": 4,
+      "imported_symbols": [
+        "@/components/business-invoice/BusinessInvoiceCoverageCard#BusinessInvoiceCoverageCard"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/common/QuickDateRangePicker.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "830babaf8255b5e08a6c9f6610ae433f5e8761f8087c56fe3149ae09f70d4864",
+      "jsx_usage": 28,
+      "consumer_file_count": 22,
+      "imported_symbols": [
+        "@/components/common/QuickDateRangePicker#QuickDateRangePicker",
+        "@/components/common/QuickDateRangePicker#QuickProFormDateRangePicker",
+        "@/components/common/QuickDateRangePicker#QuickProFormDateTimeRangePicker"
+      ],
+      "previous_disposition": "UPSTREAM",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/document-view/DetailLedgerFilterDrawer.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "66e6987fc4294c884c10b96765f20296ae99bd64422326308fc8ceb67fa00095",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/document-view/DocumentFilterDrawer.less",
+      "kind": "SOURCE_STYLE",
+      "sha256": "0ea06558518a6280ea50427a2ab213d8dca9cc169a2b2f61cd68a081fde64f64",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_STYLE",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/document-view/DocumentFilterDrawer.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "233e8ca2fb6aac6ea75f66427784a56a620c629aaac26ed635955ee2d10e1785",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/document-view/DocumentFilterDrawer.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "8aff787e446bff59603aa55f25f45f1c4503fd48be3610f4be2847ee78143fb8",
+      "jsx_usage": 19,
+      "consumer_file_count": 19,
+      "imported_symbols": [
+        "./DocumentFilterDrawer#DocumentFilterButton",
+        "./DocumentFilterDrawer#DocumentFilterDrawer",
+        "@/components/document-view/DocumentFilterDrawer#DocumentFilterDrawer"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/document-view/DocumentKeywordSearch.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "65d7bb02e7252d399b6e27efd123a62672addd3dc7e37e8b5dad345b4449d91e",
+      "jsx_usage": 20,
+      "consumer_file_count": 20,
+      "imported_symbols": [
+        "./DocumentKeywordSearch#DocumentKeywordSearch",
+        "@/components/document-view/DocumentKeywordSearch#DocumentKeywordSearch"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/document-view/DocumentTableTitle.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "1cc2538c0fdc37e005ea03b4dbce38e87fa72e8b99bb958931f8b08c3a33da7f",
+      "jsx_usage": 18,
+      "consumer_file_count": 15,
+      "imported_symbols": [
+        "@/components/document-view/DocumentTableTitle#DocumentTableTitle"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/document-view/DocumentViewBar.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "e1a728b7a61c43d04239eb6ebbe73760bd102037ba5e90209ca5e6388eed7a90",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/document-view/DocumentViewBar.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "c8d92b308d601bb903c85911985e4bf7fcfc1e338175d7184bf13829d2441557",
+      "jsx_usage": 17,
+      "consumer_file_count": 17,
+      "imported_symbols": [
+        "@/components/document-view/DocumentViewBar#DocumentViewBar"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/document-view/DocumentViewSortModal.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "baa11731acb1bd7fb86c813ef8e1f24bc0758e16e5a242c807c6902effc58484",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/AllowedEquipmentPriorityField.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "7e068d2c25047e24820ea3a313e9dd500014fa24c6cc847e66f51899efee75ef",
+      "jsx_usage": 2,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "@/components/enhanced/AllowedEquipmentPriorityField#AllowedEquipmentPriorityField"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/AmountPolicySnapshotTag.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "1ae47d1f65a5d7d216d360fe9bf606dfe38d120f292049f94cab2ae6256a9a4d",
+      "jsx_usage": 4,
+      "consumer_file_count": 4,
+      "imported_symbols": [
+        "@/components/enhanced/AmountPolicySnapshotTag#AmountPolicySnapshotTag"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/AmountText.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "2b40429c773594fc20630a705da274c9a3661ec81bd530b942b01577f9435251",
+      "jsx_usage": 10,
+      "consumer_file_count": 4,
+      "imported_symbols": [
+        "@/components/enhanced/AmountText#AmountText"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/BatchMaterialAddButton.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "9fe90782d6b7a91c89b53986e2ce1095eda395ad7a14724577decbdb513b2bb8",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/BatchMaterialAddButton.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "7b0273b573059aca491a8fc456bc62c5a74459156bdcd65d65e69446e2d6765f",
+      "jsx_usage": 19,
+      "consumer_file_count": 17,
+      "imported_symbols": [
+        "@/components/enhanced/BatchMaterialAddButton#BatchMaterialAddButton"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/BatchSuggestInput.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "feec6260e3c6d66226a0c3979b08ec191c27c7774719a4bcd2bb73fcb4591461",
+      "jsx_usage": 8,
+      "consumer_file_count": 6,
+      "imported_symbols": [
+        "@/components/enhanced/BatchSuggestInput#BatchSuggestInput"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/DateText.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "8eb19efa13fbe97343fc2353fc09b2d1bbe710b6d799e5be91b08ae05b67124f",
+      "jsx_usage": 2,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/enhanced/DateText#DateText"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/DefaultRouteHint.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "2a0f71459450b65056e09714e2c7b4a65d6ae52b8319f3e6d6f70b32e1e59f4d",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/enhanced/DefaultRouteHint#DefaultRouteHint"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/ExportButton.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "e17eb865cb9b8f494d8f2a4c3e0ab33f8d10030785f23e87f31c7c2b8e118280",
+      "jsx_usage": 27,
+      "consumer_file_count": 25,
+      "imported_symbols": [
+        "@/components/enhanced/ExportButton#ExportButton"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/ExportDropdownButton.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "bd6b6f0836c050096ce46b6a57e9bd23b86d95ef91c0ca0d7b75cc667dcb5cf9",
+      "jsx_usage": 5,
+      "consumer_file_count": 5,
+      "imported_symbols": [
+        "@/components/enhanced/ExportDropdownButton#ExportDropdownButton"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/MaterialFilteredSelect.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "72c884f38e0ede3f3152623ec17368394dac80462e91a3eb038572768a87dd95",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/MaterialFilteredSelect.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "c426983f918dadb96526c3987d6dffb1663248b03b2bea1454483b1aeba805a5",
+      "jsx_usage": 54,
+      "consumer_file_count": 40,
+      "imported_symbols": [
+        "@/components/enhanced/MaterialFilteredSelect#MaterialFilteredSelect",
+        "@/components/enhanced/MaterialFilteredSelect#MaterialMultiSelectField",
+        "@/components/enhanced/MaterialFilteredSelect#MaterialSelectField"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/MaterialTablePicker.less",
+      "kind": "SOURCE_STYLE",
+      "sha256": "dde6645ca428f8a084f27a5bd863da84464bc1605a5b46c98c204fa224feb9ab",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_STYLE",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/MaterialTablePicker.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "a2b1c350045396444dee01eba263b626eb1c85e0f530a16daf0782c0de7efc00",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/MaterialTablePicker.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "32ee82c485031e0f187c97a05c1873fbdb88e7a9c354d3ea7f1a9c8d5c81a0d3",
+      "jsx_usage": 2,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "@/components/enhanced/MaterialTablePicker#MaterialTablePicker"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/PermissionButton.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "a53cc9b1296e15d0fd1aaf2aeb867275475d32deb46fc3482f8cc4592b9ce096",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/PermissionButton.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "1a09c91e531681fb8bf7598542c40eb139240da28bc80b652735e22f03139466",
+      "jsx_usage": 378,
+      "consumer_file_count": 124,
+      "imported_symbols": [
+        "@/components/enhanced/PermissionButton#PermissionButton"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/PermissionGate.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "9d63efe5c28af8e0fec8f306a440c8583cd68b9a5cdbbecab8e09e243575fe89",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/ProductionBomSelect.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "ea2cefe3e56e283450619d8144f17bbad1e9f0af5cd2b4849aba876e1e0a2d17",
+      "jsx_usage": 5,
+      "consumer_file_count": 5,
+      "imported_symbols": [
+        "@/components/enhanced/ProductionBomSelect#ProductionBomSelect"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/RemoteSelect.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "fbb485e64735a73f40e7cfb85bcef783b9409f256b939da59975466d5540d8c3",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/RemoteSelect.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "822dbee4d871b8256eaef6038ba93447006512464fe444b77c5d30e656c42b1e",
+      "jsx_usage": 24,
+      "consumer_file_count": 22,
+      "imported_symbols": [
+        "@/components/enhanced/RemoteSelect#RemoteSelect"
+      ],
+      "previous_disposition": "ADAPTED",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/ScanAwareInput.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "b3fdf34297af453aeadbc2a3fba3173c419cb3d955f4133b12804962f84b2a8f",
+      "jsx_usage": 4,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "@/components/enhanced/ScanAwareInput#ScanAwareInput"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/StatusDisplay.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "bac33276aca95e758b84d743da1b02ad037db9f17b71382f9d84aba0bbd08d67",
+      "jsx_usage": 6,
+      "consumer_file_count": 6,
+      "imported_symbols": [
+        "@/components/enhanced/StatusDisplay#StatusDisplay"
+      ],
+      "previous_disposition": "UPSTREAM",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/UserText.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "4f42049c4fa2733b543ef3b98861779e30b786268ac31802236dd4bb13a5eef8",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/enhanced/UserText#UserText"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/WarehouseRemoteSelect.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "687f15675715db690ec4b8b2e811797750d51310ea8d569636fde90f178a9f55",
+      "jsx_usage": 2,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "@/components/enhanced/WarehouseRemoteSelect#WarehouseRemoteSelect"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/enhanced/WorkOrderScanSelect.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "b6c2379c14fa4fb61944a8ff035636ee8d12d0dd01fb253aa89d1f8fa150c089",
+      "jsx_usage": 7,
+      "consumer_file_count": 5,
+      "imported_symbols": [
+        "@/components/enhanced/WorkOrderScanSelect#WorkOrderScanSelect"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/factories/createDetailPage.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "4127523e72656f82e1f0ecf250e4ad55f6435bbcad152ac3bd7a8a39f17a7542",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/factories/createListPage.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "2a2632dc90279c08bae81c837b278b3f52a5543d267b22213e15833ab0904810",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/factories/index.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "555dddae7f8ed27817a4d307765453269867068dc3c74b86910a5b588100e9af",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/forms/ConfigEntryFieldLabel.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "85afc5294bd2d1fe8e1da7384be77985b12e22cfe23f898bc70cbb79f990f982",
+      "jsx_usage": 45,
+      "consumer_file_count": 28,
+      "imported_symbols": [
+        "@/components/forms/ConfigEntryFieldLabel#ConfigEntryFieldLabel",
+        "@/components/forms/ConfigEntryFieldLabel#ConfigEntryLink"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/forms/ConfigurableProFormSelect.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "ab0c9ec5f779e4564896676ddca2819be88981573763c51589792e274f375a2d",
+      "jsx_usage": 116,
+      "consumer_file_count": 47,
+      "imported_symbols": [
+        "@/components/forms/ConfigurableProFormSelect#ConfigurableProFormSelect"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/forms/DictionaryFormItem.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "b297f9f1e6a52563fd57ce920f7cb369491d913fe110f6f8d81468d1544fa885",
+      "jsx_usage": 4,
+      "consumer_file_count": 3,
+      "imported_symbols": [
+        "@/components/forms/DictionaryFormItem#DictionaryFormItem"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/forms/DictionaryProFormSelect.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "e2baa8c74e501187484237a50794aac589c3624e7dbd464034f3e97285050b6a",
+      "jsx_usage": 66,
+      "consumer_file_count": 39,
+      "imported_symbols": [
+        "@/components/forms/DictionaryProFormSelect#DictionaryProFormSelect"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/index.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "80d4554ac2bef110732f5d23b50c9c9579cb0b505daa57818000373124b0111f",
+      "jsx_usage": 2,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components#AvatarDropdown",
+        "@/components#AvatarName"
+      ],
+      "previous_disposition": "REFERENCE_ONLY",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/layout/BusinessSideNav.less",
+      "kind": "SOURCE_STYLE",
+      "sha256": "fd6770e1d31b32ec16c521436cd4c16dd5b1020b2fa19c74d4d33b75ce0b74c3",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_STYLE",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/layout/BusinessSideNav.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "3ae5eed5e917d65f2ea90097fbbec1ba94f49a184d2467397f2836dc839a7e58",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/layout/BusinessSideNav.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "65c25aff73a00c4d642d614c3ec0d9d3c25b612d8225037f20e571493d8a2a68",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/layout/BusinessSideNav#BusinessSideNav"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/layout/KeepAliveTabs.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "c258e7598322b79640f49e7a0c04a3862e6a2c553010924103c1ec267c46bdcc",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/layout/KeepAliveTabs.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "30a626649d0104283820b064d65fd4abbfadabe0e3d08fb6e39288b5385feafa",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/layout/MenuSearch.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "d8da04e3e7fa9cda05db3abe819ab34ef373b428c1d854dec8494c518092e9dd",
+      "jsx_usage": 2,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "./MenuSearch#MenuSearch",
+        "@/components/layout/MenuSearch#MenuSearch"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/layout/menuNavigation.test.ts",
+      "kind": "SOURCE_TEST",
+      "sha256": "b4ba672d2dc44a8f6b720e86176ddbac9d0fd9d9fd73f925bec34758add8180c",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/layout/menuNavigation.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "87242d09114481ecef9e4b4fb4a26883c04e711e67f7c953094d2b38f73c6e1b",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/manuals/ManualMarkdown.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "5b036aad3ac65e0307b2f9d4a0586d367e332c2df1d348f974631d8e9b2e1535",
+      "jsx_usage": 2,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "@/components/manuals/ManualMarkdown#ManualMarkdown"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/manuals/PageManualButton.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "cbacbd15cdbaffdec90df89b327ccb8dc42864b8eb9f953f65b4aca761b90170",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "./PageManualButton#PageManualButton"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/manuals/PageManualEntry.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "9783412ebfc5bb0d2b34a0f09c039c898a7a3f53f114fea5d451d9d8a49bdab3",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/manuals/PageManualEntry#PageManualEntry"
+      ],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/master-data/CustomerQuickCreateDrawer.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "7cef4989aef55b5342d6d8b15e2d8b973d65fa949dce2b2b82a3397dddacbad2",
+      "jsx_usage": 3,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "./CustomerQuickCreateDrawer#CustomerQuickCreateDrawer",
+        "@/components/master-data/CustomerQuickCreateDrawer#CustomerFormFields"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/master-data/MasterDataQuickCreateSelect.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "97940dd7485a924b0a223d9ac39be5dcdc273efe9cacbd7f8ec459f7e4ba49b8",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/master-data/MasterDataQuickCreateSelect.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "556c2170b2a525191d35e3af147094502ff69194c06ea3e14537117c561bf843",
+      "jsx_usage": 20,
+      "consumer_file_count": 19,
+      "imported_symbols": [
+        "@/components/master-data/MasterDataQuickCreateSelect#MasterDataQuickCreateSelect"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/master-data/SupplierQuickCreateDrawer.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "604dd2be3cb7344a423958bde5d82ce0991e12c272ad019c13321f6b4e385ccb",
+      "jsx_usage": 2,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "./SupplierQuickCreateDrawer#SupplierQuickCreateDrawer",
+        "@/components/master-data/SupplierQuickCreateDrawer#SupplierFormFields"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/BatchSelectionSummary.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "2ea0704af953006198a5f12080ed1d8cf334b51f5b1374ec4a3647fa693aeba6",
+      "jsx_usage": 12,
+      "consumer_file_count": 9,
+      "imported_symbols": [
+        "@/components/patterns/BatchSelectionSummary#BatchSelectionSummary"
+      ],
+      "previous_disposition": "UPSTREAM",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/BomCostSnapshotEditor.test.ts",
+      "kind": "SOURCE_TEST",
+      "sha256": "1da15dca5451835176f44e0efb8be27b24926abbcafe76afceeb37cc4a2bb4b3",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/BomCostSnapshotEditor.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "d59d443b9e79d2b5e2d5573792a1fff3e61f713e7846d99464a4fa7e5cc54d82",
+      "jsx_usage": 7,
+      "consumer_file_count": 7,
+      "imported_symbols": [
+        "@/components/patterns/BomCostSnapshotEditor#BomCostSnapshotEditor"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/CustomerMaterialCell.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "b7325f2bfed89caf9b5b90dfc0d400198204363c2f1099006b279085da5e15dd",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/CustomerMaterialCell.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "25567b0031de049c7615c0357eb34a4ef37038500d905f7db77c861b5bc4a1e2",
+      "jsx_usage": 8,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "@/components/patterns/CustomerMaterialCell#CustomerMaterialCell"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DetailDocumentActions.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "5728966dd94ec4812b842dff2e53abc1d3ba9b615ee1c49b786bb2416e6a9528",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DetailDocumentActions.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "e95c82c975f9fa48946b3506a5c2cdb303d6794afdb53af46c4a66eba9f9372f",
+      "jsx_usage": 4,
+      "consumer_file_count": 4,
+      "imported_symbols": [
+        "@/components/patterns/DetailDocumentActions#DetailDocumentActions"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DetailHeader.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "090baef23bf6a422bdb2ec54ccc1fd97f949ad71e5d907e47680f23791ede7c8",
+      "jsx_usage": 13,
+      "consumer_file_count": 13,
+      "imported_symbols": [
+        "@/components/patterns/DetailHeader#DetailHeader"
+      ],
+      "previous_disposition": "TARGET_EXISTING",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DetailLedgerDocumentActions.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "22a420f2360120f8e28def2a35f5c491df2e2562b9cbf95da4a453096ef1f768",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DetailLedgerDocumentActions.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "f47ae743ba236f668b888d226a93c89e8e39c6efc6574bc5b5d6694a86208b3b",
+      "jsx_usage": 8,
+      "consumer_file_count": 7,
+      "imported_symbols": [
+        "@/components/patterns/DetailLedgerDocumentActions#DetailLedgerDocumentActions"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DetailTable.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "547120d96e0234eb84346652b0ad7aa39baa769e090d9e2e5a34d76dd3b86d98",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DetailTable.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "1dc8796f10168950a1e64bff5ddc04459208b1387c956bff750abe64499d650a",
+      "jsx_usage": 33,
+      "consumer_file_count": 11,
+      "imported_symbols": [
+        "./DetailTable#DetailTable",
+        "@/components/patterns/DetailTable#DetailTable"
+      ],
+      "previous_disposition": "UPSTREAM",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentActionIntent.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "5e7f7b7e98050bf04dc651b3bd4592be02cbb8c70c88eb6a022c576d60f1ac3d",
+      "jsx_usage": 20,
+      "consumer_file_count": 3,
+      "imported_symbols": [
+        "@/components/patterns/DocumentActionIntent#DocumentActionIntent"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentActionsDropdown.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "d01eac50aa7c23953a8ba6c0ac0abd4d51b5bc75df1cd06abd9206a61112971c",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentActionsDropdown.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "dcc06254abf74fbd40bb14d3cae2617544d36614c878ed276a7b131b351a8434",
+      "jsx_usage": 22,
+      "consumer_file_count": 22,
+      "imported_symbols": [
+        "./DocumentActionsDropdown#DocumentActionsDropdown",
+        "@/components/patterns/DocumentActionsDropdown#DocumentActionsDropdown"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentBomDrawer.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "b4f7aabc71994a40be0b4a6d06647aed022e80a93e98a87b1e7046ca1a565846",
+      "jsx_usage": 6,
+      "consumer_file_count": 5,
+      "imported_symbols": [
+        "@/components/patterns/DocumentBomDrawer#DocumentBomOpenButton"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentDetailLedgerTable.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "dcd59159c1cbaefb5c0b6c1fae418868f97a35bd8b38e3495107c23f162ca273",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentDetailLedgerTable.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "a3719a086a7a33f71ab8825d4203fb571b9102979f413fb316c1f39b876cb98b",
+      "jsx_usage": 16,
+      "consumer_file_count": 16,
+      "imported_symbols": [
+        "@/components/patterns/DocumentDetailLedgerTable#DocumentDetailLedgerTable"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentLedgerViewSwitch.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "0dbd1f09044a721cb7e8eeb8bdfdb941b958b07200794cc45500ba0d1a620b50",
+      "jsx_usage": 11,
+      "consumer_file_count": 11,
+      "imported_symbols": [
+        "./DocumentLedgerViewSwitch#DocumentLedgerViewSwitch",
+        "@/components/patterns/DocumentLedgerViewSwitch#DocumentLedgerViewSwitch"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentLineBatchSettings.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "3fe37061a697dfe33c59eb187756e0ee21f73e8e52568a387e9ba5661fbff5aa",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "REFERENCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentLineBatchSettings.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "e8f5d75b750e3de27f5c83b675e4bdc41ed887030617a5827368c7808b82d246",
+      "jsx_usage": 2,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "@/components/patterns/DocumentLineBatchSettings#DocumentLineBatchSettingsButton"
+      ],
+      "previous_disposition": "ADAPTED",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentLineEditableTable.batch.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "1df6ecfdee5ec6cfd949b4118e59aa0ccea0fa450c8dcf02be10d5dd9c504379",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "REFERENCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentLineEditableTable.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "6ee106600b271114c9af20f150487d0ee8c0432cb91d06cfa309cf00eff622e8",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "REFERENCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentLineEditableTable.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "be5b302b190c0aa5e726af10e10a70a1cb9c2ae074b554ca9749cca10e4f86ac",
+      "jsx_usage": 9,
+      "consumer_file_count": 9,
+      "imported_symbols": [
+        "@/components/patterns/DocumentLineEditableTable#DocumentLineEditableTable"
+      ],
+      "previous_disposition": "ADAPTED",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentLineQuantityInput.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "9d0c52ce65e281a3cd8d53dc758c2f9f1ac8fdb0c663a1475206fad372a85e11",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": null,
+      "migration_review_state": "REVIEW_NEW_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentLineQuantityInput.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "89a70631690cb84ecff34ef5098f8f0a3fca2060377501950e877e8b9b3fbbcb",
+      "jsx_usage": 3,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "@/components/patterns/DocumentLineQuantityInput#DocumentLineQuantityInput"
+      ],
+      "previous_disposition": null,
+      "migration_review_state": "REVIEW_NEW_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentModalForm.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "f3b2c06f83306602c9216916ddc8e9c1cb89cff2611cdb51f318233cec49cbcf",
+      "jsx_usage": 31,
+      "consumer_file_count": 24,
+      "imported_symbols": [
+        "./DocumentModalForm#DocumentModalForm",
+        "@/components/patterns/DocumentModalForm#DocumentModalForm"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentViewLegacyRedirect.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "8ba4402d3eea2cecccb6aebadfcf5b852330a954e60865c1407946e30daaba17",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentViewLegacyRedirect.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "01c28b724126828140330331c1aba18283878dd279f6bb0033ea170465227f6d",
+      "jsx_usage": 4,
+      "consumer_file_count": 4,
+      "imported_symbols": [
+        "@/components/patterns/DocumentViewLegacyRedirect#DocumentViewLegacyRedirect"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentViewSwitch.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "e299427c12f23345fd19aa1e0e1f8cd46290a7803a04fa90f7a97659caa1eb21",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DocumentViewSwitch.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "c602098203ab2e29baf22b98dd4a8192ca58f1dad099339b7e91154bf7ccb2e7",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/DrawingFilesInline.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "2b8b327bcf2ae427123ea8be852d9ba880ac50af4898572e3c67ed1655f68e0e",
+      "jsx_usage": 38,
+      "consumer_file_count": 22,
+      "imported_symbols": [
+        "@/components/patterns/DrawingFilesInline#DrawingFilesGallery",
+        "@/components/patterns/DrawingFilesInline#DrawingFilesInline",
+        "@/components/patterns/DrawingFilesInline#FileUrlsInline",
+        "@/components/patterns/DrawingFilesInline#PdfPreviewDrawer"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/EntityThumbnail.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "2ef86fb7cbe5f3b75a4f2aa9e55209bea8dee0603418e117c8dca26f9d46d48e",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/EntityThumbnail.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "96b1369bdac70f43ebd296bbdd34c7f78c7d4ff97060c610cc00f6eaf07dc61e",
+      "jsx_usage": 16,
+      "consumer_file_count": 13,
+      "imported_symbols": [
+        "@/components/patterns/EntityThumbnail#EntityThumbnail"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/FormDrawer.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "0e6e7e8c2ce80b26a0ebc0ca816416c3132e53077bc9de52e28295c5e8f4f1ac",
+      "jsx_usage": 26,
+      "consumer_file_count": 22,
+      "imported_symbols": [
+        "@/components/patterns/FormDrawer#FormDrawer"
+      ],
+      "previous_disposition": "UPSTREAM",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/InfoCard.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "36af181dda869bc3bc4ba7059363d6ffe3feb58a19b1d1b4111e2fd3adf08522",
+      "jsx_usage": 25,
+      "consumer_file_count": 16,
+      "imported_symbols": [
+        "@/components/patterns/InfoCard#InfoCard"
+      ],
+      "previous_disposition": "TARGET_EXISTING",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/OrderItemEditor.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "cd382b02bb22342c08958133f928a6a28c63144b8ac0f8068f88455e032953ec",
+      "jsx_usage": 9,
+      "consumer_file_count": 8,
+      "imported_symbols": [
+        "@/components/patterns/OrderItemEditor#OrderItemEditor"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/PriceControlPrecheckButton.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "1f066775de9291bfb3e6ad0040e1f925dcf230fd4995691e9014df1551423a37",
+      "jsx_usage": 5,
+      "consumer_file_count": 5,
+      "imported_symbols": [
+        "@/components/patterns/PriceControlPrecheckButton#PriceControlPrecheckButton"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/ReasonActionModal.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "02f830a8bc77dabf8462116d0b724c0cdf69942fefa162ebe4bbff3fd262b74c",
+      "jsx_usage": 6,
+      "consumer_file_count": 4,
+      "imported_symbols": [
+        "@/components/patterns/ReasonActionModal#ReasonActionModal"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.compact-actions.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "0a1e4e150dde5cc9e0595664a297f570e6d61d2f1edb49bde5d4f627fed03278",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.controlled-columns-state.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "2606d6a3ab48508584334194753b19c7b5e852aabdf3edff4baa6d33f6c7fba7",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.fit-height.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "335fb9bb64e1f04d98652e813976b0096b6936f971b546c86c1f955723082df5",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.header.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "76ed01b63533bf80b85798e8c016d54200087d34b1436add16b0263f1065e1b7",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.material-priority.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "d92dcaa2e8f1139ae9b45457f9b3a08e80ce30633b55eab51f179be8886167f5",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.row-index.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "f65489401c685999df13a2153fee7ea77aee643632e9c5db8a6f6c64b0fb3a48",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.search-host.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "a1d9804db91ce4190ab156b3da6547c7bcbbc710df0aad8c05e014e88d95d95d",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/ResizableTable.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "f86cf0b9bc988036ddcce0246b48627ea80dcf25607d8db29cc721f99e542c3e",
+      "jsx_usage": 495,
+      "consumer_file_count": 212,
+      "imported_symbols": [
+        "./ResizableTable#ResizableProTable",
+        "@/components/patterns/ResizableTable#ResizableProTable",
+        "@/components/patterns/ResizableTable#ResizableTable"
+      ],
+      "previous_disposition": "DEFERRED",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/TableDensityOption.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "68966d23a67dbfff15349463422a93ebb03918159b6fcb8d197cbed87838aff0",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/patterns/TableDensityOption#TableDensityOption"
+      ],
+      "previous_disposition": "UPSTREAM",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/TableEmpty.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "3697a8974b99ee02d0cd600e3fe8c39a68b3ccbfc46f9701c650dacc7c2f62ed",
+      "jsx_usage": 2,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/patterns/TableEmpty#TableEmpty"
+      ],
+      "previous_disposition": "UPSTREAM",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/TableExportLayoutBoundary.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "eaa8b327b7a2812b6a9eb8c811fffb3f19ac9a8ff288a5a1420bb88d5954d272",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "./TableExportLayoutBoundary#TableExportLayoutBoundary"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/TableLongText.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "03e7fe4418b4322c7a3a20c3b0055dd977f71dd125d1308dd0ac6c8d68e17af6",
+      "jsx_usage": 1,
+      "consumer_file_count": 1,
+      "imported_symbols": [
+        "@/components/patterns/TableLongText#TableLongText"
+      ],
+      "previous_disposition": "ADAPTED",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/TabsPanel.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "ab0beb637d8c87d021ab50c5a706608bcdd32d679a37e0a802564554c318712d",
+      "jsx_usage": 6,
+      "consumer_file_count": 6,
+      "imported_symbols": [
+        "@/components/patterns/TabsPanel#TabsPanel"
+      ],
+      "previous_disposition": "UPSTREAM",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/document-modal-form-layout.test.tsx",
+      "kind": "SOURCE_TEST",
+      "sha256": "82905b41514adb5f0d31e712609683a87314eb0a6c7f35b6d6150aaab7200645",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/expanded-table-layout.test.ts",
+      "kind": "SOURCE_TEST",
+      "sha256": "01f08bd04b6aa2ce90936b0fd95757fc94e143b3492f5510677a7d4697d96565",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/materialColumnPriority.test.ts",
+      "kind": "SOURCE_TEST",
+      "sha256": "ef345620a77b88b6af881a46cdb7e34510b8efcc148eea7c0a85917cdce9017a",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/patterns/materialColumnPriority.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "633248509cb40815b217dcdc49c3a5b3c40a60b62f9a1a0a0d59515a5e173819",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/print/options.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "64995c45a4af1f042a718ed8c7c24270eb9dcc8ab68fef53c75687c024f66016",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/print/usePrintJobAction.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "8c6c7192a675a3aa44579b267c8eb3335f51da35b9c1177494705ea9c5f60752",
+      "jsx_usage": 26,
+      "consumer_file_count": 13,
+      "imported_symbols": [
+        "@/components/print/usePrintJobAction#PrintAction",
+        "@/components/print/usePrintJobAction#PrintRecordsAction"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/purchase/GeneratePurchaseReceiptBatchNoButton.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "19c0c2b53eb28a7e679e1cf7fad9030a584b5678f70b903e2ef0c338e1181433",
+      "jsx_usage": 2,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "@/components/purchase/GeneratePurchaseReceiptBatchNoButton#GeneratePurchaseReceiptBatchNoButton"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/purchase/MaterialSupplierPriceTiers.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "5ca8b6975876eab916fc53440b6673ee3b9fd7c2ccc31315eb65f9a0f4529cfb",
+      "jsx_usage": 5,
+      "consumer_file_count": 3,
+      "imported_symbols": [
+        "@/components/purchase/MaterialSupplierPriceTiers#MaterialSupplierPriceTierSummary",
+        "@/components/purchase/MaterialSupplierPriceTiers#MaterialSupplierPriceTiersModal"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/purchase/PurchaseReceiptCapacitySummary.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "2f0a7c930e2a3bb186dbd8cfb40e9ce0d863422635a42a642adb235ed85ad001",
+      "jsx_usage": 2,
+      "consumer_file_count": 2,
+      "imported_symbols": [
+        "@/components/purchase/PurchaseReceiptCapacitySummary#PurchaseReceiptCapacitySummary"
+      ],
+      "previous_disposition": "MES_DOMAIN",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/shells/DetailPageShell.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "4fe11e42e4a5ec079ec7a3748e7eb2352529f3065ffd3aa4d203a91ca2cc7eb1",
+      "jsx_usage": 19,
+      "consumer_file_count": 19,
+      "imported_symbols": [
+        "@/components/shells/DetailPageShell#DetailPageShell"
+      ],
+      "previous_disposition": "TARGET_EXISTING",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/shells/ListPageShell.tsx",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "a4625d288f2641006eec3aa6924c46b63a326c551dc4263eb9944f95b8abb207",
+      "jsx_usage": 31,
+      "consumer_file_count": 30,
+      "imported_symbols": [
+        "@/components/shells/ListPageShell#ListPageShell"
+      ],
+      "previous_disposition": "TARGET_EXISTING",
+      "migration_review_state": "REVIEW_CHANGED_SOURCE"
+    },
+    {
+      "source": "src/components/shells/list-keyword-search.test.ts",
+      "kind": "SOURCE_TEST",
+      "sha256": "56e952fb4062aad8a0c6a1f73caf1b1ae80f740cf189379dd100f18a4cc5d67b",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "SOURCE_TEST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    },
+    {
+      "source": "src/components/shells/list-keyword-search.ts",
+      "kind": "RUNTIME_SOURCE",
+      "sha256": "4b0c8af53adc08eecf1031bb9e96e98dc414a6067a94087b032d80e13a4622cb",
+      "jsx_usage": 0,
+      "consumer_file_count": 0,
+      "imported_symbols": [],
+      "previous_disposition": "HOST",
+      "migration_review_state": "CARRY_FORWARD_SAME_SOURCE"
+    }
+  ],
+  "previous_audit_comparison": {
+    "source_commit": "133e8673e92c24119024f9b4fbcfe2ce5247bf79",
+    "source_file_count": 193,
+    "unchanged_file_count": 162,
+    "changed_files": [
+      "src/components/CustomFields/CustomFieldValuePanel.tsx",
+      "src/components/CustomFields/documentLineCustomFieldColumns.tsx",
+      "src/components/ImportModal/index.tsx",
+      "src/components/ImportWorkbenchDrawer/index.tsx",
+      "src/components/RightContent/AppDownloadQRCode.tsx",
+      "src/components/RightContent/UpdateNotesEntry.tsx",
+      "src/components/SendActionModal/index.tsx",
+      "src/components/accounting/AccountingCrudPage.tsx",
+      "src/components/document-view/DocumentFilterDrawer.test.tsx",
+      "src/components/document-view/DocumentFilterDrawer.tsx",
+      "src/components/document-view/DocumentViewBar.test.tsx",
+      "src/components/document-view/DocumentViewBar.tsx",
+      "src/components/enhanced/AllowedEquipmentPriorityField.tsx",
+      "src/components/enhanced/MaterialTablePicker.tsx",
+      "src/components/enhanced/RemoteSelect.tsx",
+      "src/components/layout/MenuSearch.tsx",
+      "src/components/patterns/DocumentBomDrawer.tsx",
+      "src/components/patterns/DocumentDetailLedgerTable.test.tsx",
+      "src/components/patterns/DocumentDetailLedgerTable.tsx",
+      "src/components/patterns/DocumentLineBatchSettings.tsx",
+      "src/components/patterns/DocumentModalForm.tsx",
+      "src/components/patterns/FormDrawer.tsx",
+      "src/components/patterns/InfoCard.tsx",
+      "src/components/patterns/OrderItemEditor.tsx",
+      "src/components/patterns/ReasonActionModal.tsx",
+      "src/components/patterns/ResizableTable.fit-height.test.tsx",
+      "src/components/patterns/ResizableTable.tsx",
+      "src/components/patterns/TableLongText.tsx",
+      "src/components/print/usePrintJobAction.tsx",
+      "src/components/purchase/MaterialSupplierPriceTiers.tsx",
+      "src/components/shells/ListPageShell.tsx"
+    ],
+    "added_files": [
+      "src/components/patterns/DocumentLineQuantityInput.test.tsx",
+      "src/components/patterns/DocumentLineQuantityInput.tsx"
+    ],
+    "removed_files": []
+  }
+}

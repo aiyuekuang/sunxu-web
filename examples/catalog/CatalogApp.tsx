@@ -47,9 +47,11 @@ import { componentMappings, type ComponentMapping, type MappingStatus } from './
 import { CrudListWorkbenchPage } from './CrudListWorkbenchPage';
 import { EditableDetailTablePage } from './EditableDetailTablePage';
 import { TextControlsPage } from './TextControlsPage';
+import { MesComponentSuitePage } from './MesComponentSuitePage';
 import { TableSummaryPage } from './TableSummaryPage';
+import { ResizableTablePage } from './ResizableTablePage';
 
-type PageKey = 'overview' | 'tokens' | 'containers' | 'mappings' | 'states' | 'text-controls' | 'editable-table' | 'crud-workbench' | 'table-summary';
+type PageKey = 'overview' | 'tokens' | 'containers' | 'mappings' | 'states' | 'text-controls' | 'editable-table' | 'crud-workbench' | 'table-summary' | 'mes-suite' | 'resizable-table';
 
 const navItems: MenuProps['items'] = [
   { key: 'overview', icon: <AppstoreOutlined aria-hidden="true" />, label: '组件总览' },
@@ -63,6 +65,8 @@ const navItems: MenuProps['items'] = [
     { key: 'editable-table', icon: <BarsOutlined aria-hidden="true" />, label: '可编辑明细' },
     { key: 'crud-workbench', icon: <BarsOutlined aria-hidden="true" />, label: 'CRUD 列表工作台' },
     { key: 'table-summary', icon: <BarsOutlined aria-hidden="true" />, label: '表格汇总行' },
+    { key: 'mes-suite', icon: <AppstoreOutlined aria-hidden="true" />, label: 'MES UI 套件' },
+    { key: 'resizable-table', icon: <BarsOutlined aria-hidden="true" />, label: 'MES 表格组件' },
   ] },
 ];
 
@@ -159,9 +163,11 @@ function CatalogWorkspace({
     mappings: '组件映射',
     states: '信息与状态',
     'text-controls': '选择与文本',
-    'table-summary': '表格汇总行',
     'editable-table': '可编辑明细',
     'crud-workbench': 'CRUD 列表工作台',
+    'table-summary': '表格汇总行',
+    'mes-suite': 'MES UI 套件',
+    'resizable-table': 'MES 表格组件',
   };
 
   return (
@@ -227,6 +233,10 @@ function CatalogWorkspace({
                                 ? '组合分类、快捷筛选、视图、筛选抽屉与 ProTable；查询和业务动作由宿主控制。'
                                 : page === 'table-summary'
                                   ? '复用表格底部汇总行；查询范围、数量单位和合计口径由宿主接口提供。'
+                                : page === 'mes-suite'
+                                  ? '展示按 MES 当前实现适配的组件；远程候选和提交由宿主注入。'
+                                  : page === 'resizable-table'
+                                    ? '对照 MES 当前 ResizableTable / ResizableProTable 行为，包含列宽、排序、行号、空态、导出布局和自适应高度。'
                                   : '展示状态和身份组件如何组合 Ant Design 的原生反馈行为。'}
                   </Typography.Paragraph>
                 </div>
@@ -250,6 +260,10 @@ function CatalogWorkspace({
               <CrudListWorkbenchPage />
             ) : page === 'table-summary' ? (
               <TableSummaryPage />
+            ) : page === 'mes-suite' ? (
+              <MesComponentSuitePage />
+            ) : page === 'resizable-table' ? (
+              <ResizableTablePage />
             ) : (
               <StatesPage onMessage={(text) => message.info(text)} />
             )}

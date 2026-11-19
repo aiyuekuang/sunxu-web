@@ -1,0 +1,644 @@
+{
+  "target": "http://127.0.0.1:4173",
+  "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/mes-ui-suite-visual.js",
+  "screenshots": [
+    {
+      "name": "suite-desktop-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-1280x720.png",
+      "sha256": "cefc7bb06a8f3fbbaad68350f13a23dbc8b6b1b6ea7f7fd4064163014295ff88"
+    },
+    {
+      "name": "suite-desktop-quantity-empty-restored-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-quantity-empty-restored-1280x720.png",
+      "sha256": "a71350d90a4d5a3aefabddd9764ae5cba66135f9976576fc0a9aa9a93df737c6"
+    },
+    {
+      "name": "suite-desktop-full-text-popover-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-full-text-popover-1280x720.png",
+      "sha256": "cf774185c1b3c726613006c2aae2ff8c0db73861e751ed72aa9eadd06f0effee"
+    },
+    {
+      "name": "suite-desktop-permission-buttons-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-permission-buttons-1280x720.png",
+      "sha256": "39033fcabf55ccdc017afa46f6641058588e254d8f8cef413f7d9229be8663d2"
+    },
+    {
+      "name": "suite-desktop-permission-confirm-dialog-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-permission-confirm-dialog-1280x720.png",
+      "sha256": "0aa6a728177cc3d9358664becc9aecb37d016e586c53b868ec4b16a169f1ed80"
+    },
+    {
+      "name": "suite-desktop-permission-confirmed-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-permission-confirmed-1280x720.png",
+      "sha256": "723f94deddd59281b69858b2976dce239c265145c014d8055db4909ff4369ea8"
+    },
+    {
+      "name": "suite-desktop-batch-dialog-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-batch-dialog-1280x720.png",
+      "sha256": "81a127f28a9337c4e723c23dfd30e87d7707eff36668d4772ddbecc557589257"
+    },
+    {
+      "name": "suite-desktop-batch-applied-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-batch-applied-1280x720.png",
+      "sha256": "85c1f27b04b588ddd58d3d2c4bf2ef3b0c8affe6a2e79dbc472f783527e6eebe"
+    },
+    {
+      "name": "suite-desktop-dark-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-dark-1280x720.png",
+      "sha256": "72ee437c7d54b4caebc56e951c6584cb3168b305cf081d7263f01152608b5b26"
+    },
+    {
+      "name": "suite-mobile-375x812",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-mobile-375x812.png",
+      "sha256": "3b3d51f8764d24e1c377baed6dc9dc5ca6c9e215df686b1b7a1bde1b6865da9e"
+    },
+    {
+      "name": "suite-mobile-full-text-popover-375x812",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-mobile-full-text-popover-375x812.png",
+      "sha256": "e696db80fdd5b51fa5c7e39d8648fcd2cfa0a9b7914057faf411394c367f786c"
+    },
+    {
+      "name": "suite-mobile-table-end-375x812",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-mobile-table-end-375x812.png",
+      "sha256": "34d9502bc46673762932f0e49192697a7e83bfb68b5feea5535f073b82f90df0"
+    },
+    {
+      "name": "suite-mobile-batch-dialog-375x812",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-mobile-batch-dialog-375x812.png",
+      "sha256": "e3dee64b231952b980f24691489869b5cf97d05a0b4357d1eabf243b8f00a0fe"
+    },
+    {
+      "name": "suite-landscape-844x390",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-landscape-844x390.png",
+      "sha256": "8328283faf48fc3af52ee7fac42f1ed0d748b2b6178402b3db1568fd2bbda2b7"
+    },
+    {
+      "name": "suite-landscape-dialog-top-844x390",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-landscape-dialog-top-844x390.png",
+      "sha256": "e6a5e21340ae75fe0b11e13ebb5df63399949eb97a0aabfb143b08b191a6fbe8"
+    },
+    {
+      "name": "suite-landscape-dialog-scrolled-844x390",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-landscape-dialog-scrolled-844x390.png",
+      "sha256": "b06c30c1b8644a5357d17827decdfd17b1744c2f9c5198a91fe59cb2bc29cea4"
+    }
+  ],
+  "observations": [
+    {
+      "state": "desktop-default",
+      "route": "/",
+      "title": "MES UI 套件",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "document": {
+        "bodyScrollWidth": 1280,
+        "htmlScrollWidth": 1280,
+        "bodyScrollHeight": 860
+      },
+      "workspaceRect": {
+        "left": 224,
+        "top": 56,
+        "right": 1280,
+        "bottom": 860.2,
+        "width": 1056,
+        "height": 804.2
+      },
+      "contentRect": {
+        "left": 248,
+        "top": 80,
+        "right": 1256,
+        "bottom": 836.2,
+        "width": 1008,
+        "height": 756.2
+      },
+      "frameInsets": {
+        "left": 24,
+        "right": 24,
+        "top": 24,
+        "bottom": 24
+      },
+      "surfaces": {
+        "workspace": {
+          "backgroundColor": "rgb(245, 246, 248)",
+          "borderColor": "rgb(26, 26, 26)"
+        },
+        "content": {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderColor": "rgb(235, 235, 235)"
+        }
+      },
+      "headingRect": {
+        "left": 273,
+        "top": 105,
+        "right": 1231,
+        "bottom": 200.28,
+        "width": 958,
+        "height": 95.28
+      },
+      "contentRectForSections": {
+        "left": 273,
+        "top": 220.28,
+        "right": 1231,
+        "bottom": 469.42,
+        "width": 958,
+        "height": 249.14
+      },
+      "sectionRects": [
+        {
+          "left": 273,
+          "top": 220.28,
+          "right": 1231,
+          "bottom": 469.42,
+          "width": 958,
+          "height": 249.14
+        },
+        {
+          "left": 273,
+          "top": 485.42,
+          "right": 1231,
+          "bottom": 643.56,
+          "width": 958,
+          "height": 158.14
+        }
+      ],
+      "overflowHintVisible": false,
+      "table": {
+        "regionRect": {
+          "left": 290,
+          "top": 313.42,
+          "right": 1214,
+          "bottom": 452.42,
+          "width": 924,
+          "height": 139
+        },
+        "viewportRect": {
+          "left": 290,
+          "top": 313.42,
+          "right": 1214,
+          "bottom": 452.42,
+          "width": 924,
+          "height": 139
+        },
+        "clientWidth": 924,
+        "scrollWidth": 924,
+        "scrollLeft": 0,
+        "columns": [
+          {
+            "label": "物料编码",
+            "width": 245
+          },
+          {
+            "label": "说明",
+            "width": 522
+          },
+          {
+            "label": "数量",
+            "width": 157
+          }
+        ]
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-1280x720.png"
+    },
+    {
+      "state": "desktop-quantity-empty-restored",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "committedQuantity": "9.50",
+      "restoredQuantity": "9.50",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-quantity-empty-restored-1280x720.png"
+    },
+    {
+      "state": "desktop-full-text-popover",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-full-text-popover-1280x720.png"
+    },
+    {
+      "state": "desktop-permission-buttons",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "visibleAllowedButtons": [
+        "新建操作",
+        "撤销操作"
+      ],
+      "hiddenPermissionButtonCount": 0,
+      "status": "尚未触发操作",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-permission-buttons-1280x720.png"
+    },
+    {
+      "state": "desktop-permission-confirm-dialog",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-permission-confirm-dialog-1280x720.png"
+    },
+    {
+      "state": "desktop-permission-confirmed",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-permission-confirmed-1280x720.png"
+    },
+    {
+      "state": "desktop-batch-dialog",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "dialog": {
+        "top": 136,
+        "bottom": 584,
+        "width": 560,
+        "height": 448
+      },
+      "body": {
+        "clientHeight": 328,
+        "scrollHeight": 328,
+        "overflowY": "auto"
+      },
+      "applyButton": {
+        "top": 528,
+        "bottom": 564,
+        "width": 104.203125,
+        "height": 36
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-batch-dialog-1280x720.png"
+    },
+    {
+      "state": "desktop-batch-applied",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "resultText": "已生成 4 项字段 patch",
+      "patchPayload": "[{\"quantity\":10},{\"dueDate\":\"2026-12-03\"},{\"warehouse\":\"line-side\"},{\"note\":\"来料检验后入库\"}]",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-batch-applied-1280x720.png"
+    },
+    {
+      "state": "desktop-dark",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "theme": "dark",
+      "bodyBackground": "rgb(245, 246, 248)",
+      "workspaceBackground": "rgb(15, 15, 15)",
+      "contentBackground": "rgb(28, 28, 30)",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-dark-1280x720.png"
+    },
+    {
+      "state": "mobile-default-375x812",
+      "route": "/",
+      "title": "MES UI 套件",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "document": {
+        "bodyScrollWidth": 375,
+        "htmlScrollWidth": 375,
+        "bodyScrollHeight": 1083
+      },
+      "workspaceRect": {
+        "left": 0,
+        "top": 56,
+        "right": 375,
+        "bottom": 1083.2,
+        "width": 375,
+        "height": 1027.2
+      },
+      "contentRect": {
+        "left": 16,
+        "top": 72,
+        "right": 359,
+        "bottom": 1067.2,
+        "width": 343,
+        "height": 995.2
+      },
+      "frameInsets": {
+        "left": 16,
+        "right": 16,
+        "top": 16,
+        "bottom": 16
+      },
+      "surfaces": {
+        "workspace": {
+          "backgroundColor": "rgb(245, 246, 248)",
+          "borderColor": "rgb(26, 26, 26)"
+        },
+        "content": {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderColor": "rgb(235, 235, 235)"
+        }
+      },
+      "headingRect": {
+        "left": 33,
+        "top": 89,
+        "right": 342,
+        "bottom": 240.28,
+        "width": 309,
+        "height": 151.28
+      },
+      "contentRectForSections": {
+        "left": 33,
+        "top": 256.28,
+        "right": 342,
+        "bottom": 547.42,
+        "width": 309,
+        "height": 291.14
+      },
+      "sectionRects": [
+        {
+          "left": 33,
+          "top": 256.28,
+          "right": 342,
+          "bottom": 547.42,
+          "width": 309,
+          "height": 291.14
+        },
+        {
+          "left": 33,
+          "top": 563.42,
+          "right": 342,
+          "bottom": 831.56,
+          "width": 309,
+          "height": 268.14
+        }
+      ],
+      "overflowHintVisible": true,
+      "table": {
+        "regionRect": {
+          "left": 50,
+          "top": 371.42,
+          "right": 325,
+          "bottom": 510.42,
+          "width": 275,
+          "height": 139
+        },
+        "viewportRect": {
+          "left": 50,
+          "top": 371.42,
+          "right": 325,
+          "bottom": 510.42,
+          "width": 275,
+          "height": 139
+        },
+        "clientWidth": 275,
+        "scrollWidth": 566,
+        "scrollLeft": 0,
+        "columns": [
+          {
+            "label": "物料编码",
+            "width": 150
+          },
+          {
+            "label": "说明",
+            "width": 320
+          },
+          {
+            "label": "数量",
+            "width": 96
+          }
+        ]
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-mobile-375x812.png"
+    },
+    {
+      "state": "mobile-full-text-popover",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "visible": true,
+      "popupRect": {
+        "left": 3,
+        "right": 354,
+        "top": 236,
+        "bottom": 407,
+        "width": 351,
+        "height": 171
+      },
+      "bodyScrollWidth": 375,
+      "triggerExpanded": "true",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-mobile-full-text-popover-375x812.png"
+    },
+    {
+      "state": "mobile-table-end-keyboard",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scrollLeft": 291,
+      "clientWidth": 275,
+      "scrollWidth": 566,
+      "bodyScrollWidth": 375,
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-mobile-table-end-375x812.png"
+    },
+    {
+      "state": "mobile-batch-dialog-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "dialog": {
+        "top": 171,
+        "bottom": 641,
+        "width": 359,
+        "height": 470
+      },
+      "body": {
+        "clientHeight": 350,
+        "scrollHeight": 350,
+        "overflowY": "auto"
+      },
+      "applyButton": {
+        "top": 585,
+        "bottom": 621,
+        "width": 104.203125,
+        "height": 36
+      },
+      "bodyScrollWidth": 375,
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-mobile-batch-dialog-375x812.png"
+    },
+    {
+      "state": "landscape-default-844x390",
+      "route": "/",
+      "title": "MES UI 套件",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "document": {
+        "bodyScrollWidth": 844,
+        "htmlScrollWidth": 844,
+        "bodyScrollHeight": 936
+      },
+      "workspaceRect": {
+        "left": 208,
+        "top": 56,
+        "right": 844,
+        "bottom": 936.2,
+        "width": 636,
+        "height": 880.2
+      },
+      "contentRect": {
+        "left": 224,
+        "top": 72,
+        "right": 828,
+        "bottom": 920.2,
+        "width": 604,
+        "height": 848.2
+      },
+      "frameInsets": {
+        "left": 16,
+        "right": 16,
+        "top": 16,
+        "bottom": 16
+      },
+      "surfaces": {
+        "workspace": {
+          "backgroundColor": "rgb(245, 246, 248)",
+          "borderColor": "rgb(26, 26, 26)"
+        },
+        "content": {
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderColor": "rgb(235, 235, 235)"
+        }
+      },
+      "headingRect": {
+        "left": 245,
+        "top": 93,
+        "right": 807,
+        "bottom": 210.28,
+        "width": 562,
+        "height": 117.28
+      },
+      "contentRectForSections": {
+        "left": 245,
+        "top": 230.28,
+        "right": 807,
+        "bottom": 499.42,
+        "width": 562,
+        "height": 269.14
+      },
+      "sectionRects": [
+        {
+          "left": 245,
+          "top": 230.28,
+          "right": 807,
+          "bottom": 499.42,
+          "width": 562,
+          "height": 269.14
+        },
+        {
+          "left": 245,
+          "top": 515.42,
+          "right": 807,
+          "bottom": 731.56,
+          "width": 562,
+          "height": 216.14
+        }
+      ],
+      "overflowHintVisible": true,
+      "table": {
+        "regionRect": {
+          "left": 262,
+          "top": 323.42,
+          "right": 790,
+          "bottom": 462.42,
+          "width": 528,
+          "height": 139
+        },
+        "viewportRect": {
+          "left": 262,
+          "top": 323.42,
+          "right": 790,
+          "bottom": 462.42,
+          "width": 528,
+          "height": 139
+        },
+        "clientWidth": 528,
+        "scrollWidth": 566,
+        "scrollLeft": 0,
+        "columns": [
+          {
+            "label": "物料编码",
+            "width": 150
+          },
+          {
+            "label": "说明",
+            "width": 320
+          },
+          {
+            "label": "数量",
+            "width": 96
+          }
+        ]
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-landscape-844x390.png"
+    },
+    {
+      "state": "landscape-batch-dialog-top",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "dialog": {
+        "top": 40,
+        "bottom": 350,
+        "width": 560,
+        "height": 310
+      },
+      "body": {
+        "clientHeight": 190,
+        "scrollHeight": 328,
+        "overflowY": "auto"
+      },
+      "applyButton": {
+        "top": 294,
+        "bottom": 330,
+        "width": 104.203125,
+        "height": 36
+      },
+      "bodyScrollWidth": 844,
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-landscape-dialog-top-844x390.png"
+    },
+    {
+      "state": "landscape-batch-dialog-scrolled",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "dialog": {
+        "top": 40,
+        "bottom": 350,
+        "width": 560,
+        "height": 310
+      },
+      "body": {
+        "clientHeight": 190,
+        "scrollHeight": 328,
+        "scrollTop": 138,
+        "overflowY": "auto"
+      },
+      "applyButton": {
+        "top": 294,
+        "bottom": 330,
+        "width": 104.203125,
+        "height": 36
+      },
+      "bodyScrollWidth": 844,
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-landscape-dialog-scrolled-844x390.png"
+    }
+  ]
+}

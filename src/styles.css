@@ -19,16 +19,6 @@
   --sxw-info: #1677ff;
 }
 
-.sxw-status-tag.ant-tag.sxw-status-tag--custom {
-  color: var(--sxw-status-tag-contrast-fallback, #fff);
-}
-
-@supports (color: contrast-color(#000)) {
-  .sxw-status-tag.ant-tag.sxw-status-tag--custom {
-    color: contrast-color(var(--sxw-status-tag-background, #000));
-  }
-}
-
 .sxw-provider[data-theme='dark'] {
   --sxw-primary: #1f7a45;
   --sxw-primary-surface: #10271a;
@@ -42,6 +32,146 @@
   --sxw-warning: #ffaa00;
   --sxw-error: #ff4d4f;
   --sxw-info: #4096ff;
+}
+
+.sxw-status-tag.ant-tag.sxw-status-tag--custom {
+  color: var(--sxw-status-tag-contrast-fallback, #fff);
+}
+
+.sxw-mes-document-modal-root,
+.sxw-mes-document-modal-root--viewport {
+  position: absolute;
+  inset: 0;
+  z-index: 1000;
+  pointer-events: none;
+}
+
+.sxw-mes-document-modal-root--viewport {
+  position: fixed;
+  height: 100vh;
+  height: 100dvh;
+}
+
+.sxw-mes-document-modal--minimized {
+  display: none !important;
+}
+
+.sxw-mes-document-modal__form-content {
+  min-height: 100%;
+  padding: 20px 24px 24px;
+}
+
+.sxw-mes-document-modal .document-form-layout {
+  min-height: 100%;
+}
+
+.sxw-mes-document-modal__form-content .document-form-layout {
+  min-height: 0;
+  padding: 0;
+}
+
+.sxw-mes-document-modal__restore {
+  position: fixed;
+  left: 16px;
+  bottom: 16px;
+  z-index: 1050;
+  display: inline-flex;
+  max-width: min(360px, calc(100vw - 32px));
+  align-items: center;
+  gap: 8px;
+  padding: 8px 14px;
+  color: var(--ant-color-text, rgba(0, 0, 0, 0.85));
+  font-size: 13px;
+  line-height: 1;
+  background: var(--ant-color-bg-container, #fff);
+  border: 1px solid var(--ant-color-border, #d9d9d9);
+  border-radius: 8px;
+  box-shadow: 0 6px 16px rgb(0 0 0 / 12%);
+  cursor: pointer;
+  transition:
+    background 0.2s,
+    border-color 0.2s,
+    color 0.2s;
+}
+
+.sxw-mes-document-modal__restore:hover {
+  color: var(--ant-color-primary, #1677ff);
+  border-color: var(--ant-color-primary, #1677ff);
+}
+
+.sxw-mes-document-modal__restore:focus-visible,
+.sxw-mes-document-modal__window-button:focus-visible {
+  outline: 2px solid var(--ant-color-primary, #1677ff);
+  outline-offset: 2px;
+}
+
+.sxw-mes-document-modal__restore-title {
+  max-width: 240px;
+  overflow: hidden;
+  font-weight: 500;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sxw-mes-document-modal__restore-hint {
+  color: var(--ant-color-text-tertiary, #999);
+  font-size: 12px;
+}
+
+.sxw-mes-document-modal__title {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.sxw-mes-document-modal__title-text {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.sxw-mes-document-modal__window-controls {
+  display: inline-flex;
+  align-items: center;
+  margin: -8px -16px -8px 0;
+}
+
+.sxw-mes-document-modal__window-button {
+  display: inline-flex;
+  width: 44px;
+  height: 36px;
+  align-items: center;
+  justify-content: center;
+  color: var(--ant-color-text-secondary, rgba(0, 0, 0, 0.55));
+  font-size: 13px;
+  background: transparent;
+  border: 0;
+  cursor: pointer;
+  transition:
+    background 0.15s,
+    color 0.15s;
+}
+
+.sxw-mes-document-modal__window-button:hover {
+  background: var(--ant-color-fill-tertiary, rgb(0 0 0 / 6%));
+}
+
+.sxw-mes-document-modal__window-button--close:hover {
+  color: #fff;
+  background: var(--ant-color-error, #e81123);
+}
+
+.sxw-mes-document-modal-demo {
+  position: relative;
+  min-height: 480px;
+}
+
+@supports (color: contrast-color(#000)) {
+  .sxw-status-tag.ant-tag.sxw-status-tag--custom {
+    color: contrast-color(var(--sxw-status-tag-background, #000));
+  }
 }
 
 .sxw-screen {

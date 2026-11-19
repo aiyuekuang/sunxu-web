@@ -1,0 +1,836 @@
+{
+  "intentContract": "Implementation/fix → MES UI suite ResizableTable / ResizableProTable in Sunxu and its catalog example → writes limited to sunxu-web source, docs, and verification evidence; no mes-admin consumer migration → required evidence: typecheck/build, desktop + 375px rendered layout, source-backed table interactions → completion claim limited to this component set; global MES component coverage remains incomplete.",
+  "businessRead": {
+    "audience": "MES Web users who scan, filter, sort, page through and act on dense tabular business records.",
+    "sourceOfTruth": "Current mes-admin main-买断版本 source commit e185f6b68b6d8ef94ed0b5312340e1952be5f2f1; target implementation preserves table behavior while injecting host permissions and edit callbacks.",
+    "success": "Preserve column resizing/order/visibility, sort and width persistence, density, row index, fit-height, empty guidance, export layout, summary and local/server sort behavior.",
+    "guardrail": "MES API, route, permissions, action definitions and record data remain supplied by the host; no Umi runtime enters the Sunxu package."
+  },
+  "route": "http://127.0.0.1:4173/ · catalog state MES 表格组件",
+  "screenshots": [
+    "desktop.png",
+    "desktop-empty.png",
+    "mobile-375.png"
+  ],
+  "desktopGeometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "page": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "scrollHeight": 1136,
+      "clientHeight": 1000
+    },
+    "workspace": {
+      "rect": {
+        "left": 224,
+        "top": 56,
+        "right": 1440,
+        "bottom": 1135.984375,
+        "width": 1216,
+        "height": 1079.984375
+      },
+      "scrollWidth": 1216,
+      "clientWidth": 1216,
+      "scrollHeight": 1080,
+      "clientHeight": 1080,
+      "padding": "24px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgb(245, 246, 248)",
+      "overflowX": "visible"
+    },
+    "primarySurface": {
+      "rect": {
+        "left": 248,
+        "top": 80,
+        "right": 1416,
+        "bottom": 1111.984375,
+        "width": 1168,
+        "height": 1031.984375
+      },
+      "scrollWidth": 1166,
+      "clientWidth": 1166,
+      "scrollHeight": 1030,
+      "clientHeight": 1030,
+      "padding": "24px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgb(255, 255, 255)",
+      "overflowX": "visible"
+    },
+    "pageHeading": {
+      "rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125
+      },
+      "scrollWidth": 1118,
+      "clientWidth": 1118,
+      "scrollHeight": 95,
+      "clientHeight": 95,
+      "padding": "0px",
+      "margin": "0px 0px 20px",
+      "gap": "10px",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "visible"
+    },
+    "componentPage": {
+      "rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 1086.984375,
+        "width": 1118,
+        "height": 866.703125
+      },
+      "scrollWidth": 1118,
+      "clientWidth": 1118,
+      "scrollHeight": 867,
+      "clientHeight": 867,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "12px",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "visible"
+    },
+    "firstSection": {
+      "rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 762.421875,
+        "width": 1118,
+        "height": 542.140625
+      },
+      "scrollWidth": 1116,
+      "clientWidth": 1116,
+      "scrollHeight": 540,
+      "clientHeight": 540,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgb(255, 255, 255)",
+      "overflowX": "visible"
+    },
+    "demoControls": {
+      "rect": {
+        "left": 290,
+        "top": 277.421875,
+        "right": 822.328125,
+        "bottom": 305.421875,
+        "width": 532.328125,
+        "height": 28
+      },
+      "scrollWidth": 532,
+      "clientWidth": 532,
+      "scrollHeight": 28,
+      "clientHeight": 28,
+      "padding": "0px",
+      "margin": "0px 0px 10px",
+      "gap": "12px",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "visible"
+    },
+    "proToolbar": {
+      "rect": {
+        "left": 306,
+        "top": 315.421875,
+        "right": 1358,
+        "bottom": 389.421875,
+        "width": 1052,
+        "height": 74
+      },
+      "scrollWidth": 1052,
+      "clientWidth": 1052,
+      "scrollHeight": 74,
+      "clientHeight": 74,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "visible"
+    },
+    "tableBoundary": {
+      "rect": {
+        "left": 290,
+        "top": 315.421875,
+        "right": 1374,
+        "bottom": 745.421875,
+        "width": 1084,
+        "height": 430
+      },
+      "scrollWidth": 1084,
+      "clientWidth": 1084,
+      "scrollHeight": 430,
+      "clientHeight": 430,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "clip"
+    },
+    "proTableWrapper": {
+      "rect": {
+        "left": 306,
+        "top": 389.421875,
+        "right": 1358,
+        "bottom": 731.84375,
+        "width": 1052,
+        "height": 342.421875
+      },
+      "scrollWidth": 1052,
+      "clientWidth": 1052,
+      "scrollHeight": 343,
+      "clientHeight": 342,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "visible"
+    },
+    "proTableBody": {
+      "rect": {
+        "left": 306,
+        "top": 416.84375,
+        "right": 1358,
+        "bottom": 696.84375,
+        "width": 1052,
+        "height": 280
+      },
+      "scrollWidth": 1512,
+      "clientWidth": 1052,
+      "scrollHeight": 280,
+      "clientHeight": 280,
+      "padding": "0px 0px 16px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "auto"
+    },
+    "pagination": {
+      "rect": {
+        "left": 306,
+        "top": 704.84375,
+        "right": 1358,
+        "bottom": 731.84375,
+        "width": 1052,
+        "height": 27
+      },
+      "scrollWidth": 1052,
+      "clientWidth": 1052,
+      "scrollHeight": 28,
+      "clientHeight": 27,
+      "padding": "0px",
+      "margin": "8px 0px 0px",
+      "gap": "8px normal",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "visible"
+    },
+    "secondSection": {
+      "rect": {
+        "left": 273,
+        "top": 774.421875,
+        "right": 1391,
+        "bottom": 1086.984375,
+        "width": 1118,
+        "height": 312.5625
+      },
+      "scrollWidth": 1116,
+      "clientWidth": 1116,
+      "scrollHeight": 311,
+      "clientHeight": 311,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgb(255, 255, 255)",
+      "overflowX": "visible"
+    },
+    "localTableContent": {
+      "rect": {
+        "left": 290,
+        "top": 867.5625,
+        "right": 1374,
+        "bottom": 1010.984375,
+        "width": 1084,
+        "height": 143.421875
+      },
+      "scrollWidth": 1084,
+      "clientWidth": 1084,
+      "scrollHeight": 143,
+      "clientHeight": 143,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "auto"
+    },
+    "resizeHandles": 11,
+    "headerWidths": [
+      {
+        "text": "序号",
+        "width": 64
+      },
+      {
+        "text": "物料名称",
+        "width": 160
+      },
+      {
+        "text": "物料编码",
+        "width": 148
+      },
+      {
+        "text": "规格型号",
+        "width": 120
+      },
+      {
+        "text": "单位",
+        "width": 84
+      },
+      {
+        "text": "数量",
+        "width": 100
+      },
+      {
+        "text": "状态",
+        "width": 100
+      },
+      {
+        "text": "备注",
+        "width": 280
+      }
+    ],
+    "exportLayout": true
+  },
+  "interactions": {
+    "doubleClickStatus": "双击编辑 RM-AL-0081；双击普通行可触发行编辑回调。",
+    "serverSortRequestText": "查看业务空态\n请求 2 次\n双击编辑 RM-AL-0081；双击普通行可触发行编辑回调。",
+    "columnResize": {
+      "beforeWidth": 160,
+      "afterWidth": 184,
+      "changed": true,
+      "persistedWidth": 184,
+      "widthAfterReload": 184,
+      "persistsAfterReload": true
+    },
+    "columnVisibilityAndExportLayout": {
+      "initialChecked": "true",
+      "checkedAfterHide": "false",
+      "headerPresentAfterHide": false,
+      "exportTextAfterHide": "导出列 8",
+      "restored": true
+    },
+    "density": {
+      "smallRowHeight": 29,
+      "largeRowHeight": 31.421875,
+      "changed": true,
+      "persistedKey": "mes-admin:table-density",
+      "persistedValue": "large",
+      "restoredTo": "small / 紧凑"
+    },
+    "emptyState": {
+      "controlText": "查看业务空态\n请求 2 次\n尚未触发行操作；双击普通行可触发行编辑回调。",
+      "guidanceVisible": true,
+      "screenshot": "desktop-empty.png"
+    },
+    "mobileKeyboardHorizontalScroll": {
+      "before": {
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "page": {
+          "scrollWidth": 375,
+          "clientWidth": 375,
+          "scrollHeight": 1246,
+          "clientHeight": 812
+        },
+        "workspace": {
+          "rect": {
+            "left": 0,
+            "top": 56,
+            "right": 375,
+            "bottom": 1245.984375,
+            "width": 375,
+            "height": 1189.984375
+          },
+          "scrollWidth": 375,
+          "clientWidth": 375,
+          "scrollHeight": 1190,
+          "clientHeight": 1190,
+          "padding": "16px",
+          "gap": "normal",
+          "background": "rgb(245, 246, 248)"
+        },
+        "primarySurface": {
+          "rect": {
+            "left": 16,
+            "top": 72,
+            "right": 359,
+            "bottom": 1229.984375,
+            "width": 343,
+            "height": 1157.984375
+          },
+          "scrollWidth": 341,
+          "clientWidth": 341,
+          "scrollHeight": 1156,
+          "clientHeight": 1156,
+          "padding": "16px",
+          "gap": "normal",
+          "background": "rgb(255, 255, 255)"
+        },
+        "pageHeading": {
+          "rect": {
+            "left": 33,
+            "top": 89,
+            "right": 342,
+            "bottom": 262.28125,
+            "width": 309,
+            "height": 173.28125
+          },
+          "scrollWidth": 309,
+          "clientWidth": 309,
+          "scrollHeight": 173,
+          "clientHeight": 173,
+          "padding": "0px",
+          "gap": "10px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        "componentPage": {
+          "rect": {
+            "left": 33,
+            "top": 278.28125,
+            "right": 342,
+            "bottom": 1212.984375,
+            "width": 309,
+            "height": 934.703125
+          },
+          "scrollWidth": 309,
+          "clientWidth": 309,
+          "scrollHeight": 935,
+          "clientHeight": 935,
+          "padding": "0px",
+          "gap": "12px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        "firstSection": {
+          "rect": {
+            "left": 33,
+            "top": 278.28125,
+            "right": 342,
+            "bottom": 866.421875,
+            "width": 309,
+            "height": 588.140625
+          },
+          "scrollWidth": 307,
+          "clientWidth": 307,
+          "scrollHeight": 586,
+          "clientHeight": 586,
+          "padding": "0px",
+          "gap": "normal",
+          "background": "rgb(255, 255, 255)"
+        },
+        "demoControls": {
+          "rect": {
+            "left": 50,
+            "top": 335.421875,
+            "right": 325,
+            "bottom": 419.421875,
+            "width": 275,
+            "height": 84
+          },
+          "scrollWidth": 275,
+          "clientWidth": 275,
+          "scrollHeight": 84,
+          "clientHeight": 84,
+          "padding": "0px",
+          "gap": "12px",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        "proToolbar": {
+          "rect": {
+            "left": 66,
+            "top": 429.421875,
+            "right": 309,
+            "bottom": 619.421875,
+            "width": 243,
+            "height": 190
+          },
+          "scrollWidth": 243,
+          "clientWidth": 243,
+          "scrollHeight": 190,
+          "clientHeight": 190,
+          "padding": "0px",
+          "gap": "normal",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        "tableBoundary": {
+          "rect": {
+            "left": 50,
+            "top": 429.421875,
+            "right": 325,
+            "bottom": 849.421875,
+            "width": 275,
+            "height": 420
+          },
+          "scrollWidth": 275,
+          "clientWidth": 275,
+          "scrollHeight": 420,
+          "clientHeight": 420,
+          "padding": "0px",
+          "gap": "normal",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        "proTableWrapper": {
+          "rect": {
+            "left": 66,
+            "top": 619.421875,
+            "right": 309,
+            "bottom": 801.84375,
+            "width": 243,
+            "height": 182.421875
+          },
+          "scrollWidth": 243,
+          "clientWidth": 243,
+          "scrollHeight": 183,
+          "clientHeight": 182,
+          "padding": "0px",
+          "gap": "normal",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        "proTableBody": {
+          "rect": {
+            "left": 66,
+            "top": 646.84375,
+            "right": 309,
+            "bottom": 766.84375,
+            "width": 243,
+            "height": 120
+          },
+          "scrollWidth": 1536,
+          "clientWidth": 243,
+          "scrollHeight": 280,
+          "clientHeight": 120,
+          "padding": "0px 0px 16px",
+          "gap": "normal",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        "pagination": {
+          "rect": {
+            "left": 66,
+            "top": 774.84375,
+            "right": 309,
+            "bottom": 801.84375,
+            "width": 243,
+            "height": 27
+          },
+          "scrollWidth": 243,
+          "clientWidth": 243,
+          "scrollHeight": 28,
+          "clientHeight": 27,
+          "padding": "0px",
+          "gap": "8px normal",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        "secondSection": {
+          "rect": {
+            "left": 33,
+            "top": 878.421875,
+            "right": 342,
+            "bottom": 1212.984375,
+            "width": 309,
+            "height": 334.5625
+          },
+          "scrollWidth": 307,
+          "clientWidth": 307,
+          "scrollHeight": 333,
+          "clientHeight": 333,
+          "padding": "0px",
+          "gap": "normal",
+          "background": "rgb(255, 255, 255)"
+        },
+        "localTableContent": {
+          "rect": {
+            "left": 50,
+            "top": 993.5625,
+            "right": 325,
+            "bottom": 1136.984375,
+            "width": 275,
+            "height": 143.421875
+          },
+          "scrollWidth": 662,
+          "clientWidth": 275,
+          "scrollHeight": 143,
+          "clientHeight": 143,
+          "padding": "0px",
+          "gap": "normal",
+          "background": "rgba(0, 0, 0, 0)"
+        },
+        "tableScroller": {
+          "rect": {
+            "left": 66,
+            "top": 646.84375,
+            "right": 309,
+            "bottom": 766.84375,
+            "width": 243,
+            "height": 120
+          },
+          "scrollWidth": 1536,
+          "clientWidth": 243,
+          "scrollLeft": 0,
+          "overflowX": "auto"
+        }
+      },
+      "after": {
+        "scrollLeft": 120,
+        "pageWidth": 375,
+        "viewport": 375
+      },
+      "moved": true
+    },
+    "localSort": {
+      "firstRowBefore": "1\n\t6061 铝型材\tRM-AL-0081\t24\t在用",
+      "firstRowAfter": "1\n\t三相异步电机\tEL-MTR-0012\t3\t在用",
+      "changed": true
+    }
+  },
+  "consoleMessages": [
+    {
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "error",
+      "text": "[use-antd-resizable-header] 请不要在所有列上添加 `width` 属性，这将导致表格无法自适应"
+    },
+    {
+      "type": "error",
+      "text": "Warning: [antd: Form.Item] `labelAlign=left|right` is deprecated. Please use `labelAlign=start|end` instead."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connecting..."
+    },
+    {
+      "type": "debug",
+      "text": "[vite] connected."
+    },
+    {
+      "type": "info",
+      "text": "%cDownload the React DevTools for a better development experience: https://react.dev/link/react-devtools font-weight:bold"
+    },
+    {
+      "type": "error",
+      "text": "[use-antd-resizable-header] 请不要在所有列上添加 `width` 属性，这将导致表格无法自适应"
+    },
+    {
+      "type": "error",
+      "text": "Warning: [antd: Form.Item] `labelAlign=left|right` is deprecated. Please use `labelAlign=start|end` instead."
+    }
+  ],
+  "pageErrors": [],
+  "unverified": [
+    "host MES permission/action resolver wiring",
+    "reader/screen-reader flow",
+    "dark mode and 844×390 landscape",
+    "custom host overflow containers beyond catalog boundary"
+  ],
+  "desktopEmptyGeometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 1000
+    },
+    "workspace": {
+      "rect": {
+        "left": 224,
+        "top": 56,
+        "right": 1440,
+        "bottom": 1135.984375,
+        "width": 1216,
+        "height": 1079.984375
+      },
+      "scrollWidth": 1216,
+      "clientWidth": 1216,
+      "scrollHeight": 1080,
+      "clientHeight": 1080,
+      "padding": "24px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgb(245, 246, 248)",
+      "overflowX": "visible"
+    },
+    "primarySurface": {
+      "rect": {
+        "left": 248,
+        "top": 80,
+        "right": 1416,
+        "bottom": 1111.984375,
+        "width": 1168,
+        "height": 1031.984375
+      },
+      "scrollWidth": 1166,
+      "clientWidth": 1166,
+      "scrollHeight": 1030,
+      "clientHeight": 1030,
+      "padding": "24px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgb(255, 255, 255)",
+      "overflowX": "visible"
+    },
+    "pageHeading": {
+      "rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125
+      },
+      "scrollWidth": 1118,
+      "clientWidth": 1118,
+      "scrollHeight": 95,
+      "clientHeight": 95,
+      "padding": "0px",
+      "margin": "0px 0px 20px",
+      "gap": "10px",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "visible"
+    },
+    "firstSection": {
+      "rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 762.421875,
+        "width": 1118,
+        "height": 542.140625
+      },
+      "scrollWidth": 1116,
+      "clientWidth": 1116,
+      "scrollHeight": 540,
+      "clientHeight": 540,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgb(255, 255, 255)",
+      "overflowX": "visible"
+    },
+    "secondSection": {
+      "rect": {
+        "left": 273,
+        "top": 774.421875,
+        "right": 1391,
+        "bottom": 1086.984375,
+        "width": 1118,
+        "height": 312.5625
+      },
+      "scrollWidth": 1116,
+      "clientWidth": 1116,
+      "scrollHeight": 311,
+      "clientHeight": 311,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgb(255, 255, 255)",
+      "overflowX": "visible"
+    },
+    "proToolbar": {
+      "rect": {
+        "left": 306,
+        "top": 315.421875,
+        "right": 1358,
+        "bottom": 389.421875,
+        "width": 1052,
+        "height": 74.0
+      },
+      "scrollWidth": 1052,
+      "clientWidth": 1052,
+      "scrollHeight": 74,
+      "clientHeight": 74,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "visible"
+    },
+    "tableBoundary": {
+      "rect": {
+        "left": 290,
+        "top": 315.421875,
+        "right": 1374,
+        "bottom": 745.421875,
+        "width": 1084,
+        "height": 430.0
+      },
+      "scrollWidth": 1084,
+      "clientWidth": 1084,
+      "scrollHeight": 430,
+      "clientHeight": 430,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "clip"
+    },
+    "proTableWrapper": {
+      "rect": {
+        "left": 306,
+        "top": 389.421875,
+        "right": 1358,
+        "bottom": 656.6875,
+        "width": 1052,
+        "height": 267.265625
+      },
+      "scrollWidth": 1052,
+      "clientWidth": 1052,
+      "scrollHeight": 267,
+      "clientHeight": 267,
+      "padding": "0px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "visible"
+    },
+    "proTableBody": {
+      "rect": {
+        "left": 306,
+        "top": 416.84375,
+        "right": 1358,
+        "bottom": 656.6875,
+        "width": 1052,
+        "height": 239.84375
+      },
+      "scrollWidth": 1052,
+      "clientWidth": 1052,
+      "scrollHeight": 240,
+      "clientHeight": 240,
+      "padding": "0px 0px 16px",
+      "margin": "0px",
+      "gap": "normal",
+      "background": "rgba(0, 0, 0, 0)",
+      "overflowX": "visible"
+    },
+    "pagination": null,
+    "page": {
+      "scrollWidth": 1440,
+      "clientWidth": 1440,
+      "scrollHeight": 1136,
+      "clientHeight": 1000
+    },
+    "emptyGuidanceVisible": true
+  }
+}

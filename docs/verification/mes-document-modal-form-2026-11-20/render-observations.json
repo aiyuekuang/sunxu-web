@@ -1,0 +1,421 @@
+{
+  "target": "http://127.0.0.1:4173",
+  "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/mes-document-modal-visual.js",
+  "screenshots": [
+    {
+      "name": "document-modal-desktop-open-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-desktop-open-1280x720.png",
+      "sha256": "57e441236a9eabd2e173792ba4f4a2e08eb0507f420934893445067f41f6cdfe"
+    },
+    {
+      "name": "document-modal-desktop-minimized-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-desktop-minimized-1280x720.png",
+      "sha256": "92872242c688799f0b40722e5fdada89c2b2e00fe4f1dcef4137c557135ee9f8"
+    },
+    {
+      "name": "document-modal-desktop-restored-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-desktop-restored-1280x720.png",
+      "sha256": "f2020d33da1d3c9d1bad3c75c7ae8b2913284c649c27ef90334bc33f04208473"
+    },
+    {
+      "name": "document-modal-desktop-submitted-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-desktop-submitted-1280x720.png",
+      "sha256": "5b8439b27a5dc0b2acb524a87c604d7e737f5b885c4754420a77c433d007be67"
+    },
+    {
+      "name": "document-modal-desktop-viewport-fullscreen-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-desktop-viewport-fullscreen-1280x720.png",
+      "sha256": "075e334741f82a66e878698ac04d12a31849e9fab76ece256d3fea0d2e7539e5"
+    },
+    {
+      "name": "document-modal-desktop-fixed-width-1280x720",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-desktop-fixed-width-1280x720.png",
+      "sha256": "0eb89af29c67f88552e6ce4f60475519db53112b726cc122f20293274312367f"
+    },
+    {
+      "name": "document-modal-mobile-open-375x812",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-mobile-open-375x812.png",
+      "sha256": "dc1a373305f2032a1279074c7e77f6fe8f4ba30e6f7be82551d661a73734876e"
+    },
+    {
+      "name": "document-modal-mobile-minimized-375x812",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-mobile-minimized-375x812.png",
+      "sha256": "f3235e3e543fe38f50b6fab64101ba7d0e893a127ff7075efded21a53c64846d"
+    }
+  ],
+  "observations": [
+    {
+      "state": "desktop-open",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "document": {
+        "bodyScrollWidth": 1280,
+        "htmlScrollWidth": 1280,
+        "bodyScrollHeight": 1356
+      },
+      "demo": {
+        "left": 273,
+        "top": 191.2,
+        "right": 1231,
+        "bottom": 671.2,
+        "width": 958,
+        "height": 480
+      },
+      "modalRoot": {
+        "left": 273,
+        "top": 191.2,
+        "right": 1231,
+        "bottom": 671.2,
+        "width": 958,
+        "height": 480
+      },
+      "modalWrap": {
+        "left": 273,
+        "top": 191.2,
+        "right": 1231,
+        "bottom": 671.2,
+        "width": 958,
+        "height": 480
+      },
+      "dialog": {
+        "left": 273.16,
+        "top": 191.46,
+        "right": 1228.94,
+        "bottom": 670.35,
+        "width": 955.78,
+        "height": 478.89
+      },
+      "modalWrapDisplay": "block",
+      "dialogVisible": true,
+      "formFieldMounted": true,
+      "noteValue": "最小化后检查此草稿仍然保留。",
+      "restoreBar": null,
+      "restoreVisible": false,
+      "demoPosition": "relative",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-desktop-open-1280x720.png"
+    },
+    {
+      "state": "desktop-minimized-draft-retained",
+      "interaction": "Space on focused minimize button",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "document": {
+        "bodyScrollWidth": 1280,
+        "htmlScrollWidth": 1280,
+        "bodyScrollHeight": 1356
+      },
+      "demo": {
+        "left": 273,
+        "top": 191.2,
+        "right": 1231,
+        "bottom": 671.2,
+        "width": 958,
+        "height": 480
+      },
+      "modalRoot": {
+        "left": 273,
+        "top": 191.2,
+        "right": 1231,
+        "bottom": 671.2,
+        "width": 958,
+        "height": 480
+      },
+      "modalWrap": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "dialog": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "modalWrapDisplay": "none",
+      "dialogVisible": false,
+      "formFieldMounted": true,
+      "noteValue": "最小化后仍然保留的入库备注",
+      "restoreBar": {
+        "left": 16,
+        "top": 673,
+        "right": 167,
+        "bottom": 704,
+        "width": 151,
+        "height": 31
+      },
+      "restoreVisible": true,
+      "demoPosition": "relative",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-desktop-minimized-1280x720.png"
+    },
+    {
+      "state": "desktop-restored-draft-retained",
+      "interaction": "Enter on focused restore button",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "document": {
+        "bodyScrollWidth": 1280,
+        "htmlScrollWidth": 1280,
+        "bodyScrollHeight": 1356
+      },
+      "demo": {
+        "left": 273,
+        "top": 191.2,
+        "right": 1231,
+        "bottom": 671.2,
+        "width": 958,
+        "height": 480
+      },
+      "modalRoot": {
+        "left": 273,
+        "top": 191.2,
+        "right": 1231,
+        "bottom": 671.2,
+        "width": 958,
+        "height": 480
+      },
+      "modalWrap": {
+        "left": 273,
+        "top": 191.2,
+        "right": 1231,
+        "bottom": 671.2,
+        "width": 958,
+        "height": 480
+      },
+      "dialog": {
+        "left": 273,
+        "top": 191.2,
+        "right": 1231,
+        "bottom": 671.2,
+        "width": 958,
+        "height": 480
+      },
+      "modalWrapDisplay": "block",
+      "dialogVisible": true,
+      "formFieldMounted": true,
+      "noteValue": "最小化后仍然保留的入库备注",
+      "restoreBar": null,
+      "restoreVisible": false,
+      "demoPosition": "relative",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-desktop-restored-1280x720.png"
+    },
+    {
+      "state": "desktop-host-submit",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "footerButtons": [
+        "取 消",
+        "确 定"
+      ],
+      "hostResult": "已提交给宿主的单据备注",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-desktop-submitted-1280x720.png"
+    },
+    {
+      "state": "desktop-viewport-fullscreen",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "document": {
+        "bodyScrollWidth": 1280,
+        "htmlScrollWidth": 1280,
+        "bodyScrollHeight": 1356
+      },
+      "demo": {
+        "left": 273,
+        "top": 191.2,
+        "right": 1231,
+        "bottom": 671.2,
+        "width": 958,
+        "height": 480
+      },
+      "modalRoot": {
+        "left": 0,
+        "top": 0,
+        "right": 1280,
+        "bottom": 720,
+        "width": 1280,
+        "height": 720
+      },
+      "modalWrap": {
+        "left": 0,
+        "top": 0,
+        "right": 1280,
+        "bottom": 720,
+        "width": 1280,
+        "height": 720
+      },
+      "dialog": {
+        "left": 0,
+        "top": 0,
+        "right": 1280,
+        "bottom": 720,
+        "width": 1280,
+        "height": 720
+      },
+      "modalWrapDisplay": "block",
+      "dialogVisible": true,
+      "formFieldMounted": true,
+      "noteValue": "最小化后检查此草稿仍然保留。",
+      "restoreBar": null,
+      "restoreVisible": false,
+      "demoPosition": "relative",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-desktop-viewport-fullscreen-1280x720.png"
+    },
+    {
+      "state": "desktop-fixed-width-mask-nonclosable",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "bodyScrollWidth": 1280,
+      "root": {
+        "left": 0,
+        "top": 720.203125,
+        "right": 1280,
+        "bottom": 720.203125,
+        "width": 1280,
+        "height": 0
+      },
+      "dialog": {
+        "left": 380,
+        "top": 100,
+        "right": 900,
+        "bottom": 364,
+        "width": 520,
+        "height": 264
+      },
+      "mask": "rgba(0, 0, 0, 0.45)",
+      "dialogClass": "ant-modal css-dev-only-do-not-override-i19pbt",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-desktop-fixed-width-1280x720.png"
+    },
+    {
+      "state": "desktop-fixed-width-outside-click-minimize-restore-close",
+      "result": "mask click kept the form open; minimize, restore, and custom close completed"
+    },
+    {
+      "state": "mobile-open-no-horizontal-overflow",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "document": {
+        "bodyScrollWidth": 375,
+        "htmlScrollWidth": 375,
+        "bodyScrollHeight": 1579
+      },
+      "demo": {
+        "left": 33,
+        "top": 299.2,
+        "right": 342,
+        "bottom": 779.2,
+        "width": 309,
+        "height": 480
+      },
+      "modalRoot": {
+        "left": 33,
+        "top": 299.2,
+        "right": 342,
+        "bottom": 779.2,
+        "width": 309,
+        "height": 480
+      },
+      "modalWrap": {
+        "left": 33,
+        "top": 299.2,
+        "right": 342,
+        "bottom": 779.2,
+        "width": 309,
+        "height": 480
+      },
+      "dialog": {
+        "left": 33.02,
+        "top": 299.24,
+        "right": 341.93,
+        "bottom": 779.1,
+        "width": 308.91,
+        "height": 479.86
+      },
+      "modalWrapDisplay": "block",
+      "dialogVisible": true,
+      "formFieldMounted": true,
+      "noteValue": "最小化后检查此草稿仍然保留。",
+      "restoreBar": null,
+      "restoreVisible": false,
+      "demoPosition": "relative",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-mobile-open-375x812.png"
+    },
+    {
+      "state": "mobile-minimized",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "document": {
+        "bodyScrollWidth": 375,
+        "htmlScrollWidth": 375,
+        "bodyScrollHeight": 1579
+      },
+      "demo": {
+        "left": 33,
+        "top": 299.2,
+        "right": 342,
+        "bottom": 779.2,
+        "width": 309,
+        "height": 480
+      },
+      "modalRoot": {
+        "left": 33,
+        "top": 299.2,
+        "right": 342,
+        "bottom": 779.2,
+        "width": 309,
+        "height": 480
+      },
+      "modalWrap": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "dialog": {
+        "left": 0,
+        "top": 0,
+        "right": 0,
+        "bottom": 0,
+        "width": 0,
+        "height": 0
+      },
+      "modalWrapDisplay": "none",
+      "dialogVisible": false,
+      "formFieldMounted": true,
+      "noteValue": "最小化后检查此草稿仍然保留。",
+      "restoreBar": {
+        "left": 16,
+        "top": 765,
+        "right": 167,
+        "bottom": 796,
+        "width": 151,
+        "height": 31
+      },
+      "restoreVisible": true,
+      "demoPosition": "relative",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-modal-form-2026-11-20/document-modal-mobile-minimized-375x812.png"
+    }
+  ],
+  "browserErrors": []
+}

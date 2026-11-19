@@ -1,0 +1,45 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件",
+  "component": "DocumentModalForm",
+  "evidence": "./render-observations.json",
+  "states": [
+    {
+      "name": "desktop-workspace-fullscreen",
+      "viewport": { "width": 1280, "height": 720 },
+      "parent_rect": { "left": 273, "top": 191.2, "right": 1231, "bottom": 671.2, "width": 958, "height": 480 },
+      "modal_root_matches_parent": true,
+      "document_width_matches_viewport": true,
+      "status": "PASS"
+    },
+    {
+      "name": "desktop-viewport-fullscreen",
+      "viewport": { "width": 1280, "height": 720 },
+      "modal_root_rect": { "left": 0, "top": 0, "right": 1280, "bottom": 720, "width": 1280, "height": 720 },
+      "dialog_rect": { "left": 0, "top": 0, "right": 1280, "bottom": 720, "width": 1280, "height": 720 },
+      "status": "PASS"
+    },
+    {
+      "name": "desktop-fixed-width",
+      "viewport": { "width": 1280, "height": 720 },
+      "dialog_width": 520,
+      "mask_outside_click_kept_open": true,
+      "status": "PASS"
+    },
+    {
+      "name": "mobile-workspace-fullscreen-and-minimize",
+      "viewport": { "width": 375, "height": 812 },
+      "parent_width": 309,
+      "modal_root_width": 309,
+      "document_body_scroll_width": 375,
+      "document_html_scroll_width": 375,
+      "form_field_remains_mounted_when_minimized": true,
+      "restore_bar_within_viewport": true,
+      "status": "PASS"
+    }
+  ],
+  "unverified": [
+    "custom modalProps.getContainer combinations",
+    "screen reader workflow"
+  ]
+}

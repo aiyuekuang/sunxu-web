@@ -1,0 +1,310 @@
+{
+  "schema_version": 1,
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "route": "CatalogApp / MES UI 套件",
+        "state": "desktop-default",
+        "viewport": {
+          "width": 1280,
+          "height": 720
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1280,
+          "bottom": 860.2,
+          "width": 1056,
+          "height": 804.2
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1256,
+          "bottom": 836.2,
+          "width": 1008,
+          "height": 756.2
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "left": 24,
+          "right": 24,
+          "top": 24,
+          "bottom": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px visible page frame",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main padding and .sxw-docs-surface foreground surface"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected unannotated rendered screenshot and compared visible background bands with settled DOM rectangles.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-1280x720.png",
+        "screenshot_sha256": "cefc7bb06a8f3fbbaad68350f13a23dbc8b6b1b6ea7f7fd4064163014295ff88",
+        "status": "PASS"
+      },
+      {
+        "route": "CatalogApp / MES UI 套件",
+        "state": "mobile-default-375x812",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 1083.2,
+          "width": 375,
+          "height": 1027.2
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 359,
+          "bottom": 1067.2,
+          "width": 343,
+          "height": 995.2
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "left": 16,
+          "right": 16,
+          "top": 16,
+          "bottom": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px visible page frame",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main padding and .sxw-docs-surface foreground surface"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected unannotated rendered screenshot and compared visible background bands with settled DOM rectangles.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-mobile-375x812.png",
+        "screenshot_sha256": "3b3d51f8764d24e1c377baed6dc9dc5ca6c9e215df686b1b7a1bde1b6865da9e",
+        "status": "PASS"
+      },
+      {
+        "route": "CatalogApp / MES UI 套件",
+        "state": "landscape-default-844x390",
+        "viewport": {
+          "width": 844,
+          "height": 390
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 208,
+          "top": 56,
+          "right": 844,
+          "bottom": 936.2,
+          "width": 636,
+          "height": 880.2
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 224,
+          "top": 72,
+          "right": 828,
+          "bottom": 920.2,
+          "width": 604,
+          "height": 848.2
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "left": 16,
+          "right": 16,
+          "top": 16,
+          "bottom": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px visible page frame",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main padding and .sxw-docs-surface foreground surface"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected unannotated rendered screenshot and compared visible background bands with settled DOM rectangles.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-landscape-844x390.png",
+        "screenshot_sha256": "8328283faf48fc3af52ee7fac42f1ed0d748b2b6178402b3db1568fd2bbda2b7",
+        "status": "PASS"
+      }
+    ]
+  },
+  "seams": [
+    {
+      "route": "CatalogApp / MES UI 套件",
+      "state": "desktop-default",
+      "previous": ".sxw-docs-page-heading",
+      "next": "first MES section card",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/mes-ui-suite-visual.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-desktop-1280x720.png",
+      "screenshot_sha256": "cefc7bb06a8f3fbbaad68350f13a23dbc8b6b1b6ea7f7fd4064163014295ff88",
+      "status": "PASS",
+      "viewport": {
+        "width": 1280,
+        "height": 720
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1231,
+        "bottom": 200.28,
+        "width": 958,
+        "height": 95.28
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 220.28,
+        "right": 1231,
+        "bottom": 469.42,
+        "width": 958,
+        "height": 249.14
+      },
+      "gap_px": 20,
+      "expected": {
+        "kind": "contract",
+        "value": "20px measured page-heading to first-section gap",
+        "source": "examples/catalog/catalog.css: .sxw-docs-page-heading margin-bottom and catalog spacing"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected the rendered screenshot at 100% and cross-checked the visible blank band against DOM getBoundingClientRect measurements.",
+        "observed_clear_band_px": 20
+      }
+    },
+    {
+      "route": "CatalogApp / MES UI 套件",
+      "state": "mobile-default-375x812",
+      "previous": ".sxw-docs-page-heading",
+      "next": "first MES section card",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/mes-ui-suite-visual.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-mobile-375x812.png",
+      "screenshot_sha256": "3b3d51f8764d24e1c377baed6dc9dc5ca6c9e215df686b1b7a1bde1b6865da9e",
+      "status": "PASS",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 33,
+        "top": 89,
+        "right": 342,
+        "bottom": 240.28,
+        "width": 309,
+        "height": 151.28
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 256.28,
+        "right": 342,
+        "bottom": 547.42,
+        "width": 309,
+        "height": 291.14
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px measured page-heading to first-section gap",
+        "source": "examples/catalog/catalog.css: .sxw-docs-page-heading margin-bottom and catalog spacing"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected the rendered screenshot at 100% and cross-checked the visible blank band against DOM getBoundingClientRect measurements.",
+        "observed_clear_band_px": 16
+      }
+    },
+    {
+      "route": "CatalogApp / MES UI 套件",
+      "state": "landscape-default-844x390",
+      "previous": ".sxw-docs-page-heading",
+      "next": "first MES section card",
+      "executed_command": "TARGET_URL=http://127.0.0.1:4173 node run.js /tmp/mes-ui-suite-visual.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-ui-suite-2026-11-19/suite-landscape-844x390.png",
+      "screenshot_sha256": "8328283faf48fc3af52ee7fac42f1ed0d748b2b6178402b3db1568fd2bbda2b7",
+      "status": "PASS",
+      "viewport": {
+        "width": 844,
+        "height": 390
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 245,
+        "top": 93,
+        "right": 807,
+        "bottom": 210.28,
+        "width": 562,
+        "height": 117.28
+      },
+      "next_rect": {
+        "left": 245,
+        "top": 230.28,
+        "right": 807,
+        "bottom": 499.42,
+        "width": 562,
+        "height": 269.14
+      },
+      "gap_px": 20,
+      "expected": {
+        "kind": "contract",
+        "value": "20px measured page-heading to first-section gap",
+        "source": "examples/catalog/catalog.css: .sxw-docs-page-heading margin-bottom and catalog spacing"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected the rendered screenshot at 100% and cross-checked the visible blank band against DOM getBoundingClientRect measurements.",
+        "observed_clear_band_px": 20
+      }
+    }
+  ]
+}
