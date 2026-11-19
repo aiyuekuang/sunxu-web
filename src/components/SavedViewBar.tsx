@@ -303,10 +303,23 @@ export function SavedViewBar({
           aria-busy={loading}
           ref={tabsRef}
         >
-          <Spin spinning={loading} size="small">
+          <Spin
+            classNames={{
+              root: 'sxw-saved-view-bar__tabs-spin',
+              container: 'sxw-saved-view-bar__tabs-spin-container',
+            }}
+            spinning={loading}
+            size="small"
+          >
             <Tabs
               activeKey={activeViewId}
               animated={false}
+              classNames={{
+                root: 'sxw-saved-view-bar__tabs-root',
+                item: 'sxw-saved-view-bar__tabs-item',
+                indicator: 'sxw-saved-view-bar__tabs-indicator',
+                header: 'sxw-saved-view-bar__tabs-header',
+              }}
               items={tabItems}
               onChange={requestChange}
               size="small"

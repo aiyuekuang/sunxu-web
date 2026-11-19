@@ -1,5 +1,7 @@
 import { DownOutlined, FilterOutlined, PlusOutlined, UpOutlined } from '@ant-design/icons';
 import { Alert, Button, Drawer, Space, Tabs, Tag, Tooltip } from 'antd';
+import type { SpinProps } from 'antd';
+import type { TableProps as AntTableProps } from 'antd';
 import type { ReactNode, RefObject } from 'react';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
 import { ProTable } from '@ant-design/pro-components';
@@ -123,6 +125,111 @@ export type CrudListWorkbenchProps<
 const TABLE_MIN_BODY_HEIGHT = 80;
 const DEFAULT_PAGINATION_SPACE = 64;
 const FILL_BOTTOM_GAP = 2;
+const FILL_TABLE_CLASSES = {
+  proTable: 'sxw-crud-list-workbench__fill-pro-table',
+  card: 'sxw-crud-list-workbench__fill-card',
+  cardBody: 'sxw-crud-list-workbench__fill-card-body',
+  tableRoot: 'sxw-crud-list-workbench__fill-table-root',
+  spinRoot: 'sxw-crud-list-workbench__fill-spin-root',
+  spinContainer: 'sxw-crud-list-workbench__fill-spin-container',
+  header: 'sxw-crud-list-workbench__fill-table-header',
+  headerRow: 'sxw-crud-list-workbench__fill-table-header-row',
+  footer: 'sxw-crud-list-workbench__fill-table-footer',
+  pagination: 'sxw-crud-list-workbench__fill-table-pagination',
+} as const;
+
+const joinClassNames = (...classNames: Array<string | undefined>) =>
+  classNames.filter(Boolean).join(' ');
+
+type TableClassNames<T extends object, Params extends Record<string, unknown>> =
+  NonNullable<ProTableProps<T, Params>['classNames']>;
+type TableClassNamesFactory<T extends object> = (info: { props: AntTableProps<T> }) => unknown;
+type TableClassNameSlots<T extends object, Params extends Record<string, unknown>> =
+  Exclude<TableClassNames<T, Params>, TableClassNamesFactory<T>>;
+
+function addFillTableClassNames<T extends object, Params extends Record<string, unknown>>(
+  classNames: ProTableProps<T, Params>['classNames'],
+): ProTableProps<T, Params>['classNames'] {
+  const merge = (current?: TableClassNameSlots<T, Params>) => ({
+    ...current,
+    root: joinClassNames(current?.root, FILL_TABLE_CLASSES.tableRoot),
+    header: {
+      ...current?.header,
+      wrapper: joinClassNames(current?.header?.wrapper, FILL_TABLE_CLASSES.header),
+      row: joinClassNames(current?.header?.row, FILL_TABLE_CLASSES.headerRow),
+    },
+    footer: joinClassNames(current?.footer, FILL_TABLE_CLASSES.footer),
+    pagination: {
+      ...current?.pagination,
+      root: joinClassNames(current?.pagination?.root, FILL_TABLE_CLASSES.pagination),
+    },
+  }) as TableClassNameSlots<T, Params>;
+
+  if (typeof classNames === 'function') {
+    return ((info) => merge(classNames(info))) as TableClassNames<T, Params>;
+  }
+  return merge(classNames as TableClassNameSlots<T, Params>) as TableClassNames<T, Params>;
+}
+
+type SpinClassNames = NonNullable<SpinProps['classNames']>;
+type SpinClassNameSlots = Exclude<SpinClassNames, (info: { props: SpinProps }) => unknown>;
+
+function addFillSpinClassNames(classNames: SpinProps['classNames']): SpinClassNames {
+  const merge = (current?: SpinClassNameSlots) => ({
+    ...current,
+    root: joinClassNames(current?.root, FILL_TABLE_CLASSES.spinRoot),
+    container: joinClassNames(current?.container, FILL_TABLE_CLASSES.spinContainer),
+  }) as SpinClassNameSlots;
+
+  if (typeof classNames === 'function') {
+    return (info) => merge(classNames(info));
+  }
+  return merge(classNames as SpinClassNameSlots);
+}
+
+function addFillCardLayout<T extends object, Params extends Record<string, unknown>>(
+  cardProps: ProTableProps<T, Params>['cardProps'],
+): ProTableProps<T, Params>['cardProps'] {
+  if (cardProps === false) return false;
+  const current = cardProps ?? {};
+  return {
+    ...current,
+    classNames: {
+      ...current.classNames,
+      root: joinClassNames(current.classNames?.root, FILL_TABLE_CLASSES.card),
+      body: joinClassNames(current.classNames?.body, FILL_TABLE_CLASSES.cardBody),
+    },
+    styles: {
+      ...current.styles,
+      body: {
+        ...current.styles?.body,
+        display: 'flex',
+        minWidth: 0,
+        minHeight: 0,
+        flex: '1 1 auto',
+        flexDirection: 'column',
+        overflow: 'hidden',
+      },
+    },
+  };
+}
+
+function addFillTableLayout<T extends object, Params extends Record<string, unknown>>(
+  tableProps: CrudListWorkbenchTableProps<T, Params>,
+) {
+  const loading =
+    typeof tableProps.loading === 'object' && tableProps.loading !== null
+      ? tableProps.loading
+      : { spinning: Boolean(tableProps.loading) };
+  return {
+    className: joinClassNames(tableProps.className, FILL_TABLE_CLASSES.proTable),
+    classNames: addFillTableClassNames<T, Params>(tableProps.classNames),
+    loading: {
+      ...loading,
+      classNames: addFillSpinClassNames(loading.classNames),
+    },
+  };
+}
 const useIsomorphicLayoutEffect =
   typeof window === 'undefined' ? useEffect : useLayoutEffect;
 
@@ -135,15 +242,17 @@ const getFillTableBodyHeight = (
   container: HTMLElement,
   paginationEnabled: boolean,
 ): number | undefined => {
-  const tableWrapper = container.querySelector<HTMLElement>('.ant-table-wrapper');
-  if (!tableWrapper || container.clientHeight <= 0) return undefined;
+  const tableRoot = container.querySelector<HTMLElement>(`.${FILL_TABLE_CLASSES.tableRoot}`);
+  if (!tableRoot || container.clientHeight <= 0) return undefined;
 
   const containerRect = container.getBoundingClientRect();
-  const tableRect = tableWrapper.getBoundingClientRect();
+  const tableRect = tableRoot.getBoundingClientRect();
   const tableTop = Math.max(0, tableRect.top - containerRect.top);
-  const tableHead = container.querySelector<HTMLElement>('.ant-table-thead');
-  const tableFooter = container.querySelector<HTMLElement>('.ant-table-footer');
-  const pagination = container.querySelector<HTMLElement>('.ant-table-pagination');
+  const tableHead =
+    container.querySelector<HTMLElement>(`.${FILL_TABLE_CLASSES.header}`) ??
+    container.querySelector<HTMLElement>(`.${FILL_TABLE_CLASSES.headerRow}`);
+  const tableFooter = container.querySelector<HTMLElement>(`.${FILL_TABLE_CLASSES.footer}`);
+  const pagination = container.querySelector<HTMLElement>(`.${FILL_TABLE_CLASSES.pagination}`);
   const paginationSpace = pagination
     ? Math.ceil(pagination.getBoundingClientRect().height) + 24
     : paginationEnabled
@@ -198,6 +307,16 @@ function useFillTableHeight(
     const mutationObserver =
       typeof MutationObserver !== 'undefined' ? new MutationObserver(schedule) : undefined;
     resizeObserver?.observe(container);
+    for (const className of [
+      FILL_TABLE_CLASSES.tableRoot,
+      FILL_TABLE_CLASSES.header,
+      FILL_TABLE_CLASSES.headerRow,
+      FILL_TABLE_CLASSES.footer,
+      FILL_TABLE_CLASSES.pagination,
+    ]) {
+      const element = container.querySelector<HTMLElement>(`.${className}`);
+      if (element) resizeObserver?.observe(element);
+    }
     mutationObserver?.observe(container, { childList: true, subtree: true });
     window.addEventListener('resize', schedule);
     measure();
@@ -286,6 +405,11 @@ export function CrudListWorkbench<
     tableProps.cardProps === undefined
       ? { styles: { body: { paddingInline: 16 } } }
       : tableProps.cardProps;
+  const fillTableLayout = fill ? addFillTableLayout(tableProps) : undefined;
+  const resolvedFillCardProps = fill
+    ? addFillCardLayout<T, Params>(resolvedCardProps)
+    : resolvedCardProps;
+  const resolvedCardPropsWithFill = resolvedFillCardProps;
 
   const hasFacetSidebar = facetSidebar !== undefined && facetSidebar !== null;
   const hasQuickFilters = quickFilters !== undefined && quickFilters !== null;
@@ -411,6 +535,11 @@ export function CrudListWorkbench<
               <Tabs
                 activeKey={primaryTabs.value}
                 animated={false}
+                classNames={{
+                  root: 'sxw-crud-list-workbench__primary-tabs-root',
+                  header: 'sxw-crud-list-workbench__primary-tabs-header',
+                  item: 'sxw-crud-list-workbench__primary-tabs-item',
+                }}
                 items={primaryTabs.items.map(({ key, label, disabled }) => ({
                   key,
                   label,
@@ -547,7 +676,8 @@ export function CrudListWorkbench<
 
   const renderTableProps: CrudListWorkbenchTableRenderProps<T, Params> = {
     ...tableProps,
-    cardProps: resolvedCardProps,
+    ...(fillTableLayout ?? {}),
+    cardProps: resolvedCardPropsWithFill,
     search: proTableSearch ?? false,
     headerTitle: false,
     toolBarRender: false,
@@ -600,7 +730,8 @@ export function CrudListWorkbench<
             ) : (
               <ProTable<T, Params>
                 {...tableProps}
-                cardProps={resolvedCardProps}
+                {...(fillTableLayout ?? {})}
+                cardProps={resolvedCardPropsWithFill}
                 search={proTableSearch ?? false}
                 headerTitle={false}
                 toolBarRender={false}

@@ -324,7 +324,9 @@ export function EditableDetailTable<T>({
 
   useEffect(() => {
     const tableHost = tableHostRef.current;
-    const tableContent = tableHost?.querySelector<HTMLElement>('.ant-table-content');
+    const tableContent = tableHost?.querySelector<HTMLElement>(
+      '.sxw-editable-detail-table__content',
+    );
     if (!tableContent) return;
 
     const updateOverflow = () => {
@@ -382,6 +384,7 @@ export function EditableDetailTable<T>({
         pagination={false}
         scroll={{ x: scrollX || 'max-content' }}
         tableLayout="fixed"
+        classNames={{ content: 'sxw-editable-detail-table__content' }}
         locale={{ emptyText }}
         tableAlertOptionRender={
           batchEnabled
@@ -433,7 +436,7 @@ export function EditableDetailTable<T>({
       />
       {hasHorizontalOverflow ? (
         <Typography.Text
-          className="sxw-editable-detail-table__scroll-hint"
+          className="sxw-table-scroll-hint"
           role="note"
         >
           左右滚动查看其余列

@@ -24,11 +24,15 @@ const longTextRows: LongTextRow[] = [
   {
     id: 'delivery-note',
     description:
-      '发货前核对收货地址、联系人和现场卸货条件；若预约时间变化，请先联系仓储窗口并更新本次配送说明。',
+      '发货前核对收货地址、联系人和现场卸货条件；若预约时间变化，请先联系仓储窗口并更新本次配送说明。还需逐项确认包装标识、装箱数量和客户指定的随货资料；发现地址或预约信息不一致时，先暂停发货并与负责人员核实后再更新记录。',
   },
   {
     id: 'packing-note',
     description: '包装完好。',
+  },
+  {
+    id: 'width-only-note',
+    description: 'WWWWWWWWWWWWWWWW',
   },
 ];
 
@@ -48,13 +52,14 @@ export function TextControlsPage() {
   const longTextColumns = useMemo<ProColumns<LongTextRow>[]>(
     () => [
       {
-        title: '配送说明',
+        title: '备注',
         dataIndex: 'description',
+        width: 180,
         render: (_, row) => (
           <LongText
             value={row.description}
-            maxLength={12}
-            modalTitle="完整配送说明"
+            displayMode="truncate"
+            maxLength={18}
           />
         ),
       },
@@ -91,17 +96,22 @@ export function TextControlsPage() {
           <SectionCard
             className="sxw-text-controls__long-text"
             title="长文本单元格"
-            subtitle="单元格截断长内容；完整配送说明在对话框中查看。"
+            subtitle="字数或列宽触发省略时都可打开全文。"
           >
-            <ProTable<LongTextRow>
-              rowKey="id"
-              columns={longTextColumns}
-              dataSource={longTextRows}
-              search={false}
-              options={false}
-              toolBarRender={false}
-              pagination={false}
-            />
+            <div style={{ width: 180, maxWidth: '100%' }}>
+              <ProTable<LongTextRow>
+                rowKey="id"
+                columns={longTextColumns}
+                dataSource={longTextRows}
+                search={false}
+                options={false}
+                toolBarRender={false}
+                pagination={false}
+                cardProps={false}
+                tableLayout="fixed"
+                scroll={{ x: 180 }}
+              />
+            </div>
           </SectionCard>
         </Col>
       </Row>

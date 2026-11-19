@@ -683,7 +683,7 @@ export function CrudListWorkbenchPage() {
                   },
                 ],
                 dataSource: products,
-                pagination: { defaultPageSize: 5, showSizeChanger: true },
+                pagination: { defaultPageSize: 9, showSizeChanger: false },
               }}
             />
           </div>

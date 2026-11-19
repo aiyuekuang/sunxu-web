@@ -238,84 +238,47 @@
   overflow: hidden;
 }
 
-/*
- * Keep the table adapter and its Ant Design / ProTable internals in the same
- * fill chain. Without this, a short result set leaves the wrapper at its
- * intrinsic height and pagination floats above the bottom of the workbench.
- */
+/* Layout hooks are attached through Ant Design's public semantic component APIs. */
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table > *,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table > .ant-pro-card,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table > .ant-pro-card > .ant-pro-card-body,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-wrapper,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-spin,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-spin-nested-loading,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-spin-container,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-container {
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-pro-table,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-card,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-card-body,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-root,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-spin-root,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-spin-container {
   display: flex;
+  min-width: 0;
   min-height: 0;
   flex-direction: column;
 }
 
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table > *,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table > .ant-pro-card,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table > .ant-pro-card > .ant-pro-card-body,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-wrapper,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-spin,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-spin-nested-loading,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-spin-container,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-container {
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-pro-table,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-card,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-card-body,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-root,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-spin-root,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-spin-container {
   flex: 1 1 auto;
 }
 
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table > *,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table > .ant-pro-card,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table > .ant-pro-card > .ant-pro-card-body {
-  min-width: 0;
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-pro-table,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-card,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-card-body {
   overflow: hidden;
 }
 
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-wrapper {
-  min-width: 0;
-  min-height: 0;
-}
-
-/*
- * The header is a sibling of the scrolling body inside the vertical flex
- * container. Keep its intrinsic row height so a constrained workbench cannot
- * collapse the header while the thead content remains visible.
- */
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-header {
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-header {
   flex: 0 0 auto;
 }
 
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-extra,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-pro-table-list-toolbar,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-footer,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-pagination {
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-footer,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-pagination {
   flex: 0 0 auto;
 }
 
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-content,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-body {
-  min-height: 0;
-}
-
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-content,
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-body {
-  flex: 1 1 auto;
-}
-
-.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-body {
-  height: auto;
-}
-
-
-.sxw-editable-detail-table__scroll-hint {
+.sxw-table-scroll-hint {
   display: block;
   align-self: flex-end;
   color: var(--sxw-text-secondary, #666666);
@@ -351,11 +314,11 @@
   flex: 1 1 auto;
 }
 
-.sxw-crud-list-workbench__primary-tabs .ant-tabs-nav {
+.sxw-crud-list-workbench__primary-tabs-header {
   margin: 0;
 }
 
-.sxw-crud-list-workbench__primary-tabs .ant-tabs-tab {
+.sxw-crud-list-workbench__primary-tabs-item {
   padding-block: 8px;
 }
 
@@ -536,27 +499,27 @@
   overflow: hidden;
 }
 
-.sxw-saved-view-bar__tabs .ant-tabs-nav {
+.sxw-saved-view-bar__tabs-header {
   margin: 0;
 }
 
-.sxw-saved-view-bar__tabs .ant-tabs-tab {
+.sxw-saved-view-bar__tabs-item {
   padding-block: 2px;
 }
 
-.sxw-saved-view-bar__tabs .ant-tabs-tab-active {
+.sxw-saved-view-bar__tabs-item[aria-selected='true'] {
   font-weight: 500;
 }
 
-.sxw-saved-view-bar__tabs .ant-tabs-ink-bar {
+.sxw-saved-view-bar__tabs-indicator {
   display: none;
 }
 
-.sxw-saved-view-bar__tabs .ant-tabs-tab-label {
+.sxw-saved-view-bar__tabs-item .sxw-saved-view-bar__tab-label {
   min-width: 0;
 }
 
-.sxw-saved-view-bar__tabs .ant-tabs-tab-active .sxw-saved-view-bar__tab-text {
+.sxw-saved-view-bar__tabs-item[aria-selected='true'] .sxw-saved-view-bar__tab-text {
   text-decoration-color: var(--ant-color-primary, #007d35);
   text-decoration-line: underline;
   text-decoration-thickness: 2px;
@@ -840,7 +803,7 @@
   }
 
   .sxw-crud-list-workbench__primary-tabs,
-  .sxw-crud-list-workbench__primary-tabs .ant-tabs {
+  .sxw-crud-list-workbench__primary-tabs-root {
     width: 100%;
   }
 
@@ -895,16 +858,13 @@
   }
 
   .sxw-saved-view-bar__tabs,
-  .sxw-saved-view-bar__tabs .ant-spin-nested-loading,
-  .sxw-saved-view-bar__tabs .ant-spin-container,
-  .sxw-saved-view-bar__tabs .ant-tabs {
+  .sxw-saved-view-bar__tabs-spin,
+  .sxw-saved-view-bar__tabs-spin-container,
+  .sxw-saved-view-bar__tabs-root,
+  .sxw-saved-view-bar__tabs-header {
     box-sizing: border-box;
     width: 100%;
     max-width: 100%;
-    min-width: 0;
-  }
-
-  .sxw-saved-view-bar__tabs .ant-tabs-nav-wrap {
     min-width: 0;
   }
 }

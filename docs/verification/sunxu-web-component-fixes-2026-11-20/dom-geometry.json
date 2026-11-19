@@ -1,0 +1,156 @@
+{
+  "route": "http://127.0.0.1:8087/",
+  "desktopViewport": {
+    "width": 1440,
+    "height": 1000
+  },
+  "longText": {
+    "bounds": {
+      "x": 857,
+      "y": 437.921875,
+      "width": 120,
+      "height": 22
+    },
+    "clientWidth": 120,
+    "scrollWidth": 214,
+    "text": "WWWWWWWWWWWWWWWW",
+    "moreVisible": true,
+    "rowBounds": {
+      "x": 849,
+      "y": 423.421875,
+      "width": 180,
+      "height": 52
+    },
+    "pageOverflowX": {
+      "innerWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "fullTextDialogVisible": true
+  },
+  "crudFill": {
+    "workbench": {
+      "x": 290,
+      "y": 574.203125,
+      "width": 1084,
+      "height": 360,
+      "clientHeight": 360,
+      "scrollHeight": 360
+    },
+    "tableRoot": {
+      "x": 290,
+      "y": 574.203125,
+      "width": 1084,
+      "height": 360,
+      "clientHeight": 360,
+      "scrollHeight": 360
+    },
+    "body": {
+      "x": 290,
+      "y": 621.203125,
+      "width": 1084,
+      "height": 260,
+      "clientHeight": 260,
+      "scrollHeight": 423
+    },
+    "header": {
+      "x": 290,
+      "y": 574.203125,
+      "width": 1084,
+      "height": 47,
+      "clientHeight": 47,
+      "scrollHeight": 47
+    },
+    "pagination": {
+      "x": 290,
+      "y": 897.203125,
+      "width": 1084,
+      "height": 27,
+      "clientHeight": 27,
+      "scrollHeight": 28
+    },
+    "bodyHasInternalVerticalOverflow": true,
+    "semanticHooksFound": true,
+    "bodyScrollTopAtStart": 0,
+    "bodyScrollTopAtEnd": 163,
+    "lastRowVisibleAtScrollEnd": true,
+    "pageOverflowX": {
+      "innerWidth": 1440,
+      "scrollWidth": 1440
+    }
+  },
+  "batchRemoteSelect": {
+    "dialog": {
+      "x": 440,
+      "y": 276,
+      "width": 560,
+      "height": 448,
+      "clientHeight": 448,
+      "scrollHeight": 448
+    },
+    "body": {
+      "x": 464,
+      "y": 328,
+      "width": 512,
+      "height": 328,
+      "clientHeight": 328,
+      "scrollHeight": 328
+    },
+    "selectLoadingVisible": true,
+    "errorVisible": true,
+    "retryVisible": true,
+    "narrow": {
+      "viewport": {
+        "width": 375,
+        "height": 390,
+        "documentWidth": 375
+      },
+      "body": {
+        "x": 32,
+        "y": 92,
+        "width": 311,
+        "height": 190,
+        "clientHeight": 190,
+        "scrollHeight": 350,
+        "scrollTop": 160,
+        "scrollable": true,
+        "atBottom": true
+      },
+      "lastFieldVisibleInBody": true,
+      "footerVisible": true
+    }
+  },
+  "mesHorizontalScroll": {
+    "bounds": {
+      "x": 50,
+      "y": 371.421875,
+      "width": 275,
+      "height": 139
+    },
+    "clientWidth": 275,
+    "scrollWidth": 566
+  },
+  "savedViewBarNarrow": {
+    "viewport": {
+      "width": 375,
+      "documentWidth": 375
+    },
+    "bar": {
+      "x": 33,
+      "y": 418.421875,
+      "width": 309,
+      "height": 96,
+      "clientWidth": 309,
+      "scrollWidth": 309
+    },
+    "tabs": {
+      "x": 33,
+      "y": 418.421875,
+      "width": 309,
+      "height": 59,
+      "clientWidth": 309,
+      "scrollWidth": 309
+    },
+    "semanticHooksFound": true
+  },
+  "pageErrors": []
+}

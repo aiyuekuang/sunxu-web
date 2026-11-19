@@ -1,5 +1,5 @@
 import { App, Button, Popover, Typography } from 'antd';
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useId, useMemo, useRef, useState } from 'react';
 import type { MouseEvent } from 'react';
 
 export const LONG_TEXT_DEFAULT_MAX_LENGTH = 64;
@@ -29,6 +29,10 @@ export function LongText({
     ? Math.max(1, Math.floor(maxLines))
     : LONG_TEXT_DEFAULT_MAX_LINES;
   const wrappedTextRef = useRef<HTMLSpanElement>(null);
+  const wrappedTriggerRef = useRef<HTMLSpanElement>(null);
+  const wrappedPopoverRef = useRef<HTMLDivElement>(null);
+  const hoverCloseTimeoutRef = useRef<number | undefined>(undefined);
+  const isMouseHoveringRef = useRef(false);
   const truncatedTextRef = useRef<HTMLSpanElement>(null);
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
   const [hasWidthOverflow, setHasWidthOverflow] = useState(false);
@@ -39,6 +43,7 @@ export function LongText({
     ? `${characters.slice(0, safeMaxLength).join('')}…`
     : text;
   const hasMore = isOverflow || hasWidthOverflow;
+  const wrappedPopoverId = useId();
 
   const showFullText = useCallback(
     (event: MouseEvent<HTMLButtonElement>) => {
@@ -59,32 +64,55 @@ export function LongText({
     [modal, modalTitle, text],
   );
 
-  const handlePopoverOpenChange = useCallback((nextOpen: boolean) => {
-    if (!nextOpen) {
-      setIsPopoverOpen(false);
-      return;
-    }
-
+  const isWrappedTextClamped = useCallback(() => {
     const element = wrappedTextRef.current;
-    setIsPopoverOpen(
-      Boolean(
-        element &&
-          (element.scrollHeight > element.clientHeight + 1 ||
-            element.scrollWidth > element.clientWidth + 1),
-      ),
-    );
-  }, []);
-
-  const handlePopoverTouchStart = useCallback(() => {
-    const element = wrappedTextRef.current;
-    const isClamped = Boolean(
+    return Boolean(
       element &&
         (element.scrollHeight > element.clientHeight + 1 ||
           element.scrollWidth > element.clientWidth + 1),
     );
-    if (!isClamped) return;
-    setIsPopoverOpen((current) => !current);
   }, []);
+
+  const clearHoverCloseTimeout = useCallback(() => {
+    if (hoverCloseTimeoutRef.current !== undefined) {
+      window.clearTimeout(hoverCloseTimeoutRef.current);
+      hoverCloseTimeoutRef.current = undefined;
+    }
+  }, []);
+
+  useEffect(() => clearHoverCloseTimeout, [clearHoverCloseTimeout]);
+
+  const openPopover = useCallback(() => {
+    if (isWrappedTextClamped()) setIsPopoverOpen(true);
+  }, [isWrappedTextClamped]);
+
+  useEffect(() => {
+    if (!isPopoverOpen) return;
+
+    const closeOnOutsidePointer = (event: PointerEvent) => {
+      const target = event.target;
+      if (!(target instanceof Node)) return;
+      if (
+        wrappedTriggerRef.current?.contains(target) ||
+        wrappedPopoverRef.current?.contains(target)
+      ) {
+        return;
+      }
+      setIsPopoverOpen(false);
+    };
+    const closeOnEscape = (event: KeyboardEvent) => {
+      if (event.key !== 'Escape') return;
+      event.stopPropagation();
+      setIsPopoverOpen(false);
+    };
+
+    document.addEventListener('pointerdown', closeOnOutsidePointer, true);
+    document.addEventListener('keydown', closeOnEscape, true);
+    return () => {
+      document.removeEventListener('pointerdown', closeOnOutsidePointer, true);
+      document.removeEventListener('keydown', closeOnEscape, true);
+    };
+  }, [isPopoverOpen]);
 
   useEffect(() => {
     const element = truncatedTextRef.current;
@@ -120,24 +148,64 @@ export function LongText({
     return (
       <Popover
         open={isPopoverOpen}
-        onOpenChange={handlePopoverOpenChange}
+        trigger={[]}
         content={
-          <div className="sxw-long-text__popover" aria-hidden="true">
+          <div
+            ref={wrappedPopoverRef}
+            id={wrappedPopoverId}
+            role="tooltip"
+            className="sxw-long-text__popover"
+            onPointerEnter={clearHoverCloseTimeout}
+            onPointerLeave={() => setIsPopoverOpen(false)}
+          >
             {text}
           </div>
         }
         placement="topLeft"
-        mouseEnterDelay={0.2}
-        trigger={['hover', 'focus']}
       >
         <span
+          ref={wrappedTriggerRef}
           className="sxw-long-text__trigger"
+          role="button"
           tabIndex={0}
-          aria-label={`完整内容：${text}`}
-          onClick={(event) => event.stopPropagation()}
-          onTouchStart={(event) => {
+          aria-label="查看完整内容"
+          aria-expanded={isPopoverOpen}
+          aria-describedby={isPopoverOpen ? wrappedPopoverId : undefined}
+          onPointerEnter={(event) => {
+            if (event.pointerType !== 'mouse') return;
+            isMouseHoveringRef.current = true;
+            clearHoverCloseTimeout();
+            openPopover();
+          }}
+          onPointerLeave={(event) => {
+            if (event.pointerType !== 'mouse') return;
+            isMouseHoveringRef.current = false;
+            clearHoverCloseTimeout();
+            hoverCloseTimeoutRef.current = window.setTimeout(
+              () => setIsPopoverOpen(false),
+              150,
+            );
+          }}
+          onClick={(event) => {
             event.stopPropagation();
-            handlePopoverTouchStart();
+            if (isMouseHoveringRef.current) {
+              openPopover();
+              return;
+            }
+            if (!isWrappedTextClamped()) return;
+            setIsPopoverOpen((current) => !current);
+          }}
+          onKeyDown={(event) => {
+            if (event.key === 'Escape') {
+              setIsPopoverOpen(false);
+              return;
+            }
+            if (event.key !== 'Enter' && event.key !== ' ') return;
+            event.preventDefault();
+            event.stopPropagation();
+            if (isWrappedTextClamped()) {
+              setIsPopoverOpen((current) => !current);
+            }
           }}
         >
           <span

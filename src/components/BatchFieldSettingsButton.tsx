@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   App,
+  Alert,
   Button,
   Checkbox,
   DatePicker,
@@ -114,9 +115,12 @@ export function BatchFieldSettingsButton<T>({
   const [requestedOptions, setRequestedOptions] = useState<
     Record<string, NonNullable<SelectProps['options']>>
   >({});
+  const [optionLoading, setOptionLoading] = useState<Record<string, boolean>>({});
+  const [optionErrors, setOptionErrors] = useState<Record<string, string>>({});
   const valuesRef = useRef(values);
   valuesRef.current = values;
   const requestIds = useRef(new Map<string, number>());
+  const requestSequence = useRef(0);
 
   const enabledFields = useMemo(
     () => new Set(enabledFieldKeys),
@@ -128,6 +132,8 @@ export function BatchFieldSettingsButton<T>({
     setValues({});
     setRequestedOptions({});
     requestIds.current.clear();
+    setOptionLoading({});
+    setOptionErrors({});
   }, []);
 
   const loadSelectOptions = useCallback(
@@ -136,17 +142,24 @@ export function BatchFieldSettingsButton<T>({
       keyWords?: string,
     ) => {
       if (!field.request) return;
-      const requestId = (requestIds.current.get(field.key) ?? 0) + 1;
+      const requestId = ++requestSequence.current;
       requestIds.current.set(field.key, requestId);
+      setOptionLoading((current) => ({ ...current, [field.key]: true }));
+      setOptionErrors((current) => ({ ...current, [field.key]: '' }));
       try {
         const options = await field.request({ keyWords }, valuesRef.current);
         if (requestIds.current.get(field.key) !== requestId) return;
         setRequestedOptions((current) => ({ ...current, [field.key]: options }));
       } catch (error) {
         if (requestIds.current.get(field.key) !== requestId) return;
-        message.error(
-          error instanceof Error ? error.message : `加载${field.label}失败`,
-        );
+        setOptionErrors((current) => ({
+          ...current,
+          [field.key]: error instanceof Error ? error.message : `加载${field.label}失败`,
+        }));
+      } finally {
+        if (requestIds.current.get(field.key) === requestId) {
+          setOptionLoading((current) => ({ ...current, [field.key]: false }));
+        }
       }
     },
     [message],
@@ -215,6 +228,7 @@ export function BatchFieldSettingsButton<T>({
           allowClear
           showSearch={Boolean(field.request)}
           filterOption={field.request ? false : undefined}
+          loading={Boolean(optionLoading[field.key])}
           style={{ width: '100%' }}
           onSearch={
             field.request
@@ -282,6 +296,14 @@ export function BatchFieldSettingsButton<T>({
         title={`批量设置（${selectedCount} 行）`}
         open={open}
         width={560}
+        centered
+        styles={{
+          body: {
+            maxHeight: 'calc(100dvh - 200px)',
+            overflowY: 'auto',
+            overscrollBehavior: 'contain',
+          },
+        }}
         okText={`应用至 ${selectedCount} 行`}
         cancelText="取消"
         onCancel={() => {
@@ -315,6 +337,24 @@ export function BatchFieldSettingsButton<T>({
                 ) : null}
               </Space>
               {renderFieldControl(field)}
+              {field.type === 'select' && optionErrors[field.key] ? (
+                <Alert
+                  type="error"
+                  showIcon
+                  role="alert"
+                  message={optionErrors[field.key]}
+                  action={
+                    <Button
+                      type="link"
+                      size="small"
+                      onClick={() => void loadSelectOptions(field)}
+                      loading={Boolean(optionLoading[field.key])}
+                    >
+                      重试
+                    </Button>
+                  }
+                />
+              ) : null}
             </div>
           ))}
         </Space>
