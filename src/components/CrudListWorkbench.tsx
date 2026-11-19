@@ -282,6 +282,10 @@ export function CrudListWorkbench<
     fillTableHeight !== undefined && tableProps.scroll?.y === undefined
       ? { ...(tableProps.scroll ?? {}), y: fillTableHeight }
       : tableProps.scroll;
+  const resolvedCardProps =
+    tableProps.cardProps === undefined
+      ? { styles: { body: { paddingInline: 16 } } }
+      : tableProps.cardProps;
 
   const hasFacetSidebar = facetSidebar !== undefined && facetSidebar !== null;
   const hasQuickFilters = quickFilters !== undefined && quickFilters !== null;
@@ -543,6 +547,7 @@ export function CrudListWorkbench<
 
   const renderTableProps: CrudListWorkbenchTableRenderProps<T, Params> = {
     ...tableProps,
+    cardProps: resolvedCardProps,
     search: proTableSearch ?? false,
     headerTitle: false,
     toolBarRender: false,
@@ -595,6 +600,7 @@ export function CrudListWorkbench<
             ) : (
               <ProTable<T, Params>
                 {...tableProps}
+                cardProps={resolvedCardProps}
                 search={proTableSearch ?? false}
                 headerTitle={false}
                 toolBarRender={false}

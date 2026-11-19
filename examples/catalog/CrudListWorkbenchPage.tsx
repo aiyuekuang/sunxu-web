@@ -601,6 +601,7 @@ export function CrudListWorkbenchPage() {
           actionRef,
           rowKey: 'id',
           columns,
+          cardBordered: true,
           dataSource: isProSearch ? undefined : visibleProducts,
           request: isProSearch
             ? async (params) => {
@@ -622,7 +623,7 @@ export function CrudListWorkbenchPage() {
             : undefined,
           pagination: { defaultPageSize: 5, showSizeChanger: true },
           scroll: { x: 1020 },
-          options: isComplex ? { setting: true, density: false, reload: false } : false,
+          options: isComplex ? { setting: true, density: false, reload: true } : false,
           rowSelection: {
             selectedRowKeys: selectedKeys,
             onChange: (keys) => setSelectedKeys(keys),
