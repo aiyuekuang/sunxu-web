@@ -1,0 +1,113 @@
+{
+  "route": "http://127.0.0.1:4173/",
+  "viewport": {
+    "width": 1512,
+    "height": 1600
+  },
+  "normal": {
+    "workbench": {
+      "top": 1062.7,
+      "bottom": 1422.7,
+      "height": 360,
+      "width": 1156
+    },
+    "tableContainer": {
+      "top": 1062.7,
+      "bottom": 1379.7,
+      "height": 317,
+      "width": 1156
+    },
+    "header": {
+      "top": 1062.7,
+      "bottom": 1109.7,
+      "height": 47,
+      "width": 1156
+    },
+    "thead": {
+      "top": 1062.7,
+      "bottom": 1109.7,
+      "height": 47,
+      "width": 1156
+    },
+    "firstHeaderCell": {
+      "top": 1062.7,
+      "bottom": 1109.7,
+      "height": 47,
+      "width": 289
+    },
+    "body": {
+      "top": 1109.7,
+      "bottom": 1369.7,
+      "height": 260,
+      "width": 1156
+    },
+    "firstBodyRow": {
+      "top": 1109.7,
+      "bottom": 1109.7,
+      "height": 0,
+      "width": 1156
+    },
+    "pagination": {
+      "top": 1395.7,
+      "bottom": 1422.7,
+      "height": 27,
+      "width": 1156
+    },
+    "headerFlexShrink": "0",
+    "headerOverflow": "hidden",
+    "rowHeaderGap": 0
+  },
+  "constrained": {
+    "workbench": {
+      "top": 1062.7,
+      "bottom": 1134.7,
+      "height": 72,
+      "width": 1156
+    },
+    "tableContainer": {
+      "top": 1062.7,
+      "bottom": 1091.7,
+      "height": 29,
+      "width": 1156
+    },
+    "header": {
+      "top": 1062.7,
+      "bottom": 1109.7,
+      "height": 47,
+      "width": 1156
+    },
+    "thead": {
+      "top": 1062.7,
+      "bottom": 1109.7,
+      "height": 47,
+      "width": 1156
+    },
+    "firstHeaderCell": {
+      "top": 1062.7,
+      "bottom": 1109.7,
+      "height": 47,
+      "width": 289
+    },
+    "body": {
+      "top": 1109.7,
+      "bottom": 1109.7,
+      "height": 0,
+      "width": 1156
+    },
+    "firstBodyRow": {
+      "top": 1109.7,
+      "bottom": 1109.7,
+      "height": 0,
+      "width": 1156
+    },
+    "pagination": {
+      "top": 1107.7,
+      "bottom": 1134.7,
+      "height": 27,
+      "width": 1156
+    },
+    "headerFlexShrink": "0",
+    "headerOverflow": "hidden",
+    "rowHeaderGap": 0
+  }
+}

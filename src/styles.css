@@ -240,6 +240,15 @@
   min-height: 0;
 }
 
+/*
+ * The header is a sibling of the scrolling body inside the vertical flex
+ * container. Keep its intrinsic row height so a constrained workbench cannot
+ * collapse the header while the thead content remains visible.
+ */
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-header {
+  flex: 0 0 auto;
+}
+
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-extra,
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-pro-table-list-toolbar,
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-footer,
