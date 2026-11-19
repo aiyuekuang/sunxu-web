@@ -194,6 +194,73 @@
   overflow: hidden;
 }
 
+/*
+ * Keep the table adapter and its Ant Design / ProTable internals in the same
+ * fill chain. Without this, a short result set leaves the wrapper at its
+ * intrinsic height and pagination floats above the bottom of the workbench.
+ */
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table > *,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table > .ant-pro-card,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table > .ant-pro-card > .ant-pro-card-body,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-wrapper,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-spin,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-spin-nested-loading,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-spin-container,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-container {
+  display: flex;
+  min-height: 0;
+  flex-direction: column;
+}
+
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table > *,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table > .ant-pro-card,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table > .ant-pro-card > .ant-pro-card-body,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-wrapper,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-spin,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-spin-nested-loading,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-spin-container,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-container {
+  flex: 1 1 auto;
+}
+
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table > *,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table > .ant-pro-card,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-table > .ant-pro-card > .ant-pro-card-body {
+  min-width: 0;
+  overflow: hidden;
+}
+
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-wrapper {
+  min-width: 0;
+  min-height: 0;
+}
+
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .unified-pro-extra,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-pro-table-list-toolbar,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-footer,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-pagination {
+  flex: 0 0 auto;
+}
+
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-content,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-body {
+  min-height: 0;
+}
+
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-content,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-body {
+  flex: 1 1 auto;
+}
+
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__table .ant-table-body {
+  height: auto;
+}
+
 
 .sxw-editable-detail-table__scroll-hint {
   display: block;
@@ -245,12 +312,13 @@
   flex-wrap: wrap;
   align-items: center;
   justify-content: flex-end;
+  margin-left: auto;
   gap: 8px;
 }
 
 .sxw-crud-list-workbench__filter-bar {
   align-items: flex-start;
-  overflow: hidden;
+  flex-wrap: wrap;
 }
 
 .sxw-crud-list-workbench__filter-bar--expanded {
@@ -259,10 +327,18 @@
 
 .sxw-crud-list-workbench__filter-bar .sxw-filter-bar__fields {
   display: flex;
+  flex: 1 1 180px;
+  min-width: min(180px, 100%);
   flex-direction: column;
   flex-wrap: nowrap;
   align-items: stretch;
   gap: 8px;
+}
+
+.sxw-crud-list-workbench__filter-bar .sxw-filter-bar__actions {
+  max-width: 100%;
+  min-width: 0;
+  margin-left: auto;
 }
 
 .sxw-crud-list-workbench__filter-controls {
@@ -310,6 +386,8 @@
 
 .sxw-crud-list-workbench__filter-actions {
   display: flex;
+  min-width: 0;
+  max-width: 100%;
   min-height: 32px;
   flex: 0 0 auto;
   align-items: center;
@@ -317,6 +395,8 @@
 }
 
 .sxw-crud-list-workbench__filter-actions .ant-space {
+  justify-content: flex-end;
+  max-width: 100%;
   align-items: center;
 }
 
@@ -712,7 +792,8 @@
   }
 
   .sxw-crud-list-workbench__primary-actions {
-    justify-content: flex-start;
+    justify-content: flex-end;
+    width: 100%;
   }
 }
 
@@ -724,6 +805,7 @@
 
   .sxw-crud-list-workbench__filter-bar .sxw-filter-bar__fields {
     width: 100%;
+    flex: 0 1 auto;
   }
 
   .sxw-crud-list-workbench__filter-controls {
@@ -746,6 +828,7 @@
 
   .sxw-crud-list-workbench__filter-bar .sxw-filter-bar__actions {
     justify-content: flex-end;
+    width: 100%;
   }
 
   .sxw-saved-view-bar__row {

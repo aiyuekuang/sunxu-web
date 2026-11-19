@@ -14,7 +14,7 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 
 | 场景 | MUST 使用 | 直接上游实现 / 禁止替代 |
 |---|---|---|
-| CRUD 列表工作台 | `CrudListWorkbench`；字段、请求、权限和编辑流程由宿主提供 | ProTable 列能表达的查询字段优先用 `proTableSearch` 和列 schema；外部业务控件用工作台筛选插槽，不复制 ProTable 查询表单。只有现有业务确需可调整列宽等表格扩展时才使用 `renderTable`；筛选、列表标题和列表级操作仍由工作台拥有 |
+| CRUD 列表工作台 | `CrudListWorkbench`；字段、请求、权限和编辑流程由宿主提供 | ProTable 列能表达的查询字段优先用 `proTableSearch` 和列 schema；外部业务控件用工作台筛选插槽，不复制 ProTable 查询表单。只有现有业务确需可调整列宽等表格扩展时才使用 `renderTable`；筛选、列表标题和列表级操作仍由工作台拥有；新增使用 `onCreate`，由组件固定文案为“新增”；行内标准操作用 `RowActions` 的 `kind` 固定文案 |
 | 单列表视口页（整页只有一张列表） | `CrudListWorkbench` + `layout="page" fill` | 分页和表头必须保持可见；不得用页面级 `:has()` CSS、`table-viewport-page` 类或外部高度测量控制表体 |
 | 页面内嵌列表（Tab 面板、卡片、长页面中的子列表） | `CrudListWorkbench` + `layout="embedded"` | 不拥有页面外框、不渲染页头、不强制 `min-height: 100%`；不得再包一层页面容器 |
 | 特殊或只读列表 | `ListScreenContainer`；若有筛选，工具须在结果区紧邻 `toolbar` 内 | 表格按场景用 ProTable 或 AntD Table；不得把列表操作单独放在远置的页头行 |

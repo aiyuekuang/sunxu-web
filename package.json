@@ -1,6 +1,6 @@
 {
   "name": "sunxu-web",
-  "version": "0.4.5",
+  "version": "0.4.8",
   "private": false,
   "description": "Shared React web components and page containers for Sunxu projects",
   "license": "MIT",
@@ -32,6 +32,7 @@
     "build:lib": "vite build --config vite.lib.config.ts && node -e \"require('node:fs').rmSync('dist/types', { recursive: true, force: true })\" && tsc -p tsconfig.build.json",
     "build:catalog": "vite build --config vite.config.ts",
     "build": "npm run build:lib && npm run build:catalog",
+    "prepare": "npm run build:lib",
     "preview": "vite preview --config vite.config.ts"
   },
   "peerDependencies": {

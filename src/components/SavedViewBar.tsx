@@ -252,6 +252,17 @@ export function SavedViewBar({
             <Dropdown
               trigger={['click']}
               menu={{ items: menuItems, onClick: handleMenuClick }}
+              // React 的 portal 事件沿 React 树冒泡：弹层菜单项的点击会冒回
+              // tab label，进而触发外层 tab 的 onClick 造成误切换
+              //（antd v6 起外层 tab 节点也绑定 onClick）。在弹层容器上截断冒泡。
+              popupRender={(menuNode) => (
+                <div
+                  onClick={(event) => event.stopPropagation()}
+                  onMouseDown={(event) => event.stopPropagation()}
+                >
+                  {menuNode}
+                </div>
+              )}
             >
               <Button
                 aria-label={`管理视图：${view.name}`}

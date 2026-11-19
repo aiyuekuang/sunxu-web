@@ -11,7 +11,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `ScreenContainer` | Web 工作区主区和统一内边距 |
 | `PageHeader` | 有条件渲染的页面标题、说明、面包屑和操作插槽 |
 | `ListScreenContainer` | 标题 → 紧邻列表工具栏 → 结果区 |
-| `CrudListWorkbench` | 分类/状态、轻筛选、可选高级筛选与视图、ProTable 或宿主表格适配器结果区组合 |
+| `CrudListWorkbench` | 分类/状态、轻筛选、可选高级筛选与视图、ProTable 或宿主表格适配器结果区组合；fill 模式负责表格内部高度链和底部分页 |
 | `SavedViewBar` | 受控的系统/个人视图切换和管理操作 |
 | `EditableDetailTable` | 受控重复明细编辑、行选择和批量字段设置 |
 | `BatchFieldSettingsButton` | 选择批量覆盖字段并在确认后生成宿主 patch |
@@ -36,6 +36,8 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 `CrudListWorkbench` 的 Facet 轨道负责与结果区保持单一 16px 间距并提供受限高度内的溢出滚动；宿主侧栏卡片负责自身边框和内边距，宽度应适配轨道。可运行组合示例见目录的“CRUD 列表工作台”页。
 
 `CrudListWorkbench` 的搜索插槽约束搜索控件不超出筛选行；标准桌面基准宽度为 320px，窄工作区按可用宽度收缩。可运行组合示例见目录的“CRUD 列表工作台”页。
+
+标准新增入口通过 `onCreate` 提供，组件统一文案和位置；`RowActions` 的 `kind` 统一查看、编辑和删除文案，领域操作仍由宿主命名。
 
 ## 直接映射到 Ant Design / Pro Components
 

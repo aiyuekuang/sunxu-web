@@ -273,8 +273,7 @@ export function CrudListWorkbenchPage() {
               },
               {
                 key: 'delete',
-                label: '删除',
-                danger: true,
+                kind: 'delete',
                 onClick: () => {
                   modal.confirm({
                     title: `删除“${product.name}”？`,
@@ -363,9 +362,6 @@ export function CrudListWorkbenchPage() {
   const tableToolbarActions = (
     <Space size={8} wrap>
       <Button onClick={() => message.info('分类与单位字典由宿主页面维护')}>分类与单位字典</Button>
-      <Button type="primary" onClick={() => openEditor()}>
-        新增产品
-      </Button>
     </Space>
   );
 
@@ -531,6 +527,7 @@ export function CrudListWorkbenchPage() {
           ) : undefined
         }
         toolbarActions={tableToolbarActions}
+        onCreate={() => openEditor()}
         advancedFilters={
           isCategory || isComplex
             ? {
@@ -661,10 +658,10 @@ export function CrudListWorkbenchPage() {
       <SectionCard title="fill 模式：单列表视口页">
         <Space direction="vertical" size={8} style={{ width: '100%' }}>
           <Typography.Text type="secondary">
-            工作台拥有确定高度：工具栏和分页保持可见，表格体在内部滚动。仅用于整页只有一张列表的场景；
+            宿主提供确定高度后，工作台让短数据分页贴近底部、表格体在内部滚动。仅用于整页只有一张列表的场景；
             长页面中的子列表使用 <Typography.Text code>layout=&quot;embedded&quot;</Typography.Text>。
           </Typography.Text>
-          <div style={{ display: 'flex', height: 360, minHeight: 0 }}>
+          <div style={{ display: 'flex', height: 360, minHeight: 0, minWidth: 0 }}>
             <CrudListWorkbench<DemoProduct>
               layout="embedded"
               fill

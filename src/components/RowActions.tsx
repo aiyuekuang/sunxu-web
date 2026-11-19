@@ -2,16 +2,28 @@ import { Button, Dropdown, type MenuProps } from 'antd';
 import { MoreOutlined } from '@ant-design/icons';
 import type { ReactNode } from 'react';
 
+type StandardRowActionKind = 'view' | 'edit' | 'delete';
+
 export type RowActionItem = {
   key: string;
-  label: ReactNode;
   onClick?: () => void;
   danger?: boolean;
   disabled?: boolean;
   icon?: ReactNode;
   /** 子菜单项，用于需要分组的操作 */
   children?: RowActionItem[];
+} & (
+  | { kind: StandardRowActionKind; label?: never }
+  | { kind?: never; label: ReactNode }
+);
+
+const standardLabels: Record<StandardRowActionKind, string> = {
+  view: '查看',
+  edit: '编辑',
+  delete: '删除',
 };
+
+const isDanger = (action: RowActionItem) => action.danger ?? action.kind === 'delete';
 
 export type RowActionsProps = {
   actions: RowActionItem[];
@@ -36,9 +48,9 @@ export function RowActions({ actions, ariaLabel = '更多操作', className }: R
 
   const toMenuItem = (action: RowActionItem): NonNullable<MenuProps['items']>[number] => ({
     key: action.key,
-    label: action.label,
+    label: action.kind ? standardLabels[action.kind] : action.label,
     icon: action.icon,
-    danger: action.danger,
+    danger: isDanger(action),
     disabled: action.disabled,
     onClick: action.children?.length ? undefined : action.onClick,
     children: action.children?.filter(Boolean).map(toMenuItem),
@@ -46,7 +58,7 @@ export function RowActions({ actions, ariaLabel = '更多操作', className }: R
 
   const menuItems: MenuProps['items'] = validActions.flatMap((action, index) => {
     const item = toMenuItem(action);
-    return action.danger && index > 0 ? [{ type: 'divider' as const }, item] : [item];
+    return isDanger(action) && index > 0 ? [{ type: 'divider' as const }, item] : [item];
   });
 
   return (

@@ -1,4 +1,4 @@
-import { DownOutlined, FilterOutlined, UpOutlined } from '@ant-design/icons';
+import { DownOutlined, FilterOutlined, PlusOutlined, UpOutlined } from '@ant-design/icons';
 import { Alert, Button, Drawer, Space, Tabs, Tag, Tooltip } from 'antd';
 import type { ReactNode, RefObject } from 'react';
 import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
@@ -84,7 +84,11 @@ export type CrudListWorkbenchProps<
   appliedFilters?: ReactNode;
   /** Optional system/personal view manager, commonly `SavedViewBar`. */
   viewBar?: ReactNode;
-  /** List-level actions such as create or master-data settings. */
+  /** Optional create action. The workbench renders the standard “新增” button. */
+  onCreate?: () => void;
+  /** Keep the create action visible but unavailable when prerequisites are unmet. */
+  onCreateDisabled?: boolean;
+  /** Other list-level actions such as import or master-data settings. */
   toolbarActions?: ReactNode;
   /** Optional advanced filter drawer. Field schema and values stay with the host. */
   advancedFilters?: CrudListAdvancedFilters;
@@ -238,6 +242,8 @@ export function CrudListWorkbench<
   appliedFilters,
   viewBar,
   toolbarActions,
+  onCreate,
+  onCreateDisabled = false,
   advancedFilters,
   facetSidebar,
   facetLabel = '分类筛选',
@@ -280,7 +286,7 @@ export function CrudListWorkbench<
   const hasFacetSidebar = facetSidebar !== undefined && facetSidebar !== null;
   const hasQuickFilters = quickFilters !== undefined && quickFilters !== null;
   const hasSearchRow = Boolean(
-    search || quickFilters || filterActions || advancedFilters,
+    search || quickFilters || filterActions || advancedFilters || toolbarActions || onCreate,
   );
   const filterOpen = advancedFilters?.open ?? uncontrolledFilterOpen;
 
@@ -349,6 +355,8 @@ export function CrudListWorkbench<
     quickFilters,
     responsiveQuickFilters,
     search,
+    toolbarActions,
+    onCreate,
   ]);
 
   const setFilterOpen = (nextOpen: boolean) => {
@@ -380,7 +388,7 @@ export function CrudListWorkbench<
   };
 
   const hasPrimaryToolbar = Boolean(
-    primaryTabs || statusFilters || toolbarActions || (hasFacetSidebar && compactFacet),
+    primaryTabs || statusFilters || (hasFacetSidebar && compactFacet),
   );
   const listToolbar =
     viewBar || hasPrimaryToolbar || hasSearchRow || appliedFilters ? (
@@ -422,7 +430,6 @@ export function CrudListWorkbench<
                 {facetLabel}
               </Button>
             ) : null}
-            {toolbarActions}
           </div>
         </div>
       ) : null}
@@ -446,7 +453,7 @@ export function CrudListWorkbench<
                 ref={filterActionsRef}
                 className="sxw-crud-list-workbench__filter-actions"
               >
-                <Space size={4}>
+                <Space size={4} wrap>
                   {advancedFilters ? (
                     <Tooltip title="高级筛选">
                       <Button
@@ -491,6 +498,12 @@ export function CrudListWorkbench<
                     </Button>
                   ) : null}
                   {filterActions}
+                  {toolbarActions}
+                  {onCreate ? (
+                    <Button type="primary" icon={<PlusOutlined />} onClick={onCreate} disabled={onCreateDisabled}>
+                      新增
+                    </Button>
+                  ) : null}
                 </Space>
               </div>
             }
