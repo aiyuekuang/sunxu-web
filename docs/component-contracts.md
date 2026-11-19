@@ -34,6 +34,7 @@
 | `BatchFieldSettingsButton` | 让用户勾选要覆盖的字段并应用到已选行 | AntD Modal / 表单控件；patch builder 由宿主提供 |
 | `RemoteSelect` | 用 AntD Select 展示远程候选并防抖搜索 | AntD Select；`onSearch` 由宿主提供 |
 | `LongText` | 在表格单元格显示截断文本并打开完整内容 | AntD Typography + Modal |
+| `TableSummary` | 在表格底部统一呈现宿主提供的筛选结果汇总 | AntD `Table.Summary`；聚合口径由宿主提供 |
 | `RowActions` | 把表格行操作收纳进省略号菜单 | AntD Dropdown + Button；操作语义由宿主提供 |
 
 ## 关键契约
@@ -157,6 +158,15 @@
 - `RemoteSelect` 继承 AntD Select API，`onSearch` 存在时启用搜索、关闭本地候选过滤，并以 `searchDebounceTime`（默认 300 ms）防抖。候选加载、请求竞态、分页和错误反馈由宿主负责。
 - `LongText` 接受文本或数字，按 `maxLength`（默认 64 个 Unicode code point）截断；只有超长时显示“更多”，点击打开包含完整内容的 AntD 对话框。弹层内容限高为 `min(60vh, 520px)` 并在内部滚动，保留换行且长字符串可换行。空值显示 `-`。放入可点击表格行时，展开操作阻止事件冒泡。
 - **目录示例**：`examples/catalog/TextControlsPage.tsx` 展示宿主候选搜索和长文本单元格；桌面、窄屏、搜索结果与全文弹层证据见 `docs/verification/mes-web-components-2026-11-10/`。
+
+### `TableSummary`
+
+- **职责**：将宿主提供的汇总内容放进 Ant Design Table 的底部汇总行；固定底部并允许内容按可用宽度换行。
+- **API**：`children` 必填，由宿主提供已经计算好的汇总字段、单位和业务说明；`label` 可选，默认“筛选结果合计：”。
+- **数据边界**：不请求数据、不按当前页累加、不推断字段能否相加、不做单位或币种换算、不处理权限。全量筛选结果的汇总由宿主接口返回，宿主页面映射到可见内容。
+- **布局与可访问性**：复用 `Table.Summary.Row/Cell` 的表格语义；单元格跨列表列显示，`Space` 在可用宽度内换行；表格设置横向滚动时，汇总行随表格共用横向滚动区域，不造成页面横向溢出。不读取 ProTable 私有列结构或覆盖 AntD 内部样式。
+- **目录示例**：`examples/catalog/TableSummaryPage.tsx` 用不同单位展示账面和可用数量分别汇总；组件只负责表格底部布局。
+- **证据**：目录真实路由和窄屏几何记录见 [`docs/verification/table-summary-2026-11-20/README.md`](./verification/table-summary-2026-11-20/README.md)；持久化截图文件及 MES 库存业务路由仍为 `UNVERIFIED`.
 
 ## 组件状态验收记录
 
