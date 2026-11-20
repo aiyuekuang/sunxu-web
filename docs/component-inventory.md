@@ -28,6 +28,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `DefaultRouteHint`（`sunxu-web/mes`） | 宿主注入工艺路线候选请求，提示未手选时的推荐路线 |
 | `CustomerMaterialCell`（`sunxu-web/mes`） | 同时保留销售单据客户物料别名与内部物料身份，并提供一致排序值 |
 | `MaterialFilteredSelect`、`MaterialSelectField`、`MaterialMultiSelectField`（`sunxu-web/mes`） | 保留 MES 物料远程搜索、级联筛选、扫码候选校验、单位与自定义字段摘要；API、字典、权限、配置入口和扫码设备由宿主注入 |
+| `MasterDataQuickCreateSelect`（`sunxu-web/mes`） | 保留客户/供应商 ProForm 关联选择、候选内快捷新建、创建后权威 ID 与默认值回填；新建表单、API、权限和配置链接由宿主注入 |
 | `EntityThumbnail`（`sunxu-web/mes`） | 实体缩略图、空图/损坏图回退、预览和表格行事件隔离 |
 | `DrawingFilesInline`、`FileUrlsInline`、`DrawingFilesGallery`、`PdfPreviewDrawer`（`sunxu-web/mes`） | MES 图纸/附件上传、订单头附件关联、分组预览/打印和 PDF 分页缩放；文件代理、原名解析和上传由宿主注入 |
 | `ResizableProTable`（`sunxu-web/mes`） | MES 分页列表表格适配：可调列宽、持久化列序/显隐/排序、全局行号、密度、空态、导出布局和单列表视口高度 |
@@ -126,7 +127,7 @@ MES `DocumentViewBar` 的通用视图选择、脏状态切换和视图管理交�
 
 ### 全量覆盖工作账本（2026-11-20）
 
-用户已授权把 Sunxu Web 扩展为“通用层 + MES UI 套件”。逐个 import 条目与 195 个源文件的目标层、旧处置、源文件变化状态和迁移进度记录在 [MES 组件全量覆盖账本](./migrations/mes-admin-component-coverage-2026-11-20.json)。当前 627 个运行时组件引用中，245 项已映射至 Sunxu 通用/上游出口，39 项已有 MES/通用适配实现，1 项在工作区有 StatusTag 实现，16 项需按变更后的 MES 源文件复核契约，48 项仍待补进 `sunxu-web/mes`；另有 278 项明确属于 MES 宿主页面、框架集成或外部平台层。195 个来源文件中，30 项已实现、73 项待补、4 项待按源契约复核。当前尚未达到全量门禁，不开始 MES 页面替换。
+用户已授权把 Sunxu Web 扩展为“通用层 + MES UI 套件”。逐个 import 条目与 195 个源文件的目标层、旧处置、源文件变化状态和迁移进度记录在 [MES 组件全量覆盖账本](./migrations/mes-admin-component-coverage-2026-11-20.json)。当前 627 个运行时组件引用中，245 项已映射至 Sunxu 通用/上游出口，40 项已有 MES/通用适配实现，1 项在工作区有 StatusTag 实现，16 项需按变更后的 MES 源文件复核契约，47 项仍待补进 `sunxu-web/mes`；另有 278 项明确属于 MES 宿主页面、框架集成或外部平台层。195 个来源文件中，31 项已实现、72 项待补、4 项待按源契约复核。当前尚未达到全量门禁，不开始 MES 页面替换。
 
 替换门禁：每个运行时条目都必须在账本中收敛为 Sunxu 通用组件、Sunxu MES 套件、Sunxu 上游公开 API 或有明确理由的 MES 宿主/外部平台实现；`PENDING` 与 `REVIEW_SOURCE_CONTRACT` 必须清零。MES UI 组件保留现有行为，再把请求、权限、字典和业务副作用改为宿主注入；只有此门禁通过后才开始逐项替换消费者。
 

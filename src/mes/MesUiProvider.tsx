@@ -1,5 +1,6 @@
 import { createContext, useCallback, useContext, type ReactNode } from 'react';
 import type { MesDrawingFilesCapabilities } from './components/drawing-files-types';
+import type { MesMasterDataQuickCreateCapabilities } from './components/master-data-quick-create-types';
 import type { MesMaterialSelectCapabilities } from './components/material-select-types';
 
 export interface MesUiRoute {
@@ -54,6 +55,8 @@ export interface MesUiProviderProps {
   materialSelectCapabilities?: MesMaterialSelectCapabilities;
   /** Authenticated file proxy, upload, download, and original-name lookups. */
   drawingFilesCapabilities?: MesDrawingFilesCapabilities;
+  /** MES-owned quick-create permissions, forms, and configuration links. */
+  masterDataQuickCreateCapabilities?: MesMasterDataQuickCreateCapabilities;
   children: ReactNode;
 }
 
@@ -67,6 +70,7 @@ type MesUiContextValue = Pick<
   | 'renderCustomFieldPanel'
   | 'materialSelectCapabilities'
   | 'drawingFilesCapabilities'
+  | 'masterDataQuickCreateCapabilities'
 >;
 
 const MesUiContext = createContext<MesUiContextValue | null>(null);
@@ -80,6 +84,7 @@ export function MesUiProvider({
   renderCustomFieldPanel,
   materialSelectCapabilities,
   drawingFilesCapabilities,
+  masterDataQuickCreateCapabilities,
   children,
 }: MesUiProviderProps) {
   return (
@@ -93,6 +98,7 @@ export function MesUiProvider({
         renderCustomFieldPanel,
         materialSelectCapabilities,
         drawingFilesCapabilities,
+        masterDataQuickCreateCapabilities,
       }}
     >
       {children}
@@ -163,4 +169,11 @@ export function useMesDrawingFilesCapabilities():
   | MesDrawingFilesCapabilities
   | undefined {
   return useContext(MesUiContext)?.drawingFilesCapabilities;
+}
+
+/** Host capabilities for MES customer/supplier quick-create selectors. */
+export function useMesMasterDataQuickCreateCapabilities():
+  | MesMasterDataQuickCreateCapabilities
+  | undefined {
+  return useContext(MesUiContext)?.masterDataQuickCreateCapabilities;
 }

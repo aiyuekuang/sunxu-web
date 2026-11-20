@@ -18,6 +18,8 @@ export * from './components/DocumentModalForm';
 export * from './components/DocumentLineBatchSettingsButton';
 export * from './components/DocumentLineQuantityInput';
 export * from './components/MaterialFilteredSelect';
+export * from './components/MasterDataQuickCreateSelect';
+export * from './components/master-data-quick-create-types';
 export * from './components/DrawingFilesInline';
 export * from './components/drawing-files-types';
 export * from './components/EntityThumbnail';

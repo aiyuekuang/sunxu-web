@@ -33,6 +33,7 @@ import {
 } from '../../src/mes';
 import { MaterialSelectorDemo } from './MaterialSelectorDemo';
 import { DrawingFilesDemo } from './DrawingFilesDemo';
+import { MasterDataQuickCreateSelectDemo } from './MasterDataQuickCreateSelectDemo';
 
 type MesLine = {
   id: string;
@@ -319,6 +320,7 @@ export function MesComponentSuitePage() {
     <Space orientation="vertical" size={16} style={{ width: '100%' }}>
       <MaterialSelectorDemo />
       <DrawingFilesDemo />
+      <MasterDataQuickCreateSelectDemo />
 
       <SectionCard title="MES 表格长文本">
         <Typography.Paragraph type="secondary">

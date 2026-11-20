@@ -1,0 +1,542 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件 → MES 主数据快捷新增选择器",
+  "component": "MasterDataQuickCreateSelect",
+  "evidence": "./render-observations.json",
+  "evidence_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-master-data-quick-create.js",
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 → MES 主数据快捷新增选择器",
+        "state": "desktop-route-top-1440x900",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 3838.09375,
+          "width": 1216,
+          "height": 3782.09375
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 3814.09375,
+          "width": 1168,
+          "height": 3734.09375
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/desktop-route-top-1440x900.png",
+        "screenshot_sha256": "06743a87f0728e13900825a2f15113bd564b12874968e6c0d871bcb7b93113f4",
+        "status": "PASS"
+      },
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 → MES 主数据快捷新增选择器",
+        "state": "mobile-route-top-375x812",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 6152.71875,
+          "width": 375,
+          "height": 6096.71875
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 359,
+          "bottom": 6136.71875,
+          "width": 343,
+          "height": 6064.71875
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/mobile-route-top-375x812.png",
+        "screenshot_sha256": "115c14c2f0fc12b3fcb394db50cee9b9e426779be0f27d7cc083c28d8d7f4c08",
+        "status": "PASS"
+      }
+    ]
+  },
+  "first_screen_budget": {
+    "business_task": "Create a customer or supplier from its associated-data selector, then keep the returned authority ID and customer defaults in the host form.",
+    "desktop_1440x900": {
+      "visible_order": [
+        "Catalog header",
+        "MES UI suite title and description",
+        "MES material selector card",
+        "part of MES drawing and attachment card"
+      ],
+      "target_selector_card_rect": {
+        "left": 273,
+        "top": 1334.5625,
+        "right": 1391,
+        "bottom": 1760.015625,
+        "width": 1118,
+        "height": 425.453125
+      },
+      "target_selector_below_fold": true,
+      "document_horizontal_overflow_px": 0
+    },
+    "mobile_375x812": {
+      "visible_order": [
+        "compact Catalog header",
+        "MES UI suite title and description",
+        "MES material selector card",
+        "part of MES drawing and attachment card"
+      ],
+      "target_selector_card_rect": {
+        "left": 33,
+        "top": 2379.375,
+        "right": 342,
+        "bottom": 3064.140625,
+        "width": 309,
+        "height": 684.765625
+      },
+      "target_selector_below_fold": true,
+      "document_horizontal_overflow_px": 0
+    },
+    "space_budget_source": "Measured on the actual Catalog route. The route intentionally renders the full MES suite; the target card appears below the first viewport and is separately captured in focused desktop/mobile states."
+  },
+  "seams": [
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 主数据快捷新增选择器",
+      "state": "desktop-route-top-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "页面标题与说明",
+      "next": "MES 物料选择器卡片",
+      "previous_rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 665.421875,
+        "width": 1118,
+        "height": 445.140625
+      },
+      "gap_px": 20.0,
+      "expected": {
+        "kind": "contract",
+        "value": "20px heading-to-content spacing",
+        "source": "examples/catalog/catalog.css: .sxw-docs-page-heading margin-bottom"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 20.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-master-data-quick-create.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/desktop-route-top-1440x900.png",
+      "screenshot_sha256": "06743a87f0728e13900825a2f15113bd564b12874968e6c0d871bcb7b93113f4",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 主数据快捷新增选择器",
+      "state": "mobile-route-top-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "页面标题与说明",
+      "next": "MES 物料选择器卡片",
+      "previous_rect": {
+        "left": 33,
+        "top": 89,
+        "right": 342,
+        "bottom": 240.28125,
+        "width": 309,
+        "height": 151.28125
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 256.28125,
+        "right": 342,
+        "bottom": 924.734375,
+        "width": 309,
+        "height": 668.453125
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px heading-to-content spacing",
+        "source": "examples/catalog/catalog.css: .sxw-docs-page-heading margin-bottom"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-master-data-quick-create.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/mobile-route-top-375x812.png",
+      "screenshot_sha256": "115c14c2f0fc12b3fcb394db50cee9b9e426779be0f27d7cc083c28d8d7f4c08",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 主数据快捷新增选择器",
+      "state": "desktop-route-top-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 物料选择器卡片",
+      "next": "MES 图纸与附件卡片",
+      "previous_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 665.421875,
+        "width": 1118,
+        "height": 445.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 681.421875,
+        "right": 1391,
+        "bottom": 1318.5625,
+        "width": 1118,
+        "height": 637.140625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-master-data-quick-create.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/desktop-route-top-1440x900.png",
+      "screenshot_sha256": "06743a87f0728e13900825a2f15113bd564b12874968e6c0d871bcb7b93113f4",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 主数据快捷新增选择器",
+      "state": "mobile-route-top-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 物料选择器卡片",
+      "next": "MES 图纸与附件卡片",
+      "previous_rect": {
+        "left": 33,
+        "top": 256.28125,
+        "right": 342,
+        "bottom": 924.734375,
+        "width": 309,
+        "height": 668.453125
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 940.734375,
+        "right": 342,
+        "bottom": 2363.375,
+        "width": 309,
+        "height": 1422.640625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-master-data-quick-create.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/mobile-route-top-375x812.png",
+      "screenshot_sha256": "115c14c2f0fc12b3fcb394db50cee9b9e426779be0f27d7cc083c28d8d7f4c08",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 主数据快捷新增选择器",
+      "state": "desktop-drawing-selector-seam-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 图纸与附件卡片",
+      "next": "MES 主数据快捷新增选择器卡片",
+      "previous_rect": {
+        "left": 273,
+        "top": -223.078125,
+        "right": 1391,
+        "bottom": 414.0625,
+        "width": 1118,
+        "height": 637.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 430.0625,
+        "right": 1391,
+        "bottom": 855.515625,
+        "width": 1118,
+        "height": 425.453125
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-master-data-quick-create.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/desktop-drawing-selector-seam-1440x900.png",
+      "screenshot_sha256": "bb5970fae0b30f5c4037df4c2a03a8f013549f1cc48f67b180f9a8d5208d34c8",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 主数据快捷新增选择器",
+      "state": "mobile-drawing-selector-seam-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 图纸与附件卡片",
+      "next": "MES 主数据快捷新增选择器卡片",
+      "previous_rect": {
+        "left": 33,
+        "top": -1008.765625,
+        "right": 342,
+        "bottom": 413.875,
+        "width": 309,
+        "height": 1422.640625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 429.875,
+        "right": 342,
+        "bottom": 1114.640625,
+        "width": 309,
+        "height": 684.765625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-master-data-quick-create.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/mobile-drawing-selector-seam-375x812.png",
+      "screenshot_sha256": "a1a0bc88cf2ecfcb819ec02f4606d5ff90cca37a76add40798dbfede870d712c",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 主数据快捷新增选择器",
+      "state": "desktop-selector-card-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 主数据快捷新增选择器卡片",
+      "next": "MES 表格长文本卡片",
+      "previous_rect": {
+        "left": 273,
+        "top": 72.0625,
+        "right": 1391,
+        "bottom": 497.515625,
+        "width": 1118,
+        "height": 425.453125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 513.515625,
+        "right": 1391,
+        "bottom": 806.65625,
+        "width": 1118,
+        "height": 293.140625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-master-data-quick-create.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/desktop-selector-card-1440x900.png",
+      "screenshot_sha256": "adb3fead1ab6c23b6d076662f951bca89d0e10a07210a2041f70ba98324bdaec",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 主数据快捷新增选择器",
+      "state": "mobile-selector-card-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 主数据快捷新增选择器卡片",
+      "next": "MES 表格长文本卡片",
+      "previous_rect": {
+        "left": 33,
+        "top": 71.875,
+        "right": 342,
+        "bottom": 756.640625,
+        "width": 309,
+        "height": 684.765625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 772.640625,
+        "right": 342,
+        "bottom": 1175.78125,
+        "width": 309,
+        "height": 403.140625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-master-data-quick-create.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/mobile-selector-card-375x812.png",
+      "screenshot_sha256": "e5da58f90fc2447922d88708fd49826e534990801b1bc42e3eb52ac6801fea30",
+      "status": "PASS"
+    }
+  ],
+  "interaction_results": {
+    "configEntryCallback": "PASS",
+    "permissionAwareCustomerCreate": "PASS",
+    "quickCreateClosesSelectPopup": "PASS",
+    "createdCustomerFieldValueAndMetadata": "PASS",
+    "createdOptionSurvivesRemoteFirstPage": "PASS",
+    "supplierMultiValueAppend": "PASS",
+    "disabledAndPermissionGates": "PASS",
+    "mobileDropdownFitsViewport": "PASS"
+  },
+  "runtime_errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "authResponses": []
+  },
+  "limitations": [
+    "Catalog injects deterministic local remote options, permission, configuration link and drawer form; MES production APIs, permission codes, router and existing customer/supplier form components are not wired into this package.",
+    "The customer/supplier quick-create drawers and shared form fields remain separate PENDING source entries in the full coverage ledger.",
+    "Screen-reader end-to-end behavior was not verified."
+  ]
+}

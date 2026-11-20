@@ -88,9 +88,9 @@
     "component_reference_count": 627,
     "component_status_counts": {
       "HOST_SCOPE": 278,
-      "IMPLEMENTED": 39,
+      "IMPLEMENTED": 40,
       "MAPPED": 245,
-      "PENDING": 48,
+      "PENDING": 47,
       "REVIEW_SOURCE_CONTRACT": 16,
       "WORKTREE_IMPLEMENTATION": 1
     },
@@ -106,9 +106,9 @@
     "source_status_counts": {
       "EXCLUDED_FROM_RUNTIME": 46,
       "HOST_SCOPE": 33,
-      "IMPLEMENTED": 30,
+      "IMPLEMENTED": 31,
       "MAPPED": 8,
-      "PENDING": 73,
+      "PENDING": 72,
       "REVIEW_SOURCE_CONTRACT": 4,
       "WORKTREE_IMPLEMENTATION": 1
     },
@@ -5320,12 +5320,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 20,
       "importer_file_count": 19,
       "source_sha256": "556c2170b2a525191d35e3af147094502ff69194c06ea3e14537117c561bf843",
       "previous_target": null,
-      "rationale": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+      "rationale": "已在 src/mes/components/MasterDataQuickCreateSelect.tsx 实现；保留客户/供应商 ProForm 关联选择、远程候选和字段回填，新增表单/API/权限/配置路由通过 MesUiProvider.masterDataQuickCreateCapabilities 注入。"
     },
     {
       "module": "@/components/master-data/SupplierQuickCreateDrawer",
@@ -11494,7 +11494,9 @@
       "previous_reason": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "implementation_target": "src/mes/components/MasterDataQuickCreateSelect.tsx",
+      "rationale": "Implemented in src/mes/components/MasterDataQuickCreateSelect.tsx; host-injected create permissions, drawer form, configuration link and request preserve the customer/supplier quick-create field contract."
     },
     {
       "source": "src/components/master-data/SupplierQuickCreateDrawer.tsx",

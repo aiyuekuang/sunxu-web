@@ -1,0 +1,349 @@
+{
+  "result": "PASS",
+  "route": "CatalogApp / MES UI 套件 → MES 主数据快捷新增选择器",
+  "targetUrl": "http://127.0.0.1:4174/",
+  "desktopTopGeometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "workspace": {
+      "left": 224,
+      "top": 56,
+      "right": 1440,
+      "bottom": 3838.09375,
+      "width": 1216,
+      "height": 3782.09375
+    },
+    "content": {
+      "left": 248,
+      "top": 80,
+      "right": 1416,
+      "bottom": 3814.09375,
+      "width": 1168,
+      "height": 3734.09375
+    },
+    "heading": {
+      "left": 273,
+      "top": 105,
+      "right": 1391,
+      "bottom": 200.28125,
+      "width": 1118,
+      "height": 95.28125
+    },
+    "materialSelectorCard": {
+      "left": 273,
+      "top": 220.28125,
+      "right": 1391,
+      "bottom": 665.421875,
+      "width": 1118,
+      "height": 445.140625
+    },
+    "drawingCard": {
+      "left": 273,
+      "top": 681.421875,
+      "right": 1391,
+      "bottom": 1318.5625,
+      "width": 1118,
+      "height": 637.140625
+    },
+    "componentCard": {
+      "left": 273,
+      "top": 1334.5625,
+      "right": 1391,
+      "bottom": 1760.015625,
+      "width": 1118,
+      "height": 425.453125
+    }
+  },
+  "desktopPreviousComponentSeam": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "drawingCard": {
+      "left": 273,
+      "top": -223.078125,
+      "right": 1391,
+      "bottom": 414.0625,
+      "width": 1118,
+      "height": 637.140625
+    },
+    "componentCard": {
+      "left": 273,
+      "top": 430.0625,
+      "right": 1391,
+      "bottom": 855.515625,
+      "width": 1118,
+      "height": 425.453125
+    }
+  },
+  "desktopGeometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "workspace": {
+      "left": 224,
+      "top": -1206.5,
+      "right": 1440,
+      "bottom": 2575.59375,
+      "width": 1216,
+      "height": 3782.09375,
+      "clientWidth": 1216,
+      "scrollWidth": 1216
+    },
+    "content": {
+      "left": 248,
+      "top": -1182.5,
+      "right": 1416,
+      "bottom": 2551.59375,
+      "width": 1168,
+      "height": 3734.09375,
+      "clientWidth": 1166,
+      "scrollWidth": 1166
+    },
+    "heading": {
+      "left": 273,
+      "top": -1157.5,
+      "right": 1391,
+      "bottom": -1062.21875,
+      "width": 1118,
+      "height": 95.28125,
+      "clientWidth": 1118,
+      "scrollWidth": 1118
+    },
+    "card": {
+      "left": 273,
+      "top": 72.0625,
+      "right": 1391,
+      "bottom": 497.515625,
+      "width": 1118,
+      "height": 425.453125,
+      "clientWidth": 1116,
+      "scrollWidth": 1116
+    },
+    "nextCard": {
+      "left": 273,
+      "top": 513.515625,
+      "right": 1391,
+      "bottom": 806.65625,
+      "width": 1118,
+      "height": 293.140625,
+      "clientWidth": 1116,
+      "scrollWidth": 1116
+    },
+    "cardOverflow": 0
+  },
+  "desktopDrawerGeometry": {
+    "left": 960,
+    "top": 0,
+    "right": 1440,
+    "bottom": 900,
+    "width": 480,
+    "height": 900
+  },
+  "mobileTopGeometry": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "workspace": {
+      "left": 0,
+      "top": 56,
+      "right": 375,
+      "bottom": 6152.71875,
+      "width": 375,
+      "height": 6096.71875
+    },
+    "content": {
+      "left": 16,
+      "top": 72,
+      "right": 359,
+      "bottom": 6136.71875,
+      "width": 343,
+      "height": 6064.71875
+    },
+    "heading": {
+      "left": 33,
+      "top": 89,
+      "right": 342,
+      "bottom": 240.28125,
+      "width": 309,
+      "height": 151.28125
+    },
+    "materialSelectorCard": {
+      "left": 33,
+      "top": 256.28125,
+      "right": 342,
+      "bottom": 924.734375,
+      "width": 309,
+      "height": 668.453125
+    },
+    "drawingCard": {
+      "left": 33,
+      "top": 940.734375,
+      "right": 342,
+      "bottom": 2363.375,
+      "width": 309,
+      "height": 1422.640625
+    },
+    "componentCard": {
+      "left": 33,
+      "top": 2379.375,
+      "right": 342,
+      "bottom": 3064.140625,
+      "width": 309,
+      "height": 684.765625
+    }
+  },
+  "mobilePreviousComponentSeam": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "drawingCard": {
+      "left": 33,
+      "top": -1008.765625,
+      "right": 342,
+      "bottom": 413.875,
+      "width": 309,
+      "height": 1422.640625
+    },
+    "componentCard": {
+      "left": 33,
+      "top": 429.875,
+      "right": 342,
+      "bottom": 1114.640625,
+      "width": 309,
+      "height": 684.765625
+    }
+  },
+  "mobileGeometry": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "workspace": {
+      "left": 0,
+      "top": -2251.5,
+      "right": 375,
+      "bottom": 3845.21875,
+      "width": 375,
+      "height": 6096.71875,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "content": {
+      "left": 16,
+      "top": -2235.5,
+      "right": 359,
+      "bottom": 3829.21875,
+      "width": 343,
+      "height": 6064.71875,
+      "clientWidth": 341,
+      "scrollWidth": 341
+    },
+    "card": {
+      "left": 33,
+      "top": 71.875,
+      "right": 342,
+      "bottom": 756.640625,
+      "width": 309,
+      "height": 684.765625,
+      "clientWidth": 307,
+      "scrollWidth": 307
+    },
+    "nextCard": {
+      "left": 33,
+      "top": 772.640625,
+      "right": 342,
+      "bottom": 1175.78125,
+      "width": 309,
+      "height": 403.140625,
+      "clientWidth": 307,
+      "scrollWidth": 307
+    },
+    "cardOverflow": 0
+  },
+  "mobileDropdownGeometry": {
+    "left": 50,
+    "right": 325,
+    "width": 275,
+    "clientWidth": 275,
+    "scrollWidth": 275
+  },
+  "screenshots": {
+    "desktopTop": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/desktop-route-top-1440x900.png",
+      "sha256": "06743a87f0728e13900825a2f15113bd564b12874968e6c0d871bcb7b93113f4"
+    },
+    "desktopPreviousComponentSeam": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/desktop-drawing-selector-seam-1440x900.png",
+      "sha256": "bb5970fae0b30f5c4037df4c2a03a8f013549f1cc48f67b180f9a8d5208d34c8"
+    },
+    "desktopCard": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/desktop-selector-card-1440x900.png",
+      "sha256": "adb3fead1ab6c23b6d076662f951bca89d0e10a07210a2041f70ba98324bdaec"
+    },
+    "desktopQuickCreateDrawer": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/desktop-customer-create-drawer-1440x900.png",
+      "sha256": "6754754fcbcd06342a367bf0ebe042f0b783e8c20681ce9df802ee11efb859be"
+    },
+    "mobileTop": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/mobile-route-top-375x812.png",
+      "sha256": "115c14c2f0fc12b3fcb394db50cee9b9e426779be0f27d7cc083c28d8d7f4c08"
+    },
+    "mobilePreviousComponentSeam": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/mobile-drawing-selector-seam-375x812.png",
+      "sha256": "a1a0bc88cf2ecfcb819ec02f4606d5ff90cca37a76add40798dbfede870d712c"
+    },
+    "mobileDropdown": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/mobile-selector-dropdown-375x812.png",
+      "sha256": "e5feff62df6045f090ad3ec3f9c02f49a2f4a7685c476c3ffc9cd65b33b5a606"
+    },
+    "mobileCard": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-master-data-quick-create-2026-11-20/mobile-selector-card-375x812.png",
+      "sha256": "e5da58f90fc2447922d88708fd49826e534990801b1bc42e3eb52ac6801fea30"
+    }
+  },
+  "interactions": {
+    "configEntryCallback": "PASS",
+    "permissionAwareCustomerCreate": "PASS",
+    "quickCreateClosesSelectPopup": "PASS",
+    "createdCustomerFieldValueAndMetadata": "PASS",
+    "createdOptionSurvivesRemoteFirstPage": "PASS",
+    "supplierMultiValueAppend": "PASS",
+    "disabledAndPermissionGates": "PASS",
+    "mobileDropdownFitsViewport": "PASS"
+  },
+  "runtimeErrors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "authResponses": []
+  }
+}
