@@ -34,6 +34,7 @@
 | `EditableDetailTable` | 编辑重复明细行，选择多行并按字段批量设置 | AntD ProTable + 受控 `rows`；请求和业务字段由宿主提供 |
 | `BatchFieldSettingsButton` | 让用户勾选要覆盖的字段并应用到已选行 | AntD Modal / 表单控件；patch builder 由宿主提供 |
 | `RemoteSelect` | 用 AntD Select 展示远程候选并防抖搜索 | AntD Select；`onSearch` 由宿主提供 |
+| `MaterialFilteredSelect` / `MaterialSelectField` / `MaterialMultiSelectField` | 保留 MES 物料筛选、单/多选字段和扫码候选校验 | AntD Select + Pro Components `ProForm.Item`；数据和宿主集成由 `MesUiProvider` 注入 |
 | `LongText` | 在表格单元格显示多行预览并按需查看全文 | AntD Popover + Typography / Modal |
 | `RowActions` | 把表格行操作收纳进省略号菜单 | AntD Dropdown + Button；操作语义由宿主提供 |
 | `TableSummary` | 按列对齐并固定展示宿主提供的表格字段合计 | AntD `Table.Summary.Row/Cell`；聚合口径由宿主提供 |
@@ -197,6 +198,12 @@
 ### `sunxu-web/mes` 兼容组件
 
 - `MesUiProvider` 接受 MES 宿主的 `hasPermission(permission)` 函数；`PermissionButton` 的 `permission` 由此函数判断，无 Provider 或无权限时 fail closed 并不渲染动作。确认文案、危险标记、异步 `onConfirm`、loading、成功提示和成功回调沿用 MES 当前实现；异步错误从 `info.msg`、`data.msg`、`response.data.msg` 或 `Error.message` 提取并显示可确认错误弹窗。请求和权限码的含义由宿主负责。
+- `MaterialFilteredSelect` 是 MES 物料业务复合控件；`MaterialSelectField` 与 `MaterialMultiSelectField` 将其接入 ProForm 字段，`materialSelectColumnProps(request, placeholder?)` 用作 ProTable 查询列。筛选模式为 `always/collapsible/hidden`，默认 hidden；保留 `requestKey` 外部刷新、300ms 防抖、族/系统类型/业务分类级联、选中项保留、关键词精确/前缀排序、旧搜索结果丢弃和选中后清空搜索。多选使用 `values/onValuesChange`，单选保留 `value/onChange` 契约；ProForm 注入的 `fieldProps.value/onChange` 会继续参与表单提交。
+- 远程 `request({ keyWords, baseType?, categoryId?, familyId? })` 由调用方提供。`MesUiProvider.materialSelectCapabilities` 提供系统类型选项、单位标签、族/分类加载、条码查询、扫码枪注册、自定义字段 schema 和配置入口渲染；Sunxu 不调用 MES API、字典、权限或路由。扫码仅在 Select 聚焦且未禁用时启用；解析出的物料必须再次命中调用方当前候选请求，否则不触发字段变更并提示“该物料不在当前可选范围内”。多选扫码去重，已选项在搜索结果刷新后仍保留。
+- 候选副信息显示规格、单位标签及最多 3 个启用且 `displayJson.showInSelector=true` 的自定义字段；按 `displayJson.sortOrder` 回退到字段 `sortOrder` 排序。自定义字段显示保留 MES 的 select/multi-select 选项映射、布尔“是/否”、日期/时间格式和计算异常原因提示；schema 加载失败可重试，错误提示“物料选择器副信息加载失败，请刷新后重试”。
+- `renderConfigEntryLabel` 由宿主实现可见权限和配置页链接。来源 `ConfigEntryFieldLabel` 接受的 `show` 是已弃用兼容参数，来源实际忽略它；宿主应按授权决定是否返回链接，`onOpen` 用于回到表单时触发候选刷新。未提供此能力时只显示原标签。调用方拥有表单标签、必填/校验规则、字段间距和 ProTable 查询状态。
+- **状态与布局**：远程查询 loading、空候选、disabled、过期搜索拦截 warning、无候选的配置入口和扫码失败提示均由组件保留；筛选控件在容器变窄时换行，候选弹层最小宽度 320px，长副信息截断并通过 title 提供全文。族/系统类型/业务分类筛选器宽度默认 168/112/128px；系统类型默认宽度由来源的 92px 调为 112px，确保 Ant Design 6 下“系统分类”标签完整可见，可由 `baseTypeWidth` 覆盖。Form 标签用 ProForm.Item，基础键盘交互由 AntD Select 承担；扫码键盘监听由宿主注册并应在失焦/禁用时注销。
+- **目录和证据**：Catalog 的“MES UI 套件 → MES 物料选择器”覆盖桌面/375px 搜索、筛选、单/多选、单位与自定义字段、扫码验证和宿主配置权限。真实 MES API/权限/设备接线以及读屏器完整流程仍为 `UNVERIFIED`；证据见 [`docs/verification/mes-material-selector-2026-11-20/README.md`](./verification/mes-material-selector-2026-11-20/README.md)。
 - `MesUiProvider.actionIntentRoute` 接收宿主当前 `pathname`、`search` 及路由 `replace(path)` 回调；Sunxu 不依赖 Umi。缺少该路由能力时 `DocumentActionIntent` 不触发操作。
 - `DocumentActionsDropdown<T>` 保留 `documentId`、`documentNo`、`loadDocument`、`fallbackDocument`、`actions` 和 `onAction`。打开菜单时优先按 ID 加载权威单据，否则使用宿主提供的安全列表投影；依次按单项 `permission`、全部 `requiredPermissions`、后端 `availableActions` 中的 `requiredAvailableAction` 和 `visible(document)` 过滤。菜单保留动态 label、danger、loading、未找到和失败重试状态；动作回调收到选中的 key 和单据。当前用户权限和单据请求由宿主提供；页面不在 Sunxu 中复制 MES 状态机。
 - `DocumentCustomFieldPanel` 保留 `objectType/objectId/editable/title`；无 `objectId` 或宿主未注入渲染能力时返回 `null`，字段为空时隐藏整个面板，字段加载错误时仍显示错误内容，切换单据身份时在新状态到达前先隐藏旧字段。`MesUiProvider.renderCustomFieldPanel` 接收 `objectType/objectId/editable/showEmpty: false/onDisplayStateChange`；局部 `title` 只由外层容器渲染。MES 提供字段 schema、请求、编辑器和内容。切换身份会重置宿主渲染子树；可见性仅由 `hasFields || hasError` 决定，加载中和无字段不占布局。字段权限、保存与验证仍归 MES。

@@ -31,6 +31,7 @@ import {
   type MesCustomFieldPanelRenderProps,
   type MesUiRoute,
 } from '../../src/mes';
+import { MaterialSelectorDemo } from './MaterialSelectorDemo';
 
 type MesLine = {
   id: string;
@@ -315,6 +316,8 @@ export function MesComponentSuitePage() {
 
   return (
     <Space orientation="vertical" size={16} style={{ width: '100%' }}>
+      <MaterialSelectorDemo />
+
       <SectionCard title="MES 表格长文本">
         <Typography.Paragraph type="secondary">
           默认两行预览，悬停或点击查看全文；显式截断模式仍保留 64 字截断和“更多”弹层。

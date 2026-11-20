@@ -88,9 +88,9 @@
     "component_reference_count": 627,
     "component_status_counts": {
       "HOST_SCOPE": 278,
-      "IMPLEMENTED": 32,
+      "IMPLEMENTED": 35,
       "MAPPED": 245,
-      "PENDING": 55,
+      "PENDING": 52,
       "REVIEW_SOURCE_CONTRACT": 16,
       "WORKTREE_IMPLEMENTATION": 1
     },
@@ -106,9 +106,9 @@
     "source_status_counts": {
       "EXCLUDED_FROM_RUNTIME": 46,
       "HOST_SCOPE": 33,
-      "IMPLEMENTED": 28,
+      "IMPLEMENTED": 29,
       "MAPPED": 8,
-      "PENDING": 75,
+      "PENDING": 74,
       "REVIEW_SOURCE_CONTRACT": 4,
       "WORKTREE_IMPLEMENTATION": 1
     },
@@ -5170,12 +5170,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 23,
       "importer_file_count": 18,
       "source_sha256": "c426983f918dadb96526c3987d6dffb1663248b03b2bea1454483b1aeba805a5",
       "previous_target": null,
-      "rationale": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+      "rationale": "保留 MES 物料远程搜索、防陈旧候选、族/类型/分类级联、扫码候选校验、单位与最多 3 个自定义字段摘要；API、字典、扫码枪和配置入口由宿主注入。"
     },
     {
       "module": "@/components/enhanced/MaterialFilteredSelect",
@@ -5185,12 +5185,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 2,
       "importer_file_count": 2,
       "source_sha256": "c426983f918dadb96526c3987d6dffb1663248b03b2bea1454483b1aeba805a5",
       "previous_target": null,
-      "rationale": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+      "rationale": "保留 MES 物料远程搜索、防陈旧候选、族/类型/分类级联、扫码候选校验、单位与最多 3 个自定义字段摘要；API、字典、扫码枪和配置入口由宿主注入。"
     },
     {
       "module": "@/components/enhanced/MaterialFilteredSelect",
@@ -5200,12 +5200,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 29,
       "importer_file_count": 22,
       "source_sha256": "c426983f918dadb96526c3987d6dffb1663248b03b2bea1454483b1aeba805a5",
       "previous_target": null,
-      "rationale": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+      "rationale": "保留 MES 物料远程搜索、防陈旧候选、族/类型/分类级联、扫码候选校验、单位与最多 3 个自定义字段摘要；API、字典、扫码枪和配置入口由宿主注入。"
     },
     {
       "module": "@/components/enhanced/MaterialTablePicker",
@@ -10938,10 +10938,12 @@
       ],
       "previous_disposition": "MES_DOMAIN",
       "previous_target": null,
-      "previous_reason": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries.",
+      "previous_reason": "保留 MES 物料远程搜索、防陈旧候选、族/类型/分类级联、扫码候选校验、单位与最多 3 个自定义字段摘要；API、字典、扫码枪和配置入口由宿主注入。",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "rationale": "保留 MES 物料远程搜索、防陈旧候选、族/类型/分类级联、扫码候选校验、单位与最多 3 个自定义字段摘要；API、字典、扫码枪和配置入口由宿主注入。",
+      "implementation_target": "src/mes/components/MaterialFilteredSelect.tsx"
     },
     {
       "source": "src/components/enhanced/MaterialTablePicker.less",

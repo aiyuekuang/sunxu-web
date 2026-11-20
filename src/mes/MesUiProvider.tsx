@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, type ReactNode } from 'react';
+import type { MesMaterialSelectCapabilities } from './components/material-select-types';
 
 export interface MesUiRoute {
   pathname: string;
@@ -48,6 +49,8 @@ export interface MesUiProviderProps {
   renderCustomFieldPanel?: (
     props: MesCustomFieldPanelRenderProps,
   ) => ReactNode;
+  /** Material data, dictionaries, configuration links, and scanner bridge. */
+  materialSelectCapabilities?: MesMaterialSelectCapabilities;
   children: ReactNode;
 }
 
@@ -59,6 +62,7 @@ type MesUiContextValue = Pick<
   | 'isTableActionColumn'
   | 'actionIntentRoute'
   | 'renderCustomFieldPanel'
+  | 'materialSelectCapabilities'
 >;
 
 const MesUiContext = createContext<MesUiContextValue | null>(null);
@@ -70,6 +74,7 @@ export function MesUiProvider({
   isTableActionColumn,
   actionIntentRoute,
   renderCustomFieldPanel,
+  materialSelectCapabilities,
   children,
 }: MesUiProviderProps) {
   return (
@@ -81,6 +86,7 @@ export function MesUiProvider({
         isTableActionColumn,
         actionIntentRoute,
         renderCustomFieldPanel,
+        materialSelectCapabilities,
       }}
     >
       {children}
@@ -137,4 +143,11 @@ export function useMesCustomFieldPanelRenderer():
   | MesUiProviderProps['renderCustomFieldPanel']
   | undefined {
   return useContext(MesUiContext)?.renderCustomFieldPanel;
+}
+
+/** Host capabilities for MES material selectors and scan-gun integration. */
+export function useMesMaterialSelectCapabilities():
+  | MesMaterialSelectCapabilities
+  | undefined {
+  return useContext(MesUiContext)?.materialSelectCapabilities;
 }

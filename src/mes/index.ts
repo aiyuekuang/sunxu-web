@@ -17,6 +17,7 @@ export * from './components/DocumentTableTitle';
 export * from './components/DocumentModalForm';
 export * from './components/DocumentLineBatchSettingsButton';
 export * from './components/DocumentLineQuantityInput';
+export * from './components/MaterialFilteredSelect';
 export * from './components/EntityThumbnail';
 export * from './components/PermissionButton';
 export * from './components/StatusDisplay';

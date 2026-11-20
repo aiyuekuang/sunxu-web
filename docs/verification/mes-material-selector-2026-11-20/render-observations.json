@@ -1,0 +1,1112 @@
+{
+  "route": "CatalogApp / MES UI 套件 → MES 物料选择器",
+  "targetUrl": "http://127.0.0.1:4174/",
+  "stabilization": "document.fonts.ready, image decode, two requestAnimationFrame callbacks; interactions awaited by visible state",
+  "viewports": [
+    {
+      "state": "desktop-default",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "clientHeight": 900,
+        "scrollHeight": 2647,
+        "bodyScrollWidth": 1440
+      },
+      "workspace": {
+        "left": 224,
+        "top": 56,
+        "right": 1440,
+        "bottom": 2647.5,
+        "width": 1216,
+        "height": 2591.5,
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "clientHeight": 2592,
+        "scrollHeight": 2592
+      },
+      "content": {
+        "left": 248,
+        "top": 80,
+        "right": 1416,
+        "bottom": 2623.5,
+        "width": 1168,
+        "height": 2543.5,
+        "clientWidth": 1166,
+        "scrollWidth": 1166,
+        "clientHeight": 2542,
+        "scrollHeight": 2542
+      },
+      "pageHeading": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125,
+        "clientWidth": 1118,
+        "scrollWidth": 1118,
+        "clientHeight": 95,
+        "scrollHeight": 95
+      },
+      "selectorCard": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 665.421875,
+        "width": 1118,
+        "height": 445.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116,
+        "clientHeight": 443,
+        "scrollHeight": 443
+      },
+      "nextCard": {
+        "left": 273,
+        "top": 681.421875,
+        "right": 1391,
+        "bottom": 974.5625,
+        "width": 1118,
+        "height": 293.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116,
+        "clientHeight": 291,
+        "scrollHeight": 291
+      },
+      "parts": {
+        "intro": {
+          "left": 290,
+          "top": 277.421875,
+          "right": 1374,
+          "bottom": 299.421875,
+          "width": 1084,
+          "height": 22,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 22,
+          "scrollHeight": 22
+        },
+        "host-controls": {
+          "left": 290,
+          "top": 311.421875,
+          "right": 1374,
+          "bottom": 338.421875,
+          "width": 1084,
+          "height": 27,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 27,
+          "scrollHeight": 27
+        },
+        "form": {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 506.421875,
+          "width": 1084,
+          "height": 156,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 156,
+          "scrollHeight": 156
+        },
+        "form-status": {
+          "left": 290,
+          "top": 532.921875,
+          "right": 549.578125,
+          "bottom": 549.421875,
+          "width": 259.578125,
+          "height": 16.5,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "clientHeight": 0,
+          "scrollHeight": 0
+        },
+        "cascade": {
+          "left": 290,
+          "top": 552.421875,
+          "right": 1374,
+          "bottom": 648.421875,
+          "width": 1084,
+          "height": 96,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 96,
+          "scrollHeight": 96
+        }
+      },
+      "partItems": {
+        "intro": {
+          "left": 290,
+          "top": 277.421875,
+          "right": 1374,
+          "bottom": 299.421875,
+          "width": 1084,
+          "height": 22,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 22,
+          "scrollHeight": 22
+        },
+        "host-controls": {
+          "left": 290,
+          "top": 311.421875,
+          "right": 1374,
+          "bottom": 338.421875,
+          "width": 1084,
+          "height": 27,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 27,
+          "scrollHeight": 27
+        },
+        "form": {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 648.421875,
+          "width": 1084,
+          "height": 298,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 298,
+          "scrollHeight": 298
+        },
+        "form-status": {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 648.421875,
+          "width": 1084,
+          "height": 298,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 298,
+          "scrollHeight": 298
+        },
+        "cascade": {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 648.421875,
+          "width": 1084,
+          "height": 298,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 298,
+          "scrollHeight": 298
+        }
+      },
+      "formItems": [
+        {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 416.421875,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 66,
+          "scrollHeight": 66
+        },
+        {
+          "left": 290,
+          "top": 440.421875,
+          "right": 1374,
+          "bottom": 506.421875,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 66,
+          "scrollHeight": 66
+        }
+      ],
+      "materialSelectWrappers": [
+        {
+          "left": 290,
+          "top": 380.421875,
+          "right": 1374,
+          "bottom": 416.421875,
+          "width": 1084,
+          "height": 36,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 36,
+          "scrollHeight": 36
+        },
+        {
+          "left": 290,
+          "top": 470.421875,
+          "right": 1374,
+          "bottom": 506.421875,
+          "width": 1084,
+          "height": 36,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 36,
+          "scrollHeight": 36
+        },
+        {
+          "left": 290,
+          "top": 582.421875,
+          "right": 1374,
+          "bottom": 618.421875,
+          "width": 1084,
+          "height": 36,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 36,
+          "scrollHeight": 36
+        }
+      ],
+      "localHorizontalOverflow": {
+        "selector": false,
+        "form": false
+      }
+    },
+    {
+      "state": "desktop-selected",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "clientHeight": 900,
+        "scrollHeight": 2743,
+        "bodyScrollWidth": 1440
+      },
+      "workspace": {
+        "left": 224,
+        "top": 56,
+        "right": 1440,
+        "bottom": 2743.5,
+        "width": 1216,
+        "height": 2687.5,
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "clientHeight": 2688,
+        "scrollHeight": 2688
+      },
+      "content": {
+        "left": 248,
+        "top": 80,
+        "right": 1416,
+        "bottom": 2719.5,
+        "width": 1168,
+        "height": 2639.5,
+        "clientWidth": 1166,
+        "scrollWidth": 1166,
+        "clientHeight": 2638,
+        "scrollHeight": 2638
+      },
+      "pageHeading": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125,
+        "clientWidth": 1118,
+        "scrollWidth": 1118,
+        "clientHeight": 95,
+        "scrollHeight": 95
+      },
+      "selectorCard": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 665.421875,
+        "width": 1118,
+        "height": 445.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116,
+        "clientHeight": 443,
+        "scrollHeight": 443
+      },
+      "nextCard": {
+        "left": 273,
+        "top": 681.421875,
+        "right": 1391,
+        "bottom": 974.5625,
+        "width": 1118,
+        "height": 293.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116,
+        "clientHeight": 291,
+        "scrollHeight": 291
+      },
+      "parts": {
+        "intro": {
+          "left": 290,
+          "top": 277.421875,
+          "right": 1374,
+          "bottom": 299.421875,
+          "width": 1084,
+          "height": 22,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 22,
+          "scrollHeight": 22
+        },
+        "host-controls": {
+          "left": 290,
+          "top": 311.421875,
+          "right": 1374,
+          "bottom": 338.421875,
+          "width": 1084,
+          "height": 27,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 27,
+          "scrollHeight": 27
+        },
+        "form": {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 506.421875,
+          "width": 1084,
+          "height": 156,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 156,
+          "scrollHeight": 156
+        },
+        "form-status": {
+          "left": 290,
+          "top": 532.921875,
+          "right": 716.140625,
+          "bottom": 549.421875,
+          "width": 426.140625,
+          "height": 16.5,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "clientHeight": 0,
+          "scrollHeight": 0
+        },
+        "cascade": {
+          "left": 290,
+          "top": 552.421875,
+          "right": 1374,
+          "bottom": 648.421875,
+          "width": 1084,
+          "height": 96,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 96,
+          "scrollHeight": 96
+        }
+      },
+      "partItems": {
+        "intro": {
+          "left": 290,
+          "top": 277.421875,
+          "right": 1374,
+          "bottom": 299.421875,
+          "width": 1084,
+          "height": 22,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 22,
+          "scrollHeight": 22
+        },
+        "host-controls": {
+          "left": 290,
+          "top": 311.421875,
+          "right": 1374,
+          "bottom": 338.421875,
+          "width": 1084,
+          "height": 27,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 27,
+          "scrollHeight": 27
+        },
+        "form": {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 648.421875,
+          "width": 1084,
+          "height": 298,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 298,
+          "scrollHeight": 298
+        },
+        "form-status": {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 648.421875,
+          "width": 1084,
+          "height": 298,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 298,
+          "scrollHeight": 298
+        },
+        "cascade": {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 648.421875,
+          "width": 1084,
+          "height": 298,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 298,
+          "scrollHeight": 298
+        }
+      },
+      "formItems": [
+        {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 416.421875,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 66,
+          "scrollHeight": 66
+        },
+        {
+          "left": 290,
+          "top": 440.421875,
+          "right": 1374,
+          "bottom": 506.421875,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 66,
+          "scrollHeight": 66
+        }
+      ],
+      "materialSelectWrappers": [
+        {
+          "left": 290,
+          "top": 380.421875,
+          "right": 1374,
+          "bottom": 416.421875,
+          "width": 1084,
+          "height": 36,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 36,
+          "scrollHeight": 36
+        },
+        {
+          "left": 290,
+          "top": 470.421875,
+          "right": 1374,
+          "bottom": 506.421875,
+          "width": 1084,
+          "height": 36,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 36,
+          "scrollHeight": 36
+        },
+        {
+          "left": 290,
+          "top": 582.421875,
+          "right": 1374,
+          "bottom": 618.421875,
+          "width": 1084,
+          "height": 36,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 36,
+          "scrollHeight": 36
+        }
+      ],
+      "localHorizontalOverflow": {
+        "selector": false,
+        "form": false
+      }
+    },
+    {
+      "state": "desktop-empty-and-config-denied",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "clientHeight": 900,
+        "scrollHeight": 2743,
+        "bodyScrollWidth": 1440
+      },
+      "workspace": {
+        "left": 224,
+        "top": 56,
+        "right": 1440,
+        "bottom": 2743.5,
+        "width": 1216,
+        "height": 2687.5,
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "clientHeight": 2688,
+        "scrollHeight": 2688
+      },
+      "content": {
+        "left": 248,
+        "top": 80,
+        "right": 1416,
+        "bottom": 2719.5,
+        "width": 1168,
+        "height": 2639.5,
+        "clientWidth": 1166,
+        "scrollWidth": 1166,
+        "clientHeight": 2638,
+        "scrollHeight": 2638
+      },
+      "pageHeading": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125,
+        "clientWidth": 1118,
+        "scrollWidth": 1118,
+        "clientHeight": 95,
+        "scrollHeight": 95
+      },
+      "selectorCard": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 665.421875,
+        "width": 1118,
+        "height": 445.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116,
+        "clientHeight": 443,
+        "scrollHeight": 443
+      },
+      "nextCard": {
+        "left": 273,
+        "top": 681.421875,
+        "right": 1391,
+        "bottom": 974.5625,
+        "width": 1118,
+        "height": 293.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116,
+        "clientHeight": 291,
+        "scrollHeight": 291
+      },
+      "parts": {
+        "intro": {
+          "left": 290,
+          "top": 277.421875,
+          "right": 1374,
+          "bottom": 299.421875,
+          "width": 1084,
+          "height": 22,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 22,
+          "scrollHeight": 22
+        },
+        "host-controls": {
+          "left": 290,
+          "top": 311.421875,
+          "right": 1374,
+          "bottom": 338.421875,
+          "width": 1084,
+          "height": 27,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 27,
+          "scrollHeight": 27
+        },
+        "form": {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 506.421875,
+          "width": 1084,
+          "height": 156,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 156,
+          "scrollHeight": 156
+        },
+        "form-status": {
+          "left": 290,
+          "top": 532.921875,
+          "right": 716.140625,
+          "bottom": 549.421875,
+          "width": 426.140625,
+          "height": 16.5,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "clientHeight": 0,
+          "scrollHeight": 0
+        },
+        "cascade": {
+          "left": 290,
+          "top": 552.421875,
+          "right": 1374,
+          "bottom": 648.421875,
+          "width": 1084,
+          "height": 96,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 96,
+          "scrollHeight": 96
+        }
+      },
+      "partItems": {
+        "intro": {
+          "left": 290,
+          "top": 277.421875,
+          "right": 1374,
+          "bottom": 299.421875,
+          "width": 1084,
+          "height": 22,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 22,
+          "scrollHeight": 22
+        },
+        "host-controls": {
+          "left": 290,
+          "top": 311.421875,
+          "right": 1374,
+          "bottom": 338.421875,
+          "width": 1084,
+          "height": 27,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 27,
+          "scrollHeight": 27
+        },
+        "form": {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 648.421875,
+          "width": 1084,
+          "height": 298,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 298,
+          "scrollHeight": 298
+        },
+        "form-status": {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 648.421875,
+          "width": 1084,
+          "height": 298,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 298,
+          "scrollHeight": 298
+        },
+        "cascade": {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 648.421875,
+          "width": 1084,
+          "height": 298,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 298,
+          "scrollHeight": 298
+        }
+      },
+      "formItems": [
+        {
+          "left": 290,
+          "top": 350.421875,
+          "right": 1374,
+          "bottom": 416.421875,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 66,
+          "scrollHeight": 66
+        },
+        {
+          "left": 290,
+          "top": 440.421875,
+          "right": 1374,
+          "bottom": 506.421875,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 66,
+          "scrollHeight": 66
+        }
+      ],
+      "materialSelectWrappers": [
+        {
+          "left": 290,
+          "top": 380.421875,
+          "right": 1374,
+          "bottom": 416.421875,
+          "width": 1084,
+          "height": 36,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 36,
+          "scrollHeight": 36
+        },
+        {
+          "left": 290,
+          "top": 470.421875,
+          "right": 1374,
+          "bottom": 506.421875,
+          "width": 1084,
+          "height": 36,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 36,
+          "scrollHeight": 36
+        },
+        {
+          "left": 290,
+          "top": 582.421875,
+          "right": 1374,
+          "bottom": 618.421875,
+          "width": 1084,
+          "height": 36,
+          "clientWidth": 1084,
+          "scrollWidth": 1084,
+          "clientHeight": 36,
+          "scrollHeight": 36
+        }
+      ],
+      "localHorizontalOverflow": {
+        "selector": false,
+        "form": false
+      }
+    },
+    {
+      "state": "mobile-selected",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "document": {
+        "clientWidth": 375,
+        "scrollWidth": 375,
+        "clientHeight": 812,
+        "scrollHeight": 4035,
+        "bodyScrollWidth": 375
+      },
+      "workspace": {
+        "left": 0,
+        "top": 56,
+        "right": 375,
+        "bottom": 4035.3125,
+        "width": 375,
+        "height": 3979.3125,
+        "clientWidth": 375,
+        "scrollWidth": 375,
+        "clientHeight": 3979,
+        "scrollHeight": 3979
+      },
+      "content": {
+        "left": 16,
+        "top": 72,
+        "right": 359,
+        "bottom": 4019.3125,
+        "width": 343,
+        "height": 3947.3125,
+        "clientWidth": 341,
+        "scrollWidth": 341,
+        "clientHeight": 3945,
+        "scrollHeight": 3945
+      },
+      "pageHeading": {
+        "left": 33,
+        "top": 89,
+        "right": 342,
+        "bottom": 240.28125,
+        "width": 309,
+        "height": 151.28125,
+        "clientWidth": 309,
+        "scrollWidth": 309,
+        "clientHeight": 151,
+        "scrollHeight": 151
+      },
+      "selectorCard": {
+        "left": 33,
+        "top": 256.28125,
+        "right": 342,
+        "bottom": 946.734375,
+        "width": 309,
+        "height": 690.453125,
+        "clientWidth": 307,
+        "scrollWidth": 307,
+        "clientHeight": 688,
+        "scrollHeight": 688
+      },
+      "nextCard": {
+        "left": 33,
+        "top": 962.734375,
+        "right": 342,
+        "bottom": 1365.875,
+        "width": 309,
+        "height": 403.140625,
+        "clientWidth": 307,
+        "scrollWidth": 307,
+        "clientHeight": 401,
+        "scrollHeight": 401
+      },
+      "parts": {
+        "intro": {
+          "left": 50,
+          "top": 313.421875,
+          "right": 325,
+          "bottom": 379.421875,
+          "width": 275,
+          "height": 66,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 66,
+          "scrollHeight": 66
+        },
+        "host-controls": {
+          "left": 50,
+          "top": 391.421875,
+          "right": 325,
+          "bottom": 509.734375,
+          "width": 275,
+          "height": 118.3125,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 118,
+          "scrollHeight": 118
+        },
+        "form": {
+          "left": 50,
+          "top": 521.734375,
+          "right": 325,
+          "bottom": 677.734375,
+          "width": 275,
+          "height": 156,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 156,
+          "scrollHeight": 156
+        },
+        "form-status": {
+          "left": 50,
+          "top": 704.234375,
+          "right": 309.875,
+          "bottom": 742.734375,
+          "width": 259.875,
+          "height": 38.5,
+          "clientWidth": 0,
+          "scrollWidth": 0,
+          "clientHeight": 0,
+          "scrollHeight": 0
+        },
+        "cascade": {
+          "left": 50,
+          "top": 745.734375,
+          "right": 325,
+          "bottom": 929.734375,
+          "width": 275,
+          "height": 184,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 184,
+          "scrollHeight": 184
+        }
+      },
+      "partItems": {
+        "intro": {
+          "left": 50,
+          "top": 313.421875,
+          "right": 325,
+          "bottom": 379.421875,
+          "width": 275,
+          "height": 66,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 66,
+          "scrollHeight": 66
+        },
+        "host-controls": {
+          "left": 50,
+          "top": 391.421875,
+          "right": 325,
+          "bottom": 509.734375,
+          "width": 275,
+          "height": 118.3125,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 118,
+          "scrollHeight": 118
+        },
+        "form": {
+          "left": 50,
+          "top": 521.734375,
+          "right": 325,
+          "bottom": 929.734375,
+          "width": 275,
+          "height": 408,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 408,
+          "scrollHeight": 408
+        },
+        "form-status": {
+          "left": 50,
+          "top": 521.734375,
+          "right": 325,
+          "bottom": 929.734375,
+          "width": 275,
+          "height": 408,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 408,
+          "scrollHeight": 408
+        },
+        "cascade": {
+          "left": 50,
+          "top": 521.734375,
+          "right": 325,
+          "bottom": 929.734375,
+          "width": 275,
+          "height": 408,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 408,
+          "scrollHeight": 408
+        }
+      },
+      "formItems": [
+        {
+          "left": 50,
+          "top": 521.734375,
+          "right": 325,
+          "bottom": 587.734375,
+          "width": 275,
+          "height": 66,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 66,
+          "scrollHeight": 66
+        },
+        {
+          "left": 50,
+          "top": 611.734375,
+          "right": 325,
+          "bottom": 677.734375,
+          "width": 275,
+          "height": 66,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 66,
+          "scrollHeight": 66
+        }
+      ],
+      "materialSelectWrappers": [
+        {
+          "left": 50,
+          "top": 551.734375,
+          "right": 325,
+          "bottom": 587.734375,
+          "width": 275,
+          "height": 36,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 36,
+          "scrollHeight": 36
+        },
+        {
+          "left": 50,
+          "top": 641.734375,
+          "right": 325,
+          "bottom": 677.734375,
+          "width": 275,
+          "height": 36,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 36,
+          "scrollHeight": 36
+        },
+        {
+          "left": 50,
+          "top": 775.734375,
+          "right": 325,
+          "bottom": 899.734375,
+          "width": 275,
+          "height": 124,
+          "clientWidth": 275,
+          "scrollWidth": 275,
+          "clientHeight": 124,
+          "scrollHeight": 124
+        }
+      ],
+      "localHorizontalOverflow": {
+        "selector": false,
+        "form": false
+      }
+    }
+  ],
+  "screenshots": {
+    "desktopDefault": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-material-selector-2026-11-20/desktop-default-1440x900.png",
+      "sha256": "aea7a685239127ceb67f6940cb9949c48790694c149f6ca14bf4a87532c5fbd0"
+    },
+    "desktopOptions": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-material-selector-2026-11-20/desktop-option-details-1440x900.png",
+      "sha256": "c413256c49bf4c246345a6365303ade0e882da41cd3901ab97b3dbc44d2f6a28"
+    },
+    "desktopSelected": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-material-selector-2026-11-20/desktop-selected-1440x900.png",
+      "sha256": "2de35a795d5cef7c0f0750ba4f88b079c5cdc732335acfe0d60e210e924183f1"
+    },
+    "desktopEmptyDenied": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-material-selector-2026-11-20/desktop-empty-denied-1440x900.png",
+      "sha256": "074f453792b0fb13d44e2f7972fed489daa6fc286d14899e30ee6219b60e222a"
+    },
+    "mobileSelected": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-material-selector-2026-11-20/mobile-selected-375x812.png",
+      "sha256": "4da8214fb18a1e8ca0dfdf004941c7a414ee92bb2df854f3ffa4cd96c1323c8c"
+    },
+    "mobileCardSeam": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-material-selector-2026-11-20/mobile-card-seam-375x812.png",
+      "sha256": "f2cc7255643a19a89f72236cc6cfb15a16337bd62e6c1b930bc9e9378e867094"
+    }
+  },
+  "interactions": {
+    "singleRemoteSearchSelection": "PASS",
+    "multiRemoteSearchSelection": "PASS",
+    "optionUnitAndCustomFieldSummary": "PASS",
+    "customFieldCalculationErrorTitleAndFallback": "PASS",
+    "categoryCascadeAndBaseTypePreservation": "PASS",
+    "scanCandidateAcceptedFromCurrentRequest": "PASS",
+    "scanCandidateRejectedWhenOutsideCurrentRequest": "PASS",
+    "configEntryPermissionVisibleThenHidden": "PASS"
+  },
+  "runtimeErrors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "authResponses": []
+  }
+}
