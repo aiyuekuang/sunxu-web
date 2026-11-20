@@ -32,6 +32,7 @@ import {
   type MesUiRoute,
 } from '../../src/mes';
 import { MaterialSelectorDemo } from './MaterialSelectorDemo';
+import { DrawingFilesDemo } from './DrawingFilesDemo';
 
 type MesLine = {
   id: string;
@@ -317,6 +318,7 @@ export function MesComponentSuitePage() {
   return (
     <Space orientation="vertical" size={16} style={{ width: '100%' }}>
       <MaterialSelectorDemo />
+      <DrawingFilesDemo />
 
       <SectionCard title="MES 表格长文本">
         <Typography.Paragraph type="secondary">

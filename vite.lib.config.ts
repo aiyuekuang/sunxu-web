@@ -26,6 +26,8 @@ export default defineConfig({
         '@ant-design/pro-components',
         '@ant-design/icons',
         'dayjs',
+        'react-pdf',
+        'pdfjs-dist',
         'use-antd-resizable-header',
       ],
     },

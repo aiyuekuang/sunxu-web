@@ -35,6 +35,7 @@
 | `BatchFieldSettingsButton` | 让用户勾选要覆盖的字段并应用到已选行 | AntD Modal / 表单控件；patch builder 由宿主提供 |
 | `RemoteSelect` | 用 AntD Select 展示远程候选并防抖搜索 | AntD Select；`onSearch` 由宿主提供 |
 | `MaterialFilteredSelect` / `MaterialSelectField` / `MaterialMultiSelectField` | 保留 MES 物料筛选、单/多选字段和扫码候选校验 | AntD Select + Pro Components `ProForm.Item`；数据和宿主集成由 `MesUiProvider` 注入 |
+| `DrawingFilesInline` / `FileUrlsInline` / `DrawingFilesGallery` / `PdfPreviewDrawer` | 保留 MES 附件、图纸行关联、分组预览/打印和 PDF 预览操作 | AntD Upload / Image / Drawer + React-PDF；授权文件能力由 `MesUiProvider` 注入 |
 | `LongText` | 在表格单元格显示多行预览并按需查看全文 | AntD Popover + Typography / Modal |
 | `RowActions` | 把表格行操作收纳进省略号菜单 | AntD Dropdown + Button；操作语义由宿主提供 |
 | `TableSummary` | 按列对齐并固定展示宿主提供的表格字段合计 | AntD `Table.Summary.Row/Cell`；聚合口径由宿主提供 |
@@ -221,6 +222,10 @@
 - `DefaultRouteHint` 仅在有 `materialId` 且没有 `routeId` 时调用必填的 `requestCandidates({ materialId, customerId, routeSelectionDate })`；取首个 `recommended` 候选，组合路线编码/名称、版本和原因。没有推荐路线时显示 MES 指引；请求错误静默隐藏，条件变化或卸载会丢弃迟到响应。服务请求和错误策略留在宿主。
 - `CustomerMaterialCell` 支持 `combined/internal/customer` 三种模式。combined 时客户别名优先并在下一行保留内部物料值；缺少别名或两者相同则不重复显示。拆分模式可仅在名称字段按对应来源显示规格。`customerMaterialSortValue` 与主值一致，别名优先回落内部快照。内部 `materialId` 是权威身份；客户别名是销售单据的冻结快照，客户输出打印模板不应使用此比较单元格。
 - `EntityThumbnail` 保留缩略图优先、预览图回退、默认 40px 方形样式、无图 Tooltip 图标、损坏图 SVG fallback 和 AntD 图片预览。图片存在时点击/双击停止冒泡，避免触发行选择或编辑；无图提示沿用源实现，不截断行事件。
+- `FileUrlsInline` 以受控 URL 数组管理附件，先 trim、去重并忽略空项；保留仅查看、空态、编辑删除和多文件上传。默认最多 20 个、单文件 20 MB；默认允许 jpg/jpeg/png/webp/pdf/doc/docx/xls/xlsx/csv，可通过 `maxCount`、`maxSize`、`maxSizeByExtension`、`accept`、`allowedExtensions` 覆盖。上传将文件放入 `FormData.files`，保留扩展名、大小和并发上传数量校验，上传 URL 交给 `onChange`；未注入上传能力时阻止上传并提示配置缺失。图片通过 AntD `Image.PreviewGroup` 预览；PDF 在当前标签工作区内打开 Drawer，普通附件走授权代理下载。
+- `DrawingFilesInline` 沿用 `FileUrlsInline` 的值与上传契约，默认只收 jpg/jpeg/png/pdf；可传 `availableFileUrls` 展示订单头附件选择器，候选仅含图片/PDF。已关联订单附件仍写回当前明细行值；移除旧关联时保留该行独立上传的 URL。源字段名、回调和空态/上传提示均可覆盖。
+- `DrawingFilesGallery` 以 `groups[{key,title,description?,urls}]` 按来源分组，空组被过滤；每组显示附件数和图片数，只把图片 URL 交给 `onPrint`，且需同时启用 `canPrint` 和回调。图片打开 Image Preview，PDF 打开 PDF Drawer，其他文件点击下载；文件名优先使用宿主原名解析能力，否则从 URL 解码并回退标签名。
+- `PdfPreviewDrawer` 保留页码、上一页/下一页、60%–200%（每次 20%）缩放、PDF 下载和加载/解析错误的下载恢复。页面按预览区域可用宽度渲染；Drawer 留在当前 keep-alive 容器，不用新窗口或裸 URL iframe。宿主通过 `MesUiProvider.drawingFilesCapabilities` 提供授权 `fetchFileBlob` / `downloadUrl` / `downloadBlob`、上传 `uploadFiles`、`resolveFileDisplayNames` 与 `pdfWorkerSrc`；Worker 必须和宿主解析到的 `pdfjs-dist` 完全同版本。缺少代理或 worker 时显示明确错误，Sunxu 不调用 MES API、鉴权或文件服务。Catalog 用本地确定性能力适配器覆盖这些回调，真实 MES 代理接线仍归宿主。
 - `DocumentLineBatchSettingsButton` 保留 MES 明细字段 schema；`number` 支持 `min/max/precision`，`date` 的 patch 收到 `YYYY-MM-DD` 字符串，`select` 的 patch 只接收字符串（数值选项仍归一为 `undefined`），`text` 保留最大长度。字段需独立勾选，勾选后留空表示清空；`required` 字段为空时阻止应用并提示。远程选择字段通过 `request(params, values)` 加载候选，竞态结果会丢弃；请求中对应 Select 显示 loading，失败在字段旁显示错误和“重试”入口，重试后清除错误。
 - MES 适配组件不请求 MES API、不查权限；远程候选请求、权限判断、状态字典和 `onApply` patch 提交由宿主提供。它们位于 `src/mes/**`，从 `sunxu-web/mes` 导入。
 - MES 套件目录中的表格固定列宽为 566px；窄屏将横向溢出限制在表格内，并提供可聚焦命名区域，以左右方向键、Home 和 End 浏览列。

@@ -88,9 +88,9 @@
     "component_reference_count": 627,
     "component_status_counts": {
       "HOST_SCOPE": 278,
-      "IMPLEMENTED": 35,
+      "IMPLEMENTED": 39,
       "MAPPED": 245,
-      "PENDING": 52,
+      "PENDING": 48,
       "REVIEW_SOURCE_CONTRACT": 16,
       "WORKTREE_IMPLEMENTATION": 1
     },
@@ -106,9 +106,9 @@
     "source_status_counts": {
       "EXCLUDED_FROM_RUNTIME": 46,
       "HOST_SCOPE": 33,
-      "IMPLEMENTED": 29,
+      "IMPLEMENTED": 30,
       "MAPPED": 8,
-      "PENDING": 74,
+      "PENDING": 73,
       "REVIEW_SOURCE_CONTRACT": 4,
       "WORKTREE_IMPLEMENTATION": 1
     },
@@ -5545,12 +5545,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 1,
       "importer_file_count": 1,
       "source_sha256": "2b8b327bcf2ae427123ea8be852d9ba880ac50af4898572e3c67ed1655f68e0e",
       "previous_target": null,
-      "rationale": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+      "rationale": "已在 src/mes/components/DrawingFilesInline.tsx 实现；保留受控上传、明细行订单附件关联、按来源分组、图片/PDF/普通附件分流、图片打印回调和 PDF 分页缩放。MES 上传/代理下载/原名解析/PDF worker 由 MesUiProvider.drawingFilesCapabilities 注入；真实 MES API 与权限仍由宿主负责。"
     },
     {
       "module": "@/components/patterns/DrawingFilesInline",
@@ -5560,12 +5560,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 16,
       "importer_file_count": 12,
       "source_sha256": "2b8b327bcf2ae427123ea8be852d9ba880ac50af4898572e3c67ed1655f68e0e",
       "previous_target": null,
-      "rationale": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+      "rationale": "已在 src/mes/components/DrawingFilesInline.tsx 实现；保留受控上传、明细行订单附件关联、按来源分组、图片/PDF/普通附件分流、图片打印回调和 PDF 分页缩放。MES 上传/代理下载/原名解析/PDF worker 由 MesUiProvider.drawingFilesCapabilities 注入；真实 MES API 与权限仍由宿主负责。"
     },
     {
       "module": "@/components/patterns/DrawingFilesInline",
@@ -5575,12 +5575,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 17,
       "importer_file_count": 8,
       "source_sha256": "2b8b327bcf2ae427123ea8be852d9ba880ac50af4898572e3c67ed1655f68e0e",
       "previous_target": null,
-      "rationale": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+      "rationale": "已在 src/mes/components/DrawingFilesInline.tsx 实现；保留受控上传、明细行订单附件关联、按来源分组、图片/PDF/普通附件分流、图片打印回调和 PDF 分页缩放。MES 上传/代理下载/原名解析/PDF worker 由 MesUiProvider.drawingFilesCapabilities 注入；真实 MES API 与权限仍由宿主负责。"
     },
     {
       "module": "@/components/patterns/DrawingFilesInline",
@@ -5590,12 +5590,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 4,
       "importer_file_count": 4,
       "source_sha256": "2b8b327bcf2ae427123ea8be852d9ba880ac50af4898572e3c67ed1655f68e0e",
       "previous_target": null,
-      "rationale": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+      "rationale": "已在 src/mes/components/DrawingFilesInline.tsx 实现；保留受控上传、明细行订单附件关联、按来源分组、图片/PDF/普通附件分流、图片打印回调和 PDF 分页缩放。MES 上传/代理下载/原名解析/PDF worker 由 MesUiProvider.drawingFilesCapabilities 注入；真实 MES API 与权限仍由宿主负责。"
     },
     {
       "module": "@/components/patterns/EntityThumbnail",
@@ -12011,7 +12011,9 @@
       "previous_reason": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "implementation_target": "src/mes/components/DrawingFilesInline.tsx",
+      "implementation_rationale": "已在 src/mes/components/DrawingFilesInline.tsx 实现；保留受控上传、明细行订单附件关联、按来源分组、图片/PDF/普通附件分流、图片打印回调和 PDF 分页缩放。MES 上传/代理下载/原名解析/PDF worker 由 MesUiProvider.drawingFilesCapabilities 注入；真实 MES API 与权限仍由宿主负责。"
     },
     {
       "source": "src/components/patterns/EntityThumbnail.test.tsx",

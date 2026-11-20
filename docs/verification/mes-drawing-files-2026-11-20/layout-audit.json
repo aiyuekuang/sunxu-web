@@ -1,0 +1,534 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件 → MES 图纸与附件",
+  "component": "DrawingFilesInline / FileUrlsInline / DrawingFilesGallery / PdfPreviewDrawer",
+  "evidence": "./render-observations.json",
+  "evidence_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-drawing-files-debug.js",
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 → MES 图纸与附件",
+        "state": "desktop-default-1440x900",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "documentScrollWidth": 1440
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 3396.640625,
+          "width": 1216,
+          "height": 3340.640625
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 3372.640625,
+          "width": 1168,
+          "height": 3292.640625
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/desktop-route-top-1440x900.png",
+        "screenshot_sha256": "f1c7c5e949c3140db5889a42c49891d2741b25e27a8b704546ff15ee0a1bb2e2",
+        "status": "PASS"
+      },
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 → MES 图纸与附件",
+        "state": "mobile-default-375x812",
+        "viewport": {
+          "width": 375,
+          "height": 812,
+          "documentScrollWidth": 375
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 5762.953125,
+          "width": 375,
+          "height": 5706.953125
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 359,
+          "bottom": 5746.953125,
+          "width": 343,
+          "height": 5674.953125
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/mobile-route-top-375x812.png",
+        "screenshot_sha256": "33a0c0352154084ed2e3263e724c93a9f316d99ffb153f0d82ca9b50f3bbbc5b",
+        "status": "PASS"
+      }
+    ]
+  },
+  "first_screen_budget": {
+    "business_task": "在 MES 明细中上传或关联图纸，按来源查看图纸/附件，并预览或回传图片打印任务。",
+    "desktop_1440x900": {
+      "visible_order": [
+        "Catalog header",
+        "page title and description",
+        "complete MES material selector card",
+        "MES drawing and attachment card starts in viewport"
+      ],
+      "drawing_card_rect": {
+        "left": 273,
+        "top": 681.421875,
+        "right": 1391,
+        "bottom": 1318.5625,
+        "width": 1118,
+        "height": 637.140625
+      },
+      "drawing_card_continues_below_fold": true,
+      "document_horizontal_overflow_px": 0
+    },
+    "mobile_375x812": {
+      "visible_order": [
+        "compact Catalog header",
+        "page title and description",
+        "MES material selector controls"
+      ],
+      "drawing_card_rect": {
+        "left": 33,
+        "top": 940.734375,
+        "right": 342,
+        "bottom": 2674.375,
+        "width": 309,
+        "height": 1733.640625
+      },
+      "drawing_card_below_first_viewport": true,
+      "document_horizontal_overflow_px": 0,
+      "after_scroll_to_component": "single-column attachment rows; gallery group gap remains 12px; PDF page fits the measured stage width"
+    },
+    "space_budget_source": "Measured on the rendered Catalog route; first viewport and focused component state are both recorded instead of treating the long component-suite page as a standalone MES production route."
+  },
+  "component_geometry": {
+    "desktop_attachment_card_overflow_px": 0,
+    "mobile_attachment_card_overflow_px": 0,
+    "mobile_pdf": {
+      "stage": {
+        "left": 50,
+        "right": 325,
+        "width": 275,
+        "clientWidth": 273,
+        "scrollWidth": 273
+      },
+      "canvas": {
+        "left": 63,
+        "right": 312,
+        "width": 249,
+        "clientWidth": 249,
+        "scrollWidth": 249
+      },
+      "document": {
+        "left": 63,
+        "right": 312,
+        "width": 249,
+        "clientWidth": 249,
+        "scrollWidth": 249
+      },
+      "drawer": {
+        "left": 34,
+        "right": 341,
+        "width": 307,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "docScrollWidth": 375,
+      "viewport": 375
+    },
+    "runtime_errors": {
+      "pageErrors": [],
+      "consoleErrors": [],
+      "authResponses": []
+    },
+    "interaction_results": {
+      "imagePreview": "PASS",
+      "pdfPreviewAndWorker": "PASS",
+      "pdfZoomAndDownloadFallback": "PASS",
+      "orderAttachmentAssociation": "PASS",
+      "groupPrintCallback": "PASS",
+      "hostUploadAndOriginalName": "PASS",
+      "ordinaryAttachmentProxyDownload": "PASS"
+    }
+  },
+  "seams": [
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 图纸与附件",
+      "state": "desktop-catalog-top-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "页面标题与说明",
+      "next": "MES 物料选择器卡片",
+      "previous_rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 665.421875,
+        "width": 1118,
+        "height": 445.140625
+      },
+      "gap_px": 20,
+      "expected": {
+        "kind": "contract",
+        "value": "20px heading-to-content spacing",
+        "source": "examples/catalog/catalog.css: .sxw-docs-page-heading margin-bottom"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 20
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-drawing-files-debug.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/desktop-route-top-1440x900.png",
+      "screenshot_sha256": "f1c7c5e949c3140db5889a42c49891d2741b25e27a8b704546ff15ee0a1bb2e2",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 图纸与附件",
+      "state": "desktop-catalog-top-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 物料选择器卡片",
+      "next": "MES 图纸与附件卡片",
+      "previous_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 665.421875,
+        "width": 1118,
+        "height": 445.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 681.421875,
+        "right": 1391,
+        "bottom": 1318.5625,
+        "width": 1118,
+        "height": 637.140625
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-drawing-files-debug.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/desktop-route-top-1440x900.png",
+      "screenshot_sha256": "f1c7c5e949c3140db5889a42c49891d2741b25e27a8b704546ff15ee0a1bb2e2",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 图纸与附件",
+      "state": "mobile-selector-to-drawing-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 物料选择器卡片",
+      "next": "MES 图纸与附件卡片",
+      "previous_rect": {
+        "left": 33,
+        "top": -262.21875,
+        "right": 342,
+        "bottom": 406.234375,
+        "width": 309,
+        "height": 668.453125
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 422.234375,
+        "right": 342,
+        "bottom": 2155.875,
+        "width": 309,
+        "height": 1733.640625
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-drawing-files-debug.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/mobile-selector-drawing-seam-375x812.png",
+      "screenshot_sha256": "a25d441610ea4f9cc53f5392bdf03e235de6faee118641ff63ec3515d6569dde",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 图纸与附件",
+      "state": "desktop-drawing-to-next-card-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 图纸与附件卡片",
+      "next": "MES 表格长文本卡片",
+      "previous_rect": {
+        "left": 273,
+        "top": 234.921875,
+        "right": 1391,
+        "bottom": 984.0625,
+        "width": 1118,
+        "height": 749.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 1000.0625,
+        "right": 1391,
+        "bottom": 1293.203125,
+        "width": 1118,
+        "height": 293.140625
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-drawing-files-debug.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/desktop-card-next-seam-1440x900.png",
+      "screenshot_sha256": "6ea385879f1d5320dbac066d1b24ab895e6cd555d137f1556acd734b0944dff2",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 图纸与附件",
+      "state": "mobile-drawing-to-next-card-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 图纸与附件卡片",
+      "next": "MES 表格长文本卡片",
+      "previous_rect": {
+        "left": 33,
+        "top": -1327.765625,
+        "right": 342,
+        "bottom": 405.875,
+        "width": 309,
+        "height": 1733.640625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 421.875,
+        "right": 342,
+        "bottom": 825.015625,
+        "width": 309,
+        "height": 403.140625
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-drawing-files-debug.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/mobile-card-next-seam-375x812.png",
+      "screenshot_sha256": "145e626a55d71709f9335c9c550830f92de7a351ee501dd82e0a17a4f075f08c",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 图纸与附件",
+      "state": "desktop-gallery-groups-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "当前明细图纸组",
+      "next": "来源订单附件组",
+      "previous_rect": {
+        "left": 290,
+        "top": 499.0625,
+        "right": 1374,
+        "bottom": 674.0625,
+        "width": 1084,
+        "height": 175,
+        "clientWidth": 1082,
+        "scrollWidth": 1082
+      },
+      "next_rect": {
+        "left": 290,
+        "top": 686.0625,
+        "right": 1374,
+        "bottom": 861.0625,
+        "width": 1084,
+        "height": 175,
+        "clientWidth": 1082,
+        "scrollWidth": 1082
+      },
+      "gap_px": 12,
+      "expected": {
+        "kind": "contract",
+        "value": "12px gap between drawing source groups",
+        "source": "src/mes/components/drawing-files.css: .sxw-mes-drawing-gallery gap"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 12
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-drawing-files-debug.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/desktop-attachment-card-1440x900.png",
+      "screenshot_sha256": "62cbfc4cd70b7d037219f199196b5ed460a6a6a0c91a3f24bae1490ee1093372",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 图纸与附件",
+      "state": "mobile-gallery-groups-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "当前明细图纸组",
+      "next": "来源订单附件组",
+      "previous_rect": {
+        "left": 50,
+        "top": -246.125,
+        "right": 325,
+        "bottom": 399.875,
+        "width": 275,
+        "height": 646
+      },
+      "next_rect": {
+        "left": 50,
+        "top": 411.875,
+        "right": 325,
+        "bottom": 932.875,
+        "width": 275,
+        "height": 521
+      },
+      "gap_px": 12,
+      "expected": {
+        "kind": "contract",
+        "value": "12px gap between drawing source groups",
+        "source": "src/mes/components/drawing-files.css: .sxw-mes-drawing-gallery gap"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 12
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-mes-drawing-files-debug.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/mobile-gallery-group-seam-375x812.png",
+      "screenshot_sha256": "bd5eef32d9d4f777edbc7fe3ef81bd9897ad8b0a3749e2f6076f8f996da5e4f3",
+      "status": "PASS"
+    }
+  ]
+}

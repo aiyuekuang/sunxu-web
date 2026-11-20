@@ -1,4 +1,5 @@
 import { createContext, useCallback, useContext, type ReactNode } from 'react';
+import type { MesDrawingFilesCapabilities } from './components/drawing-files-types';
 import type { MesMaterialSelectCapabilities } from './components/material-select-types';
 
 export interface MesUiRoute {
@@ -51,6 +52,8 @@ export interface MesUiProviderProps {
   ) => ReactNode;
   /** Material data, dictionaries, configuration links, and scanner bridge. */
   materialSelectCapabilities?: MesMaterialSelectCapabilities;
+  /** Authenticated file proxy, upload, download, and original-name lookups. */
+  drawingFilesCapabilities?: MesDrawingFilesCapabilities;
   children: ReactNode;
 }
 
@@ -63,6 +66,7 @@ type MesUiContextValue = Pick<
   | 'actionIntentRoute'
   | 'renderCustomFieldPanel'
   | 'materialSelectCapabilities'
+  | 'drawingFilesCapabilities'
 >;
 
 const MesUiContext = createContext<MesUiContextValue | null>(null);
@@ -75,6 +79,7 @@ export function MesUiProvider({
   actionIntentRoute,
   renderCustomFieldPanel,
   materialSelectCapabilities,
+  drawingFilesCapabilities,
   children,
 }: MesUiProviderProps) {
   return (
@@ -87,6 +92,7 @@ export function MesUiProvider({
         actionIntentRoute,
         renderCustomFieldPanel,
         materialSelectCapabilities,
+        drawingFilesCapabilities,
       }}
     >
       {children}
@@ -150,4 +156,11 @@ export function useMesMaterialSelectCapabilities():
   | MesMaterialSelectCapabilities
   | undefined {
   return useContext(MesUiContext)?.materialSelectCapabilities;
+}
+
+/** Host capabilities for MES drawing and attachment components. */
+export function useMesDrawingFilesCapabilities():
+  | MesDrawingFilesCapabilities
+  | undefined {
+  return useContext(MesUiContext)?.drawingFilesCapabilities;
 }

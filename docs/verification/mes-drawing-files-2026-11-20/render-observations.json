@@ -1,0 +1,477 @@
+{
+  "result": "PASS",
+  "route": "CatalogApp / MES UI 套件 → MES 图纸与附件",
+  "targetUrl": "http://127.0.0.1:4174/",
+  "desktopTopGeometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "workspace": {
+      "left": 224,
+      "top": 56,
+      "right": 1440,
+      "bottom": 3396.640625,
+      "width": 1216,
+      "height": 3340.640625
+    },
+    "content": {
+      "left": 248,
+      "top": 80,
+      "right": 1416,
+      "bottom": 3372.640625,
+      "width": 1168,
+      "height": 3292.640625
+    },
+    "pageHeading": {
+      "left": 273,
+      "top": 105,
+      "right": 1391,
+      "bottom": 200.28125,
+      "width": 1118,
+      "height": 95.28125
+    },
+    "selectorCard": {
+      "left": 273,
+      "top": 220.28125,
+      "right": 1391,
+      "bottom": 665.421875,
+      "width": 1118,
+      "height": 445.140625
+    },
+    "drawingCard": {
+      "left": 273,
+      "top": 681.421875,
+      "right": 1391,
+      "bottom": 1318.5625,
+      "width": 1118,
+      "height": 637.140625
+    },
+    "nextCard": {
+      "left": 273,
+      "top": 1334.5625,
+      "right": 1391,
+      "bottom": 1627.703125,
+      "width": 1118,
+      "height": 293.140625
+    }
+  },
+  "desktopGeometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "workspace": {
+      "left": 224,
+      "top": -362.5,
+      "right": 1440,
+      "bottom": 2978.140625,
+      "width": 1216,
+      "height": 3340.640625,
+      "clientWidth": 1216,
+      "scrollWidth": 1216
+    },
+    "content": {
+      "left": 248,
+      "top": -338.5,
+      "right": 1416,
+      "bottom": 2954.140625,
+      "width": 1168,
+      "height": 3292.640625,
+      "clientWidth": 1166,
+      "scrollWidth": 1166
+    },
+    "heading": {
+      "left": 273,
+      "top": -313.5,
+      "right": 1391,
+      "bottom": -218.21875,
+      "width": 1118,
+      "height": 95.28125,
+      "clientWidth": 1118,
+      "scrollWidth": 1118
+    },
+    "previousCard": {
+      "left": 273,
+      "top": -198.21875,
+      "right": 1391,
+      "bottom": 246.921875,
+      "width": 1118,
+      "height": 445.140625,
+      "clientWidth": 1116,
+      "scrollWidth": 1116
+    },
+    "card": {
+      "left": 273,
+      "top": 262.921875,
+      "right": 1391,
+      "bottom": 900.0625,
+      "width": 1118,
+      "height": 637.140625,
+      "clientWidth": 1116,
+      "scrollWidth": 1116
+    },
+    "nextCard": {
+      "left": 273,
+      "top": 916.0625,
+      "right": 1391,
+      "bottom": 1209.203125,
+      "width": 1118,
+      "height": 293.140625,
+      "clientWidth": 1116,
+      "scrollWidth": 1116
+    },
+    "galleryGroups": [
+      {
+        "left": 290,
+        "top": 499.0625,
+        "right": 1374,
+        "bottom": 674.0625,
+        "width": 1084,
+        "height": 175,
+        "clientWidth": 1082,
+        "scrollWidth": 1082
+      },
+      {
+        "left": 290,
+        "top": 686.0625,
+        "right": 1374,
+        "bottom": 861.0625,
+        "width": 1084,
+        "height": 175,
+        "clientWidth": 1082,
+        "scrollWidth": 1082
+      }
+    ],
+    "cardOverflow": 0
+  },
+  "mobileTopGeometry": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "workspace": {
+      "left": 0,
+      "top": 56,
+      "right": 375,
+      "bottom": 5762.953125,
+      "width": 375,
+      "height": 5706.953125
+    },
+    "content": {
+      "left": 16,
+      "top": 72,
+      "right": 359,
+      "bottom": 5746.953125,
+      "width": 343,
+      "height": 5674.953125
+    },
+    "pageHeading": {
+      "left": 33,
+      "top": 89,
+      "right": 342,
+      "bottom": 240.28125,
+      "width": 309,
+      "height": 151.28125
+    },
+    "selectorCard": {
+      "left": 33,
+      "top": 256.28125,
+      "right": 342,
+      "bottom": 924.734375,
+      "width": 309,
+      "height": 668.453125
+    },
+    "drawingCard": {
+      "left": 33,
+      "top": 940.734375,
+      "right": 342,
+      "bottom": 2674.375,
+      "width": 309,
+      "height": 1733.640625
+    },
+    "nextCard": {
+      "left": 33,
+      "top": 2690.375,
+      "right": 342,
+      "bottom": 3093.515625,
+      "width": 309,
+      "height": 403.140625
+    }
+  },
+  "mobileGeometry": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "workspace": {
+      "left": 0,
+      "top": -812.5,
+      "right": 375,
+      "bottom": 4894.453125,
+      "width": 375,
+      "height": 5706.953125,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "content": {
+      "left": 16,
+      "top": -796.5,
+      "right": 359,
+      "bottom": 4878.453125,
+      "width": 343,
+      "height": 5674.953125,
+      "clientWidth": 341,
+      "scrollWidth": 341
+    },
+    "previousCard": {
+      "left": 33,
+      "top": -612.21875,
+      "right": 342,
+      "bottom": 56.234375,
+      "width": 309,
+      "height": 668.453125,
+      "clientWidth": 307,
+      "scrollWidth": 307
+    },
+    "card": {
+      "left": 33,
+      "top": 72.234375,
+      "right": 342,
+      "bottom": 1805.875,
+      "width": 309,
+      "height": 1733.640625,
+      "clientWidth": 307,
+      "scrollWidth": 307
+    },
+    "nextCard": {
+      "left": 33,
+      "top": 1821.875,
+      "right": 342,
+      "bottom": 2225.015625,
+      "width": 309,
+      "height": 403.140625,
+      "clientWidth": 307,
+      "scrollWidth": 307
+    },
+    "galleryGroups": [
+      {
+        "left": 50,
+        "top": 587.875,
+        "right": 325,
+        "bottom": 1233.875,
+        "width": 275,
+        "height": 646,
+        "clientWidth": 273,
+        "scrollWidth": 273
+      },
+      {
+        "left": 50,
+        "top": 1245.875,
+        "right": 325,
+        "bottom": 1766.875,
+        "width": 275,
+        "height": 521,
+        "clientWidth": 273,
+        "scrollWidth": 273
+      }
+    ],
+    "cardOverflow": 0
+  },
+  "desktopCardNextSeamGeometry": {
+    "drawingCard": {
+      "left": 273,
+      "top": 234.921875,
+      "right": 1391,
+      "bottom": 984.0625,
+      "width": 1118,
+      "height": 749.140625
+    },
+    "nextCard": {
+      "left": 273,
+      "top": 1000.0625,
+      "right": 1391,
+      "bottom": 1293.203125,
+      "width": 1118,
+      "height": 293.140625
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    }
+  },
+  "mobileSelectorDrawingSeamGeometry": {
+    "selectorCard": {
+      "left": 33,
+      "top": -262.21875,
+      "right": 342,
+      "bottom": 406.234375,
+      "width": 309,
+      "height": 668.453125
+    },
+    "drawingCard": {
+      "left": 33,
+      "top": 422.234375,
+      "right": 342,
+      "bottom": 2155.875,
+      "width": 309,
+      "height": 1733.640625
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    }
+  },
+  "mobileCardNextSeamGeometry": {
+    "drawingCard": {
+      "left": 33,
+      "top": -1327.765625,
+      "right": 342,
+      "bottom": 405.875,
+      "width": 309,
+      "height": 1733.640625
+    },
+    "nextCard": {
+      "left": 33,
+      "top": 421.875,
+      "right": 342,
+      "bottom": 825.015625,
+      "width": 309,
+      "height": 403.140625
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    }
+  },
+  "mobileGallerySeamGeometry": {
+    "firstGroup": {
+      "left": 50,
+      "top": -246.125,
+      "right": 325,
+      "bottom": 399.875,
+      "width": 275,
+      "height": 646
+    },
+    "secondGroup": {
+      "left": 50,
+      "top": 411.875,
+      "right": 325,
+      "bottom": 932.875,
+      "width": 275,
+      "height": 521
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    }
+  },
+  "mobilePdfGeometry": {
+    "stage": {
+      "left": 50,
+      "right": 325,
+      "width": 275,
+      "clientWidth": 273,
+      "scrollWidth": 273
+    },
+    "canvas": {
+      "left": 63,
+      "right": 312,
+      "width": 249,
+      "clientWidth": 249,
+      "scrollWidth": 249
+    },
+    "document": {
+      "left": 63,
+      "right": 312,
+      "width": 249,
+      "clientWidth": 249,
+      "scrollWidth": 249
+    },
+    "drawer": {
+      "left": 34,
+      "right": 341,
+      "width": 307,
+      "clientWidth": 307,
+      "scrollWidth": 307
+    },
+    "docScrollWidth": 375,
+    "viewport": 375
+  },
+  "screenshots": {
+    "desktopTop": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/desktop-route-top-1440x900.png",
+      "sha256": "f1c7c5e949c3140db5889a42c49891d2741b25e27a8b704546ff15ee0a1bb2e2"
+    },
+    "desktopCard": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/desktop-attachment-card-1440x900.png",
+      "sha256": "62cbfc4cd70b7d037219f199196b5ed460a6a6a0c91a3f24bae1490ee1093372"
+    },
+    "desktopCardNextSeam": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/desktop-card-next-seam-1440x900.png",
+      "sha256": "6ea385879f1d5320dbac066d1b24ab895e6cd555d137f1556acd734b0944dff2"
+    },
+    "desktopImagePreview": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/desktop-image-preview-1440x900.png",
+      "sha256": "a984383a15c79671d15634614188f6dc9994228793c5edf5c30bb8196ce24cc3"
+    },
+    "desktopPdfDrawer": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/desktop-pdf-preview-1440x900.png",
+      "sha256": "481bbd394d756cdcb0ccb577412784e4aa76384d4575e948fb355c200a57cfa2"
+    },
+    "mobileTop": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/mobile-route-top-375x812.png",
+      "sha256": "33a0c0352154084ed2e3263e724c93a9f316d99ffb153f0d82ca9b50f3bbbc5b"
+    },
+    "mobileSelectorDrawingSeam": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/mobile-selector-drawing-seam-375x812.png",
+      "sha256": "a25d441610ea4f9cc53f5392bdf03e235de6faee118641ff63ec3515d6569dde"
+    },
+    "mobileCard": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/mobile-attachment-card-375x812.png",
+      "sha256": "6c6424db33521b57f357445939ed5e6cfbbe7951a4659ff343647307af2dd1b2"
+    },
+    "mobileCardNextSeam": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/mobile-card-next-seam-375x812.png",
+      "sha256": "145e626a55d71709f9335c9c550830f92de7a351ee501dd82e0a17a4f075f08c"
+    },
+    "mobileGallerySeam": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/mobile-gallery-group-seam-375x812.png",
+      "sha256": "bd5eef32d9d4f777edbc7fe3ef81bd9897ad8b0a3749e2f6076f8f996da5e4f3"
+    },
+    "mobilePdfDrawer": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/mobile-pdf-preview-375x812.png",
+      "sha256": "0111088b8b4106dead40fa99cbb6ab2e36c6ef2cb32d1bd01183ece5eec15392"
+    }
+  },
+  "interactions": {
+    "imagePreview": "PASS",
+    "pdfPreviewAndWorker": "PASS",
+    "pdfZoomAndDownloadFallback": "PASS",
+    "orderAttachmentAssociation": "PASS",
+    "groupPrintCallback": "PASS",
+    "hostUploadAndOriginalName": "PASS",
+    "ordinaryAttachmentProxyDownload": "PASS"
+  },
+  "runtimeErrors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "authResponses": []
+  }
+}

@@ -8,10 +8,10 @@
 
 ## 安装与主题
 
-宿主应用安装组件库及其 peer dependencies：
+宿主应用安装组件库及其 peer dependencies。MES PDF 预览使用 React-PDF；`pdfjs-dist` 必须与 React-PDF 要求的 Worker 版本完全一致：
 
 ```bash
-npm install sunxu-web antd@^6.7.0 @ant-design/pro-components@3.1.15-9 @ant-design/icons@^6.3.4
+npm install sunxu-web antd@^6.7.0 @ant-design/pro-components@3.1.15-9 @ant-design/icons@^6.3.4 react-pdf@^10.4.1 pdfjs-dist@5.4.296
 ```
 
 在应用入口引入 Ant Design reset 和 Sunxu Web 样式，并用 `SunxuWebProvider` 包裹应用：
