@@ -1,4 +1,11 @@
-import { createContext, useContext, type ReactNode } from 'react';
+import { createContext, useCallback, useContext, type ReactNode } from 'react';
+
+export interface MesUiRoute {
+  pathname: string;
+  search: string;
+  /** The host applies its router's replace operation. */
+  replace: (path: string) => void;
+}
 
 export interface MesUiProviderProps {
   /** MES 宿主的权限判断；权限码和权限策略由宿主维护。 */
@@ -21,12 +28,18 @@ export interface MesUiProviderProps {
   ) => { onClick: () => unknown | Promise<unknown> } | undefined;
   /** Identify action columns created by the host so the suite does not nest menus. */
   isTableActionColumn?: (column: object) => boolean;
+  /** Current route and replace adapter for MES action-intent deep links. */
+  actionIntentRoute?: MesUiRoute;
   children: ReactNode;
 }
 
 type MesUiContextValue = Pick<
   MesUiProviderProps,
-  'hasPermission' | 'maskAmount' | 'resolveRowEditAction' | 'isTableActionColumn'
+  | 'hasPermission'
+  | 'maskAmount'
+  | 'resolveRowEditAction'
+  | 'isTableActionColumn'
+  | 'actionIntentRoute'
 >;
 
 const MesUiContext = createContext<MesUiContextValue | null>(null);
@@ -36,11 +49,18 @@ export function MesUiProvider({
   maskAmount,
   resolveRowEditAction,
   isTableActionColumn,
+  actionIntentRoute,
   children,
 }: MesUiProviderProps) {
   return (
     <MesUiContext.Provider
-      value={{ hasPermission, maskAmount, resolveRowEditAction, isTableActionColumn }}
+      value={{
+        hasPermission,
+        maskAmount,
+        resolveRowEditAction,
+        isTableActionColumn,
+        actionIntentRoute,
+      }}
     >
       {children}
     </MesUiContext.Provider>
@@ -75,4 +95,18 @@ export function useMesPermission(permission?: string): boolean {
   const host = useContext(MesUiContext);
   if (!permission) return true;
   return host?.hasPermission(permission) ?? false;
+}
+
+/** Permission predicate for compound MES UI components; absent providers deny access. */
+export function useMesPermissionChecker(): (permission: string) => boolean {
+  const host = useContext(MesUiContext);
+  return useCallback(
+    (permission: string) => host?.hasPermission(permission) ?? false,
+    [host],
+  );
+}
+
+/** Router capability used by document action-intent deep links. */
+export function useMesActionIntentRoute(): MesUiRoute | undefined {
+  return useContext(MesUiContext)?.actionIntentRoute;
 }

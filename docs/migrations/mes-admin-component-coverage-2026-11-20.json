@@ -88,9 +88,9 @@
     "component_reference_count": 627,
     "component_status_counts": {
       "HOST_SCOPE": 278,
-      "IMPLEMENTED": 26,
+      "IMPLEMENTED": 29,
       "MAPPED": 245,
-      "PENDING": 61,
+      "PENDING": 58,
       "REVIEW_SOURCE_CONTRACT": 16,
       "WORKTREE_IMPLEMENTATION": 1
     },
@@ -106,9 +106,9 @@
     "source_status_counts": {
       "EXCLUDED_FROM_RUNTIME": 46,
       "HOST_SCOPE": 33,
-      "IMPLEMENTED": 23,
+      "IMPLEMENTED": 25,
       "MAPPED": 8,
-      "PENDING": 80,
+      "PENDING": 78,
       "REVIEW_SOURCE_CONTRACT": 4,
       "WORKTREE_IMPLEMENTATION": 1
     },
@@ -4630,12 +4630,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 1,
       "importer_file_count": 1,
       "source_sha256": "dcc06254abf74fbd40bb14d3cae2617544d36614c878ed276a7b131b351a8434",
       "previous_target": null,
-      "rationale": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+      "rationale": "Implemented at src/mes/components/DocumentActionsDropdown.tsx with host-injected permission checks, authoritative detail or safe list projection, server availableActions filtering, retry state, dynamic labels, and action callbacks."
     },
     {
       "module": "./DocumentFilterDrawer",
@@ -5410,12 +5410,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 20,
       "importer_file_count": 3,
       "source_sha256": "5e7f7b7e98050bf04dc651b3bd4592be02cbb8c70c88eb6a022c576d60f1ac3d",
       "previous_target": null,
-      "rationale": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+      "rationale": "Implemented at src/mes/components/DocumentActionIntent.tsx with host-injected route state/replace, one-shot action query handling, and the existing detail action callback."
     },
     {
       "module": "@/components/patterns/DocumentActionsDropdown",
@@ -5425,12 +5425,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 21,
       "importer_file_count": 21,
       "source_sha256": "dcc06254abf74fbd40bb14d3cae2617544d36614c878ed276a7b131b351a8434",
       "previous_target": null,
-      "rationale": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+      "rationale": "Implemented at src/mes/components/DocumentActionsDropdown.tsx with host-injected permission checks, authoritative detail or safe list projection, server availableActions filtering, retry state, dynamic labels, and action callbacks."
     },
     {
       "module": "@/components/patterns/DocumentBomDrawer",
@@ -11707,7 +11707,9 @@
       "previous_reason": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "rationale": "Implemented at src/mes/components/DocumentActionIntent.tsx with host-injected route state/replace, one-shot action query handling, and the existing detail action callback.",
+      "implementation_target": "src/mes/components/DocumentActionIntent.tsx"
     },
     {
       "source": "src/components/patterns/DocumentActionsDropdown.test.tsx",
@@ -11738,7 +11740,9 @@
       "previous_reason": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "rationale": "Implemented at src/mes/components/DocumentActionsDropdown.tsx with host-injected permission checks, authoritative detail or safe list projection, server availableActions filtering, retry state, dynamic labels, and action callbacks.",
+      "implementation_target": "src/mes/components/DocumentActionsDropdown.tsx"
     },
     {
       "source": "src/components/patterns/DocumentBomDrawer.tsx",

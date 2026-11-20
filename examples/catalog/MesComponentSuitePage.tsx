@@ -11,6 +11,8 @@ import {
   CustomerMaterialCell,
   DateText,
   DefaultRouteHint,
+  DocumentActionIntent,
+  DocumentActionsDropdown,
   DocumentKeywordSearch,
   DocumentTableTitle,
   EntityThumbnail,
@@ -21,6 +23,9 @@ import {
   UserText,
   type MesStatusEnum,
   type DocumentLineBatchField,
+  type DocumentActionDefinition,
+  type DocumentActionState,
+  type MesUiRoute,
 } from '../../src/mes';
 
 type MesLine = {
@@ -61,6 +66,45 @@ const statusOptions: MesStatusEnum = {
   pending: { text: '待处理', status: 'Warning', color: '#FF8F1F' },
 };
 
+type DemoDocument = DocumentActionState & { documentNo: string };
+
+const demoDocumentActions: readonly DocumentActionDefinition<DemoDocument>[] = [
+  { key: 'detail', label: '查看详情' },
+  {
+    key: 'edit',
+    label: '编辑',
+    permission: 'mes:catalog:edit',
+    requiredAvailableAction: 'update',
+  },
+  {
+    key: 'submit',
+    label: (document) => `提交 ${document.documentNo}`,
+    permission: 'mes:catalog:submit',
+    requiredPermissions: ['mes:catalog:read'],
+    requiredAvailableAction: 'submit',
+  },
+  {
+    key: 'reschedule',
+    label: '插单重排',
+    permission: 'mes:catalog:schedule',
+    requiredPermissions: ['mes:catalog:schedule:update'],
+    requiredAvailableAction: 'reschedule',
+  },
+  {
+    key: 'warehouse-review',
+    label: '仓库审核',
+    requiredAvailableAction: 'warehouse-review',
+    visible: (document) => document.documentNo === 'CG-2026-001',
+  },
+  {
+    key: 'cancel',
+    label: '撤销',
+    permission: 'mes:catalog:hidden',
+    requiredAvailableAction: 'cancel',
+    danger: true,
+  },
+];
+
 const demoThumbnailUrl = `data:image/svg+xml,${encodeURIComponent(
   '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96"><rect width="96" height="96" rx="12" fill="#e6f4ff"/><path d="M22 65 40 43l12 14 9-11 15 19H22Z" fill="#1677ff"/><circle cx="35" cy="31" r="7" fill="#69b1ff"/></svg>',
 )}`;
@@ -90,6 +134,13 @@ export function MesComponentSuitePage() {
   const [showAmounts, setShowAmounts] = useState(false);
   const [documentKeyword, setDocumentKeyword] = useState('');
   const [documentKeywordLoading, setDocumentKeywordLoading] = useState(false);
+  const [documentActionResult, setDocumentActionResult] = useState('尚未触发单据动作');
+  const [actionIntentCount, setActionIntentCount] = useState(0);
+  const [actionLoadShouldFail, setActionLoadShouldFail] = useState(false);
+  const [actionIntentLocation, setActionIntentLocation] = useState({
+    pathname: '/catalog/documents/demo',
+    search: '',
+  });
   const [hasHorizontalOverflow, setHasHorizontalOverflow] = useState(false);
   const tableHostRef = useRef<HTMLDivElement>(null);
 
@@ -148,6 +199,36 @@ export function MesComponentSuitePage() {
       },
     ],
   }), []);
+
+  const loadDemoDocument = useCallback(
+    async (id: string): Promise<DemoDocument> => {
+      await new Promise((resolve) => window.setTimeout(resolve, 250));
+      if (actionLoadShouldFail) {
+        setActionLoadShouldFail(false);
+        throw new Error('目录示例模拟详情加载失败');
+      }
+      return {
+        id,
+        documentNo: id === 'fallback-order' ? 'CG-2026-002' : 'CG-2026-001',
+        availableActions: [
+          'update',
+          'submit',
+          'cancel',
+          'reschedule',
+          'warehouse-review',
+        ],
+      };
+    },
+    [actionLoadShouldFail],
+  );
+
+  const replaceActionIntentRoute = useCallback((pathname: string) => {
+    setActionIntentLocation({ pathname, search: '' });
+  }, []);
+  const actionIntentRoute = useMemo<MesUiRoute>(
+    () => ({ ...actionIntentLocation, replace: replaceActionIntentRoute }),
+    [actionIntentLocation, replaceActionIntentRoute],
+  );
 
   const columns: TableProps<MesLine>['columns'] = [
     { title: '物料编码', dataIndex: 'materialCode', width: 150 },
@@ -351,8 +432,97 @@ export function MesComponentSuitePage() {
               无权限时隐藏
             </PermissionButton>
           </Space>
+          <Space wrap size={8} style={{ marginTop: 8 }}>
+            <Typography.Text type="secondary">权限操作回执：</Typography.Text>
+            <Typography.Text role="status">{permissionAction}</Typography.Text>
+          </Space>
         </MesUiProvider>
-        <Typography.Text role="status">{permissionAction}</Typography.Text>
+      </SectionCard>
+
+      <SectionCard title="MES 单据动作与深链">
+        <Typography.Paragraph type="secondary">
+          动作集合同时受宿主权限和单据 availableActions 控制；深链只触发详情页已有流程。
+        </Typography.Paragraph>
+        <MesUiProvider
+          hasPermission={(permission) =>
+            ![
+              'mes:catalog:hidden',
+              'mes:catalog:schedule:update',
+            ].includes(permission)
+          }
+          actionIntentRoute={actionIntentRoute}
+        >
+          <Space
+            orientation="vertical"
+            size={8}
+            style={{ width: '100%', marginTop: 12 }}
+          >
+            <Space wrap size={12}>
+              <Space align="center" size={4}>
+                <Typography.Text type="secondary">权威详情</Typography.Text>
+                <DocumentActionsDropdown<DemoDocument>
+                  documentId="purchase-order-demo"
+                  documentNo="CG-2026-001"
+                  loadDocument={loadDemoDocument}
+                  actions={demoDocumentActions}
+                  onAction={(key, document) =>
+                    setDocumentActionResult(`已执行 ${key}：${document.documentNo}`)
+                  }
+                />
+              </Space>
+              <Space align="center" size={4}>
+                <Typography.Text type="secondary">安全列表投影</Typography.Text>
+                <DocumentActionsDropdown<DemoDocument>
+                  documentId="fallback-order"
+                  documentNo="CG-2026-002"
+                  fallbackDocument={{
+                    id: 'fallback-order',
+                    documentNo: 'CG-2026-002',
+                  availableActions: ['update', 'warehouse-review'],
+                  }}
+                  actions={demoDocumentActions}
+                  onAction={(key, document) =>
+                    setDocumentActionResult(`列表投影执行 ${key}：${document.documentNo}`)
+                  }
+                />
+              </Space>
+              <Button
+                size="small"
+                onClick={() => setActionLoadShouldFail(true)}
+              >
+                演示详情加载失败
+              </Button>
+              <Button
+                size="small"
+                onClick={() =>
+                  setActionIntentLocation((current) => ({
+                    ...current,
+                    search: '?action=approve',
+                  }))
+                }
+              >
+                模拟提交操作深链
+              </Button>
+            </Space>
+            <Space wrap size={12}>
+              <Typography.Text role="status">{documentActionResult}</Typography.Text>
+              <Typography.Text type="secondary">
+                深链触发次数：{actionIntentCount}
+              </Typography.Text>
+              <Typography.Text type="secondary">
+                当前 action 参数：{actionIntentLocation.search || '（空）'}
+              </Typography.Text>
+            </Space>
+            <DocumentActionIntent
+              action="approve"
+              enabled
+              onTrigger={() => {
+                setActionIntentCount((count) => count + 1);
+                setDocumentActionResult('深链已触发详情页既有提交流程');
+              }}
+            />
+          </Space>
+        </MesUiProvider>
       </SectionCard>
 
       <SectionCard title="MES 文本、金额与主数据展示">

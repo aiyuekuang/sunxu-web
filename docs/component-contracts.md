@@ -186,6 +186,9 @@
 ### `sunxu-web/mes` 兼容组件
 
 - `MesUiProvider` 接受 MES 宿主的 `hasPermission(permission)` 函数；`PermissionButton` 的 `permission` 由此函数判断，无 Provider 或无权限时 fail closed 并不渲染动作。确认文案、危险标记、异步 `onConfirm`、loading、成功提示和成功回调沿用 MES 当前实现；异步错误从 `info.msg`、`data.msg`、`response.data.msg` 或 `Error.message` 提取并显示可确认错误弹窗。请求和权限码的含义由宿主负责。
+- `MesUiProvider.actionIntentRoute` 接收宿主当前 `pathname`、`search` 及路由 `replace(path)` 回调；Sunxu 不依赖 Umi。缺少该路由能力时 `DocumentActionIntent` 不触发操作。
+- `DocumentActionsDropdown<T>` 保留 `documentId`、`documentNo`、`loadDocument`、`fallbackDocument`、`actions` 和 `onAction`。打开菜单时优先按 ID 加载权威单据，否则使用宿主提供的安全列表投影；依次按单项 `permission`、全部 `requiredPermissions`、后端 `availableActions` 中的 `requiredAvailableAction` 和 `visible(document)` 过滤。菜单保留动态 label、danger、loading、未找到和失败重试状态；动作回调收到选中的 key 和单据。当前用户权限和单据请求由宿主提供；页面不在 Sunxu 中复制 MES 状态机。
+- `DocumentActionIntent` 保留 `action/enabled/onTrigger`；路由 query 中的首个 `action` 匹配且 enabled 时先通过宿主 replace 到当前 pathname 清除 query，再调用详情页已有流程；组件实例只处理一次，深链不得绕过权威详情和预检。
 - `DocumentModalForm<T, U>` 保持 Pro `ModalForm` 的泛型和其余 props 透传。默认宽度为 `100vw` 并实际铺满当前工作区，默认 `getContainer` 为 `false`，不穿透 keep-alive 标签容器；只有显式 `viewportFullscreen` 且仍采用默认标签容器时才固定到视口。最小化时取消遮罩并隐藏弹窗，但保持表单挂载与草稿；左下角还原条回到同一组件所在工作区。`open` 变化时清除最小化状态。默认 `destroyOnHidden=true`、`mask.closable=false`、`closable=false`，标题栏提供带无障碍名称的最小化和关闭按钮；可通过调用方 `modalProps.mask` 覆盖遮罩行为。完整宽度子节点由组件提供 `20px 24px 24px` 内边距，render-function children 原样透传；调用方自定义 Modal 语义样式槽及浮层 `style` 会与默认布局合并。固定数值宽度使用普通 Modal 布局；显式自定义 `getContainer` 保留自定义挂载容器，但仍应用完整宽度布局。完整宽度 Modal 保留 `document-form-modal` class 供 MES 宿主现有全局样式过渡使用。组件不负责草稿保存、请求、权限、路由或业务校验。
 - `DocumentLineQuantityInput` 是受控数值编辑器：有效数值变化立即交给宿主，清空时只保留本地空草稿、不发送 `null`；失焦时恢复宿主当前值。`InputNumber` 的范围、精度、步长和外观 props 继续透传。
 - `StatusDisplay` 只消费宿主传入的 `enumMap`，不内置 MES 状态常量；按 `mode` 呈现 `StatusTag`、Ant Design `Badge` 或彩色文本，未知枚举回退原始值、空值显示 `-`。令牌颜色和显式色值沿用 MES 当前映射规则。

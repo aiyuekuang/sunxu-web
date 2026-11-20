@@ -1,0 +1,205 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件 (/)",
+  "targetUrl": "http://127.0.0.1:4173/",
+  "checkedAt": "2026-11-20",
+  "sourceCommit": "e185f6b68b6d8ef94ed0b5312340e1952be5f2f1",
+  "behavior": {
+    "serverProjectionActions": [
+      "查看详情",
+      "编辑",
+      "提交 CG-2026-001",
+      "仓库审核"
+    ],
+    "permissionFiltered": [
+      "撤销",
+      "插单重排"
+    ],
+    "fallbackProjectionActions": [
+      "查看详情",
+      "编辑"
+    ],
+    "fallbackVisiblePredicateHidesWarehouseReview": true,
+    "actionCallback": true,
+    "detailLoadErrorRetryShown": true,
+    "retryThenLoadsAuthoritativeActions": true,
+    "keyboardTriggerButtonAndMenuItem": true,
+    "actionIntentReplaceClearsQuery": true,
+    "actionIntentTriggersOnceAfterRerender": true,
+    "pageErrors": [],
+    "consoleErrors": []
+  },
+  "states": {
+    "desktop-1440x900-light": {
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "documentWidth": 1440,
+        "bodyWidth": 1440,
+        "documentHeight": 2058,
+        "scrollY": 746
+      },
+      "workspace": {
+        "left": 224,
+        "top": -690,
+        "right": 1440,
+        "bottom": 1367.625,
+        "width": 1216,
+        "height": 2057.625,
+        "clientWidth": 1216,
+        "scrollWidth": 1216
+      },
+      "content": {
+        "left": 248,
+        "top": -666,
+        "right": 1416,
+        "bottom": 1343.625,
+        "width": 1168,
+        "height": 2009.625,
+        "clientWidth": 1166,
+        "scrollWidth": 1166
+      },
+      "insets": {
+        "top": 24,
+        "right": 24,
+        "bottom": 24,
+        "left": 24
+      },
+      "previous": {
+        "left": 273,
+        "top": 162.703125,
+        "right": 1391,
+        "bottom": 315.34375,
+        "width": 1118,
+        "height": 152.640625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "target": {
+        "left": 273,
+        "top": 331.34375,
+        "right": 1391,
+        "bottom": 510.484375,
+        "width": 1118,
+        "height": 179.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "next": {
+        "left": 273,
+        "top": 526.484375,
+        "right": 1391,
+        "bottom": 822.625,
+        "width": 1118,
+        "height": 296.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "gaps": {
+        "previousToTarget": 16,
+        "targetToNext": 16
+      },
+      "targetOverflow": {
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "visibleOverflow": [],
+      "screenshot": "./desktop-context.png",
+      "fullPageScreenshot": "./desktop-fullpage.png",
+      "screenshotSha256": "b75268b461fe33786865918a471da62a9e374dde6d79ebdc944238a5ad4a9156",
+      "fullPageScreenshotSha256": "0844629565d88ced6fea2c35bbe51739c09edf3508e15a2e777837f6595c3099",
+      "menuScreenshot": "./desktop-actions-menu.png",
+      "menuScreenshotSha256": "6815cd5ebddab41b6592f98988432bfffdc4eed05a2e6366ef0370dc920a9438"
+    },
+    "mobile-375x812-light": {
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "documentWidth": 375,
+        "bodyWidth": 375,
+        "documentHeight": 2882,
+        "scrollY": 1054.5
+      },
+      "workspace": {
+        "left": 0,
+        "top": -998.5,
+        "right": 375,
+        "bottom": 1883.625,
+        "width": 375,
+        "height": 2882.125,
+        "clientWidth": 375,
+        "scrollWidth": 375
+      },
+      "content": {
+        "left": 16,
+        "top": -982.5,
+        "right": 359,
+        "bottom": 1867.625,
+        "width": 343,
+        "height": 2850.125,
+        "clientWidth": 341,
+        "scrollWidth": 341
+      },
+      "insets": {
+        "top": 16,
+        "right": 16,
+        "bottom": 16,
+        "left": 16
+      },
+      "previous": {
+        "left": 33,
+        "top": 120.203125,
+        "right": 342,
+        "bottom": 352.84375,
+        "width": 309,
+        "height": 232.640625,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "target": {
+        "left": 33,
+        "top": 368.84375,
+        "right": 342,
+        "bottom": 664.984375,
+        "width": 309,
+        "height": 296.140625,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "next": {
+        "left": 33,
+        "top": 680.984375,
+        "right": 342,
+        "bottom": 1354.625,
+        "width": 309,
+        "height": 673.640625,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "gaps": {
+        "previousToTarget": 16,
+        "targetToNext": 16
+      },
+      "targetOverflow": {
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "openMenuWidth": {
+        "viewport": 375,
+        "documentWidth": 375,
+        "bodyWidth": 375
+      },
+      "visibleOverflow": [],
+      "screenshot": "./mobile-context.png",
+      "fullPageScreenshot": "./mobile-fullpage.png",
+      "screenshotSha256": "000072f15e5c514fde8e5622e9949264b6a917a1ee4c8bcc3c5cef9c8948636b",
+      "fullPageScreenshotSha256": "5aeff982b14fcdc35bc76a73948edc63f43bb1184c22e4ecda9660b1ed7a43af",
+      "menuScreenshot": "./mobile-actions-menu.png",
+      "menuScreenshotSha256": "a3ce7e48987a80d613c4ff91fe6f55a165d2d6899d654bf54373fd5030dab0b3"
+    }
+  },
+  "unverified": [
+    "Screen-reader end-to-end flow",
+    "Live MES host Umi permission and router wiring"
+  ]
+}

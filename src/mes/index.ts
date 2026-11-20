@@ -7,6 +7,8 @@ export * from './components/AmountText';
 export * from './components/CustomerMaterialCell';
 export * from './components/DateText';
 export * from './components/DefaultRouteHint';
+export * from './components/DocumentActionIntent';
+export * from './components/DocumentActionsDropdown';
 export * from './components/DocumentKeywordSearch';
 export * from './components/DocumentTableTitle';
 export * from './components/DocumentModalForm';
