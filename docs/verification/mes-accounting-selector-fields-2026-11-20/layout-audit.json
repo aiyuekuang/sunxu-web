@@ -1,0 +1,894 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+  "component": "AccountingBookField / FiscalPeriodField / VoucherWordField / AccountField",
+  "evidence": "./render-observations.json",
+  "evidence_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+        "state": "desktop-route-top-1440x900",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 4393.546875,
+          "width": 1216,
+          "height": 4337.546875
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 4369.546875,
+          "width": 1168,
+          "height": 4289.546875
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-route-top-1440x900.png",
+        "screenshot_sha256": "273920ca14975ebce7729d4116c5d5fe6e0f42742d331f423155e0de15b08df8",
+        "status": "PASS"
+      },
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+        "state": "mobile-route-top-375x812",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 6785.484375,
+          "width": 375,
+          "height": 6729.484375
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 359,
+          "bottom": 6769.484375,
+          "width": 343,
+          "height": 6697.484375
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-route-top-375x812.png",
+        "screenshot_sha256": "33a0c0352154084ed2e3263e724c93a9f316d99ffb153f0d82ca9b50f3bbbc5b",
+        "status": "PASS"
+      }
+    ]
+  },
+  "first_screen_budget": {
+    "business_task": "Choose a posting book, its current fiscal period and voucher word, then search an eligible posting account.",
+    "desktop_1440x900": {
+      "visible_order": [
+        "Catalog header",
+        "MES UI suite title and description",
+        "MES material selector card",
+        "part of MES drawing and attachment card"
+      ],
+      "target_selector_card_rect": {
+        "left": 273,
+        "top": 1776.015625,
+        "right": 1391,
+        "bottom": 2315.46875,
+        "width": 1118,
+        "height": 539.453125
+      },
+      "target_selector_below_fold": true,
+      "document_horizontal_overflow_px": 0
+    },
+    "mobile_375x812": {
+      "visible_order": [
+        "compact Catalog header",
+        "MES UI suite title and description",
+        "MES material selector card",
+        "part of MES drawing and attachment card"
+      ],
+      "target_selector_card_rect": {
+        "left": 33,
+        "top": 2952.140625,
+        "right": 342,
+        "bottom": 3696.90625,
+        "width": 309,
+        "height": 744.765625
+      },
+      "target_selector_below_fold": true,
+      "document_horizontal_overflow_px": 0
+    },
+    "space_budget_source": "Measured on the actual Catalog route. The MES suite displays its selector cards in sequence; the accounting card is below the route first viewport and separately captured in focused desktop and mobile states."
+  },
+  "seams": [
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "desktop-route-top-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "页面标题与说明",
+      "next": "MES 物料选择器卡片",
+      "previous_rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 665.421875,
+        "width": 1118,
+        "height": 445.140625
+      },
+      "gap_px": 20.0,
+      "expected": {
+        "kind": "contract",
+        "value": "20px heading-to-content spacing",
+        "source": "examples/catalog/catalog.css: .sxw-docs-page-heading margin-bottom"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 20.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-route-top-1440x900.png",
+      "screenshot_sha256": "273920ca14975ebce7729d4116c5d5fe6e0f42742d331f423155e0de15b08df8",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "mobile-route-top-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "页面标题与说明",
+      "next": "MES 物料选择器卡片",
+      "previous_rect": {
+        "left": 33,
+        "top": 89,
+        "right": 342,
+        "bottom": 240.28125,
+        "width": 309,
+        "height": 151.28125
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 256.28125,
+        "right": 342,
+        "bottom": 924.734375,
+        "width": 309,
+        "height": 668.453125
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px heading-to-content spacing",
+        "source": "examples/catalog/catalog.css: .sxw-docs-page-heading margin-bottom"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-route-top-375x812.png",
+      "screenshot_sha256": "33a0c0352154084ed2e3263e724c93a9f316d99ffb153f0d82ca9b50f3bbbc5b",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "desktop-route-top-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 物料选择器卡片",
+      "next": "MES 图纸与附件卡片",
+      "previous_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 665.421875,
+        "width": 1118,
+        "height": 445.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 681.421875,
+        "right": 1391,
+        "bottom": 1318.5625,
+        "width": 1118,
+        "height": 637.140625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-route-top-1440x900.png",
+      "screenshot_sha256": "273920ca14975ebce7729d4116c5d5fe6e0f42742d331f423155e0de15b08df8",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "mobile-route-top-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 物料选择器卡片",
+      "next": "MES 图纸与附件卡片",
+      "previous_rect": {
+        "left": 33,
+        "top": 256.28125,
+        "right": 342,
+        "bottom": 924.734375,
+        "width": 309,
+        "height": 668.453125
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 940.734375,
+        "right": 342,
+        "bottom": 2363.375,
+        "width": 309,
+        "height": 1422.640625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-route-top-375x812.png",
+      "screenshot_sha256": "33a0c0352154084ed2e3263e724c93a9f316d99ffb153f0d82ca9b50f3bbbc5b",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "desktop-route-top-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 图纸与附件卡片",
+      "next": "MES 主数据快捷新增选择器卡片",
+      "previous_rect": {
+        "left": 273,
+        "top": 681.421875,
+        "right": 1391,
+        "bottom": 1318.5625,
+        "width": 1118,
+        "height": 637.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 1334.5625,
+        "right": 1391,
+        "bottom": 1760.015625,
+        "width": 1118,
+        "height": 425.453125
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-route-top-1440x900.png",
+      "screenshot_sha256": "273920ca14975ebce7729d4116c5d5fe6e0f42742d331f423155e0de15b08df8",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "mobile-route-top-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 图纸与附件卡片",
+      "next": "MES 主数据快捷新增选择器卡片",
+      "previous_rect": {
+        "left": 33,
+        "top": 940.734375,
+        "right": 342,
+        "bottom": 2363.375,
+        "width": 309,
+        "height": 1422.640625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 2379.375,
+        "right": 342,
+        "bottom": 3064.140625,
+        "width": 309,
+        "height": 684.765625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-route-top-375x812.png",
+      "screenshot_sha256": "33a0c0352154084ed2e3263e724c93a9f316d99ffb153f0d82ca9b50f3bbbc5b",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "desktop-quick-create-accounting-seam-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 主数据快捷新增选择器卡片",
+      "next": "MES 会计账簿与期间选择器卡片",
+      "previous_rect": {
+        "left": 273,
+        "top": -11.4375,
+        "right": 1391,
+        "bottom": 414.015625,
+        "width": 1118,
+        "height": 425.453125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 430.015625,
+        "right": 1391,
+        "bottom": 969.46875,
+        "width": 1118,
+        "height": 539.453125
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-quick-create-accounting-seam-1440x900.png",
+      "screenshot_sha256": "4efebffc276e5dd6552a77fee72e2079a92e48405498d6e157d30b9a9b64bf6e",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "mobile-quick-create-accounting-seam-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 主数据快捷新增选择器卡片",
+      "next": "MES 会计账簿与期间选择器卡片",
+      "previous_rect": {
+        "left": 33,
+        "top": -142.625,
+        "right": 342,
+        "bottom": 414.140625,
+        "width": 309,
+        "height": 556.765625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 430.140625,
+        "right": 342,
+        "bottom": 1174.90625,
+        "width": 309,
+        "height": 744.765625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-quick-create-accounting-seam-375x812.png",
+      "screenshot_sha256": "198be1be99c25dbba2e95da18b47521e17c212ec76bb14d65e33106ae2f296f5",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "desktop-accounting-card-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 会计账簿与期间选择器卡片",
+      "next": "MES 表格长文本卡片",
+      "previous_rect": {
+        "left": 273,
+        "top": 72.015625,
+        "right": 1391,
+        "bottom": 611.46875,
+        "width": 1118,
+        "height": 539.453125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 627.46875,
+        "right": 1391,
+        "bottom": 920.609375,
+        "width": 1118,
+        "height": 293.140625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-accounting-card-1440x900.png",
+      "screenshot_sha256": "9b3b068c006ead1f85c064aff7a838417d756186385f00f90f7b53fe62b7cdbf",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "mobile-accounting-card-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 会计账簿与期间选择器卡片",
+      "next": "MES 表格长文本卡片",
+      "previous_rect": {
+        "left": 33,
+        "top": 72.140625,
+        "right": 342,
+        "bottom": 816.90625,
+        "width": 309,
+        "height": 744.765625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 832.90625,
+        "right": 342,
+        "bottom": 1236.046875,
+        "width": 309,
+        "height": 403.140625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-accounting-card-375x812.png",
+      "screenshot_sha256": "4e094c0fc445b8b7658c1f54c6e7b22a26fe03dfa7f138c72cd6100afcdf57cb",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "desktop-accounting-card-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "账簿编码",
+      "next": "会计期间",
+      "previous_rect": {
+        "left": 290,
+        "top": 198.46875,
+        "right": 1374,
+        "bottom": 264.46875,
+        "width": 1084,
+        "height": 66
+      },
+      "next_rect": {
+        "left": 290,
+        "top": 288.46875,
+        "right": 1374,
+        "bottom": 354.46875,
+        "width": 1084,
+        "height": 66
+      },
+      "gap_px": 24.0,
+      "expected": {
+        "kind": "library",
+        "value": "24px Ant Design vertical Form.Item margin",
+        "source": "node_modules/antd/dist/antd.css: .ant-form-item margin-bottom uses --ant-form-item-margin-bottom"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "exception": "Both form fields share the same MES form surface; Ant Design Form.Item spacing separates them without independent painted surfaces."
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-accounting-card-1440x900.png",
+      "screenshot_sha256": "9b3b068c006ead1f85c064aff7a838417d756186385f00f90f7b53fe62b7cdbf",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "desktop-accounting-card-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "会计期间",
+      "next": "凭证字",
+      "previous_rect": {
+        "left": 290,
+        "top": 288.46875,
+        "right": 1374,
+        "bottom": 354.46875,
+        "width": 1084,
+        "height": 66
+      },
+      "next_rect": {
+        "left": 290,
+        "top": 378.46875,
+        "right": 1374,
+        "bottom": 444.46875,
+        "width": 1084,
+        "height": 66
+      },
+      "gap_px": 24.0,
+      "expected": {
+        "kind": "library",
+        "value": "24px Ant Design vertical Form.Item margin",
+        "source": "node_modules/antd/dist/antd.css: .ant-form-item margin-bottom uses --ant-form-item-margin-bottom"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "exception": "Both form fields share the same MES form surface; Ant Design Form.Item spacing separates them without independent painted surfaces."
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-accounting-card-1440x900.png",
+      "screenshot_sha256": "9b3b068c006ead1f85c064aff7a838417d756186385f00f90f7b53fe62b7cdbf",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "desktop-accounting-card-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "凭证字",
+      "next": "科目",
+      "previous_rect": {
+        "left": 290,
+        "top": 378.46875,
+        "right": 1374,
+        "bottom": 444.46875,
+        "width": 1084,
+        "height": 66
+      },
+      "next_rect": {
+        "left": 290,
+        "top": 468.46875,
+        "right": 1374,
+        "bottom": 534.46875,
+        "width": 1084,
+        "height": 66
+      },
+      "gap_px": 24.0,
+      "expected": {
+        "kind": "library",
+        "value": "24px Ant Design vertical Form.Item margin",
+        "source": "node_modules/antd/dist/antd.css: .ant-form-item margin-bottom uses --ant-form-item-margin-bottom"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "exception": "Both form fields share the same MES form surface; Ant Design Form.Item spacing separates them without independent painted surfaces."
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-accounting-card-1440x900.png",
+      "screenshot_sha256": "9b3b068c006ead1f85c064aff7a838417d756186385f00f90f7b53fe62b7cdbf",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "mobile-accounting-card-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "账簿编码",
+      "next": "会计期间",
+      "previous_rect": {
+        "left": 50,
+        "top": 281.90625,
+        "right": 325,
+        "bottom": 347.90625,
+        "width": 275,
+        "height": 66
+      },
+      "next_rect": {
+        "left": 50,
+        "top": 371.90625,
+        "right": 325,
+        "bottom": 437.90625,
+        "width": 275,
+        "height": 66
+      },
+      "gap_px": 24.0,
+      "expected": {
+        "kind": "library",
+        "value": "24px Ant Design vertical Form.Item margin",
+        "source": "node_modules/antd/dist/antd.css: .ant-form-item margin-bottom uses --ant-form-item-margin-bottom"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "exception": "Both form fields share the same MES form surface; Ant Design Form.Item spacing separates them without independent painted surfaces."
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-accounting-card-375x812.png",
+      "screenshot_sha256": "4e094c0fc445b8b7658c1f54c6e7b22a26fe03dfa7f138c72cd6100afcdf57cb",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "mobile-accounting-card-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "会计期间",
+      "next": "凭证字",
+      "previous_rect": {
+        "left": 50,
+        "top": 371.90625,
+        "right": 325,
+        "bottom": 437.90625,
+        "width": 275,
+        "height": 66
+      },
+      "next_rect": {
+        "left": 50,
+        "top": 461.90625,
+        "right": 325,
+        "bottom": 527.90625,
+        "width": 275,
+        "height": 66
+      },
+      "gap_px": 24.0,
+      "expected": {
+        "kind": "library",
+        "value": "24px Ant Design vertical Form.Item margin",
+        "source": "node_modules/antd/dist/antd.css: .ant-form-item margin-bottom uses --ant-form-item-margin-bottom"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "exception": "Both form fields share the same MES form surface; Ant Design Form.Item spacing separates them without independent painted surfaces."
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-accounting-card-375x812.png",
+      "screenshot_sha256": "4e094c0fc445b8b7658c1f54c6e7b22a26fe03dfa7f138c72cd6100afcdf57cb",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+      "state": "mobile-accounting-card-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "凭证字",
+      "next": "科目",
+      "previous_rect": {
+        "left": 50,
+        "top": 461.90625,
+        "right": 325,
+        "bottom": 527.90625,
+        "width": 275,
+        "height": 66
+      },
+      "next_rect": {
+        "left": 50,
+        "top": 551.90625,
+        "right": 325,
+        "bottom": 617.90625,
+        "width": 275,
+        "height": 66
+      },
+      "gap_px": 24.0,
+      "expected": {
+        "kind": "library",
+        "value": "24px Ant Design vertical Form.Item margin",
+        "source": "node_modules/antd/dist/antd.css: .ant-form-item margin-bottom uses --ant-form-item-margin-bottom"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "exception": "Both form fields share the same MES form surface; Ant Design Form.Item spacing separates them without independent painted surfaces."
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-accounting-selectors.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-accounting-card-375x812.png",
+      "screenshot_sha256": "4e094c0fc445b8b7658c1f54c6e7b22a26fe03dfa7f138c72cd6100afcdf57cb",
+      "status": "PASS"
+    }
+  ],
+  "interaction_results": {
+    "activePrimaryBookAutoDefault": "PASS",
+    "todayCoveredPeriodPreferredOverFutureOpenPeriod": "PASS",
+    "voucherWordDefaultUsesCreatedOrder": "PASS",
+    "bookCodeIncludedInDependentRequestParams": "PASS",
+    "allSevenAccountingRequestHelpers": "PASS",
+    "postingAccountRemoteSearch": "PASS",
+    "emptyBookConfigEntry": "PASS",
+    "mobileDropdownWithinViewport": "PASS"
+  },
+  "runtime_errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "authResponses": []
+  },
+  "limitations": [
+    "Catalog injects deterministic accounting lists and a local configuration-link renderer; production MES APIs, authorization, and config routes are not wired.",
+    "The source file exports request helper functions for ProTable callers; Sunxu exposes equivalent host-bound adapters through createAccountingSelectorRequests. Existing page imports are not replaced in this coverage phase.",
+    "Screen-reader end-to-end behavior was not verified."
+  ]
+}

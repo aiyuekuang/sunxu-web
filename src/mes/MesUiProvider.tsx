@@ -2,6 +2,7 @@ import { createContext, useCallback, useContext, type ReactNode } from 'react';
 import type { MesDrawingFilesCapabilities } from './components/drawing-files-types';
 import type { MesMasterDataQuickCreateCapabilities } from './components/master-data-quick-create-types';
 import type { MesMaterialSelectCapabilities } from './components/material-select-types';
+import type { MesAccountingSelectorCapabilities } from './components/accounting-selector-types';
 
 export interface MesUiRoute {
   pathname: string;
@@ -57,6 +58,8 @@ export interface MesUiProviderProps {
   drawingFilesCapabilities?: MesDrawingFilesCapabilities;
   /** MES-owned quick-create permissions, forms, and configuration links. */
   masterDataQuickCreateCapabilities?: MesMasterDataQuickCreateCapabilities;
+  /** Accounting lists, defaulting metadata, and config-entry links stay host-owned. */
+  accountingSelectorCapabilities?: MesAccountingSelectorCapabilities;
   children: ReactNode;
 }
 
@@ -71,6 +74,7 @@ type MesUiContextValue = Pick<
   | 'materialSelectCapabilities'
   | 'drawingFilesCapabilities'
   | 'masterDataQuickCreateCapabilities'
+  | 'accountingSelectorCapabilities'
 >;
 
 const MesUiContext = createContext<MesUiContextValue | null>(null);
@@ -85,6 +89,7 @@ export function MesUiProvider({
   materialSelectCapabilities,
   drawingFilesCapabilities,
   masterDataQuickCreateCapabilities,
+  accountingSelectorCapabilities,
   children,
 }: MesUiProviderProps) {
   return (
@@ -99,6 +104,7 @@ export function MesUiProvider({
         materialSelectCapabilities,
         drawingFilesCapabilities,
         masterDataQuickCreateCapabilities,
+        accountingSelectorCapabilities,
       }}
     >
       {children}
@@ -176,4 +182,11 @@ export function useMesMasterDataQuickCreateCapabilities():
   | MesMasterDataQuickCreateCapabilities
   | undefined {
   return useContext(MesUiContext)?.masterDataQuickCreateCapabilities;
+}
+
+/** Host capabilities for accounting books, periods, accounts, and voucher words. */
+export function useMesAccountingSelectorCapabilities():
+  | MesAccountingSelectorCapabilities
+  | undefined {
+  return useContext(MesUiContext)?.accountingSelectorCapabilities;
 }

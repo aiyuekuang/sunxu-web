@@ -37,6 +37,7 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 | 重复明细编辑/批量覆盖 | `EditableDetailTable` 与 `BatchFieldSettingsButton` | 不在业务页面复制同义的行选择、批量设置和明细编辑机制；字段 schema 和提交由宿主管理 |
 | MES 物料单选/多选、级联筛选或表格物料查询 | `MaterialSelectField` / `MaterialMultiSelectField` / `MaterialFilteredSelect`（`sunxu-web/mes`） | 注入 MES 候选请求、族/分类/类型字典、单位字典、扫码枪、条码查找和配置权限；不在页面自行拼物料 Select options |
 | 客户/供应商关联字段需要候选内快捷新增 | `MasterDataQuickCreateSelect`（`sunxu-web/mes`） | 宿主注入 `canCreate`、新增表单渲染器、配置链接和远程候选请求；新增权限、表单校验、API 与路由仍归宿主 |
+| 会计账簿、期间、凭证字或科目字段 | `AccountingBookField` / `FiscalPeriodField` / `VoucherWordField` / `AccountField`（`sunxu-web/mes`） | 通过 `MesUiProvider.accountingSelectorCapabilities` 注入基础资料请求和配置入口；ProTable 选项请求使用 `createAccountingSelectorRequests`；API、权限和配置路由由宿主负责 |
 | MES 图纸上传、订单附件行关联、图纸分组预览与打印 | `DrawingFilesInline` / `FileUrlsInline` / `DrawingFilesGallery`（`sunxu-web/mes`） | 使用 `MesUiProvider.drawingFilesCapabilities` 注入授权上传、文件代理下载、原名解析和 PDF worker；分组打印回调、权限与业务保存由宿主决定 |
 | 远程搜索候选 | `RemoteSelect` | 非远程/本地选项直接使用 AntD Select；请求和分页由宿主管理 |
 | 表格长文本最多显示两行并可查看全文 | `LongText` | 默认用 `displayMode="wrap"`；需要旧式截断时显式用 `displayMode="truncate"` |

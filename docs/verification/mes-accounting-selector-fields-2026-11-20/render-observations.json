@@ -1,0 +1,427 @@
+{
+  "result": "PASS",
+  "route": "CatalogApp / MES UI 套件 → MES 会计账簿与期间选择器",
+  "targetUrl": "http://127.0.0.1:4174/",
+  "currentMonth": "2026-11",
+  "desktopTopGeometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "workspace": {
+      "left": 224,
+      "top": 56,
+      "right": 1440,
+      "bottom": 4393.546875,
+      "width": 1216,
+      "height": 4337.546875
+    },
+    "content": {
+      "left": 248,
+      "top": 80,
+      "right": 1416,
+      "bottom": 4369.546875,
+      "width": 1168,
+      "height": 4289.546875
+    },
+    "heading": {
+      "left": 273,
+      "top": 105,
+      "right": 1391,
+      "bottom": 200.28125,
+      "width": 1118,
+      "height": 95.28125
+    },
+    "targetCard": {
+      "left": 273,
+      "top": 1776.015625,
+      "right": 1391,
+      "bottom": 2315.46875,
+      "width": 1118,
+      "height": 539.453125
+    }
+  },
+  "desktopPreviousCardGeometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "previousCard": {
+      "left": 273,
+      "top": -11.4375,
+      "right": 1391,
+      "bottom": 414.015625,
+      "width": 1118,
+      "height": 425.453125
+    },
+    "targetCard": {
+      "left": 273,
+      "top": 430.015625,
+      "right": 1391,
+      "bottom": 969.46875,
+      "width": 1118,
+      "height": 539.453125
+    }
+  },
+  "desktopCardGeometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "workspace": {
+      "left": 224,
+      "top": -1648,
+      "right": 1440,
+      "bottom": 2689.546875,
+      "width": 1216,
+      "height": 4337.546875,
+      "clientWidth": 1216,
+      "scrollWidth": 1216
+    },
+    "content": {
+      "left": 248,
+      "top": -1624,
+      "right": 1416,
+      "bottom": 2665.546875,
+      "width": 1168,
+      "height": 4289.546875,
+      "clientWidth": 1166,
+      "scrollWidth": 1166
+    },
+    "heading": {
+      "left": 273,
+      "top": -1599,
+      "right": 1391,
+      "bottom": -1503.71875,
+      "width": 1118,
+      "height": 95.28125,
+      "clientWidth": 1118,
+      "scrollWidth": 1118
+    },
+    "card": {
+      "left": 273,
+      "top": 72.015625,
+      "right": 1391,
+      "bottom": 611.46875,
+      "width": 1118,
+      "height": 539.453125,
+      "clientWidth": 1116,
+      "scrollWidth": 1116
+    },
+    "nextCard": {
+      "left": 273,
+      "top": 627.46875,
+      "right": 1391,
+      "bottom": 920.609375,
+      "width": 1118,
+      "height": 293.140625,
+      "clientWidth": 1116,
+      "scrollWidth": 1116
+    },
+    "fields": [
+      {
+        "label": "账簿编码",
+        "rect": {
+          "left": 290,
+          "top": 198.46875,
+          "right": 1374,
+          "bottom": 264.46875,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084
+        }
+      },
+      {
+        "label": "会计期间",
+        "rect": {
+          "left": 290,
+          "top": 288.46875,
+          "right": 1374,
+          "bottom": 354.46875,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084
+        }
+      },
+      {
+        "label": "凭证字",
+        "rect": {
+          "left": 290,
+          "top": 378.46875,
+          "right": 1374,
+          "bottom": 444.46875,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084
+        }
+      },
+      {
+        "label": "科目",
+        "rect": {
+          "left": 290,
+          "top": 468.46875,
+          "right": 1374,
+          "bottom": 534.46875,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084
+        }
+      }
+    ],
+    "cardOverflow": 0
+  },
+  "desktopCard": {
+    "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-accounting-card-1440x900.png",
+    "sha256": "9b3b068c006ead1f85c064aff7a838417d756186385f00f90f7b53fe62b7cdbf"
+  },
+  "desktopEmptyConfig": {
+    "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-empty-config-1440x900.png",
+    "sha256": "9465aed6a17afb278caa6f50b42ccba6770fc9a93e741729a40d56b1e6ba668a"
+  },
+  "mobileTopGeometry": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "workspace": {
+      "left": 0,
+      "top": 56,
+      "right": 375,
+      "bottom": 6785.484375,
+      "width": 375,
+      "height": 6729.484375
+    },
+    "content": {
+      "left": 16,
+      "top": 72,
+      "right": 359,
+      "bottom": 6769.484375,
+      "width": 343,
+      "height": 6697.484375
+    },
+    "heading": {
+      "left": 33,
+      "top": 89,
+      "right": 342,
+      "bottom": 240.28125,
+      "width": 309,
+      "height": 151.28125
+    },
+    "targetCard": {
+      "left": 33,
+      "top": 2952.140625,
+      "right": 342,
+      "bottom": 3696.90625,
+      "width": 309,
+      "height": 744.765625
+    }
+  },
+  "mobilePreviousCardGeometry": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "previousCard": {
+      "left": 33,
+      "top": -142.625,
+      "right": 342,
+      "bottom": 414.140625,
+      "width": 309,
+      "height": 556.765625
+    },
+    "targetCard": {
+      "left": 33,
+      "top": 430.140625,
+      "right": 342,
+      "bottom": 1174.90625,
+      "width": 309,
+      "height": 744.765625
+    }
+  },
+  "mobileCardGeometry": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "workspace": {
+      "left": 0,
+      "top": -2824,
+      "right": 375,
+      "bottom": 3905.484375,
+      "width": 375,
+      "height": 6729.484375,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "content": {
+      "left": 16,
+      "top": -2808,
+      "right": 359,
+      "bottom": 3889.484375,
+      "width": 343,
+      "height": 6697.484375,
+      "clientWidth": 341,
+      "scrollWidth": 341
+    },
+    "card": {
+      "left": 33,
+      "top": 72.140625,
+      "right": 342,
+      "bottom": 816.90625,
+      "width": 309,
+      "height": 744.765625,
+      "clientWidth": 307,
+      "scrollWidth": 307
+    },
+    "nextCard": {
+      "left": 33,
+      "top": 832.90625,
+      "right": 342,
+      "bottom": 1236.046875,
+      "width": 309,
+      "height": 403.140625,
+      "clientWidth": 307,
+      "scrollWidth": 307
+    },
+    "fields": [
+      {
+        "label": "账簿编码",
+        "rect": {
+          "left": 50,
+          "top": 281.90625,
+          "right": 325,
+          "bottom": 347.90625,
+          "width": 275,
+          "height": 66,
+          "clientWidth": 275,
+          "scrollWidth": 275
+        }
+      },
+      {
+        "label": "会计期间",
+        "rect": {
+          "left": 50,
+          "top": 371.90625,
+          "right": 325,
+          "bottom": 437.90625,
+          "width": 275,
+          "height": 66,
+          "clientWidth": 275,
+          "scrollWidth": 275
+        }
+      },
+      {
+        "label": "凭证字",
+        "rect": {
+          "left": 50,
+          "top": 461.90625,
+          "right": 325,
+          "bottom": 527.90625,
+          "width": 275,
+          "height": 66,
+          "clientWidth": 275,
+          "scrollWidth": 275
+        }
+      },
+      {
+        "label": "科目",
+        "rect": {
+          "left": 50,
+          "top": 551.90625,
+          "right": 325,
+          "bottom": 617.90625,
+          "width": 275,
+          "height": 66,
+          "clientWidth": 275,
+          "scrollWidth": 275
+        }
+      }
+    ],
+    "cardOverflow": 0
+  },
+  "mobileDropdownGeometry": {
+    "left": 50,
+    "right": 325,
+    "width": 275,
+    "clientWidth": 275,
+    "scrollWidth": 275
+  },
+  "screenshots": {
+    "desktopTop": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-route-top-1440x900.png",
+      "sha256": "273920ca14975ebce7729d4116c5d5fe6e0f42742d331f423155e0de15b08df8"
+    },
+    "desktopPreviousCardSeam": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-quick-create-accounting-seam-1440x900.png",
+      "sha256": "4efebffc276e5dd6552a77fee72e2079a92e48405498d6e157d30b9a9b64bf6e"
+    },
+    "desktopCard": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-accounting-card-1440x900.png",
+      "sha256": "9b3b068c006ead1f85c064aff7a838417d756186385f00f90f7b53fe62b7cdbf"
+    },
+    "desktopEmptyConfig": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/desktop-empty-config-1440x900.png",
+      "sha256": "9465aed6a17afb278caa6f50b42ccba6770fc9a93e741729a40d56b1e6ba668a"
+    },
+    "mobileTop": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-route-top-375x812.png",
+      "sha256": "33a0c0352154084ed2e3263e724c93a9f316d99ffb153f0d82ca9b50f3bbbc5b"
+    },
+    "mobilePreviousCardSeam": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-quick-create-accounting-seam-375x812.png",
+      "sha256": "198be1be99c25dbba2e95da18b47521e17c212ec76bb14d65e33106ae2f296f5"
+    },
+    "mobileCard": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-accounting-card-375x812.png",
+      "sha256": "4e094c0fc445b8b7658c1f54c6e7b22a26fe03dfa7f138c72cd6100afcdf57cb"
+    },
+    "mobileDropdown": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-accounting-selector-fields-2026-11-20/mobile-accounting-dropdown-375x812.png",
+      "sha256": "17cd648201cbab6a66f160e079012643eacaa8844b46225472a10d683eee26c6"
+    }
+  },
+  "helperResult": "Helper 结果：{\"books\":2,\"organizations\":1,\"currencies\":2,\"periods\":3,\"accounts\":1,\"voucherWords\":2,\"parentAccounts\":2,\"currentPreferredPeriod\":\"2026-11\"}",
+  "interactions": {
+    "activePrimaryBookAutoDefault": "PASS",
+    "todayCoveredPeriodPreferredOverFutureOpenPeriod": "PASS",
+    "voucherWordDefaultUsesCreatedOrder": "PASS",
+    "bookCodeIncludedInDependentRequestParams": "PASS",
+    "allSevenAccountingRequestHelpers": "PASS",
+    "postingAccountRemoteSearch": "PASS",
+    "emptyBookConfigEntry": "PASS",
+    "mobileDropdownWithinViewport": "PASS"
+  },
+  "runtimeErrors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "authResponses": []
+  }
+}

@@ -88,11 +88,11 @@
     "component_reference_count": 627,
     "component_status_counts": {
       "HOST_SCOPE": 278,
-      "IMPLEMENTED": 40,
-      "MAPPED": 245,
-      "PENDING": 47,
       "REVIEW_SOURCE_CONTRACT": 16,
-      "WORKTREE_IMPLEMENTATION": 1
+      "IMPLEMENTED": 44,
+      "WORKTREE_IMPLEMENTATION": 1,
+      "MAPPED": 245,
+      "PENDING": 43
     },
     "component_target_counts": {
       "MES_HOST_INTEGRATION": 29,
@@ -104,13 +104,13 @@
     },
     "source_file_count": 195,
     "source_status_counts": {
-      "EXCLUDED_FROM_RUNTIME": 46,
       "HOST_SCOPE": 33,
-      "IMPLEMENTED": 31,
+      "PENDING": 70,
+      "EXCLUDED_FROM_RUNTIME": 46,
       "MAPPED": 8,
-      "PENDING": 72,
-      "REVIEW_SOURCE_CONTRACT": 4,
-      "WORKTREE_IMPLEMENTATION": 1
+      "IMPLEMENTED": 33,
+      "WORKTREE_IMPLEMENTATION": 1,
+      "REVIEW_SOURCE_CONTRACT": 4
     },
     "source_target_counts": {
       "MES_HOST_INTEGRATION": 34,
@@ -4930,12 +4930,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 2,
       "importer_file_count": 1,
       "source_sha256": "17fb4b605cc1adc74fd043b75fc572a24177c5c3d73d81ba801db7cb267d577b",
       "previous_target": null,
-      "rationale": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+      "rationale": "Implemented in src/mes/components/AccountingSelectorFields.tsx with MES list services and config navigation injected by MesUiProvider; field defaults, dependencies, request conditions and empty states preserve the MES source contract."
     },
     {
       "module": "@/components/accounting/selectors",
@@ -4945,12 +4945,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 18,
       "importer_file_count": 17,
       "source_sha256": "17fb4b605cc1adc74fd043b75fc572a24177c5c3d73d81ba801db7cb267d577b",
       "previous_target": null,
-      "rationale": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+      "rationale": "Implemented in src/mes/components/AccountingSelectorFields.tsx with MES list services and config navigation injected by MesUiProvider; field defaults, dependencies, request conditions and empty states preserve the MES source contract."
     },
     {
       "module": "@/components/accounting/selectors",
@@ -4960,12 +4960,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 11,
       "importer_file_count": 11,
       "source_sha256": "17fb4b605cc1adc74fd043b75fc572a24177c5c3d73d81ba801db7cb267d577b",
       "previous_target": null,
-      "rationale": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+      "rationale": "Implemented in src/mes/components/AccountingSelectorFields.tsx with MES list services and config navigation injected by MesUiProvider; field defaults, dependencies, request conditions and empty states preserve the MES source contract."
     },
     {
       "module": "@/components/accounting/selectors",
@@ -4975,12 +4975,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 1,
       "importer_file_count": 1,
       "source_sha256": "17fb4b605cc1adc74fd043b75fc572a24177c5c3d73d81ba801db7cb267d577b",
       "previous_target": null,
-      "rationale": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+      "rationale": "Implemented in src/mes/components/AccountingSelectorFields.tsx with MES list services and config navigation injected by MesUiProvider; field defaults, dependencies, request conditions and empty states preserve the MES source contract."
     },
     {
       "module": "@/components/business-invoice/BusinessInvoiceCoverageCard",
@@ -10521,11 +10521,11 @@
       "consumer_file_count": 0,
       "imported_symbols": [],
       "previous_disposition": "MES_DOMAIN",
-      "previous_target": null,
+      "previous_target": "src/mes/components/accounting-period-selection.ts",
       "previous_reason": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED"
     },
     {
       "source": "src/components/accounting/selectors.test.tsx",
@@ -10554,11 +10554,11 @@
         "@/components/accounting/selectors#VoucherWordField"
       ],
       "previous_disposition": "MES_DOMAIN",
-      "previous_target": null,
+      "previous_target": "src/mes/components/AccountingSelectorFields.tsx",
       "previous_reason": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED"
     },
     {
       "source": "src/components/business-invoice/BusinessInvoiceCoverageCard.test.tsx",
