@@ -88,9 +88,9 @@
     "component_reference_count": 627,
     "component_status_counts": {
       "HOST_SCOPE": 278,
-      "IMPLEMENTED": 29,
+      "IMPLEMENTED": 30,
       "MAPPED": 245,
-      "PENDING": 58,
+      "PENDING": 57,
       "REVIEW_SOURCE_CONTRACT": 16,
       "WORKTREE_IMPLEMENTATION": 1
     },
@@ -106,9 +106,9 @@
     "source_status_counts": {
       "EXCLUDED_FROM_RUNTIME": 46,
       "HOST_SCOPE": 33,
-      "IMPLEMENTED": 25,
+      "IMPLEMENTED": 26,
       "MAPPED": 8,
-      "PENDING": 78,
+      "PENDING": 77,
       "REVIEW_SOURCE_CONTRACT": 4,
       "WORKTREE_IMPLEMENTATION": 1
     },
@@ -4855,12 +4855,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 37,
       "importer_file_count": 35,
       "source_sha256": "6be436607a1f2bd81ae499d479e0b305c836f9da4d25f42f2b118e78e08e735b",
       "previous_target": null,
-      "rationale": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+      "rationale": "Implemented in src/mes/components/DocumentCustomFieldPanel.tsx; the host supplies custom-field schema, requests, editors, and display state while Sunxu preserves empty/error visibility and identity transitions."
     },
     {
       "module": "@/components/CustomFields/documentLineCustomFieldColumns",
@@ -9653,7 +9653,9 @@
       "previous_reason": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "implementation_target": "src/mes/components/DocumentCustomFieldPanel.tsx",
+      "rationale": "Implemented in src/mes/components/DocumentCustomFieldPanel.tsx; the host supplies custom-field schema, requests, editors, and display state while Sunxu preserves empty/error visibility and identity transitions."
     },
     {
       "source": "src/components/CustomFields/customFieldCell.test.tsx",

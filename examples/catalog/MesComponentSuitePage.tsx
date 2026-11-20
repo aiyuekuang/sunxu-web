@@ -1,5 +1,5 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Button, Form, Input } from 'antd';
+import { Button, Form, Input, Segmented, Switch } from 'antd';
 import { SectionCard, Space, Table, Typography } from '../../src';
 import type { TableProps } from 'antd';
 import {
@@ -13,6 +13,7 @@ import {
   DefaultRouteHint,
   DocumentActionIntent,
   DocumentActionsDropdown,
+  DocumentCustomFieldPanel,
   DocumentKeywordSearch,
   DocumentTableTitle,
   EntityThumbnail,
@@ -25,6 +26,7 @@ import {
   type DocumentLineBatchField,
   type DocumentActionDefinition,
   type DocumentActionState,
+  type MesCustomFieldPanelRenderProps,
   type MesUiRoute,
 } from '../../src/mes';
 
@@ -121,6 +123,42 @@ const demoCustomerMaterial = {
 };
 
 type DocumentModalDemoMode = 'workspace' | 'viewport' | 'fixed';
+type CustomFieldDemoMode = 'fields' | 'empty' | 'error';
+
+function DemoCustomFieldPanelContent({
+  objectId,
+  editable,
+  onDisplayStateChange,
+  mode,
+}: MesCustomFieldPanelRenderProps & { mode: CustomFieldDemoMode }) {
+  useEffect(() => {
+    onDisplayStateChange({ loading: true, hasFields: false, hasError: false });
+    const timer = window.setTimeout(() => {
+      onDisplayStateChange({
+        loading: false,
+        hasFields: mode === 'fields',
+        hasError: mode === 'error',
+      });
+    }, 250);
+    return () => window.clearTimeout(timer);
+  }, [mode, objectId, onDisplayStateChange]);
+
+  if (mode === 'fields') {
+    return (
+      <Space orientation="vertical" size={4}>
+        <Typography.Text strong>客户参考号</Typography.Text>
+        <Typography.Text>PO-CUSTOM-2026-018</Typography.Text>
+        <Typography.Text type="secondary">
+          宿主编辑能力：{editable ? '已开启' : '只读'}
+        </Typography.Text>
+      </Space>
+    );
+  }
+  if (mode === 'error') {
+    return <Typography.Text type="danger">自定义字段加载失败</Typography.Text>;
+  }
+  return null;
+}
 
 export function MesComponentSuitePage() {
   const [lines] = useState(initialLines);
@@ -136,6 +174,9 @@ export function MesComponentSuitePage() {
   const [documentKeywordLoading, setDocumentKeywordLoading] = useState(false);
   const [documentActionResult, setDocumentActionResult] = useState('尚未触发单据动作');
   const [actionIntentCount, setActionIntentCount] = useState(0);
+  const [customFieldDemoMode, setCustomFieldDemoMode] =
+    useState<CustomFieldDemoMode | 'no-object'>('fields');
+  const [customFieldEditable, setCustomFieldEditable] = useState(false);
   const [actionLoadShouldFail, setActionLoadShouldFail] = useState(false);
   const [actionIntentLocation, setActionIntentLocation] = useState({
     pathname: '/catalog/documents/demo',
@@ -523,6 +564,64 @@ export function MesComponentSuitePage() {
             />
           </Space>
         </MesUiProvider>
+      </SectionCard>
+
+      <SectionCard title="MES 单据自定义字段容器">
+        <Typography.Paragraph type="secondary">
+          字段 schema、请求和编辑器由宿主提供；空字段隐藏，加载错误保留提示，切换单据时先清除旧内容。
+        </Typography.Paragraph>
+        <Space orientation="vertical" size={12} style={{ width: '100%' }}>
+          <Segmented
+            aria-label="自定义字段状态"
+            value={customFieldDemoMode}
+            options={[
+              { label: '有字段', value: 'fields' },
+              { label: '空字段', value: 'empty' },
+              { label: '加载错误', value: 'error' },
+              { label: '无单据', value: 'no-object' },
+            ]}
+            onChange={(value) =>
+              setCustomFieldDemoMode(
+                value as CustomFieldDemoMode | 'no-object',
+              )
+            }
+          />
+          <Space align="center" size={8}>
+            <Switch
+              checked={customFieldEditable}
+              aria-label="开启自定义字段编辑能力"
+              onChange={setCustomFieldEditable}
+            />
+            <Typography.Text>宿主可编辑</Typography.Text>
+          </Space>
+          <MesUiProvider
+            hasPermission={() => true}
+            renderCustomFieldPanel={(props) =>
+              props.objectId ? (
+                <DemoCustomFieldPanelContent
+                  {...props}
+                  editable={customFieldEditable}
+                  mode={customFieldDemoMode === 'no-object' ? 'fields' : customFieldDemoMode}
+                />
+              ) : null
+            }
+          >
+            <DocumentCustomFieldPanel
+              objectType="purchase_order"
+              editable={customFieldEditable}
+              objectId={
+                customFieldDemoMode === 'no-object'
+                  ? undefined
+                  : customFieldDemoMode === 'empty'
+                    ? 'empty-document'
+                    : customFieldDemoMode === 'error'
+                      ? 'error-document'
+                      : 'configured-document'
+              }
+              title="单据扩展信息"
+            />
+          </MesUiProvider>
+        </Space>
       </SectionCard>
 
       <SectionCard title="MES 文本、金额与主数据展示">

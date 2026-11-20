@@ -7,6 +7,20 @@ export interface MesUiRoute {
   replace: (path: string) => void;
 }
 
+export interface MesCustomFieldDisplayState {
+  loading: boolean;
+  hasFields: boolean;
+  hasError: boolean;
+}
+
+export interface MesCustomFieldPanelRenderProps {
+  objectType: string;
+  objectId: string;
+  editable: boolean;
+  showEmpty: false;
+  onDisplayStateChange: (state: MesCustomFieldDisplayState) => void;
+}
+
 export interface MesUiProviderProps {
   /** MES 宿主的权限判断；权限码和权限策略由宿主维护。 */
   hasPermission: (permission: string) => boolean;
@@ -30,6 +44,10 @@ export interface MesUiProviderProps {
   isTableActionColumn?: (column: object) => boolean;
   /** Current route and replace adapter for MES action-intent deep links. */
   actionIntentRoute?: MesUiRoute;
+  /** Render MES custom-field content while the shared shell owns visibility and identity transitions. */
+  renderCustomFieldPanel?: (
+    props: MesCustomFieldPanelRenderProps,
+  ) => ReactNode;
   children: ReactNode;
 }
 
@@ -40,6 +58,7 @@ type MesUiContextValue = Pick<
   | 'resolveRowEditAction'
   | 'isTableActionColumn'
   | 'actionIntentRoute'
+  | 'renderCustomFieldPanel'
 >;
 
 const MesUiContext = createContext<MesUiContextValue | null>(null);
@@ -50,6 +69,7 @@ export function MesUiProvider({
   resolveRowEditAction,
   isTableActionColumn,
   actionIntentRoute,
+  renderCustomFieldPanel,
   children,
 }: MesUiProviderProps) {
   return (
@@ -60,6 +80,7 @@ export function MesUiProvider({
         resolveRowEditAction,
         isTableActionColumn,
         actionIntentRoute,
+        renderCustomFieldPanel,
       }}
     >
       {children}
@@ -109,4 +130,11 @@ export function useMesPermissionChecker(): (permission: string) => boolean {
 /** Router capability used by document action-intent deep links. */
 export function useMesActionIntentRoute(): MesUiRoute | undefined {
   return useContext(MesUiContext)?.actionIntentRoute;
+}
+
+/** Host-owned schema, requests, and field editors for a shared document-field shell. */
+export function useMesCustomFieldPanelRenderer():
+  | MesUiProviderProps['renderCustomFieldPanel']
+  | undefined {
+  return useContext(MesUiContext)?.renderCustomFieldPanel;
 }

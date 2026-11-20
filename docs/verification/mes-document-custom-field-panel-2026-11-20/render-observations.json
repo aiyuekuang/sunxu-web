@@ -1,0 +1,181 @@
+{
+  "route": "CatalogApp / MES UI 套件 (/) / MES 单据自定义字段容器",
+  "sourceBaseline": "mes-admin e185f6b68b6d8ef94ed0b5312340e1952be5f2f1",
+  "behavior": {
+    "fields": {
+      "visible": true,
+      "text": "单据扩展信息\n客户参考号\nPO-CUSTOM-2026-018\n宿主编辑能力：只读"
+    },
+    "empty": {
+      "rootExists": true,
+      "visible": false,
+      "hiddenAttribute": true,
+      "loadingHidden": true
+    },
+    "error": {
+      "visible": true,
+      "text": "单据扩展信息\n自定义字段加载失败"
+    },
+    "noObject": {
+      "rootCount": 0
+    },
+    "identitySwitch": {
+      "oldValueAbsent": true,
+      "hidden": true,
+      "loadingHidden": true,
+      "transitions": [
+        {
+          "oldValue": null,
+          "currentHidden": true,
+          "text": "单据扩展信息"
+        }
+      ]
+    },
+    "editableCapabilityPassed": true
+  },
+  "desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "documentScrollWidth": 1440
+    },
+    "workspace": {
+      "rect": {
+        "left": 224,
+        "top": 56,
+        "right": 1440,
+        "bottom": 2419.08,
+        "width": 1216,
+        "height": 2363.08
+      },
+      "clientWidth": 1216,
+      "scrollWidth": 1216
+    },
+    "content": {
+      "rect": {
+        "left": 248,
+        "top": 80,
+        "right": 1416,
+        "bottom": 2395.08,
+        "width": 1168,
+        "height": 2315.08
+      },
+      "clientWidth": 1166,
+      "scrollWidth": 1166
+    },
+    "card": {
+      "left": 273,
+      "top": 1272.48,
+      "right": 1391,
+      "bottom": 1561.94,
+      "width": 1118,
+      "height": 289.45
+    },
+    "previous": {
+      "left": 273,
+      "top": 1077.34,
+      "right": 1391,
+      "bottom": 1256.48,
+      "width": 1118,
+      "height": 179.14
+    },
+    "next": {
+      "left": 273,
+      "top": 1577.94,
+      "right": 1391,
+      "bottom": 1874.08,
+      "width": 1118,
+      "height": 296.14
+    },
+    "gapBefore": 16,
+    "gapAfter": 16,
+    "panel": {
+      "rect": {
+        "left": 290,
+        "top": 1448.94,
+        "right": 1374,
+        "bottom": 1544.94,
+        "width": 1084,
+        "height": 96
+      },
+      "hidden": false
+    }
+  },
+  "mobile": {
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "documentScrollWidth": 375
+    },
+    "workspace": {
+      "rect": {
+        "left": 0,
+        "top": 56,
+        "right": 375,
+        "bottom": 3287.58,
+        "width": 375,
+        "height": 3231.58
+      },
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "content": {
+      "rect": {
+        "left": 16,
+        "top": 72,
+        "right": 359,
+        "bottom": 3271.58,
+        "width": 343,
+        "height": 3199.58
+      },
+      "clientWidth": 341,
+      "scrollWidth": 341
+    },
+    "card": {
+      "left": 33,
+      "top": 1735.48,
+      "right": 342,
+      "bottom": 2068.94,
+      "width": 309,
+      "height": 333.45
+    },
+    "previous": {
+      "left": 33,
+      "top": 1423.34,
+      "right": 342,
+      "bottom": 1719.48,
+      "width": 309,
+      "height": 296.14
+    },
+    "next": {
+      "left": 33,
+      "top": 2084.94,
+      "right": 342,
+      "bottom": 2758.58,
+      "width": 309,
+      "height": 673.64
+    },
+    "gapBefore": 16,
+    "gapAfter": 16,
+    "panel": {
+      "rect": {
+        "left": 50,
+        "top": 1955.94,
+        "right": 325,
+        "bottom": 2051.94,
+        "width": 275,
+        "height": 96
+      },
+      "hidden": false
+    }
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "screenshots": {
+    "desktop-context.png": "31e704167e1d9185e6ae9a220c96fe34e75f97de6f7a8eddf792cc3104218e11",
+    "desktop-custom-fields.png": "da94de96f9f7da17351fb34c77a8c658f80fa312009c70e50a0f0849621a054a",
+    "desktop-error-state.png": "2962492751342e35501db88d117c707084b65477a4251016a6a09fa53d829d17",
+    "mobile-context.png": "e0c36c592228c61d482bb7f85c6f9e5a918b87ea79ef00708bb87e3314ea3559",
+    "mobile-custom-fields.png": "5cd42b3181a17d794cc127a9f0123239354c243f6965fc7fba192e8a05a73d34"
+  }
+}

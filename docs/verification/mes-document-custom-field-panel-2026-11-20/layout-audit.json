@@ -1,0 +1,312 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件 (/) / MES 单据自定义字段容器",
+  "component": "DocumentCustomFieldPanel MES UI component",
+  "evidence": "./render-observations.json",
+  "evidence_command": "node run.js /tmp/playwright-test-mes-document-custom-fields.js",
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 (/) / MES 单据自定义字段容器",
+        "state": "desktop-1440-light-fields",
+        "viewport": {
+          "width": 1440,
+          "height": 900,
+          "documentScrollWidth": 1440
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 2419.08,
+          "width": 1216,
+          "height": 2363.08
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 2395.08,
+          "width": 1168,
+          "height": 2315.08
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24.0,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-custom-field-panel-2026-11-20/desktop-context.png",
+        "screenshot_sha256": "31e704167e1d9185e6ae9a220c96fe34e75f97de6f7a8eddf792cc3104218e11",
+        "status": "PASS"
+      },
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 (/) / MES 单据自定义字段容器",
+        "state": "mobile-375-light-fields",
+        "viewport": {
+          "width": 375,
+          "height": 812,
+          "documentScrollWidth": 375
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 3287.58,
+          "width": 375,
+          "height": 3231.58
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 359,
+          "bottom": 3271.58,
+          "width": 343,
+          "height": 3199.58
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16.0,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-custom-field-panel-2026-11-20/mobile-context.png",
+        "screenshot_sha256": "e0c36c592228c61d482bb7f85c6f9e5a918b87ea79ef00708bb87e3314ea3559",
+        "status": "PASS"
+      }
+    ]
+  },
+  "seams": [
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 (/) / MES 单据自定义字段容器",
+      "state": "desktop-light-custom-fields",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "documentScrollWidth": 1440
+      },
+      "axis": "vertical",
+      "previous": "MES 单据动作与深链",
+      "next": "MES 单据自定义字段容器",
+      "previous_rect": {
+        "left": 273,
+        "top": 1077.34,
+        "right": 1391,
+        "bottom": 1256.48,
+        "width": 1118,
+        "height": 179.14
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 1272.48,
+        "right": 1391,
+        "bottom": 1561.94,
+        "width": 1118,
+        "height": 289.45
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "node run.js /tmp/playwright-test-mes-document-custom-fields.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-custom-field-panel-2026-11-20/desktop-context.png",
+      "screenshot_sha256": "31e704167e1d9185e6ae9a220c96fe34e75f97de6f7a8eddf792cc3104218e11",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 (/) / MES 单据自定义字段容器",
+      "state": "desktop-light-custom-fields",
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "documentScrollWidth": 1440
+      },
+      "axis": "vertical",
+      "previous": "MES 单据自定义字段容器",
+      "next": "MES 文本、金额与主数据展示",
+      "previous_rect": {
+        "left": 273,
+        "top": 1272.48,
+        "right": 1391,
+        "bottom": 1561.94,
+        "width": 1118,
+        "height": 289.45
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 1577.94,
+        "right": 1391,
+        "bottom": 1874.08,
+        "width": 1118,
+        "height": 296.14
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "node run.js /tmp/playwright-test-mes-document-custom-fields.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-custom-field-panel-2026-11-20/desktop-context.png",
+      "screenshot_sha256": "31e704167e1d9185e6ae9a220c96fe34e75f97de6f7a8eddf792cc3104218e11",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 (/) / MES 单据自定义字段容器",
+      "state": "mobile-375-light-custom-fields",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "documentScrollWidth": 375
+      },
+      "axis": "vertical",
+      "previous": "MES 单据动作与深链",
+      "next": "MES 单据自定义字段容器",
+      "previous_rect": {
+        "left": 33,
+        "top": 1423.34,
+        "right": 342,
+        "bottom": 1719.48,
+        "width": 309,
+        "height": 296.14
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 1735.48,
+        "right": 342,
+        "bottom": 2068.94,
+        "width": 309,
+        "height": 333.45
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "node run.js /tmp/playwright-test-mes-document-custom-fields.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-custom-field-panel-2026-11-20/mobile-context.png",
+      "screenshot_sha256": "e0c36c592228c61d482bb7f85c6f9e5a918b87ea79ef00708bb87e3314ea3559",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 (/) / MES 单据自定义字段容器",
+      "state": "mobile-375-light-custom-fields",
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "documentScrollWidth": 375
+      },
+      "axis": "vertical",
+      "previous": "MES 单据自定义字段容器",
+      "next": "MES 文本、金额与主数据展示",
+      "previous_rect": {
+        "left": 33,
+        "top": 1735.48,
+        "right": 342,
+        "bottom": 2068.94,
+        "width": 309,
+        "height": 333.45
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 2084.94,
+        "right": 342,
+        "bottom": 2758.58,
+        "width": 309,
+        "height": 673.64
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in the rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "node run.js /tmp/playwright-test-mes-document-custom-fields.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-custom-field-panel-2026-11-20/mobile-context.png",
+      "screenshot_sha256": "e0c36c592228c61d482bb7f85c6f9e5a918b87ea79ef00708bb87e3314ea3559",
+      "status": "PASS"
+    }
+  ]
+}
