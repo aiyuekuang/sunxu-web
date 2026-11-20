@@ -170,7 +170,8 @@
 
 - **职责**：将宿主提供的汇总值放入表格结果区末尾；默认固定在表格底部，也可设为跟随数据行滚动。
 - **API**：`children` 是按最终可见列顺序排列的 `TableSummary.Cell`；`fixed` 默认 `true`，可显式关闭。
-- **布局与可访问性**：`fixed={false}` 在数据行后按普通表格内容渲染，并随表格纵向、横向滚动。多单位/多货主长摘要使用 `fullWidth`，适配器按最终可见列动态计算合并范围，并为固定序号列、操作列留空；无需宿主手工维护 `colSpan`。通过 `ResizableProTable` 或 `ResizableTable` 显示自动序号时，适配器会正确处理序号列。
+- **布局与可访问性**：`fixed={false}` 在数据行后按普通表格内容渲染，并随表格纵向、横向滚动。多单位/多货主长摘要使用 `fullWidth`，适配器按最终可见列动态计算合并范围，并为固定序号列、操作列留空；无需宿主手工维护 `colSpan`。通过 `ResizableProTable` 或 `ResizableTable` 显示自动序号时，适配器会正确处理序号列。自行封装表格适配器时，在掌握最终可见列后调用 `withResolvedTableSummary(summary, columns)`，再将返回回调传给 Ant Design Table。
+- **适配器接口**：`withResolvedTableSummary` 与 `TableSummary` 一同从组件库导出；它只负责把 `fullWidth` 转为 Ant Design 原生汇总单元格，不请求数据、不计算业务合计。
 - **数据边界**：不请求数据、不按当前页累加、不判断字段能否相加、不做单位或币种换算、不处理权限。筛选范围和各单元格的值由宿主提供；不同单位/币种不得直接相加，比例和单价须由宿主按业务公式计算。
 - **目录示例**：`examples/catalog/TableSummaryPage.tsx` 展示固定列合计、跟随数据行的多单位摘要，以及简短的分页摘要。
 - **证据**：目录“表格合计与结果摘要”路由的桌面、窄屏截图和单元格几何见 [`docs/verification/table-summary-2026-11-20/README.md`](./verification/table-summary-2026-11-20/README.md)。实际 MES 库存页仍需结合目标环境登录态和业务数据复核。
