@@ -88,9 +88,9 @@
     "component_reference_count": 627,
     "component_status_counts": {
       "HOST_SCOPE": 278,
-      "IMPLEMENTED": 23,
+      "IMPLEMENTED": 26,
       "MAPPED": 245,
-      "PENDING": 64,
+      "PENDING": 61,
       "REVIEW_SOURCE_CONTRACT": 16,
       "WORKTREE_IMPLEMENTATION": 1
     },
@@ -106,9 +106,9 @@
     "source_status_counts": {
       "EXCLUDED_FROM_RUNTIME": 46,
       "HOST_SCOPE": 33,
-      "IMPLEMENTED": 21,
+      "IMPLEMENTED": 23,
       "MAPPED": 8,
-      "PENDING": 82,
+      "PENDING": 80,
       "REVIEW_SOURCE_CONTRACT": 4,
       "WORKTREE_IMPLEMENTATION": 1
     },
@@ -4675,12 +4675,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 1,
       "importer_file_count": 1,
       "source_sha256": "65d7bb02e7252d399b6e27efd123a62672addd3dc7e37e8b5dad345b4449d91e",
       "previous_target": null,
-      "rationale": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+      "rationale": "Implemented at src/mes/components/DocumentKeywordSearch.tsx with the source controlled value, local draft synchronization, immediate clear callback, loading state, placeholder, and trimmed submit behavior."
     },
     {
       "module": "./DocumentLedgerViewSwitch",
@@ -5020,12 +5020,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 19,
       "importer_file_count": 19,
       "source_sha256": "65d7bb02e7252d399b6e27efd123a62672addd3dc7e37e8b5dad345b4449d91e",
       "previous_target": null,
-      "rationale": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+      "rationale": "Implemented at src/mes/components/DocumentKeywordSearch.tsx with the source controlled value, local draft synchronization, immediate clear callback, loading state, placeholder, and trimmed submit behavior."
     },
     {
       "module": "@/components/document-view/DocumentTableTitle",
@@ -5035,12 +5035,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 18,
       "importer_file_count": 15,
       "source_sha256": "1cc2538c0fdc37e005ea03b4dbce38e87fa72e8b99bb958931f8b08c3a33da7f",
       "previous_target": null,
-      "rationale": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+      "rationale": "Implemented at src/mes/components/DocumentTableTitle.tsx with the source title/search grouping, wrapping, controlled keyword, loading, placeholder, and callback contract."
     },
     {
       "module": "@/components/document-view/DocumentViewBar",
@@ -10681,7 +10681,9 @@
       "previous_reason": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "rationale": "Implemented at src/mes/components/DocumentKeywordSearch.tsx with the source controlled value, local draft synchronization, immediate clear callback, loading state, placeholder, and trimmed submit behavior.",
+      "implementation_target": "src/mes/components/DocumentKeywordSearch.tsx"
     },
     {
       "source": "src/components/document-view/DocumentTableTitle.tsx",
@@ -10697,7 +10699,9 @@
       "previous_reason": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "rationale": "Implemented at src/mes/components/DocumentTableTitle.tsx with the source title/search grouping, wrapping, controlled keyword, loading, placeholder, and callback contract.",
+      "implementation_target": "src/mes/components/DocumentTableTitle.tsx"
     },
     {
       "source": "src/components/document-view/DocumentViewBar.test.tsx",

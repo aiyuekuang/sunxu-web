@@ -121,7 +121,7 @@ MES `DocumentViewBar` 的通用视图选择、脏状态切换和视图管理交�
 
 ### 全量覆盖工作账本（2026-11-20）
 
-用户已授权把 Sunxu Web 扩展为“通用层 + MES UI 套件”。逐个 import 条目与 195 个源文件的目标层、旧处置、源文件变化状态和迁移进度记录在 [MES 组件全量覆盖账本](./migrations/mes-admin-component-coverage-2026-11-20.json)。当前 627 个运行时组件引用中，245 项已映射至 Sunxu 通用/上游出口，23 项已有 MES/通用适配实现，1 项在工作区有 StatusTag 实现，16 项需按变更后的 MES 源文件复核契约，64 项仍待补进 `sunxu-web/mes`；另有 278 项明确属于 MES 宿主页面、框架集成或外部平台层。当前不能据此报告组件已全量补齐，也不开始新的 MES 页面替换批次。
+用户已授权把 Sunxu Web 扩展为“通用层 + MES UI 套件”。逐个 import 条目与 195 个源文件的目标层、旧处置、源文件变化状态和迁移进度记录在 [MES 组件全量覆盖账本](./migrations/mes-admin-component-coverage-2026-11-20.json)。当前 627 个运行时组件引用中，245 项已映射至 Sunxu 通用/上游出口，26 项已有 MES/通用适配实现，1 项在工作区有 StatusTag 实现，16 项需按变更后的 MES 源文件复核契约，61 项仍待补进 `sunxu-web/mes`；另有 278 项明确属于 MES 宿主页面、框架集成或外部平台层。当前不能据此报告组件已全量补齐，也不开始新的 MES 页面替换批次。
 
 替换门禁：每个运行时条目都必须在账本中收敛为 Sunxu 通用组件、Sunxu MES 套件、Sunxu 上游公开 API 或有明确理由的 MES 宿主/外部平台实现；`PENDING` 与 `REVIEW_SOURCE_CONTRACT` 必须清零。MES UI 组件保留现有行为，再把请求、权限、字典和业务副作用改为宿主注入；只有此门禁通过后才开始逐项替换消费者。
 

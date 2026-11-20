@@ -11,6 +11,8 @@ import {
   CustomerMaterialCell,
   DateText,
   DefaultRouteHint,
+  DocumentKeywordSearch,
+  DocumentTableTitle,
   EntityThumbnail,
   MesUiProvider,
   PermissionButton,
@@ -86,6 +88,8 @@ export function MesComponentSuitePage() {
   const [lastSubmittedNote, setLastSubmittedNote] = useState('尚未提交');
   const [permissionAction, setPermissionAction] = useState('尚未触发操作');
   const [showAmounts, setShowAmounts] = useState(false);
+  const [documentKeyword, setDocumentKeyword] = useState('');
+  const [documentKeywordLoading, setDocumentKeywordLoading] = useState(false);
   const [hasHorizontalOverflow, setHasHorizontalOverflow] = useState(false);
   const tableHostRef = useRef<HTMLDivElement>(null);
 
@@ -237,6 +241,37 @@ export function MesComponentSuitePage() {
             左右滚动查看其余列
           </Typography.Text>
         ) : null}
+      </SectionCard>
+
+      <SectionCard title="MES 单据表格标题与关键词搜索">
+        <Typography.Paragraph type="secondary">
+          关键词是当前查询的临时条件，不写入个人视图；清空立即通知宿主，提交时去除首尾空格。
+        </Typography.Paragraph>
+        <Space orientation="vertical" size={12} style={{ width: '100%' }}>
+          <DocumentTableTitle
+            title="采购订单"
+            keyword={documentKeyword}
+            keywordLoading={documentKeywordLoading}
+            onKeywordSearch={setDocumentKeyword}
+          />
+          <Space wrap size={8}>
+            <Button
+              size="small"
+              onClick={() => setDocumentKeywordLoading((value) => !value)}
+            >
+              {documentKeywordLoading ? '结束加载态' : '演示加载态'}
+            </Button>
+            <Typography.Text type="secondary">当前宿主查询词：</Typography.Text>
+            <Typography.Text code>{documentKeyword || '（空）'}</Typography.Text>
+          </Space>
+          <Space wrap size={12}>
+            <Typography.Text type="secondary">独立关键词入口：</Typography.Text>
+            <DocumentKeywordSearch
+              value={documentKeyword}
+              onSearch={setDocumentKeyword}
+            />
+          </Space>
+        </Space>
       </SectionCard>
 
       <SectionCard title="MES 明细批量字段设置">

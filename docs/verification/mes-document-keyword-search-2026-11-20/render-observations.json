@@ -1,0 +1,221 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件 (/)",
+  "targetUrl": "http://127.0.0.1:4173/",
+  "checkedAt": "2026-11-20",
+  "sourceCommit": "e185f6b68b6d8ef94ed0b5312340e1952be5f2f1",
+  "behavior": {
+    "submittedTrimmedKeyword": true,
+    "input": "  PO-42  ",
+    "submittedValue": "PO-42",
+    "clearButtonAccessibleName": "清除",
+    "clearCallsEmptyImmediately": true,
+    "controlledKeywordResetAcrossBothSearchEntrances": true,
+    "loadingStateShown": true,
+    "pageErrors": [],
+    "consoleErrors": []
+  },
+  "states": {
+    "desktop-1440x900-light-clear": {
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "documentWidth": 1440,
+        "bodyWidth": 1440,
+        "documentHeight": 1917
+      },
+      "workspace": {
+        "left": 224,
+        "top": 56,
+        "right": 1440,
+        "bottom": 1917.484375,
+        "width": 1216,
+        "height": 1861.484375,
+        "clientWidth": 1216,
+        "scrollWidth": 1216
+      },
+      "content": {
+        "left": 248,
+        "top": 80,
+        "right": 1416,
+        "bottom": 1893.484375,
+        "width": 1168,
+        "height": 1813.484375,
+        "clientWidth": 1166,
+        "scrollWidth": 1166
+      },
+      "insets": {
+        "top": 24,
+        "right": 24,
+        "bottom": 24,
+        "left": 24
+      },
+      "previous": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 469.421875,
+        "width": 1118,
+        "height": 249.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "target": {
+        "left": 273,
+        "top": 485.421875,
+        "right": 1391,
+        "bottom": 718.5625,
+        "width": 1118,
+        "height": 233.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "next": {
+        "left": 273,
+        "top": 734.5625,
+        "right": 1391,
+        "bottom": 892.703125,
+        "width": 1118,
+        "height": 158.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "gaps": {
+        "previousToTarget": 16,
+        "targetToNext": 16
+      },
+      "keywordInput": {
+        "left": 370,
+        "top": 585.5625,
+        "right": 551,
+        "bottom": 607.5625,
+        "width": 181,
+        "height": 22,
+        "clientWidth": 181,
+        "scrollWidth": 181
+      },
+      "clearButton": {
+        "left": 555,
+        "top": 590.5625,
+        "right": 567,
+        "bottom": 602.5625,
+        "width": 12,
+        "height": 12,
+        "clientWidth": 12,
+        "scrollWidth": 12
+      },
+      "targetOverflow": {
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "visibleOverflow": [],
+      "screenshot": "./desktop-context.png",
+      "fullPageScreenshot": "./desktop-fullpage.png",
+      "screenshotSha256": "7019f05dc493e5df109ec7917d076cc7618cd05539f873d471c3858a8c7f2d52",
+      "fullPageScreenshotSha256": "52e8e71d02499eb47c9d593beca15eab5620044ac24f2b83b8f4385bc7754d27"
+    },
+    "mobile-375x812-light-clear": {
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "documentWidth": 375,
+        "bodyWidth": 375,
+        "documentHeight": 2596,
+        "scrollY": 443.5
+      },
+      "workspace": {
+        "left": 0,
+        "top": -387.5,
+        "right": 375,
+        "bottom": 2152.484375,
+        "width": 375,
+        "height": 2539.984375,
+        "clientWidth": 375,
+        "scrollWidth": 375
+      },
+      "content": {
+        "left": 16,
+        "top": -371.5,
+        "right": 359,
+        "bottom": 2136.484375,
+        "width": 343,
+        "height": 2507.984375,
+        "clientWidth": 341,
+        "scrollWidth": 341
+      },
+      "insets": {
+        "top": 16,
+        "right": 16,
+        "bottom": 16,
+        "left": 16
+      },
+      "previous": {
+        "left": 33,
+        "top": -187.21875,
+        "right": 342,
+        "bottom": 103.921875,
+        "width": 309,
+        "height": 291.140625,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "target": {
+        "left": 33,
+        "top": 119.921875,
+        "right": 342,
+        "bottom": 431.0625,
+        "width": 309,
+        "height": 311.140625,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "next": {
+        "left": 33,
+        "top": 447.0625,
+        "right": 342,
+        "bottom": 715.203125,
+        "width": 309,
+        "height": 268.140625,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "gaps": {
+        "previousToTarget": 16,
+        "targetToNext": 16
+      },
+      "keywordInput": {
+        "left": 130,
+        "top": 264.0625,
+        "right": 215,
+        "bottom": 286.0625,
+        "width": 85,
+        "height": 22,
+        "clientWidth": 85,
+        "scrollWidth": 85
+      },
+      "clearButton": {
+        "left": 219,
+        "top": 269.0625,
+        "right": 231,
+        "bottom": 281.0625,
+        "width": 12,
+        "height": 12,
+        "clientWidth": 12,
+        "scrollWidth": 12
+      },
+      "targetOverflow": {
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "visibleOverflow": [],
+      "screenshot": "./mobile-context.png",
+      "fullPageScreenshot": "./mobile-fullpage.png",
+      "screenshotSha256": "4b569ee7b41aa49ac84731fd06a300ecf2fca69f425a92f37a084ddb096abe52",
+      "fullPageScreenshotSha256": "76eb774ca936e1450c35e05bd78bb6b46d1c69ccf790b4d8838fbde4f1e6a6c7"
+    }
+  },
+  "unverified": [
+    "Screen-reader end-to-end flow",
+    "Actual MES host query integration and saved-view state"
+  ]
+}

@@ -1,0 +1,330 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件 (/)，MES 单据表格标题与关键词搜索",
+  "component": "DocumentKeywordSearch and DocumentTableTitle MES UI components",
+  "evidence": "./render-observations.json",
+  "evidence_command": "node run.js /tmp/playwright-test-mes-document-search-evidence.js",
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 (/)，MES 单据表格标题与关键词搜索",
+        "state": "desktop-light-clear-state",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 1917.484375,
+          "width": 1216,
+          "height": 1861.484375,
+          "clientWidth": 1216,
+          "scrollWidth": 1216
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 1893.484375,
+          "width": 1168,
+          "height": 1813.484375,
+          "clientWidth": 1166,
+          "scrollWidth": 1166
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px frame inset on all four sides",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Rendered Chromium screenshot inspection plus getBoundingClientRect geometry",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-keyword-search-2026-11-20/desktop-fullpage.png",
+        "screenshot_sha256": "52e8e71d02499eb47c9d593beca15eab5620044ac24f2b83b8f4385bc7754d27",
+        "status": "PASS"
+      },
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 (/)，MES 单据表格标题与关键词搜索",
+        "state": "mobile-375-light-clear-state",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": -387.5,
+          "right": 375,
+          "bottom": 2152.484375,
+          "width": 375,
+          "height": 2539.984375,
+          "clientWidth": 375,
+          "scrollWidth": 375
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": -371.5,
+          "right": 359,
+          "bottom": 2136.484375,
+          "width": 343,
+          "height": 2507.984375,
+          "clientWidth": 341,
+          "scrollWidth": 341
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px frame inset on all four sides",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Rendered Chromium screenshot inspection plus getBoundingClientRect geometry",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-keyword-search-2026-11-20/mobile-fullpage.png",
+        "screenshot_sha256": "76eb774ca936e1450c35e05bd78bb6b46d1c69ccf790b4d8838fbde4f1e6a6c7",
+        "status": "PASS"
+      }
+    ]
+  },
+  "seams": [
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 (/)，MES 单据表格标题与关键词搜索",
+      "state": "desktop-previous-to-search-previous-to-search",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 表格长文本",
+      "next": "MES 单据表格标题与关键词搜索",
+      "previous_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 469.421875,
+        "width": 1118,
+        "height": 249.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 485.421875,
+        "right": 1391,
+        "bottom": 718.5625,
+        "width": 1118,
+        "height": 233.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite sections",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=vertical size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in referenced rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "node run.js /tmp/playwright-test-mes-document-search-evidence.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-keyword-search-2026-11-20/desktop-fullpage.png",
+      "screenshot_sha256": "52e8e71d02499eb47c9d593beca15eab5620044ac24f2b83b8f4385bc7754d27",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 (/)，MES 单据表格标题与关键词搜索",
+      "state": "desktop-previous-to-search-search-to-next",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 单据表格标题与关键词搜索",
+      "next": "MES 明细批量字段设置",
+      "previous_rect": {
+        "left": 273,
+        "top": 485.421875,
+        "right": 1391,
+        "bottom": 718.5625,
+        "width": 1118,
+        "height": 233.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 734.5625,
+        "right": 1391,
+        "bottom": 892.703125,
+        "width": 1118,
+        "height": 158.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite sections",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=vertical size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in referenced rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "node run.js /tmp/playwright-test-mes-document-search-evidence.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-keyword-search-2026-11-20/desktop-fullpage.png",
+      "screenshot_sha256": "52e8e71d02499eb47c9d593beca15eab5620044ac24f2b83b8f4385bc7754d27",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 (/)，MES 单据表格标题与关键词搜索",
+      "state": "mobile-375-previous-to-search-previous-to-search",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 表格长文本",
+      "next": "MES 单据表格标题与关键词搜索",
+      "previous_rect": {
+        "left": 33,
+        "top": -187.21875,
+        "right": 342,
+        "bottom": 103.921875,
+        "width": 309,
+        "height": 291.140625,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 119.921875,
+        "right": 342,
+        "bottom": 431.0625,
+        "width": 309,
+        "height": 311.140625,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite sections",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=vertical size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in referenced rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "node run.js /tmp/playwright-test-mes-document-search-evidence.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-keyword-search-2026-11-20/mobile-fullpage.png",
+      "screenshot_sha256": "76eb774ca936e1450c35e05bd78bb6b46d1c69ccf790b4d8838fbde4f1e6a6c7",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 (/)，MES 单据表格标题与关键词搜索",
+      "state": "mobile-375-previous-to-search-search-to-next",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 单据表格标题与关键词搜索",
+      "next": "MES 明细批量字段设置",
+      "previous_rect": {
+        "left": 33,
+        "top": 119.921875,
+        "right": 342,
+        "bottom": 431.0625,
+        "width": 309,
+        "height": 311.140625,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 447.0625,
+        "right": 342,
+        "bottom": 715.203125,
+        "width": 309,
+        "height": 268.140625,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite sections",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=vertical size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in referenced rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "node run.js /tmp/playwright-test-mes-document-search-evidence.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-document-keyword-search-2026-11-20/mobile-fullpage.png",
+      "screenshot_sha256": "76eb774ca936e1450c35e05bd78bb6b46d1c69ccf790b4d8838fbde4f1e6a6c7",
+      "status": "PASS"
+    }
+  ]
+}
