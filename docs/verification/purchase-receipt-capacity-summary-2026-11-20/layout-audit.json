@@ -1,0 +1,472 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件 → 采购入库履约摘要",
+  "component": "PurchaseReceiptCapacitySummary",
+  "evidence": "./render-observations.json",
+  "evidence_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-capacity.js",
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 → 采购入库履约摘要",
+        "state": "desktop-route-top",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 4863.83,
+          "width": 1216,
+          "height": 4807.83
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 4839.83,
+          "width": 1168,
+          "height": 4759.83
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24.0,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-capacity-summary-2026-11-20/desktop-route-top-1440x900.png",
+        "screenshot_sha256": "bbd7940c941ddb06283b3e4c2ac12f4031259bd5e48f2a6e82884b2f09858111",
+        "status": "PASS"
+      },
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 → 采购入库履约摘要",
+        "state": "mobile-route-top",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 7439.77,
+          "width": 375,
+          "height": 7383.77
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 359,
+          "bottom": 7423.77,
+          "width": 343,
+          "height": 7351.77
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16.0,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-capacity-summary-2026-11-20/mobile-route-top-375x812.png",
+        "screenshot_sha256": "76e2809f53cdc0cdb399b9ab9f6b2e4ecd8a19be9a66cbc7f93d235007371a4f",
+        "status": "PASS"
+      }
+    ]
+  },
+  "first_screen_budget": {
+    "desktop": {
+      "viewport": "1440x900",
+      "primary_task": "Identify the MES UI suite and navigate its component examples.",
+      "visible_modules": [
+        "MES UI suite heading and description",
+        "MES material selector",
+        "MES drawing and attachment example"
+      ],
+      "placement": "Purchase receipt capacity example is below the initial viewport and was separately captured in a focused component state."
+    },
+    "mobile": {
+      "viewport": "375x812",
+      "primary_task": "Identify the MES UI suite and scan the current example.",
+      "visible_modules": [
+        "MES UI suite heading and description",
+        "MES material selector"
+      ],
+      "placement": "Purchase receipt capacity example is below the initial viewport and was separately captured after closing the mobile navigation drawer."
+    }
+  },
+  "seams": [
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 采购入库履约摘要",
+      "state": "desktop-通用日期范围快捷选择器\n自定义快捷范围优先保留；缺少的通用日期范围会自动补齐，且相同文字标签只显示一次。窄屏双月日历可横向滑动查看。\nAnt Design 日期-to-采购入库履约摘要",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "通用日期范围快捷选择器\n自定义快捷范围优先保留；缺少的通用日期范围会自动补齐，且相同文字标签只显示一次。窄屏双月日历可横向滑动查看。\nAnt Design 日期",
+      "next": "采购入库履约摘要",
+      "previous_rect": {
+        "left": 273,
+        "top": 2331.47,
+        "right": 1391,
+        "bottom": 2711.61,
+        "width": 1118,
+        "height": 380.14
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 2727.61,
+        "right": 1391,
+        "bottom": 2881.75,
+        "width": 1118,
+        "height": 154.14
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space direction=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and painted-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-capacity.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-capacity-summary-2026-11-20/desktop-capacity-card-1440x900.png",
+      "screenshot_sha256": "1ee840d87c71734185c6ab7beb24f99d8cb4d83195f6dec84ce5b324de291bc8",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 采购入库履约摘要",
+      "state": "desktop-采购入库履约摘要-to-MES 表格长文本\n默认两行预览，悬停或点击查看全文；显式截断模式仍保留 64 字截断和“更多”弹层。\n物料编码\t说明\t数量\n\n物料编码\n\t\n说明\n\t\n数量\n\n",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "采购入库履约摘要",
+      "next": "MES 表格长文本\n默认两行预览，悬停或点击查看全文；显式截断模式仍保留 64 字截断和“更多”弹层。\n物料编码\t说明\t数量\n\n物料编码\n\t\n说明\n\t\n数量\n\n",
+      "previous_rect": {
+        "left": 273,
+        "top": 2727.61,
+        "right": 1391,
+        "bottom": 2881.75,
+        "width": 1118,
+        "height": 154.14
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 2897.75,
+        "right": 1391,
+        "bottom": 3190.89,
+        "width": 1118,
+        "height": 293.14
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space direction=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and painted-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-capacity.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-capacity-summary-2026-11-20/desktop-capacity-card-1440x900.png",
+      "screenshot_sha256": "1ee840d87c71734185c6ab7beb24f99d8cb4d83195f6dec84ce5b324de291bc8",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 采购入库履约摘要",
+      "state": "desktop-用途说明-to-履约数量摘要",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "用途说明",
+      "next": "履约数量摘要",
+      "previous_rect": {
+        "left": 290,
+        "top": 2784.75,
+        "right": 1374,
+        "bottom": 2806.75,
+        "width": 1084,
+        "height": 22
+      },
+      "next_rect": {
+        "left": 290,
+        "top": 2820.75,
+        "right": 475.25,
+        "bottom": 2864.75,
+        "width": 185.25,
+        "height": 44
+      },
+      "gap_px": 14.0,
+      "expected": {
+        "kind": "library",
+        "value": "14px paragraph margin",
+        "source": "Ant Design Typography.Paragraph default margin block-end (computed margin-bottom: 14px)"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and painted-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 14.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-capacity.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-capacity-summary-2026-11-20/desktop-capacity-card-1440x900.png",
+      "screenshot_sha256": "1ee840d87c71734185c6ab7beb24f99d8cb4d83195f6dec84ce5b324de291bc8",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 采购入库履约摘要",
+      "state": "mobile-通用日期范围快捷选择器\n自定义快捷范围优先保留；缺少的通用日期范围会自动补齐，且相同文字标签只显示一次。窄屏双月日历可横向滑动查看。\nAnt Design 日期-to-采购入库履约摘要",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "通用日期范围快捷选择器\n自定义快捷范围优先保留；缺少的通用日期范围会自动补齐，且相同文字标签只显示一次。窄屏双月日历可横向滑动查看。\nAnt Design 日期",
+      "next": "采购入库履约摘要",
+      "previous_rect": {
+        "left": 33,
+        "top": 3712.91,
+        "right": 342,
+        "bottom": 4137.05,
+        "width": 309,
+        "height": 424.14
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 4153.05,
+        "right": 342,
+        "bottom": 4351.19,
+        "width": 309,
+        "height": 198.14
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space direction=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and painted-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-capacity.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-capacity-summary-2026-11-20/mobile-capacity-card-375x812.png",
+      "screenshot_sha256": "fea59e88bd85478b4f435c024045dac8d6b65ed4093254feddf649c675d1da68",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 采购入库履约摘要",
+      "state": "mobile-采购入库履约摘要-to-MES 表格长文本\n默认两行预览，悬停或点击查看全文；显式截断模式仍保留 64 字截断和“更多”弹层。\n物料编码\t说明\t数量\n\n物料编码\n\t\n说明\n\t\n数量\n\n",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "采购入库履约摘要",
+      "next": "MES 表格长文本\n默认两行预览，悬停或点击查看全文；显式截断模式仍保留 64 字截断和“更多”弹层。\n物料编码\t说明\t数量\n\n物料编码\n\t\n说明\n\t\n数量\n\n",
+      "previous_rect": {
+        "left": 33,
+        "top": 4153.05,
+        "right": 342,
+        "bottom": 4351.19,
+        "width": 309,
+        "height": 198.14
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 4367.19,
+        "right": 342,
+        "bottom": 4770.33,
+        "width": 309,
+        "height": 403.14
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space direction=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and painted-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-capacity.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-capacity-summary-2026-11-20/mobile-capacity-card-375x812.png",
+      "screenshot_sha256": "fea59e88bd85478b4f435c024045dac8d6b65ed4093254feddf649c675d1da68",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 采购入库履约摘要",
+      "state": "mobile-用途说明-to-履约数量摘要",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "用途说明",
+      "next": "履约数量摘要",
+      "previous_rect": {
+        "left": 50,
+        "top": 4210.19,
+        "right": 325,
+        "bottom": 4276.19,
+        "width": 275,
+        "height": 66
+      },
+      "next_rect": {
+        "left": 50,
+        "top": 4290.19,
+        "right": 235.25,
+        "bottom": 4334.19,
+        "width": 185.25,
+        "height": 44
+      },
+      "gap_px": 14.0,
+      "expected": {
+        "kind": "library",
+        "value": "14px paragraph margin",
+        "source": "Ant Design Typography.Paragraph default margin block-end (computed margin-bottom: 14px)"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and painted-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 14.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-capacity.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-capacity-summary-2026-11-20/mobile-capacity-card-375x812.png",
+      "screenshot_sha256": "fea59e88bd85478b4f435c024045dac8d6b65ed4093254feddf649c675d1da68",
+      "status": "PASS"
+    }
+  ],
+  "interaction_results": [
+    {
+      "state": "desktop",
+      "expected_texts": [
+        "订单 128.5 千克",
+        "已收 32.25 千克 · 待收 96.25 千克"
+      ],
+      "expected_text_counts": [
+        1,
+        1
+      ],
+      "pass": true
+    },
+    {
+      "state": "mobile",
+      "expected_texts": [
+        "订单 128.5 千克",
+        "已收 32.25 千克 · 待收 96.25 千克"
+      ],
+      "expected_text_counts": [
+        1,
+        1
+      ],
+      "pass": true
+    },
+    {
+      "state": "desktop",
+      "check": "document-horizontal-overflow",
+      "pass": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440
+    },
+    {
+      "state": "mobile",
+      "check": "document-horizontal-overflow",
+      "pass": true,
+      "scrollWidth": 375,
+      "clientWidth": 375
+    },
+    {
+      "state": "mobile",
+      "check": "card-horizontal-overflow",
+      "pass": true,
+      "overflow": false
+    }
+  ],
+  "runtime_errors": {
+    "page": [],
+    "console": [],
+    "forbidden": [],
+    "failedRequests": []
+  },
+  "limitations": [
+    "Production purchase receipt queries and permissions are host integrations and were not exercised.",
+    "Unit labels in this Catalog state use a deterministic local adapter; live MES dictionary wiring remains UNVERIFIED.",
+    "Consumer imports in mes-admin were not changed."
+  ]
+}

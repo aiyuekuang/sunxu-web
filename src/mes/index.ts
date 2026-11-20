@@ -17,6 +17,7 @@ export * from './components/DocumentTableTitle';
 export * from './components/DocumentModalForm';
 export * from './components/DocumentLineBatchSettingsButton';
 export * from './components/DocumentLineQuantityInput';
+export * from './components/PurchaseReceiptCapacitySummary';
 export * from './components/MaterialFilteredSelect';
 export * from './components/MasterDataQuickCreateSelect';
 export * from './components/master-data-quick-create-types';
@@ -30,6 +31,7 @@ export * from './components/PermissionButton';
 export * from './components/StatusDisplay';
 export * from './components/TableLongText';
 export * from './components/UserText';
+export * from './utils/qty-unit';
 export {
   ResizableProTable,
   ResizableTable,

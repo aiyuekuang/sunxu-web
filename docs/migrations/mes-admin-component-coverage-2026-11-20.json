@@ -88,37 +88,37 @@
     "component_reference_count": 627,
     "component_status_counts": {
       "HOST_SCOPE": 278,
-      "REVIEW_SOURCE_CONTRACT": 13,
-      "IMPLEMENTED": 47,
-      "WORKTREE_IMPLEMENTATION": 1,
+      "IMPLEMENTED": 48,
       "MAPPED": 245,
-      "PENDING": 43
+      "PENDING": 42,
+      "REVIEW_SOURCE_CONTRACT": 13,
+      "WORKTREE_IMPLEMENTATION": 1
     },
     "component_target_counts": {
       "MES_HOST_INTEGRATION": 29,
-      "SUNXU_MES": 85,
       "MES_HOST_PAGE": 237,
       "MES_HOST_PLATFORM": 14,
       "SUNXU_COMMON": 20,
+      "SUNXU_MES": 85,
       "SUNXU_UPSTREAM": 242
     },
     "source_file_count": 195,
     "source_status_counts": {
-      "HOST_SCOPE": 33,
-      "PENDING": 70,
       "EXCLUDED_FROM_RUNTIME": 46,
+      "HOST_SCOPE": 33,
+      "IMPLEMENTED": 35,
       "MAPPED": 7,
-      "IMPLEMENTED": 34,
-      "WORKTREE_IMPLEMENTATION": 1,
-      "REVIEW_SOURCE_CONTRACT": 4
+      "PENDING": 69,
+      "REVIEW_SOURCE_CONTRACT": 4,
+      "WORKTREE_IMPLEMENTATION": 1
     },
     "source_target_counts": {
       "MES_HOST_INTEGRATION": 34,
-      "SUNXU_MES": 98,
       "NOT_SHIPPED_SOURCE_TEST": 46,
-      "SUNXU_UPSTREAM": 6,
+      "SOURCE_STYLE_REVIEW": 3,
       "SUNXU_COMMON": 8,
-      "SOURCE_STYLE_REVIEW": 3
+      "SUNXU_MES": 98,
+      "SUNXU_UPSTREAM": 6
     }
   },
   "component_references": [
@@ -5785,12 +5785,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 2,
       "importer_file_count": 2,
       "source_sha256": "2f0a7c930e2a3bb186dbd8cfb40e9ce0d863422635a42a642adb235ed85ad001",
       "previous_target": null,
-      "rationale": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific."
+      "rationale": "Implemented as src/mes/components/PurchaseReceiptCapacitySummary.tsx. The source quantity/unit display contract is preserved; unit labels remain supplied by the MES host."
     },
     {
       "module": "../HeaderDropdown",
@@ -12465,7 +12465,9 @@
       "previous_reason": "Business document, accounting, custom-field, master-data, purchase, print, or label behavior is MES-specific.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "implementation_target": "src/mes/components/PurchaseReceiptCapacitySummary.tsx",
+      "rationale": "Implemented the complete component and its qty-unit formatting dependency in src/mes; unit dictionaries are passed by the host and no MES request or permission behavior is embedded."
     },
     {
       "source": "src/components/shells/DetailPageShell.tsx",

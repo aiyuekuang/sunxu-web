@@ -38,6 +38,7 @@
 | `MaterialFilteredSelect` / `MaterialSelectField` / `MaterialMultiSelectField` | 保留 MES 物料筛选、单/多选字段和扫码候选校验 | AntD Select + Pro Components `ProForm.Item`；数据和宿主集成由 `MesUiProvider` 注入 |
 | `MasterDataQuickCreateSelect` | 在客户/供应商关联候选下拉中新增主数据并回填当前 ProForm 字段 | Pro Components `ProFormSelect` + AntD Select / Drawer；新建表单、权限和配置路由由 `MesUiProvider` 注入 |
 | `AccountingBookField` / `FiscalPeriodField` / `VoucherWordField` / `AccountField` | 会计账簿、期间、凭证字和科目字段；按账簿联动候选、默认值与空数据配置入口 | Pro Components `ProFormSelect`；MES 列表服务和配置路由由 `MesUiProvider.accountingSelectorCapabilities` 注入 |
+| `PurchaseReceiptCapacitySummary` | 显示采购订单量、已收量和待收量，并按 MES 数量/单位口径格式化 | AntD `Space` / `Typography.Text`；单位标签映射由宿主传入 |
 | `DrawingFilesInline` / `FileUrlsInline` / `DrawingFilesGallery` / `PdfPreviewDrawer` | 保留 MES 附件、图纸行关联、分组预览/打印和 PDF 预览操作 | AntD Upload / Image / Drawer + React-PDF；授权文件能力由 `MesUiProvider` 注入 |
 | `LongText` | 在表格单元格显示多行预览并按需查看全文 | AntD Popover + Typography / Modal |
 | `RowActions` | 把表格行操作收纳进省略号菜单 | AntD Dropdown + Button；操作语义由宿主提供 |
@@ -106,6 +107,13 @@
 - 周从周一开始；完整日范围包含起止日，近 N 天包括今天，本年度从 1 月 1 日至今天结束。日期值由调用方和浏览器本地日期生成；组件不发起查询或改写业务 DTO。
 - 公开 DatePicker semantic `styles` 与宿主自定义样式合并。范围弹层最大宽度为 `calc(100vw - 64px)`，双月面板保持内容宽度并由弹层横向滚动；桌面双月布局保持不变，375px 手机视口弹层完整留在视口内。
 - **目录和证据**：MES UI 套件 Catalog 同时渲染三种字段包装器，验证自定义 `近7天` 覆盖同名默认预设、其他通用预设补齐、ProForm 日期/日期时间字段提交值，以及手机双月日历横向滚动。桌面和手机视口、弹层边界与 16 个相邻间距接缝见 [`docs/verification/quick-date-range-picker-2026-11-20/README.md`](./verification/quick-date-range-picker-2026-11-20/README.md)；MES 报表服务/权限接线和读屏器完整流程为 `UNVERIFIED`。
+
+### 采购入库履约摘要
+
+- **API**：必填 `orderedQty`、`receivedQty`、`outstandingQty`；`baseUnit` 与 `unitLabelMap` 可选。数量按 `zh-CN` 分组并最多保留 3 位小数，单位标签由宿主字典传入；字典未命中时显示单位原值。
+- **显示**：沿用两行次序“订单数量”与“已收数量 · 待收数量”，AntD 次要文字、12px 字号和零间距垂直布局保持来源行为。
+- **边界**：组件不推导履约量、不查询采购单或字典、不执行权限判断；三个数量和单位字典由宿主提供。MES `qty-unit` 工具同时保留单位归一化、标签回退、双单位数量展示和基础量还原函数，供后续 MES 组件复用。
+- **证据**：Catalog 的 MES UI 套件展示已收/待收数及宿主单位标签。桌面/手机渲染、文本、几何与间距证据见 [`docs/verification/purchase-receipt-capacity-summary-2026-11-20/README.md`](./verification/purchase-receipt-capacity-summary-2026-11-20/README.md)。
 
 ### `StatusTabs`
 
