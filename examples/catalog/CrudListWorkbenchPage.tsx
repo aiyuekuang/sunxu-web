@@ -427,8 +427,6 @@ export function CrudListWorkbenchPage() {
       </SectionCard>
 
       <CrudListWorkbench<DemoProduct>
-        title="产品管理"
-        headingLevel={2}
         proTableSearch={
           isProSearch
             ? {

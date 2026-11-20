@@ -3,7 +3,7 @@ import { Breadcrumb, Typography } from 'antd';
 import type { BreadcrumbProps } from 'antd';
 
 export type PageHeaderProps = {
-  title: string;
+  title?: string;
   headingLevel?: 1 | 2 | 3;
   description?: ReactNode;
   breadcrumbs?: BreadcrumbProps['items'];
@@ -19,14 +19,18 @@ export function PageHeader({
   actions,
   className,
 }: PageHeaderProps) {
+  if (!title && !description && !breadcrumbs?.length && !actions) return null;
+
   return (
     <header className={['sxw-page-header', className].filter(Boolean).join(' ')}>
       {breadcrumbs?.length ? <Breadcrumb items={breadcrumbs} /> : null}
       <div className="sxw-page-header__row">
         <div className="sxw-page-header__copy">
-          <Typography.Title level={headingLevel} className="sxw-page-header__title">
-            {title}
-          </Typography.Title>
+          {title ? (
+            <Typography.Title level={headingLevel} className="sxw-page-header__title">
+              {title}
+            </Typography.Title>
+          ) : null}
           {description ? (
             <Typography.Paragraph className="sxw-page-header__description">
               {description}

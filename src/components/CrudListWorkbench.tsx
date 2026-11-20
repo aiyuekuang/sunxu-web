@@ -63,7 +63,7 @@ export type CrudListWorkbenchTableRenderProps<
 > = CrudListWorkbenchTableProps<T, Params> & {
   /** Query form configuration remains owned by the workbench. */
   search: ProTableProps<T, Params>['search'];
-  /** The workbench owns the list title and toolbar. */
+  /** The workbench suppresses ProTable's own title and toolbar. */
   headerTitle: false;
   toolBarRender: false;
   toolbar?: undefined;
@@ -74,7 +74,9 @@ export type CrudListWorkbenchTableRenderProps<
 export type CrudListWorkbenchProps<
   T extends object,
   Params extends Record<string, unknown> = Record<string, unknown>,
-> = Omit<ListScreenContainerProps, 'actions' | 'children' | 'toolbar'> & {
+> = Omit<ListScreenContainerProps, 'actions' | 'children' | 'title' | 'toolbar'> & {
+  /** @deprecated The workbench no longer renders a page title; use a host-level PageHeader if needed. */
+  title?: ReactNode;
   /** High-frequency, mutually exclusive top-level categories. */
   primaryTabs?: CrudListPrimaryTabs;
   /** Common status filter, rendered on the right side of the primary toolbar. */
@@ -109,7 +111,7 @@ export type CrudListWorkbenchProps<
   /**
    * Render a host table adapter (for example, a resizable ProTable) inside the
    * workbench result area. The adapter receives normalized table props while
-   * list-level title, filters, actions, and toolbar remain owned by this component.
+   * filters, actions, and toolbar remain owned by this component.
    */
   renderTable?: (props: CrudListWorkbenchTableRenderProps<T, Params>) => ReactNode;
   /** Automatically move inline quick filters into an expandable row when they do not fit. Defaults to true. */
@@ -352,7 +354,6 @@ export function CrudListWorkbench<
   T extends object,
   Params extends Record<string, unknown> = Record<string, unknown>,
 >({
-  title,
   headingLevel,
   description,
   breadcrumbs,
@@ -701,7 +702,6 @@ export function CrudListWorkbench<
     <>
       <ListScreenContainer
         as={as}
-        title={layout === 'embedded' ? undefined : title}
         headingLevel={headingLevel}
         description={layout === 'embedded' ? undefined : description}
         breadcrumbs={layout === 'embedded' ? undefined : breadcrumbs}

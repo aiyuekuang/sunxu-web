@@ -1,0 +1,45 @@
+{
+  "route": "http://127.0.0.1:5173/title-removal-preview.html",
+  "routeScope": "Temporary Vite preview mounts examples/catalog/CrudListWorkbenchPage.tsx under SunxuWebProvider. This is an isolated component preview, not the official catalog router or the CRM host route.",
+  "desktop": {
+    "viewport": { "width": 1470, "height": 900 },
+    "hostHeadings": ["CRUD 列表工作台"],
+    "workbenchTitleRendered": false,
+    "workbench": { "x": 48, "y": 232.14, "width": 1374, "height": 481 },
+    "toolbar": { "x": 48, "y": 232.14, "width": 1374, "height": 98 },
+    "tableResults": { "x": 48, "y": 338.14, "width": 1374, "height": 375 },
+    "toolbarToTableGapPx": 8,
+    "documentHorizontalOverflowPx": 0,
+    "workspaceFramePx": { "left": 24, "right": 24 },
+    "pageBackground": "rgb(245, 246, 248)",
+    "surfaceHorizontalPadding": "24px"
+  },
+  "mobile": {
+    "viewport": { "width": 390, "height": 844 },
+    "workbenchTitleRendered": false,
+    "workbench": { "x": 32, "y": 216.14, "width": 326, "height": 596 },
+    "toolbar": { "x": 32, "y": 216.14, "width": 326, "height": 213 },
+    "tableResults": { "x": 32, "y": 437.14, "width": 326, "height": 375 },
+    "toolbarToTableGapPx": 8,
+    "documentHorizontalOverflowPx": 0,
+    "workspaceFramePx": { "left": 16, "right": 16 },
+    "surfaceHorizontalPadding": "16px",
+    "tableHorizontalScroll": { "scrollWidth": 1020, "clientWidth": 326, "overflowX": "auto" }
+  },
+  "spacingSeams": [
+    { "seam": "workbench toolbar → table results", "desktopPx": 8, "mobilePx": 8, "result": "PASS" }
+  ],
+  "firstScreenSpaceBudget": [
+    { "element": "host page heading", "responsibility": "identify the component catalog route", "desktopY": 59 },
+    { "element": "workbench toolbar", "responsibility": "category/status filters, search and list actions", "desktopY": 232.14 },
+    { "element": "table results", "responsibility": "show the list", "desktopY": 338.14 },
+    { "element": "workbench page title", "responsibility": "none; removed", "rendered": false }
+  ],
+  "officialRoute": {
+    "status": "UNVERIFIED",
+    "reason": "The root catalog build/typecheck is blocked by pre-existing errors in src/mes/components/OrderItemEditor.tsx:907-908 and src/mes/components/BusinessPrintTemplates.tsx:1175; the CRM host route was not rendered in this check."
+  },
+  "browserMessages": [
+    "The preview logs an existing Ant Design Space direction deprecation warning and one 404 resource; neither prevented the component preview from rendering."
+  ]
+}

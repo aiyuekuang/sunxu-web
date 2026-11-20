@@ -83,7 +83,7 @@ export function ListScreenContainer({
       fill={fill}
       className={['sxw-list-screen', className].filter(Boolean).join(' ')}
     >
-      {title ? (
+      {title || description || breadcrumbs?.length || actions ? (
         <PageHeader
           title={title}
           headingLevel={headingLevel}
