@@ -1,30 +1,5 @@
 import { Tag } from 'antd';
 import type { TagProps } from 'antd';
-import type { CSSProperties } from 'react';
-
-const PRESET_COLORS = new Set([
-  'default',
-  'processing',
-  'success',
-  'warning',
-  'error',
-  'magenta',
-  'red',
-  'volcano',
-  'orange',
-  'gold',
-  'lime',
-  'green',
-  'cyan',
-  'blue',
-  'geekblue',
-  'purple',
-]);
-
-type StatusTagStyle = CSSProperties & {
-  '--sxw-status-tag-background'?: string;
-  '--sxw-status-tag-contrast-fallback'?: string;
-};
 
 export type StatusTagProps = Pick<
   TagProps,
@@ -35,9 +10,10 @@ function parseHexColor(value: string): [number, number, number] | undefined {
   const match = value.trim().match(/^#([\da-f]{3}|[\da-f]{6})$/i);
   if (!match) return undefined;
 
-  const hex = match[1].length === 3
-    ? [...match[1]].map((digit) => `${digit}${digit}`).join('')
-    : match[1];
+  const hex =
+    match[1].length === 3
+      ? [...match[1]].map((digit) => `${digit}${digit}`).join('')
+      : match[1];
   return [0, 2, 4].map((offset) => Number.parseInt(hex.slice(offset, offset + 2), 16)) as [
     number,
     number,
@@ -45,21 +21,48 @@ function parseHexColor(value: string): [number, number, number] | undefined {
   ];
 }
 
-function getContrastFallback(background: string): string {
+function getWhiteContrast(rgb: [number, number, number]): number {
+  const weights = [0.2126, 0.7152, 0.0722];
+  const luminance = rgb.reduce((sum, channel, index) => {
+    const normalized = channel / 255;
+    const linear =
+      normalized <= 0.04045
+        ? normalized / 12.92
+        : ((normalized + 0.055) / 1.055) ** 2.4;
+    return sum + linear * weights[index];
+  }, 0);
+  return 1.05 / (luminance + 0.05);
+}
+
+function withWhiteTextContrast(background: string): string {
   const rgb = parseHexColor(background);
-  if (!rgb) return '#ffffff';
+  if (!rgb || getWhiteContrast(rgb) >= 4.5) return background;
 
-  const luminance = rgb
-    .map((channel) => channel / 255)
-    .map((channel) =>
-      channel <= 0.04045 ? channel / 12.92 : ((channel + 0.055) / 1.055) ** 2.4,
-    )
-    .reduce((sum, channel, index) =>
-      sum + channel * [0.2126, 0.7152, 0.0722][index], 0);
+  let minScale = 0;
+  let maxScale = 1;
+  for (let index = 0; index < 16; index += 1) {
+    const scale = (minScale + maxScale) / 2;
+    const candidate = rgb.map((channel) => Math.round(channel * scale)) as [
+      number,
+      number,
+      number,
+    ];
+    if (getWhiteContrast(candidate) >= 4.5) minScale = scale;
+    else maxScale = scale;
+  }
 
-  const blackContrast = (luminance + 0.05) / 0.05;
-  const whiteContrast = 1.05 / (luminance + 0.05);
-  return blackContrast >= whiteContrast ? '#000000' : '#ffffff';
+  const darkened = rgb.map((channel) => Math.round(channel * minScale)) as [
+    number,
+    number,
+    number,
+  ];
+  while (getWhiteContrast(darkened) < 4.5) {
+    darkened.forEach((channel, index) => {
+      darkened[index] = Math.max(0, channel - 1);
+    });
+  }
+
+  return `#${darkened.map((channel) => channel.toString(16).padStart(2, '0')).join('')}`;
 }
 
 /**
@@ -73,20 +76,12 @@ export function StatusTag({
   className,
   style,
 }: StatusTagProps) {
-  const resolvedColor = !color || color.toLowerCase() === 'default' ? '#86909C' : color;
-  const isCustomColor = !PRESET_COLORS.has(resolvedColor.toLowerCase());
-  const customBackground =
-    typeof style?.backgroundColor === 'string' ? style.backgroundColor : resolvedColor;
-
-  const statusTagStyle: StatusTagStyle = {
-    ...style,
-    ...(isCustomColor
-      ? {
-          '--sxw-status-tag-background': customBackground,
-          '--sxw-status-tag-contrast-fallback': getContrastFallback(customBackground),
-        }
-      : {}),
-  };
+  const requestedColor = !color || color.toLowerCase() === 'default' ? '#86909C' : color;
+  const resolvedColor = withWhiteTextContrast(requestedColor);
+  const resolvedStyle =
+    typeof style?.backgroundColor === 'string'
+      ? { ...style, backgroundColor: withWhiteTextContrast(style.backgroundColor) }
+      : style;
 
   return (
     <Tag
@@ -95,12 +90,11 @@ export function StatusTag({
       icon={icon}
       className={[
         'sxw-status-tag',
-        isCustomColor ? 'sxw-status-tag--custom' : undefined,
         className,
       ]
         .filter(Boolean)
         .join(' ')}
-      style={statusTagStyle}
+      style={resolvedStyle}
     >
       {children}
     </Tag>

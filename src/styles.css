@@ -34,10 +34,6 @@
   --sxw-info: #4096ff;
 }
 
-.sxw-status-tag.ant-tag.sxw-status-tag--custom {
-  color: var(--sxw-status-tag-contrast-fallback, #fff);
-}
-
 .sxw-mes-document-modal-root,
 .sxw-mes-document-modal-root--viewport {
   position: absolute;
@@ -166,12 +162,6 @@
 .sxw-mes-document-modal-demo {
   position: relative;
   min-height: 480px;
-}
-
-@supports (color: contrast-color(#000)) {
-  .sxw-status-tag.ant-tag.sxw-status-tag--custom {
-    color: contrast-color(var(--sxw-status-tag-background, #000));
-  }
 }
 
 .sxw-screen {
