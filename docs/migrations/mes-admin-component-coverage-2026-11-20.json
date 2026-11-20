@@ -88,37 +88,37 @@
     "component_reference_count": 627,
     "component_status_counts": {
       "HOST_SCOPE": 278,
-      "REVIEW_SOURCE_CONTRACT": 16,
-      "IMPLEMENTED": 44,
+      "REVIEW_SOURCE_CONTRACT": 13,
+      "IMPLEMENTED": 47,
       "WORKTREE_IMPLEMENTATION": 1,
       "MAPPED": 245,
       "PENDING": 43
     },
     "component_target_counts": {
       "MES_HOST_INTEGRATION": 29,
+      "SUNXU_MES": 85,
       "MES_HOST_PAGE": 237,
       "MES_HOST_PLATFORM": 14,
-      "SUNXU_COMMON": 17,
-      "SUNXU_MES": 85,
-      "SUNXU_UPSTREAM": 245
+      "SUNXU_COMMON": 20,
+      "SUNXU_UPSTREAM": 242
     },
     "source_file_count": 195,
     "source_status_counts": {
       "HOST_SCOPE": 33,
       "PENDING": 70,
       "EXCLUDED_FROM_RUNTIME": 46,
-      "MAPPED": 8,
-      "IMPLEMENTED": 33,
+      "MAPPED": 7,
+      "IMPLEMENTED": 34,
       "WORKTREE_IMPLEMENTATION": 1,
       "REVIEW_SOURCE_CONTRACT": 4
     },
     "source_target_counts": {
       "MES_HOST_INTEGRATION": 34,
-      "NOT_SHIPPED_SOURCE_TEST": 46,
-      "SOURCE_STYLE_REVIEW": 3,
-      "SUNXU_COMMON": 7,
       "SUNXU_MES": 98,
-      "SUNXU_UPSTREAM": 7
+      "NOT_SHIPPED_SOURCE_TEST": 46,
+      "SUNXU_UPSTREAM": 6,
+      "SUNXU_COMMON": 8,
+      "SOURCE_STYLE_REVIEW": 3
     }
   },
   "component_references": [
@@ -5859,13 +5859,13 @@
       "initial_disposition": "MES_SHARED_COMPONENT_REVIEW",
       "previous_file_disposition": "UPSTREAM",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
-      "target_layer": "SUNXU_UPSTREAM",
-      "migration_status": "REVIEW_SOURCE_CONTRACT",
+      "target_layer": "SUNXU_COMMON",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 13,
       "importer_file_count": 12,
       "source_sha256": "830babaf8255b5e08a6c9f6610ae433f5e8761f8087c56fe3149ae09f70d4864",
       "previous_target": "Ant Design RangePicker presets",
-      "rationale": "Preset values and business date rules stay host-owned."
+      "rationale": "Implemented in src/components/QuickDateRangePicker.tsx. Caller presets stay first, nine common presets fill missing labels, ProForm props pass through, and the mobile popup remains viewport-bounded with a scrollable two-month panel."
     },
     {
       "module": "@/components/common/QuickDateRangePicker",
@@ -5874,13 +5874,13 @@
       "initial_disposition": "MES_SHARED_COMPONENT_REVIEW",
       "previous_file_disposition": "UPSTREAM",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
-      "target_layer": "SUNXU_UPSTREAM",
-      "migration_status": "REVIEW_SOURCE_CONTRACT",
+      "target_layer": "SUNXU_COMMON",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 14,
       "importer_file_count": 9,
       "source_sha256": "830babaf8255b5e08a6c9f6610ae433f5e8761f8087c56fe3149ae09f70d4864",
       "previous_target": "Ant Design RangePicker presets",
-      "rationale": "Preset values and business date rules stay host-owned."
+      "rationale": "Implemented in src/components/QuickDateRangePicker.tsx. Caller presets stay first, nine common presets fill missing labels, ProForm props pass through, and the mobile popup remains viewport-bounded with a scrollable two-month panel."
     },
     {
       "module": "@/components/common/QuickDateRangePicker",
@@ -5889,13 +5889,13 @@
       "initial_disposition": "MES_SHARED_COMPONENT_REVIEW",
       "previous_file_disposition": "UPSTREAM",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
-      "target_layer": "SUNXU_UPSTREAM",
-      "migration_status": "REVIEW_SOURCE_CONTRACT",
+      "target_layer": "SUNXU_COMMON",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 1,
       "importer_file_count": 1,
       "source_sha256": "830babaf8255b5e08a6c9f6610ae433f5e8761f8087c56fe3149ae09f70d4864",
       "previous_target": "Ant Design RangePicker presets",
-      "rationale": "Preset values and business date rules stay host-owned."
+      "rationale": "Implemented in src/components/QuickDateRangePicker.tsx. Caller presets stay first, nine common presets fill missing labels, ProForm props pass through, and the mobile popup remains viewport-bounded with a scrollable two-month panel."
     },
     {
       "module": "@/components/enhanced/StatusDisplay",
@@ -10605,8 +10605,10 @@
       "previous_target": "Ant Design RangePicker presets",
       "previous_reason": "Preset values and business date rules stay host-owned.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
-      "target_layer": "SUNXU_UPSTREAM",
-      "migration_status": "MAPPED"
+      "target_layer": "SUNXU_COMMON",
+      "migration_status": "IMPLEMENTED",
+      "implementation_target": "src/components/QuickDateRangePicker.tsx",
+      "rationale": "Implemented all three source wrappers in the public common layer and extracted the identical default-preset merge contract into src/components/dateRangePresets.ts; MES table helpers reuse the shared implementation."
     },
     {
       "source": "src/components/document-view/DetailLedgerFilterDrawer.tsx",

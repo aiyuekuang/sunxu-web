@@ -1,0 +1,912 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+  "component": "QuickDateRangePicker / QuickProFormDateRangePicker / QuickProFormDateTimeRangePicker",
+  "evidence": "./render-observations.json",
+  "evidence_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+        "state": "desktop-route-top-1440x900",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 4789.6875,
+          "width": 1216,
+          "height": 4733.6875
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 4765.6875,
+          "width": 1168,
+          "height": 4685.6875
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24.0,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/desktop-route-top-1440x900.png",
+        "screenshot_sha256": "6404f572671efd53001f3796433715d5b3950c6619af59e348ca2e823be1788d",
+        "status": "PASS"
+      },
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+        "state": "mobile-route-top-375x812",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 7225.625,
+          "width": 375,
+          "height": 7169.625
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 359,
+          "bottom": 7209.625,
+          "width": 343,
+          "height": 7137.625
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16.0,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/mobile-route-top-375x812.png",
+        "screenshot_sha256": "0ad47cc66a8444de5b7cb9ce302b795c480cb2b73eda0d45cff275c5fb075c4d",
+        "status": "PASS"
+      }
+    ]
+  },
+  "first_screen_budget": {
+    "business_task": "Set a report date interval with a caller-defined shortcut or a common quick range.",
+    "desktop_1440x900": {
+      "visible_order": [
+        "Catalog header",
+        "MES UI suite title and description",
+        "MES material selector card",
+        "part of MES drawing and attachment card"
+      ],
+      "target_selector_card_rect": {
+        "left": 273,
+        "top": 2331.46875,
+        "right": 1391,
+        "bottom": 2711.609375,
+        "width": 1118,
+        "height": 380.140625
+      },
+      "target_selector_below_fold": true,
+      "document_horizontal_overflow_px": 0
+    },
+    "mobile_375x812": {
+      "visible_order": [
+        "compact Catalog header",
+        "MES UI suite title and description",
+        "part of MES material selector card"
+      ],
+      "target_selector_card_rect": {
+        "left": 33,
+        "top": 3712.90625,
+        "right": 342,
+        "bottom": 4137.046875,
+        "width": 309,
+        "height": 424.140625
+      },
+      "target_selector_below_fold": true,
+      "document_horizontal_overflow_px": 0
+    },
+    "space_budget_source": "Measured at the top of the actual Catalog route; the target date-range card is below the first viewport and was separately captured in focused desktop and mobile states."
+  },
+  "seams": [
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "desktop-component-stack-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "页面标题与说明",
+      "next": "MES 物料选择器",
+      "previous_rect": {
+        "left": 273,
+        "top": 105,
+        "right": 1391,
+        "bottom": 200.28125,
+        "width": 1118,
+        "height": 95.28125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 665.421875,
+        "width": 1118,
+        "height": 445.140625
+      },
+      "gap_px": 20.0,
+      "expected": {
+        "kind": "contract",
+        "value": "20px heading-to-content spacing",
+        "source": "examples/catalog/catalog.css: .sxw-docs-page-heading margin-bottom"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 20.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/desktop-route-top-1440x900.png",
+      "screenshot_sha256": "6404f572671efd53001f3796433715d5b3950c6619af59e348ca2e823be1788d",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "mobile-component-stack-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "页面标题与说明",
+      "next": "MES 物料选择器",
+      "previous_rect": {
+        "left": 33,
+        "top": 89,
+        "right": 342,
+        "bottom": 240.28125,
+        "width": 309,
+        "height": 151.28125
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 256.28125,
+        "right": 342,
+        "bottom": 924.734375,
+        "width": 309,
+        "height": 668.453125
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "contract",
+        "value": "16px heading-to-content spacing",
+        "source": "examples/catalog/catalog.css: .sxw-docs-page-heading margin-bottom"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/mobile-route-top-375x812.png",
+      "screenshot_sha256": "0ad47cc66a8444de5b7cb9ce302b795c480cb2b73eda0d45cff275c5fb075c4d",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "desktop-component-stack-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 物料选择器",
+      "next": "MES 图纸与附件",
+      "previous_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 665.421875,
+        "width": 1118,
+        "height": 445.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 681.421875,
+        "right": 1391,
+        "bottom": 1318.5625,
+        "width": 1118,
+        "height": 637.140625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/desktop-route-top-1440x900.png",
+      "screenshot_sha256": "6404f572671efd53001f3796433715d5b3950c6619af59e348ca2e823be1788d",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "mobile-component-stack-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 物料选择器",
+      "next": "MES 图纸与附件",
+      "previous_rect": {
+        "left": 33,
+        "top": 256.28125,
+        "right": 342,
+        "bottom": 924.734375,
+        "width": 309,
+        "height": 668.453125
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 940.734375,
+        "right": 342,
+        "bottom": 2363.375,
+        "width": 309,
+        "height": 1422.640625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-drawing-files-2026-11-20/mobile-selector-drawing-seam-375x812.png",
+      "screenshot_sha256": "a25d441610ea4f9cc53f5392bdf03e235de6faee118641ff63ec3515d6569dde",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "desktop-component-stack-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 图纸与附件",
+      "next": "MES 主数据快捷新增选择器",
+      "previous_rect": {
+        "left": 273,
+        "top": 681.421875,
+        "right": 1391,
+        "bottom": 1318.5625,
+        "width": 1118,
+        "height": 637.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 1334.5625,
+        "right": 1391,
+        "bottom": 1760.015625,
+        "width": 1118,
+        "height": 425.453125
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/../mes-master-data-quick-create-2026-11-20/desktop-drawing-selector-seam-1440x900.png",
+      "screenshot_sha256": "bb5970fae0b30f5c4037df4c2a03a8f013549f1cc48f67b180f9a8d5208d34c8",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "mobile-component-stack-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 图纸与附件",
+      "next": "MES 主数据快捷新增选择器",
+      "previous_rect": {
+        "left": 33,
+        "top": 940.734375,
+        "right": 342,
+        "bottom": 2363.375,
+        "width": 309,
+        "height": 1422.640625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 2379.375,
+        "right": 342,
+        "bottom": 2936.140625,
+        "width": 309,
+        "height": 556.765625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/../mes-master-data-quick-create-2026-11-20/mobile-drawing-selector-seam-375x812.png",
+      "screenshot_sha256": "a1a0bc88cf2ecfcb819ec02f4606d5ff90cca37a76add40798dbfede870d712c",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "desktop-component-stack-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 主数据快捷新增选择器",
+      "next": "MES 会计账簿与期间选择器",
+      "previous_rect": {
+        "left": 273,
+        "top": 1334.5625,
+        "right": 1391,
+        "bottom": 1760.015625,
+        "width": 1118,
+        "height": 425.453125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 1776.015625,
+        "right": 1391,
+        "bottom": 2315.46875,
+        "width": 1118,
+        "height": 539.453125
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/../mes-accounting-selector-fields-2026-11-20/desktop-quick-create-accounting-seam-1440x900.png",
+      "screenshot_sha256": "4efebffc276e5dd6552a77fee72e2079a92e48405498d6e157d30b9a9b64bf6e",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "mobile-component-stack-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 主数据快捷新增选择器",
+      "next": "MES 会计账簿与期间选择器",
+      "previous_rect": {
+        "left": 33,
+        "top": 2379.375,
+        "right": 342,
+        "bottom": 2936.140625,
+        "width": 309,
+        "height": 556.765625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 2952.140625,
+        "right": 342,
+        "bottom": 3696.90625,
+        "width": 309,
+        "height": 744.765625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/../mes-accounting-selector-fields-2026-11-20/mobile-quick-create-accounting-seam-375x812.png",
+      "screenshot_sha256": "198be1be99c25dbba2e95da18b47521e17c212ec76bb14d65e33106ae2f296f5",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "desktop-accounting-date-range-seam-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 会计账簿与期间选择器",
+      "next": "通用日期范围快捷选择器",
+      "previous_rect": {
+        "left": 273,
+        "top": -125.484375,
+        "right": 1391,
+        "bottom": 413.96875,
+        "width": 1118,
+        "height": 539.453125
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 429.96875,
+        "right": 1391,
+        "bottom": 810.109375,
+        "width": 1118,
+        "height": 380.140625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/desktop-accounting-date-range-seam-1440x900.png",
+      "screenshot_sha256": "7ae08461280b913bdabd80b54d13fdb7be686f7f005ea960baaaa8be7968d417",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "mobile-accounting-date-range-seam-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 会计账簿与期间选择器",
+      "next": "通用日期范围快捷选择器",
+      "previous_rect": {
+        "left": 33,
+        "top": -330.859375,
+        "right": 342,
+        "bottom": 413.90625,
+        "width": 309,
+        "height": 744.765625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 429.90625,
+        "right": 342,
+        "bottom": 854.046875,
+        "width": 309,
+        "height": 424.140625
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/mobile-accounting-date-range-seam-375x812.png",
+      "screenshot_sha256": "efe8fe5639f318c95ae532f80850240657d781c948e3820fb49a60c8adef8e6a",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "desktop-date-range-card-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "通用日期范围快捷选择器",
+      "next": "MES 表格长文本",
+      "previous_rect": {
+        "left": 273,
+        "top": 71.96875,
+        "right": 1391,
+        "bottom": 452.109375,
+        "width": 1118,
+        "height": 380.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 468.109375,
+        "right": 1391,
+        "bottom": 761.25,
+        "width": 1118,
+        "height": 293.140625,
+        "clientWidth": 1116,
+        "scrollWidth": 1116
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/desktop-date-range-card-1440x900.png",
+      "screenshot_sha256": "4a5ec5d32f058d8879f14528fb46d5fd469cf22ad149f2e116bdcd66017916e4",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "mobile-date-range-card-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "通用日期范围快捷选择器",
+      "next": "MES 表格长文本",
+      "previous_rect": {
+        "left": 33,
+        "top": 71.90625,
+        "right": 342,
+        "bottom": 496.046875,
+        "width": 309,
+        "height": 424.140625,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 512.046875,
+        "right": 342,
+        "bottom": 915.1875,
+        "width": 309,
+        "height": 403.140625,
+        "clientWidth": 307,
+        "scrollWidth": 307
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/mobile-date-range-card-375x812.png",
+      "screenshot_sha256": "bb50c51a12387712fb42399775cbf5bff97bf5df71c261aaa1a6086ee778e6a3",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "desktop-date-range-fields-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "Ant Design 日期范围",
+      "next": "ProForm 日期范围",
+      "previous_rect": {
+        "left": 290,
+        "top": 165.109375,
+        "right": 1374,
+        "bottom": 231.109375,
+        "width": 1084,
+        "height": 66,
+        "clientWidth": 1084,
+        "scrollWidth": 1084
+      },
+      "next_rect": {
+        "left": 290,
+        "top": 255.109375,
+        "right": 1374,
+        "bottom": 321.109375,
+        "width": 1084,
+        "height": 66,
+        "clientWidth": 1084,
+        "scrollWidth": 1084
+      },
+      "gap_px": 24.0,
+      "expected": {
+        "kind": "library",
+        "value": "24px Ant Design vertical Form.Item margin",
+        "source": "node_modules/antd/dist/antd.css: .ant-form-item margin-bottom uses --ant-form-item-margin-bottom"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "exception": "Form fields share the same card surface; Ant Design Form.Item spacing separates them without independent painted surfaces."
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/desktop-date-range-card-1440x900.png",
+      "screenshot_sha256": "4a5ec5d32f058d8879f14528fb46d5fd469cf22ad149f2e116bdcd66017916e4",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "desktop-date-range-fields-1440x900",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "ProForm 日期范围",
+      "next": "ProForm 日期时间范围",
+      "previous_rect": {
+        "left": 290,
+        "top": 255.109375,
+        "right": 1374,
+        "bottom": 321.109375,
+        "width": 1084,
+        "height": 66,
+        "clientWidth": 1084,
+        "scrollWidth": 1084
+      },
+      "next_rect": {
+        "left": 290,
+        "top": 345.109375,
+        "right": 1374,
+        "bottom": 411.109375,
+        "width": 1084,
+        "height": 66,
+        "clientWidth": 1084,
+        "scrollWidth": 1084
+      },
+      "gap_px": 24.0,
+      "expected": {
+        "kind": "library",
+        "value": "24px Ant Design vertical Form.Item margin",
+        "source": "node_modules/antd/dist/antd.css: .ant-form-item margin-bottom uses --ant-form-item-margin-bottom"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "exception": "Form fields share the same card surface; Ant Design Form.Item spacing separates them without independent painted surfaces."
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/desktop-date-range-card-1440x900.png",
+      "screenshot_sha256": "4a5ec5d32f058d8879f14528fb46d5fd469cf22ad149f2e116bdcd66017916e4",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "mobile-date-range-fields-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "Ant Design 日期范围",
+      "next": "ProForm 日期范围",
+      "previous_rect": {
+        "left": 50,
+        "top": 209.046875,
+        "right": 325,
+        "bottom": 275.046875,
+        "width": 275,
+        "height": 66,
+        "clientWidth": 275,
+        "scrollWidth": 275
+      },
+      "next_rect": {
+        "left": 50,
+        "top": 299.046875,
+        "right": 325,
+        "bottom": 365.046875,
+        "width": 275,
+        "height": 66,
+        "clientWidth": 275,
+        "scrollWidth": 275
+      },
+      "gap_px": 24.0,
+      "expected": {
+        "kind": "library",
+        "value": "24px Ant Design vertical Form.Item margin",
+        "source": "node_modules/antd/dist/antd.css: .ant-form-item margin-bottom uses --ant-form-item-margin-bottom"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "exception": "Form fields share the same card surface; Ant Design Form.Item spacing separates them without independent painted surfaces."
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/mobile-date-range-card-375x812.png",
+      "screenshot_sha256": "bb50c51a12387712fb42399775cbf5bff97bf5df71c261aaa1a6086ee778e6a3",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+      "state": "mobile-date-range-fields-375x812",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "ProForm 日期范围",
+      "next": "ProForm 日期时间范围",
+      "previous_rect": {
+        "left": 50,
+        "top": 299.046875,
+        "right": 325,
+        "bottom": 365.046875,
+        "width": 275,
+        "height": 66,
+        "clientWidth": 275,
+        "scrollWidth": 275
+      },
+      "next_rect": {
+        "left": 50,
+        "top": 389.046875,
+        "right": 325,
+        "bottom": 455.046875,
+        "width": 275,
+        "height": 66,
+        "clientWidth": 275,
+        "scrollWidth": 275
+      },
+      "gap_px": 24.0,
+      "expected": {
+        "kind": "library",
+        "value": "24px Ant Design vertical Form.Item margin",
+        "source": "node_modules/antd/dist/antd.css: .ant-form-item margin-bottom uses --ant-form-item-margin-bottom"
+      },
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-separation inspection in the rendered screenshot",
+        "exception": "Form fields share the same card surface; Ant Design Form.Item spacing separates them without independent painted surfaces."
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-quick-date-range.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/mobile-date-range-card-375x812.png",
+      "screenshot_sha256": "bb50c51a12387712fb42399775cbf5bff97bf5df71c261aaa1a6086ee778e6a3",
+      "status": "PASS"
+    }
+  ],
+  "interaction_results": {
+    "nativePickerPresetsAndCustomOverride": "PASS",
+    "proFormDateRangeCustomAndDefaultPresets": "PASS",
+    "proFormDateTimeRangePresets": "PASS"
+  },
+  "runtime_errors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "authResponses": []
+  },
+  "limitations": [
+    "Catalog renders deterministic local dates and caller presets; MES report routes and consumer imports remain host-owned and were not changed.",
+    "The MES host pages, API services, and authorization are not wired in this Catalog verification.",
+    "Screen-reader end-to-end behavior was not verified."
+  ]
+}

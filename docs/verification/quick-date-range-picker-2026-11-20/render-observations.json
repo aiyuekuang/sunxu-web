@@ -1,0 +1,701 @@
+{
+  "result": "PASS",
+  "route": "CatalogApp / MES UI 套件 → 通用日期范围快捷选择器",
+  "targetUrl": "http://127.0.0.1:4174/",
+  "desktopTopGeometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "workspace": {
+      "left": 224,
+      "top": 56,
+      "right": 1440,
+      "bottom": 4789.6875,
+      "width": 1216,
+      "height": 4733.6875
+    },
+    "content": {
+      "left": 248,
+      "top": 80,
+      "right": 1416,
+      "bottom": 4765.6875,
+      "width": 1168,
+      "height": 4685.6875
+    },
+    "heading": {
+      "left": 273,
+      "top": 105,
+      "right": 1391,
+      "bottom": 200.28125,
+      "width": 1118,
+      "height": 95.28125
+    },
+    "targetCard": {
+      "left": 273,
+      "top": 2331.46875,
+      "right": 1391,
+      "bottom": 2711.609375,
+      "width": 1118,
+      "height": 380.140625
+    },
+    "cards": [
+      {
+        "title": "MES 物料选择器",
+        "rect": {
+          "left": 273,
+          "top": 220.28125,
+          "right": 1391,
+          "bottom": 665.421875,
+          "width": 1118,
+          "height": 445.140625
+        }
+      },
+      {
+        "title": "MES 图纸与附件",
+        "rect": {
+          "left": 273,
+          "top": 681.421875,
+          "right": 1391,
+          "bottom": 1318.5625,
+          "width": 1118,
+          "height": 637.140625
+        }
+      },
+      {
+        "title": "MES 主数据快捷新增选择器",
+        "rect": {
+          "left": 273,
+          "top": 1334.5625,
+          "right": 1391,
+          "bottom": 1760.015625,
+          "width": 1118,
+          "height": 425.453125
+        }
+      },
+      {
+        "title": "MES 会计账簿与期间选择器",
+        "rect": {
+          "left": 273,
+          "top": 1776.015625,
+          "right": 1391,
+          "bottom": 2315.46875,
+          "width": 1118,
+          "height": 539.453125
+        }
+      },
+      {
+        "title": "通用日期范围快捷选择器",
+        "rect": {
+          "left": 273,
+          "top": 2331.46875,
+          "right": 1391,
+          "bottom": 2711.609375,
+          "width": 1118,
+          "height": 380.140625
+        }
+      },
+      {
+        "title": "MES 表格长文本",
+        "rect": {
+          "left": 273,
+          "top": 2727.609375,
+          "right": 1391,
+          "bottom": 3020.75,
+          "width": 1118,
+          "height": 293.140625
+        }
+      },
+      {
+        "title": "MES 单据表格标题与关键词搜索",
+        "rect": {
+          "left": 273,
+          "top": 3036.75,
+          "right": 1391,
+          "bottom": 3269.890625,
+          "width": 1118,
+          "height": 233.140625
+        }
+      },
+      {
+        "title": "MES 明细批量字段设置",
+        "rect": {
+          "left": 273,
+          "top": 3285.890625,
+          "right": 1391,
+          "bottom": 3444.03125,
+          "width": 1118,
+          "height": 158.140625
+        }
+      },
+      {
+        "title": "MES 状态与权限组件",
+        "rect": {
+          "left": 273,
+          "top": 3460.03125,
+          "right": 1391,
+          "bottom": 3612.671875,
+          "width": 1118,
+          "height": 152.640625
+        }
+      },
+      {
+        "title": "MES 单据动作与深链",
+        "rect": {
+          "left": 273,
+          "top": 3628.671875,
+          "right": 1391,
+          "bottom": 3807.8125,
+          "width": 1118,
+          "height": 179.140625
+        }
+      },
+      {
+        "title": "MES 单据自定义字段容器",
+        "rect": {
+          "left": 273,
+          "top": 3823.8125,
+          "right": 1391,
+          "bottom": 4113.265625,
+          "width": 1118,
+          "height": 289.453125
+        }
+      },
+      {
+        "title": "MES 文本、金额与主数据展示",
+        "rect": {
+          "left": 273,
+          "top": 4129.265625,
+          "right": 1391,
+          "bottom": 4425.40625,
+          "width": 1118,
+          "height": 296.140625
+        }
+      },
+      {
+        "title": "MES 单据与明细视图切换",
+        "rect": {
+          "left": 273,
+          "top": 4441.40625,
+          "right": 1391,
+          "bottom": 4578.546875,
+          "width": 1118,
+          "height": 137.140625
+        }
+      },
+      {
+        "title": "MES 单据编辑弹窗",
+        "rect": {
+          "left": 273,
+          "top": 4594.546875,
+          "right": 1391,
+          "bottom": 4740.6875,
+          "width": 1118,
+          "height": 146.140625
+        }
+      }
+    ]
+  },
+  "desktopSeamGeometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "previousCard": {
+      "left": 273,
+      "top": -125.484375,
+      "right": 1391,
+      "bottom": 413.96875,
+      "width": 1118,
+      "height": 539.453125
+    },
+    "targetCard": {
+      "left": 273,
+      "top": 429.96875,
+      "right": 1391,
+      "bottom": 810.109375,
+      "width": 1118,
+      "height": 380.140625
+    }
+  },
+  "desktopCardGeometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440
+    },
+    "workspace": {
+      "left": 224,
+      "top": -2203.5,
+      "right": 1440,
+      "bottom": 2530.1875,
+      "width": 1216,
+      "height": 4733.6875,
+      "clientWidth": 1216,
+      "scrollWidth": 1216
+    },
+    "content": {
+      "left": 248,
+      "top": -2179.5,
+      "right": 1416,
+      "bottom": 2506.1875,
+      "width": 1168,
+      "height": 4685.6875,
+      "clientWidth": 1166,
+      "scrollWidth": 1166
+    },
+    "card": {
+      "left": 273,
+      "top": 71.96875,
+      "right": 1391,
+      "bottom": 452.109375,
+      "width": 1118,
+      "height": 380.140625,
+      "clientWidth": 1116,
+      "scrollWidth": 1116
+    },
+    "nextCard": {
+      "left": 273,
+      "top": 468.109375,
+      "right": 1391,
+      "bottom": 761.25,
+      "width": 1118,
+      "height": 293.140625,
+      "clientWidth": 1116,
+      "scrollWidth": 1116
+    },
+    "fields": [
+      {
+        "label": "Ant Design 日期范围",
+        "rect": {
+          "left": 290,
+          "top": 165.109375,
+          "right": 1374,
+          "bottom": 231.109375,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084
+        }
+      },
+      {
+        "label": "ProForm 日期范围",
+        "rect": {
+          "left": 290,
+          "top": 255.109375,
+          "right": 1374,
+          "bottom": 321.109375,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084
+        }
+      },
+      {
+        "label": "ProForm 日期时间范围",
+        "rect": {
+          "left": 290,
+          "top": 345.109375,
+          "right": 1374,
+          "bottom": 411.109375,
+          "width": 1084,
+          "height": 66,
+          "clientWidth": 1084,
+          "scrollWidth": 1084
+        }
+      }
+    ],
+    "cardOverflow": 0
+  },
+  "desktopCard": {
+    "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/desktop-date-range-card-1440x900.png",
+    "sha256": "4a5ec5d32f058d8879f14528fb46d5fd469cf22ad149f2e116bdcd66017916e4"
+  },
+  "mobileTopGeometry": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "workspace": {
+      "left": 0,
+      "top": 56,
+      "right": 375,
+      "bottom": 7225.625,
+      "width": 375,
+      "height": 7169.625
+    },
+    "content": {
+      "left": 16,
+      "top": 72,
+      "right": 359,
+      "bottom": 7209.625,
+      "width": 343,
+      "height": 7137.625
+    },
+    "heading": {
+      "left": 33,
+      "top": 89,
+      "right": 342,
+      "bottom": 240.28125,
+      "width": 309,
+      "height": 151.28125
+    },
+    "targetCard": {
+      "left": 33,
+      "top": 3712.90625,
+      "right": 342,
+      "bottom": 4137.046875,
+      "width": 309,
+      "height": 424.140625
+    },
+    "cards": [
+      {
+        "title": "MES 物料选择器",
+        "rect": {
+          "left": 33,
+          "top": 256.28125,
+          "right": 342,
+          "bottom": 924.734375,
+          "width": 309,
+          "height": 668.453125
+        }
+      },
+      {
+        "title": "MES 图纸与附件",
+        "rect": {
+          "left": 33,
+          "top": 940.734375,
+          "right": 342,
+          "bottom": 2363.375,
+          "width": 309,
+          "height": 1422.640625
+        }
+      },
+      {
+        "title": "MES 主数据快捷新增选择器",
+        "rect": {
+          "left": 33,
+          "top": 2379.375,
+          "right": 342,
+          "bottom": 2936.140625,
+          "width": 309,
+          "height": 556.765625
+        }
+      },
+      {
+        "title": "MES 会计账簿与期间选择器",
+        "rect": {
+          "left": 33,
+          "top": 2952.140625,
+          "right": 342,
+          "bottom": 3696.90625,
+          "width": 309,
+          "height": 744.765625
+        }
+      },
+      {
+        "title": "通用日期范围快捷选择器",
+        "rect": {
+          "left": 33,
+          "top": 3712.90625,
+          "right": 342,
+          "bottom": 4137.046875,
+          "width": 309,
+          "height": 424.140625
+        }
+      },
+      {
+        "title": "MES 表格长文本",
+        "rect": {
+          "left": 33,
+          "top": 4153.046875,
+          "right": 342,
+          "bottom": 4556.1875,
+          "width": 309,
+          "height": 403.140625
+        }
+      },
+      {
+        "title": "MES 单据表格标题与关键词搜索",
+        "rect": {
+          "left": 33,
+          "top": 4572.1875,
+          "right": 342,
+          "bottom": 4883.328125,
+          "width": 309,
+          "height": 311.140625
+        }
+      },
+      {
+        "title": "MES 明细批量字段设置",
+        "rect": {
+          "left": 33,
+          "top": 4899.328125,
+          "right": 342,
+          "bottom": 5167.46875,
+          "width": 309,
+          "height": 268.140625
+        }
+      },
+      {
+        "title": "MES 状态与权限组件",
+        "rect": {
+          "left": 33,
+          "top": 5183.46875,
+          "right": 342,
+          "bottom": 5416.109375,
+          "width": 309,
+          "height": 232.640625
+        }
+      },
+      {
+        "title": "MES 单据动作与深链",
+        "rect": {
+          "left": 33,
+          "top": 5432.109375,
+          "right": 342,
+          "bottom": 5728.25,
+          "width": 309,
+          "height": 296.140625
+        }
+      },
+      {
+        "title": "MES 单据自定义字段容器",
+        "rect": {
+          "left": 33,
+          "top": 5744.25,
+          "right": 342,
+          "bottom": 6077.703125,
+          "width": 309,
+          "height": 333.453125
+        }
+      },
+      {
+        "title": "MES 文本、金额与主数据展示",
+        "rect": {
+          "left": 33,
+          "top": 6093.703125,
+          "right": 342,
+          "bottom": 6767.34375,
+          "width": 309,
+          "height": 673.640625
+        }
+      },
+      {
+        "title": "MES 单据与明细视图切换",
+        "rect": {
+          "left": 33,
+          "top": 6783.34375,
+          "right": 342,
+          "bottom": 6964.484375,
+          "width": 309,
+          "height": 181.140625
+        }
+      },
+      {
+        "title": "MES 单据编辑弹窗",
+        "rect": {
+          "left": 33,
+          "top": 6980.484375,
+          "right": 342,
+          "bottom": 7192.625,
+          "width": 309,
+          "height": 212.140625
+        }
+      }
+    ]
+  },
+  "mobileSeamGeometry": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "previousCard": {
+      "left": 33,
+      "top": -330.859375,
+      "right": 342,
+      "bottom": 413.90625,
+      "width": 309,
+      "height": 744.765625
+    },
+    "targetCard": {
+      "left": 33,
+      "top": 429.90625,
+      "right": 342,
+      "bottom": 854.046875,
+      "width": 309,
+      "height": 424.140625
+    }
+  },
+  "mobileCardGeometry": {
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "workspace": {
+      "left": 0,
+      "top": -3585,
+      "right": 375,
+      "bottom": 3584.625,
+      "width": 375,
+      "height": 7169.625,
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "content": {
+      "left": 16,
+      "top": -3569,
+      "right": 359,
+      "bottom": 3568.625,
+      "width": 343,
+      "height": 7137.625,
+      "clientWidth": 341,
+      "scrollWidth": 341
+    },
+    "card": {
+      "left": 33,
+      "top": 71.90625,
+      "right": 342,
+      "bottom": 496.046875,
+      "width": 309,
+      "height": 424.140625,
+      "clientWidth": 307,
+      "scrollWidth": 307
+    },
+    "nextCard": {
+      "left": 33,
+      "top": 512.046875,
+      "right": 342,
+      "bottom": 915.1875,
+      "width": 309,
+      "height": 403.140625,
+      "clientWidth": 307,
+      "scrollWidth": 307
+    },
+    "fields": [
+      {
+        "label": "Ant Design 日期范围",
+        "rect": {
+          "left": 50,
+          "top": 209.046875,
+          "right": 325,
+          "bottom": 275.046875,
+          "width": 275,
+          "height": 66,
+          "clientWidth": 275,
+          "scrollWidth": 275
+        }
+      },
+      {
+        "label": "ProForm 日期范围",
+        "rect": {
+          "left": 50,
+          "top": 299.046875,
+          "right": 325,
+          "bottom": 365.046875,
+          "width": 275,
+          "height": 66,
+          "clientWidth": 275,
+          "scrollWidth": 275
+        }
+      },
+      {
+        "label": "ProForm 日期时间范围",
+        "rect": {
+          "left": 50,
+          "top": 389.046875,
+          "right": 325,
+          "bottom": 455.046875,
+          "width": 275,
+          "height": 66,
+          "clientWidth": 275,
+          "scrollWidth": 275
+        }
+      }
+    ],
+    "cardOverflow": 0
+  },
+  "mobileDropdownGeometry": {
+    "left": 50,
+    "right": 361,
+    "width": 311,
+    "clientWidth": 311,
+    "scrollWidth": 759
+  },
+  "mobileCalendarScroll": {
+    "scrollLeft": 448,
+    "scrollWidth": 759,
+    "clientWidth": 311
+  },
+  "screenshots": {
+    "desktopTop": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/desktop-route-top-1440x900.png",
+      "sha256": "6404f572671efd53001f3796433715d5b3950c6619af59e348ca2e823be1788d"
+    },
+    "desktopSeam": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/desktop-accounting-date-range-seam-1440x900.png",
+      "sha256": "7ae08461280b913bdabd80b54d13fdb7be686f7f005ea960baaaa8be7968d417"
+    },
+    "desktopCard": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/desktop-date-range-card-1440x900.png",
+      "sha256": "4a5ec5d32f058d8879f14528fb46d5fd469cf22ad149f2e116bdcd66017916e4"
+    },
+    "desktopDropdown": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/desktop-range-presets-1440x900.png",
+      "sha256": "612b265770de6d5b08806ae98c58aa449e28d6ee7ca2087aae978f32028e58fe"
+    },
+    "mobileTop": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/mobile-route-top-375x812.png",
+      "sha256": "0ad47cc66a8444de5b7cb9ce302b795c480cb2b73eda0d45cff275c5fb075c4d"
+    },
+    "mobileSeam": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/mobile-accounting-date-range-seam-375x812.png",
+      "sha256": "efe8fe5639f318c95ae532f80850240657d781c948e3820fb49a60c8adef8e6a"
+    },
+    "mobileCard": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/mobile-date-range-card-375x812.png",
+      "sha256": "bb50c51a12387712fb42399775cbf5bff97bf5df71c261aaa1a6086ee778e6a3"
+    },
+    "mobileDropdown": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/mobile-range-presets-375x812.png",
+      "sha256": "a209fca92ff899a6fc7d312a52ccb346885bc3eca50ef87b0bf3418ae07a9b3c"
+    },
+    "mobileCalendarScrolled": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/quick-date-range-picker-2026-11-20/mobile-range-calendar-scrolled-375x812.png",
+      "sha256": "762bfb0b31d715d4344df8232b73becaaa4ca29cd26c4e2a3a73cc19cef8d2ea"
+    }
+  },
+  "interactions": {
+    "nativePickerPresetsAndCustomOverride": "PASS",
+    "proFormDateRangeCustomAndDefaultPresets": "PASS",
+    "proFormDateTimeRangePresets": "PASS"
+  },
+  "runtimeErrors": {
+    "pageErrors": [],
+    "consoleErrors": [],
+    "authResponses": []
+  }
+}

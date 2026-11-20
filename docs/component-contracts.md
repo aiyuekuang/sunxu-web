@@ -23,6 +23,7 @@
 | `SectionCard` | 分组可选标题的内容，不制造空 header | Pro Components `ProCard` |
 | `StatusTabs` | 在互斥状态中选择当前结果集合 | AntD `Segmented` |
 | `StatusTag` | 以实底高对比样式呈现单条只读状态 | AntD `Tag`，固定 `variant="solid"` |
+| `QuickDateRangePicker` / `QuickProFormDateRangePicker` / `QuickProFormDateTimeRangePicker` | 给 AntD 和 ProForm 日期范围字段保留调用方快捷范围，并补齐通用快捷日期 | AntD `RangePicker` / Pro Components 日期范围字段；窄屏日历面板由公开语义样式限宽并支持横向滚动 |
 | `FilterBar` | 收纳查询条件和其右侧同级操作 | HTML `role=search` + 宿主控件 |
 | `MetricCard` | 显示一个可读的关键数值 | AntD `Statistic` + Pro `ProCard` |
 | `DetailCard` | 将属性按标签和值组成信息组 | AntD `Descriptions` + Pro `ProCard` |
@@ -97,6 +98,14 @@
 - **状态**：展示型容器；交互/加载/错误由内容项自身承担。没有标题和辅助信息时由 ProCard 不生成空标题区。
 - **布局**：ProCard `variant="outlined"` 管理内部边框；`styles.body` 管理公开的 body 样式入口；父级管理卡片间距。禁止页面覆盖 ProCard 内部 DOM 样式。
 - **上游选择**：直接使用 `ProCard` 可以表达单个普通卡片；当需要一致地遵守 Sunxu 标题可选、无空 header 契约时使用此 wrapper。
+
+### 快捷日期范围选择器
+
+- `QuickDateRangePicker`、`QuickProFormDateRangePicker` 和 `QuickProFormDateTimeRangePicker` 分别包装 AntD `DatePicker.RangePicker`、ProForm 日期范围与日期时间范围字段；除合并 `presets` 外，其余调用方 props 原样透传。
+- `DateRangePickerPreset` 接受 `Dayjs` 起止值或返回该值的回调。调用方预设保持在前；追加今天、昨天、本周、上周、近 7 天、近 30 天、本月、上月和本年度共 9 个通用预设。相同字符串标签只保留首个，非字符串 ReactNode 标签不做语义猜测或去重。
+- 周从周一开始；完整日范围包含起止日，近 N 天包括今天，本年度从 1 月 1 日至今天结束。日期值由调用方和浏览器本地日期生成；组件不发起查询或改写业务 DTO。
+- 公开 DatePicker semantic `styles` 与宿主自定义样式合并。范围弹层最大宽度为 `calc(100vw - 64px)`，双月面板保持内容宽度并由弹层横向滚动；桌面双月布局保持不变，375px 手机视口弹层完整留在视口内。
+- **目录和证据**：MES UI 套件 Catalog 同时渲染三种字段包装器，验证自定义 `近7天` 覆盖同名默认预设、其他通用预设补齐、ProForm 日期/日期时间字段提交值，以及手机双月日历横向滚动。桌面和手机视口、弹层边界与 16 个相邻间距接缝见 [`docs/verification/quick-date-range-picker-2026-11-20/README.md`](./verification/quick-date-range-picker-2026-11-20/README.md)；MES 报表服务/权限接线和读屏器完整流程为 `UNVERIFIED`。
 
 ### `StatusTabs`
 

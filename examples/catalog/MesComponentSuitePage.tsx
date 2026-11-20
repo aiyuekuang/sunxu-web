@@ -35,6 +35,7 @@ import { MaterialSelectorDemo } from './MaterialSelectorDemo';
 import { DrawingFilesDemo } from './DrawingFilesDemo';
 import { MasterDataQuickCreateSelectDemo } from './MasterDataQuickCreateSelectDemo';
 import { AccountingSelectorFieldsDemo } from './AccountingSelectorFieldsDemo';
+import { QuickDateRangePickerDemo } from './QuickDateRangePickerDemo';
 
 type MesLine = {
   id: string;
@@ -323,6 +324,7 @@ export function MesComponentSuitePage() {
       <DrawingFilesDemo />
       <MasterDataQuickCreateSelectDemo />
       <AccountingSelectorFieldsDemo />
+      <QuickDateRangePickerDemo />
 
       <SectionCard title="MES 表格长文本">
         <Typography.Paragraph type="secondary">

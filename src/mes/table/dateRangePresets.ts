@@ -1,5 +1,11 @@
 import dayjs, { type Dayjs } from 'dayjs';
-import type { ReactNode } from 'react';
+import type { DateRangePickerPreset } from '../../components/dateRangePresets';
+
+export {
+  DEFAULT_DATE_RANGE_PRESETS,
+  mergeDateRangePresets,
+  type DateRangePickerPreset,
+} from '../../components/dateRangePresets';
 
 /**
  * 个人视图使用的相对日期预设。它只保存用户意图，列表请求前再展开为真实日期，
@@ -21,67 +27,6 @@ export function resolveRelativeDatePresetRange(
   if (!isRelativeDatePreset(value)) return undefined;
   const today = dayjs().format('YYYY-MM-DD');
   return { startDate: today, endDate: today };
-}
-
-export type DateRangePickerPreset = {
-  label: ReactNode;
-  value:
-    | [Dayjs | null | undefined, Dayjs | null | undefined]
-    | (() => [Dayjs | null | undefined, Dayjs | null | undefined]);
-};
-
-export const DEFAULT_DATE_RANGE_PRESETS: DateRangePickerPreset[] = [
-  { label: '今天', value: () => recentDays(1) },
-  {
-    label: '昨天',
-    value: () => {
-      const yesterday = dayjs().subtract(1, 'day');
-      return dayRange(yesterday, yesterday);
-    },
-  },
-  {
-    label: '本周',
-    value: () => {
-      const weekStart = currentWeekStart();
-      return dayRange(weekStart, weekStart.add(6, 'day'));
-    },
-  },
-  {
-    label: '上周',
-    value: () => {
-      const weekStart = currentWeekStart(dayjs().subtract(7, 'day'));
-      return dayRange(weekStart, weekStart.add(6, 'day'));
-    },
-  },
-  { label: '近7天', value: () => recentDays(7) },
-  { label: '近30天', value: () => recentDays(30) },
-  {
-    label: '本月',
-    value: () => dayRange(dayjs().startOf('month'), dayjs().endOf('month')),
-  },
-  { label: '上月', value: lastMonthRange },
-  {
-    label: '本年度',
-    value: () => dayRange(dayjs().startOf('year'), dayjs()),
-  },
-];
-
-/** 保留日期范围字段已有的专用预设，并补齐通用快捷范围。 */
-export function mergeDateRangePresets(
-  presets?: ReadonlyArray<DateRangePickerPreset>,
-): DateRangePickerPreset[] {
-  const merged: DateRangePickerPreset[] = [];
-  const labels = new Set<string>();
-
-  for (const preset of [...(presets ?? []), ...DEFAULT_DATE_RANGE_PRESETS]) {
-    if (typeof preset.label === 'string') {
-      if (labels.has(preset.label)) continue;
-      labels.add(preset.label);
-    }
-    merged.push(preset);
-  }
-
-  return merged;
 }
 
 export type FinanceDateRangeKey =
