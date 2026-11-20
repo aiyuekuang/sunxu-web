@@ -20,6 +20,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `PermissionButton`（`sunxu-web/mes`） | MES 宿主注入权限判断；统一确认、异步 loading、成功提示和错误恢复 |
 | `DocumentModalForm`（`sunxu-web/mes`） | MES 单据表单全屏容器、当前工作区定位、最小化草稿保留与还原 |
 | `DocumentCustomFieldPanel`（`sunxu-web/mes`） | 保留单据自定义字段区的空态隐藏、错误展示和单据切换隔离；字段结构与编辑器由宿主渲染 |
+| `DocumentLedgerViewSwitch`（`sunxu-web/mes`） | 单据列表与只读明细间的受控切换；页面状态、路由和列表刷新由宿主管理 |
 | `DocumentLineQuantityInput`（`sunxu-web/mes`） | 可清空的数量编辑草稿；有效值由宿主控制，空值失焦时恢复最近有效值 |
 | `StatusDisplay`（`sunxu-web/mes`） | 宿主注入状态字典，支持 Tag、Badge、文本三种呈现 |
 | `AmountText`、`AmountPolicySnapshotTag`（`sunxu-web/mes`） | 按 MES 金额格式展示并通过宿主金额策略脱敏；金额快照可展开查看公式和计算结果 |
@@ -122,7 +123,7 @@ MES `DocumentViewBar` 的通用视图选择、脏状态切换和视图管理交�
 
 ### 全量覆盖工作账本（2026-11-20）
 
-用户已授权把 Sunxu Web 扩展为“通用层 + MES UI 套件”。逐个 import 条目与 195 个源文件的目标层、旧处置、源文件变化状态和迁移进度记录在 [MES 组件全量覆盖账本](./migrations/mes-admin-component-coverage-2026-11-20.json)。当前 627 个运行时组件引用中，245 项已映射至 Sunxu 通用/上游出口，30 项已有 MES/通用适配实现，1 项在工作区有 StatusTag 实现，16 项需按变更后的 MES 源文件复核契约，57 项仍待补进 `sunxu-web/mes`；另有 278 项明确属于 MES 宿主页面、框架集成或外部平台层。当前不能据此报告组件已全量补齐，也不开始新的 MES 页面替换批次。
+用户已授权把 Sunxu Web 扩展为“通用层 + MES UI 套件”。逐个 import 条目与 195 个源文件的目标层、旧处置、源文件变化状态和迁移进度记录在 [MES 组件全量覆盖账本](./migrations/mes-admin-component-coverage-2026-11-20.json)。当前 627 个运行时组件引用中，245 项已映射至 Sunxu 通用/上游出口，32 项已有 MES/通用适配实现，1 项在工作区有 StatusTag 实现，16 项需按变更后的 MES 源文件复核契约，55 项仍待补进 `sunxu-web/mes`；另有 278 项明确属于 MES 宿主页面、框架集成或外部平台层。当前不能据此报告组件已全量补齐，也不开始新的 MES 页面替换批次。
 
 替换门禁：每个运行时条目都必须在账本中收敛为 Sunxu 通用组件、Sunxu MES 套件、Sunxu 上游公开 API 或有明确理由的 MES 宿主/外部平台实现；`PENDING` 与 `REVIEW_SOURCE_CONTRACT` 必须清零。MES UI 组件保留现有行为，再把请求、权限、字典和业务副作用改为宿主注入；只有此门禁通过后才开始逐项替换消费者。
 

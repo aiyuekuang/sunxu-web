@@ -189,6 +189,7 @@
 - `MesUiProvider.actionIntentRoute` 接收宿主当前 `pathname`、`search` 及路由 `replace(path)` 回调；Sunxu 不依赖 Umi。缺少该路由能力时 `DocumentActionIntent` 不触发操作。
 - `DocumentActionsDropdown<T>` 保留 `documentId`、`documentNo`、`loadDocument`、`fallbackDocument`、`actions` 和 `onAction`。打开菜单时优先按 ID 加载权威单据，否则使用宿主提供的安全列表投影；依次按单项 `permission`、全部 `requiredPermissions`、后端 `availableActions` 中的 `requiredAvailableAction` 和 `visible(document)` 过滤。菜单保留动态 label、danger、loading、未找到和失败重试状态；动作回调收到选中的 key 和单据。当前用户权限和单据请求由宿主提供；页面不在 Sunxu 中复制 MES 状态机。
 - `DocumentCustomFieldPanel` 保留 `objectType/objectId/editable/title`；无 `objectId` 或宿主未注入渲染能力时返回 `null`，字段为空时隐藏整个面板，字段加载错误时仍显示错误内容，切换单据身份时在新状态到达前先隐藏旧字段。`MesUiProvider.renderCustomFieldPanel` 接收 `objectType/objectId/editable/showEmpty: false/onDisplayStateChange`；局部 `title` 只由外层容器渲染。MES 提供字段 schema、请求、编辑器和内容。切换身份会重置宿主渲染子树；可见性仅由 `hasFields || hasError` 决定，加载中和无字段不占布局。字段权限、保存与验证仍归 MES。
+- `DocumentViewSwitch` 用 Ant Design `Segmented` 提供 `detail/orders` 两态切换、默认“明细/单据”文案、对应图标和必填 `ariaLabel`；`createDocumentViewSwitch` 可配置无障碍名称和标签，缺省标签不变。`DocumentLedgerViewSwitch` 预设无障碍名称“单据与明细视图切换”。值由宿主控制，未知切换值被忽略；该组件不改变路由、不保存偏好，也不主动刷新列表。
 - `DocumentActionIntent` 保留 `action/enabled/onTrigger`；路由 query 中的首个 `action` 匹配且 enabled 时先通过宿主 replace 到当前 pathname 清除 query，再调用详情页已有流程；组件实例只处理一次，深链不得绕过权威详情和预检。
 - `DocumentModalForm<T, U>` 保持 Pro `ModalForm` 的泛型和其余 props 透传。默认宽度为 `100vw` 并实际铺满当前工作区，默认 `getContainer` 为 `false`，不穿透 keep-alive 标签容器；只有显式 `viewportFullscreen` 且仍采用默认标签容器时才固定到视口。最小化时取消遮罩并隐藏弹窗，但保持表单挂载与草稿；左下角还原条回到同一组件所在工作区。`open` 变化时清除最小化状态。默认 `destroyOnHidden=true`、`mask.closable=false`、`closable=false`，标题栏提供带无障碍名称的最小化和关闭按钮；可通过调用方 `modalProps.mask` 覆盖遮罩行为。完整宽度子节点由组件提供 `20px 24px 24px` 内边距，render-function children 原样透传；调用方自定义 Modal 语义样式槽及浮层 `style` 会与默认布局合并。固定数值宽度使用普通 Modal 布局；显式自定义 `getContainer` 保留自定义挂载容器，但仍应用完整宽度布局。完整宽度 Modal 保留 `document-form-modal` class 供 MES 宿主现有全局样式过渡使用。组件不负责草稿保存、请求、权限、路由或业务校验。
 - `DocumentLineQuantityInput` 是受控数值编辑器：有效数值变化立即交给宿主，清空时只保留本地空草稿、不发送 `null`；失焦时恢复宿主当前值。`InputNumber` 的范围、精度、步长和外观 props 继续透传。
@@ -208,6 +209,7 @@
 - 两个适配器的桌面/375px 触摸窄屏/844×390 横屏渲染、全文查看、批量字段区滚动、键盘表格滚动与 DOM 几何记录见 `docs/verification/mes-ui-suite-2026-11-19/README.md`。读屏器完整流程仍为 `UNVERIFIED`。
 - `DocumentModalForm` 的工作区全屏、视口全屏、固定宽度、遮罩点击不关闭、最小化保留草稿、键盘 Space/Enter 还原、关闭和宿主提交已在目录真实页面完成渲染验收；截图、DOM 几何和横向溢出数据见 `docs/verification/mes-document-modal-form-2026-11-20/README.md`。自定义 `getContainer` 组合和读屏器流程标为 `UNVERIFIED`。
 - `DocumentCustomFieldPanel` 在 Catalog 真实路由覆盖有字段、空字段、加载错误、无单据和身份切换；桌面/375px 几何、截图与 DOM 状态记录见 `docs/verification/mes-document-custom-field-panel-2026-11-20/README.md`。真实 MES API/编辑器宿主接线与读屏器流程标为 `UNVERIFIED`。
+- `DocumentLedgerViewSwitch` 在 Catalog 真实路由覆盖“明细/单据”受控切换、无障碍名称与窄屏布局；状态只在页面内变化，URL 不变。截图、几何和 DOM 状态见 `docs/verification/mes-document-ledger-view-switch-2026-11-20/README.md`。MES 各页面的本地偏好、列表 ref 刷新时机与数据读取为宿主行为，未迁移或验收。
 
 ## 组件状态验收记录
 

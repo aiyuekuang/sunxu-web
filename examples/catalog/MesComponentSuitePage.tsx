@@ -14,6 +14,7 @@ import {
   DocumentActionIntent,
   DocumentActionsDropdown,
   DocumentCustomFieldPanel,
+  DocumentLedgerViewSwitch,
   DocumentKeywordSearch,
   DocumentTableTitle,
   EntityThumbnail,
@@ -26,6 +27,7 @@ import {
   type DocumentLineBatchField,
   type DocumentActionDefinition,
   type DocumentActionState,
+  type DocumentViewMode,
   type MesCustomFieldPanelRenderProps,
   type MesUiRoute,
 } from '../../src/mes';
@@ -177,6 +179,8 @@ export function MesComponentSuitePage() {
   const [customFieldDemoMode, setCustomFieldDemoMode] =
     useState<CustomFieldDemoMode | 'no-object'>('fields');
   const [customFieldEditable, setCustomFieldEditable] = useState(false);
+  const [documentLedgerView, setDocumentLedgerView] =
+    useState<DocumentViewMode>('detail');
   const [actionLoadShouldFail, setActionLoadShouldFail] = useState(false);
   const [actionIntentLocation, setActionIntentLocation] = useState({
     pathname: '/catalog/documents/demo',
@@ -715,6 +719,21 @@ export function MesComponentSuitePage() {
         </MesUiProvider>
       </SectionCard>
 
+      <SectionCard title="MES 单据与明细视图切换">
+        <Typography.Paragraph type="secondary">
+          当前视图由页面控制；切换只更新本页状态，不改变路由，数据请求和刷新时机由宿主决定。
+        </Typography.Paragraph>
+        <Space wrap size={12}>
+          <DocumentLedgerViewSwitch
+            value={documentLedgerView}
+            onChange={setDocumentLedgerView}
+          />
+          <Typography.Text role="status">
+            当前视图：{documentLedgerView === 'detail' ? '明细' : '单据'}
+          </Typography.Text>
+        </Space>
+      </SectionCard>
+
       <div className="sxw-mes-document-modal-demo">
         <SectionCard title="MES 单据编辑弹窗">
           <Typography.Paragraph type="secondary">
@@ -768,6 +787,7 @@ export function MesComponentSuitePage() {
           </Form.Item>
         </DocumentModalForm>
       </div>
+
     </Space>
   );
 }

@@ -1,0 +1,177 @@
+{
+  "route": "CatalogApp / MES UI 套件 (/) / MES 单据与明细视图切换",
+  "sourceBaseline": "mes-admin e185f6b68b6d8ef94ed0b5312340e1952be5f2f1",
+  "behavior": {
+    "ariaLabel": "单据与明细视图切换",
+    "options": [
+      "明细",
+      "单据"
+    ],
+    "initialStatus": "当前视图：明细",
+    "clickOrders": "当前视图：单据",
+    "clickDetail": "当前视图：明细",
+    "accessibilityMarkup": {
+      "role": "radiogroup",
+      "items": [
+        {
+          "label": null,
+          "checked": null,
+          "tabIndex": null,
+          "text": ""
+        },
+        {
+          "label": null,
+          "checked": null,
+          "tabIndex": null,
+          "text": ""
+        }
+      ],
+      "tree": "- radiogroup \"单据与明细视图切换\":\n  - radio \"明细\" [checked]\n  - text: 明细\n  - radio \"单据\"\n  - text: 单据"
+    },
+    "keyboardArrowRight": "当前视图：单据",
+    "urlUnchanged": true,
+    "finalUrl": "http://127.0.0.1:4173/"
+  },
+  "desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 900,
+      "documentScrollWidth": 1440
+    },
+    "workspace": {
+      "rect": {
+        "left": 224,
+        "top": 56,
+        "right": 1440,
+        "bottom": 2572.22,
+        "width": 1216,
+        "height": 2516.22
+      },
+      "clientWidth": 1216,
+      "scrollWidth": 1216
+    },
+    "content": {
+      "rect": {
+        "left": 248,
+        "top": 80,
+        "right": 1416,
+        "bottom": 2548.22,
+        "width": 1168,
+        "height": 2468.22
+      },
+      "clientWidth": 1166,
+      "scrollWidth": 1166
+    },
+    "previous": {
+      "left": 273,
+      "top": 1577.94,
+      "right": 1391,
+      "bottom": 1874.08,
+      "width": 1118,
+      "height": 296.14
+    },
+    "card": {
+      "left": 273,
+      "top": 1890.08,
+      "right": 1391,
+      "bottom": 2027.22,
+      "width": 1118,
+      "height": 137.14
+    },
+    "next": {
+      "left": 273,
+      "top": 2043.22,
+      "right": 1391,
+      "bottom": 2189.36,
+      "width": 1118,
+      "height": 146.14
+    },
+    "gapBefore": 16,
+    "gapAfter": 16,
+    "switch": {
+      "rect": {
+        "left": 290,
+        "top": 1983.22,
+        "right": 418,
+        "bottom": 2010.22,
+        "width": 128,
+        "height": 27
+      }
+    }
+  },
+  "mobile": {
+    "viewport": {
+      "width": 375,
+      "height": 812,
+      "documentScrollWidth": 375
+    },
+    "workspace": {
+      "rect": {
+        "left": 0,
+        "top": 56,
+        "right": 375,
+        "bottom": 3484.72,
+        "width": 375,
+        "height": 3428.72
+      },
+      "clientWidth": 375,
+      "scrollWidth": 375
+    },
+    "content": {
+      "rect": {
+        "left": 16,
+        "top": 72,
+        "right": 359,
+        "bottom": 3468.72,
+        "width": 343,
+        "height": 3396.72
+      },
+      "clientWidth": 341,
+      "scrollWidth": 341
+    },
+    "previous": {
+      "left": 33,
+      "top": 2084.94,
+      "right": 342,
+      "bottom": 2758.58,
+      "width": 309,
+      "height": 673.64
+    },
+    "card": {
+      "left": 33,
+      "top": 2774.58,
+      "right": 342,
+      "bottom": 2955.72,
+      "width": 309,
+      "height": 181.14
+    },
+    "next": {
+      "left": 33,
+      "top": 2971.72,
+      "right": 342,
+      "bottom": 3183.86,
+      "width": 309,
+      "height": 212.14
+    },
+    "gapBefore": 16,
+    "gapAfter": 16,
+    "switch": {
+      "rect": {
+        "left": 50,
+        "top": 2911.72,
+        "right": 178,
+        "bottom": 2938.72,
+        "width": 128,
+        "height": 27
+      }
+    }
+  },
+  "consoleErrors": [],
+  "pageErrors": [],
+  "screenshots": {
+    "desktop-context.png": "d3994ead67e120e7e105a3784fc2afc82f480f201afaca3603ff4c61926e6226",
+    "desktop-switch-card.png": "8e0417796fdaf4398a7508e3468b43ffff7f4ed6707ee88c6b68da024790cfb5",
+    "mobile-context.png": "03359f1f1ef6f5716b83045d53ceef52b5bae8fce15e23ccad70cfe250f59fe7",
+    "mobile-switch-card.png": "6fc60dd54e2a47dd1b0c59068b3a5fbc735149c6853db4a1567f7558c4d5dc05"
+  }
+}
