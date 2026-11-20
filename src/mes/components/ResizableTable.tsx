@@ -13,6 +13,7 @@ import {
   Tooltip,
 } from 'antd';
 import type { LongTextDisplayMode } from '../../components/LongText';
+import { withPaginationSummary } from '../../components/PaginationSummary';
 import React, {
   useCallback,
   useEffect,
@@ -169,6 +170,8 @@ export type ResizableProTableProps<
   showRowIndex?: boolean;
   /** 列表空态的业务引导文案（数据由哪个上游生成/需要什么配置/筛选无结果如何调整）。 */
   emptyGuidance?: React.ReactNode;
+  /** Host-provided summary for the filtered result, placed beside pagination. */
+  paginationSummary?: React.ReactNode;
   /**
    * 将当前表格列配置绑定到导出请求。
    *
@@ -192,6 +195,8 @@ export type ResizableTableProps<T extends object> = Omit<
   /** 分页列表默认展示 ERP 风格的全局序号；明细表可显式关闭。 */
   showRowIndex?: boolean;
   emptyGuidance?: React.ReactNode;
+  /** Host-provided summary for the filtered result, placed beside pagination. */
+  paginationSummary?: React.ReactNode;
   /** 物料明细默认按名称、编码、规格、单位、主业务数量归一排序；明确例外可设 preserve。 */
   materialColumnPriority?: MaterialColumnPriority | false;
 };
@@ -2905,6 +2910,7 @@ function ResizableProTableInner<
     pagination,
     columnsState,
     summary,
+    paginationSummary,
     params,
     showRowIndex,
     exportLayoutEnabled,
@@ -2954,6 +2960,10 @@ function ResizableProTableInner<
     return (pageData: readonly T[]) =>
       shiftSummaryForRowIndex(summary(pageData));
   }, [shouldShowRowIndex, summary]);
+  const mergedPagination = useMemo(
+    () => withPaginationSummary(pagination, paginationSummary),
+    [pagination, paginationSummary],
+  );
   const tableDensityKey = useTableDensityKey();
   const tableSize = getAntdTableSize(tableDensityKey);
   const exportRouteKeyRef = useRef(getTableExportRouteKey());
@@ -3229,7 +3239,7 @@ function ResizableProTableInner<
       locale={mergedLocale}
       {...rest}
       params={normalizedParams}
-      pagination={pagination}
+      pagination={mergedPagination}
       summary={mergedSummary}
       dataSource={dataSource}
       columnsState={normalizedColumnsState}
@@ -3255,7 +3265,7 @@ function ResizableProTableInner<
       locale={mergedLocale}
       {...rest}
       params={normalizedParams}
-      pagination={pagination}
+      pagination={mergedPagination}
       summary={mergedSummary}
       dataSource={dataSource}
       columnsState={normalizedColumnsState}
@@ -3535,6 +3545,7 @@ function ResizableTableInner<T extends object>({
   emptyGuidance,
   pagination,
   summary,
+  paginationSummary,
   dataSource,
   showRowIndex,
   materialColumnPriority,
@@ -3583,6 +3594,10 @@ function ResizableTableInner<T extends object>({
     return (pageData: readonly T[]) =>
       shiftSummaryForRowIndex(summary(pageData));
   }, [shouldShowRowIndex, summary]);
+  const mergedPagination = useMemo(
+    () => withPaginationSummary(pagination, paginationSummary),
+    [pagination, paginationSummary],
+  );
   const mergedLocale = useMemo(
     () => ({
       ...locale,
@@ -3669,7 +3684,7 @@ function ResizableTableInner<T extends object>({
             scroll={scroll}
             locale={mergedLocale}
             expandable={mergedExpandable}
-            pagination={pagination}
+            pagination={mergedPagination}
             summary={mergedSummary}
             dataSource={dataSource}
             {...rest}
@@ -3691,7 +3706,7 @@ function ResizableTableInner<T extends object>({
           onChange={mergedOnChange}
           locale={mergedLocale}
           expandable={mergedExpandable}
-          pagination={pagination}
+          pagination={mergedPagination}
           summary={mergedSummary}
           dataSource={dataSource}
           {...rest}

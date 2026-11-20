@@ -32,7 +32,8 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `ResizableTable`（`sunxu-web/mes`） | 原生 AntD Table 的 MES 明细表适配：可调列宽、可选行号、密度、空态和本地排序 |
 | `TableActions`、`TableDensityOption`、`TableEmpty`（`sunxu-web/mes`） | MES 表格的行操作收纳、密度控制和带业务引导的空态 |
 | `RowActions` | 表格行操作收纳为省略号菜单（来源：tel_admin `TableActions` 适配） |
-| `TableSummary` | 固定在表格底部展示宿主提供的筛选结果合计；不承担请求、聚合或单位换算 |
+| `TableSummary` | 按可见列顺序固定展示宿主提供的字段合计；不承担请求、聚合或单位换算 |
+| `PaginationSummary` | 在分页栏左侧显示宿主提供的筛选结果摘要，窄容器下自动换行；不承担请求或聚合 |
 | `FormScreenContainer` | 表单内容滚动 + 固定底部操作 |
 | `DetailScreenContainer` | 详情内容滚动 + 固定底部操作 |
 | `StickyActionBar` | 页面级固定动作区 |

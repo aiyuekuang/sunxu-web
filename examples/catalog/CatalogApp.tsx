@@ -64,7 +64,7 @@ const navItems: MenuProps['items'] = [
     { key: 'text-controls', icon: <CodeOutlined aria-hidden="true" />, label: '选择与文本' },
     { key: 'editable-table', icon: <BarsOutlined aria-hidden="true" />, label: '可编辑明细' },
     { key: 'crud-workbench', icon: <BarsOutlined aria-hidden="true" />, label: 'CRUD 列表工作台' },
-    { key: 'table-summary', icon: <BarsOutlined aria-hidden="true" />, label: '表格汇总行' },
+    { key: 'table-summary', icon: <BarsOutlined aria-hidden="true" />, label: '表格合计与结果摘要' },
     { key: 'mes-suite', icon: <AppstoreOutlined aria-hidden="true" />, label: 'MES UI 套件' },
     { key: 'resizable-table', icon: <BarsOutlined aria-hidden="true" />, label: 'MES 表格组件' },
   ] },
@@ -165,7 +165,7 @@ function CatalogWorkspace({
     'text-controls': '选择与文本',
     'editable-table': '可编辑明细',
     'crud-workbench': 'CRUD 列表工作台',
-    'table-summary': '表格汇总行',
+    'table-summary': '表格合计与结果摘要',
     'mes-suite': 'MES UI 套件',
     'resizable-table': 'MES 表格组件',
   };
@@ -232,7 +232,7 @@ function CatalogWorkspace({
                               : page === 'crud-workbench'
                                 ? '组合分类、快捷筛选、视图、筛选抽屉与 ProTable；查询和业务动作由宿主控制。'
                                 : page === 'table-summary'
-                                  ? '复用表格底部汇总行；查询范围、数量单位和合计口径由宿主接口提供。'
+                                  ? '查看列对齐的固定合计行，以及放在分页左侧的筛选结果摘要。'
                                 : page === 'mes-suite'
                                   ? '展示按 MES 当前实现适配的组件；远程候选和提交由宿主注入。'
                                   : page === 'resizable-table'

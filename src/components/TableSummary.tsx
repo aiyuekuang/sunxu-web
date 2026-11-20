@@ -1,31 +1,25 @@
-import { Space, Table, Typography } from 'antd';
+import { Table } from 'antd';
 import type { ReactNode } from 'react';
 
 export type TableSummaryProps = {
-  /** Label for the filtered result set represented by the supplied values. */
-  label?: ReactNode;
-  /** Host-owned, already aggregated values and business-specific units. */
+  /** Summary cells in the same order as the table's final visible columns. */
   children: ReactNode;
+  /** Keep the row pinned to the bottom while the table body scrolls. Defaults to true. */
+  fixed?: boolean;
 };
 
-/**
- * Render a compact, responsive summary row at the bottom of a ProTable.
- * Aggregation, query scope, units, and permissions remain owned by the host.
- */
-export function TableSummary({
-  label = '筛选结果合计：',
-  children,
-}: TableSummaryProps) {
+function TableSummaryRoot({ children, fixed = true }: TableSummaryProps) {
   return (
-    <Table.Summary fixed>
-      <Table.Summary.Row>
-        <Table.Summary.Cell index={0} colSpan={100}>
-          <Space size={[24, 8]} wrap>
-            <Typography.Text type="secondary">{label}</Typography.Text>
-            {children}
-          </Space>
-        </Table.Summary.Cell>
-      </Table.Summary.Row>
+    <Table.Summary fixed={fixed ? 'bottom' : undefined}>
+      <Table.Summary.Row>{children}</Table.Summary.Row>
     </Table.Summary>
   );
 }
+
+/**
+ * Render a column-aligned summary row using Ant Design's native summary cells.
+ * The host supplies values and keeps them aligned with the final visible columns.
+ */
+export const TableSummary = Object.assign(TableSummaryRoot, {
+  Cell: Table.Summary.Cell,
+});

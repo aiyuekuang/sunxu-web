@@ -285,6 +285,62 @@
   gap: var(--sxw-list-gap, 12px);
 }
 
+.sxw-pagination-summary-root {
+  box-sizing: border-box;
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  width: 100%;
+  container-type: inline-size;
+}
+
+.sxw-pagination-summary__content {
+  position: absolute;
+  inset-inline-start: 0;
+  inset-block-start: 50%;
+  display: block;
+  max-inline-size: calc(100cqi - 32rem);
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+  transform: translateY(-50%);
+}
+
+.sxw-pagination-summary {
+  display: flex;
+  min-inline-size: 0;
+  align-items: baseline;
+  flex-wrap: wrap;
+  column-gap: 8px;
+  row-gap: 4px;
+}
+
+.sxw-pagination-summary__values {
+  min-inline-size: 0;
+  overflow-wrap: anywhere;
+}
+
+@container (max-width: 56rem) {
+  .sxw-pagination-summary-root > .sxw-pagination-summary-item:first-child {
+    display: flex;
+    flex: 0 0 calc(100cqi - 8px);
+    flex-direction: column;
+    align-items: flex-start;
+    height: auto;
+    line-height: normal;
+    margin-inline-end: 0;
+  }
+
+  .sxw-pagination-summary__content {
+    position: relative;
+    inset: auto;
+    inline-size: calc(100cqi - 8px);
+    max-inline-size: none;
+    margin-block-end: 4px;
+    transform: none;
+  }
+}
+
 /*
  * Filled list: the result area consumes the remaining height so a single-list
  * workbench can keep its table header and pagination visible.

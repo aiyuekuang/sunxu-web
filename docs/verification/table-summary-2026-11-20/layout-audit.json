@@ -1,0 +1,173 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "title": "榫序 Web 组件目录",
+  "pageHeading": "表格合计与结果摘要",
+  "consoleErrors": [],
+  "observations": [
+    {
+      "name": "summary-desktop-1440x1000",
+      "screenshotPath": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/table-summary-2026-11-20/summary-desktop-1440x1000.png",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440
+      },
+      "pagination": {
+        "rect": {
+          "x": 290,
+          "y": 906.984375,
+          "width": 1084,
+          "height": 27,
+          "right": 1374,
+          "bottom": 933.984375
+        },
+        "scrollWidth": 1084,
+        "clientWidth": 1084,
+        "summary": {
+          "x": 290,
+          "y": 907.984375,
+          "width": 416.484375,
+          "height": 25,
+          "right": 706.484375,
+          "bottom": 932.984375
+        },
+        "firstPageControl": {
+          "x": 1254,
+          "y": 906.984375,
+          "width": 27,
+          "height": 27,
+          "right": 1281,
+          "bottom": 933.984375
+        },
+        "summaryText": "筛选结果净变动：\n+47,397.04 个\n+110 升\n+919 件\n+1,970 张",
+        "summaryOverlapsFirstPageControl": false,
+        "footerHasNoHorizontalOverflow": true
+      },
+      "fixedSummary": {
+        "rect": {
+          "x": 290,
+          "y": 642.421875,
+          "width": 1084,
+          "height": 47,
+          "right": 1374,
+          "bottom": 689.421875
+        },
+        "rowCount": 1,
+        "cellCount": 4
+      }
+    },
+    {
+      "name": "summary-narrow-768x1024",
+      "screenshotPath": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/table-summary-2026-11-20/summary-narrow-768x1024.png",
+      "viewport": {
+        "width": 768,
+        "height": 1024
+      },
+      "document": {
+        "clientWidth": 768,
+        "scrollWidth": 768
+      },
+      "pagination": {
+        "rect": {
+          "x": 262,
+          "y": 938.984375,
+          "width": 452,
+          "height": 81,
+          "right": 714,
+          "bottom": 1019.984375
+        },
+        "scrollWidth": 452,
+        "clientWidth": 452,
+        "summary": {
+          "x": 270,
+          "y": 938.984375,
+          "width": 444,
+          "height": 22,
+          "right": 714,
+          "bottom": 960.984375
+        },
+        "firstPageControl": {
+          "x": 594,
+          "y": 992.984375,
+          "width": 27,
+          "height": 27,
+          "right": 621,
+          "bottom": 1019.984375
+        },
+        "summaryText": "筛选结果净变动：\n+47,397.04 个\n+110 升\n+919 件\n+1,970 张",
+        "summaryOverlapsFirstPageControl": false,
+        "footerHasNoHorizontalOverflow": true
+      },
+      "fixedSummary": {
+        "rect": {
+          "x": 262,
+          "y": 652.421875,
+          "width": 552,
+          "height": 47,
+          "right": 814,
+          "bottom": 699.421875
+        },
+        "rowCount": 1,
+        "cellCount": 4
+      }
+    },
+    {
+      "name": "summary-mobile-390x844",
+      "screenshotPath": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/table-summary-2026-11-20/summary-mobile-390x844.png",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "document": {
+        "clientWidth": 390,
+        "scrollWidth": 390
+      },
+      "pagination": {
+        "rect": {
+          "x": 50,
+          "y": 986.984375,
+          "width": 290,
+          "height": 129,
+          "right": 340,
+          "bottom": 1115.984375
+        },
+        "scrollWidth": 290,
+        "clientWidth": 290,
+        "summary": {
+          "x": 58,
+          "y": 986.984375,
+          "width": 282,
+          "height": 70,
+          "right": 340,
+          "bottom": 1056.984375
+        },
+        "firstPageControl": {
+          "x": 220,
+          "y": 1088.984375,
+          "width": 27,
+          "height": 27,
+          "right": 247,
+          "bottom": 1115.984375
+        },
+        "summaryText": "筛选结果净变动：\n+47,397.04 个\n+110 升\n+919 件\n+1,970 张",
+        "summaryOverlapsFirstPageControl": false,
+        "footerHasNoHorizontalOverflow": true
+      },
+      "fixedSummary": {
+        "rect": {
+          "x": 50,
+          "y": 700.421875,
+          "width": 552,
+          "height": 47,
+          "right": 602,
+          "bottom": 747.421875
+        },
+        "rowCount": 1,
+        "cellCount": 4
+      }
+    }
+  ]
+}

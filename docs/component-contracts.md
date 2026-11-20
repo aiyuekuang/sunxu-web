@@ -15,6 +15,7 @@
 | `PageHeader` | 识别当前页面并放置页级动作 | AntD `Breadcrumb` / `Typography`；`headingLevel` 默认 1 |
 | `ListScreenContainer` | 组织特殊列表的标题、紧邻工具栏和结果区 | `ScreenContainer` + `PageHeader`；标准 CRUD 列表优先用 `CrudListWorkbench` |
 | `CrudListWorkbench` | 组合分类/状态、轻筛选、高级筛选、视图插槽与表格结果适配器 | `ListScreenContainer` + `FilterBar` + `StatusTabs` + Pro Components 3 ProTable |
+| `PaginationSummary` | 在分页栏左侧显示宿主提供的筛选结果摘要 | AntD `Pagination.showTotal`；统计口径由宿主提供 |
 | `SavedViewBar` | 选择和管理受控的系统/个人列表视图 | AntD Tabs / Dropdown / Modal；视图数据和持久化由宿主提供 |
 | `FormScreenContainer` | 分离可滚动表单内容和固定 footer | `ScreenContainer` + `StickyActionBar`；ProForm 归宿主 |
 | `DetailScreenContainer` | 组织详情内容和固定操作区 | `ScreenContainer` + `PageHeader` |
@@ -35,7 +36,7 @@
 | `RemoteSelect` | 用 AntD Select 展示远程候选并防抖搜索 | AntD Select；`onSearch` 由宿主提供 |
 | `LongText` | 在表格单元格显示多行预览并按需查看全文 | AntD Popover + Typography / Modal |
 | `RowActions` | 把表格行操作收纳进省略号菜单 | AntD Dropdown + Button；操作语义由宿主提供 |
-| `TableSummary` | 在表格底部统一呈现宿主提供的筛选结果汇总 | AntD `Table.Summary`；聚合口径由宿主提供 |
+| `TableSummary` | 按列对齐并固定展示宿主提供的表格字段合计 | AntD `Table.Summary.Row/Cell`；聚合口径由宿主提供 |
 
 ## 关键契约
 
@@ -63,6 +64,7 @@
 - **首开任务**：开发者打开目录的 CRUD 列表工作台示例，先看到产品列表与分类/状态入口；场景切换器可查看轻量、分类/状态、复杂视图和 ProTable 原生查询四种组合。组件运行时本身不持有最近列表或路由；宿主决定默认筛选和深链恢复。
 - **API**：`tableProps.columns` 与 `rowKey` 必填；其余公开 ProTable 参数可传入。为避免重复布局，`search`、`headerTitle`、`toolbar`、`toolBarRender` 由工作台控制。`layout` 为 `page | embedded`，默认 `page`；`layout="embedded"` 不拥有页面外框、不渲染页头，用于 Tab 面板、卡片或长页面中的子列表。`fill` 为布尔，默认 `false`；`fill` 让工作台成为确定高度的单列表视口页，表格体滚动而表头和分页保持可见。列 schema 能表达的查询字段通过 `proTableSearch` 启用 ProTable 原生查询表单；它支持 ProTable 的响应式 `span`、折叠数量和展开/收起行为。自定义 `search`、`quickFilters`、`filterActions`、`primaryTabs`、`statusFilters`、`toolbarActions`、`viewBar`、`appliedFilters`、`facetSidebar` 为可选插槽。`onCreate` 可选，传入回调后工作台提供统一“新增”主按钮；宿主控制权限及回调，`onCreateDisabled` 控制按钮禁用状态。`toolbarActions` 承载其他列表级动作，不重复渲染新增。`advancedFilters` 提供 `children`、已应用数量、受控/非受控 `open`、`onApply`、`onReset`、`onCancel` 和失败回调。
 - **表格适配插槽**：缺省直接渲染 ProTable；宿主需要可调整列宽等扩展时，可传 `renderTable` 接入宿主适配器。回调收到完整的 `tableProps`、工作台选定的 `search`、`options`，且 `headerTitle=false`、`toolBarRender=false`、`toolbar=undefined`。适配器只负责结果表格，不重复绘制列表标题、筛选和列表级操作；工作台仍拥有这些区域并将适配器放在结果区。`fill` 模式下工作台会测量结果区并把解析后的 `scroll.y` 放进 `tableProps.scroll`，同时通过 ProCard `cardProps` 与 Ant Design Table/Spin 的公开语义 `styles`、`classNames` API 建立可收缩的填充链；适配器必须把收到的属性传给 ProTable，不得再自行实现页面级高度测量或删除分页。
+- **结果摘要插槽**：`paginationSummary` 由宿主提供，工作台缺省 ProTable 会将其放入分页器的 `showTotal` 公开插槽；自定义 `renderTable` 会收到 `paginationSummary`，适配器应将它传入相应表格组件。原有范围/总数文案保留；关闭分页时不显示摘要。
 - **结果卡片内边距**：为避免 ProTable 默认左右 24 px 内边距挤压宽表格，工作台在未显式提供 `tableProps.cardProps` 时，通过 ProTable 公共 `cardProps.styles.body` 将结果卡片的水平内边距统一为 16 px；纵向间距继续由 ProTable 管理。显式传入 `cardProps`（包括 `false`）时由宿主接管结果卡片外观；宿主需用该公开 API 设置样式，不覆盖内部 DOM class。页面工作区外框仍只由 `ListScreenContainer` 或宿主 shell 中的一方拥有。
 - **状态/恢复**：高级筛选抽屉打开时由宿主字段控件持有草稿；“重置”只清草稿，“取消/关闭”调用 `onCancel` 保留已应用结果，“应用”调用宿主 `onApply`。返回 `false` 或抛错时抽屉保持打开，错误时显示可恢复提示。`open` 存在时为受控模式，宿主必须响应 `onOpenChange`；省略 `open` 时由工作台管理开关。加载、空、错误、分页、排序和行选择状态由 ProTable/宿主传入；**`fill` 模式下分页的可见位置和表体高度由工作台负责**，宿主不得再用页面级 `:has()` CSS 或外部高度测量控制表体。
 - **高度与分页契约**：`fill` 只用于单列表视口页，宿主必须给工作台提供确定的可用高度。工作台根节点、results、layout、table 容器、适配器和 ProTable 的公开卡片/表格/Spin 语义槽形成可收缩的纵向 flex 链；测量只查询工作台注入的语义 class，不依赖 Ant Design 或 Pro Components 的内部类名。工作台用 `ResizeObserver` + `MutationObserver` 测量表头、footer、分页和额外结果内容之外的可滚动高度，并作为 `scroll.y` 传给 ProTable。表头保持其内容所需的自然高度，不参与 flex 收缩；分页始终渲染在结果区底部且不参与收缩，短数据也不会让表格和分页停在结果区上方；表格体在内部滚动。长页面（多卡片、图表或多个列表）不得开启 `fill`，保持默认文档流由页面整体滚动。
@@ -162,12 +164,21 @@
 
 ### `TableSummary`
 
-- **职责**：将宿主提供的汇总内容放进 Ant Design Table 的底部汇总行；固定底部并允许内容按可用宽度换行。
-- **API**：`children` 必填，由宿主提供已经计算好的汇总字段、单位和业务说明；`label` 可选，默认“筛选结果合计：”。
-- **数据边界**：不请求数据、不按当前页累加、不推断字段能否相加、不做单位或币种换算、不处理权限。全量筛选结果的汇总由宿主接口返回，宿主页面映射到可见内容。
-- **布局与可访问性**：复用 `Table.Summary.Row/Cell` 的表格语义；单元格跨列表列显示，`Space` 在可用宽度内换行；表格设置横向滚动时，汇总行随表格共用横向滚动区域，不造成页面横向溢出。不读取 ProTable 私有列结构或覆盖 AntD 内部样式。
-- **目录示例**：`examples/catalog/TableSummaryPage.tsx` 用不同单位展示账面和可用数量分别汇总；组件只负责表格底部布局。
-- **证据**：目录真实路由和窄屏几何记录见 [`docs/verification/table-summary-2026-11-20/README.md`](./verification/table-summary-2026-11-20/README.md)；持久化截图文件及 MES 库存业务路由仍为 `UNVERIFIED`。
+- **职责**：将宿主提供的可加字段放入与业务列一一对齐的汇总单元格；默认固定在表格底部。
+- **API**：`children` 是按最终可见列顺序排列的 `TableSummary.Cell`；`fixed` 默认 `true`，可显式关闭。
+- **数据边界**：不请求数据、不按当前页累加、不判断字段能否相加、不做单位或币种换算、不处理权限。筛选范围和各单元格的值由宿主提供；不同单位/币种不得直接相加，比例和单价须由宿主按业务公式计算。
+- **布局与可访问性**：使用 Ant Design `Table.Summary.Row/Cell` 原生表格语义；单元格与最终可见列同序，横向滚动由表格原生处理。使用可调整列序/显隐的表格时，宿主需同步汇总单元格顺序；此组件不读取 ProTable 私有列结构。
+- **目录示例**：`examples/catalog/TableSummaryPage.tsx` 展示同单位数据的账面数量与可用数量列合计。
+- **证据**：目录“表格合计与结果摘要”路由的桌面、窄屏截图和单元格几何见 [`docs/verification/table-summary-2026-11-20/README.md`](./verification/table-summary-2026-11-20/README.md)。库存业务页当前环境缺少可用登录/API 会话，页面级渲染仍为 `UNVERIFIED`。
+
+### `PaginationSummary`
+
+- **职责**：在分页栏左侧呈现筛选结果摘要；空间不足时摘要自动换到分页控件上方，不截断内容。
+- **API**：`label` 可选，默认“筛选结果合计：”；`children` 必填，承载宿主提供的指标、单位或分组值。通过 `ResizableProTable` / `ResizableTable` 的 `paginationSummary` 插槽使用；`CrudListWorkbench` 也接受同名属性。
+- **数据边界**：不请求数据、不执行聚合、不按当前页求和、不推断单位或币种。分页器继续显示原有范围/总数文案；summary 内容的筛选范围必须与当前列表查询一致。
+- **布局与可访问性**：宽容器时摘要位于分页栏左侧、分页控件右侧；有效宽度不超过 56rem 时摘要换到上方独立行，计数范围和页码位于后续行。组件不隐藏或替换页码、条数选择器或总数范围；静态摘要不使用实时播报。
+- **目录示例**：`examples/catalog/TableSummaryPage.tsx` 展示跨分页、按单位分组的库存流水净变动。
+- **证据**：与 `TableSummary` 共用桌面、768px 和 390px 实际渲染记录；容器几何、溢出值和截图路径见组件验收记录。
 
 ### `ResizableProTable` 与 `ResizableTable`
 
@@ -175,7 +186,7 @@
 - **宽度和布局持久化**：`resizable` 可设为布尔值或 `ResizableTableConfig`。默认列宽 120px、最小 48px、最大不限、拖拽结束防抖 500ms；`defaultWidth`、`minConstraints`、`maxConstraints`、`debounceWaitTime` 可覆盖。`persistenceKey` 默认按列生成，也可提供稳定业务 key 或设为 `false`；`persistenceType` 默认 `localStorage`，可选 `sessionStorage`。ProTable 的列宽状态与可见/顺序状态分别保存，排序状态由独立的 `sortPersistenceKey` 保存；`sortMigration` 可只替换已知旧默认排序。用户显式重置列设置时，宽度缓存同步重置。
 - **行号与列策略**：分页列表默认增加固定左侧“序号”列，跨页使用全局行号；可用 `showRowIndex={false}` 关闭。`materialColumnPriority` 缺省按物料名称、编码、规格、单位、主数量、辅助数量、业务上下文、扩展列、辅助信息和操作列整理默认列序；`'preserve'` 或 `{ mode: 'preserve' }` 保留声明次序，`false` 完全关闭整理，ProTable 用户保存的显式列序仍优先。不会把隐藏查询字段导出为业务列。
 - **排序与查询**：ProTable 的 `request` 由宿主实现。默认对可排序业务字段发出服务端排序参数；设置 `serverSortFields` 后，仅白名单字段可排序。使用本地 `dataSource` 时按日期、数值和中文自然顺序比较；AntD Table 列可用 `sortValue`、`sortable` 控制。排序状态使用单独 key 持久化。外部 `params` 的 `undefined`、`null`、空字符串和空数组会在请求前移除；日期范围列合并通用快捷日期选项，`createdAt` / `updatedAt` 字段可补充仅日期展示列。表单 transform 和接口字段映射由宿主继续控制。
-- **筛选、空态和汇总**：保留 ProTable 查询表单与列设置 API；列变更会同步导出布局。`emptyGuidance` 可提供业务空态下一步建议，默认 `TableEmpty` 展示“暂无数据”和筛选/上游数据提示；宿主传入 `locale.emptyText` 时完全覆盖。`summary` 仍是 AntD/ProTable 的宿主回调；自动行号存在时组件为汇总行补齐首列。
+- **筛选、空态和汇总**：保留 ProTable 查询表单与列设置 API；列变更会同步导出布局。`emptyGuidance` 可提供业务空态下一步建议，默认 `TableEmpty` 展示“暂无数据”和筛选/上游数据提示；宿主传入 `locale.emptyText` 时完全覆盖。`summary` 仍是 AntD/ProTable 的宿主回调；自动行号存在时组件为汇总行补齐首列。`paginationSummary` 将宿主摘要放在分页栏左侧并保留分页范围文案，窄容器下换到分页控件上方；关闭分页时不显示该插槽。
 - **高度适配**：`fitContainerHeight` 缺省关闭；设为 `true` 或 `{ enabled, bottomOffset, minBodyHeight, maxBodyHeight }` 后，组件结合视口、`fitContainerHeight` 所在结果边界、表头、分页、汇总和 footer 动态计算纵向滚动高度。单列表视口页的外部父级必须提供确定高度和可收缩的 flex 布局；长页面/多表页面不启用。
 - **导出布局**：有 `request` 的表默认产出当前可见列、列序和排序布局；仅用本地 `dataSource` 的表需显式设 `exportLayoutEnabled`。`useTableExportLayout()` 读取当前表布局，表格边界在导出按钮点击捕获阶段激活对应布局，避免同一路由多个表格串用。导出 API 和服务仍由宿主实现；布局只能表达用户选择，不能扩大后端允许导出的字段集合。
 - **行操作和编辑宿主接缝**：`TableActions` 将有效按钮、链接、权限按钮和确认操作统一收入“更多”菜单；权限判断、确认和结果仍归动作节点/宿主。`MesUiProvider` 可选注入 `isTableActionColumn(column)` 识别宿主操作列，避免嵌套菜单；`resolveRowEditAction(columns, record)` 只返回宿主当前可见且允许执行的编辑回调，表格双击才调用它。未提供时不产生编辑副作用。不得在 Sunxu 中硬编码 Umi `useAccess`、权限码、MES API、路由或业务动作。

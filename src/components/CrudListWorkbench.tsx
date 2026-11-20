@@ -3,10 +3,11 @@ import { Alert, Button, Drawer, Space, Tabs, Tag, Tooltip } from 'antd';
 import type { SpinProps } from 'antd';
 import type { TableProps as AntTableProps } from 'antd';
 import type { ReactNode, RefObject } from 'react';
-import { useEffect, useId, useLayoutEffect, useRef, useState } from 'react';
+import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
 import { ProTable } from '@ant-design/pro-components';
 import type { ProTableProps } from '@ant-design/pro-components';
 import { FilterBar } from './FilterBar';
+import { withPaginationSummary } from './PaginationSummary';
 import { ListScreenContainer } from './PageContainers';
 import type { ListScreenContainerProps } from './PageContainers';
 import { StatusTabs } from './StatusTabs';
@@ -66,6 +67,8 @@ export type CrudListWorkbenchTableRenderProps<
   headerTitle: false;
   toolBarRender: false;
   toolbar?: undefined;
+  /** Host-provided full-filter summary for the pagination footer. */
+  paginationSummary?: ReactNode;
 };
 
 export type CrudListWorkbenchProps<
@@ -84,6 +87,8 @@ export type CrudListWorkbenchProps<
   filterActions?: ReactNode;
   /** Host-owned summary/chips for currently applied query conditions. */
   appliedFilters?: ReactNode;
+  /** Host-provided full-filter summary displayed beside the pagination controls. */
+  paginationSummary?: ReactNode;
   /** Optional system/personal view manager, commonly `SavedViewBar`. */
   viewBar?: ReactNode;
   /** Optional create action. The workbench renders the standard “新增” button. */
@@ -359,6 +364,7 @@ export function CrudListWorkbench<
   search,
   filterActions,
   appliedFilters,
+  paginationSummary,
   viewBar,
   toolbarActions,
   onCreate,
@@ -406,6 +412,10 @@ export function CrudListWorkbench<
       ? { styles: { body: { paddingInline: 16 } } }
       : tableProps.cardProps;
   const fillTableLayout = fill ? addFillTableLayout(tableProps) : undefined;
+  const resolvedPagination = useMemo(
+    () => withPaginationSummary(tableProps.pagination, paginationSummary),
+    [paginationSummary, tableProps.pagination],
+  );
   const resolvedFillCardProps = fill
     ? addFillCardLayout<T, Params>(resolvedCardProps)
     : resolvedCardProps;
@@ -682,6 +692,7 @@ export function CrudListWorkbench<
     headerTitle: false,
     toolBarRender: false,
     toolbar: undefined,
+    paginationSummary,
     options: tableProps.options ?? false,
     scroll: resolvedScroll,
   };
@@ -736,6 +747,7 @@ export function CrudListWorkbench<
                 headerTitle={false}
                 toolBarRender={false}
                 toolbar={undefined}
+                pagination={resolvedPagination}
                 options={tableProps.options ?? false}
                 scroll={resolvedScroll}
               />

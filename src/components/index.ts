@@ -18,4 +18,5 @@ export * from './SavedViewBar';
 export * from './SettingsRow';
 export * from './StatusTag';
 export * from './StatusTabs';
+export * from './PaginationSummary';
 export * from './TableSummary';
