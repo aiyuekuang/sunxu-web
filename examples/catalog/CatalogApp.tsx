@@ -232,7 +232,7 @@ function CatalogWorkspace({
                               : page === 'crud-workbench'
                                 ? '组合分类、快捷筛选、视图、筛选抽屉与 ProTable；查询和业务动作由宿主控制。'
                                 : page === 'table-summary'
-                                  ? '查看列对齐的固定合计行，以及放在分页左侧的筛选结果摘要。'
+                                  ? '查看列合计、跟随结果行的多单位汇总和简短分页摘要。'
                                 : page === 'mes-suite'
                                   ? '展示按 MES 当前实现适配的组件；远程候选和提交由宿主注入。'
                                   : page === 'resizable-table'

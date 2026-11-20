@@ -14,6 +14,7 @@ import {
 } from 'antd';
 import type { LongTextDisplayMode } from '../../components/LongText';
 import { withPaginationSummary } from '../../components/PaginationSummary';
+import { TableSummary } from '../../components/TableSummary';
 import React, {
   useCallback,
   useEffect,
@@ -1699,6 +1700,7 @@ function hasExistingRowNumberColumn<T extends object>(
 
 type TableSummaryElementProps = {
   children?: React.ReactNode;
+  fullWidth?: boolean;
   index?: number;
 };
 
@@ -1708,6 +1710,21 @@ function shiftSummaryForRowIndex(node: React.ReactNode): React.ReactNode {
 
   const element = node;
   if (element.type === Table.Summary.Row) {
+    const children = React.Children.toArray(element.props.children).map(
+      (child) => shiftSummaryForRowIndex(child),
+    );
+    return React.cloneElement(element, {
+      children: [
+        <Table.Summary.Cell key={ROW_INDEX_COLUMN_KEY} index={0} />,
+        ...children,
+      ],
+    });
+  }
+
+  if (element.type === TableSummary) {
+    // Full-width summaries are resolved by the adapter after effective column
+    // visibility is known; it will add the serial and fixed-column cells there.
+    if (element.props.fullWidth) return element;
     const children = React.Children.toArray(element.props.children).map(
       (child) => shiftSummaryForRowIndex(child),
     );
@@ -1735,6 +1752,122 @@ function shiftSummaryForRowIndex(node: React.ReactNode): React.ReactNode {
       shiftSummaryForRowIndex,
     ),
   });
+}
+
+function collectVisibleSummaryColumns(
+  columns: Record<string, unknown>[] | undefined,
+) {
+  const visible: Record<string, unknown>[] = [];
+  const visit = (items: Record<string, unknown>[] | undefined) => {
+    items?.forEach((column) => {
+      if (isHiddenColumn(column)) return;
+      if (Array.isArray(column.children)) {
+        visit(column.children.filter(isRecord));
+        return;
+      }
+      visible.push(column);
+    });
+  };
+  visit(columns);
+  return visible;
+}
+
+function createFullWidthSummaryCells(
+  content: React.ReactNode,
+  columns: Record<string, unknown>[] | undefined,
+) {
+  const visible = collectVisibleSummaryColumns(columns);
+  if (visible.length === 0) {
+    return [
+      <Table.Summary.Cell key="full-width-summary" index={0}>
+        {content}
+      </Table.Summary.Cell>,
+    ];
+  }
+
+  let leadingFixedCount = 0;
+  while (
+    leadingFixedCount < visible.length &&
+    (visible[leadingFixedCount].fixed === 'left' ||
+      visible[leadingFixedCount].fixed === true)
+  ) {
+    leadingFixedCount += 1;
+  }
+
+  let trailingFixedCount = 0;
+  while (
+    trailingFixedCount < visible.length - leadingFixedCount &&
+    visible[visible.length - trailingFixedCount - 1].fixed === 'right'
+  ) {
+    trailingFixedCount += 1;
+  }
+
+  const contentColumnCount =
+    visible.length - leadingFixedCount - trailingFixedCount;
+  if (contentColumnCount <= 0) {
+    return [
+      <Table.Summary.Cell
+        key="full-width-summary"
+        index={0}
+        colSpan={visible.length}
+      >
+        {content}
+      </Table.Summary.Cell>,
+    ];
+  }
+
+  return [
+    ...Array.from({ length: leadingFixedCount }, (_, index) => (
+      <Table.Summary.Cell key={`summary-fixed-left-${index}`} index={index} />
+    )),
+    <Table.Summary.Cell
+      key="full-width-summary"
+      index={leadingFixedCount}
+      colSpan={contentColumnCount}
+    >
+      {content}
+    </Table.Summary.Cell>,
+    ...Array.from({ length: trailingFixedCount }, (_, offset) => {
+      const index = leadingFixedCount + contentColumnCount + offset;
+      return (
+        <Table.Summary.Cell
+          key={`summary-fixed-right-${offset}`}
+          index={index}
+        />
+      );
+    }),
+  ];
+}
+
+function resolveFullWidthTableSummary(
+  node: React.ReactNode,
+  columns: Record<string, unknown>[] | undefined,
+): React.ReactNode {
+  if (!React.isValidElement<TableSummaryElementProps>(node)) return node;
+
+  const element = node;
+  if (element.type === TableSummary && element.props.fullWidth) {
+    return React.cloneElement(element, {
+      fullWidth: false,
+      children: createFullWidthSummaryCells(element.props.children, columns),
+    });
+  }
+
+  if (element.props.children === undefined) return element;
+  return React.cloneElement(element, {
+    children: React.Children.map(element.props.children, (child) =>
+      resolveFullWidthTableSummary(child, columns),
+    ),
+  });
+}
+
+function withResolvedFullWidthSummary<T extends object>(
+  summary: ((pageData: readonly T[]) => React.ReactNode) | undefined,
+  columns: Record<string, unknown>[] | undefined,
+) {
+  if (!summary) return summary;
+  return (pageData: readonly T[]) =>
+    resolveFullWidthTableSummary(summary(pageData), columns);
 }
 
 function resolveInitialRowIndexPageInfo(
@@ -3093,6 +3226,14 @@ function ResizableProTableInner<
       ),
     [columnsWithProTableSortIdentity, sortState],
   );
+  const summaryWithoutColumnSettings = useMemo(
+    () =>
+      withResolvedFullWidthSummary(
+        mergedSummary,
+        columnsWithPersistedSort as unknown as Record<string, unknown>[],
+      ),
+    [columnsWithPersistedSort, mergedSummary],
+  );
   const controlledSortState = useMemo(
     () => resolveControlledSortState(columnsWithProTableSortIdentity),
     [columnsWithProTableSortIdentity],
@@ -3240,7 +3381,7 @@ function ResizableProTableInner<
       {...rest}
       params={normalizedParams}
       pagination={mergedPagination}
-      summary={mergedSummary}
+      summary={summaryWithoutColumnSettings}
       dataSource={dataSource}
       columnsState={normalizedColumnsState}
       request={mergedRequest}
@@ -3326,6 +3467,7 @@ function ResizableProTableEnabled<
   config,
   persistedSortState,
   onExportLayoutChange,
+  summary,
   ...rest
 }: ProTableProps<T, U> & {
   config: ResolvedResizableTableConfig;
@@ -3465,6 +3607,14 @@ function ResizableProTableEnabled<
       ),
     [resizableColumns, persistedSortState],
   );
+  const resolvedSummary = useMemo(
+    () =>
+      withResolvedFullWidthSummary(
+        summary,
+        columnsWithPersistedSort as unknown as Record<string, unknown>[],
+      ),
+    [columnsWithPersistedSort, summary],
+  );
   const resetOwner = useMemo(() => Symbol('column-setting-reset'), []);
   const mergedOptions = useColumnSettingResetOptions<T, U>(options, resetOwner);
   useResetWidthsOnColumnSettingReset(resetColumns, resetOwner);
@@ -3529,6 +3679,7 @@ function ResizableProTableEnabled<
       }}
       options={mergedOptions}
       {...rest}
+      summary={resolvedSummary}
       columnsState={mergedColumnsState}
     />
   );
@@ -3647,6 +3798,14 @@ function ResizableTableInner<T extends object>({
       applyPersistedSortToAntdColumns(columnsWithGlobalActionMode, sortState),
     [columnsWithGlobalActionMode, sortState],
   );
+  const resolvedSummary = useMemo(
+    () =>
+      withResolvedFullWidthSummary(
+        mergedSummary,
+        columnsWithPersistedSort as unknown as Record<string, unknown>[],
+      ),
+    [columnsWithPersistedSort, mergedSummary],
+  );
   const mergedOnChange = useMemo<TableProps<T>['onChange']>(() => {
     return (pagination, filters, sorter, extra) => {
       if (
@@ -3685,7 +3844,7 @@ function ResizableTableInner<T extends object>({
             locale={mergedLocale}
             expandable={mergedExpandable}
             pagination={mergedPagination}
-            summary={mergedSummary}
+            summary={resolvedSummary}
             dataSource={dataSource}
             {...rest}
             size={tableSize}
@@ -3707,7 +3866,7 @@ function ResizableTableInner<T extends object>({
           locale={mergedLocale}
           expandable={mergedExpandable}
           pagination={mergedPagination}
-          summary={mergedSummary}
+          summary={resolvedSummary}
           dataSource={dataSource}
           {...rest}
           size={tableSize}

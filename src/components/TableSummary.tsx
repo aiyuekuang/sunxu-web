@@ -6,12 +6,27 @@ export type TableSummaryProps = {
   children: ReactNode;
   /** Keep the row pinned to the bottom while the table body scrolls. Defaults to true. */
   fixed?: boolean;
+  /**
+   * Treat children as one summary block spanning the visible nonfixed columns.
+   * Supported by ResizableProTable and ResizableTable; fixed columns stay blank.
+   */
+  fullWidth?: boolean;
 };
 
-function TableSummaryRoot({ children, fixed = true }: TableSummaryProps) {
+function TableSummaryRoot({
+  children,
+  fixed = true,
+  fullWidth = false,
+}: TableSummaryProps) {
   return (
     <Table.Summary fixed={fixed ? 'bottom' : undefined}>
-      <Table.Summary.Row>{children}</Table.Summary.Row>
+      <Table.Summary.Row>
+        {fullWidth ? (
+          <Table.Summary.Cell index={0}>{children}</Table.Summary.Cell>
+        ) : (
+          children
+        )}
+      </Table.Summary.Row>
     </Table.Summary>
   );
 }

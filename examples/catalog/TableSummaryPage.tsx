@@ -49,6 +49,7 @@ const transactionColumns: ProColumns<TransactionDemoRow>[] = [
   { title: '物料', dataIndex: 'material', width: 220 },
   { title: '业务类型', dataIndex: 'transaction', width: 140 },
   { title: '数量', dataIndex: 'quantity', align: 'right', width: 120 },
+  { title: '操作', key: 'actions', width: 100, fixed: 'right' },
 ];
 
 export function TableSummaryPage() {
@@ -83,9 +84,38 @@ export function TableSummaryPage() {
         />
       </SectionCard>
 
-      <SectionCard title="与分页共用的筛选结果摘要">
+      <SectionCard title="跟随数据行的多单位汇总">
         <Typography.Paragraph type="secondary">
-          单位分组后的净变动来自全部筛选结果；窄容器下会自动换到分页控件上方。
+          多单位净变动属于表格结果，放在数据行之后并随表格滚动。
+        </Typography.Paragraph>
+        <ResizableProTable<TransactionDemoRow>
+          rowKey="id"
+          columns={transactionColumns}
+          dataSource={transactionRows}
+          search={false}
+          options={{ density: true, setting: true, reload: false, fullScreen: false }}
+          pagination={{ pageSize: 5, showSizeChanger: false }}
+          scroll={{ x: 480 }}
+          resizable={{ persistenceKey: 'sxw_catalog_table_summary_full_width' }}
+          summary={() => (
+            <TableSummary fixed={false} fullWidth>
+              <Space wrap size={[16, 4]}>
+                <Typography.Text type="secondary">
+                  筛选结果净变动：
+                </Typography.Text>
+                <span>+47,397.04 个</span>
+                <span>+110 升</span>
+                <span>+919 件</span>
+                <span>+1,970 张</span>
+              </Space>
+            </TableSummary>
+          )}
+        />
+      </SectionCard>
+
+      <SectionCard title="与分页共用的简要结果摘要">
+        <Typography.Paragraph type="secondary">
+          简短、无需与数据行一起滚动的筛选结果概览放在分页左侧。
         </Typography.Paragraph>
         <ResizableProTable<TransactionDemoRow>
           rowKey="id"
@@ -96,11 +126,8 @@ export function TableSummaryPage() {
           pagination={{ pageSize: 5, showSizeChanger: false }}
           scroll={{ x: 480 }}
           paginationSummary={
-            <PaginationSummary label="筛选结果净变动：">
-              <span>+47,397.04 个</span>
-              <span>+110 升</span>
-              <span>+919 件</span>
-              <span>+1,970 张</span>
+            <PaginationSummary label="筛选结果：">
+              <span>净变动 +919 件</span>
             </PaginationSummary>
           }
         />

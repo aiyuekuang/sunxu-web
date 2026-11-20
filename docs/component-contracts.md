@@ -166,20 +166,20 @@
 
 ### `TableSummary`
 
-- **职责**：将宿主提供的可加字段放入与业务列一一对齐的汇总单元格；默认固定在表格底部。
+- **职责**：将宿主提供的汇总值放入表格结果区末尾；默认固定在表格底部，也可设为跟随数据行滚动。
 - **API**：`children` 是按最终可见列顺序排列的 `TableSummary.Cell`；`fixed` 默认 `true`，可显式关闭。
+- **布局与可访问性**：`fixed={false}` 在数据行后按普通表格内容渲染，并随表格纵向、横向滚动。多单位/多货主长摘要使用 `fullWidth`，适配器按最终可见列动态计算合并范围，并为固定序号列、操作列留空；无需宿主手工维护 `colSpan`。通过 `ResizableProTable` 或 `ResizableTable` 显示自动序号时，适配器会正确处理序号列。
 - **数据边界**：不请求数据、不按当前页累加、不判断字段能否相加、不做单位或币种换算、不处理权限。筛选范围和各单元格的值由宿主提供；不同单位/币种不得直接相加，比例和单价须由宿主按业务公式计算。
-- **布局与可访问性**：使用 Ant Design `Table.Summary.Row/Cell` 原生表格语义；单元格与最终可见列同序，横向滚动由表格原生处理。使用可调整列序/显隐的表格时，宿主需同步汇总单元格顺序；此组件不读取 ProTable 私有列结构。
-- **目录示例**：`examples/catalog/TableSummaryPage.tsx` 展示同单位数据的账面数量与可用数量列合计。
-- **证据**：目录“表格合计与结果摘要”路由的桌面、窄屏截图和单元格几何见 [`docs/verification/table-summary-2026-11-20/README.md`](./verification/table-summary-2026-11-20/README.md)。库存业务页当前环境缺少可用登录/API 会话，页面级渲染仍为 `UNVERIFIED`。
+- **目录示例**：`examples/catalog/TableSummaryPage.tsx` 展示固定列合计、跟随数据行的多单位摘要，以及简短的分页摘要。
+- **证据**：目录“表格合计与结果摘要”路由的桌面、窄屏截图和单元格几何见 [`docs/verification/table-summary-2026-11-20/README.md`](./verification/table-summary-2026-11-20/README.md)。实际 MES 库存页仍需结合目标环境登录态和业务数据复核。
 
 ### `PaginationSummary`
 
-- **职责**：在分页栏左侧呈现筛选结果摘要；空间不足时摘要自动换到分页控件上方，不截断内容。
+- **职责**：在分页栏左侧呈现简短筛选结果摘要；空间不足时摘要自动换到分页控件上方。
 - **API**：`label` 可选，默认“筛选结果合计：”；`children` 必填，承载宿主提供的指标、单位或分组值。通过 `ResizableProTable` / `ResizableTable` 的 `paginationSummary` 插槽使用；`CrudListWorkbench` 也接受同名属性。
-- **数据边界**：不请求数据、不执行聚合、不按当前页求和、不推断单位或币种。分页器继续显示原有范围/总数文案；summary 内容的筛选范围必须与当前列表查询一致。
+- **数据边界**：不请求数据、不执行聚合、不按当前页求和、不推断单位或币种。分页器继续显示原有范围/总数文案；summary 内容的筛选范围必须与当前列表查询一致。多单位/多货主的长摘要改用 `TableSummary fixed={false}`，避免把多行内容挤入分页栏。
 - **布局与可访问性**：宽容器时摘要位于分页栏左侧、分页控件右侧；有效宽度不超过 56rem 时摘要换到上方独立行，计数范围和页码位于后续行。组件不隐藏或替换页码、条数选择器或总数范围；静态摘要不使用实时播报。
-- **目录示例**：`examples/catalog/TableSummaryPage.tsx` 展示跨分页、按单位分组的库存流水净变动。
+- **目录示例**：`examples/catalog/TableSummaryPage.tsx` 展示简短的筛选结果摘要。
 - **证据**：与 `TableSummary` 共用桌面、768px 和 390px 实际渲染记录；容器几何、溢出值和截图路径见组件验收记录。
 
 ### `ResizableProTable` 与 `ResizableTable`
