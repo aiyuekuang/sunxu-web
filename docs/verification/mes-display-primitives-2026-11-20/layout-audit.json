@@ -1,0 +1,306 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件 (/)",
+  "component": "MES text, amount, identity, route hint, customer material and thumbnail presentation suite",
+  "evidence": "./render-observations.json",
+  "evidence_command": "node run.js /tmp/playwright-test-mes-display-primitives.js",
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 (/)",
+        "state": "desktop-light",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 1668,
+          "width": 1216,
+          "height": 1612
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 1644,
+          "width": 1168,
+          "height": 1564
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px frame inset on all four sides",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Rendered Chromium screenshot inspection plus getBoundingClientRect geometry",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-display-primitives-2026-11-20/display-suite-desktop-fullpage.png",
+        "screenshot_sha256": "8453807cd0ce5ddf6cc43718713d01a59c44c9e5adf7dc530037c61676ff6761",
+        "status": "PASS"
+      },
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 (/)",
+        "state": "mobile-light",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 2269,
+          "width": 375,
+          "height": 2213
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 359,
+          "bottom": 2253,
+          "width": 343,
+          "height": 2181
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px frame inset on all four sides",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Rendered Chromium screenshot inspection plus getBoundingClientRect geometry",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-display-primitives-2026-11-20/display-suite-mobile-fullpage.png",
+        "screenshot_sha256": "d46ca342b660dbc156da30feddf02cf097588748e2e0989edc945376f63477ec",
+        "status": "PASS"
+      }
+    ]
+  },
+  "seams": [
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 (/)",
+      "state": "desktop-status-to-display-card",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 状态与权限组件",
+      "next": "MES 文本、金额与主数据展示",
+      "previous_rect": {
+        "left": 273,
+        "top": 660,
+        "right": 1391,
+        "bottom": 811,
+        "width": 1118,
+        "height": 152
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 827,
+        "right": 1391,
+        "bottom": 1123,
+        "width": 1118,
+        "height": 296
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite sections",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=vertical size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in referenced rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "node run.js /tmp/playwright-test-mes-display-primitives.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-display-primitives-2026-11-20/display-suite-desktop-fullpage.png",
+      "screenshot_sha256": "8453807cd0ce5ddf6cc43718713d01a59c44c9e5adf7dc530037c61676ff6761",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 (/)",
+      "state": "desktop-display-card-to-modal-card",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 文本、金额与主数据展示",
+      "next": "MES 单据编辑弹窗",
+      "previous_rect": {
+        "left": 273,
+        "top": 827,
+        "right": 1391,
+        "bottom": 1123,
+        "width": 1118,
+        "height": 296
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 1139,
+        "right": 1391,
+        "bottom": 1619,
+        "width": 1118,
+        "height": 480
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite sections",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=vertical size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in referenced rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "node run.js /tmp/playwright-test-mes-display-primitives.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-display-primitives-2026-11-20/display-suite-desktop-fullpage.png",
+      "screenshot_sha256": "8453807cd0ce5ddf6cc43718713d01a59c44c9e5adf7dc530037c61676ff6761",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 (/)",
+      "state": "mobile-status-to-display-card",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 状态与权限组件",
+      "next": "MES 文本、金额与主数据展示",
+      "previous_rect": {
+        "left": 33,
+        "top": 848,
+        "right": 342,
+        "bottom": 1050,
+        "width": 309,
+        "height": 203
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 1066,
+        "right": 342,
+        "bottom": 1740,
+        "width": 309,
+        "height": 674
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite sections",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=vertical size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in referenced rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "node run.js /tmp/playwright-test-mes-display-primitives.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-display-primitives-2026-11-20/display-suite-mobile-fullpage.png",
+      "screenshot_sha256": "d46ca342b660dbc156da30feddf02cf097588748e2e0989edc945376f63477ec",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 (/)",
+      "state": "mobile-display-card-to-modal-card",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "MES 文本、金额与主数据展示",
+      "next": "MES 单据编辑弹窗",
+      "previous_rect": {
+        "left": 33,
+        "top": 1066,
+        "right": 342,
+        "bottom": 1740,
+        "width": 309,
+        "height": 674
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 1756,
+        "right": 342,
+        "bottom": 2236,
+        "width": 309,
+        "height": 480
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between MES suite sections",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: outer Space orientation=vertical size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and visible-band inspection in referenced rendered screenshot",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "node run.js /tmp/playwright-test-mes-display-primitives.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-display-primitives-2026-11-20/display-suite-mobile-fullpage.png",
+      "screenshot_sha256": "d46ca342b660dbc156da30feddf02cf097588748e2e0989edc945376f63477ec",
+      "status": "PASS"
+    }
+  ]
+}

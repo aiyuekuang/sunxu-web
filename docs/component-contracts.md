@@ -190,6 +190,12 @@
 - `DocumentLineQuantityInput` 是受控数值编辑器：有效数值变化立即交给宿主，清空时只保留本地空草稿、不发送 `null`；失焦时恢复宿主当前值。`InputNumber` 的范围、精度、步长和外观 props 继续透传。
 - `StatusDisplay` 只消费宿主传入的 `enumMap`，不内置 MES 状态常量；按 `mode` 呈现 `StatusTag`、Ant Design `Badge` 或彩色文本，未知枚举回退原始值、空值显示 `-`。令牌颜色和显式色值沿用 MES 当前映射规则。
 - `TableLongText` 保留 MES 表格现有的 `mes-table-long-text` class，默认使用 `LongText` 的两行换行模式；可用 `maxLines` 调整行数，也可显式选择 `displayMode="truncate"` 使用 64 字符截断和对话框。两行模式的全文 Popover 支持鼠标悬停、触摸点击和键盘 Enter/Space 打开，Escape 关闭；点击不冒泡到可点击表格行。`isTableLongTextValue` 只接受 string/number。
+- `AmountText` 保留 `value/prefix/precision/placeholder` API；默认前缀为 `¥`、精度为 2、占位符为 `-`，使用 `zh-CN` 分组格式化，空值和非数字显示占位符。格式化后的字符串交给 `MesUiProvider.maskAmount`；没有宿主能力时 fail closed，空值为 `-`、金额为 `****`。金额显隐状态和权限仍由 MES 宿主管理。
+- `AmountPolicySnapshotTag` 保留嵌套快照解析、默认规则文案、版本展示、公式回退、数量/金额详情 Popover；显式 `mask` 优先，否则使用宿主金额脱敏能力。快照输入接受根对象、`priceSnapshot`、`amountPolicySnapshot` 与 `result` 嵌套形态，未识别有效 `policyCode` 时显示 `-`。
+- `DateText` 保留 `date/datetime/time` 三种格式（`YYYY-MM-DD`、`YYYY-MM-DD HH:mm`、`HH:mm`），默认 datetime；空值和无效日期显示 `-` 或调用方占位符。`UserText` 优先显示 `realName`，回退 `username`，再回退 `—` 或调用方占位符。
+- `DefaultRouteHint` 仅在有 `materialId` 且没有 `routeId` 时调用必填的 `requestCandidates({ materialId, customerId, routeSelectionDate })`；取首个 `recommended` 候选，组合路线编码/名称、版本和原因。没有推荐路线时显示 MES 指引；请求错误静默隐藏，条件变化或卸载会丢弃迟到响应。服务请求和错误策略留在宿主。
+- `CustomerMaterialCell` 支持 `combined/internal/customer` 三种模式。combined 时客户别名优先并在下一行保留内部物料值；缺少别名或两者相同则不重复显示。拆分模式可仅在名称字段按对应来源显示规格。`customerMaterialSortValue` 与主值一致，别名优先回落内部快照。内部 `materialId` 是权威身份；客户别名是销售单据的冻结快照，客户输出打印模板不应使用此比较单元格。
+- `EntityThumbnail` 保留缩略图优先、预览图回退、默认 40px 方形样式、无图 Tooltip 图标、损坏图 SVG fallback 和 AntD 图片预览。图片存在时点击/双击停止冒泡，避免触发行选择或编辑；无图提示沿用源实现，不截断行事件。
 - `DocumentLineBatchSettingsButton` 保留 MES 明细字段 schema；`number` 支持 `min/max/precision`，`date` 的 patch 收到 `YYYY-MM-DD` 字符串，`select` 的 patch 只接收字符串（数值选项仍归一为 `undefined`），`text` 保留最大长度。字段需独立勾选，勾选后留空表示清空；`required` 字段为空时阻止应用并提示。远程选择字段通过 `request(params, values)` 加载候选，竞态结果会丢弃；请求中对应 Select 显示 loading，失败在字段旁显示错误和“重试”入口，重试后清除错误。
 - MES 适配组件不请求 MES API、不查权限；远程候选请求、权限判断、状态字典和 `onApply` patch 提交由宿主提供。它们位于 `src/mes/**`，从 `sunxu-web/mes` 导入。
 - MES 套件目录中的表格固定列宽为 566px；窄屏将横向溢出限制在表格内，并提供可聚焦命名区域，以左右方向键、Home 和 End 浏览列。

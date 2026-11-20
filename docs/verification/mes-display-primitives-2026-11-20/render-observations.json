@@ -1,0 +1,263 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件 (/)",
+  "targetUrl": "http://127.0.0.1:4173/",
+  "checkedAt": "2026-11-20T00:51:49.163Z",
+  "states": {
+    "desktop-1440x900-light-masked": {
+      "viewport": {
+        "width": 1440,
+        "height": 900,
+        "documentWidth": 1440,
+        "bodyWidth": 1440,
+        "documentHeight": 1668
+      },
+      "workspace": {
+        "left": 224,
+        "top": 56,
+        "right": 1440,
+        "bottom": 1668,
+        "width": 1216,
+        "height": 1612
+      },
+      "content": {
+        "left": 248,
+        "top": 80,
+        "right": 1416,
+        "bottom": 1644,
+        "width": 1168,
+        "height": 1564
+      },
+      "insets": {
+        "top": 24,
+        "right": 24,
+        "bottom": 24,
+        "left": 24
+      },
+      "target": {
+        "left": 273,
+        "top": 827,
+        "right": 1391,
+        "bottom": 1123,
+        "width": 1118,
+        "height": 296
+      },
+      "previous": {
+        "left": 273,
+        "top": 660,
+        "right": 1391,
+        "bottom": 811,
+        "width": 1118,
+        "height": 152
+      },
+      "next": {
+        "left": 273,
+        "top": 1139,
+        "right": 1391,
+        "bottom": 1619,
+        "width": 1118,
+        "height": 480
+      },
+      "gaps": {
+        "previousToTarget": 16,
+        "targetToNext": 16
+      },
+      "visibleOverflow": [],
+      "intrinsicOverflow": []
+    },
+    "mobile-375x812-light-masked": {
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "documentWidth": 375,
+        "bodyWidth": 375,
+        "documentHeight": 2269
+      },
+      "workspace": {
+        "left": 0,
+        "top": 56,
+        "right": 375,
+        "bottom": 2269,
+        "width": 375,
+        "height": 2213
+      },
+      "content": {
+        "left": 16,
+        "top": 72,
+        "right": 359,
+        "bottom": 2253,
+        "width": 343,
+        "height": 2181
+      },
+      "insets": {
+        "top": 16,
+        "right": 16,
+        "bottom": 16,
+        "left": 16
+      },
+      "target": {
+        "left": 33,
+        "top": 1066,
+        "right": 342,
+        "bottom": 1740,
+        "width": 309,
+        "height": 674
+      },
+      "previous": {
+        "left": 33,
+        "top": 848,
+        "right": 342,
+        "bottom": 1050,
+        "width": 309,
+        "height": 203
+      },
+      "next": {
+        "left": 33,
+        "top": 1756,
+        "right": 342,
+        "bottom": 2236,
+        "width": 309,
+        "height": 480
+      },
+      "gaps": {
+        "previousToTarget": 16,
+        "targetToNext": 16
+      },
+      "visibleOverflow": [],
+      "intrinsicOverflow": [
+        {
+          "tag": "div",
+          "clientWidth": 0,
+          "scrollWidth": 71,
+          "rect": {
+            "left": 135,
+            "top": 1252,
+            "right": 135,
+            "bottom": 1252,
+            "width": 0,
+            "height": 0
+          },
+          "html": "<div style=\"position: absolute; left: 0px; top: 0px;\"><div class=\"ant-wave css-dev-only-do-not-override-i19pbt wave-motion-appear wave-motion-appear-active wave-motion\" style=\"left"
+        }
+      ]
+    },
+    "mobile-375x812-dark-masked": {
+      "viewport": {
+        "width": 375,
+        "height": 812,
+        "documentWidth": 375,
+        "bodyWidth": 375,
+        "documentHeight": 2269
+      },
+      "workspace": {
+        "left": 0,
+        "top": 56,
+        "right": 375,
+        "bottom": 2269,
+        "width": 375,
+        "height": 2213
+      },
+      "content": {
+        "left": 16,
+        "top": 72,
+        "right": 359,
+        "bottom": 2253,
+        "width": 343,
+        "height": 2181
+      },
+      "insets": {
+        "top": 16,
+        "right": 16,
+        "bottom": 16,
+        "left": 16
+      },
+      "target": {
+        "left": 33,
+        "top": 1066,
+        "right": 342,
+        "bottom": 1740,
+        "width": 309,
+        "height": 674
+      },
+      "previous": {
+        "left": 33,
+        "top": 848,
+        "right": 342,
+        "bottom": 1050,
+        "width": 309,
+        "height": 203
+      },
+      "next": {
+        "left": 33,
+        "top": 1756,
+        "right": 342,
+        "bottom": 2236,
+        "width": 309,
+        "height": 480
+      },
+      "gaps": {
+        "previousToTarget": 16,
+        "targetToNext": 16
+      },
+      "visibleOverflow": [],
+      "intrinsicOverflow": [
+        {
+          "tag": "div",
+          "clientWidth": 0,
+          "scrollWidth": 71,
+          "rect": {
+            "left": 135,
+            "top": 1252,
+            "right": 135,
+            "bottom": 1252,
+            "width": 0,
+            "height": 0
+          },
+          "html": "<div style=\"position: absolute; left: 0px; top: 0px;\"><div class=\"ant-wave css-dev-only-do-not-override-i19pbt wave-motion-appear wave-motion-appear-active wave-motion\" style=\"left"
+        }
+      ]
+    }
+  },
+  "interactions": {
+    "amountPolicyPopoverMasked": {
+      "shown": true,
+      "containsFormula": true,
+      "maskedSnapshotAmounts": 4
+    },
+    "amountVisibilityToggle": {
+      "visibleAmountShown": true
+    },
+    "amountPolicyPopoverVisible": {
+      "visibleSnapshotAmount": true,
+      "popupText": "金额计算快照\n规则\t默认规则 / v3\n行金额公式\t数量 × 单价\n业务数量\t5\n标准金额\t12500.50\n公式差额\t0.00\n行金额\t12500.50"
+    },
+    "customerMaterialModes": {
+      "aliasVisible": true,
+      "internalMaterialVisible": true,
+      "customerSpecVisible": true,
+      "internalSpecVisible": true
+    },
+    "thumbnailPreview": {
+      "visible": true,
+      "closeControlAvailable": true
+    },
+    "darkModeAmountButton": {
+      "text": "显示金额",
+      "color": "rgb(245, 245, 245)",
+      "backgroundColor": "rgb(28, 28, 30)",
+      "opacity": "1"
+    }
+  },
+  "pageErrors": [],
+  "consoleErrors": [],
+  "runtimeDiagnostics": {
+    "pageErrors": [],
+    "consoleErrors": []
+  },
+  "acceptance": {
+    "desktopPageWidthContained": true,
+    "mobilePageWidthContained": true,
+    "darkMobilePageWidthContained": true,
+    "noVisibleCardOverflow": true
+  }
+}

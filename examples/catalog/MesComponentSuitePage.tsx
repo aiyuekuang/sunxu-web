@@ -1,4 +1,4 @@
-import { useEffect, useMemo, useRef, useState } from 'react';
+import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Button, Form, Input } from 'antd';
 import { SectionCard, Space, Table, Typography } from '../../src';
 import type { TableProps } from 'antd';
@@ -6,10 +6,17 @@ import {
   DocumentLineBatchSettingsButton,
   DocumentLineQuantityInput,
   DocumentModalForm,
+  AmountPolicySnapshotTag,
+  AmountText,
+  CustomerMaterialCell,
+  DateText,
+  DefaultRouteHint,
+  EntityThumbnail,
   MesUiProvider,
   PermissionButton,
   StatusDisplay,
   TableLongText,
+  UserText,
   type MesStatusEnum,
   type DocumentLineBatchField,
 } from '../../src/mes';
@@ -52,6 +59,21 @@ const statusOptions: MesStatusEnum = {
   pending: { text: '待处理', status: 'Warning', color: '#FF8F1F' },
 };
 
+const demoThumbnailUrl = `data:image/svg+xml,${encodeURIComponent(
+  '<svg xmlns="http://www.w3.org/2000/svg" width="96" height="96" viewBox="0 0 96 96"><rect width="96" height="96" rx="12" fill="#e6f4ff"/><path d="M22 65 40 43l12 14 9-11 15 19H22Z" fill="#1677ff"/><circle cx="35" cy="31" r="7" fill="#69b1ff"/></svg>',
+)}`;
+
+const demoCustomerMaterial = {
+  customerMaterialCode: 'CUST-AL-08',
+  customerMaterialName: '客户铝件',
+  customerMaterialSpec: '客户规格 A',
+  material: {
+    code: 'RM-AL-0081',
+    name: '6061 铝型材',
+    spec: '20 × 30 × 2 mm',
+  },
+};
+
 type DocumentModalDemoMode = 'workspace' | 'viewport' | 'fixed';
 
 export function MesComponentSuitePage() {
@@ -63,6 +85,7 @@ export function MesComponentSuitePage() {
     useState<DocumentModalDemoMode>('workspace');
   const [lastSubmittedNote, setLastSubmittedNote] = useState('尚未提交');
   const [permissionAction, setPermissionAction] = useState('尚未触发操作');
+  const [showAmounts, setShowAmounts] = useState(false);
   const [hasHorizontalOverflow, setHasHorizontalOverflow] = useState(false);
   const tableHostRef = useRef<HTMLDivElement>(null);
 
@@ -109,6 +132,18 @@ export function MesComponentSuitePage() {
     ],
     [],
   );
+
+  const requestRouteCandidates = useCallback(async () => ({
+    candidates: [
+      {
+        recommended: true,
+        code: 'RT-001',
+        name: '标准加工路线',
+        versionLabel: 'V3',
+        reason: '按物料和客户条件匹配',
+      },
+    ],
+  }), []);
 
   const columns: TableProps<MesLine>['columns'] = [
     { title: '物料编码', dataIndex: 'materialCode', width: 150 },
@@ -283,6 +318,97 @@ export function MesComponentSuitePage() {
           </Space>
         </MesUiProvider>
         <Typography.Text role="status">{permissionAction}</Typography.Text>
+      </SectionCard>
+
+      <SectionCard title="MES 文本、金额与主数据展示">
+        <Typography.Paragraph type="secondary">
+          保留 MES 金额脱敏、日期格式、用户名称回退、默认工艺路线提示、客户物料双标识和图片行事件隔离；金额策略和路线请求由宿主注入。
+        </Typography.Paragraph>
+        <MesUiProvider
+          hasPermission={() => true}
+          maskAmount={(amount) =>
+            amount == null ? '-' : showAmounts ? String(amount) : '****'
+          }
+        >
+          <Space wrap size={[20, 12]}>
+            <Space orientation="vertical" size={4}>
+              <Typography.Text strong>金额</Typography.Text>
+              <Space wrap size={8}>
+                <AmountText value="12500.5" />
+                <AmountText value={null} placeholder="未录入" />
+                <Button size="small" onClick={() => setShowAmounts((value) => !value)}>
+                  {showAmounts ? '隐藏金额' : '显示金额'}
+                </Button>
+              </Space>
+              <AmountPolicySnapshotTag
+                mask={(amount) =>
+                  amount == null ? '-' : showAmounts ? String(amount) : '****'
+                }
+                priceSnapshot={{
+                  amountPolicySnapshot: {
+                    policyCode: 'default',
+                    version: 3,
+                    amountFormulaReadable: '数量 × 单价',
+                    result: {
+                      pricingQuantity: 5,
+                      baseAmount: 12500.5,
+                      formulaDifferenceAmount: 0,
+                      amount: 12500.5,
+                    },
+                  },
+                }}
+              />
+            </Space>
+            <Space orientation="vertical" size={4}>
+              <Typography.Text strong>日期与用户</Typography.Text>
+              <DateText value="2026-11-20T09:30:00+08:00" />
+              <DateText value="invalid" format="date" placeholder="日期待补" />
+              <UserText user={{ realName: '张工', username: 'zhang.gong' }} />
+              <UserText user={{ username: 'operator01' }} />
+            </Space>
+            <Space orientation="vertical" size={4}>
+              <Typography.Text strong>默认工艺路线</Typography.Text>
+              <DefaultRouteHint
+                materialId="material-demo-001"
+                customerId="customer-demo-001"
+                routeSelectionDate="2026-11-20"
+                requestCandidates={requestRouteCandidates}
+              />
+            </Space>
+            <Space orientation="vertical" size={4}>
+              <Typography.Text strong>客户物料与图片</Typography.Text>
+              <CustomerMaterialCell
+                item={demoCustomerMaterial}
+                field="name"
+                showSpec
+              />
+              <Space wrap size={12}>
+                <Space orientation="vertical" size={2}>
+                  <Typography.Text type="secondary">内部物料列</Typography.Text>
+                  <CustomerMaterialCell
+                    item={demoCustomerMaterial}
+                    field="name"
+                    displayMode="internal"
+                    showSpec
+                  />
+                </Space>
+                <Space orientation="vertical" size={2}>
+                  <Typography.Text type="secondary">客户物料列</Typography.Text>
+                  <CustomerMaterialCell
+                    item={demoCustomerMaterial}
+                    field="name"
+                    displayMode="customer"
+                    showSpec
+                  />
+                </Space>
+              </Space>
+              <Space align="center" size={8}>
+                <EntityThumbnail thumbnailUrl={demoThumbnailUrl} alt="铝型材缩略图" />
+                <EntityThumbnail />
+              </Space>
+            </Space>
+          </Space>
+        </MesUiProvider>
       </SectionCard>
 
       <div className="sxw-mes-document-modal-demo">

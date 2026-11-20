@@ -88,37 +88,37 @@
     "component_reference_count": 627,
     "component_status_counts": {
       "HOST_SCOPE": 278,
-      "REVIEW_SOURCE_CONTRACT": 16,
-      "IMPLEMENTED": 16,
-      "WORKTREE_IMPLEMENTATION": 1,
+      "IMPLEMENTED": 23,
       "MAPPED": 245,
-      "PENDING": 71
+      "PENDING": 64,
+      "REVIEW_SOURCE_CONTRACT": 16,
+      "WORKTREE_IMPLEMENTATION": 1
     },
     "component_target_counts": {
       "MES_HOST_INTEGRATION": 29,
-      "SUNXU_MES": 85,
       "MES_HOST_PAGE": 237,
       "MES_HOST_PLATFORM": 14,
       "SUNXU_COMMON": 17,
+      "SUNXU_MES": 85,
       "SUNXU_UPSTREAM": 245
     },
     "source_file_count": 195,
     "source_status_counts": {
-      "HOST_SCOPE": 33,
-      "PENDING": 89,
       "EXCLUDED_FROM_RUNTIME": 46,
+      "HOST_SCOPE": 33,
+      "IMPLEMENTED": 21,
       "MAPPED": 8,
-      "WORKTREE_IMPLEMENTATION": 1,
-      "IMPLEMENTED": 14,
-      "REVIEW_SOURCE_CONTRACT": 4
+      "PENDING": 82,
+      "REVIEW_SOURCE_CONTRACT": 4,
+      "WORKTREE_IMPLEMENTATION": 1
     },
     "source_target_counts": {
       "MES_HOST_INTEGRATION": 34,
-      "SUNXU_MES": 98,
       "NOT_SHIPPED_SOURCE_TEST": 46,
-      "SUNXU_UPSTREAM": 7,
+      "SOURCE_STYLE_REVIEW": 3,
       "SUNXU_COMMON": 7,
-      "SOURCE_STYLE_REVIEW": 3
+      "SUNXU_MES": 98,
+      "SUNXU_UPSTREAM": 7
     }
   },
   "component_references": [
@@ -5080,12 +5080,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 4,
       "importer_file_count": 4,
       "source_sha256": "1ae47d1f65a5d7d216d360fe9bf606dfe38d120f292049f94cab2ae6256a9a4d",
       "previous_target": null,
-      "rationale": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+      "rationale": "保留 MES 金额策略快照解析、标签和详情 Popover；显式 mask 优先，默认接入宿主金额脱敏能力。"
     },
     {
       "module": "@/components/enhanced/AmountText",
@@ -5095,12 +5095,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 10,
       "importer_file_count": 4,
       "source_sha256": "2b40429c773594fc20630a705da274c9a3661ec81bd530b942b01577f9435251",
       "previous_target": null,
-      "rationale": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+      "rationale": "金额格式与占位符保持 MES 行为；脱敏函数由 MesUiProvider.maskAmount 注入，缺少宿主策略时 fail closed。"
     },
     {
       "module": "@/components/enhanced/BatchMaterialAddButton",
@@ -5140,12 +5140,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 2,
       "importer_file_count": 1,
       "source_sha256": "8eb19efa13fbe97343fc2353fc09b2d1bbe710b6d799e5be91b08ae05b67124f",
       "previous_target": null,
-      "rationale": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+      "rationale": "保留 MES date/datetime/time 格式和无效值占位符，位于 src/mes/components/DateText.tsx。"
     },
     {
       "module": "@/components/enhanced/DefaultRouteHint",
@@ -5155,12 +5155,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 1,
       "importer_file_count": 1,
       "source_sha256": "2a0f71459450b65056e09714e2c7b4a65d6ae52b8319f3e6d6f70b32e1e59f4d",
       "previous_target": null,
-      "rationale": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+      "rationale": "保留 MES 默认工艺路线推荐、无候选提示和静默错误；候选 API 改为宿主 requestCandidates 注入。"
     },
     {
       "module": "@/components/enhanced/MaterialFilteredSelect",
@@ -5260,12 +5260,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 1,
       "importer_file_count": 1,
       "source_sha256": "4f42049c4fa2733b543ef3b98861779e30b786268ac31802236dd4bb13a5eef8",
       "previous_target": null,
-      "rationale": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries."
+      "rationale": "保留 MES realName → username → placeholder 回退，位于 src/mes/components/UserText.tsx。"
     },
     {
       "module": "@/components/enhanced/WarehouseRemoteSelect",
@@ -5365,12 +5365,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 8,
       "importer_file_count": 2,
       "source_sha256": "25567b0031de049c7615c0357eb34a4ef37038500d905f7db77c861b5bc4a1e2",
       "previous_target": null,
-      "rationale": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+      "rationale": "保留客户物料别名与内部权威物料并列、展示模式、规格和排序取值，位于 Sunxu MES 套件。"
     },
     {
       "module": "@/components/patterns/DetailDocumentActions",
@@ -5605,12 +5605,12 @@
       "previous_file_disposition": "MES_DOMAIN",
       "source_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING",
+      "migration_status": "IMPLEMENTED",
       "jsx_occurrences": 16,
       "importer_file_count": 13,
       "source_sha256": "96b1369bdac70f43ebd296bbdd34c7f78c7d4ff97060c610cc00f6eaf07dc61e",
       "previous_target": null,
-      "rationale": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific."
+      "rationale": "保留 MES 缩略图/预览回退、损坏图占位和图片点击行事件隔离，位于 Sunxu MES 套件。"
     },
     {
       "module": "@/components/patterns/OrderItemEditor",
@@ -10773,7 +10773,8 @@
       "previous_reason": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "rationale": "适配至 src/mes/components/AmountPolicySnapshotTag.tsx；保留 MES 快照解析和详情展示，脱敏通过宿主策略接入。"
     },
     {
       "source": "src/components/enhanced/AmountText.tsx",
@@ -10789,7 +10790,8 @@
       "previous_reason": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "rationale": "适配至 src/mes/components/AmountText.tsx；保持源格式行为，金额脱敏由宿主能力注入。"
     },
     {
       "source": "src/components/enhanced/BatchMaterialAddButton.test.tsx",
@@ -10851,7 +10853,8 @@
       "previous_reason": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "rationale": "适配至 src/mes/components/DateText.tsx；保持 MES 日期格式和占位符回退。"
     },
     {
       "source": "src/components/enhanced/DefaultRouteHint.tsx",
@@ -10867,7 +10870,8 @@
       "previous_reason": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "rationale": "适配至 src/mes/components/DefaultRouteHint.tsx；推荐候选请求改由宿主注入，保留静默失败与空候选提示。"
     },
     {
       "source": "src/components/enhanced/ExportButton.tsx",
@@ -11113,7 +11117,8 @@
       "previous_reason": "Enhanced selector, scan, material, warehouse, amount, and production policies are tied to MES data or dictionaries.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "rationale": "适配至 src/mes/components/UserText.tsx；保持 realName、username 和占位符回退顺序。"
     },
     {
       "source": "src/components/enhanced/WarehouseRemoteSelect.tsx",
@@ -11574,7 +11579,8 @@
       "previous_reason": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "rationale": "适配至 src/mes/components/CustomerMaterialCell.tsx；保留客户别名、内部物料、规格展示和 customerMaterialSortValue。"
     },
     {
       "source": "src/components/patterns/DetailDocumentActions.test.tsx",
@@ -12019,7 +12025,8 @@
       "previous_reason": "Document action, ledger, pricing, BOM, drawing, or MES page interaction is domain-specific.",
       "migration_review_state": "CARRY_FORWARD_SAME_SOURCE",
       "target_layer": "SUNXU_MES",
-      "migration_status": "PENDING"
+      "migration_status": "IMPLEMENTED",
+      "rationale": "适配至 src/mes/components/EntityThumbnail.tsx；保留预览、缺图/损坏图 fallback 和行事件隔离。"
     },
     {
       "source": "src/components/patterns/FormDrawer.tsx",

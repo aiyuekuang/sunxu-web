@@ -132,6 +132,8 @@ export function InventoryBatchCard() {
 
 `@sunxu-reason` 要说明专用数据或交互为何不能由通用组件组合表达，不能只写“业务需要”。
 
+金额展示组件从 `MesUiProvider.maskAmount` 接收 MES 脱敏策略，路线提示通过 `DefaultRouteHint.requestCandidates` 接收候选查询；Provider 未配置金额策略时 fail closed。物料别名、内部物料快照和用户字段仍由 MES 页面映射，图片 URL 由宿主提供。组件库不得读取 MES 服务、Umi 权限或路由状态。
+
 ## 宿主 ESLint 接入
 
 独立工具包位于 [`tooling/eslint-plugin-sunxu-web`](../tooling/eslint-plugin-sunxu-web/README.md)，不会进入运行时包。宿主按实际目录启用推荐规则：

@@ -21,6 +21,11 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `DocumentModalForm`（`sunxu-web/mes`） | MES 单据表单全屏容器、当前工作区定位、最小化草稿保留与还原 |
 | `DocumentLineQuantityInput`（`sunxu-web/mes`） | 可清空的数量编辑草稿；有效值由宿主控制，空值失焦时恢复最近有效值 |
 | `StatusDisplay`（`sunxu-web/mes`） | 宿主注入状态字典，支持 Tag、Badge、文本三种呈现 |
+| `AmountText`、`AmountPolicySnapshotTag`（`sunxu-web/mes`） | 按 MES 金额格式展示并通过宿主金额策略脱敏；金额快照可展开查看公式和计算结果 |
+| `DateText`、`UserText`（`sunxu-web/mes`） | MES 日期格式与用户姓名/账号回退展示 |
+| `DefaultRouteHint`（`sunxu-web/mes`） | 宿主注入工艺路线候选请求，提示未手选时的推荐路线 |
+| `CustomerMaterialCell`（`sunxu-web/mes`） | 同时保留销售单据客户物料别名与内部物料身份，并提供一致排序值 |
+| `EntityThumbnail`（`sunxu-web/mes`） | 实体缩略图、空图/损坏图回退、预览和表格行事件隔离 |
 | `ResizableProTable`（`sunxu-web/mes`） | MES 分页列表表格适配：可调列宽、持久化列序/显隐/排序、全局行号、密度、空态、导出布局和单列表视口高度 |
 | `ResizableTable`（`sunxu-web/mes`） | 原生 AntD Table 的 MES 明细表适配：可调列宽、可选行号、密度、空态和本地排序 |
 | `TableActions`、`TableDensityOption`、`TableEmpty`（`sunxu-web/mes`） | MES 表格的行操作收纳、密度控制和带业务引导的空态 |
@@ -116,7 +121,7 @@ MES `DocumentViewBar` 的通用视图选择、脏状态切换和视图管理交�
 
 ### 全量覆盖工作账本（2026-11-20）
 
-用户已授权把 Sunxu Web 扩展为“通用层 + MES UI 套件”。逐个 import 条目与 195 个源文件的目标层、旧处置、源文件变化状态和迁移进度记录在 [MES 组件全量覆盖账本](./migrations/mes-admin-component-coverage-2026-11-20.json)。当前 627 个运行时组件引用中，245 项已映射至 Sunxu 通用/上游出口，16 项已有 MES/通用适配实现，1 项在工作区有 StatusTag 实现，16 项需按变更后的 MES 源文件复核契约，71 项仍待补进 `sunxu-web/mes`；另有 278 项明确属于 MES 宿主页面、框架集成或外部平台层。当前不能据此报告组件已全量补齐，也不开始新的 MES 页面替换批次。
+用户已授权把 Sunxu Web 扩展为“通用层 + MES UI 套件”。逐个 import 条目与 195 个源文件的目标层、旧处置、源文件变化状态和迁移进度记录在 [MES 组件全量覆盖账本](./migrations/mes-admin-component-coverage-2026-11-20.json)。当前 627 个运行时组件引用中，245 项已映射至 Sunxu 通用/上游出口，23 项已有 MES/通用适配实现，1 项在工作区有 StatusTag 实现，16 项需按变更后的 MES 源文件复核契约，64 项仍待补进 `sunxu-web/mes`；另有 278 项明确属于 MES 宿主页面、框架集成或外部平台层。当前不能据此报告组件已全量补齐，也不开始新的 MES 页面替换批次。
 
 替换门禁：每个运行时条目都必须在账本中收敛为 Sunxu 通用组件、Sunxu MES 套件、Sunxu 上游公开 API 或有明确理由的 MES 宿主/外部平台实现；`PENDING` 与 `REVIEW_SOURCE_CONTRACT` 必须清零。MES UI 组件保留现有行为，再把请求、权限、字典和业务副作用改为宿主注入；只有此门禁通过后才开始逐项替换消费者。
 

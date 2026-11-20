@@ -54,5 +54,8 @@
 - `DocumentModalForm` 按当前 MES 行为重新适配到 Sunxu 命名空间和 Ant Design tokens，保留完整 `ModalForm` props、标签工作区定位、视口全屏选项、最小化草稿保留、还原条、open 状态重置及语义样式槽合并；请求和路由仍由宿主控制。最终读屏器流程为 `UNVERIFIED`。
 - MES `ResizableTable.tsx` 以 `mes-admin` 分支 `main-买断版本` 的提交 `e185f6b68b6d8ef94ed0b5312340e1952be5f2f1` 为行为基线（源文件 SHA-256 `f86cf0b9bc988036ddcce0246b48627ea80dcf25607d8db29cc721f99e542c3e`，3,699 行）。Sunxu 版本为 3,780 行的适配移植：列宽钩子、MES 表格工具、列状态/导出布局、Umi 权限接缝改为 `MesUiProvider` 能力注入；不读取或修改 `mes-admin` 工作区文件，也没有将来源文件原样不加处理地复制进通用层。
 - 套件导出 `ResizableProTable` / `ResizableTable`、`TableActions`、`TableDensityOption`、`TableEmpty` 和 `useTableExportLayout`。保留源行为后，排序标记改为叠加到最终表格列，避免 ProTable 恢复已保存排序时改变列宽 hook 的输入并把已保存宽度覆盖回默认值。
-- 当前组件账本中已有实现的 MES/通用组件引用从 9 项增至 16 项；待补实现从 75 项降至 71 项，需按变更源契约复核从 19 项降至 16 项。剩余 MES 引用继续逐项补齐；本阶段没有替换 `mes-admin` 消费页面。
+- 此前表格/单据批次后，账本中已有实现的 MES/通用组件引用从 9 项增至 16 项；待补实现从 75 项降至 71 项，需按变更源契约复核从 19 项降至 16 项。
+- 第二批从同一固定 MES 提交 `e185f6b68b6d8ef94ed0b5312340e1952be5f2f1` 核对并适配 `AmountText`、`AmountPolicySnapshotTag`、`DateText`、`UserText`、`DefaultRouteHint`、`CustomerMaterialCell` 和 `EntityThumbnail`。它们保留源格式、回退、快照解析、推荐路线提示、客户别名/内部物料并列、排序取值、图片 fallback/预览及行事件隔离；金额策略和路线 API 改为宿主注入。代码经契约适配，不将 MES 服务依赖或权限状态复制进 Sunxu。
+- 七项均已从 `sunxu-web/mes` 导出，并加入 MES 套件目录的金额显隐、快照 Popover、日期/用户回退、推荐工艺路线、客户物料规格和图片预览示例。契约细节和完整覆盖账本同步更新；这一批没有替换 `mes-admin` 消费页面。
+- 更新后账本中已有实现的 MES/通用组件引用为 23 项，待补实现为 64 项，需按变更源契约复核仍为 16 项；运行时源文件中已实现为 21 项、待补为 82 项。实现数仅表示套件已有组件契约，不代表已迁移 MES 页面调用点。
 - `ResizableTable` 真实目录路由的列宽拖拽与排序后刷新、列显隐与导出列数、密度、空态、双击回调、服务端/本地排序、汇总、视口高度及窄屏键盘横向滚动证据见 [`docs/verification/mes-resizable-table-2026-11-20/README.md`](./verification/mes-resizable-table-2026-11-20/README.md)。
