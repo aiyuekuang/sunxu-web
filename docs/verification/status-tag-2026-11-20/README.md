@@ -1,5 +1,7 @@
 # StatusTag visual verification — 2026-11-20
 
+> **STALE / UNVERIFIED for the current implementation.** These screenshots and contrast measurements were captured before `StatusTag` switched to Ant Design's default white solid text and began darkening light hex backgrounds. Do not use the PASS claims below to accept the current implementation. The current catalog was visually inspected in the browser, but updated screenshots and DOM geometry were not persisted; the MES host route also remains unverified.
+
 The status tags were rendered on the sunxu-web catalog route `/`, in the “信息与状态” section, using the local Vite app at `http://127.0.0.1:4173/`.
 
 ## Render checks

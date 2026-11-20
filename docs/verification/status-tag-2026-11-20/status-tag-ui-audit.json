@@ -11,9 +11,10 @@
       "dark mobile"
     ],
     "interaction": "Select “信息与状态” in the catalog sidebar; inspect “状态标签”.",
-    "verification": "Rendered with the local Vite catalog in Chromium using Playwright. DOMRects and contrast ratios were recorded; screenshots were inspected at native scale.",
+    "verification": "STALE: captures and contrast ratios predate the current white-text implementation. Current catalog appearance was visually inspected in the browser, but updated screenshots and DOM geometry were not persisted; MES host route is unverified.",
     "horizontal_overflow": "none: document width equals viewport width at 1440px and 390px.",
-    "text_contrast": "All seven status labels measured at 5.12:1 or higher against their solid backgrounds."
+    "text_contrast": "UNVERIFIED for current implementation; old measurements used the previous foreground colors.",
+    "status": "UNVERIFIED"
   },
   "surface_frame_gate": {
     "status": "PASS",
