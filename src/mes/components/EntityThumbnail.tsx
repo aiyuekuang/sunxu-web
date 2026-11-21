@@ -1,5 +1,5 @@
 import { FileImageOutlined } from '@ant-design/icons';
-import { Image, Tooltip } from 'antd';
+import { Image, theme, Tooltip } from 'antd';
 import React from 'react';
 
 const BROKEN_IMAGE_FALLBACK = `data:image/svg+xml;utf8,${encodeURIComponent(`
@@ -28,13 +28,15 @@ export function EntityThumbnail({
   thumbnailUrl,
   previewUrl,
   alt = '缩略图',
-  size = 40,
+  size,
 }: EntityThumbnailProps) {
+  const { token } = theme.useToken();
+  const resolvedSize = size ?? token.controlHeight;
   const displayUrl = thumbnailUrl || previewUrl;
   const resolvedPreviewUrl = previewUrl || displayUrl;
   const baseStyle: React.CSSProperties = {
-    width: size,
-    height: size,
+    width: resolvedSize,
+    height: resolvedSize,
     borderRadius: 6,
     border: '1px solid var(--ant-color-border-secondary)',
     background: 'var(--ant-color-fill-quaternary)',
@@ -62,8 +64,8 @@ export function EntityThumbnail({
     <span
       style={{
         display: 'inline-flex',
-        width: size,
-        height: size,
+        width: resolvedSize,
+        height: resolvedSize,
         verticalAlign: 'middle',
       }}
       onClick={(event) => event.stopPropagation()}
@@ -72,14 +74,14 @@ export function EntityThumbnail({
       <Image
         src={displayUrl}
         alt={alt}
-        width={size}
-        height={size}
+        width={resolvedSize}
+        height={resolvedSize}
         style={{ ...baseStyle, objectFit: 'cover' }}
         styles={{
           root: {
             display: 'inline-flex',
-            width: size,
-            height: size,
+            width: resolvedSize,
+            height: resolvedSize,
             verticalAlign: 'middle',
           },
         }}

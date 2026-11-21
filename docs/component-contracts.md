@@ -397,7 +397,7 @@
 - `DocumentTableTitle` 必填 `title`（`ReactNode`）和 `onKeywordSearch`，并保留 `keyword`、`keywordPlaceholder`、`keywordLoading`（默认 `false`）。标题与关键词入口按 AntD `Space` 居中对齐、12px 间距并允许换行；业务字段筛选仍使用宿主自己的唯一入口。
 - `DefaultRouteHint` 仅在有 `materialId` 且没有 `routeId` 时调用必填的 `requestCandidates({ materialId, customerId, routeSelectionDate })`；取首个 `recommended` 候选，组合路线编码/名称、版本和原因。没有推荐路线时显示 MES 指引；请求错误静默隐藏，条件变化或卸载会丢弃迟到响应。服务请求和错误策略留在宿主。
 - `CustomerMaterialCell` 支持 `combined/internal/customer` 三种模式。combined 时客户别名优先并在下一行保留内部物料值；缺少别名或两者相同则不重复显示。拆分模式可仅在名称字段按对应来源显示规格。`customerMaterialSortValue` 与主值一致，别名优先回落内部快照。内部 `materialId` 是权威身份；客户别名是销售单据的冻结快照，客户输出打印模板不应使用此比较单元格。
-- `EntityThumbnail` 保留缩略图优先、预览图回退、默认 40px 方形样式、无图 Tooltip 图标、损坏图 SVG fallback 和 AntD 图片预览。图片存在时点击/双击停止冒泡，避免触发行选择或编辑；无图提示沿用源实现，不截断行事件。
+- `EntityThumbnail` 保留缩略图优先、预览图回退、主题 `controlHeight` 默认方形尺寸（显式 `size` 覆盖）、无图 Tooltip 图标、损坏图 SVG fallback 和 AntD 图片预览。图片存在时点击/双击停止冒泡，避免触发行选择或编辑；无图提示沿用源实现，不截断行事件。
 - `FileUrlsInline` 以受控 URL 数组管理附件，先 trim、去重并忽略空项；保留仅查看、空态、编辑删除和多文件上传。默认最多 20 个、单文件 20 MB；默认允许 jpg/jpeg/png/webp/pdf/doc/docx/xls/xlsx/csv，可通过 `maxCount`、`maxSize`、`maxSizeByExtension`、`accept`、`allowedExtensions` 覆盖。上传将文件放入 `FormData.files`，保留扩展名、大小和并发上传数量校验，上传 URL 交给 `onChange`；未注入上传能力时阻止上传并提示配置缺失。图片通过 AntD `Image.PreviewGroup` 预览；PDF 在当前标签工作区内打开 Drawer，普通附件走授权代理下载。
 - `DrawingFilesInline` 沿用 `FileUrlsInline` 的值与上传契约，默认只收 jpg/jpeg/png/pdf；可传 `availableFileUrls` 展示订单头附件选择器，候选仅含图片/PDF。已关联订单附件仍写回当前明细行值；移除旧关联时保留该行独立上传的 URL。源字段名、回调和空态/上传提示均可覆盖。
 - `DrawingFilesGallery` 以 `groups[{key,title,description?,urls}]` 按来源分组，空组被过滤；每组显示附件数和图片数，只把图片 URL 交给 `onPrint`，且需同时启用 `canPrint` 和回调。图片打开 Image Preview，PDF 打开 PDF Drawer，其他文件点击下载；文件名优先使用宿主原名解析能力，否则从 URL 解码并回退标签名。

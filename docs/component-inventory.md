@@ -160,7 +160,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `PaymentRequestActionModals`、`ExportTemplateModal`、`SendStatementModal`（`sunxu-web/mes`） | 保留付款申请调整/执行、对账单导出模板配置与发送；付款账户/方式、权限、模板文件/上传/下载和通知由宿主注入 |
 | `MaterialTablePicker`（`sunxu-web/mes`） | 支持物料分类、搜索、服务端分页单/多选、跨页记录回显、数量录入、库存汇总和缩略图预览；物料/分类/库存请求、单位字典与分页设置由宿主注入 |
 | `BatchMaterialAddButton`（`sunxu-web/mes`） | 将批量选中的新物料追加为明细行，过滤已存在项、移除空占位行、保留数量并限制最大行数；行结构与明细联动由宿主提供 |
-| `EntityThumbnail`（`sunxu-web/mes`） | 实体缩略图、空图/损坏图回退、预览和表格行事件隔离 |
+| `EntityThumbnail`（`sunxu-web/mes`） | 实体缩略图、主题控件高度默认尺寸、空图/损坏图回退、预览和表格行事件隔离 |
 | `DrawingFilesInline`、`FileUrlsInline`、`DrawingFilesGallery`、`PdfPreviewDrawer`（`sunxu-web/mes`） | MES 图纸/附件上传、订单头附件关联、分组预览/打印和 PDF 分页缩放；文件代理、原名解析和上传由宿主注入 |
 | `MaterialDrawingsPanel`（`sunxu-web/mes`） | 保留物料图纸/附件列表、图片/PDF/GLB 预览、受权限控制的上传/删除及上传策略校验；文件请求、授权 URL 和预览 renderer 由宿主注入，可接入套件 `GlbModelViewer` |
 | `GlbModelViewer`（`sunxu-web/mes`） | 提供 GLB/GLTF 加载、旋转缩放、网格/线框切换、恢复视角、加载失败及 WebGL 资源清理；宿主传入已授权可读 URL，three 为可选 peer 且挂载后动态加载 |
