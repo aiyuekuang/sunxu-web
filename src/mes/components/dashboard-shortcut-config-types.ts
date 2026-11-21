@@ -4,9 +4,15 @@ export type DashboardShortcutBusinessModule =
   | 'large_screen'
   | 'custom_business';
 export type DashboardShortcutPlatform = 'pc' | 'app' | 'both';
+export type DashboardShortcutSystemKey =
+  | 'production'
+  | 'quality'
+  | 'equipment'
+  | 'warehouse'
+  | 'workforce';
 
 export interface DashboardSystemShortcutPreference {
-  key: string;
+  key: DashboardShortcutSystemKey;
   businessModule: DashboardShortcutBusinessModule;
   visible: boolean;
   sortOrder: number;
@@ -33,7 +39,7 @@ export interface DashboardShortcutPreferencesPayload {
 }
 
 export interface DashboardSystemShortcutDefinition {
-  key: string;
+  key: DashboardShortcutSystemKey;
   label: string;
   accessible: boolean;
 }
@@ -41,7 +47,7 @@ export interface DashboardSystemShortcutDefinition {
 export interface DashboardShortcutRow {
   rowKey: string;
   kind: 'system' | 'custom';
-  systemKey?: string;
+  systemKey?: DashboardShortcutSystemKey;
   customId?: string;
   name: string;
   url: string;

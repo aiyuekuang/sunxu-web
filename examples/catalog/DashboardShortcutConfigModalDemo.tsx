@@ -37,7 +37,7 @@ const initialPreferences: DashboardShortcutPreferences = {
   ],
 };
 
-const systemShortcuts = [
+const systemShortcuts: DashboardShortcutConfigCapabilities['systemShortcuts'] = [
   { key: 'production', label: '生产总览', accessible: true },
   { key: 'quality', label: '质量监控', accessible: true },
   { key: 'equipment', label: '设备运维', accessible: false },
