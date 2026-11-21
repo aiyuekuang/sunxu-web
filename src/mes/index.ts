@@ -4,6 +4,7 @@ import './tableStyles.css';
 export * from './MesUiProvider';
 export * from './components/AmountPolicySnapshotTag';
 export * from './components/AmountText';
+export * from './components/MesStatusTag';
 export * from './components/CustomerMaterialCell';
 export * from './components/DateText';
 export * from './components/DefaultRouteHint';
