@@ -161,6 +161,7 @@ export * from './components/MaterialSupplierPriceTiersModal';
 export * from './components/supplier-price-tier-types';
 export * from './components/CustomFieldFormSection';
 export * from './components/custom-field-form-types';
+export { default as FormulaDesigner } from './components/FormulaDesigner';
 export * from './components/FormulaDesigner';
 export * from './components/formula-designer-types';
 export * from './components/CustomFieldCell';
