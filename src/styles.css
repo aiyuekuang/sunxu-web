@@ -34,6 +34,29 @@
   --sxw-info: #4096ff;
 }
 
+.ant-btn.ant-btn-variant-text.sxw-header-action-button {
+  color: var(--sxw-header-action-color);
+}
+
+.ant-btn.ant-btn-variant-text.sxw-header-action-button:not(:disabled):not(
+    .ant-btn-disabled
+  ):hover {
+  color: var(--sxw-header-action-hover-color);
+  background-color: var(--sxw-header-action-hover-background);
+}
+
+.ant-btn.ant-btn-variant-text.sxw-header-action-button:not(:disabled):not(
+    .ant-btn-disabled
+  ):active {
+  color: var(--sxw-header-action-active-color);
+  background-color: var(--sxw-header-action-active-background);
+}
+
+.ant-btn.ant-btn-variant-text.sxw-header-action-button:focus-visible {
+  outline: 2px solid var(--sxw-header-action-focus-color);
+  outline-offset: 2px;
+}
+
 .sxw-mes-document-modal-root,
 .sxw-mes-document-modal-root--viewport {
   position: absolute;

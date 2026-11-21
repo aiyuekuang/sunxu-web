@@ -19,7 +19,15 @@
 | `SavedViewBar` | 选择和管理受控的系统/个人列表视图 | AntD Tabs / Dropdown / Modal；视图数据和持久化由宿主提供 |
 | `FormScreenContainer` | 分离可滚动表单内容和固定 footer | `ScreenContainer` + `StickyActionBar`；ProForm 归宿主 |
 | `DetailScreenContainer` | 组织详情内容和固定操作区 | `ScreenContainer` + `PageHeader` |
-| `MesDetailPageContainer` | 组合 MES 详情标题、审批插槽、正文和固定页脚 | `DetailScreenContainer` + `DetailHeader`；审批 UI 由宿主渲染并传入 |
+| `MesDetailPageContainer` / `MesDetailPageContent` / `MesDetailPageState` | 组合 MES 详情页面框架、纯内容插槽及加载/错误/空状态 | `DetailScreenContainer` + `DetailHeader` / AntD `Spin`、`Empty`、`Button`；状态与重试决策由宿主提供 |
+| `HeaderActionButton` | 统一纯图标顶栏/工具栏操作的尺寸、颜色和交互态；必填 `aria-label` | AntD `Button` + AntD semantic tokens；Tooltip、Popover、Badge 和动作由宿主组合 |
+| `MesAnnouncementBanner` | 轮播呈现公告摘要、优先级、数量和当前项隐藏操作 | AntD `Button` / `NotificationOutlined` + 语义公告样式；数据、权限、轮询与导航由宿主提供 |
+| `MesMenuSearchInput` | 呈现受控菜单搜索输入与候选上下文 | AntD `AutoComplete` / `Input`；过滤、键盘导航、菜单授权和路由由宿主提供 |
+| `MesBusinessSideNavView` | 呈现一级业务导航、分组子导航和折叠弹出菜单 | 语义 `nav` / `a` / `button` + AntD Popover/Tooltip；可见项、选中状态与导航由宿主提供 |
+| `MesNotificationPanel` | 呈现通知 Popover、未读/加载/空列表和已读/全部/查看全部入口 | AntD `Popover` / `Listy` / `Empty` / `Spin`；通知数据和所有动作由宿主提供 |
+| `MesThemeOptionsPanel` | 呈现主题选项、色样、当前选择和键盘焦点 | 语义 `<button aria-pressed>` + AntD semantic tokens；主题应用/持久化由宿主提供 |
+| `MesAppDownloadPanel` | 呈现 App 下载状态、二维码、版本、iOS 指引和服务器地址 | AntD `Typography` / `Spin` / `Empty`；发布信息、地址与二维码由宿主提供 |
+| `MesSupportQRCode` | 呈现支持账号、复制入口和宿主生成的二维码 | AntD `Typography.Text` copyable + AntD theme tokens；联系信息和二维码由宿主提供 |
 | `StickyActionBar` | 承载固定流程动作 | 语义 `<footer>` + AntD Button |
 | `SectionCard` | 分组可选标题的内容，不制造空 header | Pro Components `ProCard` |
 | `StatusTabs` | 在互斥状态中选择当前结果集合 | AntD `Segmented` |
@@ -722,6 +730,16 @@
 - **`FormDrawer`**：保留 create/update 转换、记录切换后 reset 与初值回填、成功回调、BizError/HTTP toast 去重、校验失败提示和首个错误定位；支持普通 `DrawerForm` 与 MES `DocumentModalForm` 两种变体。
 - **宿主边界**：`AvatarDropdown`、`AvatarName`、`HeaderDropdown` 依赖 Umi 用户模型、退出登录、MES 支持联系方式和应用导航，留在 MES 应用壳；`DetailPageShell` 与 `ListPageShell` 的请求、路由 keepalive、审批/权限、批量操作、导入导出编排留在宿主，页面容器和可复用子组件使用 Sunxu Web/MES 契约。
 - **目录和证据**：`MesPatternComponentsDemo` 覆盖信息字段权限、详情头、明细表、页签、批次摘要、帮助提示及抽屉表单。当前 UV 暂停期间未执行真实浏览器几何/键盘验收，视觉状态为 `UNVERIFIED`。
+
+#### MES 顶栏与宿主壳层呈现
+
+- **`HeaderActionButton`**：只承载一个图标操作，必须提供 `aria-label`；尺寸、颜色、hover/focus-visible/pressed 由 AntD Button 和语义主题 token 决定。Tooltip、Popover、Badge、权限和动作由宿主组合；禁用态及 ref 继续透传给 AntD Button。控件宽高随应用 `controlHeight` token，间距由父级工具栏拥有。
+- **`MesNotificationPanel`**：宿主以受控 `open/onOpenChange` 注入弹层状态，以 `items/unreadCount/loading` 提供当前通知快照，并注入单条已读、全部已读和查看全部动作。组件覆盖加载、空、已读/未读及按钮状态；时间文案和通知跳转由宿主生成。通知列表固定最多 5 条时关闭虚拟滚动，弹层宽度为 `min(360px, 视口宽度 - 16px)`；重复行由 `Listy` 项和原生按钮表达。
+- **`MesThemeOptionsPanel`**：`options/currentKey/onSelect` 控制主题标签、色样和选中按钮；组件只呈现 `aria-pressed`、主题 token hover/focus/selected 状态，不写入主题偏好或修改 ProLayout。面板宽度为 `min(260px, 视口宽度 - 16px)`。
+- **`MesAppDownloadPanel`** 与 **`MesSupportQRCode`**：二维码始终由宿主通过 `qrCode` slot 提供；前者接收加载、下载地址、版本和服务器地址，后者接收支持账号及 vertical/horizontal 布局。未加载、加载中、无下载项及可复制文本由组件呈现，发布请求、二维码内容和联系数据仍由宿主拥有。下载面板宽度上限 280px；支持卡片受父容器限制，横向模式可换行。
+- **`MesAnnouncementBanner`**：接收公告快照、可见状态和 `onOpen`；保留优先级标签、多个公告轮播、数量、关闭当前公告和读屏名称。空列表/宿主隐藏时不渲染。
+- **`MesMenuSearchInput`** 与 **`MesBusinessSideNavView`**：菜单搜索为受控输入，宿主传入过滤候选及路径选择回调；侧栏只呈现宿主给出的主次菜单、当前选中项、折叠状态和导航回调，权限过滤、路由判断与菜单快捷键留在宿主。
+- **目录和证据**：`MesPatternComponentsDemo` 展示以上组件的公开 props 和宿主注入边界；SSR 契约测试覆盖 accessible name、通知加载/空/未读、主题选择语义、二维码 slot、公告隐藏/优先级、搜索候选和侧栏折叠。真实 MES 路由截图、键盘交互、窄屏几何和 DOM 溢出未取得，均为 `UNVERIFIED`。
 
 #### MES `OrderItemEditor`
 

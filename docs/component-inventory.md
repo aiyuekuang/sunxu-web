@@ -27,7 +27,15 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `MesStatusTag`（`sunxu-web/mes`） | 将宿主 MES 状态枚举映射为统一高对比只读标签；保留空/未知状态与 children 文案回退 |
 | `MesReportQuickRangeButtons`（`sunxu-web/mes`） | 报表快捷范围的受控 Segmented 选择；匹配规则、日期范围和数据刷新由宿主提供 |
 | `MesConfigEntryLink`、`MesConfigEntryFieldLabel`（`sunxu-web/mes`） | 在字段标签旁提供宿主授权的配置页新标签页链接；目标路由与权限结果由宿主提供 |
-| `MesDetailPageContainer`（`sunxu-web/mes`） | 组合详情页容器、MES 详情标题/状态/操作、面包屑、宿主审批插槽、正文和固定页脚；请求、路由、权限与审批服务由宿主保留 |
+| `MesDetailPageContainer`、`MesDetailPageContent`、`MesDetailPageState`（`sunxu-web/mes`） | 组合 MES 详情页容器/内容/加载错误空状态；请求、路由、权限、重试决策与审批服务由宿主保留 |
+| `HeaderActionButton`（`sunxu-web`） | 统一顶栏纯图标按钮的主题、焦点与按压呈现；无障碍名称必填，提示、徽标、弹层和动作由宿主组合 |
+| `MesAnnouncementBanner`（`sunxu-web/mes`） | 呈现公告优先级、轮播摘要、数量和隐藏操作；公告数据、可见权限、轮询与详情路由由宿主保留 |
+| `MesMenuSearchInput`（`sunxu-web/mes`） | 呈现受控菜单搜索框和上下文候选；菜单过滤、快捷键、授权和导航由宿主保留 |
+| `MesBusinessSideNavView`（`sunxu-web/mes`） | 呈现业务主/次级导航、折叠态和当前选中项；菜单数据、权限过滤、路径判断和导航由宿主保留 |
+| `MesNotificationPanel`（`sunxu-web/mes`） | 呈现通知列表、未读/加载/空状态和操作入口；通知服务、已读状态、权限与导航由宿主保留 |
+| `MesThemeOptionsPanel`（`sunxu-web/mes`） | 呈现主题选项、色样和当前选择；主题持久化与应用配置由宿主保留 |
+| `MesAppDownloadPanel`（`sunxu-web/mes`） | 呈现 App 下载二维码、版本、iOS 指引和服务器地址；发布数据、服务器地址与二维码生成由宿主保留 |
+| `MesSupportQRCode`（`sunxu-web/mes`） | 呈现宿主提供的支持账号与二维码；联系信息和二维码内容由宿主保留 |
 | `MesConfigurableProFormSelect`（`sunxu-web/mes`） | 保留 MES ProForm 远程候选、空候选探测与配置页回访刷新；候选请求/依赖/授权/路由由宿主提供 |
 | `MesDictionaryProFormSelect`、`MesDictionaryFormItem`（`sunxu-web/mes`） | 将宿主字典选项、加载/错误/重试反馈接入 ProForm 或原生 Form Select；字典服务由宿主提供 |
 | `MesExportButton`、`MesExportDropdownButton`（`sunxu-web/mes`） | 保留导出 loading、宿主表格布局准备、单项/多项结果回调；权限、请求、通知与文件下载由宿主提供 |

@@ -123,4 +123,13 @@
 - 新增 `MesDetailPageContainer`，用于组合 `DetailScreenContainer`、MES 标题/状态/操作、面包屑、宿主审批节点、正文和固定页脚；数据加载、keep-alive、路由、权限与审批 API 仍由宿主拥有。`ListScreenContainer` 工具栏补齐窄宽换行约束，并保持在结果区紧邻位置。
 - SSR 呈现验证 10 项通过；Sunxu 类型检查和构建通过。MES 类型检查与生产构建在更新依赖提交后执行。真实浏览器点击流程、实际 MES 页面截图与 DOM 几何仍为 `UNVERIFIED`。
 
+## MES 宿主壳层与顶栏组件收口（2026-11-22）
+
+- `AnnouncementBanner`、`MenuSearch`、`BusinessSideNav` 的公告、搜索框和侧栏呈现已由 `MesAnnouncementBanner`、`MesMenuSearchInput`、`MesBusinessSideNavView` 承载。公告请求/轮询、菜单搜索快捷键、权限过滤、路径判断、导航与菜单历史仍由 Admin 注入。
+- MES 的纯图标顶栏操作统一使用通用 `HeaderActionButton`；提示、徽标、弹层、权限、请求、主题持久化和 ProLayout 更新仍由宿主控制。通知、主题选项、应用下载和支持联系方式呈现分别由 `MesNotificationPanel`、`MesThemeOptionsPanel`、`MesAppDownloadPanel`、`MesSupportQRCode` 提供，二维码 renderer 与值由宿主注入。
+- `DetailPageShell` 的公共详情标题、状态、审批插槽、正文、操作区和加载/错误/空态使用 `MesDetailPageContainer`。数据加载、重试、路由、keep-alive、授权结果、审批服务和页面差异仍归 Admin。
+- `MesNotificationPanel` 用 Ant Design `Listy` 重组通知项，保持小列表非虚拟化、标题/摘要/时间布局及单条已读按钮语义，避免继续使用 AntD 6 已弃用的 `List`。
+- 新增组件均在 `MesPatternComponentsDemo` 有可运行的宿主注入示例，并同步更新组件映射与契约。定向 SSR/契约测试 25 项、Sunxu 类型检查及通用层/MES 套件/目录构建通过；Admin 精确依赖锁定后的类型检查、契约检查和生产构建待完成。
+- 真实 MES 页面仍无法启动：`useAmountDisplay` 在 access provider 尚未初始化时读取权限导致崩溃，且 API 代理 `127.0.0.1:6033` 不可用；工具链不能读取此前授权测试会话的 DOM。因此真实路由、视口截图、键盘流程和几何/溢出为 `UNVERIFIED`。
+
 detail-ledger 适配仍由 `src/pages/purchase/requisitions/detail-ledger.test.tsx`、`src/pages/warehouse/internal-issue/InternalIssueDetailLedger.test.ts`、`src/pages/system/print/components/grid-designer/GridPrintDesigner.test.tsx`、`src/pages/warehouse/material-issue/detail-ledger.test.tsx` 覆盖；本轮运行了 `src/pages/detail-ledger-filter-layout.test.ts`、销售报价明细、采购订单布局及采购入库明细相关测试。后续迁移继续复用这些宿主行为用例。

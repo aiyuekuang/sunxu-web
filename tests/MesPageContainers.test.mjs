@@ -14,9 +14,11 @@ const vite = await createServer({
 const { ListScreenContainer } = await vite.ssrLoadModule(
   '/src/components/PageContainers.tsx',
 );
-const { MesDetailPageContainer } = await vite.ssrLoadModule(
-  '/src/mes/components/MesDetailPageContainer.tsx',
-);
+const {
+  MesDetailPageContainer,
+  MesDetailPageContent,
+  MesDetailPageState,
+} = await vite.ssrLoadModule('/src/mes/components/MesDetailPageContainer.tsx');
 
 after(async () => {
   await vite.close();
@@ -82,4 +84,48 @@ test('MES detail container preserves breadcrumb, header, approval, body, and foo
   assert.match(html, /返回/);
   assert.match(html, /草稿/);
   assert.match(html, /编辑/);
+});
+
+test('MES detail content composes host slots without adding a screen or scroll container', () => {
+  const html = renderToStaticMarkup(
+    React.createElement(
+      MesDetailPageContent,
+      {
+        header: React.createElement('header', null, '宿主详情标题'),
+        approval: React.createElement('aside', null, '宿主审批面板'),
+      },
+      React.createElement('article', null, '详情正文'),
+    ),
+  );
+
+  assert.match(html, /^<header>宿主详情标题<\/header><aside>宿主审批面板<\/aside>/);
+  assert.match(html, /<article>详情正文<\/article>$/);
+  assert.doesNotMatch(html, /sxw-detail-screen|sxw-screen|sxw-mes-detail-page__approval/);
+});
+
+test('MES detail state preserves loading, error retry, and empty presentation', () => {
+  const loadingHtml = renderToStaticMarkup(
+    React.createElement(MesDetailPageState, { state: 'loading' }),
+  );
+  const errorHtml = renderToStaticMarkup(
+    React.createElement(MesDetailPageState, {
+      state: 'error',
+      description: '加载失败，请重试',
+      onRetry: () => undefined,
+    }),
+  );
+  const emptyHtml = renderToStaticMarkup(
+    React.createElement(MesDetailPageState, {
+      state: 'empty',
+      description: '未找到数据',
+    }),
+  );
+
+  assert.match(loadingHtml, /aria-busy="true"/);
+  assert.match(loadingHtml, /ant-spin/);
+  assert.match(errorHtml, /加载失败，请重试/);
+  assert.match(errorHtml, /重\s*试/);
+  assert.match(errorHtml, /margin-top:16px/);
+  assert.match(emptyHtml, /未找到数据/);
+  assert.doesNotMatch(emptyHtml, /重\s*试/);
 });

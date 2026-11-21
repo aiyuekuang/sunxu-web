@@ -5,6 +5,7 @@ export * from './DetailCard';
 export * from './EditableDetailTable';
 export * from './ErrorBoundary';
 export * from './FilterBar';
+export * from './HeaderActionButton';
 export * from './LongText';
 export * from './MetricCard';
 export * from './PageContainers';

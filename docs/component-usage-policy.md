@@ -34,6 +34,11 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 | 核心指标摘要 | `MetricCard`（需要 Sunxu 统一的指标容器契约时） | 普通 Statistic 可直接用上游，不额外包一层同义卡片 |
 | 设置项行 | `SettingsRow`（当行需要统一链接/按钮/静态语义时） | 不自绘同义的图标、标题、说明和箭头组合 |
 | 身份摘要 | `ProfileIdentity`（头像、姓名与宿主摘要组合） | 头像上传、资料权限和导航由宿主实现 |
+| 顶栏/工具栏纯图标动作 | `HeaderActionButton`（`sunxu-web`） | 必填 `aria-label`；Tooltip、Badge、Popover、权限和动作由宿主组合，不在页面复制按钮几何与交互态 |
+| MES 公告条、菜单搜索或业务侧栏 | `MesAnnouncementBanner` / `MesMenuSearchInput` / `MesBusinessSideNavView`（`sunxu-web/mes`） | 公告/菜单数据、权限过滤、键盘快捷键、路径判断、导航和轮询由宿主提供 |
+| MES 通知下拉面板 | `MesNotificationPanel`（`sunxu-web/mes`） | 受控弹层接收通知快照、未读数和状态；读取、标记已读、权限、时间与导航由宿主提供 |
+| MES 主题选择、App 下载或支持二维码 | `MesThemeOptionsPanel` / `MesAppDownloadPanel` / `MesSupportQRCode`（`sunxu-web/mes`） | 主题持久化、发布/服务器信息、联系数据和二维码 renderer 均由宿主提供 |
+| MES 详情路由需要统一标题、审批插槽、状态和页面态 | `MesDetailPageContainer`；若宿主已有页面框架则用 `MesDetailPageContent`；加载/错误/空态用 `MesDetailPageState` | 路由、数据加载/重试决定、审批 API、权限和详情内容由宿主提供；避免重复 screen 与滚动容器 |
 | 重复明细编辑/批量覆盖 | `EditableDetailTable` 与 `BatchFieldSettingsButton` | 不在业务页面复制同义的行选择、批量设置和明细编辑机制；字段 schema 和提交由宿主管理 |
 | MES 物料单选/多选、级联筛选或表格物料查询 | `MaterialSelectField` / `MaterialMultiSelectField` / `MaterialFilteredSelect`（`sunxu-web/mes`） | 注入 MES 候选请求、族/分类/类型字典、单位字典、扫码枪、条码查找和配置权限；不在页面自行拼物料 Select options |
 | 客户/供应商关联字段需要候选内快捷新增 | `MasterDataQuickCreateSelect`（`sunxu-web/mes`） | 宿主注入 `canCreate`、新增表单渲染器、配置链接和远程候选请求；新增权限、表单校验、API 与路由仍归宿主 |
