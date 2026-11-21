@@ -1,0 +1,71 @@
+.operationConfigLabel {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+}
+
+.operationConfigHelpButton {
+  position: relative;
+  display: inline-flex;
+  width: 16px;
+  height: 16px;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: 0;
+  border-radius: 3px;
+  background: transparent;
+  color: var(--operation-config-help-color, #8c8c8c);
+  font-size: 14px;
+  line-height: 1;
+  cursor: help;
+  vertical-align: middle;
+}
+
+.operationConfigHelpButton::before {
+  position: absolute;
+  inset: -4px;
+  content: '';
+}
+
+@media (pointer: coarse) {
+  .operationConfigHelpButton::before {
+    inset: -6px;
+  }
+}
+
+.operationConfigHelpButton:hover {
+  color: var(--operation-config-help-active-color, #1677ff);
+}
+
+.operationConfigHelpButton:focus-visible {
+  outline: 2px solid var(--operation-config-help-active-color, #1677ff);
+  outline-offset: 2px;
+}
+
+.operationConfigTooltipContent {
+  display: block;
+  max-width: 360px;
+  white-space: normal;
+  line-height: 1.6;
+}
+
+.operationConfigOptionWithHelp {
+  position: relative;
+}
+
+.operationConfigFeatureWithHelp {
+  padding-right: 20px;
+}
+
+.operationConfigOptionHelp {
+  position: absolute;
+  top: 0;
+  right: 0;
+}
+
+.operationConfigChoiceRow {
+  display: inline-flex;
+  align-items: flex-start;
+  gap: 6px;
+}

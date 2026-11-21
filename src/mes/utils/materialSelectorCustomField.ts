@@ -47,9 +47,9 @@ function toOptionLabel(value: unknown, optionMap: Map<string, string>): string {
   return optionMap.get(key) ?? key;
 }
 
-function formatCustomFieldDisplay(
+export function formatCustomFieldDisplay(
   value: unknown,
-  field: MaterialSelectorCustomFieldDefinition,
+  field: Pick<MaterialSelectorCustomFieldDefinition, 'dataType' | 'optionsJson'>,
 ): string {
   if (value === undefined || value === null || value === '') return '';
 

@@ -1,4 +1,48 @@
 /* MES table layout and density rules, scoped to the MES suite entry. */
+.sxw-business-invoice-coverage {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+  overflow-x: auto;
+}
+
+.sxw-business-invoice-coverage__card {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.sxw-business-invoice-coverage__card .ant-card-body,
+.sxw-business-invoice-coverage__card .ant-space-vertical,
+.sxw-business-invoice-coverage__card .ant-space-vertical > .ant-space-item,
+.sxw-business-invoice-coverage__table,
+.sxw-business-invoice-coverage__table .ant-pro-table {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.sxw-business-invoice-coverage__table {
+  overflow-x: auto;
+}
+
+.sxw-business-invoice-coverage-demo {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
+.sxw-business-invoice-coverage-demo > .ant-space-item {
+  box-sizing: border-box;
+  width: 100%;
+  max-width: 100%;
+  min-width: 0;
+}
+
 .sxw-mes-resizable-table {
   --resizable-line-background: var(--ant-color-primary, #1677ff);
 }
@@ -175,6 +219,27 @@
   > tr.mes-table-expanded-row:hover
   > .ant-table-cell {
   background: var(--mes-bg-subtle, var(--ant-color-fill-quaternary, #fafbfc));
+}
+
+@media (max-width: 767px) {
+  .sxw-mes-resizable-table .ant-pro-table-list-toolbar-container {
+    align-items: flex-start;
+    flex-wrap: wrap;
+    row-gap: 8px;
+  }
+
+  .sxw-mes-resizable-table .ant-pro-table-list-toolbar-right {
+    min-width: 0;
+    flex: 1 1 100%;
+    flex-wrap: wrap;
+    justify-content: flex-start;
+  }
+
+  .sxw-mes-resizable-table .ant-pro-table-list-toolbar-right > * {
+    max-width: 100%;
+    min-width: 0;
+    flex-wrap: wrap;
+  }
 }
 
 .sxw-mes-resizable-table .mes-expanded-detail-table.ant-table-wrapper,

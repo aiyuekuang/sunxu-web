@@ -1,0 +1,501 @@
+{
+  "targetUrl": "http://127.0.0.1:4173/",
+  "route": "/",
+  "errors": [
+    {
+      "kind": "console",
+      "text": "Warning: [antd: Space] `direction` is deprecated. Please use `orientation` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: Spin] `tip` is deprecated. Please use `description` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: Drawer] `width` is deprecated. Please use `size` instead."
+    },
+    {
+      "kind": "console",
+      "text": "[use-antd-resizable-header] 请不要在所有列上添加 `width` 属性，这将导致表格无法自适应"
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: AutoComplete] `suffixIcon` is deprecated. Please use `suffix` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: Modal] `maskClosable` is deprecated. Please use `mask.closable` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: Tooltip] `overlayStyle` is deprecated. Please use `styles.root` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: Alert] `message` is deprecated. Please use `title` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: Form.Item] `labelAlign=left|right` is deprecated. Please use `labelAlign=start|end` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: Statistic] `valueStyle` is deprecated. Please use `styles.content` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: InputNumber] `addonAfter` is deprecated. Please use `Space.Compact` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: Form already set 'initialValues' with path 'fulfillmentScenario'. Field can not overwrite it."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: Form already set 'initialValues' with path 'settlementMode'. Field can not overwrite it."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: Timeline] `items.children` is deprecated. Please use `items.content` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: Timeline] `items.dot` is deprecated. Please use `items.icon` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2296%22%20height%3D%2296%22%20viewBox%3D%220%200%2096%2096%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22%20fill%3D%22%23e6f4ff%22%2F%3E%3Cpath%20d%3D%22M15%2070%2035%2046l14%2016%2010-12%2022%2020H15Z%22%20fill%3D%22%231677ff%22%2F%3E%3Ccircle%20cx%3D%2234%22%20cy%3D%2231%22%20r%3D%228%22%20fill%3D%22%2369b1ff%22%2F%3E%3C%2Fsvg%3E"
+    },
+    {
+      "kind": "console",
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. empty"
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: InputNumber] `addonBefore` is deprecated. Please use `Space.Compact` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Warning: Instance created by `useForm` is not connected to any Form element. Forget to pass `form` prop?"
+    },
+    {
+      "kind": "console",
+      "text": "Warning: [antd: Select] `dropdownRender` is deprecated. Please use `popupRender` instead."
+    },
+    {
+      "kind": "console",
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2296%22%20height%3D%2296%22%20viewBox%3D%220%200%2096%2096%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22%20fill%3D%22%23e6f4ff%22%2F%3E%3Cpath%20d%3D%22M15%2070%2035%2046l14%2016%2010-12%2022%2020H15Z%22%20fill%3D%22%231677ff%22%2F%3E%3Ccircle%20cx%3D%2234%22%20cy%3D%2231%22%20r%3D%228%22%20fill%3D%22%2369b1ff%22%2F%3E%3C%2Fsvg%3E"
+    },
+    {
+      "kind": "console",
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. empty"
+    },
+    {
+      "kind": "console",
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2296%22%20height%3D%2296%22%20viewBox%3D%220%200%2096%2096%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22%20fill%3D%22%23e6f4ff%22%2F%3E%3Cpath%20d%3D%22M15%2070%2035%2046l14%2016%2010-12%2022%2020H15Z%22%20fill%3D%22%231677ff%22%2F%3E%3Ccircle%20cx%3D%2234%22%20cy%3D%2231%22%20r%3D%228%22%20fill%3D%22%2369b1ff%22%2F%3E%3C%2Fsvg%3E"
+    },
+    {
+      "kind": "console",
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. empty"
+    },
+    {
+      "kind": "console",
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2296%22%20height%3D%2296%22%20viewBox%3D%220%200%2096%2096%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22%20fill%3D%22%23e6f4ff%22%2F%3E%3Cpath%20d%3D%22M15%2070%2035%2046l14%2016%2010-12%2022%2020H15Z%22%20fill%3D%22%231677ff%22%2F%3E%3Ccircle%20cx%3D%2234%22%20cy%3D%2231%22%20r%3D%228%22%20fill%3D%22%2369b1ff%22%2F%3E%3C%2Fsvg%3E"
+    },
+    {
+      "kind": "console",
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. empty"
+    },
+    {
+      "kind": "console",
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2296%22%20height%3D%2296%22%20viewBox%3D%220%200%2096%2096%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22%20fill%3D%22%23e6f4ff%22%2F%3E%3Cpath%20d%3D%22M15%2070%2035%2046l14%2016%2010-12%2022%2020H15Z%22%20fill%3D%22%231677ff%22%2F%3E%3Ccircle%20cx%3D%2234%22%20cy%3D%2231%22%20r%3D%228%22%20fill%3D%22%2369b1ff%22%2F%3E%3C%2Fsvg%3E"
+    },
+    {
+      "kind": "console",
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. empty"
+    },
+    {
+      "kind": "console",
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2296%22%20height%3D%2296%22%20viewBox%3D%220%200%2096%2096%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22%20fill%3D%22%23e6f4ff%22%2F%3E%3Cpath%20d%3D%22M15%2070%2035%2046l14%2016%2010-12%2022%2020H15Z%22%20fill%3D%22%231677ff%22%2F%3E%3Ccircle%20cx%3D%2234%22%20cy%3D%2231%22%20r%3D%228%22%20fill%3D%22%2369b1ff%22%2F%3E%3C%2Fsvg%3E"
+    },
+    {
+      "kind": "console",
+      "text": "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. empty"
+    }
+  ],
+  "authResponses": [],
+  "captures": [
+    {
+      "name": "desktop-top-1440x900",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/desktop-top-1440x900.png",
+      "sha256": "fea41c0f547812f12bff9fe1eb1883f571f198fac54e8eb1c44784cfdfff6724"
+    },
+    {
+      "name": "desktop-permission-interaction-1440x900",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/desktop-permission-interaction-1440x900.png",
+      "sha256": "cb0549aebfdabd557abca3dae835f977d62b2c8e7ba8d56d6b89611ec07f4fd0"
+    },
+    {
+      "name": "desktop-amount-toggle-1440x900",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/desktop-amount-toggle-1440x900.png",
+      "sha256": "c27244d2acfb56959c7ad7fbb8172ba69b8f52e67a131544de3ae8bbeec30aa0"
+    },
+    {
+      "name": "desktop-bottom-1440x900",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/desktop-bottom-1440x900.png",
+      "sha256": "c3bf1d1d6451bfb8eb763db116ae900c49e721623d0f40fd4f6252e2e3292032"
+    },
+    {
+      "name": "mobile-top-390x844",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/mobile-top-390x844.png",
+      "sha256": "1a8a513181bbe43a768cc0b91fa672859cd60abe4841ea001e2a6d85c024aa4a"
+    },
+    {
+      "name": "mobile-permission-section-390x844",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/mobile-permission-section-390x844.png",
+      "sha256": "ad203875f7beddc4e8fd24e8fec37d6762c9a336f436436e73538e62c05246e0"
+    },
+    {
+      "name": "mobile-bottom-390x844",
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/mobile-bottom-390x844.png",
+      "sha256": "a4c2216db8b3045130b0a14adaa9e3cfb61c02d527cbf3361af176a22fa07f30"
+    }
+  ],
+  "measurements": [
+    {
+      "label": "desktop-top",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "scrollX": 0,
+      "scrollY": 0,
+      "documentWidth": 1440,
+      "bodyWidth": 1440,
+      "viewportWidth": 1440,
+      "documentHeight": 56102,
+      "workspace": {
+        "left": 0,
+        "top": 56,
+        "right": 1440,
+        "bottom": 56102.3046875,
+        "width": 1440,
+        "height": 56046.3046875
+      },
+      "main": {
+        "left": 224,
+        "top": 56,
+        "right": 1440,
+        "bottom": 56102.3046875,
+        "width": 1216,
+        "height": 56046.3046875
+      },
+      "surface": {
+        "left": 248,
+        "top": 80,
+        "right": 1416,
+        "bottom": 56078.3046875,
+        "width": 1168,
+        "height": 55998.3046875
+      },
+      "insets": {
+        "top": 24,
+        "right": 24,
+        "bottom": 24,
+        "left": 24
+      },
+      "sectionCards": 119,
+      "selectedPair": null
+    },
+    {
+      "label": "desktop-permission-interaction",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "scrollX": 0,
+      "scrollY": 10379,
+      "documentWidth": 1440,
+      "bodyWidth": 1440,
+      "viewportWidth": 1440,
+      "documentHeight": 56102,
+      "workspace": {
+        "left": 0,
+        "top": -10323,
+        "right": 1440,
+        "bottom": 45723.3046875,
+        "width": 1440,
+        "height": 56046.3046875
+      },
+      "main": {
+        "left": 224,
+        "top": -10323,
+        "right": 1440,
+        "bottom": 45723.3046875,
+        "width": 1216,
+        "height": 56046.3046875
+      },
+      "surface": {
+        "left": 248,
+        "top": -10299,
+        "right": 1416,
+        "bottom": 45699.3046875,
+        "width": 1168,
+        "height": 55998.3046875
+      },
+      "insets": {
+        "top": 24,
+        "right": 24,
+        "bottom": 24,
+        "left": 24
+      },
+      "sectionCards": 119,
+      "selectedPair": {
+        "previousTitle": "MES 状态与权限组件",
+        "nextTitle": "MES 单据动作与深链",
+        "previousRect": {
+          "left": 273,
+          "top": 373.8203125,
+          "right": 1391,
+          "bottom": 526.4609375,
+          "width": 1118,
+          "height": 152.640625
+        },
+        "nextRect": {
+          "left": 273,
+          "top": 542.4609375,
+          "right": 1391,
+          "bottom": 721.6015625,
+          "width": 1118,
+          "height": 179.140625
+        },
+        "gapPx": 16
+      }
+    },
+    {
+      "label": "desktop-bottom",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "scrollX": 0,
+      "scrollY": 55202.5,
+      "documentWidth": 1440,
+      "bodyWidth": 1440,
+      "viewportWidth": 1440,
+      "documentHeight": 56102,
+      "workspace": {
+        "left": 0,
+        "top": -55146.5,
+        "right": 1440,
+        "bottom": 899.8046875,
+        "width": 1440,
+        "height": 56046.3046875
+      },
+      "main": {
+        "left": 224,
+        "top": -55146.5,
+        "right": 1440,
+        "bottom": 899.8046875,
+        "width": 1216,
+        "height": 56046.3046875
+      },
+      "surface": {
+        "left": 248,
+        "top": -55122.5,
+        "right": 1416,
+        "bottom": 875.8046875,
+        "width": 1168,
+        "height": 55998.3046875
+      },
+      "insets": {
+        "top": 24,
+        "right": 24,
+        "bottom": 24,
+        "left": 24
+      },
+      "sectionCards": 119,
+      "selectedPair": null
+    },
+    {
+      "label": "mobile-top",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scrollX": 0,
+      "scrollY": 0,
+      "documentWidth": 390,
+      "bodyWidth": 394,
+      "viewportWidth": 390,
+      "documentHeight": 79043,
+      "workspace": {
+        "left": 0,
+        "top": 56,
+        "right": 390,
+        "bottom": 79043.515625,
+        "width": 390,
+        "height": 78987.515625
+      },
+      "main": {
+        "left": 0,
+        "top": 56,
+        "right": 390,
+        "bottom": 79043.515625,
+        "width": 390,
+        "height": 78987.515625
+      },
+      "surface": {
+        "left": 16,
+        "top": 72,
+        "right": 374,
+        "bottom": 79027.515625,
+        "width": 358,
+        "height": 78955.515625
+      },
+      "insets": {
+        "top": 16,
+        "right": 16,
+        "bottom": 16,
+        "left": 16
+      },
+      "sectionCards": 119,
+      "selectedPair": null
+    },
+    {
+      "label": "mobile-component-section",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scrollX": 0,
+      "scrollY": 14953,
+      "documentWidth": 390,
+      "bodyWidth": 394,
+      "viewportWidth": 390,
+      "documentHeight": 79043,
+      "workspace": {
+        "left": 0,
+        "top": -14897,
+        "right": 390,
+        "bottom": 64090.515625,
+        "width": 390,
+        "height": 78987.515625
+      },
+      "main": {
+        "left": 0,
+        "top": -14897,
+        "right": 390,
+        "bottom": 64090.515625,
+        "width": 390,
+        "height": 78987.515625
+      },
+      "surface": {
+        "left": 16,
+        "top": -14881,
+        "right": 374,
+        "bottom": 64074.515625,
+        "width": 358,
+        "height": 78955.515625
+      },
+      "insets": {
+        "top": 16,
+        "right": 16,
+        "bottom": 16,
+        "left": 16
+      },
+      "sectionCards": 119,
+      "selectedPair": {
+        "previousTitle": "MES 状态与权限组件",
+        "nextTitle": "MES 单据动作与深链",
+        "previousRect": {
+          "left": 33,
+          "top": 305.640625,
+          "right": 357,
+          "bottom": 538.28125,
+          "width": 324,
+          "height": 232.640625
+        },
+        "nextRect": {
+          "left": 33,
+          "top": 554.28125,
+          "right": 357,
+          "bottom": 850.421875,
+          "width": 324,
+          "height": 296.140625
+        },
+        "gapPx": 16
+      }
+    },
+    {
+      "label": "mobile-bottom",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "scrollX": 0,
+      "scrollY": 78199.5,
+      "documentWidth": 390,
+      "bodyWidth": 394,
+      "viewportWidth": 390,
+      "documentHeight": 79043,
+      "workspace": {
+        "left": 0,
+        "top": -78143.5,
+        "right": 390,
+        "bottom": 844.015625,
+        "width": 390,
+        "height": 78987.515625
+      },
+      "main": {
+        "left": 0,
+        "top": -78143.5,
+        "right": 390,
+        "bottom": 844.015625,
+        "width": 390,
+        "height": 78987.515625
+      },
+      "surface": {
+        "left": 16,
+        "top": -78127.5,
+        "right": 374,
+        "bottom": 828.015625,
+        "width": 358,
+        "height": 78955.515625
+      },
+      "insets": {
+        "top": 16,
+        "right": 16,
+        "bottom": 16,
+        "left": 16
+      },
+      "sectionCards": 119,
+      "selectedPair": null
+    }
+  ],
+  "initialStatus": 200,
+  "title": "榫序 Web 组件目录",
+  "suiteHeading": "MES UI 套件",
+  "permissionInteraction": {
+    "control": "新建操作",
+    "result": "已触发新增操作回调",
+    "status": "PASS"
+  },
+  "amountInteraction": {
+    "control": "显示金额",
+    "result": "金额从脱敏值显示为 ¥12,500.50",
+    "status": "PASS"
+  },
+  "routeStatus": {
+    "status": 200,
+    "path": "/",
+    "authGate": false
+  },
+  "runtimeLoopErrors": [],
+  "pageErrors": [],
+  "renderStatus": "PASS"
+}

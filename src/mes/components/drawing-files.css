@@ -106,11 +106,6 @@
   justify-self: end;
 }
 
-.sxw-mes-pdf-preview-drawer {
-  position: absolute;
-  inset: 0;
-}
-
 .sxw-mes-pdf-preview-page-count,
 .sxw-mes-pdf-preview-zoom {
   min-width: 72px;

@@ -59,3 +59,51 @@
 - 七项均已从 `sunxu-web/mes` 导出，并加入 MES 套件目录的金额显隐、快照 Popover、日期/用户回退、推荐工艺路线、客户物料规格和图片预览示例。契约细节和完整覆盖账本同步更新；这一批没有替换 `mes-admin` 消费页面。
 - 更新后账本中已有实现的 MES/通用组件引用为 23 项，待补实现为 64 项，需按变更源契约复核仍为 16 项；运行时源文件中已实现为 21 项、待补为 82 项。实现数仅表示套件已有组件契约，不代表已迁移 MES 页面调用点。
 - `ResizableTable` 真实目录路由的列宽拖拽与排序后刷新、列显隐与导出列数、密度、空态、双击回调、服务端/本地排序、汇总、视口高度及窄屏键盘横向滚动证据见 [`docs/verification/mes-resizable-table-2026-11-20/README.md`](./verification/mes-resizable-table-2026-11-20/README.md)。
+
+## MES 组件覆盖扩展（2026-11-21）
+
+- 本轮来源固定为 `mes-admin@8f3eb022977ee3fe4bff856f1bcf1b2fd5f625e8`；来源工作区仅用于读取和哈希核对，不修改来源代码。逐条映射与每个页面组件源文件的当前状态见 [覆盖账本](./migrations/mes-admin-component-coverage-2026-11-20.json)。
+- 新增的 MES UI 套件实现继续使用 AntD/Pro 能力，并把数据服务、权限结果、路由、上传/打印窗口、字典和业务反馈通过 types 明确注入。目录示例用于展示消费接法；非 JSX 的工单临时报工二维码打印 helper 单独登记在 `supplemental_page_local_ui_helpers`，不混入 JSX 引用计数。
+- 本轮完成的页面局部迁移包括仪表盘快捷入口、公式设计器、FQC 规则面板、BOM 展开请购与 BOM 专属导入工作台、GLB 模型查看器、MES 集成指南内容、网格打印设计器、采购询价/申请/订单/退料、销售报价、生产领料/入库明细台账、库存盘点/调拨/转换明细台账、7 项生产排程工作流、工单批量报工、工单缺料/供料处理、外协订单台账/进度抽屉及临时报工二维码打印 helper；服务器信息卡、工艺 IPQC 配置和班次日历等同批组件的能力边界与来源哈希同步记入组件契约和目录。当前账本覆盖 627 个运行时组件引用：328 项实现于 Sunxu MES 套件，245 项映射至通用/上游公开出口，53 项当前标记在宿主层，1 项为工作区实现。页面局部组件源文件中 195/204 完整迁入，9 项确认为页面/内容控制器留在 MES，组件源文件待迁移数为 0。MES 消费端替换与真实宿主视觉验收仍待后续完成。
+- 页面源文件 `coverage_state` 中，`MIGRATED_TO_SUNXU_MES` 表示 UI 已迁入；`HOST_SCOPE_CONFIRMED` 表示经源码核对属于完整 MES 路由/控制器，继续由宿主拥有；`REVIEW_PENDING_OR_PARTIAL` 才表示组件迁移仍待处理。9 个确认保留项是 BusinessInvoice 详情/列表、采购价目表、集成 API 凭据/内核/Webhook 页面及销售交付/订单/价目表路由；集成指南正文和网格打印设计器已迁入 Sunxu，模板保存/发布与页面路由仍由 MES 宿主负责。
+- 以上新组件尚未完成真实 MES 宿主接线与浏览器视口/DOM 几何验收，均保持 `UNVERIFIED`。当前批次先补齐套件和契约，MES 消费端替换仍按用户确认的顺序后续逐项执行。
+
+### MES 消费端逐项替换清单（套件 push 后执行）
+
+完整替换范围以覆盖账本 `page_component_source_snapshot.files` 为准：195 个页面局部组件源、228 个组件符号引用、518 处 JSX 使用；9 个 `HOST_SCOPE_CONFIRMED` 页面/控制器不替换。账本为每个迁入源文件记录了对应 Sunxu 目标文件。下表 10 项是近期补齐、宿主接线复杂度较高的首批组件，不代表完整迁移范围。其余组件按业务域逐批处理，并在账本中逐条核销：
+
+| 业务域 | 源组件文件 | 符号引用 | JSX 使用 |
+|---|---:|---:|---:|
+| 生产 | 40 | 46 | 60 |
+| 销售 | 27 | 36 | 52 |
+| 仓库 | 25 | 27 | 90 |
+| 采购 | 22 | 24 | 34 |
+| 会计 | 19 | 22 | 24 |
+| 物料 | 13 | 16 | 17 |
+| 业务发票 | 11 | 11 | 14 |
+| 质量 | 8 | 9 | 11 |
+| 系统 | 8 | 11 | 95 |
+| 大屏 | 7 | 8 | 94 |
+| 财务 | 6 | 6 | 9 |
+| 资金 | 3 | 4 | 4 |
+| 设备 | 2 | 3 | 5 |
+| 集成 | 2 | 3 | 7 |
+| 仪表盘 | 1 | 1 | 1 |
+| 临时报工 | 1 | 1 | 1 |
+
+替换调用点时保留现有页面/本地 `detail-ledger` 的服务、权限、URL、保存视图、路由和副作用；可保留薄宿主适配层，再把 Sunxu 组件渲染在原调用位置。
+
+| Sunxu 组件 | MES 调用点 | 必须由宿主保留或注入 |
+|---|---|---|
+| `GridPrintDesigner` | `src/pages/system/print/templates/index.tsx` | 稳定引用的字段/样例 `dataSource`，先按权限筛字段；纸张参数、预览、模板保存/发布、打印和路由 |
+| `PurchaseInquiryDetailLedger` | `src/pages/purchase/inquiries/index.tsx` | 列表/导出、权限、供应商/物料候选、动态列、保存视图、批量打印和询价单导航 |
+| `PurchaseRequisitionDetailLedger` | `src/pages/purchase/requisitions/index.tsx` + `detail-ledger.tsx` | URL 状态校验、keep-alive 回页刷新、数量/状态视图、行操作权限、查看订单回调和保存视图 |
+| `InternalIssueDetailLedger` | `src/pages/warehouse/internal-issue/index.tsx` | 列表/导出、权限、动态字段、保存视图、详情/新建及行操作、打印 |
+| `ProductionReceiptDetailLedger` | `src/pages/warehouse/production-receipts/index.tsx` | 列表/导出、物料/仓库/仓位候选、权限、动态列、保存视图、详情和批量打印 |
+| `PurchaseReturnDetailLedger` | `src/pages/purchase/returns/index.tsx` | 列表/导出、详情/交易导航、权限、保存视图和 keep-alive 刷新；编辑/退库弹窗与成功刷新、价格权限、字典/动态字段 |
+| `QuotationDetailLedger` | `src/pages/sales/quotations/index.tsx` | URL 状态规范化与业务月日期、列表/导出/打印、保存视图和 keep-alive 刷新、价格权限、绑定物料弹窗和查看订单 |
+| `MaterialIssueDetailLedger` | `src/pages/warehouse/material-issue/index.tsx` | 列表/导出、权限/动态字段、保存视图、完成/取消/打印等行操作、详情/新建导航 |
+| `PurchaseReceiptDetailLedger` | `src/pages/warehouse/receipts/index.tsx` | URL 采购单/明细筛选、列表/导出、保存视图和 keep-alive 刷新；收货/退货展开、价格权限、质检、成本/编辑/退库动作和分类型打印 |
+| `PurchaseOrderDetailLedger` | `src/pages/purchase/orders/index.tsx` | `onlyInTransit` 初始化、保存视图和 keep-alive 刷新、价格权限；同供应商批量收货限制/表单、费用/质检权限、行操作和打印 |
+
+本地 detail-ledger 适配及结构还被 `src/pages/detail-ledger-filter-layout.test.ts`、`src/pages/purchase/requisitions/detail-ledger.test.tsx`、`src/pages/warehouse/internal-issue/InternalIssueDetailLedger.test.ts`、`src/pages/system/print/components/grid-designer/GridPrintDesigner.test.tsx`、`src/pages/sales/quotations/detail-ledger.test.tsx`、`src/pages/warehouse/material-issue/detail-ledger.test.tsx`、`src/pages/warehouse/receipts/detail-ledger.test.tsx`、`src/pages/purchase/orders/layout.test.ts` 引用。替换时保留其适配入口或更新引用；这些测试本轮未运行。

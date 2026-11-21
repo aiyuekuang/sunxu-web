@@ -1,0 +1,278 @@
+{
+  "route": "CatalogApp / MES UI 套件 → 采购收货系统批号写入",
+  "source": "/Users/suconnect/Desktop/code/mes-main/mes-admin/src/components/purchase/GeneratePurchaseReceiptBatchNoButton.tsx",
+  "source_sha256": "19c0c2b53eb28a7e679e1cf7fad9030a584b5678f70b903e2ef0c338e1181433",
+  "url": "http://127.0.0.1:4174/",
+  "screenshots": [
+    {
+      "file": "desktop-route-top-1440x900.png",
+      "sha256": "0e3baa130c82771261059756a757339d7606c3ef588bfcdc6ed4d9d7a1547bb3"
+    },
+    {
+      "file": "desktop-batch-button-card-1440x900.png",
+      "sha256": "06f777d18485d48bdf809842d86083ac769f9bfa19e937851f2e44b1b6608af9"
+    },
+    {
+      "file": "mobile-route-top-375x812.png",
+      "sha256": "bf811d7e17186f70b769d7fd18f989d8a88b232cf15a4e1f748c8751464675ba"
+    },
+    {
+      "file": "mobile-batch-button-card-375x812.png",
+      "sha256": "b1e4b322a0caf76b10139e89e293a9728c860619feea4b634903859e08d49341"
+    }
+  ],
+  "viewports": {
+    "desktop": {
+      "route_headings": [
+        "MES UI 套件"
+      ],
+      "card_rect": {
+        "left": 273,
+        "top": 2897.75,
+        "right": 1391,
+        "bottom": 3263.89,
+        "width": 1118,
+        "height": 366.14
+      },
+      "card_body_rect": {
+        "left": 274,
+        "top": 2938.89,
+        "right": 1390,
+        "bottom": 3262.89,
+        "width": 1116,
+        "height": 324
+      },
+      "description": {
+        "text": "服务由 MES 宿主注入。成功后把系统批号回填当前明细；已有批号或未选择物料时不可生成。",
+        "rect": {
+          "left": 290,
+          "top": 2954.89,
+          "right": 1374,
+          "bottom": 2976.89,
+          "width": 1084,
+          "height": 22
+        },
+        "marginBottom": "14px"
+      },
+      "action_space_rect": {
+        "left": 290,
+        "top": 2990.89,
+        "right": 524,
+        "bottom": 3246.89,
+        "width": 234,
+        "height": 256
+      },
+      "button_count": 7,
+      "previous_card_rect": {
+        "left": 273,
+        "top": 2727.61,
+        "right": 1391,
+        "bottom": 2881.75,
+        "width": 1118,
+        "height": 154.14
+      },
+      "previous_card_label": "采购入库履约摘要\n展示采购订单数量、已收数量和待收数量；单位标签由宿主字典传入，未配置时保留原单位编码。\n订单 128.5 千克\n已收 32.25 千克 · 待收 96.25 千克",
+      "next_card_rect": {
+        "left": 273,
+        "top": 3279.89,
+        "right": 1391,
+        "bottom": 3573.03,
+        "width": 1118,
+        "height": 293.14
+      },
+      "next_card_label": "MES 表格长文本\n默认两行预览，悬停或点击查看全文；显式截断模式仍保留 64 字截断和“更多”弹层。\n物料编码\t说明\t数量\n\n物料编码\n\t\n说明\n\t\n数量\n\nRM-AL-0081\t6061 铝型材，",
+      "workspace_rect": {
+        "left": 224,
+        "top": 56,
+        "right": 1440,
+        "bottom": 5245.97,
+        "width": 1216,
+        "height": 5189.97
+      },
+      "content_rect": {
+        "left": 248,
+        "top": 80,
+        "right": 1416,
+        "bottom": 5221.97,
+        "width": 1168,
+        "height": 5141.97
+      },
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "scroll": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "clientHeight": 900,
+        "scrollHeight": 5246
+      },
+      "textContent": "采购收货系统批号写入\n服务由 MES 宿主注入。成功后把系统批号回填当前明细；已有批号或未选择物料时不可生成。\n自动写入\n当前批号：未填写\n自动写入\n模拟服务错误\n自动写入\n服务未返回批号\n自动写入\n非 Error 服务拒绝\n自动写入\n未选择物料，按钮禁用\n自动写入\n已有手工批号，按钮禁用\n服务请求次数：0\n自动写入\n未注入服务时显示配置错误"
+    },
+    "mobile": {
+      "route_headings": [
+        "MES UI 套件"
+      ],
+      "card_rect": {
+        "left": 33,
+        "top": 4367.19,
+        "right": 342,
+        "bottom": 4804.33,
+        "width": 309,
+        "height": 437.14
+      },
+      "card_body_rect": {
+        "left": 34,
+        "top": 4408.33,
+        "right": 341,
+        "bottom": 4803.33,
+        "width": 307,
+        "height": 395
+      },
+      "description": {
+        "text": "服务由 MES 宿主注入。成功后把系统批号回填当前明细；已有批号或未选择物料时不可生成。",
+        "rect": {
+          "left": 50,
+          "top": 4424.33,
+          "right": 325,
+          "bottom": 4490.33,
+          "width": 275,
+          "height": 66
+        },
+        "marginBottom": "14px"
+      },
+      "action_space_rect": {
+        "left": 50,
+        "top": 4504.33,
+        "right": 284,
+        "bottom": 4760.33,
+        "width": 234,
+        "height": 256
+      },
+      "button_count": 7,
+      "previous_card_rect": {
+        "left": 33,
+        "top": 4153.05,
+        "right": 342,
+        "bottom": 4351.19,
+        "width": 309,
+        "height": 198.14
+      },
+      "previous_card_label": "采购入库履约摘要\n展示采购订单数量、已收数量和待收数量；单位标签由宿主字典传入，未配置时保留原单位编码。\n订单 128.5 千克\n已收 32.25 千克 · 待收 96.25 千克",
+      "next_card_rect": {
+        "left": 33,
+        "top": 4820.33,
+        "right": 342,
+        "bottom": 5223.47,
+        "width": 309,
+        "height": 403.14
+      },
+      "next_card_label": "MES 表格长文本\n默认两行预览，悬停或点击查看全文；显式截断模式仍保留 64 字截断和“更多”弹层。\n物料编码\t说明\t数量\n\n物料编码\n\t\n说明\n\t\n数量\n\nRM-AL-0081\t6061 铝型材，",
+      "workspace_rect": {
+        "left": 0,
+        "top": 56,
+        "right": 375,
+        "bottom": 7892.91,
+        "width": 375,
+        "height": 7836.91
+      },
+      "content_rect": {
+        "left": 16,
+        "top": 72,
+        "right": 359,
+        "bottom": 7876.91,
+        "width": 343,
+        "height": 7804.91
+      },
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "scroll": {
+        "clientWidth": 375,
+        "scrollWidth": 375,
+        "clientHeight": 812,
+        "scrollHeight": 7893
+      },
+      "textContent": "采购收货系统批号写入\n服务由 MES 宿主注入。成功后把系统批号回填当前明细；已有批号或未选择物料时不可生成。\n自动写入\n当前批号：未填写\n自动写入\n模拟服务错误\n自动写入\n服务未返回批号\n自动写入\n非 Error 服务拒绝\n自动写入\n未选择物料，按钮禁用\n自动写入\n已有手工批号，按钮禁用\n服务请求次数：0\n自动写入\n未注入服务时显示配置错误"
+    }
+  },
+  "interaction_results": [
+    {
+      "check": "seven demo states render buttons",
+      "expected": 7,
+      "actual": 7,
+      "pass": true
+    },
+    {
+      "check": "no-material and existing-batch buttons disabled",
+      "noMaterialDisabled": true,
+      "existingBatchDisabled": true,
+      "pass": true
+    },
+    {
+      "check": "disabled controls do not request service",
+      "requestCountInitiallyZero": true,
+      "pass": true
+    },
+    {
+      "check": "loading state blocks duplicate action",
+      "loadingClassCount": 1,
+      "loadingButtonDisabled": true,
+      "pass": true
+    },
+    {
+      "check": "success response trims and writes batch number once",
+      "result": "RCV-2026-0001",
+      "buttonDisabledAfterWrite": true,
+      "pass": true
+    },
+    {
+      "check": "Error message is shown verbatim",
+      "pass": true
+    },
+    {
+      "check": "blank response follows missing-batch error path",
+      "pass": true
+    },
+    {
+      "check": "non-Error rejection uses fallback message",
+      "pass": true
+    },
+    {
+      "check": "missing host capability reports configuration error without request",
+      "pass": true
+    },
+    {
+      "state": "desktop",
+      "check": "document horizontal overflow",
+      "pass": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440
+    },
+    {
+      "state": "mobile",
+      "check": "document horizontal overflow",
+      "pass": true,
+      "scrollWidth": 375,
+      "clientWidth": 375
+    },
+    {
+      "state": "mobile",
+      "check": "component card horizontal overflow",
+      "pass": true,
+      "overflow": false
+    }
+  ],
+  "runtime_errors": {
+    "page": [],
+    "console": [],
+    "forbidden": [],
+    "failedRequests": []
+  },
+  "visually_reviewed_screenshot": {
+    "file": "desktop-batch-button-card-reviewed-1440x900.png",
+    "sha256": "9870487219616af7d5a1ff6365881141cabf4fdf30f9c253788b395f425b3e55",
+    "purpose": "replacement visual-review capture showing the entire card and adjacent cards"
+  }
+}

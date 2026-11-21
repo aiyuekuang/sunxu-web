@@ -12,7 +12,7 @@ export interface AccountingOption {
   value: string;
 }
 
-export interface AccountingBookRecord {
+export interface AccountingSelectorBookRecord {
   code: string;
   name: string;
   isPrimary?: boolean;
@@ -41,7 +41,7 @@ export interface AccountingVoucherWordRecord {
   createdAt: string;
 }
 
-export interface AccountingAccountRecord {
+export interface AccountingSelectorAccountRecord {
   code: string;
   name: string;
 }
@@ -73,7 +73,7 @@ export interface MesAccountingSelectorCapabilities {
   listAccountingBooks: (params: {
     status: 'active';
     pageSize: number;
-  }) => Promise<AccountingBookRecord[]>;
+  }) => Promise<AccountingSelectorBookRecord[]>;
   listAccountingOrganizations: (params: {
     status: 'active';
     pageSize: number;
@@ -91,7 +91,7 @@ export interface MesAccountingSelectorCapabilities {
     status: 'active';
     pageSize: number;
   }) => Promise<AccountingVoucherWordRecord[]>;
-  listAccounts: (params: AccountingAccountRequest) => Promise<AccountingAccountRecord[]>;
+  listAccounts: (params: AccountingAccountRequest) => Promise<AccountingSelectorAccountRecord[]>;
   renderConfigEntryLabel?: (
     props: AccountingConfigEntryLabelProps,
   ) => ReactNode;

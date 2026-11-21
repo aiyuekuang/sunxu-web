@@ -374,9 +374,7 @@ export function PdfPreviewDrawer({
       open={!!file}
       // 预览必须在当前 keep-alive 标签页内挂载，不能通过 body portal 覆盖其他标签。
       getContainer={false}
-      rootStyle={{ position: 'absolute', inset: 0 }}
       size="100%"
-      rootClassName="sxw-mes-pdf-preview-drawer"
       destroyOnHidden
       onClose={onClose}
       extra={
@@ -390,6 +388,7 @@ export function PdfPreviewDrawer({
         ) : null
       }
       styles={{
+        root: { position: 'absolute', inset: 0 },
         wrapper: { maxWidth: '100%' },
         section: { background: '#f5f7fb' },
         header: { flex: '0 0 auto' },

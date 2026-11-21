@@ -10,6 +10,12 @@ type ModalStyleRecord = Exclude<
 >;
 type ModalStyleFunctionInfo = Parameters<ModalStyleFunction>[0];
 
+export type MesDocumentModalStyleOptions = {
+  paddedBody?: boolean;
+  variant?: 'document-form' | 'formula-workbench';
+  overlay?: 'tab' | 'viewport';
+};
+
 const mesDocumentFormStyles = {
   root: {
     display: 'flex',
@@ -74,6 +80,77 @@ const mesDocumentFormStyles = {
   },
 } satisfies ModalStyleRecord;
 
+const mesDocumentFormPanelStyle = {
+  display: 'flex',
+  flexDirection: 'column',
+  top: 0,
+  width: '100%',
+  height: '100%',
+  minHeight: 0,
+  maxHeight: '100%',
+  maxWidth: '100%',
+  margin: 0,
+  paddingBottom: 0,
+  pointerEvents: 'auto',
+} satisfies NonNullable<ModalProps['style']>;
+
+const paddedDocumentFormBodyStyles = {
+  body: {
+    padding: '20px 24px 24px',
+  },
+} satisfies ModalStyleRecord;
+
+const formulaWorkbenchStyles = {
+  container: {
+    overflow: 'hidden',
+  },
+  body: {
+    maxHeight: 'none',
+    overflow: 'hidden',
+  },
+} satisfies ModalStyleRecord;
+
+const tabOverlayStyles = {
+  root: {
+    position: 'absolute',
+    inset: 0,
+    zIndex: 1000,
+    pointerEvents: 'none',
+  },
+  mask: {
+    position: 'absolute',
+    inset: 0,
+    pointerEvents: 'auto',
+  },
+  wrapper: {
+    position: 'absolute',
+    inset: 0,
+    overflow: 'hidden',
+    pointerEvents: 'auto',
+  },
+} satisfies ModalStyleRecord;
+
+const viewportOverlayStyles = {
+  root: {
+    position: 'fixed',
+    inset: 0,
+    zIndex: 1000,
+    height: '100dvh',
+    pointerEvents: 'none',
+  },
+  mask: {
+    position: 'absolute',
+    inset: 0,
+    pointerEvents: 'auto',
+  },
+  wrapper: {
+    position: 'absolute',
+    inset: 0,
+    overflow: 'hidden',
+    pointerEvents: 'auto',
+  },
+} satisfies ModalStyleRecord;
+
 function mergeStyleRecords(
   defaults: ModalStyleRecord,
   overrides?: ModalStyleRecord,
@@ -96,11 +173,38 @@ function mergeStyleRecords(
 /** Merge the MES full-screen document layout with Ant Design Modal slots. */
 export function mergeMesDocumentModalStyles(
   overrides: ModalProps['styles'],
+  options: MesDocumentModalStyleOptions = {},
 ): NonNullable<ModalProps['styles']> {
+  const componentDefaults =
+    options.variant === 'formula-workbench'
+      ? formulaWorkbenchStyles
+      : options.paddedBody
+        ? mergeStyleRecords(mesDocumentFormStyles, paddedDocumentFormBodyStyles)
+        : mesDocumentFormStyles;
+  const overlayDefaults =
+    options.overlay === 'viewport'
+      ? viewportOverlayStyles
+      : options.overlay === 'tab'
+        ? tabOverlayStyles
+        : undefined;
+  const defaults = overlayDefaults
+    ? mergeStyleRecords(componentDefaults, overlayDefaults)
+    : componentDefaults;
+
   if (typeof overrides === 'function') {
     return (info: ModalStyleFunctionInfo) =>
-      mergeStyleRecords(mesDocumentFormStyles, overrides(info));
+      mergeStyleRecords(defaults, overrides(info));
   }
 
-  return mergeStyleRecords(mesDocumentFormStyles, overrides);
+  return mergeStyleRecords(defaults, overrides);
+}
+
+/** Keep full-screen geometry on the dialog panel and preserve caller overrides. */
+export function mergeMesDocumentModalPanelStyle(
+  overrides: ModalProps['style'],
+): NonNullable<ModalProps['style']> {
+  return {
+    ...mesDocumentFormPanelStyle,
+    ...overrides,
+  };
 }

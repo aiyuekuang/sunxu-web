@@ -45,6 +45,7 @@ export function StatusDisplay({
   const statusToken = config?.status ?? 'Default';
   const color = config?.color ?? STATUS_TOKEN_NAME[statusToken] ?? 'default';
   const textColor = config?.color ?? STATUS_TOKEN_COLOR[statusToken] ?? '#86909C';
+  const tagColor = config?.color ?? STATUS_TOKEN_COLOR[statusToken] ?? '#86909C';
 
   if (mode === 'badge') {
     return <Badge color={color} text={label} />;
@@ -55,7 +56,7 @@ export function StatusDisplay({
 
   return (
     <StatusTag
-      color={color}
+      color={tagColor}
       style={
         size === 'small'
           ? { fontSize: 12, lineHeight: '18px', padding: '0 4px' }

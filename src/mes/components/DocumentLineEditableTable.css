@@ -1,0 +1,117 @@
+.mes-document-line-editable-table {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+  inline-size: 100%;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+  overflow: hidden;
+}
+
+.mes-document-line-editable-table .ant-table-content:focus-visible,
+.mes-document-line-editable-table .ant-table-body:focus-visible {
+  outline: 2px solid var(--ant-color-primary, #1677ff);
+  outline-offset: 2px;
+}
+
+.mes-document-line-editable-table .ant-pro-table,
+.mes-document-line-editable-table .ant-table-wrapper {
+  inline-size: 100%;
+  min-inline-size: 0;
+  max-inline-size: 100%;
+}
+
+.mes-document-line-editable-table .ant-spin-nested-loading,
+.mes-document-line-editable-table .ant-spin-container,
+.mes-document-line-editable-table .ant-table,
+.mes-document-line-editable-table .ant-table-container {
+  min-inline-size: 0;
+}
+
+.mes-document-line-editable-table .ant-table-content,
+.mes-document-line-editable-table .ant-table-body {
+  max-inline-size: 100%;
+  overflow-x: auto !important;
+  scrollbar-gutter: stable;
+}
+
+.mes-document-line-editable-table .ant-table-cell {
+  vertical-align: middle;
+}
+
+.mes-document-line-editable-table .ant-input,
+.mes-document-line-editable-table .ant-input-number,
+.mes-document-line-editable-table .ant-select {
+  max-inline-size: 100%;
+}
+
+.mes-document-line-editable-table .ant-table-expanded-row > .ant-table-cell {
+  padding-block-end: 24px;
+}
+
+.mes-document-line-editable-table .ant-table-summary .ant-table-cell {
+  padding-block: 8px;
+  background: var(
+    --mes-bg-elevated,
+    var(--ant-color-bg-container, #fff)
+  );
+}
+
+.mes-document-line-editable-table > .ant-btn {
+  align-self: flex-start;
+}
+
+.mes-document-line-editable-table-compact {
+  gap: 8px;
+}
+
+.mes-document-line-editable-table-compact .ant-table-thead > tr > th,
+.mes-document-line-editable-table-compact .ant-table-tbody > tr > td {
+  padding: 4px 6px;
+}
+
+.mes-document-line-editable-table-compact .ant-table-thead > tr > th {
+  line-height: 20px;
+}
+
+.mes-document-line-editable-table-compact .ant-input,
+.mes-document-line-editable-table-compact .ant-input-number {
+  min-block-size: 28px;
+  block-size: 28px;
+}
+
+.mes-document-line-editable-table-compact .ant-input-number-input {
+  block-size: 26px;
+  padding-inline: 8px;
+}
+
+.mes-document-line-editable-table-compact .ant-select-single {
+  block-size: 28px;
+}
+
+.mes-document-line-editable-table-compact .ant-select-single .ant-select-selector {
+  min-block-size: 28px;
+  block-size: 28px;
+  padding-inline: 8px;
+}
+
+.mes-document-line-editable-table-compact
+  .ant-select-single
+  .ant-select-selection-item,
+.mes-document-line-editable-table-compact
+  .ant-select-single
+  .ant-select-selection-placeholder {
+  line-height: 26px;
+}
+
+.mes-document-line-editable-table-compact
+  .ant-table-expanded-row
+  > .ant-table-cell {
+  padding: 6px 8px 10px;
+}
+
+.mes-document-line-editable-table-compact
+  .ant-table-summary
+  .ant-table-cell {
+  padding-block: 4px;
+}

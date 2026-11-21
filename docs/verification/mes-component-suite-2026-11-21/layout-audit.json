@@ -1,0 +1,347 @@
+{
+  "schema_version": 1,
+  "product": "Sunxu Web MES UI suite",
+  "route": "/",
+  "capture_date": "2026-11-21",
+  "evidence": {
+    "render_observations": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/render-observations.json",
+    "authentication": "Public local catalog; route returned 200 with no authentication gate.",
+    "console": {
+      "page_errors": 0,
+      "runtime_update_loop_errors": 0,
+      "console_warning_count": 31
+    },
+    "interaction_checks": [
+      {
+        "control": "新建操作",
+        "result": "已触发新增操作回调",
+        "status": "PASS"
+      },
+      {
+        "control": "显示金额",
+        "result": "金额从脱敏值显示为 ¥12,500.50",
+        "status": "PASS"
+      }
+    ],
+    "mobile_document_width": {
+      "viewport": 390,
+      "document_width": 390,
+      "body_width": 394,
+      "horizontal_scroll_x": 0,
+      "root_horizontal_overflow_clipped": true
+    }
+  },
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "route": "/",
+        "state": "desktop-top",
+        "workspace": ".sxw-docs-main",
+        "content": ".sxw-docs-surface",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 56102.3046875,
+          "width": 1216,
+          "height": 56046.3046875
+        },
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 56078.3046875,
+          "width": 1168,
+          "height": 55998.3046875
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "left",
+          "right"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px main padding and surface gutter",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface; mobile override inside max-width: 767px"
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/desktop-top-1440x900.png",
+        "screenshot_sha256": "fea41c0f547812f12bff9fe1eb1883f571f198fac54e8eb1c44784cfdfff6724",
+        "status": "PASS",
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected the 1440x900 rendered screenshot; the surface top edge and left/right borders are visible with 24px gutters.",
+          "painted_frame_sides": [
+            "top",
+            "left",
+            "right"
+          ]
+        }
+      },
+      {
+        "route": "/",
+        "state": "desktop-bottom",
+        "workspace": ".sxw-docs-main",
+        "content": ".sxw-docs-surface",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace_rect": {
+          "left": 224,
+          "top": -55146.5,
+          "right": 1440,
+          "bottom": 899.8046875,
+          "width": 1216,
+          "height": 56046.3046875
+        },
+        "content_rect": {
+          "left": 248,
+          "top": -55122.5,
+          "right": 1416,
+          "bottom": 875.8046875,
+          "width": 1168,
+          "height": 55998.3046875
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "bottom",
+          "left",
+          "right"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px main padding and surface gutter",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface; mobile override inside max-width: 767px"
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/desktop-bottom-1440x900.png",
+        "screenshot_sha256": "c3bf1d1d6451bfb8eb763db116ae900c49e721623d0f40fd4f6252e2e3292032",
+        "status": "PASS",
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected the 1440x900 rendered screenshot at document bottom; the surface bottom edge and left/right borders are visible with 24px gutters.",
+          "painted_frame_sides": [
+            "bottom",
+            "left",
+            "right"
+          ]
+        }
+      },
+      {
+        "route": "/",
+        "state": "mobile-top",
+        "workspace": ".sxw-docs-main",
+        "content": ".sxw-docs-surface",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 390,
+          "bottom": 79043.515625,
+          "width": 390,
+          "height": 78987.515625
+        },
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 374,
+          "bottom": 79027.515625,
+          "width": 358,
+          "height": 78955.515625
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "left",
+          "right"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px main padding and surface gutter",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface; mobile override inside max-width: 767px"
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/mobile-top-390x844.png",
+        "screenshot_sha256": "1a8a513181bbe43a768cc0b91fa672859cd60abe4841ea001e2a6d85c024aa4a",
+        "status": "PASS",
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected the 390x844 rendered screenshot; the surface top edge and left/right borders are visible with 16px gutters.",
+          "painted_frame_sides": [
+            "top",
+            "left",
+            "right"
+          ]
+        }
+      },
+      {
+        "route": "/",
+        "state": "mobile-bottom",
+        "workspace": ".sxw-docs-main",
+        "content": ".sxw-docs-surface",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "workspace_rect": {
+          "left": 0,
+          "top": -78143.5,
+          "right": 390,
+          "bottom": 844.015625,
+          "width": 390,
+          "height": 78987.515625
+        },
+        "content_rect": {
+          "left": 16,
+          "top": -78127.5,
+          "right": 374,
+          "bottom": 828.015625,
+          "width": 358,
+          "height": 78955.515625
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "bottom",
+          "left",
+          "right"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px main padding and surface gutter",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface; mobile override inside max-width: 767px"
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/mobile-bottom-390x844.png",
+        "screenshot_sha256": "a4c2216db8b3045130b0a14adaa9e3cfb61c02d527cbf3361af176a22fa07f30",
+        "status": "PASS",
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected the 390x844 rendered screenshot at document bottom; the surface bottom edge and left/right borders are visible with 16px gutters.",
+          "painted_frame_sides": [
+            "bottom",
+            "left",
+            "right"
+          ]
+        }
+      }
+    ]
+  },
+  "seams": [
+    {
+      "route": "/",
+      "state": "New-operation callback triggered; adjacent permission component cards.",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "MES 状态与权限组件",
+      "next": "MES 单据动作与深链",
+      "previous_rect": {
+        "left": 273,
+        "top": 373.8203125,
+        "right": 1391,
+        "bottom": 526.4609375,
+        "width": 1118,
+        "height": 152.640625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 542.4609375,
+        "right": 1391,
+        "bottom": 721.6015625,
+        "width": 1118,
+        "height": 179.140625
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between adjacent MES component demo cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: suite-level Space orientation=\"vertical\" size={16}"
+      },
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-mes-visual-qa-final.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/desktop-permission-interaction-1440x900.png",
+      "screenshot_sha256": "cb0549aebfdabd557abca3dae835f977d62b2c8e7ba8d56d6b89611ec07f4fd0",
+      "status": "PASS",
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected rendered screenshot: white card borders are separated by a continuous background band; DOM rectangle gap matches the 16px suite spacing contract.",
+        "observed_clear_band_px": 16
+      }
+    },
+    {
+      "route": "/",
+      "state": "Mobile permission component section; adjacent component cards.",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous": "MES 状态与权限组件",
+      "next": "MES 单据动作与深链",
+      "previous_rect": {
+        "left": 33,
+        "top": 305.640625,
+        "right": 357,
+        "bottom": 538.28125,
+        "width": 324,
+        "height": 232.640625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 554.28125,
+        "right": 357,
+        "bottom": 850.421875,
+        "width": 324,
+        "height": 296.140625
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px vertical gap between adjacent MES component demo cards",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: suite-level Space orientation=\"vertical\" size={16}"
+      },
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-mes-visual-qa-final.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/mes-component-suite-2026-11-21/mobile-permission-section-390x844.png",
+      "screenshot_sha256": "ad203875f7beddc4e8fd24e8fec37d6762c9a336f436436e73538e62c05246e0",
+      "status": "PASS",
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected rendered screenshot: white card borders are separated by a continuous background band; DOM rectangle gap matches the 16px suite spacing contract.",
+        "observed_clear_band_px": 16
+      }
+    }
+  ]
+}

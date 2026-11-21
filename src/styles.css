@@ -52,18 +52,32 @@
   display: none !important;
 }
 
-.sxw-mes-document-modal__form-content {
+.document-form-modal > .ant-modal-render {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+.document-form-modal > .ant-modal-render > div {
+  display: flex;
+  flex: 1 1 0;
+  min-width: 0;
+  min-height: 0;
+}
+
+.document-form-content {
   min-height: 100%;
   padding: 20px 24px 24px;
 }
 
-.sxw-mes-document-modal .document-form-layout {
-  min-height: 100%;
-}
-
-.sxw-mes-document-modal__form-content .document-form-layout {
+.document-form-content .document-form-layout {
   min-height: 0;
   padding: 0;
+}
+
+.document-form-layout {
+  min-height: 100%;
 }
 
 .sxw-mes-document-modal__restore {

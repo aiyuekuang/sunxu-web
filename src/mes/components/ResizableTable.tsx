@@ -3150,6 +3150,18 @@ function ResizableProTableInner<
               columnsWithProTableSortIdentity as object[] | undefined,
               'proTableToSource',
             );
+            const controlledSourceValue = columnsState.value as
+              | ProTableColumnStateMap
+              | undefined;
+            if (
+              controlledSourceValue !== undefined &&
+              areColumnStateMapsEqual(
+                controlledSourceValue,
+                sourceValue ?? {},
+              )
+            ) {
+              return;
+            }
             columnsState.onChange?.(sourceValue ?? {});
           }
         : undefined,

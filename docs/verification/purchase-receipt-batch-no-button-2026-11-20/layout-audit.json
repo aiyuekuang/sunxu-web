@@ -1,0 +1,493 @@
+{
+  "schema_version": 1,
+  "route": "CatalogApp / MES UI 套件 → 采购收货系统批号写入",
+  "component": "GeneratePurchaseReceiptBatchNoButton",
+  "evidence": "./render-observations.json",
+  "evidence_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-batch-button.js",
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 → 采购收货系统批号写入",
+        "state": "desktop-route-top",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 5245.97,
+          "width": 1216,
+          "height": 5189.97
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 5221.97,
+          "width": 1168,
+          "height": 5141.97
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24.0,
+          "left": 24
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "24px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-batch-no-button-2026-11-20/desktop-route-top-1440x900.png",
+        "screenshot_sha256": "0e3baa130c82771261059756a757339d7606c3ef588bfcdc6ed4d9d7a1547bb3",
+        "status": "PASS"
+      },
+      {
+        "schema_version": 1,
+        "route": "CatalogApp / MES UI 套件 → 采购收货系统批号写入",
+        "state": "mobile-route-top",
+        "viewport": {
+          "width": 375,
+          "height": 812
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 375,
+          "bottom": 7892.91,
+          "width": 375,
+          "height": 7836.91
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 359,
+          "bottom": 7876.91,
+          "width": 343,
+          "height": 7804.91
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16.0,
+          "left": 16
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "16px workspace frame inset",
+          "source": "examples/catalog/catalog.css: .sxw-docs-main and .sxw-docs-surface padding"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Chromium screenshot inspection and DOM rectangle measurement",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-batch-no-button-2026-11-20/mobile-route-top-375x812.png",
+        "screenshot_sha256": "bf811d7e17186f70b769d7fd18f989d8a88b232cf15a4e1f748c8751464675ba",
+        "status": "PASS"
+      }
+    ]
+  },
+  "first_screen_budget": {
+    "desktop": {
+      "viewport": "1440x900",
+      "primary_task": "Identify the MES UI suite and find component examples.",
+      "visible_modules": [
+        "MES UI suite heading and summary",
+        "MES material selector",
+        "MES drawing and attachment example"
+      ],
+      "placement": "Batch-generation controls are below the initial viewport; a focused card screenshot shows the full control states with adjacent sections."
+    },
+    "mobile": {
+      "viewport": "375x812",
+      "primary_task": "Identify the MES UI suite and scan examples in the current vertical layout.",
+      "visible_modules": [
+        "MES UI suite heading and summary",
+        "MES material selector"
+      ],
+      "placement": "Batch-generation controls are below the initial viewport and separately captured after closing mobile navigation."
+    }
+  },
+  "seams": [
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 采购收货系统批号写入",
+      "state": "desktop-采购入库履约摘要\n展示采购订单数量、已收数量和待收数量；单位标签由宿主字典传入，未配置时保留原单位编码。\n订单 128.5 千克\n已收 32.25 千克 · 待收 96.25 千克-to-采购收货系统批号写入",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "采购入库履约摘要\n展示采购订单数量、已收数量和待收数量；单位标签由宿主字典传入，未配置时保留原单位编码。\n订单 128.5 千克\n已收 32.25 千克 · 待收 96.25 千克",
+      "next": "采购收货系统批号写入",
+      "previous_rect": {
+        "left": 273,
+        "top": 2727.61,
+        "right": 1391,
+        "bottom": 2881.75,
+        "width": 1118,
+        "height": 154.14
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 2897.75,
+        "right": 1391,
+        "bottom": 3263.89,
+        "width": 1118,
+        "height": 366.14
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and painted-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-batch-button.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-batch-no-button-2026-11-20/desktop-batch-button-card-reviewed-1440x900.png",
+      "screenshot_sha256": "9870487219616af7d5a1ff6365881141cabf4fdf30f9c253788b395f425b3e55",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 采购收货系统批号写入",
+      "state": "desktop-采购收货系统批号写入-to-MES 表格长文本\n默认两行预览，悬停或点击查看全文；显式截断模式仍保留 64 字截断和“更多”弹层。\n物料编码\t说明\t数量\n\n物料编码\n\t\n说明\n\t\n数量\n\nRM-AL-0081\t6061 铝型材，",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "采购收货系统批号写入",
+      "next": "MES 表格长文本\n默认两行预览，悬停或点击查看全文；显式截断模式仍保留 64 字截断和“更多”弹层。\n物料编码\t说明\t数量\n\n物料编码\n\t\n说明\n\t\n数量\n\nRM-AL-0081\t6061 铝型材，",
+      "previous_rect": {
+        "left": 273,
+        "top": 2897.75,
+        "right": 1391,
+        "bottom": 3263.89,
+        "width": 1118,
+        "height": 366.14
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 3279.89,
+        "right": 1391,
+        "bottom": 3573.03,
+        "width": 1118,
+        "height": 293.14
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and painted-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-batch-button.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-batch-no-button-2026-11-20/desktop-batch-button-card-reviewed-1440x900.png",
+      "screenshot_sha256": "9870487219616af7d5a1ff6365881141cabf4fdf30f9c253788b395f425b3e55",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 采购收货系统批号写入",
+      "state": "desktop-说明文案-to-操作示例",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "说明文案",
+      "next": "操作示例",
+      "previous_rect": {
+        "left": 290,
+        "top": 2954.89,
+        "right": 1374,
+        "bottom": 2976.89,
+        "width": 1084,
+        "height": 22
+      },
+      "next_rect": {
+        "left": 290,
+        "top": 2990.89,
+        "right": 524,
+        "bottom": 3246.89,
+        "width": 234,
+        "height": 256
+      },
+      "gap_px": 14.0,
+      "expected": {
+        "kind": "library",
+        "value": "14px paragraph margin",
+        "source": "Ant Design Typography.Paragraph default margin block-end (computed margin-bottom: 14px)"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and painted-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 14.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-batch-button.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-batch-no-button-2026-11-20/desktop-batch-button-card-reviewed-1440x900.png",
+      "screenshot_sha256": "9870487219616af7d5a1ff6365881141cabf4fdf30f9c253788b395f425b3e55",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 采购收货系统批号写入",
+      "state": "mobile-采购入库履约摘要\n展示采购订单数量、已收数量和待收数量；单位标签由宿主字典传入，未配置时保留原单位编码。\n订单 128.5 千克\n已收 32.25 千克 · 待收 96.25 千克-to-采购收货系统批号写入",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "采购入库履约摘要\n展示采购订单数量、已收数量和待收数量；单位标签由宿主字典传入，未配置时保留原单位编码。\n订单 128.5 千克\n已收 32.25 千克 · 待收 96.25 千克",
+      "next": "采购收货系统批号写入",
+      "previous_rect": {
+        "left": 33,
+        "top": 4153.05,
+        "right": 342,
+        "bottom": 4351.19,
+        "width": 309,
+        "height": 198.14
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 4367.19,
+        "right": 342,
+        "bottom": 4804.33,
+        "width": 309,
+        "height": 437.14
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and painted-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-batch-button.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-batch-no-button-2026-11-20/mobile-batch-button-card-375x812.png",
+      "screenshot_sha256": "b1e4b322a0caf76b10139e89e293a9728c860619feea4b634903859e08d49341",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 采购收货系统批号写入",
+      "state": "mobile-采购收货系统批号写入-to-MES 表格长文本\n默认两行预览，悬停或点击查看全文；显式截断模式仍保留 64 字截断和“更多”弹层。\n物料编码\t说明\t数量\n\n物料编码\n\t\n说明\n\t\n数量\n\nRM-AL-0081\t6061 铝型材，",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "采购收货系统批号写入",
+      "next": "MES 表格长文本\n默认两行预览，悬停或点击查看全文；显式截断模式仍保留 64 字截断和“更多”弹层。\n物料编码\t说明\t数量\n\n物料编码\n\t\n说明\n\t\n数量\n\nRM-AL-0081\t6061 铝型材，",
+      "previous_rect": {
+        "left": 33,
+        "top": 4367.19,
+        "right": 342,
+        "bottom": 4804.33,
+        "width": 309,
+        "height": 437.14
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 4820.33,
+        "right": 342,
+        "bottom": 5223.47,
+        "width": 309,
+        "height": 403.14
+      },
+      "gap_px": 16.0,
+      "expected": {
+        "kind": "library",
+        "value": "16px MES component suite vertical spacing",
+        "source": "examples/catalog/MesComponentSuitePage.tsx: Space orientation=\"vertical\" size={16}"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and painted-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 16.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-batch-button.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-batch-no-button-2026-11-20/mobile-batch-button-card-375x812.png",
+      "screenshot_sha256": "b1e4b322a0caf76b10139e89e293a9728c860619feea4b634903859e08d49341",
+      "status": "PASS"
+    },
+    {
+      "schema_version": 1,
+      "route": "CatalogApp / MES UI 套件 → 采购收货系统批号写入",
+      "state": "mobile-说明文案-to-操作示例",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "axis": "vertical",
+      "previous": "说明文案",
+      "next": "操作示例",
+      "previous_rect": {
+        "left": 50,
+        "top": 4424.33,
+        "right": 325,
+        "bottom": 4490.33,
+        "width": 275,
+        "height": 66
+      },
+      "next_rect": {
+        "left": 50,
+        "top": 4504.33,
+        "right": 284,
+        "bottom": 4760.33,
+        "width": 234,
+        "height": 256
+      },
+      "gap_px": 14.0,
+      "expected": {
+        "kind": "library",
+        "value": "14px paragraph margin",
+        "source": "Ant Design Typography.Paragraph default margin block-end (computed margin-bottom: 14px)"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "DOM rectangle measurement and painted-separation inspection in the rendered screenshot",
+        "observed_clear_band_px": 14.0
+      },
+      "executed_command": "TARGET_URL=http://127.0.0.1:4174/ node run.js /tmp/playwright-test-purchase-batch-button.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/purchase-receipt-batch-no-button-2026-11-20/mobile-batch-button-card-375x812.png",
+      "screenshot_sha256": "b1e4b322a0caf76b10139e89e293a9728c860619feea4b634903859e08d49341",
+      "status": "PASS"
+    }
+  ],
+  "interaction_results": [
+    {
+      "check": "seven demo states render buttons",
+      "expected": 7,
+      "actual": 7,
+      "pass": true
+    },
+    {
+      "check": "no-material and existing-batch buttons disabled",
+      "noMaterialDisabled": true,
+      "existingBatchDisabled": true,
+      "pass": true
+    },
+    {
+      "check": "disabled controls do not request service",
+      "requestCountInitiallyZero": true,
+      "pass": true
+    },
+    {
+      "check": "loading state blocks duplicate action",
+      "loadingClassCount": 1,
+      "loadingButtonDisabled": true,
+      "pass": true
+    },
+    {
+      "check": "success response trims and writes batch number once",
+      "result": "RCV-2026-0001",
+      "buttonDisabledAfterWrite": true,
+      "pass": true
+    },
+    {
+      "check": "Error message is shown verbatim",
+      "pass": true
+    },
+    {
+      "check": "blank response follows missing-batch error path",
+      "pass": true
+    },
+    {
+      "check": "non-Error rejection uses fallback message",
+      "pass": true
+    },
+    {
+      "check": "missing host capability reports configuration error without request",
+      "pass": true
+    },
+    {
+      "state": "desktop",
+      "check": "document horizontal overflow",
+      "pass": true,
+      "scrollWidth": 1440,
+      "clientWidth": 1440
+    },
+    {
+      "state": "mobile",
+      "check": "document horizontal overflow",
+      "pass": true,
+      "scrollWidth": 375,
+      "clientWidth": 375
+    },
+    {
+      "state": "mobile",
+      "check": "component card horizontal overflow",
+      "pass": true,
+      "overflow": false
+    }
+  ],
+  "runtime_errors": {
+    "page": [],
+    "console": [],
+    "forbidden": [],
+    "failedRequests": []
+  },
+  "limitations": [
+    "The Catalog uses a deterministic host adapter; the live MES endpoint and authorization context were not called.",
+    "Production batch eligibility and numbering rules remain owned by the MES server.",
+    "MES consumer imports remain unchanged."
+  ]
+}

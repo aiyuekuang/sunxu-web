@@ -33,10 +33,123 @@ import {
 } from '../../src/mes';
 import { MaterialSelectorDemo } from './MaterialSelectorDemo';
 import { DrawingFilesDemo } from './DrawingFilesDemo';
+import { MaterialDrawingsPanelDemo } from './MaterialDrawingsPanelDemo';
+import { GlbModelViewerDemo } from './GlbModelViewerDemo';
 import { MasterDataQuickCreateSelectDemo } from './MasterDataQuickCreateSelectDemo';
 import { AccountingSelectorFieldsDemo } from './AccountingSelectorFieldsDemo';
 import { QuickDateRangePickerDemo } from './QuickDateRangePickerDemo';
 import { PurchaseReceiptCapacitySummaryDemo } from './PurchaseReceiptCapacitySummaryDemo';
+import { PurchaseReceiptBatchNoButtonDemo } from './PurchaseReceiptBatchNoButtonDemo';
+import { BusinessInvoiceCoverageCardDemo } from './BusinessInvoiceCoverageCardDemo';
+import { BusinessInvoiceWorkflowComponentsDemo } from './BusinessInvoiceWorkflowComponentsDemo';
+import { BusinessInvoiceLedgerAndImportDemo } from './BusinessInvoiceLedgerAndImportDemo';
+import { PurchaseInquiryAndOrderFilterComponentsDemo } from './PurchaseInquiryAndOrderFilterComponentsDemo';
+import { PurchaseReturnEditDrawerDemo } from './PurchaseReturnEditDrawerDemo';
+import { CustomerMaterialDispositionComponentsDemo } from './CustomerMaterialDispositionComponentsDemo';
+import { ScanAwareInputDemo } from './ScanAwareInputDemo';
+import { WarehouseRemoteSelectDemo } from './WarehouseRemoteSelectDemo';
+import { BatchSuggestInputDemo } from './BatchSuggestInputDemo';
+import { ReasonActionModalDemo } from './ReasonActionModalDemo';
+import { DetailDocumentActionsDemo } from './DetailDocumentActionsDemo';
+import { WorkOrderScanSelectDemo } from './WorkOrderScanSelectDemo';
+import { DocumentViewLegacyRedirectDemo } from './DocumentViewLegacyRedirectDemo';
+import { DocumentFilterDrawerDemo } from './DocumentFilterDrawerDemo';
+import { DetailLedgerFilterDrawerDemo } from './DetailLedgerFilterDrawerDemo';
+import { DocumentViewBarDemo } from './DocumentViewBarDemo';
+import { PriceControlPrecheckButtonDemo } from './PriceControlPrecheckButtonDemo';
+import { ProductionBomSelectDemo } from './ProductionBomSelectDemo';
+import { MaterialSupplierPriceTierSummaryDemo } from './MaterialSupplierPriceTierSummaryDemo';
+import { MaterialSupplierPriceTiersModalDemo } from './MaterialSupplierPriceTiersModalDemo';
+import { MaterialPriceSectionDemo } from './MaterialPriceSectionDemo';
+import { CustomFieldFormSectionDemo } from './CustomFieldFormSectionDemo';
+import { FormulaDesignerDemo } from './FormulaDesignerDemo';
+import {
+  DocumentLineCustomFieldFormItemsDemo,
+} from './DocumentLineCustomFieldFormItemsDemo';
+import { DocumentDetailLedgerTableDemo } from './DocumentDetailLedgerTableDemo';
+import { DocumentDetailLedgersDemo } from './DocumentDetailLedgersDemo';
+import { BusinessOperationalDetailLedgersDemo } from './BusinessOperationalDetailLedgersDemo';
+import { PurchaseOrderDetailLedgerDemo } from './PurchaseOrderDetailLedgerDemo';
+import { PrintLayoutsDemo } from './PrintLayoutsDemo';
+import { BusinessPrintTemplatesDemo } from './BusinessPrintTemplatesDemo';
+import { GridPrintDesignerDemo } from './GridPrintDesignerDemo';
+import { PrintJobActionsDemo } from './PrintJobActionsDemo';
+import { OrderItemEditorDemo } from './OrderItemEditorDemo';
+import { MesPatternComponentsDemo } from './MesPatternComponentsDemo';
+import { AccountingCrudPageDemo } from './AccountingCrudPageDemo';
+import { CustomFieldValuePanelDemo } from './CustomFieldValuePanelDemo';
+import { ApprovalPanelDemo } from './ApprovalPanelDemo';
+import { BomCostSnapshotEditorDemo } from './BomCostSnapshotEditorDemo';
+import { BomComponentsDemo } from './BomComponentsDemo';
+import { BomWorkspaceDetailDemo } from './BomWorkspaceDetailDemo';
+import { BomVersionHistoryDrawerDemo } from './BomVersionHistoryDrawerDemo';
+import { BomIssueOperationSelectDemo } from './BomIssueOperationSelectDemo';
+import { IntegrationGuideLinkDemo } from './IntegrationGuideLinkDemo';
+import { IntegrationGuideContentDemo } from './IntegrationGuideContentDemo';
+import { ServerInfoCardDemo } from './ServerInfoCardDemo';
+import { CompleteMaintenanceFieldsDemo } from './CompleteMaintenanceFieldsDemo';
+import { EquipmentFaultVerifyModalDemo } from './EquipmentFaultVerifyModalDemo';
+import { TemplatePrintComponentsDemo } from './TemplatePrintComponentsDemo';
+import { ImportDrawerDemo } from './ImportDrawerDemo';
+import { ImportWorkbenchDrawerDemo } from './ImportWorkbenchDrawerDemo';
+import { BomImportWorkbenchDrawerDemo } from './BomImportWorkbenchDrawerDemo';
+import { BackupDirectoryPickerDemo } from './BackupDirectoryPickerDemo';
+import { AllowedEquipmentPriorityFieldDemo } from './AllowedEquipmentPriorityFieldDemo';
+import { MasterDataQuickCreateDrawersDemo } from './MasterDataQuickCreateDrawersDemo';
+import { DocumentBomOpenButtonDemo } from './DocumentBomOpenButtonDemo';
+import { LabelTemplatesDemo } from './LabelTemplatesDemo';
+import { DocumentViewSortModalDemo } from './DocumentViewSortModalDemo';
+import { MaterialTablePickerDemo } from './MaterialTablePickerDemo';
+import { BatchMaterialAddButtonDemo } from './BatchMaterialAddButtonDemo';
+import { StockOperationsFieldsDemo } from './StockOperationsFieldsDemo';
+import { LargeScreenComponentsDemo } from './LargeScreenComponentsDemo';
+import { DashboardShortcutConfigModalDemo } from './DashboardShortcutConfigModalDemo';
+import { VoiceBroadcastSettingsPanelDemo } from './VoiceBroadcastSettingsPanelDemo';
+import { StockCountLineFormListDemo } from './StockCountLineFormListDemo';
+import { StockCountDocumentComponentsDemo } from './StockCountDocumentComponentsDemo';
+import { StockCountDetailLedgerDemo } from './StockCountDetailLedgerDemo';
+import { StockTransferDetailLedgerDemo } from './StockTransferDetailLedgerDemo';
+import { StockConversionDetailLedgerDemo } from './StockConversionDetailLedgerDemo';
+import { ScheduleComponentsDemo } from './ScheduleComponentsDemo';
+import { TraceTimelineDrawerDemo } from './TraceTimelineDrawerDemo';
+import { QualityInspectionItemResultFieldsDemo } from './QualityInspectionItemResultFieldsDemo';
+import { QualityInspectionWorkflowDemo } from './QualityInspectionWorkflowDemo';
+import { ProcessOperationInspectionRulesFormDemo } from './ProcessOperationInspectionRulesFormDemo';
+import { FqcRulesPanelDemo } from './FqcRulesPanelDemo';
+import { IncomingInspectionPolicyCardDemo } from './IncomingInspectionPolicyCardDemo';
+import { SaleReturnComponentsDemo } from './SaleReturnComponentsDemo';
+import { DocumentViewSwitchPresetsDemo } from './DocumentViewSwitchPresetsDemo';
+import { SalesOutboundComponentsDemo } from './SalesOutboundComponentsDemo';
+import { PurchaseWorkflowComponentsDemo } from './PurchaseWorkflowComponentsDemo';
+import { BomExpansionCreateModalDemo } from './BomExpansionCreateModalDemo';
+import { ReverseLandedCostModalDemo } from './ReverseLandedCostModalDemo';
+import { LandedCostComponentsDemo } from './LandedCostComponentsDemo';
+import { WorkOrderReportingComponentsDemo } from './WorkOrderReportingComponentsDemo';
+import WorkOrderProductionComponentsDemo from './WorkOrderProductionComponentsDemo';
+import { OutsourcingComponentsDemo } from './OutsourcingComponentsDemo';
+import { ReportLogDetailDrawerDemo } from './ReportLogDetailDrawerDemo';
+import { ReportDynamicFieldsDemo } from './ReportDynamicFieldsDemo';
+import { AccountingWorkflowComponentsDemo } from './AccountingWorkflowComponentsDemo';
+import { AccountingInventoryProductCostDemo } from './AccountingInventoryProductCostDemo';
+import { AccountingLedgerImportAndAccrualDemo } from './AccountingLedgerImportAndAccrualDemo';
+import { ScheduleRescheduleComponentsDemo } from './ScheduleRescheduleComponentsDemo';
+import { QuotationComponentsDemo } from './QuotationComponentsDemo';
+import { FinanceActionComponentsDemo } from './FinanceActionComponentsDemo';
+import { WorkOrderFilterDrawerDemo } from './WorkOrderFilterDrawerDemo';
+import { WorkOrderSupportComponentsDemo } from './WorkOrderSupportComponentsDemo';
+import { ProductionScheduleComponentsDemo } from './ProductionScheduleComponentsDemo';
+import ProductionScheduleWorkflowsDemo from './ProductionScheduleWorkflowsDemo';
+import { ProductionShiftCalendarComponentsDemo } from './ProductionShiftCalendarComponentsDemo';
+import { PaymentStatementActionComponentsDemo } from './PaymentStatementActionComponentsDemo';
+import { SalesDeliveryComponentsDemo } from './SalesDeliveryComponentsDemo';
+import { SalesDetailLedgerComponentsDemo } from './SalesDetailLedgerComponentsDemo';
+import { PackageManagementComponentsDemo } from './PackageManagementComponentsDemo';
+import { FundsExpenseComponentsDemo } from './FundsExpenseComponentsDemo';
+import { QualityInspectionAiAnalysisCardDemo } from './QualityInspectionAiAnalysisCardDemo';
+import { CustomerOrderPortalQrModalDemo } from './CustomerOrderPortalQrModalDemo';
+import { QualityInspectionOqcSourceDeliveryCardDemo } from './QualityInspectionOqcSourceDeliveryCardDemo';
+import { QualityTemplateItemsEditorDemo } from './QualityTemplateItemsEditorDemo';
+import { ScrapDeductionPolicySectionsDemo } from './ScrapDeductionPolicySectionsDemo';
 
 type MesLine = {
   id: string;
@@ -323,10 +436,30 @@ export function MesComponentSuitePage() {
     <Space orientation="vertical" size={16} style={{ width: '100%' }}>
       <MaterialSelectorDemo />
       <DrawingFilesDemo />
+      <MaterialDrawingsPanelDemo />
+      <GlbModelViewerDemo />
       <MasterDataQuickCreateSelectDemo />
       <AccountingSelectorFieldsDemo />
       <QuickDateRangePickerDemo />
       <PurchaseReceiptCapacitySummaryDemo />
+      <PurchaseReceiptBatchNoButtonDemo />
+      <PurchaseInquiryAndOrderFilterComponentsDemo />
+      <PurchaseReturnEditDrawerDemo />
+      <CustomerMaterialDispositionComponentsDemo />
+      <BusinessInvoiceCoverageCardDemo />
+      <BusinessInvoiceWorkflowComponentsDemo />
+      <BusinessInvoiceLedgerAndImportDemo />
+      <ScanAwareInputDemo />
+      <WarehouseRemoteSelectDemo />
+      <BatchSuggestInputDemo />
+      <ReasonActionModalDemo />
+      <DetailDocumentActionsDemo />
+      <WorkOrderScanSelectDemo />
+      <DocumentViewLegacyRedirectDemo />
+      <DocumentFilterDrawerDemo />
+      <DetailLedgerFilterDrawerDemo />
+      <DocumentViewBarDemo />
+      <PriceControlPrecheckButtonDemo />
 
       <SectionCard title="MES 表格长文本">
         <Typography.Paragraph type="secondary">
@@ -800,6 +933,98 @@ export function MesComponentSuitePage() {
           </Form.Item>
         </DocumentModalForm>
       </div>
+
+      <ProductionBomSelectDemo />
+      <MaterialSupplierPriceTierSummaryDemo />
+      <MaterialSupplierPriceTiersModalDemo />
+      <MaterialPriceSectionDemo />
+      <CustomFieldFormSectionDemo />
+      <FormulaDesignerDemo />
+      <DocumentLineCustomFieldFormItemsDemo />
+      <DocumentDetailLedgerTableDemo />
+      <DocumentDetailLedgersDemo />
+      <BusinessOperationalDetailLedgersDemo />
+      <PurchaseOrderDetailLedgerDemo />
+      <PrintLayoutsDemo />
+      <BusinessPrintTemplatesDemo />
+      <GridPrintDesignerDemo />
+      <PrintJobActionsDemo />
+      <OrderItemEditorDemo />
+      <MesPatternComponentsDemo />
+      <AccountingCrudPageDemo />
+      <CustomFieldValuePanelDemo />
+      <ApprovalPanelDemo />
+      <BomCostSnapshotEditorDemo />
+      <BomComponentsDemo />
+      <BomWorkspaceDetailDemo />
+      <BomVersionHistoryDrawerDemo />
+      <BomIssueOperationSelectDemo />
+      <CompleteMaintenanceFieldsDemo />
+      <EquipmentFaultVerifyModalDemo />
+      <TemplatePrintComponentsDemo />
+      <IntegrationGuideLinkDemo />
+      <IntegrationGuideContentDemo />
+      <ServerInfoCardDemo />
+      <ImportDrawerDemo />
+      <ImportWorkbenchDrawerDemo />
+      <BomImportWorkbenchDrawerDemo />
+      <BackupDirectoryPickerDemo />
+      <AllowedEquipmentPriorityFieldDemo />
+      <MasterDataQuickCreateDrawersDemo />
+      <DocumentBomOpenButtonDemo />
+      <LabelTemplatesDemo />
+      <DocumentViewSortModalDemo />
+      <MaterialTablePickerDemo />
+      <BatchMaterialAddButtonDemo />
+      <StockOperationsFieldsDemo />
+      <LargeScreenComponentsDemo />
+      <DashboardShortcutConfigModalDemo />
+      <VoiceBroadcastSettingsPanelDemo />
+      <StockCountLineFormListDemo />
+      <StockCountDocumentComponentsDemo />
+      <StockCountDetailLedgerDemo />
+      <StockTransferDetailLedgerDemo />
+      <StockConversionDetailLedgerDemo />
+      <ScheduleComponentsDemo />
+      <TraceTimelineDrawerDemo />
+      <QualityInspectionItemResultFieldsDemo />
+      <QualityInspectionWorkflowDemo />
+      <ProcessOperationInspectionRulesFormDemo />
+      <FqcRulesPanelDemo />
+      <QualityInspectionAiAnalysisCardDemo />
+      <QualityInspectionOqcSourceDeliveryCardDemo />
+      <QualityTemplateItemsEditorDemo />
+      <ScrapDeductionPolicySectionsDemo />
+      <IncomingInspectionPolicyCardDemo />
+      <SaleReturnComponentsDemo />
+      <DocumentViewSwitchPresetsDemo />
+      <SalesOutboundComponentsDemo />
+      <SalesDeliveryComponentsDemo />
+      <SalesDetailLedgerComponentsDemo />
+      <PackageManagementComponentsDemo />
+      <FundsExpenseComponentsDemo />
+      <CustomerOrderPortalQrModalDemo />
+      <PurchaseWorkflowComponentsDemo />
+      <BomExpansionCreateModalDemo />
+      <ReverseLandedCostModalDemo />
+      <LandedCostComponentsDemo />
+      <WorkOrderReportingComponentsDemo />
+      <WorkOrderProductionComponentsDemo />
+      <OutsourcingComponentsDemo />
+      <ReportLogDetailDrawerDemo />
+      <ReportDynamicFieldsDemo />
+      <WorkOrderFilterDrawerDemo />
+      <WorkOrderSupportComponentsDemo />
+      <ProductionScheduleComponentsDemo />
+      <ProductionScheduleWorkflowsDemo />
+      <ProductionShiftCalendarComponentsDemo />
+      <PaymentStatementActionComponentsDemo />
+      <AccountingWorkflowComponentsDemo />
+      <AccountingInventoryProductCostDemo />
+      <AccountingLedgerImportAndAccrualDemo />
+      <ScheduleRescheduleComponentsDemo />
+      <QuotationComponentsDemo />
+      <FinanceActionComponentsDemo />
 
     </Space>
   );

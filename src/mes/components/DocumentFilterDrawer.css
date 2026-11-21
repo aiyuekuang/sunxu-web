@@ -1,0 +1,39 @@
+.document-filter-drawer .document-filter-drawer-body {
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+.document-filter-drawer .document-filter-drawer-content {
+  display: flex;
+  flex: 1;
+  flex-direction: column;
+  min-height: 0;
+  overflow-y: auto;
+  overscroll-behavior: contain;
+}
+
+/* QueryFilter already owns its 24px horizontal gutter. */
+.document-filter-drawer .document-filter-drawer-actions-col {
+  display: none;
+}
+
+/* Plain ProForm has no QueryFilter gutter; match the same 24px spacing. */
+.document-filter-drawer .ant-pro-form:not(.ant-pro-query-filter) {
+  padding: 24px;
+}
+
+.document-filter-drawer .document-filter-drawer-footer {
+  flex: none;
+  padding: 12px 24px;
+}
+
+.document-filter-drawer .document-filter-drawer-footer:empty {
+  display: none;
+}
+
+.document-filter-drawer .document-filter-drawer-actions {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}

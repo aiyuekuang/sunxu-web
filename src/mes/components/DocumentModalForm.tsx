@@ -2,7 +2,10 @@ import { CloseOutlined, MinusOutlined } from '@ant-design/icons';
 import { ModalForm, type ModalFormProps } from '@ant-design/pro-components';
 import type { ModalProps } from 'antd';
 import React from 'react';
-import { mergeMesDocumentModalStyles } from '../documentModalStyles';
+import {
+  mergeMesDocumentModalPanelStyle,
+  mergeMesDocumentModalStyles,
+} from '../documentModalStyles';
 
 function resolveDocumentMask(
   mask: ModalProps['mask'],
@@ -56,6 +59,11 @@ export function DocumentModalForm<
     isFullScreen && modalProps?.getContainer === undefined;
   const shouldUseViewportFullscreen =
     viewportFullscreen && shouldRenderInsideTab;
+  const overlayLayout = shouldRenderInsideTab
+    ? shouldUseViewportFullscreen
+      ? 'viewport'
+      : 'tab'
+    : undefined;
   const modalWidth = isFullScreen ? '100%' : resolvedWidth;
 
   const titleText = typeof title === 'string' ? title : '未完成单据';
@@ -128,16 +136,12 @@ export function DocumentModalForm<
             ? false
             : modalProps?.getContainer,
           styles: isFullScreen
-            ? mergeMesDocumentModalStyles(modalProps?.styles)
+            ? mergeMesDocumentModalStyles(modalProps?.styles, {
+                overlay: overlayLayout,
+              })
             : modalProps?.styles,
           style: isFullScreen
-            ? {
-                top: 0,
-                height: '100%',
-                maxWidth: '100%',
-                margin: 0,
-                ...modalProps?.style,
-              }
+            ? mergeMesDocumentModalPanelStyle(modalProps?.style)
             : modalProps?.style,
           rootClassName: [
             shouldUseViewportFullscreen

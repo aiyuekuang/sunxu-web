@@ -1,0 +1,30 @@
+.mes-custom-field-panel {
+  min-height: 120px;
+}
+
+.mes-custom-field-panel-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-height: 32px;
+  margin-bottom: 8px;
+}
+
+.mes-custom-field-panel-empty {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  min-height: 132px;
+  padding: 20px 12px;
+  border: 1px dashed var(--ant-color-border-secondary, #d9d9d9);
+  border-radius: 6px;
+  background: var(--ant-color-bg-container, #fff);
+}
+
+.mes-custom-field-panel-empty .ant-empty {
+  margin: 0;
+}
+
+.mes-custom-field-panel-empty .ant-empty-footer {
+  margin-top: 12px;
+}

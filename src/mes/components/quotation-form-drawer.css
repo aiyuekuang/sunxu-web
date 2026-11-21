@@ -1,0 +1,174 @@
+.quotation-form-drawer .mes-modal-body {
+  background: #f7f8fa;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-item-card {
+  border-color: #e5e7eb !important;
+  border-radius: 8px !important;
+  background: #fff !important;
+  box-shadow: 0 1px 2px rgba(15, 23, 42, 0.04);
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-item-card-header {
+  margin-bottom: 14px !important;
+  padding-bottom: 10px;
+  border-bottom: 1px solid #f0f0f0;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-item-main {
+  display: grid !important;
+  grid-template-columns: minmax(280px, 320px) 112px 132px 148px;
+  gap: 12px !important;
+  align-items: flex-start !important;
+}
+
+.quotation-form-drawer
+  .quotation-item-editor
+  .quotation-item-main[data-material-hidden='true'] {
+  grid-template-columns: 112px 132px 148px;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-item-main > .ant-space {
+  width: 100%;
+  min-width: 0 !important;
+}
+
+.quotation-form-drawer
+  .quotation-item-editor
+  .quotation-item-main
+  > .ant-space
+  .ant-select,
+.quotation-form-drawer
+  .quotation-item-editor
+  .quotation-item-main
+  .ant-input-number {
+  width: 100% !important;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-item-mode {
+  width: 148px;
+}
+
+.quotation-form-drawer
+  .quotation-item-editor
+  .quotation-item-mode
+  .ant-segmented-item {
+  min-width: 64px;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-item-below {
+  margin-top: 14px !important;
+  padding-top: 14px;
+  border-top: 1px dashed #e5e7eb;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-item-extra {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-item-temp-grid {
+  display: grid;
+  grid-template-columns: minmax(160px, 0.8fr) minmax(200px, 1fr) minmax(240px, 1.2fr);
+  gap: 12px;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-item-assist-grid {
+  display: grid;
+  grid-template-columns: 226px minmax(0, 1fr);
+  gap: 16px;
+  align-items: flex-start;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-item-field-label {
+  margin-bottom: 8px;
+  color: rgba(0, 0, 0, 0.65);
+  font-size: 13px;
+  line-height: 22px;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-image-upload {
+  min-width: 0;
+}
+
+.quotation-form-drawer
+  .quotation-item-editor
+  .quotation-image-upload
+  .ant-upload-wrapper.ant-upload-picture-card-wrapper {
+  width: 100%;
+}
+
+.quotation-form-drawer
+  .quotation-item-editor
+  .quotation-image-upload
+  .ant-upload-list-picture-card
+  .ant-upload-list-item-container,
+.quotation-form-drawer
+  .quotation-item-editor
+  .quotation-image-upload
+  .ant-upload.ant-upload-select {
+  width: 96px !important;
+  height: 96px !important;
+  margin: 0 8px 8px 0 !important;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-upload-trigger {
+  display: flex;
+  width: 100%;
+  height: 100%;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  color: #1677ff;
+  font-size: 14px;
+  line-height: 20px;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-item-remark .ant-input {
+  min-height: 96px;
+}
+
+.quotation-form-drawer .quotation-item-editor .quotation-item-add {
+  height: 40px;
+  padding: 0 18px;
+  border-radius: 8px;
+}
+
+@media (max-width: 900px) {
+  .quotation-form-drawer .quotation-item-editor .quotation-item-main {
+    grid-template-columns: minmax(260px, 320px) 112px 132px;
+  }
+
+  .quotation-form-drawer
+    .quotation-item-editor
+    .quotation-item-main[data-material-hidden='true'] {
+    grid-template-columns: 112px 132px 148px;
+  }
+
+  .quotation-form-drawer .quotation-item-editor .quotation-item-mode {
+    width: 148px;
+  }
+
+  .quotation-form-drawer .quotation-item-editor .quotation-item-assist-grid {
+    grid-template-columns: 1fr;
+  }
+}
+
+@media (max-width: 640px) {
+  .quotation-form-drawer .quotation-item-editor .quotation-item-main,
+  .quotation-form-drawer .quotation-item-editor .quotation-item-temp-grid {
+    grid-template-columns: 1fr;
+  }
+
+  .quotation-form-drawer
+    .quotation-item-editor
+    .quotation-item-main[data-material-hidden='true'] {
+    grid-template-columns: 1fr;
+  }
+
+  .quotation-form-drawer .quotation-item-editor .quotation-item-mode {
+    width: 100%;
+  }
+}
