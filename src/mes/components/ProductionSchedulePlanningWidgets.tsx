@@ -1259,14 +1259,16 @@ export const UnscheduledPanel = memo(function UnscheduledPanel({
                     </Space>
                   ) : null}
                 </div>
-                <Button
-                  type="link"
-                  size="small"
-                  className="sunxu-mes-unscheduled-schedule-action"
-                  onClick={() => capabilities.activateWorkOrder(workOrder)}
-                >
-                  {capabilities.labels.scheduleAction}
-                </Button>
+                {capabilities.activateWorkOrder ? (
+                  <Button
+                    type="link"
+                    size="small"
+                    className="sunxu-mes-unscheduled-schedule-action"
+                    onClick={() => capabilities.activateWorkOrder?.(workOrder)}
+                  >
+                    {capabilities.labels.scheduleAction}
+                  </Button>
+                ) : null}
               </div>
             );
           })}

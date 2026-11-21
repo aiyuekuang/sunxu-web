@@ -495,6 +495,9 @@ export interface ProductionScheduleGanttViewProps {
   timelineStart: import('dayjs').Dayjs;
   timelineEnd: import('dayjs').Dayjs;
   showCapacity?: boolean;
+  capacityPlacement?: 'top' | 'bottom';
+  unscheduledPlacement?: 'top' | 'side';
+  selectEntryOnContextMenu?: boolean;
   capacityData?: readonly CapacitySummaryPoint[] | null;
   heatMax?: number;
   selectedEntryId?: string | null;

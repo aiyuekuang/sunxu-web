@@ -173,7 +173,12 @@ export type CalendarMessageKey =
   | 'timeFormatInvalid'
   | 'timeRangeEqual';
 
-export type CalendarShiftMessageSet = Readonly<Record<CalendarMessageKey, string>>;
+export type CalendarShiftMessageSet = Readonly<
+  Record<CalendarMessageKey, string> & {
+    exceptionStartTimeRequired?: string;
+    exceptionEndTimeRequired?: string;
+  }
+>;
 
 export type CalendarPermission = 'create' | 'edit' | 'delete' | 'viewHistory';
 
@@ -197,6 +202,8 @@ export interface ProductionShiftCalendarCapabilities {
   notifySuccess: (message: string) => void;
   notifyError: (message: string) => void;
   permissions: Readonly<Record<CalendarPermission, boolean>>;
+  shiftPermissions?: Readonly<Record<CalendarPermission, boolean>>;
+  exceptionPermissions?: Readonly<Record<CalendarPermission, boolean>>;
   workCenterOptions: readonly CalendarSelectOption[];
   supplierOptions: readonly CalendarSelectOption[];
   requestResourceOptions: (

@@ -514,8 +514,18 @@ export function ExceptionFormModal({
       return false;
     }
     if (!isAllDay) {
-      if (!startTime || !endTime) {
-        capabilities.notifyError(capabilities.messages.allDayTimeRequired);
+      if (!startTime) {
+        capabilities.notifyError(
+          capabilities.messages.exceptionStartTimeRequired
+            ?? capabilities.messages.allDayTimeRequired,
+        );
+        return false;
+      }
+      if (!endTime) {
+        capabilities.notifyError(
+          capabilities.messages.exceptionEndTimeRequired
+            ?? capabilities.messages.allDayTimeRequired,
+        );
         return false;
       }
       if (!TIME_REGEX.test(startTime) || !TIME_REGEX.test(endTime)) {
@@ -633,7 +643,11 @@ export function ExceptionFormModal({
               {...fieldProps(capabilities, 'exceptionStartTime')}
               placeholder="例如 08:00"
               rules={[
-                { required: true, message: capabilities.messages.allDayTimeRequired },
+                {
+                  required: true,
+                  message: capabilities.messages.exceptionStartTimeRequired
+                    ?? capabilities.messages.allDayTimeRequired,
+                },
                 { pattern: TIME_REGEX, message: capabilities.messages.timeFormatInvalid },
               ]}
             />
@@ -642,7 +656,11 @@ export function ExceptionFormModal({
               {...fieldProps(capabilities, 'exceptionEndTime')}
               placeholder="例如 20:00"
               rules={[
-                { required: true, message: capabilities.messages.allDayTimeRequired },
+                {
+                  required: true,
+                  message: capabilities.messages.exceptionEndTimeRequired
+                    ?? capabilities.messages.allDayTimeRequired,
+                },
                 { pattern: TIME_REGEX, message: capabilities.messages.timeFormatInvalid },
                 ({ getFieldValue }) => ({
                   validator(_rule, value?: string) {
@@ -751,7 +769,7 @@ export function ShiftTable({ capabilities, refreshKey, supplierId }: CalendarTab
   const [modalOpen, setModalOpen] = useState(false);
   const [editingShift, setEditingShift] = useState<ShiftCalendarRecord | null>(null);
   const [historyTarget, setHistoryTarget] = useState<CalendarHistoryTarget | null>(null);
-  const can = capabilities.permissions;
+  const can = capabilities.shiftPermissions ?? capabilities.permissions;
   const lastRefreshContext = useRef({ refreshKey, supplierId });
   const fixedSupplierId = supplierId;
 
@@ -891,7 +909,7 @@ export function ExceptionTable({ capabilities, refreshKey, supplierId }: Calenda
   const [modalOpen, setModalOpen] = useState(false);
   const [editingException, setEditingException] = useState<CalendarExceptionRecord | null>(null);
   const [historyTarget, setHistoryTarget] = useState<CalendarHistoryTarget | null>(null);
-  const can = capabilities.permissions;
+  const can = capabilities.exceptionPermissions ?? capabilities.permissions;
   const lastRefreshContext = useRef({ refreshKey, supplierId });
   const fixedSupplierId = supplierId;
 

@@ -43,6 +43,9 @@ export function ProductionScheduleGanttView({
   timelineStart,
   timelineEnd,
   showCapacity = true,
+  capacityPlacement = 'top',
+  unscheduledPlacement = 'top',
+  selectEntryOnContextMenu = true,
   capacityData,
   heatMax = 0,
   selectedEntryId,
@@ -131,7 +134,7 @@ export function ProductionScheduleGanttView({
   }, [onAnalysisQueryChange, state.customerId, state.drillPath, state.endDate, state.keyword, state.startDate, state.statusFilter, state.workCenterType, state.zoom]);
   const onBarContextMenu = (event: MouseEvent, entry: ScheduleEntryRecord) => {
     event.preventDefault();
-    onSelectEntry(entry);
+    onSelectEntry(selectEntryOnContextMenu ? entry : null);
     setContext({ entry, x: event.clientX, y: event.clientY });
   };
   const handleFullscreen = async () => {
@@ -301,8 +304,8 @@ export function ProductionScheduleGanttView({
       </div>
       {error && <Alert type="error" showIcon style={{ margin: 12 }} message={error} />}
       {!loading && productionDayWarnings > 0 && <Alert type="warning" showIcon style={{ margin: 12 }} message={`${productionDayWarnings} 条排产未命中班次日历，按所选日期内的计划时间保留显示。请在条目提示中核对生产日归属。`} />}
-      {showCapacity && <CapacityBar data={capacityData ?? null} loading={loading && !rows.length} resourcePanelWidth={resourcePanelWidth} timelineWidth={timelineWidth} dayPixelWidth={cellWidth} capabilities={capacityCapabilities} />}
-      {showUnscheduled && <div style={{ maxHeight: 260, overflow: 'auto', borderBottom: `1px solid ${token.colorBorderSecondary}` }}><UnscheduledPanel refreshKey={refreshKey} capabilities={unscheduledCapabilities} /></div>}
+      {showCapacity && capacityPlacement === 'top' && <CapacityBar data={capacityData ?? null} loading={loading && !rows.length} resourcePanelWidth={resourcePanelWidth} timelineWidth={timelineWidth} dayPixelWidth={cellWidth} capabilities={capacityCapabilities} />}
+      {showUnscheduled && unscheduledPlacement === 'top' && <div style={{ maxHeight: 260, overflow: 'auto', borderBottom: `1px solid ${token.colorBorderSecondary}` }}><UnscheduledPanel refreshKey={refreshKey} capabilities={unscheduledCapabilities} /></div>}
       {loading && !rows.length ? <div style={{ minHeight: 260, display: 'grid', placeItems: 'center' }}><Spin size="large" /></div> : null}
       {!loading && rows.length === 0 ? <div style={{ minHeight: 260, display: 'grid', placeItems: 'center' }}><Empty description={labels.empty} /></div> : null}
       {rows.length > 0 && (
@@ -329,10 +332,12 @@ export function ProductionScheduleGanttView({
               </div>
             </div>
           </section>
+          {showUnscheduled && unscheduledPlacement === 'side' && <div style={{ width: 280, minWidth: 280, flexShrink: 0, maxHeight: '100%', overflow: 'auto', borderLeft: `1px solid ${token.colorBorderSecondary}` }}><UnscheduledPanel refreshKey={refreshKey} capabilities={unscheduledCapabilities} /></div>}
           {selectedEntry && <div style={{ width: 330, minWidth: 330, borderLeft: `1px solid ${token.colorBorderSecondary}`, overflow: 'auto' }}><GanttInspector entry={selectedEntry} model={getInspectorModel(selectedEntry)} onClose={() => onSelectEntry(null)} capabilities={{ onAction: onInspectorAction }} /></div>}
           <GanttContextMenu visible={!!context} x={context?.x ?? 0} y={context?.y ?? 0} entry={context?.entry ?? null} items={context ? getContextMenuItems(context.entry) : []} onClose={() => setContext(null)} capabilities={{ menuLabel: '排产记录操作', onAction: (entry, key) => { onContextAction(entry, key); setContext(null); }, restoreFocus: restoreContextMenuFocus }} />
         </div>
       )}
+      {showCapacity && capacityPlacement === 'bottom' && !isHeatmap && !loading && rows.length > 0 && <CapacityBar data={capacityData ?? null} loading={false} resourcePanelWidth={resourcePanelWidth} timelineWidth={timelineWidth} dayPixelWidth={cellWidth} capabilities={capacityCapabilities} />}
     </div>
   );
 }

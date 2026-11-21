@@ -338,7 +338,8 @@ export interface UnscheduledPanelCapabilities {
   ) => void;
   formatUnit: (unitCode?: string) => string;
   formatDueDate: (date: string) => string;
-  activateWorkOrder: (workOrder: UnscheduledWorkOrder) => void;
+  /** Optional direct scheduling action; omit it when cards should only be draggable. */
+  activateWorkOrder?: (workOrder: UnscheduledWorkOrder) => void;
   reportLoadError: (error: unknown) => void;
   labels: UnscheduledPanelLabels;
 }

@@ -158,7 +158,7 @@
 | `ProductionShiftCalendar` / `ShiftFormModal` / `ShiftTable` / `ExceptionFormModal` / `ExceptionTable` | 维护按公司/工作中心/供应商归属的班次和日期例外，保留校验、服务端分页筛选、权限动作及历史入口 | ProForm / AntD Table / `ShiftBreakListField` / `ChangeHistoryModal`；CRUD、选项、权限、字段帮助、通知与删除确认由宿主注入 |
 | `ProcessOperationInspectionRulesForm` | 配置工艺/标准工序的默认 IPQC 模板与物料专属模板，保留历史条件规则 | AntD Form / `MaterialFilteredSelect` / `RemoteSelect`；活动物料/IPQC 模板查询、配置入口与错误反馈由宿主注入 |
 | `RescheduleDrawer` / `ChangeHistoryModal` | 配置生产重排策略、预览影响并筛选风险明细，查看排程历史 | AntD Drawer / Modal + ProForm / MES 表格；权限、状态/原因字典、来源查询、预览/提交/历史服务和导航由宿主注入 |
-| `CapacityBar` / `GanttBar` / `GanttContextMenu` / `GanttInspector` / `GanttToolbar` / `GanttTooltip` / `UnscheduledPanel` | 绘制产能与排程条，支持条目拖拽/缩放/选择、上下文动作、详情检查、时间窗口与筛选，以及待排产区拖放/安排入口 | 语义 HTML / AntD；几何、时间、状态/颜色/标签、权限过滤后的动作、数据查询、拖放提交和路由由宿主注入 |
+| `CapacityBar` / `GanttBar` / `GanttContextMenu` / `GanttInspector` / `GanttToolbar` / `GanttTooltip` / `UnscheduledPanel` | 绘制产能与排程条，支持条目拖拽/缩放/选择、上下文动作、详情检查、时间窗口与筛选，以及待排产区拖放；待排产区和产能条位置、右键是否选择条目由宿主配置 | 语义 HTML / AntD；几何、时间、状态/颜色/标签、权限过滤后的动作、数据查询、拖放提交和路由由宿主注入 |
 | 排程工作流组件（自动/计划排产、瓶颈、方案比较、手工排程、台账、甘特） | 保留排程参数与策略选择、计划工单/委外摘要、瓶颈计划/实际比较、What-if 方案采纳、工序/资源/班次选择、台账筛选/排序/状态动作与甘特拖放/缩放/下钻 | AntD / Pro Components 与 MES 甘特子组件；排产/计划 API、权限、字典、导航、错误/消息、刷新和拖拽提交由宿主 capabilities 注入 |
 | `BatchReleaseModal` | 编辑生产计划批量下达草稿的数量与交期，保留受保护行筛选和提交后刷新 | Pro `ModalForm` / `ProFormList`；草稿查询/保存、日期序列化和成功提示由宿主注入 |
 | `ImportDrawer` | 下载模板、上传 Excel、提交 Base64 文件、显示导入计数/错误并允许继续导入 | AntD `Drawer` / `Upload.Dragger` / `Result`；模板/导入服务及成功刷新由调用方提供 |
@@ -541,14 +541,14 @@
 - **自动/计划排产**：`AutoScheduleDrawer` 保留排产算法、方向、派工规则与缓冲策略，候选工单分页搜索、预览/结果、工序安排和 BOM 外协摘要；`ScheduleFromPlansDrawer` 保留计划/工单树、筛选、已排状态、委外行、结果和刷新回调。策略、查询/预览/提交 API、权限、状态标签和错误消息由宿主注入。
 - **分析/方案**：`BottleneckPanel` 保留日期范围、瓶颈计划/实际工时与利用率；`ScenarioCompare` 保留方案指标比较、当前基线、风险/改进量、选择并采纳回调。方案组件维持 MES 请求契约，不额外提交仅用于展示的 `bufferRatio`。
 - **手工排程/台账**：`EntryFormDrawer` 保留工单扫码/选择、工序、资源、日期、班次、设备与工作中心联动、加载/验证和提交回调；`EntryList` 保留搜索/状态筛选、服务端分页/排序、复制/编辑/删除/批量状态动作及确认。工单/工序/资源/班次请求、状态与权限、字段帮助、消息、删除确认、刷新和路由由宿主注入。
-- **甘特**：`ProductionScheduleGanttView` 与现有 `ProductionSchedulePlanningWidgets`、`ScheduleGanttWidgets` 组合，保留时间窗口/缩放/下钻、热力/产能、条目拖拽/缩放/选择、资源泳道、待排项拖入/单击安排、上下文动作与阻止行告警；跨资源拖拽按最终资源分别提交，清空设备时保留合法空资源状态。甘特数据、日期计算、资源/状态呈现、权限动作、路由与拖拽提交由宿主注入。
+- **甘特**：`ProductionScheduleGanttView` 与现有 `ProductionSchedulePlanningWidgets`、`ScheduleGanttWidgets` 组合，保留时间窗口/缩放/下钻、热力/产能、条目拖拽/缩放/选择、资源泳道、待排项拖入、上下文动作与阻止行告警；跨资源拖拽按最终资源分别提交，清空设备时保留合法空资源状态。待排产面板位置、容量条位置及右键选中行为可由宿主配置。甘特数据、日期计算、资源/状态呈现、权限动作、路由与拖拽提交由宿主注入。
 - **来源证据**：7 个源文件 SHA-256：AutoScheduleDrawer `08941101d38bff06dc7328c25b226865b4e8165e8809fb9996870b64122a93c8`；BottleneckPanel `de6e647cd338866ea5323c1da7aa80c39de42aeefc9a385420756d3f1445d3fa`；EntryFormDrawer `a46a491d26461ce576df623c63565fcbc3db3c0f485b506c4d25f56690bafbd2`；EntryList `9a529de6083995d161179bb318f0a6be6162daf9063a1f5948be2d3d179bb284`；ScenarioCompare `6ab0eec2a4f0daaa3c4a0393c7315f7d43655871e4492b7fe84837f63bab7047`；ScheduleFromPlansDrawer `b7b4ae680ae2a67c2e47ddf84985defb2e54e35699aecd799931e2fb96513437`；GanttView `b5b628b32bcf2a75e1a115222565fc24111e4d0f3113f03eea81a32fbd2e2e16`。Catalog `ProductionScheduleWorkflowsDemo` 以七个标签页和本地 capabilities 展示工作流；真实 MES 路由、API/权限接线和视口验收因 UV 暂停保持 `UNVERIFIED`。
 
 #### `ProductionShiftCalendar` 班次与例外日历
 
 - 班次表单保留归属范围、班次名称/类型、计薪系数、工作日、开始/结束时间、跨天、休息时段、生效日期和启用状态；结束日期早于开始日期时阻止提交。工作中心/供应商切换及空值序列化沿用 MES 行为。
 - 例外表单保留固定节假日/维护/加班类型、单日或日期范围、全天/时段及班次关联；日期顺序、必填日期/时间和非全天时段校验不变。班次和例外列表都保留服务端筛选/分页、刷新、授权创建/编辑/删除、删除确认与变更记录入口。
-- `ProductionShiftCalendarCapabilities` 注入读写 API、归属/班次选项、权限、字段帮助、消息、删除确认和历史查询；UI 不访问 MES API 或权限码。Catalog 的 `ProductionShiftCalendarComponentsDemo` 使用本地确定性数据。
+- `ProductionShiftCalendarCapabilities` 注入读写 API、归属/班次选项、权限、字段帮助、消息、删除确认和历史查询；UI 不访问 MES API 或权限码。`shiftPermissions` 与 `exceptionPermissions` 分别控制两张表的新增、编辑、删除和历史入口；未提供时兼容使用 `permissions`。非全天例外的开始/结束时间必填消息可分别通过 `messages.exceptionStartTimeRequired` 与 `messages.exceptionEndTimeRequired` 覆盖；未提供时沿用 `messages.allDayTimeRequired`。Catalog 的 `ProductionShiftCalendarComponentsDemo` 使用本地确定性数据。
 - 五个源文件 SHA-256：日历 `274ea16f10ed7b30152f6c4bf21752808b9a60efe65ae44a26e423c47418d163`、班次表单 `888ef4738315e6d45de2027e3977c7778cfb226bd54b8bfa873fd234aaea32b2`、班次列表 `c832820b47e7367af04be59f6c8aea480ab765e5470b857c8eabb05cc7ebad54`、例外表单 `dd7ab48d0d3843f855197bf2a8c833c7dacafcf987a28e207a74b865add19ce7`、例外列表 `0dfe53bf40ebca8eab167d63a9612312f018aae11c05c07e143055463c1ac715`。真实 API/权限接线和浏览器视口验收为 `UNVERIFIED`。
 
 #### MES 首页快捷入口与工单生产组件

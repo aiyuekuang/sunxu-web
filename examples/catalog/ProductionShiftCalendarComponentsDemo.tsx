@@ -33,6 +33,8 @@ const messageSet: CalendarShiftMessageSet = {
   typeRequired: '请选择类型',
   endDateBeforeStart: '结束日期不能早于开始日期',
   allDayTimeRequired: '非全天例外必须填写开始和结束时间',
+  exceptionStartTimeRequired: '请填写开始时间',
+  exceptionEndTimeRequired: '请填写结束时间',
   timeFormatInvalid: '时间格式必须为 HH:mm',
   timeRangeEqual: '开始时间不能与结束时间相同',
 };
@@ -285,6 +287,8 @@ export function ProductionShiftCalendarComponentsDemo() {
       notifySuccess,
       notifyError,
       permissions: { create: true, edit: true, delete: true, viewHistory: true },
+      shiftPermissions: { create: true, edit: true, delete: true, viewHistory: true },
+      exceptionPermissions: { create: true, edit: true, delete: true, viewHistory: true },
       workCenterOptions: workCenters,
       supplierOptions: suppliers,
       requestResourceOptions: async (target, keyword = '') => {
