@@ -50,10 +50,13 @@ export type MaterialScrapDeductionUpdate =
       deductionFixedAmount: number | null;
     };
 
-export interface ScrapDeductionPolicyCapabilities {
+export interface CompanyScrapDeductionPolicyCapabilities {
   loadCompanyPolicy: () => Promise<LaborDeductionPolicyValues | null>;
   updateCompanyPolicy: (values: LaborDeductionPolicyValues) => Promise<void>;
   notifyCompanyPolicySaved: () => void;
+}
+
+export interface MaterialScrapDeductionPolicyCapabilities {
   loadMaterialPolicy: (
     materialId: string,
   ) => Promise<MaterialScrapDeductionDetail | null>;
@@ -61,10 +64,15 @@ export interface ScrapDeductionPolicyCapabilities {
   notifyMaterialPolicySaved: () => void;
 }
 
+/** Combined contract for hosts that render both company and material policy sections. */
+export interface ScrapDeductionPolicyCapabilities
+  extends CompanyScrapDeductionPolicyCapabilities,
+    MaterialScrapDeductionPolicyCapabilities {}
+
 export type ScrapDeductionPolicySectionProps = {
   canView: boolean;
   canUpdate: boolean;
-  capabilities: ScrapDeductionPolicyCapabilities;
+  capabilities: CompanyScrapDeductionPolicyCapabilities;
 };
 
 /**
@@ -205,7 +213,7 @@ export function ScrapDeductionPolicySection({
 export type MaterialScrapDeductionPolicySectionProps = {
   materialId: string;
   canEdit: boolean;
-  capabilities: ScrapDeductionPolicyCapabilities;
+  capabilities: MaterialScrapDeductionPolicyCapabilities;
 };
 
 const MATERIAL_SCRAP_DEDUCTION_INITIAL_VALUES: MaterialScrapDeductionFormValues = {
