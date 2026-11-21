@@ -49,6 +49,7 @@ const capabilities: MesDocumentBomOpenCapabilities = {
       parseExcel: async () => ({ rows: [] }),
       downloadImportTemplate: async () => new Blob(),
       searchMaterials: async () => [],
+      searchSelectableMaterials: async () => [],
     },
     dictionaries: {
       unitOptions: [{ label: '件', value: '件' }],

@@ -2140,7 +2140,7 @@ export function DocumentBomDrawer({
                   ) : (
                     capabilities.materials.renderSelector({
                       request: async (params) => {
-                        const materials = await capabilities.api.searchMaterials({
+                        const materials = await capabilities.api.searchSelectableMaterials({
                           keyword: params?.keyWords ?? '',
                           page: 1,
                           pageSize: 10,

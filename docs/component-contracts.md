@@ -583,8 +583,8 @@
 
 - **职责 / 层级**：以链接按钮打开当前单据 BOM；无单据 ID 或宿主无查看权限时显示 `—`。
 - **交互 / 权限**：保留“查看单据 BOM”默认文案、按钮属性覆盖及 `initialEdit` / `initialImport` 快捷入口；快捷入口无更新权限时降级为只读文案并清除编辑/导入意图，且保留文件图标。可编辑能力只在 `editable` 与更新权限同时满足时传入抽屉。
-- **边界**：Sunxu MES 套件提供查看/编辑/导入抽屉、层级明细、排除/恢复、路线、单位、自定义字段、粘贴与 Excel 导入、校验和两阶段保存交互。宿主通过 `MesUiProvider.documentBomOpenCapabilities` 注入权限、API、字典、字段 schema、路线策略、文件和物料选择器；宿主也可暂时提供旧式 `renderDrawer` 适配器。
-- **证据**：MES 源 SHA-256 为 `b4f7aabc71994a40be0b4a6d06647aed022e80a93e98a87b1e7046ca1a565846`；Catalog 接入完整抽屉与只读权限状态。未运行构建、测试或真实路由验收；视觉验收为 `UNVERIFIED`。
+- **边界**：Sunxu MES 套件提供查看/编辑/导入抽屉、层级明细、排除/恢复、路线、单位、自定义字段、粘贴与 Excel 导入、校验和两阶段保存交互。宿主通过 `MesUiProvider.documentBomOpenCapabilities` 注入权限、API、字典、字段 schema、路线策略、文件和物料选择器；`searchMaterials` 用于导入匹配，`searchSelectableMaterials` 用于仅展示启用物料的人工选择，保持两条业务路径的筛选口径；宿主也可暂时提供旧式 `renderDrawer` 适配器。
+- **证据**：MES 源 SHA-256 为 `fe7024f884b319177797c329b9c80d962e49455db42e074f790163dbefebf2fe`；组件类型检查与库/目录构建通过，Catalog 接入完整抽屉与只读权限状态。真实 MES 路由和浏览器视觉验收为 `UNVERIFIED`。
 
 #### 单据 Modal 样式适配
 

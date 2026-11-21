@@ -363,6 +363,11 @@ export interface DocumentBomDrawerCapabilities {
       page: 1;
       pageSize: 10;
     }) => Promise<DocumentBomMaterialRef[]>;
+    searchSelectableMaterials: (params: {
+      keyword: string;
+      page: 1;
+      pageSize: 10;
+    }) => Promise<DocumentBomMaterialRef[]>;
   };
   dictionaries: {
     unitOptions: readonly { label: string; value: string }[];
