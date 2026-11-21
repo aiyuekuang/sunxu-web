@@ -47,6 +47,8 @@ export interface SendActionModalProps<
   sendAction: (payload: TPayload, channel: TChannel) => Promise<unknown>;
   /** Fetches the email attachment as a PDF blob. Omit to hide the attachment row. */
   fetchAttachmentPdf?: (payload: TPayload) => Promise<unknown>;
+  /** Download adapter; if omitted, the attachment row keeps preview but hides download. */
+  downloadAttachment?: (value: unknown, filename: string) => void;
   getChannelIcon: (channel: TChannel) => ReactNode;
   getTagLabel: (option: TOption) => string;
   getShareTitle: (optionsData: TResponse | null) => string;
@@ -62,6 +64,8 @@ export interface SendAttachmentRowProps<TPayload> {
   previewable: boolean;
   /** Fetches the PDF attachment as a blob. */
   fetchPdf: (payload: TPayload) => Promise<unknown>;
+  /** Starts a browser download through the host application's file adapter. */
+  download?: (value: unknown, filename: string) => void;
   notifyError: (text: string) => void;
 }
 
@@ -80,6 +84,7 @@ export interface PurchaseOrderSendCapabilities {
     channel: PurchaseOrderSendChannel,
   ) => Promise<unknown>;
   fetchAttachmentPdf: (payload: { id: string }) => Promise<unknown>;
+  downloadAttachment: (value: unknown, filename: string) => void;
   notifications: SendActionNotifications;
 }
 

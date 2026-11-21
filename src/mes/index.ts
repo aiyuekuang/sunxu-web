@@ -133,6 +133,7 @@ export * from './components/LabelLayout';
 export * from './components/BusinessPrintTemplates';
 export * from './components/InfoCard';
 export * from './components/DetailHeader';
+export * from './components/MesDetailPageContainer';
 export * from './components/DetailTable';
 export * from './components/TabsPanel';
 export * from './components/BatchSelectionSummary';

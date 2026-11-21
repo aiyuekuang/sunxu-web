@@ -89,6 +89,7 @@ export function SendQuotationModal({
       fetchOptions={capabilities.fetchOptions}
       sendAction={capabilities.send}
       fetchAttachmentPdf={capabilities.fetchAttachmentPdf}
+      downloadAttachment={capabilities.downloadAttachment}
       getChannelIcon={channelIcon}
       getTagLabel={getTagLabel}
       getShareTitle={(optionsData) =>

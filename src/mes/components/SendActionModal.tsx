@@ -81,6 +81,7 @@ export function SendActionModal<
   fetchOptions,
   sendAction,
   fetchAttachmentPdf,
+  downloadAttachment,
   getChannelIcon,
   getTagLabel,
   getShareTitle,
@@ -248,6 +249,7 @@ export function SendActionModal<
               filename={optionsData.attachmentFilename}
               previewable={optionsData.attachmentPreviewable ?? false}
               fetchPdf={fetchAttachmentPdf}
+              download={downloadAttachment}
               notifyError={notifications.error}
             />
           ) : null}

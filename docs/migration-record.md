@@ -116,4 +116,11 @@
 - 本地开发 UI 因 `useAmountDisplay` 从未就绪的 access provider 读取 `canViewPrices` 而崩溃，且后端代理 `127.0.0.1:6033` 不可用；本批真实业务路由的截图、视口和 DOM 几何验收为 `UNVERIFIED`。Gantt 排程面板的响应式几何也需要在正常宿主会话中复核。
 - 这只是消费端替换进展，不代表 MES 所有共享组件引用都已迁完。尚余组件继续按原固定覆盖账本和逐模块 AST 导入盘点核销；迁移期间不得把 `HOST` 分类视为排除理由，宿主能力仍可通过 Sunxu capabilities 注入。
 
+## MES 公共控件与详情容器收口（2026-11-22）
+
+- 表单/字典控件复核确认请求、权限、字典状态、帮助文案、校验、只读与禁用属性均由既有 `sunxu-web/mes` 控件完整承载；修复配置入口链接可访问名称缺少可见操作文案的问题，并加入 SSR 回归覆盖权限隐藏与名称包含可见文案。
+- `SendAttachmentRow` 不再直接调用库内文件下载 helper。采购单和报价的附件下载由 Admin 宿主 `downloadAttachment` capability 执行；没有下载 capability 时仍可预览授权附件，但不显示下载按钮。无附件的对账单发送流程无需额外 capability。
+- 新增 `MesDetailPageContainer`，用于组合 `DetailScreenContainer`、MES 标题/状态/操作、面包屑、宿主审批节点、正文和固定页脚；数据加载、keep-alive、路由、权限与审批 API 仍由宿主拥有。`ListScreenContainer` 工具栏补齐窄宽换行约束，并保持在结果区紧邻位置。
+- SSR 呈现验证 10 项通过；Sunxu 类型检查和构建通过。MES 类型检查与生产构建在更新依赖提交后执行。真实浏览器点击流程、实际 MES 页面截图与 DOM 几何仍为 `UNVERIFIED`。
+
 detail-ledger 适配仍由 `src/pages/purchase/requisitions/detail-ledger.test.tsx`、`src/pages/warehouse/internal-issue/InternalIssueDetailLedger.test.ts`、`src/pages/system/print/components/grid-designer/GridPrintDesigner.test.tsx`、`src/pages/warehouse/material-issue/detail-ledger.test.tsx` 覆盖；本轮运行了 `src/pages/detail-ledger-filter-layout.test.ts`、销售报价明细、采购订单布局及采购入库明细相关测试。后续迁移继续复用这些宿主行为用例。

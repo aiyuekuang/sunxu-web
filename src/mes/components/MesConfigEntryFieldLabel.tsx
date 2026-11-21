@@ -24,7 +24,7 @@ export function MesConfigEntryLink({
       href={href}
       target="_blank"
       rel="noreferrer"
-      aria-label={`新标签页打开${label}`}
+      aria-label={`${actionText}：新标签页打开${label}`}
       onClick={(event) => {
         event.stopPropagation();
         onOpen?.();

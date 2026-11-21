@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Form, Input, Space, Typography } from 'antd';
+import { Alert, Button, Form, Input, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   BatchSelectionSummary,
@@ -8,6 +8,7 @@ import {
   DetailTable,
   FormDrawer,
   InfoCard,
+  MesDetailPageContainer,
   MesUiProvider,
   TabsPanel,
   type MesStatusEnum,
@@ -87,6 +88,34 @@ export function MesPatternComponentsDemo() {
             <Button type="primary" onClick={() => setDrawerOpen(true)}>打开表单抽屉</Button>
           </Space>
         </Space>
+      </SectionCard>
+
+      <SectionCard title="MES 详情页容器">
+        <MesDetailPageContainer
+          as="section"
+          frame="none"
+          title="SO-2026-0142"
+          status={{ value: records[0].status, enumMap: statusMap }}
+          onBack={() => undefined}
+          actions={<Button>编辑</Button>}
+          breadcrumbs={[{ title: '销售订单' }, { title: 'SO-2026-0142' }]}
+          approval={<Alert type="info" showIcon message="审批状态由宿主传入" />}
+          footer={
+            <Space>
+              <Button>取消</Button>
+              <Button type="primary">保存</Button>
+            </Space>
+          }
+        >
+          <InfoCard
+            title="单据信息"
+            data={records[0]}
+            fields={[
+              { label: '订单编号', dataIndex: 'documentNo' },
+              { label: '客户', dataIndex: 'partner' },
+            ]}
+          />
+        </MesDetailPageContainer>
       </SectionCard>
 
       <FormDrawer

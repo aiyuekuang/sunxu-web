@@ -2,7 +2,6 @@ import { DownloadOutlined, EyeOutlined, FilePdfOutlined } from '@ant-design/icon
 import { Button, Space, Tag, Typography } from 'antd';
 import { useCallback, useState } from 'react';
 import { PdfPreviewDrawer, type PdfPreviewFile } from './DrawingFilesInline';
-import { downloadBlob } from '../utils/downloadBlob';
 import type { SendAttachmentRowProps } from './send-action-modal-types';
 
 function isRecord(value: unknown): value is Record<string, unknown> {
@@ -39,6 +38,7 @@ export function SendAttachmentRow<TPayload>({
   filename,
   previewable,
   fetchPdf,
+  download,
   notifyError,
 }: SendAttachmentRowProps<TPayload>) {
   const [previewLoading, setPreviewLoading] = useState(false);
@@ -74,14 +74,15 @@ export function SendAttachmentRow<TPayload>({
   }, [loadBlob, filename]);
 
   const handleDownload = useCallback(async () => {
+    if (!download) return;
     setDownloadLoading(true);
     try {
       const blob = await loadBlob();
-      if (blob) downloadBlob(blob, filename);
+      if (blob) download(blob, filename);
     } finally {
       setDownloadLoading(false);
     }
-  }, [loadBlob, filename]);
+  }, [download, loadBlob, filename]);
 
   return (
     <div
@@ -115,15 +116,17 @@ export function SendAttachmentRow<TPayload>({
             >
               预览
             </Button>
-            <Button
-              size="small"
-              type="link"
-              icon={<DownloadOutlined aria-hidden="true" />}
-              loading={downloadLoading}
-              onClick={() => void handleDownload()}
-            >
-              下载
-            </Button>
+            {download ? (
+              <Button
+                size="small"
+                type="link"
+                icon={<DownloadOutlined aria-hidden="true" />}
+                loading={downloadLoading}
+                onClick={() => void handleDownload()}
+              >
+                下载
+              </Button>
+            ) : null}
           </>
         ) : (
           <Typography.Text type="secondary" style={{ fontSize: 12 }}>

@@ -145,6 +145,8 @@ export function QuotationComponentsDemo() {
         setLastAction(`已模拟报价发送渠道：${channel}`);
       },
       fetchAttachmentPdf: async () => new Blob([]),
+      downloadAttachment: (_value, filename) =>
+        message.info(`示例报价附件下载：${filename}`),
       notifications,
       getSubmitSuccessMessage: (channel) =>
         channel === 'email'

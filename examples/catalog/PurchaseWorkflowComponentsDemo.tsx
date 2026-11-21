@@ -203,6 +203,18 @@ function PurchaseWorkflowDemoContent() {
         setLastAction(`发送方式：${channel}`);
       },
       fetchAttachmentPdf: fetchDemoPdf,
+      downloadAttachment: (value, filename) => {
+        if (!(value instanceof Blob)) {
+          message.error('示例附件无效');
+          return;
+        }
+        const url = URL.createObjectURL(value);
+        const link = document.createElement('a');
+        link.href = url;
+        link.download = filename;
+        link.click();
+        URL.revokeObjectURL(url);
+      },
       notifications: {
         error: (text) => message.error(text),
         success: (text) => message.success(text),

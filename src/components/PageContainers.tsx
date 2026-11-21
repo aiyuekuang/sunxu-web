@@ -92,7 +92,14 @@ export function ListScreenContainer({
           breadcrumbs={breadcrumbs}
         />
       ) : null}
-      {toolbar ? <div className="sxw-list-screen__toolbar">{toolbar}</div> : null}
+      {toolbar ? (
+        <div
+          className="sxw-list-screen__toolbar"
+          style={{ minWidth: 0, flexWrap: 'wrap', gap: 8 }}
+        >
+          {toolbar}
+        </div>
+      ) : null}
       <section
         className={[
           'sxw-list-screen__results',

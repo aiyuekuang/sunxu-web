@@ -33,6 +33,7 @@ export interface SendQuotationCapabilities {
     channel: QuotationSendChannel,
   ) => Promise<unknown>;
   fetchAttachmentPdf: (payload: { id: string }) => Promise<unknown>;
+  downloadAttachment: (value: unknown, filename: string) => void;
   notifications: SendActionNotifications;
   getSubmitSuccessMessage: (channel: QuotationSendChannel) => string;
   getCopyWarningMessage: (channel: QuotationSendChannel) => string;

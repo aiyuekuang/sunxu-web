@@ -27,6 +27,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `MesStatusTag`（`sunxu-web/mes`） | 将宿主 MES 状态枚举映射为统一高对比只读标签；保留空/未知状态与 children 文案回退 |
 | `MesReportQuickRangeButtons`（`sunxu-web/mes`） | 报表快捷范围的受控 Segmented 选择；匹配规则、日期范围和数据刷新由宿主提供 |
 | `MesConfigEntryLink`、`MesConfigEntryFieldLabel`（`sunxu-web/mes`） | 在字段标签旁提供宿主授权的配置页新标签页链接；目标路由与权限结果由宿主提供 |
+| `MesDetailPageContainer`（`sunxu-web/mes`） | 组合详情页容器、MES 详情标题/状态/操作、面包屑、宿主审批插槽、正文和固定页脚；请求、路由、权限与审批服务由宿主保留 |
 | `MesConfigurableProFormSelect`（`sunxu-web/mes`） | 保留 MES ProForm 远程候选、空候选探测与配置页回访刷新；候选请求/依赖/授权/路由由宿主提供 |
 | `MesDictionaryProFormSelect`、`MesDictionaryFormItem`（`sunxu-web/mes`） | 将宿主字典选项、加载/错误/重试反馈接入 ProForm 或原生 Form Select；字典服务由宿主提供 |
 | `MesExportButton`、`MesExportDropdownButton`（`sunxu-web/mes`） | 保留导出 loading、宿主表格布局准备、单项/多项结果回调；权限、请求、通知与文件下载由宿主提供 |
@@ -57,7 +58,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `CustomerOrderPortalQrModal`（`sunxu-web/mes`） | 保留客户门户二维码、全局展示配置、字段选择和库存可见性设置；权限、请求、门户 URL、二维码 renderer 与消息由宿主注入 |
 | `VoiceBroadcastSettingsPanel`（`sunxu-web/mes`） | 保留大屏语音播报间隔、异常/生产事件类型设置、待播数量提示与清理已播记录；偏好存储和清理确认由宿主注入 |
 | `SendQuotationModal`、`QuotationFormDrawer`、`QuotationBindMaterialsModal`（`sunxu-web/mes`） | 保留报价编辑、邮件/分享发送、客户料号与物料绑定流程；价格、权限、字典、API 和上传由宿主注入 |
-| `PurchaseReceiptActionModal`、`PurchaseOrderViewSwitch`、`SendPurchaseOrderModal`、`RequisitionFormModal`、`CreateInquiryDrawer`、`ConvertToOrderDrawer`、`SendActionModal`、`SendAttachmentRow`（`sunxu-web/mes`） | 保留采购收货动作、采购单发送、请购编辑/询价/转订单和通用邮件附件交互；所有请求、权限与副作用由宿主注入 |
+| `PurchaseReceiptActionModal`、`PurchaseOrderViewSwitch`、`SendPurchaseOrderModal`、`RequisitionFormModal`、`CreateInquiryDrawer`、`ConvertToOrderDrawer`、`SendActionModal`、`SendAttachmentRow`（`sunxu-web/mes`） | 保留采购收货动作、采购单发送、请购编辑/询价/转订单和通用邮件附件交互；所有请求、权限、附件下载与副作用由宿主注入 |
 | `PurchaseInquiryActionModals`、`PurchaseOrderFilterDrawer`、`PurchaseOrderDetailFilterDrawer`（`sunxu-web/mes`） | 保留询价报价登记/比价/定标/物料绑定/转订单，以及采购订单列表和详情筛选；服务、选项、权限、查询与重置由宿主注入 |
 | `BomExpansionCreateModal`（`sunxu-web/mes`） | 保留 BOM 展开预览、来源/告警核对、物料行调整与生成请购单；预览/创建服务、物料候选、权限、单位字典和反馈由宿主注入 |
 | `BomImportWorkbenchDrawer`（`sunxu-web/mes`） | 保留 BOM 映射方案、mapped data 行诊断、物料候选确认/忽略与执行；导入服务、字典、字段帮助和反馈由宿主注入 |

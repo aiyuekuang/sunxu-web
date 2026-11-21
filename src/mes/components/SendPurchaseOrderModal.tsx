@@ -64,6 +64,7 @@ export function SendPurchaseOrderModal({
       fetchOptions={capabilities.fetchOptions}
       sendAction={capabilities.send}
       fetchAttachmentPdf={capabilities.fetchAttachmentPdf}
+      downloadAttachment={capabilities.downloadAttachment}
       notifications={capabilities.notifications}
       getChannelIcon={channelIcon}
       getTagLabel={getTagLabel}
