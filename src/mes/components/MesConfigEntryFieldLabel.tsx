@@ -39,7 +39,7 @@ export function MesConfigEntryLink({
 export interface MesConfigEntryFieldLabelProps
   extends Omit<MesConfigEntryLinkProps, 'label' | 'actionText'> {
   children: ReactNode;
-  /** Deprecated; visibility is driven by the host permission and route. */
+  /** Host-computed visibility for the shortcut; defaults to visible when permitted. */
   show?: boolean;
 }
 
@@ -48,9 +48,10 @@ export function MesConfigEntryFieldLabel({
   children,
   href,
   permitted,
+  show = true,
   onOpen,
 }: MesConfigEntryFieldLabelProps) {
-  if (!permitted || !href) return <>{children}</>;
+  if (!show || !permitted || !href) return <>{children}</>;
   const labelText = typeof children === 'string' ? children : '当前选项';
   return (
     <Space size={6} align="center" wrap={false}>

@@ -50,8 +50,9 @@ import { TextControlsPage } from './TextControlsPage';
 import { MesComponentSuitePage } from './MesComponentSuitePage';
 import { TableSummaryPage } from './TableSummaryPage';
 import { ResizableTablePage } from './ResizableTablePage';
+import { MesHostInjectedControlsDemo } from './MesHostInjectedControlsDemo';
 
-type PageKey = 'overview' | 'tokens' | 'containers' | 'mappings' | 'states' | 'text-controls' | 'editable-table' | 'crud-workbench' | 'table-summary' | 'mes-suite' | 'resizable-table';
+type PageKey = 'overview' | 'tokens' | 'containers' | 'mappings' | 'states' | 'text-controls' | 'editable-table' | 'crud-workbench' | 'table-summary' | 'mes-suite' | 'mes-host-controls' | 'resizable-table';
 
 const navItems: MenuProps['items'] = [
   { key: 'overview', icon: <AppstoreOutlined aria-hidden="true" />, label: '组件总览' },
@@ -66,6 +67,7 @@ const navItems: MenuProps['items'] = [
     { key: 'crud-workbench', icon: <BarsOutlined aria-hidden="true" />, label: 'CRUD 列表工作台' },
     { key: 'table-summary', icon: <BarsOutlined aria-hidden="true" />, label: '表格合计与结果摘要' },
     { key: 'mes-suite', icon: <AppstoreOutlined aria-hidden="true" />, label: 'MES UI 套件' },
+    { key: 'mes-host-controls', icon: <AppstoreOutlined aria-hidden="true" />, label: 'MES 宿主注入控件' },
     { key: 'resizable-table', icon: <BarsOutlined aria-hidden="true" />, label: 'MES 表格组件' },
   ] },
 ];
@@ -167,6 +169,7 @@ function CatalogWorkspace({
     'crud-workbench': 'CRUD 列表工作台',
     'table-summary': '表格合计与结果摘要',
     'mes-suite': 'MES UI 套件',
+    'mes-host-controls': 'MES 宿主注入控件',
     'resizable-table': 'MES 表格组件',
   };
 
@@ -235,6 +238,8 @@ function CatalogWorkspace({
                                   ? '查看列合计、跟随结果行的多单位汇总和简短分页摘要。'
                                 : page === 'mes-suite'
                                   ? '展示按 MES 当前实现适配的组件；远程候选和提交由宿主注入。'
+                                  : page === 'mes-host-controls'
+                                    ? '查看状态、报表快捷范围、配置入口、字典选择和导出控件的宿主注入契约。'
                                   : page === 'resizable-table'
                                     ? '对照 MES 当前 ResizableTable / ResizableProTable 行为，包含列宽、排序、行号、空态、导出布局和自适应高度。'
                                   : '展示状态和身份组件如何组合 Ant Design 的原生反馈行为。'}
@@ -262,6 +267,8 @@ function CatalogWorkspace({
               <TableSummaryPage />
             ) : page === 'mes-suite' ? (
               <MesComponentSuitePage />
+            ) : page === 'mes-host-controls' ? (
+              <MesHostInjectedControlsDemo />
             ) : page === 'resizable-table' ? (
               <ResizableTablePage />
             ) : (

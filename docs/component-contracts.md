@@ -23,6 +23,12 @@
 | `SectionCard` | 分组可选标题的内容，不制造空 header | Pro Components `ProCard` |
 | `StatusTabs` | 在互斥状态中选择当前结果集合 | AntD `Segmented` |
 | `StatusTag` | 以实底高对比样式呈现单条只读状态 | AntD `Tag`，固定 `variant="solid"` |
+| `MesStatusTag` | 将宿主 MES 状态字典映射为统一只读标签，并处理空值/未知值 | `StatusTag` + 宿主 `enumMap`；状态词条与业务值由宿主提供 |
+| `MesReportQuickRangeButtons` | 受控选择报表快捷范围；只报告被选中的选项 key | AntD `Segmented`；日期范围匹配和日期语义由宿主提供 |
+| `MesConfigEntryLink` / `MesConfigEntryFieldLabel` | 在授权且有目标地址时，把配置入口附在字段标签旁 | AntD `Typography.Link` / `Space`；路由与权限结果由宿主传入 |
+| `MesConfigurableProFormSelect` | 将 MES ProForm 远程选择器与空候选配置入口及回访刷新组合 | Pro Components `ProFormSelect`；请求、依赖规则、权限和路由由宿主传入 |
+| `MesDictionaryProFormSelect` / `MesDictionaryFormItem` | 将宿主字典加载/错误/重试状态接入 ProForm 或原生 Form Select | Pro Components `ProFormSelect` / AntD `Form.Item` + `Select`；字典服务由宿主传入 |
+| `MesExportButton` / `MesExportDropdownButton` | 保留单项/多项导出 loading、布局准备回调和下载结果回调 | AntD `Button` / `Dropdown`；权限、导出请求、布局与下载由宿主传入 |
 | `QuickDateRangePicker` / `QuickProFormDateRangePicker` / `QuickProFormDateTimeRangePicker` | 给 AntD 和 ProForm 日期范围字段保留调用方快捷范围，并补齐通用快捷日期 | AntD `RangePicker` / Pro Components 日期范围字段；窄屏日历面板由公开语义样式限宽并支持横向滚动 |
 | `FilterBar` | 收纳查询条件和其右侧同级操作 | HTML `role=search` + 宿主控件 |
 | `MetricCard` | 显示一个可读的关键数值 | AntD `Statistic` + Pro `ProCard` |
@@ -352,6 +358,16 @@
 - **目录示例和证据**：真实 Catalog 路由“MES 表格组件”覆盖 ProTable 与原生 Table、服务端/本地排序、列宽拖拽和刷新、列显隐与导出列数、密度、双击编辑回调、空态、汇总、视口内纵向高度及 375px 键盘横向滚动。截图、几何、接缝审计、build/typecheck 与未验收项见 [`docs/verification/mes-resizable-table-2026-11-20/README.md`](./verification/mes-resizable-table-2026-11-20/README.md)。宿主 MES 权限解析接线、读屏器、深色主题、844×390 横屏和自定义溢出容器仍为 `UNVERIFIED`。
 
 ### `sunxu-web/mes` 兼容组件
+
+#### 状态、报表范围、配置入口、字典字段与导出
+
+- **`MesStatusTag`**：API 为 `value?: string | null`、必填 `enumMap: Readonly<Record<string, { text?: ReactNode; color?: string; status?: string } | undefined>>`、可选 `children/className/style`。空值显示 children 或 `-`；未映射值显示 children 或“未知状态”；命中映射时 children 优先于 `text`，两者均未提供时标签内容为空。未提供显式 `color` 时按 `Default/Processing/Success/Warning/Error` 使用来源色令牌，未知令牌回退默认色。它只呈现文本，不监听状态变化、不提供状态字典或业务动作；基础 `StatusTag` 会对六位/三位 hex 背景色校正白字对比度。文本本身可被辅助技术读取，但不添加 live region 或状态 role。标签宽度由内容决定，列表内是否换行由宿主布局控制。
+- **`MesReportQuickRangeButtons`**：受控 API 为可选 `value?: [string, string]`、`label`（默认“快捷筛选”）、必填 `options: readonly { key, label }[]`、`matchValue(value) => key | null` 和 `onSelect(key)`。当前范围是否匹配某选项及 key 的日期含义完全由宿主定义；组件仅用 AntD `Segmented` 展示选择并回传存在于 options 的字符串 key。无匹配时不选中；不解析日期、不自动刷新报表、不拥有清空或请求动作。`label` 作为 Segmented 的 `aria-label`；选项沿用上游键盘行为。组件不额外包装选项，宿主需确保选项数和标签长度适合其可用宽度，窄容器可在外层安排换行或横向滚动。
+- **`MesConfigEntryLink` / `MesConfigEntryFieldLabel`**：Link 接收 `href?`、`permitted?`（默认 false）、必填 `label`、`actionText?`（默认“去配置”）和 `onOpen?`；仅当权限为真且 href 非空时渲染。它使用新标签页链接、`rel="noreferrer"`、阻止点击冒泡，并调用宿主 `onOpen`。可访问名称固定为“新标签页打开${label}”。FieldLabel 接收 `children` 及同一 href/permission/onOpen，另有可选 `show`（默认 true）；通过 Space 将字段文字与链接并排显示，仅当 `show && permitted && href` 时显示链接，否则原样渲染 children。`MesConfigurableProFormSelect` 与两个字典选择器通过 `show` 传递已计算的候选/字段显示状态。FieldLabel 的 Space 不换行，长标签应由宿主检查窄宽度。组件不做权限计算、不生成 URL、不执行导航状态更新或返回后刷新。
+- **`MesConfigurableProFormSelect`**：保留 ProFormSelect 的其他公开 props，另需 `label: ReactNode`、必填宿主 `request` 和 `configEntry`，可选 `configWhen(params)` 与 `emptyText`（默认“暂无可选数据”）。在字段无值、非禁用/只读且依赖条件成立时，用移除 `keyWords/keyword/search/searchText` 的参数向宿主 request 探测基础候选；仅空数组显示配置标签，请求失败隐藏入口并继续向 ProForm 抛出查询错误。实际候选搜索保留其余参数和错误；搜索中不以关键词结果切换配置标签。配置标签打开时记录回访意图，窗口重新获得 focus 后递增刷新版本以重新请求；源请求前移除内部 `configEntryRefreshVersion`。字段校验、候选服务、路由和授权由宿主提供；组件内的 focus listener 在卸载时清理。ProForm 标签和 Select 键盘/表单状态由上游提供；目录无障碍名称来自表单 label。
+- **`MesDictionaryProFormSelect` / `MesDictionaryFormItem`**：共享 `dictionary: { options, loading?, error?, retry }`、配置入口 props 和 `showConfigEntry?`（默认 true）。前者使用 ProFormSelect，后者用于原生 `Form.Item`/`Form.List` 并克隆一个 AntD Select 子元素，把 options/loading 注入；子元素已有 `notFoundContent` 优先于组件默认内容。未覆盖时按 loading/error/空候选显示“正在加载字典项”/“字典项加载失败 + 重试”/“暂无可选字典项”。只有 `showConfigEntry` 为真、无当前值、无候选、无 loading/error、字段未禁用且授权/href 有效时才显示配置入口；返回窗口 focus 后调用宿主 retry。字典请求、错误分类、权限、路由及真实重试都归宿主；Select 下拉与 Form 的键盘、label、校验由 AntD/ProForm 管理，目录无障碍名称需使用明确字段 label。配置标签并排区不换行，宿主应检查长字段名。
+- **`MesExportButton` / `MesExportDropdownButton`**：`MesExportButton` 接收 `canExport?`（默认 true）、必填 `exportFn/fileName/download`，以及 `onPrepareExport/onSuccess/onError`；`canExport=false` 时不渲染。点击后进入 loading，顺序调用请求、下载、成功回调；捕获请求或下载错误交给 `onError`，最终清除 loading。Dropdown 接收 items（每项 `key/label/exportFn/fileName`，可选 `disabled/applyTableLayout`）、`download` 和相同结果回调；禁用项不可选，同 key 应唯一；`applyTableLayout` 默认 true，选中条目时先回调宿主布局意图再执行请求/下载。按钮本身的 click-capture 也会在打开菜单时调用 `onPrepareExport(true)`，所以宿主应将其视为菜单打开阶段的布局激活信号，选择条目后会再收到一次带条目值的信号。二者均不拥有权限判定、API、文件编码/实际下载、表格列授权或用户通知。可见按钮文字为可访问名称，图标不替代文字；AntD 提供按钮 loading、菜单键盘和禁用状态。目录下载只记录回调，不制造文件。布局适配由宿主表格在按钮捕获阶段激活；窄工具栏的按钮排列由宿主控制。
+- **目录示例**：Catalog “MES 宿主注入控件”展示九个组件的已映射/空值/未知/自定义状态文案、受控范围、配置入口权限/候选/请求失败、ProForm/原生 Form 字典的空/错误/重试/就绪状态、单项和多项导出的权限/loading/成功/错误回调及禁用菜单项。示例使用本地确定性宿主回调，不调用 MES 服务，也不下载文件。本次在本地 `http://127.0.0.1:4173/` 选中此 Catalog 页面；已实测报表范围选择、配置入口授权开关、远程候选空/有候选/请求错误显隐、ProForm/原生字典错误后重试、导出单项成功/错误与下拉项回调；AX 树已检查控件角色/可访问名称。截图未归档，精确视口尺寸未记录，且没有 DOM 几何数据，故间距/溢出/窄视口与完整键盘/读屏器流程均为 `UNVERIFIED`；真实 MES API/权限接线也未验证。
 
 - `MesUiProvider` 接受 MES 宿主的 `hasPermission(permission)` 函数；`PermissionButton` 的 `permission` 由此函数判断，无 Provider 或无权限时 fail closed 并不渲染动作。确认文案、危险标记、异步 `onConfirm`、loading、成功提示和成功回调沿用 MES 当前实现；异步错误从 `info.msg`、`data.msg`、`response.data.msg` 或 `Error.message` 提取并显示可确认错误弹窗。请求和权限码的含义由宿主负责。
 - `MaterialFilteredSelect` 是 MES 物料业务复合控件；`MaterialSelectField` 与 `MaterialMultiSelectField` 将其接入 ProForm 字段，`materialSelectColumnProps(request, placeholder?)` 用作 ProTable 查询列。筛选模式为 `always/collapsible/hidden`，默认 hidden；保留 `requestKey` 外部刷新、300ms 防抖、族/系统类型/业务分类级联、选中项保留、关键词精确/前缀排序、旧搜索结果丢弃和选中后清空搜索。多选使用 `values/onValuesChange`，单选保留 `value/onChange` 契约；ProForm 注入的 `fieldProps.value/onChange` 会继续参与表单提交。
@@ -697,7 +713,7 @@
 
 - **`InfoCard`**：字段按宿主权限逐项过滤，支持嵌套字段、日期/日期时间、金额脱敏、用户、状态和自定义渲染；复制字段保留可选中内容。卡片、字段排列及 children 由调用方配置。
 - **`DetailHeader`**：保留可选返回、标题、状态、children 操作和 extra 插槽；没有任何可见内容时返回 `null`。
-- **`DetailTable`**：复用 MES `ResizableProTable`，默认关闭搜索/分页/序号、关闭刷新和密度菜单、开启列设置；可选服务端分页适配器保留 `remoteFn({page,pageSize})` 契约，固定列默认横向滚动。
+- **`DetailTable`**：复用 MES `ResizableProTable`，默认关闭搜索/分页/序号、关闭刷新和密度菜单、开启列设置；可选服务端分页适配器保留 `remoteFn({page,pageSize})` 契约。远程适配器不接收排序参数，因此默认关闭隐式排序；调用方显式配置的 sorter 保留。固定列默认横向滚动。
 - **`TabsPanel`**：保留每项自定义渲染或 `DetailTable` 内容、基于当前本地数据长度生成标签、默认首项激活和外部刷新 `actionRef`。
 - **`BatchSelectionSummary`**：展示批次中每张单据编号、可复制入口和可选摘要；它不替代 ProTable 的选择计数/清空工具栏。
 - **`ContextualHelp` / `withSharedFieldHelp`**：图标触发器有稳定读屏名称；MES 表单和明细行说明沿用原始“作用/口径/怎么用”文案，错误和可执行状态仍应直接可见。

@@ -20,6 +20,24 @@ function mergeClassName(...names: Array<string | undefined>): string {
   return names.filter(Boolean).join(' ');
 }
 
+function disableImplicitSorting<T extends object>(
+  columns?: LocalSortableColumn<T>[],
+): LocalSortableColumn<T>[] | undefined {
+  return columns?.map((column) => {
+    if (Array.isArray(column.children)) {
+      return {
+        ...column,
+        children: disableImplicitSorting(
+          column.children as LocalSortableColumn<T>[],
+        ),
+      };
+    }
+    return column.sorter === undefined
+      ? { ...column, sorter: false }
+      : column;
+  });
+}
+
 /**
  * @sunxu-component mes-specific
  * @sunxu-domain detail-table
@@ -37,6 +55,7 @@ export function DetailTable<T extends Record<string, unknown>>({
   ...rest
 }: DetailTableProps<T>) {
   const { className, ...tableProps } = rest;
+  const tableColumns = remoteFn ? disableImplicitSorting(columns) : columns;
   const request: ProTableProps<T, Record<string, unknown>>['request'] = remoteFn
     ? async (params) => {
         const result = await remoteFn({
@@ -53,7 +72,7 @@ export function DetailTable<T extends Record<string, unknown>>({
     <ResizableProTable<T>
       className={mergeClassName('mes-detail-table', className)}
       search={false}
-      columns={columns}
+      columns={tableColumns}
       fitContainerHeight={false}
       toolBarRender={toolBarRender}
       size={size}

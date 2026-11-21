@@ -24,6 +24,12 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `DocumentLedgerViewSwitch`（`sunxu-web/mes`） | 单据列表与只读明细间的受控切换；页面状态、路由和列表刷新由宿主管理 |
 | `DocumentLineQuantityInput`（`sunxu-web/mes`） | 可清空的数量编辑草稿；有效值由宿主控制，空值失焦时恢复最近有效值 |
 | `StatusDisplay`（`sunxu-web/mes`） | 宿主注入状态字典，支持 Tag、Badge、文本三种呈现 |
+| `MesStatusTag`（`sunxu-web/mes`） | 将宿主 MES 状态枚举映射为统一高对比只读标签；保留空/未知状态与 children 文案回退 |
+| `MesReportQuickRangeButtons`（`sunxu-web/mes`） | 报表快捷范围的受控 Segmented 选择；匹配规则、日期范围和数据刷新由宿主提供 |
+| `MesConfigEntryLink`、`MesConfigEntryFieldLabel`（`sunxu-web/mes`） | 在字段标签旁提供宿主授权的配置页新标签页链接；目标路由与权限结果由宿主提供 |
+| `MesConfigurableProFormSelect`（`sunxu-web/mes`） | 保留 MES ProForm 远程候选、空候选探测与配置页回访刷新；候选请求/依赖/授权/路由由宿主提供 |
+| `MesDictionaryProFormSelect`、`MesDictionaryFormItem`（`sunxu-web/mes`） | 将宿主字典选项、加载/错误/重试反馈接入 ProForm 或原生 Form Select；字典服务由宿主提供 |
+| `MesExportButton`、`MesExportDropdownButton`（`sunxu-web/mes`） | 保留导出 loading、宿主表格布局准备、单项/多项结果回调；权限、请求、通知与文件下载由宿主提供 |
 | `AmountText`、`AmountPolicySnapshotTag`（`sunxu-web/mes`） | 按 MES 金额格式展示并通过宿主金额策略脱敏；金额快照可展开查看公式和计算结果 |
 | `DateText`、`UserText`（`sunxu-web/mes`） | MES 日期格式与用户姓名/账号回退展示 |
 | `DefaultRouteHint`（`sunxu-web/mes`） | 宿主注入工艺路线候选请求，提示未手选时的推荐路线 |

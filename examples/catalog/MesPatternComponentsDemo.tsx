@@ -59,7 +59,10 @@ export function MesPatternComponentsDemo() {
 
           <DetailTable<DemoRecord>
             rowKey="id"
-            dataSource={records}
+            remoteFn={async ({ page, pageSize }) => ({
+              list: records.slice((page - 1) * pageSize, page * pageSize),
+              total: records.length,
+            })}
             columns={[
               { title: '订单编号', dataIndex: 'documentNo' },
               { title: '客户', dataIndex: 'partner' },
