@@ -72,7 +72,7 @@ import { ResizableProTable } from 'sunxu-web/mes';
 
 ### 外框与高度所有权
 
-- 一个页面只能有一个外框所有者。宿主 shell 已经提供工作区外框时，在应用根部声明 `<SunxuWebProvider workspaceFrame="host">`；所有页面容器随后只保留内部 gap，不再叠加 `--sxw-workspace-gutter`。
+- 一个页面只能有一个外框所有者。宿主 shell 已经提供工作区外框时，在应用根部声明 `<SunxuWebProvider workspaceFrame="host">`；应用默认控件尺寸也在这个根 Provider 设置，列表密集型宿主可选择 `componentSize="small"`。页面容器随后只保留内部 gap，不再叠加 `--sxw-workspace-gutter`。
 - 没有宿主外框的独立应用保持默认 `workspaceFrame="container"`，由 `ScreenContainer` 应用桌面 24 px / 窄屏 16 px 外框。
 - 页面内嵌容器必须声明 `layout="embedded"`（`CrudListWorkbench`）或 `frame="none"`（其他页面容器），避免第二层页面内边距和重复页头。
 - `fill` 只用于单列表视口页；长页面、图表页、多列表页不得开启，否则会把本应整页滚动的内容锁进固定高度。

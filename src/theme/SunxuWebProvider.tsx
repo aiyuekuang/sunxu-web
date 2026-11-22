@@ -4,6 +4,7 @@ import zhCN from 'antd/locale/zh_CN';
 import type { Locale } from 'antd/es/locale';
 import type { ConfigProviderProps, ThemeConfig } from 'antd';
 import { SunxuWebColors, type SunxuAppearance } from './colors';
+import { SunxuWebTokens } from './tokens';
 import { WorkspaceFrameProvider, type WorkspaceFrame } from './WorkspaceFrame';
 
 export type SunxuWebProviderProps = {
@@ -48,7 +49,9 @@ export function SunxuWebProvider({
       colorBgContainer: colors.surface,
       colorBorderSecondary: colors.border,
       borderRadius: 6,
-      controlHeight: 36,
+      controlHeight: SunxuWebTokens.controlHeight.standard,
+      controlHeightSM: SunxuWebTokens.controlHeight.compact,
+      controlHeightLG: SunxuWebTokens.controlHeight.comfortable,
       fontFamily,
       fontSize: 14,
       ...theme?.token,

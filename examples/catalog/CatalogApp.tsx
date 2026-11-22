@@ -51,6 +51,7 @@ import { MesComponentSuitePage } from './MesComponentSuitePage';
 import { TableSummaryPage } from './TableSummaryPage';
 import { ResizableTablePage } from './ResizableTablePage';
 import { MesHostInjectedControlsDemo } from './MesHostInjectedControlsDemo';
+import { SunxuWebProviderDemo } from './SunxuWebProviderDemo';
 
 type PageKey = 'overview' | 'tokens' | 'containers' | 'mappings' | 'states' | 'text-controls' | 'editable-table' | 'crud-workbench' | 'table-summary' | 'mes-suite' | 'mes-host-controls' | 'resizable-table';
 
@@ -386,6 +387,7 @@ function TokensPage({ appearance }: { appearance: 'light' | 'dark' }) {
           </SectionCard>
         </Col>
       </Row>
+      <SunxuWebProviderDemo appearance={appearance} />
       <Typography.Paragraph className="sxw-docs-note">
         Light / Dark 色值继承自 Sunxu；主题算法、控件状态和组件 token 由 Ant Design ConfigProvider 管理。
       </Typography.Paragraph>
