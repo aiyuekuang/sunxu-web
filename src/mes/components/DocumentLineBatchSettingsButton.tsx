@@ -53,8 +53,11 @@ export interface DocumentLineBatchSettingsButtonProps<T> {
   onApply: (patches: Array<Partial<T>>) => void;
 }
 
-function toMesDate(value: EditableDetailDateValue): string | undefined {
+function toMesDate(
+  value: EditableDetailDateValue | string,
+): string | undefined {
   if (!value) return undefined;
+  if (typeof value === 'string') return value;
   if (typeof value === 'object' && 'format' in value && typeof value.format === 'function') {
     return value.format('YYYY-MM-DD');
   }
