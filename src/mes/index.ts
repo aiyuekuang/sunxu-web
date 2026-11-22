@@ -427,6 +427,7 @@ export * from './components/PurchaseOrderDetailLedger';
 export * from './components/purchase-order-detail-ledger-types';
 export * from './components/PurchaseInquiryDetailLedger';
 export * from './components/PurchaseRequisitionDetailLedger';
+export * from './components/PurchaseRequisitionItemsTable';
 export * from './components/InternalIssueDetailLedger';
 export * from './components/ProductionReceiptDetailLedger';
 export * from './components/detail-ledger-components-types';

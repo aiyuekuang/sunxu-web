@@ -141,6 +141,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `CreateStockCountModal`、`StockCountDetailDrawer`（`sunxu-web/mes`） | 保留盘点单创建、明/盲盘详情、行维护、实盘录入、提交/审核过账/冲正/取消与自定义字段；DTO、服务、权限、字典、日期、打印和提示由宿主注入 |
 | `StockCountDetailLedger`（`sunxu-web/mes`） | 保留盘点明细筛选、位置权限门控、数量/状态/动态字段列、订单详情跳转和多维汇总；列表/导出、保存视图、批量打印、权限和选择器由宿主注入 |
 | `PurchaseInquiryDetailLedger`、`PurchaseRequisitionDetailLedger`、`InternalIssueDetailLedger`、`ProductionReceiptDetailLedger`（`sunxu-web/mes`） | 保留采购询价/申请、内部领用、生产入库明细台账的筛选、动态列、汇总、视图、导出/打印入口和详情动作；API、权限结果、选择器、记忆分页、格式、导航及持久化由 MES 宿主注入 |
+| `PurchaseRequisitionItemsTable`（`sunxu-web/mes`） | 保留采购申请展开行的物料优先列序、数量回退、建议采购上下文和缺失到货日期提示；单位、数量、日期格式由宿主注入 |
 | `PurchaseOrderDetailLedger`（`sunxu-web/mes`） | 保留采购订单筛选、价格可见性、来料质检、费用汇总权限、行操作与同供应商批量收货约束；列表/权限/动作/收货流程由 MES 宿主注入 |
 | `PurchaseReturnDetailLedger`、`QuotationDetailLedger`、`MaterialIssueDetailLedger`、`PurchaseReceiptDetailLedger`（`sunxu-web/mes`） | 保留采购退料/报价/生产领料/采购入库台账的筛选、状态、汇总、自定义字段、行操作和打印；API、权限、费用/价格脱敏、来料质检、视图与生命周期弹窗由 MES 宿主注入 |
 | `StockTransferDetailLedger`、`StockConversionDetailLedger`（`sunxu-web/mes`） | 保留调拨只读明细、投入/产出转换台账、筛选、列/排序、摘要和视图切换；API/导出、权限、字典、自定义字段、格式和持久化由宿主注入 |

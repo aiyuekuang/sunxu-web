@@ -150,6 +150,7 @@
 | `StockCountDetailLedger` | 查询盘点明细，展示账面/实盘/差异数量、动态字段、汇总与详情入口 | MES `DocumentDetailLedgerTable`；列表/导出、权限结果、选择器、自定义列、保存视图、批量打印和格式由宿主注入 |
 | `PurchaseOrderDetailLedger` | 查询采购订单明细，保留状态/关键词/供应商/物料/日期筛选、价格与质检列、费用汇总权限、批量收货约束、操作菜单、导出/新增和打印 | MES `CrudListWorkbench` / `ResizableProTable`；列表/导出、权限、选项、保存视图、动作/弹窗、收货流程与打印由宿主注入 |
 | `PurchaseInquiryDetailLedger` / `PurchaseRequisitionDetailLedger` / `InternalIssueDetailLedger` / `ProductionReceiptDetailLedger` | 查询采购询价、采购申请、内部领用、生产入库明细，保留筛选、动态列、汇总、视图、导出/打印和导航 | MES `DocumentDetailLedgerTable`、状态/筛选/格式组件；请求、权限结果、字段选择器、保存视图、动作、打印和导航由宿主注入 |
+| `PurchaseRequisitionItemsTable` | 展示采购申请展开行物料，固定物料优先列序并提示未填写的期望到货日期 | MES `ResizableProTable` / AntD `Tag`；行数据和单位、数量、日期格式由宿主提供；组件不请求数据或判断权限 |
 | `PurchaseReturnDetailLedger` / `QuotationDetailLedger` / `MaterialIssueDetailLedger` / `PurchaseReceiptDetailLedger` | 查询采购退料、销售报价、生产领料、采购入库流水；保留筛选、汇总、明细/自定义字段、视图、导出/打印和行操作 | MES `DocumentDetailLedgerTable` 与业务列；请求/导出、权限、费用/价格可见性、来料质检、生命周期动作和保存视图由宿主注入 |
 | `StockTransferDetailLedger` / `StockConversionDetailLedger` | 展示调拨只读明细及库存转换投入/产出行，保留筛选、排序、摘要、视图和导航 | MES `DocumentDetailLedgerTable`；列表/导出 API、权限、选项、动态字段、保存视图和格式由宿主注入 |
 | `StockTransferModal` / `StockTransferActionModals` | 编辑调拨单并承载确认、取消草稿和撤销弹窗 | MES 物料/仓位/库存组件 + AntD Modal；请求、权限、日期规范化、提示和刷新由宿主注入 |
@@ -671,6 +672,7 @@
 ### 采购、报价、领用与入库明细台账
 
 - `PurchaseOrderDetailLedger` 保留关键词/单号/供应商/物料/状态/日期筛选、汇总与价格可见性、来料检验入口、权限感知行操作、同供应商批量收货勾选限制、收货成功刷新、导出/新增和打印入口。批量收货表单、行操作菜单、列表/导出请求、权限、远程选项、格式、保存视图和打印由 MES 宿主注入。来源 SHA-256：`bd701f1af1f14e09dca4a6c09c4639c5596792332e2f5c31a08f821e9d31fe14`；Catalog `PurchaseOrderDetailLedgerDemo` 使用本地数据，真实服务/权限接线及视口验收为 `UNVERIFIED`。
+- `PurchaseRequisitionItemsTable` 是采购申请列表展开行的只读物料表。列序为物料名称、编码、规格、单位、需求/已下单/剩余数量、建议供应商和采购/到货日期、行号、备注和审计日期；行号优先使用 `lineNo`，缺失时按 `sortOrder + 1` 或当前行序回退。缺少期望到货日期时显示红色“未填写”标签。单位、数量和日期格式函数由宿主传入；剩余数量缺失时按 `max(0, 需求数量 - 已下单数量)` 计算，非法数量按 0 处理。组件不读取 MES 服务、不判断权限，也不拥有采购申请列表/展开状态。Catalog 示例和 SSR 行为测试覆盖列序、格式注入、行号及缺失日期提示；Catalog 浏览器 E2 在 1280×900 与 390×844 视口通过，DOM 几何、横向滚动和截图见 [`verification/purchase-requisition-items-table-2026-11-22/`](./verification/purchase-requisition-items-table-2026-11-22/)。实际 MES Admin 路由视觉验收仍为 `UNVERIFIED`；目录其他示例造成的整体溢出已单独记录。
 - `PurchaseReturnDetailLedger` 保留退料单筛选/默认排序、物料与行自定义字段、价格权限遮罩、退料汇总、详情/来源动作和批量打印；列表/导出、权限、候选项、价格可见性、格式、保存视图及打印由宿主注入。
 - `QuotationDetailLedger` 保留报价状态/客户/物料/日期筛选、报价行明细、自定义字段、报价汇总、绑定材料/详情导航和打印入口；查询/导出、绑定动作、权限、动态列、格式与保存视图由宿主注入。
 - `MaterialIssueDetailLedger` 保留生产领料类型/状态/人员/部门/设备/工单/物料/仓库/批号/日期筛选、动态字段、数量汇总、生命周期动作与打印入口；请求、动作/弹窗、权限、候选项、视图和格式由宿主注入。

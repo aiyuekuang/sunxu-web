@@ -19,6 +19,7 @@ export const componentMappings: ComponentMapping[] = [
   { source: 'MES Web · patterns/InfoCard', target: 'DetailCard / SectionCard', status: 'ADAPTED', note: '按信息组职责使用目标库已有容器。' },
   { source: 'MES Web · patterns/ResizableTable', target: 'sunxu-web/mes ResizableProTable / ResizableTable', status: 'ADAPTED', note: '保留列宽/排序/列显隐/导出布局/密度/汇总和自适应高度；宿主注入行操作权限策略与表格业务摘要。' },
   { source: 'MES Web · patterns/OrderItemEditor', target: 'sunxu-web/mes OrderItemEditor', status: 'ADAPTED', note: '共享物料行编辑 UI；物料候选、BOM、价格权限、字典、自定义字段与提交由宿主注入。' },
+  { source: 'MES Web · PurchaseRequisitionItemColumns', target: 'sunxu-web/mes PurchaseRequisitionItemsTable', status: 'ADAPTED', note: '保留采购申请展开行的物料优先列序和数量/日期呈现；格式化由宿主注入。' },
   { source: 'MES Web · enhanced/ExportButton', target: 'sunxu-web/mes MesExportButton / MesExportDropdownButton', status: 'ADAPTED', note: '复用导出按钮与下拉 UI；导出权限、布局、请求、文件名和下载策略由宿主提供。' },
   { source: 'MES Web · document-view/*', target: 'sunxu-web/mes DocumentFilterDrawer / DocumentViewBar / DetailLedgerFilterDrawer / DocumentViewSwitch / DocumentDetailLedgerTable', status: 'ADAPTED', note: '复用筛选、视图和台账交互；MES 字段、权限、请求、持久化、导航和副作用仍由宿主负责。' },
   { source: 'MES Web · enhanced/MaterialFilteredSelect', target: 'sunxu-web/mes MaterialFilteredSelect / MaterialSelectField / MaterialMultiSelectField', status: 'ADAPTED', note: '复用远程物料选择、扫码、筛选和候选摘要；服务、字典、配置入口与扫码设备由宿主注入。' },

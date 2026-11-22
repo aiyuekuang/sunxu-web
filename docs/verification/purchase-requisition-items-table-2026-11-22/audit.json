@@ -1,0 +1,282 @@
+{
+  "schema_version": 1,
+  "runtime_scope": "Sunxu Web Catalog > MES UI 套件 > PurchaseRequisitionItemsTableDemo; this does not render the MES Admin host route.",
+  "catalog_component_scope_status": "PASS",
+  "host_route_status": "UNVERIFIED",
+  "executed_command": "node run.js /tmp/playwright-test-sunxu-mes-geometry.js (cwd: /Users/suconnect/.codex/skills/playwright-skill)",
+  "observations": [
+    "The target .ant-table-content uses overflow-x:auto and contains 1854px of table content within a 908px desktop / 274px mobile viewport.",
+    "The broader Catalog page has separate horizontal overflow from other MES demo cards/tables: desktop document scrollWidth 1768px at 1280px; mobile body scrollWidth 1503px at 390px while html scrollWidth stays 390px. This is outside the target component and remains a Catalog-level observation.",
+    "The MES Admin host route was not rendered with this local source build; its visual verification remains UNVERIFIED."
+  ],
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "route": "/ (Catalog > MES UI 套件)",
+        "state": "Populated requisition item table; target card in viewport",
+        "viewport": {
+          "width": 1280,
+          "height": 900
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": -16236,
+          "right": 1280,
+          "bottom": 43354.12,
+          "width": 1056,
+          "height": 59590.12
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": -16212,
+          "right": 1256,
+          "bottom": 43330.12,
+          "width": 1008,
+          "height": 59542.12
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "left",
+          "right"
+        ],
+        "insets_px": {
+          "left": 24,
+          "right": 24
+        },
+        "expected": {
+          "kind": "token",
+          "value": "--sxw-workspace-gutter: 24px desktop",
+          "source": "src/styles.css:210"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Unannotated Playwright screenshot inspection; gray workspace band remains visible on both content sides.",
+          "painted_frame_sides": [
+            "left",
+            "right"
+          ]
+        },
+        "screenshot": "/tmp/sunxu-web-mes-audit-20261122/docs/verification/purchase-requisition-items-table-2026-11-22/desktop.png",
+        "screenshot_sha256": "74fd26156a4fdb5c86cda7837b0d37cd882e6a7b0d350bcef81f53e4c4d798ba",
+        "status": "PASS"
+      },
+      {
+        "route": "/ (Catalog > MES UI 套件)",
+        "state": "Populated requisition item table; narrow viewport",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": -22395,
+          "right": 390,
+          "bottom": 60204.08,
+          "width": 390,
+          "height": 82599.08
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": -22379,
+          "right": 374,
+          "bottom": 60188.08,
+          "width": 358,
+          "height": 82567.08
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "left",
+          "right"
+        ],
+        "insets_px": {
+          "left": 16,
+          "right": 16
+        },
+        "expected": {
+          "kind": "token",
+          "value": "--sxw-workspace-gutter: 16px below the narrow-screen breakpoint",
+          "source": "src/styles.css:991"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Unannotated Playwright screenshot inspection; gray workspace band remains visible on both content sides.",
+          "painted_frame_sides": [
+            "left",
+            "right"
+          ]
+        },
+        "screenshot": "/tmp/sunxu-web-mes-audit-20261122/docs/verification/purchase-requisition-items-table-2026-11-22/mobile.png",
+        "screenshot_sha256": "7451e49175e9f80df2addb8d71b2549343717a20c434800f235f3c825fecf91e",
+        "status": "PASS"
+      }
+    ]
+  },
+  "seams": [
+    {
+      "route": "/ (Catalog > MES UI 套件)",
+      "state": "Populated requisition item table; desktop",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "previous": "PurchaseRequisitionItemsTableDemo explanatory copy",
+      "next": "PurchaseRequisitionItemsTable .ant-table-content",
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 298,
+        "top": 504.05,
+        "right": 978.63,
+        "bottom": 520.55,
+        "width": 680.63,
+        "height": 16.499999999999943
+      },
+      "next_rect": {
+        "left": 298,
+        "top": 535.55,
+        "right": 1206,
+        "bottom": 623.05,
+        "width": 908,
+        "height": 87.5
+      },
+      "gap_px": 15.0,
+      "expected": {
+        "kind": "contract",
+        "value": "AntD vertical Space separates helper copy from the tabular result",
+        "source": "examples/catalog/PurchaseRequisitionItemsTableDemo.tsx:52"
+      },
+      "executed_command": "node run.js /tmp/playwright-test-sunxu-mes-geometry.js (cwd: /Users/suconnect/.codex/skills/playwright-skill)",
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Unannotated screenshot inspection; a clear white band separates the copy from the table.",
+        "observed_clear_band_px": 15
+      },
+      "screenshot": "/tmp/sunxu-web-mes-audit-20261122/docs/verification/purchase-requisition-items-table-2026-11-22/desktop.png",
+      "screenshot_sha256": "74fd26156a4fdb5c86cda7837b0d37cd882e6a7b0d350bcef81f53e4c4d798ba",
+      "status": "PASS"
+    },
+    {
+      "route": "/ (Catalog > MES UI 套件)",
+      "state": "Populated requisition item table; narrow viewport",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "previous": "PurchaseRequisitionItemsTableDemo explanatory copy",
+      "next": "PurchaseRequisitionItemsTable .ant-table-content",
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 58,
+        "top": 475.86,
+        "right": 324,
+        "bottom": 536.36,
+        "width": 266,
+        "height": 60.5
+      },
+      "next_rect": {
+        "left": 58,
+        "top": 551.36,
+        "right": 332,
+        "bottom": 638.86,
+        "width": 274,
+        "height": 87.5
+      },
+      "gap_px": 15.0,
+      "expected": {
+        "kind": "contract",
+        "value": "AntD vertical Space separates helper copy from the tabular result",
+        "source": "examples/catalog/PurchaseRequisitionItemsTableDemo.tsx:52"
+      },
+      "executed_command": "node run.js /tmp/playwright-test-sunxu-mes-geometry.js (cwd: /Users/suconnect/.codex/skills/playwright-skill)",
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Unannotated screenshot inspection; a clear white band separates wrapped copy from the table.",
+        "observed_clear_band_px": 15
+      },
+      "screenshot": "/tmp/sunxu-web-mes-audit-20261122/docs/verification/purchase-requisition-items-table-2026-11-22/mobile.png",
+      "screenshot_sha256": "7451e49175e9f80df2addb8d71b2549343717a20c434800f235f3c825fecf91e",
+      "status": "PASS"
+    }
+  ],
+  "target_geometry": {
+    "desktop": {
+      "card": {
+        "left": 273,
+        "top": 421.55,
+        "right": 1231,
+        "bottom": 648.05,
+        "width": 958,
+        "height": 226.5
+      },
+      "table": {
+        "left": 298,
+        "top": 535.55,
+        "right": 1206,
+        "bottom": 623.05,
+        "width": 908,
+        "height": 87.5
+      },
+      "horizontal_scroller": {
+        "clientWidth": 908,
+        "scrollWidth": 1854,
+        "overflowX": "auto",
+        "scrollLeft": 0
+      },
+      "document": {
+        "htmlClientWidth": 1280,
+        "htmlScrollWidth": 1768,
+        "bodyScrollWidth": 1768
+      },
+      "catalog_overflow_sources": [
+        {
+          "element": ".ant-card.ant-card-small in material/drawing demo",
+          "clientWidth": 295,
+          "scrollWidth": 436
+        }
+      ]
+    },
+    "mobile": {
+      "card": {
+        "left": 33,
+        "top": 393.36,
+        "right": 357,
+        "bottom": 663.86,
+        "width": 324,
+        "height": 270.5
+      },
+      "table": {
+        "left": 58,
+        "top": 551.36,
+        "right": 332,
+        "bottom": 638.86,
+        "width": 274,
+        "height": 87.5
+      },
+      "horizontal_scroller": {
+        "clientWidth": 274,
+        "scrollWidth": 1854,
+        "overflowX": "auto",
+        "scrollLeft": 0
+      },
+      "document": {
+        "htmlClientWidth": 390,
+        "htmlScrollWidth": 390,
+        "bodyScrollWidth": 1503
+      },
+      "catalog_overflow_sources": [
+        {
+          "element": ".ant-table-header in another MES demo table",
+          "clientWidth": 242,
+          "scrollWidth": 2714,
+          "overflowX": "hidden"
+        }
+      ]
+    }
+  }
+}

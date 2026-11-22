@@ -98,7 +98,8 @@
 |---|---|---|---|
 | `GridPrintDesigner` | `src/pages/system/print/templates/index.tsx` | 稳定引用的字段/样例 `dataSource`，先按权限筛字段；纸张参数、预览、模板保存/发布、打印和路由 | 已接入 |
 | `PurchaseInquiryDetailLedger` | `src/pages/purchase/inquiries/index.tsx` | 列表/导出、权限、供应商/物料候选、动态列、保存视图、批量打印和询价单导航 | 已接入 |
-| `PurchaseRequisitionDetailLedger` | `src/pages/purchase/requisitions/index.tsx` + `detail-ledger.tsx` | URL 状态校验、keep-alive 回页刷新、数量/状态视图、行操作权限、查看订单回调和保存视图 | 已接入 |
+| `PurchaseRequisitionDetailLedger` | `src/pages/purchase/requisitions/index.tsx` + `purchase-requisition-detail-ledger-adapter.tsx` | URL 状态校验、keep-alive 回页刷新、数量/状态视图、行操作权限、查看订单回调和保存视图；旧独立页已由重定向路由替代 | 已接入 |
+| `PurchaseRequisitionItemsTable` | `src/pages/purchase/requisitions/index.tsx` 展开行 | 保留物料优先列序、需求/已下单/剩余数量、供应商/采购日期、缺失到货日期提示、行号/备注/审计日期；MES 注入单位/数量/日期格式和行数据 | 已接入；Catalog/SSR 与 1280×900 / 390×844 E2 通过（见 `docs/verification/purchase-requisition-items-table-2026-11-22/`）；真实 Admin 路由视觉验收 `UNVERIFIED` |
 | `InternalIssueDetailLedger` | `src/pages/warehouse/internal-issue/index.tsx` | 列表/导出、权限、动态字段、保存视图、详情/新建及行操作、打印 | 已接入 |
 | `ProductionReceiptDetailLedger` | `src/pages/warehouse/production-receipts/index.tsx` | 列表/导出、物料/仓库/仓位候选、权限、动态列、保存视图、详情和批量打印 | 已接入 |
 | `PurchaseReturnDetailLedger` | `src/pages/purchase/returns/index.tsx` | 列表/导出、详情/交易导航、权限、保存视图和 keep-alive 刷新；编辑/退库弹窗与成功刷新、价格权限、字典/动态字段 | 已接入 |

@@ -3850,4 +3850,9 @@ export const ResizableProTable = Object.assign(
 ) as typeof ResizableProTableInner &
   Omit<typeof ProTable, keyof typeof ResizableProTableInner>;
 
-export const ResizableTable = Object.assign(ResizableTableInner, Table);
+export const ResizableTable: typeof ResizableTableInner &
+  Omit<typeof Table, keyof typeof ResizableTableInner> = Object.assign(
+    ResizableTableInner,
+    Table,
+  ) as typeof ResizableTableInner &
+  Omit<typeof Table, keyof typeof ResizableTableInner>;

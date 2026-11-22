@@ -35,7 +35,9 @@ function TableSummaryRoot({
  * Render a column-aligned summary row using Ant Design's native summary cells.
  * The host supplies values and keeps them aligned with the final visible columns.
  */
-export const TableSummary = Object.assign(TableSummaryRoot, {
+export const TableSummary: typeof TableSummaryRoot & {
+  Cell: typeof Table.Summary.Cell;
+} = Object.assign(TableSummaryRoot, {
   Cell: Table.Summary.Cell,
 });
 
