@@ -253,6 +253,29 @@ export * from './components/PrintJobActions';
 export * from './components/print-job-action-types';
 export * from './components/DocumentLineCustomFieldFormItems';
 export * from './components/document-line-custom-field-types';
+export {
+  applyDocumentLineCustomFieldRuntimePreview,
+  buildDocumentLineCustomFieldRuntimePreviewItems,
+  buildDocumentLineCustomValuePayload,
+  createDocumentLineCustomFieldColumns,
+  createDocumentLineCustomFieldColumnsForAntd,
+  createDocumentLineCustomFieldLineColumns,
+  getDocumentLineCustomFormDisplayFields,
+  getDocumentLineCustomFormFields,
+  getVisibleDocumentLineCustomFields,
+  renderDocumentLineCustomFieldEditor,
+  resolveDocumentLineCustomFieldWidth,
+  sumDocumentLineCustomFieldColumnWidths,
+  summarizeDocumentLineCustomFields,
+  toDocumentLineCustomFieldFormValues,
+} from './components/documentLineCustomFieldColumns';
+export type {
+  DocumentLineCustomFieldCarrier,
+  DocumentLineCustomFieldFormValues,
+  DocumentLineCustomFieldRuntimePreviewItem,
+  DocumentLineCustomFieldSummary,
+  DocumentLineCustomValuePayload,
+} from './components/documentLineCustomFieldColumns';
 export * from './components/MaterialTablePicker';
 export * from './components/material-table-picker-types';
 export * from './components/BatchMaterialAddButton';

@@ -66,6 +66,7 @@ import { FormulaDesignerDemo } from './FormulaDesignerDemo';
 import {
   DocumentLineCustomFieldFormItemsDemo,
 } from './DocumentLineCustomFieldFormItemsDemo';
+import { DocumentLineCustomFieldColumnsDemo } from './DocumentLineCustomFieldColumnsDemo';
 import { DocumentDetailLedgerTableDemo } from './DocumentDetailLedgerTableDemo';
 import { DocumentDetailLedgersDemo } from './DocumentDetailLedgersDemo';
 import { BusinessOperationalDetailLedgersDemo } from './BusinessOperationalDetailLedgersDemo';
@@ -941,6 +942,7 @@ export function MesComponentSuitePage() {
       <CustomFieldFormSectionDemo />
       <FormulaDesignerDemo />
       <DocumentLineCustomFieldFormItemsDemo />
+      <DocumentLineCustomFieldColumnsDemo />
       <DocumentDetailLedgerTableDemo />
       <DocumentDetailLedgersDemo />
       <BusinessOperationalDetailLedgersDemo />

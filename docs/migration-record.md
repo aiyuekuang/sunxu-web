@@ -116,6 +116,13 @@
 - 本地开发 UI 因 `useAmountDisplay` 从未就绪的 access provider 读取 `canViewPrices` 而崩溃，且后端代理 `127.0.0.1:6033` 不可用；本批真实业务路由的截图、视口和 DOM 几何验收为 `UNVERIFIED`。Gantt 排程面板的响应式几何也需要在正常宿主会话中复核。
 - 这只是消费端替换进展，不代表 MES 所有共享组件引用都已迁完。尚余组件继续按原固定覆盖账本和逐模块 AST 导入盘点核销；迁移期间不得把 `HOST` 分类视为排除理由，宿主能力仍可通过 Sunxu capabilities 注入。
 
+## 单据行自定义字段列 helper（2026-11-22）
+
+- 将 Admin 本地 `documentLineCustomFieldColumns.tsx` 的单据行自定义字段规则与列 UI helper 迁入 `src/mes/components/documentLineCustomFieldColumns.tsx` 并从 `sunxu-web/mes` 导出；FormItems 与新列 helper 共用字段显隐/排序、选项、必填和日期转换规则。schema、API、权限、行数据策略和持久化仍由 MES 宿主负责。
+- 公共契约保留显隐/宽度、表单值、payload、公式只读列、AntD/Pro 列、systemFields 投影、稀疏行密集化、quantity→qty 回退、按行序应用预览及聚合非法值返回 null；9 条 Node 契约测试覆盖 Admin 原有 helper 断言。
+- 验证：9/9 契约测试、`npm run typecheck`、`npm run build:lib`、`npm run build:catalog` 通过。Catalog 浏览器示例在 1440×960 与 390×844 视口呈现；DOM 读数分别为页面宽度 1440/390 且 `scrollWidth` 均等于视口宽度，卡片宽 1118/324px、卡片内容 `scrollWidth` 均未超过自身宽度；应用模拟公式预览可见行值更新，未捕获页面级 JS 错误。截图与几何记录见 [`docs/verification/document-line-custom-fields-2026-11-22/README.md`](./verification/document-line-custom-fields-2026-11-22/README.md)。
+- 该浏览器证据只覆盖组件目录的本地确定性示例；真实 MES 路由、宿主 API 接线、键盘路径、深色主题及真实页面内表格横向滚动仍未验收，保持 `UNVERIFIED`。当前开发宿主启动会被未初始化的 access provider 与不可用的本地 API 代理阻断。
+
 ## MES 公共控件与详情容器收口（2026-11-22）
 
 - 表单/字典控件复核确认请求、权限、字典状态、帮助文案、校验、只读与禁用属性均由既有 `sunxu-web/mes` 控件完整承载；修复配置入口链接可访问名称缺少可见操作文案的问题，并加入 SSR 回归覆盖权限隐藏与名称包含可见文案。

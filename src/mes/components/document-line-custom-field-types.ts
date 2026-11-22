@@ -15,7 +15,14 @@ export interface DocumentLineCustomFieldDefinition {
   optionsJson?: unknown;
 }
 
+export interface DocumentLineCustomFieldSystemField {
+  key: string;
+  label?: string;
+  dataType?: string;
+}
+
 export interface DocumentLineCustomFieldSchema {
   schemaVersion: number;
+  systemFields?: DocumentLineCustomFieldSystemField[];
   fields?: DocumentLineCustomFieldDefinition[];
 }
