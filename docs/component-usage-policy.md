@@ -22,7 +22,7 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 | 同单位/同币种字段与表格列一一对应 | `TableSummary`（默认 `fixed`）+ AntD `Table.Summary.Cell` | 可加字段放在对应列下方并固定在表格底部；汇总单元格按最终可见列顺序提供 |
 | 多单位/多货主汇总较长，且要跟随结果行滚动 | `TableSummary fixed={false}` + AntD `Table.Summary.Cell` | 在数据行后显示并随表格纵向、横向滚动；用合并单元格承载分组摘要，固定操作列保持空白；由上游提供全筛选结果口径 |
 | 简短筛选摘要不需要跟随结果行滚动 | `PaginationSummary` + `paginationSummary` 插槽 | 放在分页栏左侧；只承载紧凑摘要。汇总来自上游同一查询，不使用当前页数据累加，也不与列合计重复展示同一指标 |
-| 单列表视口页（整页只有一张列表） | `CrudListWorkbench` + `layout="page" fill` | 分页和表头必须保持可见；不得用页面级 `:has()` CSS、`table-viewport-page` 类或外部高度测量控制表体 |
+| 单列表视口页（整页只有一张列表） | `CrudListWorkbench` + `layout="page" fill` | 分页和表头必须保持可见；工作台统一拥有表体纵向滚动高度，适配器只配置横向滚动；不得用页面级 `:has()` CSS、`table-viewport-page` 类或外部高度测量控制表体 |
 | 页面内嵌列表（Tab 面板、卡片、长页面中的子列表） | `CrudListWorkbench` + `layout="embedded"` | 不拥有页面外框、不渲染页头、不强制 `min-height: 100%`；不得再包一层页面容器 |
 | 特殊或只读列表 | `ListScreenContainer`；若有筛选，工具须在结果区紧邻 `toolbar` 内 | 表格按场景用 ProTable 或 AntD Table；不得把列表操作单独放在远置的页头行 |
 | 列表筛选 | `CrudListWorkbench` 组合 ProTable 原生查询表单、`FilterBar` 轻筛选与可选高级筛选抽屉 | 少量外部快捷筛选默认同行展示；宽度不足时自动移入可展开区域。筛选值、查询和请求仍由宿主管理 |
@@ -53,7 +53,7 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 | 异步候选结果或详情内容 | AntD `Spin` / `Empty` / `Alert` / `Result`（按语义选择） | 不为每页另造通用加载、空、错误控件 |
 | 短编辑/确认覆盖层 | AntD `Modal`；保留列表上下文或承载较长滚动内容时用 `Drawer` | Sunxu Web 不包一层同义 Modal/Drawer；流程操作仍需固定在覆盖层 footer |
 
-当宿主确实已有可调整列宽等表格适配器时，通过 `renderTable` 接入结果区；MES 当前依赖列宽、列设置、密度、全局行号、导出布局等既有能力时，使用 `ResizableProTable` / `ResizableTable` 保留这些交互。适配器只消费工作台整理好的表格 props，不另画标题、筛选或列表级操作；请求、权限、业务动作及页面副作用仍由宿主提供。组件覆盖门禁清零之前，不开始 MES 消费页面替换：
+当宿主确实已有可调整列宽等表格适配器时，通过 `renderTable` 接入结果区；MES 当前依赖列宽、列设置、密度、全局行号、导出布局等既有能力时，使用 `ResizableProTable` / `ResizableTable` 保留这些交互。适配器只消费工作台整理好的表格 props，不另画标题、筛选或列表级操作；`fill` 模式下工作台会在最终适配器元素上重新合并 `scroll`，确保业务适配器覆盖横向宽度时不丢失工作台高度。请求、权限、业务动作及页面副作用仍由宿主提供。组件覆盖门禁清零之前，不开始 MES 消费页面替换：
 
 ```tsx
 import { ResizableProTable } from 'sunxu-web/mes';

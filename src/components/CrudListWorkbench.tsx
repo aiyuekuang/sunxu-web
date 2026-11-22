@@ -2,8 +2,17 @@ import { DownOutlined, FilterOutlined, PlusOutlined, UpOutlined } from '@ant-des
 import { Alert, Button, Drawer, Space, Tabs, Tag, Tooltip } from 'antd';
 import type { SpinProps } from 'antd';
 import type { TableProps as AntTableProps } from 'antd';
-import type { ReactNode, RefObject } from 'react';
-import { useEffect, useId, useLayoutEffect, useMemo, useRef, useState } from 'react';
+import type { ReactElement, ReactNode, RefObject } from 'react';
+import {
+  cloneElement,
+  isValidElement,
+  useEffect,
+  useId,
+  useLayoutEffect,
+  useMemo,
+  useRef,
+  useState,
+} from 'react';
 import { ProTable } from '@ant-design/pro-components';
 import type { ProTableProps } from '@ant-design/pro-components';
 import { FilterBar } from './FilterBar';
@@ -236,6 +245,35 @@ function addFillTableLayout<T extends object, Params extends Record<string, unkn
       classNames: addFillSpinClassNames(loading.classNames),
     },
   };
+}
+
+function mergeRenderedTableScroll<T extends object, Params extends Record<string, unknown>>(
+  renderedTable: ReactNode,
+  workbenchScroll: CrudListWorkbenchTableProps<T, Params>['scroll'],
+  fill: boolean,
+): ReactNode {
+  if (!isValidElement(renderedTable)) return renderedTable;
+
+  const tableElement = renderedTable as ReactElement<{
+    scroll?: CrudListWorkbenchTableProps<T, Params>['scroll'];
+  }>;
+  const adapterScroll = tableElement.props.scroll;
+  const mergedScroll = {
+    ...workbenchScroll,
+    ...adapterScroll,
+  };
+
+  if (fill) {
+    // The workbench owns vertical sizing in fill mode. Keep its measured `y`
+    // even when an adapter replaces the whole scroll object to set `x`.
+    if (workbenchScroll?.y === undefined) {
+      delete mergedScroll.y;
+    } else {
+      mergedScroll.y = workbenchScroll.y;
+    }
+  }
+
+  return cloneElement(tableElement, { scroll: mergedScroll });
 }
 const useIsomorphicLayoutEffect =
   typeof window === 'undefined' ? useEffect : useLayoutEffect;
@@ -737,7 +775,11 @@ export function CrudListWorkbench<
           ) : null}
           <div ref={tableContainerRef} className="sxw-crud-list-workbench__table">
             {renderTable ? (
-              renderTable(renderTableProps)
+              mergeRenderedTableScroll(
+                renderTable(renderTableProps),
+                resolvedScroll,
+                fill,
+              )
             ) : (
               <ProTable<T, Params>
                 {...tableProps}

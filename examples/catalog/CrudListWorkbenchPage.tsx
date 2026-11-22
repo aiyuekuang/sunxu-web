@@ -664,6 +664,12 @@ export function CrudListWorkbenchPage() {
             <CrudListWorkbench<DemoProduct>
               layout="embedded"
               fill
+              renderTable={(tableProps) => (
+                <ProTable<DemoProduct>
+                  {...tableProps}
+                  scroll={{ x: 'max-content' }}
+                />
+              )}
               tableProps={{
                 rowKey: 'id',
                 columns: [
