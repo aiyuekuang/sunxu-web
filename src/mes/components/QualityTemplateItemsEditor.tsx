@@ -53,6 +53,8 @@ export type QualityTemplateItemsEditorProps = {
     rules: FormRule[];
     typeCode: 'spec_type';
   }) => ReactNode;
+  /** Optional full-width host fields, rendered between the standard and result settings. The index is relative to the Form.List name `items`. */
+  renderItemExtraFields?: (props: { itemIndex: number }) => ReactNode;
 };
 
 const RESULT_TYPE_OPTIONS = [
@@ -83,11 +85,12 @@ function clearFieldsForResultType(
 /**
  * @sunxu-component mes-specific
  * @sunxu-domain quality-inspection-templates
- * @sunxu-reason Preserves the dynamic inspection-item editor, result-type cleanup, numeric/selection rules, copy/remove actions, and required/photo/SPC flags while specification dictionary options are supplied by the host.
+ * @sunxu-reason Preserves the dynamic inspection-item editor, result-type cleanup, numeric/selection rules, copy/remove actions, and required/photo/SPC flags while specification dictionary options and optional per-item fields are supplied by the host.
  */
 export function QualityTemplateItemsEditor({
   emptyItem,
   renderSpecTypeField,
+  renderItemExtraFields,
 }: QualityTemplateItemsEditorProps) {
   const form = Form.useFormInstance();
 
@@ -248,6 +251,8 @@ export function QualityTemplateItemsEditor({
                   </Form.Item>
                 </Col>
               </Row>
+
+              {renderItemExtraFields?.({ itemIndex: name })}
 
               <Form.Item noStyle shouldUpdate>
                 {({ getFieldValue }) => {

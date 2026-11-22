@@ -140,7 +140,7 @@
 | `OqcSourceDeliveryCard` | 对自动 OQC 质检展示并验证来源销售出库单与精确关联明细 | Pro `Descriptions` / AntD `Card` / `Alert`；出库详情、状态字典、单位字典和数量格式由宿主注入 |
 | `QualityInspectionActionModals` | 打开提交或登记缺陷前加载质检单；支持失败提示、重试和关闭 | AntD `Alert` / `Spin` + MES `QualityInspectionSubmitModal` / `QualityInspectionDefectModal`；详情查询、字段 schema、检验与缺陷能力由宿主注入 |
 | `FqcRulesPanel` | 管理成品检验规则，支持健康告警、物料/系列筛选、服务端列表、配置入口与规则维护 | MES `CrudListWorkbench` / `ResizableProTable` / Pro `ModalForm`；规则服务、权限结果、字典与配置导航由宿主注入 |
-| `QualityTemplateItemsEditor` | 编辑质量模板检验项，按结果类型切换数值范围或可选结果字段并清理不适用值 | AntD `Form.List` / `InputNumber` / `Select`；规格类型字典字段由宿主注入 |
+| `QualityTemplateItemsEditor` | 编辑质量模板检验项，按结果类型切换数值范围或可选结果字段并清理不适用值；可由宿主注入每项的全宽扩展字段 | AntD `Form.List` / `InputNumber` / `Select`；规格类型字典和扩展字段由宿主注入，扩展字段位于检验标准之后、结果专属设置之前；扩展表单项使用相对名称 `[itemIndex, field]` |
 | `ScrapDeductionPolicySection` / `MaterialScrapDeductionPolicySection` | 配置公司级报废扣款/结算策略与物料级规则覆盖、继承及金额模式 | ProForm / `ProFormDependency`；权限、策略详情/更新和消息由宿主注入 |
 | `TemplateFieldSelector` | 加载并筛选打印字段，锁定模板必选项，支持默认选择、检索和拖拽排序 | `@dnd-kit` + AntD；字段定义、模板/业务枚举、默认优先序和加载请求由宿主注入 |
 | `GridPrintDesigner` | 编辑 MES 网格打印模板，生成并归一化 schema，按样例预览草稿 | AntD 网格画布 + MES grid schema/factory；授权字段、样例数据、纸张配置和预览回调由宿主注入 |

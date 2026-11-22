@@ -1,5 +1,5 @@
 import { useState } from 'react';
-import { Button, Form, Select, Space, Typography } from 'antd';
+import { Button, Form, Input, Select, Space, Typography } from 'antd';
 import type { QualityTemplateItemFormValue } from '../../src/mes/components/QualityTemplateItemsEditor';
 import { SectionCard } from '../../src';
 import { QualityTemplateItemsEditor } from '../../src/mes';
@@ -64,6 +64,14 @@ export function QualityTemplateItemsEditorDemo() {
                   { label: '外观', value: 'appearance' },
                 ]}
               />
+            </Form.Item>
+          )}
+          renderItemExtraFields={({ itemIndex }) => (
+            <Form.Item
+              name={[itemIndex, 'hostCustomValue']}
+              label="宿主扩展字段"
+            >
+              <Input placeholder="由宿主提供的每项扩展内容" />
             </Form.Item>
           )}
         />

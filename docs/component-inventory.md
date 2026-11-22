@@ -116,7 +116,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `AiAnalysisCard`（`sunxu-web/mes`） | 展示拍照质检 AI 建议、依据、照片、模型/提示词版本、失败信息与服务端拒绝项；分析查询和时间格式由宿主注入 |
 | `OqcSourceDeliveryCard`（`sunxu-web/mes`） | 展示自动 OQC 关联的销售出库单/明细、出库数量/批次/位置和数据缺失/失败状态；销售出库查询、单位/状态字典与数值格式由宿主注入 |
 | `QualityInspectionActionModals`（`sunxu-web/mes`） | 保留提交报工/登记缺陷前读取质检单详情、加载/失败/重试状态与两类弹窗编排；详情、字段 schema 和检验/缺陷能力由宿主注入 |
-| `QualityTemplateItemsEditor`（`sunxu-web/mes`） | 保留模板检验项动态增删/复制、数值范围与测量次数校验、选择结果、自动判定提示、SPC/必检/必拍开关；规格类型字典由宿主渲染 |
+| `QualityTemplateItemsEditor`（`sunxu-web/mes`） | 保留模板检验项动态增删/复制、数值范围与测量次数校验、选择结果、自动判定提示、SPC/必检/必拍开关；规格类型字典和每项全宽扩展字段由宿主渲染 |
 | `ScrapDeductionPolicySection`、`MaterialScrapDeductionPolicySection`（`sunxu-web/mes`） | 保留公司级报废扣款策略和物料覆盖/继承编辑；权限、策略 API 与保存提示由宿主注入 |
 | `SelectedWorkOrdersTable`、`ProductionBatchNoField`、`WorkOrderAllocatedSerialsButton`（`sunxu-web/mes`） | 保留批量工单核对、报工批号输入/扫码和已分配序列号查询；物料显示、批号候选和序列号服务由宿主注入 |
 | `WorkOrderReportModal`、`WorkOrderReportDirectModal`、`WorkOrderFormDrawer/Fields`、`WorkOrderListProgress/RiskTags`（`sunxu-web/mes`） | 保留工序/整单报工、工单表单、动态字段与列表进度风险摘要；工单 API、权限、序列/仓位/批号候选及副作用由宿主注入 |
