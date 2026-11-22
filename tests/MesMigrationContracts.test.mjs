@@ -253,3 +253,14 @@ test('sales return detail ledger keeps host-driven actions and saved-view filter
   assert.match(ledger, /savedViewController \? \{ controller: savedViewController \}/);
   assert.match(ledger, /lightFilter=\{lightFilter\}/);
 });
+
+test('sales-order shipping delegates the gated action to the host editor', () => {
+  const source = read('src/mes/components/SaleOrderShipActionModal.tsx');
+
+  assert.match(source, /capabilities\.renderDeliveryEditor\(\{/);
+  assert.match(source, /open: open && Boolean\(order\?\.id\)/);
+  assert.match(source, /saleOrderId: order\?\.id \?\? undefined/);
+  assert.match(source, /onClose,/);
+  assert.match(source, /onSuccess,/);
+  assert.doesNotMatch(source, /saleDeliveryControllerShip|<Form/);
+});
