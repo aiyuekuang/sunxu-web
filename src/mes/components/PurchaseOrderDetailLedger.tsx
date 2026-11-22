@@ -1044,7 +1044,6 @@ export function PurchaseOrderDetailLedger({
               serverSortFields: capabilities.serverSortFields,
               sortPersistenceKey: false,
             }}
-            scroll={{ x: 2230 }}
             sortDirections={['ascend', 'descend']}
             onChange={onTableChange}
           />
