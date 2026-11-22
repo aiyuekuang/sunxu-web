@@ -613,7 +613,7 @@ function StatesPage({ onMessage }: { onMessage: (text: string) => void }) {
 export function CatalogApp() {
   const [appearance, setAppearance] = useState<'light' | 'dark'>('light');
   return (
-    <SunxuWebProvider appearance={appearance}>
+    <SunxuWebProvider appearance={appearance} componentSize="middle">
       <CatalogWorkspace appearance={appearance} onAppearanceChange={setAppearance} />
     </SunxuWebProvider>
   );

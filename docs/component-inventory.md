@@ -195,7 +195,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `ChartPanel` | ProCard + loading / empty / error 状态 |
 | `ErrorBoundary` | React 边界 + AntD Result |
 | `PermissionGuard` | 仅消费宿主授权结果 |
-| `SunxuWebProvider` | AntD ConfigProvider / App + Sunxu 色彩主题 |
+| `SunxuWebProvider` | AntD ConfigProvider / App + Sunxu 色彩主题、locale、统一控件尺寸和页面外框归属 |
 
 `CrudListWorkbench` 的 Facet 轨道负责与结果区保持单一 16px 间距并提供受限高度内的溢出滚动；宿主侧栏卡片负责自身边框和内边距，宽度应适配轨道。可运行组合示例见目录的“CRUD 列表工作台”页。
 

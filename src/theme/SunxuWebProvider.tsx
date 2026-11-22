@@ -2,7 +2,7 @@ import type { ReactNode } from 'react';
 import { App as AntdApp, ConfigProvider, theme as antdTheme } from 'antd';
 import zhCN from 'antd/locale/zh_CN';
 import type { Locale } from 'antd/es/locale';
-import type { ThemeConfig } from 'antd';
+import type { ConfigProviderProps, ThemeConfig } from 'antd';
 import { SunxuWebColors, type SunxuAppearance } from './colors';
 import { WorkspaceFrameProvider, type WorkspaceFrame } from './WorkspaceFrame';
 
@@ -10,6 +10,7 @@ export type SunxuWebProviderProps = {
   children: ReactNode;
   appearance?: SunxuAppearance;
   locale?: Locale;
+  componentSize?: ConfigProviderProps['componentSize'];
   theme?: ThemeConfig;
   /**
    * Declare who owns the workspace frame. Host shells that already provide the
@@ -25,6 +26,7 @@ export function SunxuWebProvider({
   children,
   appearance = 'light',
   locale = zhCN,
+  componentSize = 'middle',
   theme,
   workspaceFrame = 'container',
 }: SunxuWebProviderProps) {
@@ -54,7 +56,7 @@ export function SunxuWebProvider({
   };
 
   return (
-    <ConfigProvider locale={locale} componentSize="middle" theme={antdConfig}>
+    <ConfigProvider locale={locale} componentSize={componentSize} theme={antdConfig}>
       <AntdApp>
         <WorkspaceFrameProvider value={workspaceFrame}>
           <div className="sxw-provider" data-theme={appearance}>

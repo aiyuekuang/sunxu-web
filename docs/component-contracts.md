@@ -187,7 +187,7 @@
 
 ### `SunxuWebProvider`
 
-- **API**：`children` 必填；`appearance` 为 `light | dark`，缺省 `light`；`locale` 默认 `zhCN`；`theme` 按 AntD `ThemeConfig` 做 token 合并；`workspaceFrame` 为 `container | host`，缺省 `container`。
+- **API**：`children` 必填；`appearance` 为 `light | dark`，缺省 `light`；`locale` 默认 `zhCN`；`componentSize` 使用 AntD `ConfigProviderProps['componentSize']`，缺省 `middle`；`theme` 按 AntD `ThemeConfig` 做 token 合并；`workspaceFrame` 为 `container | host`，缺省 `container`。
 - **外框所有权**：`workspaceFrame="container"` 表示 Sunxu 页面容器拥有工作区外框并应用 `--sxw-workspace-gutter`；`workspaceFrame="host"` 表示宿主 shell 已经提供外框，页面容器不再叠加内边距。宿主只能有一个外框所有者。
 - **状态与恢复**：受控，不自行读写 localStorage 或系统偏好；宿主改变 `appearance` 即切主题。
 - **可访问性/组合**：只增加 AntD ConfigProvider / App 上下文，不增加可见文案或额外导航层。
