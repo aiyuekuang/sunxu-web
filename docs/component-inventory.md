@@ -177,7 +177,8 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `GlbModelViewer`（`sunxu-web/mes`） | 提供 GLB/GLTF 加载、旋转缩放、网格/线框切换、恢复视角、加载失败及 WebGL 资源清理；宿主传入已授权可读 URL，three 为可选 peer 且挂载后动态加载 |
 | `ResizableProTable`（`sunxu-web/mes`） | MES 分页列表表格适配：可调列宽、持久化列序/显隐/排序、全局行号、密度、空态、导出布局和单列表视口高度；短数据分页固定在结果边界底部 |
 | `ResizableTable`（`sunxu-web/mes`） | 原生 AntD Table 的 MES 明细表适配：可调列宽、可选行号、密度、空态和本地排序 |
-| `TableActions`、`TableDensityOption`、`TableEmpty`（`sunxu-web/mes`） | MES 表格的行操作收纳、密度控制和带业务引导的空态 |
+| `TableActions`、`TableDensityOption`、`TableEmpty`（`sunxu-web/mes`） | MES 表格的行操作收纳、密度控制和带业务引导的空态；完整宿主菜单列用 `markCompleteActionMenuColumn` 标记，避免二次套菜单 |
+| `todayBusinessDate`（`sunxu-web/mes`） | 以 `Asia/Shanghai` 返回当前 MES 业务日 `YYYY-MM-DD`，供日期默认值和业务日比较复用 |
 | `RowActions` | 表格行操作收纳为省略号菜单（来源：tel_admin `TableActions` 适配） |
 | `TableSummary` | 在表格结果区末尾固定展示列合计，或以普通表格行承载多单位摘要；`fullWidth` 由 MES 表格适配器按最终可见列解析，独立适配器可调用 `withResolvedTableSummary`；不承担请求、聚合或单位换算 |
 | `PaginationSummary` | 在分页栏左侧显示宿主提供的简短筛选摘要；不承担请求或聚合 |

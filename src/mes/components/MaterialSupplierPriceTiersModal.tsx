@@ -12,6 +12,7 @@ import { useCallback, useEffect, useRef, useState } from 'react';
 import type { ActionType, ProColumns } from '@ant-design/pro-components';
 import { ResizableProTable } from './ResizableTable';
 import TableActions from '../table/TableActions';
+import { todayBusinessDate } from '../utils/businessDate';
 import { formatUnitLabel } from '../utils/qty-unit';
 import {
   useMesAmountMask,
@@ -37,10 +38,6 @@ const SCROLLABLE_FORM_MODAL_PROPS = {
     },
   },
 };
-
-function todayString() {
-  return new Date().toISOString().slice(0, 10);
-}
 
 function optionalText(value?: string | null) {
   const normalized = value?.trim();
@@ -335,7 +332,7 @@ export function MaterialSupplierPriceTiersModal({
               : {
                   currency:
                     capabilities.defaultCurrency ?? DEFAULT_CURRENCY,
-                  validFrom: todayString(),
+                  validFrom: todayBusinessDate(),
                   status: 'active',
                   priceIncludesTax: false,
                   isDefault: false,

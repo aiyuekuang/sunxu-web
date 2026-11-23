@@ -362,6 +362,7 @@
 - **职责与入口**：`ResizableProTable<T, U>` 保留 ProTable API，`ResizableTable<T>` 保留 Ant Design Table API；列 schema、数据源、查询请求、权限、业务动作及分页策略仍由宿主提供。从 `sunxu-web/mes` 导入。`resizable={false}` 关闭宽度拖拽适配，但仍保留适用的 MES 表格行为。
 - **宽度和布局持久化**：`resizable` 可设为布尔值或 `ResizableTableConfig`。默认列宽 120px、最小 48px、最大不限、拖拽结束防抖 500ms；`defaultWidth`、`minConstraints`、`maxConstraints`、`debounceWaitTime` 可覆盖。`persistenceKey` 默认按列生成，也可提供稳定业务 key 或设为 `false`；`persistenceType` 默认 `localStorage`，可选 `sessionStorage`。ProTable 的列宽状态与可见/顺序状态分别保存，排序状态由独立的 `sortPersistenceKey` 保存；`sortMigration` 可只替换已知旧默认排序。用户显式重置列设置时，宽度缓存同步重置。
 - **行号与列策略**：分页列表默认增加固定左侧“序号”列，跨页使用全局行号；可用 `showRowIndex={false}` 关闭。`materialColumnPriority` 缺省按物料名称、编码、规格、单位、主数量、辅助数量、业务上下文、扩展列、辅助信息和操作列整理默认列序；`'preserve'` 或 `{ mode: 'preserve' }` 保留声明次序，`false` 完全关闭整理，ProTable 用户保存的显式列序仍优先。不会把隐藏查询字段导出为业务列。
+- **完整行菜单**：从 `sunxu-web/mes` 导入 `markCompleteActionMenuColumn(column)`，用于标记 renderer 已经提供完整菜单的操作列（例如宿主的单据动作下拉菜单）。被标记列不会再由表格适配器转换并套入 `TableActions`；普通按钮操作继续交给适配器收纳，标准列优先使用共享 `RowActions`/`TableActions`。
 - **排序与查询**：ProTable 的 `request` 由宿主实现。默认对可排序业务字段发出服务端排序参数；设置 `serverSortFields` 后，仅白名单字段可排序。使用本地 `dataSource` 时按日期、数值和中文自然顺序比较；AntD Table 列可用 `sortValue`、`sortable` 控制。排序状态使用单独 key 持久化。外部 `params` 的 `undefined`、`null`、空字符串和空数组会在请求前移除；日期范围列合并通用快捷日期选项，`createdAt` / `updatedAt` 字段可补充仅日期展示列。表单 transform 和接口字段映射由宿主继续控制。
 - **筛选、空态和汇总**：保留 ProTable 查询表单与列设置 API；列变更会同步导出布局。`emptyGuidance` 可提供业务空态下一步建议，默认 `TableEmpty` 展示“暂无数据”和筛选/上游数据提示；宿主传入 `locale.emptyText` 时完全覆盖。`summary` 仍是 AntD/ProTable 的宿主回调；自动行号存在时组件为汇总行补齐首列。`paginationSummary` 将宿主摘要放在分页栏左侧并保留分页范围文案，窄容器下换到分页控件上方；关闭分页时不显示该插槽。
 - **高度适配**：`fitContainerHeight` 缺省关闭；设为 `true` 或 `{ enabled, bottomOffset, minBodyHeight, maxBodyHeight }` 后，组件结合视口、`fitContainerHeight` 所在结果边界、表头、分页、汇总和 footer 动态计算纵向滚动高度。单列表视口页的外部父级必须提供确定高度和可收缩的 flex 布局；长页面/多表页面不启用。
@@ -372,6 +373,11 @@
 - **本次行为边界**：排序恢复与宽度持久化使用稳定的列 schema 输入，排序指示在最终渲染列上合并，避免服务端排序状态更新把已保存列宽重置为默认值。此项是适配层修正，保留 MES 排序与列宽行为。
 - **fill 分页视觉验收**：真实 Catalog 路由“MES 表格组件”的 `fitContainerHeight` 表格与“CRUD 列表工作台”的 `fill` 适配器均验证短数据；截图和几何数据见 [`docs/verification/resizable-fill-pagination-2026-11-23/README.md`](./verification/resizable-fill-pagination-2026-11-23/README.md)。Admin 真实业务路由需由测试环境加载更新后的共享包后复验。
 - **目录示例和证据**：真实 Catalog 路由“MES 表格组件”覆盖 ProTable 与原生 Table、服务端/本地排序、列宽拖拽和刷新、列显隐与导出列数、密度、双击编辑回调、空态、汇总、视口内纵向高度及 375px 键盘横向滚动。截图、几何、接缝审计、build/typecheck 与未验收项见 [`docs/verification/mes-resizable-table-2026-11-20/README.md`](./verification/mes-resizable-table-2026-11-20/README.md)。宿主 MES 权限解析接线、读屏器、深色主题、844×390 横屏和自定义溢出容器仍为 `UNVERIFIED`。
+
+### `todayBusinessDate`
+
+- **职责 / API**：从 `sunxu-web/mes` 导入 `todayBusinessDate(): string`，返回 `Asia/Shanghai` 下的当前业务日期 `YYYY-MM-DD`。
+- **使用边界**：用于日期默认值和纯日期业务比较。不要用 `new Date().toISOString().slice(0, 10)`，因为该结果按 UTC 切日。
 
 ### `sunxu-web/mes` 兼容组件
 

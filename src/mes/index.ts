@@ -479,6 +479,8 @@ export type {
 } from './components/ResizableTable';
 export { resolveScrollX } from './components/ResizableTable';
 export { default as TableActions } from './table/TableActions';
+export { markCompleteActionMenuColumn } from './table/completeActionMenuColumn';
+export { todayBusinessDate } from './utils/businessDate';
 export { TableDensityOption } from './table/TableDensityOption';
 export { TableEmpty } from './table/TableEmpty';
 export { useTableExportLayout } from './table/ExportLayoutBoundary';

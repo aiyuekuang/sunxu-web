@@ -3,6 +3,7 @@ import { Button, Drawer, Space, Tag, Upload } from 'antd';
 import type { UploadFile } from 'antd/es/upload/interface';
 import { useState } from 'react';
 import { ResizableProTable } from './ResizableTable';
+import { todayBusinessDate } from '../utils/businessDate';
 import type {
   BusinessInvoiceBatchResult,
   BusinessInvoiceBatchResultRow,
@@ -65,7 +66,7 @@ export function BusinessInvoiceOpeningImportDrawer({
     const sample = [
       '',
       '蓝字',
-      new Date().toISOString().slice(0, 10),
+      todayBusinessDate(),
       isPurchase ? 'SUP-001' : 'CUS-001',
       'legacy-erp',
       'LEGACY-001',
