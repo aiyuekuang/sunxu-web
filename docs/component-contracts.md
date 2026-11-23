@@ -96,7 +96,7 @@
 | `DocumentViewBar` | 组合 MES 单据个人视图与筛选按钮；把视图对象、另存参数和脏切换流程适配到 `SavedViewBar` | Sunxu `SavedViewBar` + `DocumentFilterButton`；视图控制器和筛选开关由宿主提供 |
 | `PriceControlPrecheckButton` | 确认/发送前展示服务端价格提醒、阻断和审批结果；支持页面前置校验、无原始预检权限回退、例外申请、二次确认与失败对话框 | MES `PermissionButton` + AntD `Modal` / `Alert`；原始权限、预检/例外 API 和错误消息由 `MesUiProvider.priceControlCapabilities` 注入 |
 | `MaterialPriceSection` | 编辑物料参考进价/售价并展示有权限的价格上下界、币别、移动加权平均成本及币别提示；跳转到物料价格规则或销售价目 | Ant Design `Form` / `InputNumber`；价格更新服务、权限结果和路由导航由宿主 props 注入 |
-| `SaleOrderDetailLedger` / `SaleReturnDetailLedger` / `SaleDeliveryDetailLedger` / `SaleDeliveryDocumentActionDrawer` | 展示销售订单、退货、出库明细与出库单动作抽屉；保留筛选、分页、汇总、金额/状态显示和打印 | MES `ResizableProTable` / `DocumentDetailLedgerTable` / AntD Drawer；请求、格式、权限、动作和刷新由宿主 capabilities 注入 |
+| `SaleOrderDetailLedger` / `SaleReturnDetailLedger` / `SaleDeliveryDetailLedger` / `SaleDeliveryDocumentActionDrawer` | 展示销售订单、退货、出库明细与出库单动作抽屉；订单交期和出库日期读取明细记录的原始日期字段；行菜单首次点击即展开动作 | MES `ResizableProTable` / `DocumentDetailLedgerTable` / AntD Drawer；请求、格式、权限、动作和刷新由宿主 capabilities 注入 |
 | `PackageSpecManager` / `PackageUnitCreateDrawer` | 管理物料包装规格，并按批次/生产入库/库存来源创建包装单元；保留查询、删除确认、字段校验、建议箱规和来源筛选 | AntD / ProForm / MES `ResizableProTable`；服务、权限、字段选项、配置入口及反馈由宿主 capabilities 注入 |
 | `ExpenseBillLinesEditableTable` / `FundsTransactionDrawer` | 编辑费用单明细并展示资金流水详情；保留必填/数值校验、来源快照、自定义字段、公式预览、合计与空值回退 | MES `DocumentLineEditableTable` / AntD Drawer；入库单搜索、公式预览、流水查询与格式化由宿主 capabilities 注入 |
 | `ProductionBomSelect` | 提供 MES BOM ProForm 字段；保留物料/销售订单联动、唯一候选自动选中、关键词参数、请求竞态保护、字段说明及返回配置页后的重新请求 | Pro Components `ProFormSelect`；BOM 请求、`bomHeaderId` 字段帮助和有权限时的 BOM 配置标签由 `MesUiProvider.productionBomSelectCapabilities` 注入 |
@@ -367,7 +367,7 @@
 - **高度适配**：`fitContainerHeight` 缺省关闭；设为 `true` 或 `{ enabled, bottomOffset, minBodyHeight, maxBodyHeight }` 后，组件结合视口、`fitContainerHeight` 所在结果边界、表头、分页、汇总和 footer 动态计算纵向滚动高度。单列表视口页的外部父级必须提供确定高度和可收缩的 flex 布局；长页面/多表页面不启用。
 - **fit 短数据布局**：高度计算值作为 `scroll.y` 传入后，适配器也会通过 Ant Design Table/Spin 公开语义 `classNames` 和工作台自有 flex 规则撑开内层表格与滚动体；分页固定在结果边界底部，表头保持自然高度。宿主自定义 `loading` 时应合并 `tableProps.loading` 并只更新 `spinning`，保留共享 Spin 布局语义类。
 - **导出布局**：有 `request` 的表默认产出当前可见列、列序和排序布局；仅用本地 `dataSource` 的表需显式设 `exportLayoutEnabled`。`useTableExportLayout()` 读取当前表布局，表格边界在导出按钮点击捕获阶段激活对应布局，避免同一路由多个表格串用。导出 API 和服务仍由宿主实现；布局只能表达用户选择，不能扩大后端允许导出的字段集合。
-- **行操作和编辑宿主接缝**：`TableActions` 将有效按钮、链接、权限按钮和确认操作统一收入“更多”菜单；权限判断、确认和结果仍归动作节点/宿主。`MesUiProvider` 可选注入 `isTableActionColumn(column)` 识别宿主操作列，避免嵌套菜单；`resolveRowEditAction(columns, record)` 只返回宿主当前可见且允许执行的编辑回调，表格双击才调用它。未提供时不产生编辑副作用。不得在 Sunxu 中硬编码 Umi `useAccess`、权限码、MES API、路由或业务动作。
+- **行操作和编辑宿主接缝**：`TableActions` 将有效按钮、链接、权限按钮和确认操作统一收入“更多”菜单；权限判断、确认和结果仍归动作节点/宿主。`MesUiProvider` 可选注入 `isTableActionColumn(column)` 识别宿主操作列，避免嵌套菜单；列渲染器已提供完整菜单时使用内部标记跳过通用二次包装。`resolveRowEditAction(columns, record)` 只返回宿主当前可见且允许执行的编辑回调，表格双击才调用它。未提供时不产生编辑副作用。不得在 Sunxu 中硬编码 Umi `useAccess`、权限码、MES API、路由或业务动作。
 - **密度和局部溢出**：ProTable 工具栏提供“宽松 / 中等 / 紧凑 / 0 间距”密度菜单，存储键为 `mes-admin:table-density`；主题 token 同步控制单元格纵向间距。列宽总和超过可视区时，仅表格容器横向滚动，页面保持视口宽度；宿主若需要纯键盘浏览，应提供命名且可聚焦的表格滚动区域。`TableActions` 的 `max` 只为旧调用签名兼容，不改变全动作收纳策略。
 - **本次行为边界**：排序恢复与宽度持久化使用稳定的列 schema 输入，排序指示在最终渲染列上合并，避免服务端排序状态更新把已保存列宽重置为默认值。此项是适配层修正，保留 MES 排序与列宽行为。
 - **fill 分页视觉验收**：真实 Catalog 路由“MES 表格组件”的 `fitContainerHeight` 表格与“CRUD 列表工作台”的 `fill` 适配器均验证短数据；截图和几何数据见 [`docs/verification/resizable-fill-pagination-2026-11-23/README.md`](./verification/resizable-fill-pagination-2026-11-23/README.md)。Admin 真实业务路由需由测试环境加载更新后的共享包后复验。

@@ -41,6 +41,7 @@ import {
   TableLongText,
 } from './TableLongText';
 import TableActions from '../table/TableActions';
+import { hasCompleteActionMenuColumn } from '../table/completeActionMenuColumn';
 import {
   type DateRangePickerPreset,
   mergeDateRangePresets,
@@ -1675,6 +1676,7 @@ function applyCompactActionColumns<T extends object>(
 
     if (
       !isRenderedActionColumn(source) ||
+      hasCompleteActionMenuColumn(source) ||
       isHostActionColumn?.(source)
     ) {
       return source;

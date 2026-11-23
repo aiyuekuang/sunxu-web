@@ -61,7 +61,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `SaleReturnReceiveModal`、`SaleReturnReverseModal`、`SaleReturnStockConversionDrawer`、`SaleReturnEditDrawer`（`sunxu-web/mes`） | 保留销售退货实收、冲正、库存转换与编辑表单；校验、价格权限、字典、自定义字段和 API 由宿主注入 |
 | `SaleOrderShipActionModal`、`SaleDeliveryDocumentActionsDropdown`、`ConvertToProductionDrawer`（`sunxu-web/mes`） | 保留销售订单出库入口、出库单动作与审批/信用额度流程、转生产数量/物料/路线交互；所有服务与权限由宿主注入 |
 | `SaleDeliveryItemsPanel`、`SaleDeliveryEditorModal`、`ProductSerialPicker`、`PackageUnitPickerModal`、`SaleOrderLineEditableTable`（`sunxu-web/mes`） | 保留出库明细编辑、成品序列号及包装单元选择、订单行物料/价格/BOM/图纸编辑；接口、权限、字典、金额、自定义字段与选择器能力由宿主注入 |
-| `SaleOrderDetailLedger`、`SaleReturnDetailLedger`、`SaleDeliveryDetailLedger`、`SaleDeliveryDocumentActionDrawer`（`sunxu-web/mes`） | 保留销售订单/退货/出库明细台账与出库动作抽屉；筛选、分页、打印、动作、权限和服务由宿主注入 |
+| `SaleOrderDetailLedger`、`SaleReturnDetailLedger`、`SaleDeliveryDetailLedger`、`SaleDeliveryDocumentActionDrawer`（`sunxu-web/mes`） | 保留销售订单/退货/出库明细台账与出库动作抽屉；显示原始交期/出库日期，行操作单击一次展开；筛选、分页、打印、权限和服务由宿主注入 |
 | `PackageSpecManager`、`PackageUnitCreateDrawer`（`sunxu-web/mes`） | 保留包装规格维护、可包装来源筛选、箱规建议、创建校验和权限门控；数据请求、字典、配置入口和消息由宿主注入 |
 | `CustomerOrderPortalQrModal`（`sunxu-web/mes`） | 保留客户门户二维码、全局展示配置、字段选择和库存可见性设置；权限、请求、门户 URL、二维码 renderer 与消息由宿主注入 |
 | `VoiceBroadcastSettingsPanel`（`sunxu-web/mes`） | 保留大屏语音播报间隔、异常/生产事件类型设置、待播数量提示与清理已播记录；偏好存储和清理确认由宿主注入 |

@@ -27,6 +27,7 @@ import { DocumentDetailLedgerTable } from './DocumentDetailLedgerTable';
 import { EntityThumbnail } from './EntityThumbnail';
 import { SaleDeliveryDocumentActionsDropdown } from './SaleDeliveryDocumentActionsDropdown';
 import { SaleDeliveryItemsPanel } from './SaleDeliveryItemsPanel';
+import { markCompleteActionMenuColumn } from '../table/completeActionMenuColumn';
 import { SaleOrderShipActionModal } from './SaleOrderShipActionModal';
 import { SaleReturnEditDrawer } from './SaleReturnEditDrawer';
 import { SaleReturnReceiveModal } from './SaleReturnReceiveModal';
@@ -125,8 +126,12 @@ function createLedgerDateColumn<T extends object>(
     width: options.width ?? 120,
     sorter: options.sorter,
     search: false,
-    render: (_value, record) =>
-      formatDate(options.value ? options.value(record) : String(_value ?? '')),
+    render: (_dom, record) => {
+      const value: unknown = options.value
+        ? options.value(record)
+        : Reflect.get(record, dataIndex);
+      return formatDate(typeof value === 'string' ? value : null);
+    },
   };
 }
 
@@ -766,11 +771,11 @@ export function SaleOrderDetailLedger({
         search: false,
         render: (_value, row) => row.remarks || '-',
       },
-      {
-        title: '操作',
+      markCompleteActionMenuColumn<SaleOrderDetailLedgerRow>({
+        title: '',
         dataIndex: '__actions',
         valueType: 'option',
-        width: 64,
+        width: 48,
         fixed: 'right',
         search: false,
         render: (_value, row) => {
@@ -795,7 +800,7 @@ export function SaleOrderDetailLedger({
             />
           );
         },
-      },
+      }),
     ];
   }, [capabilities, priceAllowed]);
 
@@ -1324,11 +1329,11 @@ export function SaleReturnDetailLedger({
         search: false,
         render: (_value, row) => row.remarks || '-',
       },
-      {
-        title: '操作',
+      markCompleteActionMenuColumn<SaleReturnDetailLedgerRow>({
+        title: '',
         dataIndex: '__actions',
         valueType: 'option',
-        width: 64,
+        width: 48,
         fixed: 'right',
         search: false,
         render: (_value, row) => {
@@ -1349,7 +1354,7 @@ export function SaleReturnDetailLedger({
             />
           );
         },
-      },
+      }),
     ];
   }, [capabilities, priceAllowed]);
 
@@ -1929,11 +1934,11 @@ export function SaleDeliveryDetailLedger({
         search: false,
         render: (_value, record) => record.remarks || '-',
       },
-      {
-        title: '操作',
+      markCompleteActionMenuColumn<SaleDeliveryDetailLedgerRow>({
+        title: '',
         dataIndex: '__actions',
         valueType: 'option',
-        width: 64,
+        width: 48,
         fixed: 'right',
         search: false,
         render: (_value, record) => {
@@ -1950,7 +1955,7 @@ export function SaleDeliveryDetailLedger({
             />
           );
         },
-      },
+      }),
     ];
   }, [capabilities, priceAllowed, tableActionRef]);
 

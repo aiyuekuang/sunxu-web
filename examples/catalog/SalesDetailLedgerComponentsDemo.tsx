@@ -633,7 +633,7 @@ export function SalesDetailLedgerComponentsDemo() {
         <Space wrap style={{ width: '100%', justifyContent: 'space-between' }}>
           <div>
             <Typography.Title level={4} style={{ margin: 0 }}>MES 销售明细台账</Typography.Title>
-            <Typography.Text type="secondary">使用固定目录数据展示订单、出库、退货明细和出库单动作抽屉。</Typography.Text>
+            <Typography.Text type="secondary">使用固定目录数据展示订单交期、出库日期、退货明细和单击展开的行操作菜单。</Typography.Text>
           </div>
           <Segmented<LedgerView>
             value={activeView}
