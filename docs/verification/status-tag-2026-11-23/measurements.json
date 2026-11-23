@@ -1,0 +1,348 @@
+{
+  "route": "http://127.0.0.1:4173/",
+  "lightDesktop": {
+    "viewport": {
+      "width": 1470,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1470,
+      "scrollWidth": 1470,
+      "horizontalOverflow": false
+    },
+    "body": {
+      "clientWidth": 1470,
+      "scrollWidth": 1470,
+      "horizontalOverflow": false
+    },
+    "tagGroup": {
+      "x": 290,
+      "y": 277,
+      "width": 400,
+      "height": 23
+    },
+    "tags": [
+      {
+        "label": "草稿",
+        "x": 290,
+        "y": 278,
+        "width": 40,
+        "height": 22,
+        "backgroundColor": "rgb(128, 128, 128)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 3.95
+      },
+      {
+        "label": "审批中",
+        "x": 338,
+        "y": 278,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(114, 46, 209)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 6.94
+      },
+      {
+        "label": "已确认",
+        "x": 398,
+        "y": 278,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(22, 119, 255)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 4.1
+      },
+      {
+        "label": "生产中",
+        "x": 458,
+        "y": 278,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(250, 140, 22)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 2.38
+      },
+      {
+        "label": "已发货",
+        "x": 518,
+        "y": 278,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(19, 194, 194)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 2.21
+      },
+      {
+        "label": "已完工",
+        "x": 578,
+        "y": 278,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(82, 196, 26)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 2.27
+      },
+      {
+        "label": "已取消",
+        "x": 638,
+        "y": 278,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(245, 34, 45)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 4.08
+      }
+    ]
+  },
+  "darkDesktop": {
+    "viewport": {
+      "width": 1470,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1470,
+      "scrollWidth": 1470,
+      "horizontalOverflow": false
+    },
+    "body": {
+      "clientWidth": 1470,
+      "scrollWidth": 1470,
+      "horizontalOverflow": false
+    },
+    "tagGroup": {
+      "x": 290,
+      "y": 277,
+      "width": 400,
+      "height": 23
+    },
+    "tags": [
+      {
+        "label": "草稿",
+        "x": 290,
+        "y": 278,
+        "width": 40,
+        "height": 22,
+        "backgroundColor": "rgb(128, 128, 128)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 3.95
+      },
+      {
+        "label": "审批中",
+        "x": 338,
+        "y": 278,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(100, 42, 181)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 8.27
+      },
+      {
+        "label": "已确认",
+        "x": 398,
+        "y": 278,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(22, 104, 220)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 5.19
+      },
+      {
+        "label": "生产中",
+        "x": 458,
+        "y": 278,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(216, 122, 22)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 3.13
+      },
+      {
+        "label": "已发货",
+        "x": 518,
+        "y": 278,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(19, 168, 168)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 2.92
+      },
+      {
+        "label": "已完工",
+        "x": 578,
+        "y": 278,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(73, 170, 25)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 2.98
+      },
+      {
+        "label": "已取消",
+        "x": 638,
+        "y": 278,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(211, 32, 41)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 5.24
+      }
+    ]
+  },
+  "lightMobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "document": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "horizontalOverflow": false
+    },
+    "body": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "horizontalOverflow": false
+    },
+    "tagGroup": {
+      "x": 50,
+      "y": 313,
+      "width": 290,
+      "height": 53
+    },
+    "tags": [
+      {
+        "label": "草稿",
+        "x": 50,
+        "y": 314,
+        "width": 40,
+        "height": 22,
+        "backgroundColor": "rgb(128, 128, 128)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 3.95
+      },
+      {
+        "label": "审批中",
+        "x": 98,
+        "y": 314,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(114, 46, 209)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 6.94
+      },
+      {
+        "label": "已确认",
+        "x": 158,
+        "y": 314,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(22, 119, 255)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 4.1
+      },
+      {
+        "label": "生产中",
+        "x": 218,
+        "y": 314,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(250, 140, 22)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 2.38
+      },
+      {
+        "label": "已发货",
+        "x": 278,
+        "y": 314,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(19, 194, 194)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 2.21
+      },
+      {
+        "label": "已完工",
+        "x": 50,
+        "y": 344,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(82, 196, 26)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 2.27
+      },
+      {
+        "label": "已取消",
+        "x": 110,
+        "y": 344,
+        "width": 52,
+        "height": 22,
+        "backgroundColor": "rgb(245, 34, 45)",
+        "color": "rgb(255, 255, 255)",
+        "fontSize": "12px",
+        "borderRadius": "4px",
+        "overflowX": "visible",
+        "contrastRatio": 4.08
+      }
+    ]
+  }
+}

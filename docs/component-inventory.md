@@ -186,7 +186,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `StickyActionBar` | 页面级固定动作区 |
 | `SectionCard` | 基于 ProCard 的可选标题容器 |
 | `StatusTabs` | 基于 AntD Segmented 的受控互斥状态筛选 |
-| `StatusTag` | 固定实底样式并为自定义色提供对比文字色的只读状态标签 |
+| `StatusTag` | 使用 Ant Design `solid` 变体和原生颜色令牌呈现只读状态标签 |
 | `FilterBar` | 轻量筛选字段与同级操作组合 |
 | `MetricCard` | ProCard + Statistic |
 | `DetailCard` | ProCard + Descriptions |

@@ -19,11 +19,11 @@ export interface MesStatusTagProps {
 }
 
 const STATUS_TOKEN_TO_COLOR: Record<string, string> = {
-  Default: '#86909C',
-  Processing: '#1677FF',
-  Success: '#00B578',
-  Warning: '#FF8F1F',
-  Error: '#FF3141',
+  Default: 'grey',
+  Processing: 'processing',
+  Success: 'success',
+  Warning: 'warning',
+  Error: 'error',
 };
 
 /**
@@ -40,7 +40,7 @@ export function MesStatusTag({
 }: MesStatusTagProps) {
   if (!value) {
     return (
-      <SunxuStatusTag color="#86909C" className={className} style={style}>
+      <SunxuStatusTag color="grey" className={className} style={style}>
         {children !== undefined ? children : '-'}
       </SunxuStatusTag>
     );
@@ -49,7 +49,7 @@ export function MesStatusTag({
   const config = enumMap[value];
   if (!config) {
     return (
-      <SunxuStatusTag color="#86909C" className={className} style={style}>
+      <SunxuStatusTag color="grey" className={className} style={style}>
         {children !== undefined ? children : '未知状态'}
       </SunxuStatusTag>
     );

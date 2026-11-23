@@ -527,13 +527,13 @@ function StatesPage({ onMessage }: { onMessage: (text: string) => void }) {
     <div className="sxw-docs-page-content">
       <SectionCard title="状态标签">
         <Space size={[8, 8]} wrap>
-          <StatusTag color="#86909C">草稿</StatusTag>
-          <StatusTag color="#722ED1">审批中</StatusTag>
-          <StatusTag color="#1671F1">已确认</StatusTag>
-          <StatusTag color="#B06317">生产中</StatusTag>
-          <StatusTag color="#0B8484">已发货</StatusTag>
-          <StatusTag color="#028759">已完工</StatusTag>
-          <StatusTag color="#E22C3A">已取消</StatusTag>
+          <StatusTag color="grey">草稿</StatusTag>
+          <StatusTag color="purple">审批中</StatusTag>
+          <StatusTag color="blue">已确认</StatusTag>
+          <StatusTag color="orange">生产中</StatusTag>
+          <StatusTag color="cyan">已发货</StatusTag>
+          <StatusTag color="green">已完工</StatusTag>
+          <StatusTag color="red">已取消</StatusTag>
         </Space>
       </SectionCard>
 

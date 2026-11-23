@@ -31,7 +31,7 @@
 | `StickyActionBar` | 承载固定流程动作 | 语义 `<footer>` + AntD Button |
 | `SectionCard` | 分组可选标题的内容，不制造空 header | Pro Components `ProCard` |
 | `StatusTabs` | 在互斥状态中选择当前结果集合 | AntD `Segmented` |
-| `StatusTag` | 以实底高对比样式呈现单条只读状态 | AntD `Tag`，固定 `variant="solid"` |
+| `StatusTag` | 以 Ant Design 实底颜色呈现单条只读状态 | AntD `Tag`，固定 `variant="solid"` |
 | `MesStatusTag` | 将宿主 MES 状态字典映射为统一只读标签，并处理空值/未知值 | `StatusTag` + 宿主 `enumMap`；状态词条与业务值由宿主提供 |
 | `MesReportQuickRangeButtons` | 受控选择报表快捷范围；只报告被选中的选项 key | AntD `Segmented`；日期范围匹配和日期语义由宿主提供 |
 | `MesConfigEntryLink` / `MesConfigEntryFieldLabel` | 在授权且有目标地址时，把配置入口附在字段标签旁 | AntD `Typography.Link` / `Space`；路由与权限结果由宿主传入 |
@@ -279,8 +279,8 @@
 
 ### `StatusTag`
 
-- **API**：`children` 提供可见状态文案；`color` 接受 AntD 预设色或 CSS 颜色；可选 `icon`、`className`、`style`。缺少颜色或传入 `default` 时使用中性灰底。
-- **视觉与可读性**：固定使用 AntD `Tag` 的 `variant="solid"`，文字沿用 AntD `solidTextColor` 默认白色；十六进制实底若与白字对比度低于 4.5:1，组件会加深底色以维持可读性。其他 CSS 颜色沿用 AntD 实底样式。
+- **API**：`children` 提供可见状态文案；`color` 接受 AntD 预设色或 CSS 颜色；可选 `icon`、`className`、`style`。缺少颜色时使用 AntD `grey` 预设。
+- **视觉与可读性**：固定使用 AntD `Tag` 的 `variant="solid"`，颜色和文字颜色交给 AntD `Tag.color` 与主题 token 处理；缺省颜色使用 AntD `grey` 预设。支持 AntD 预设状态色、彩色标签色和自定义 CSS 颜色，不计算或改写背景及文字颜色。
 - **状态与边界**：展示型、不可关闭、不可点击；状态文案和颜色映射由宿主提供，颜色不是唯一状态线索。筛选交互由 `StatusTabs` 或宿主控件承担。
 - **布局与主题**：标签自身不拥有相邻间距；父级用 `Space`、行内流式布局或表格单元格管理间隔。保留 AntD 圆角、字号及主题焦点/禁用规范。
 - **目录示例**：`examples/catalog` 的“信息与状态”页展示灰、紫、蓝、橙、青、绿、红色标签；桌面、窄屏和深色主题以目录真实渲染记录。
@@ -377,7 +377,7 @@
 
 #### 状态、报表范围、配置入口、字典字段与导出
 
-- **`MesStatusTag`**：API 为 `value?: string | null`、必填 `enumMap: Readonly<Record<string, { text?: ReactNode; color?: string; status?: string } | undefined>>`、可选 `children/className/style`。空值显示 children 或 `-`；未映射值显示 children 或“未知状态”；命中映射时 children 优先于 `text`，两者均未提供时标签内容为空。未提供显式 `color` 时按 `Default/Processing/Success/Warning/Error` 使用来源色令牌，未知令牌回退默认色。它只呈现文本，不监听状态变化、不提供状态字典或业务动作；基础 `StatusTag` 会对六位/三位 hex 背景色校正白字对比度。文本本身可被辅助技术读取，但不添加 live region 或状态 role。标签宽度由内容决定，列表内是否换行由宿主布局控制。
+- **`MesStatusTag`**：API 为 `value?: string | null`、必填 `enumMap: Readonly<Record<string, { text?: ReactNode; color?: string; status?: string } | undefined>>`、可选 `children/className/style`。空值显示 children 或 `-`；未映射值显示 children 或“未知状态”；命中映射时 children 优先于 `text`，两者均未提供时标签内容为空。未提供显式 `color` 时按 `Default/Processing/Success/Warning/Error` 映射到 AntD 的 `grey/processing/success/warning/error` 预设色，未知令牌回退 AntD `grey`。它只呈现文本，不监听状态变化、不提供状态字典或业务动作；文字和颜色表现由基础 AntD `Tag` 的 `solid` 变体与颜色 API 决定，不额外计算或改写颜色。文本本身可被辅助技术读取，但不添加 live region 或状态 role。标签宽度由内容决定，列表内是否换行由宿主布局控制。
 - **`MesReportQuickRangeButtons`**：受控 API 为可选 `value?: [string, string]`、`label`（默认“快捷筛选”）、必填 `options: readonly { key, label }[]`、`matchValue(value) => key | null` 和 `onSelect(key)`。当前范围是否匹配某选项及 key 的日期含义完全由宿主定义；组件仅用 AntD `Segmented` 展示选择并回传存在于 options 的字符串 key。无匹配时不选中；不解析日期、不自动刷新报表、不拥有清空或请求动作。`label` 作为 Segmented 的 `aria-label`；选项沿用上游键盘行为。组件不额外包装选项，宿主需确保选项数和标签长度适合其可用宽度，窄容器可在外层安排换行或横向滚动。
 - **`MesConfigEntryLink` / `MesConfigEntryFieldLabel`**：Link 接收 `href?`、`permitted?`（默认 false）、必填 `label`、`actionText?`（默认“去配置”）和 `onOpen?`；仅当权限为真且 href 非空时渲染。它使用新标签页链接、`rel="noreferrer"`、阻止点击冒泡，并调用宿主 `onOpen`。可访问名称包含可见操作文案和目标说明（“${actionText}：新标签页打开${label}”）。FieldLabel 接收 `children` 及同一 href/permission/onOpen，另有可选 `show`（默认 true）；通过 Space 将字段文字与链接并排显示，仅当 `show && permitted && href` 时显示链接，否则原样渲染 children。`MesConfigurableProFormSelect` 与两个字典选择器通过 `show` 传递已计算的候选/字段显示状态。FieldLabel 的 Space 不换行，长标签应由宿主检查窄宽度。组件不做权限计算、不生成 URL、不执行导航状态更新或返回后刷新。
 - **`MesConfigurableProFormSelect`**：保留 ProFormSelect 的其他公开 props，另需 `label: ReactNode`、必填宿主 `request` 和 `configEntry`，可选 `configWhen(params)` 与 `emptyText`（默认“暂无可选数据”）。在字段无值、非禁用/只读且依赖条件成立时，用移除 `keyWords/keyword/search/searchText` 的参数向宿主 request 探测基础候选；仅空数组显示配置标签，请求失败隐藏入口并继续向 ProForm 抛出查询错误。实际候选搜索保留其余参数和错误；搜索中不以关键词结果切换配置标签。配置标签打开时记录回访意图，窗口重新获得 focus 后递增刷新版本以重新请求；源请求前移除内部 `configEntryRefreshVersion`。字段校验、候选服务、路由和授权由宿主提供；组件内的 focus listener 在卸载时清理。ProForm 标签和 Select 键盘/表单状态由上游提供；目录无障碍名称来自表单 label。
