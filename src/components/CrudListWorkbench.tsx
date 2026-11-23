@@ -572,9 +572,6 @@ export function CrudListWorkbench<
   const listToolbar =
     viewBar || hasPrimaryToolbar || hasSearchRow || appliedFilters ? (
       <div className="sxw-crud-list-workbench__toolbar">
-      {viewBar ? (
-        <div className="sxw-crud-list-workbench__views">{viewBar}</div>
-      ) : null}
       {hasPrimaryToolbar ? (
         <div className="sxw-crud-list-workbench__primary-row">
           {primaryTabs ? (
@@ -616,6 +613,9 @@ export function CrudListWorkbench<
             ) : null}
           </div>
         </div>
+      ) : null}
+      {viewBar ? (
+        <div className="sxw-crud-list-workbench__views">{viewBar}</div>
       ) : null}
       {hasSearchRow ? (
         <div ref={filterBarRef}>
