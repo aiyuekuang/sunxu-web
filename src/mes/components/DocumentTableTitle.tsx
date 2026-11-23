@@ -1,8 +1,8 @@
-import { Space } from 'antd';
 import React, { type ReactNode } from 'react';
 import { DocumentKeywordSearch } from './DocumentKeywordSearch';
 
 export interface DocumentTableTitleProps {
+  /** @deprecated Query scope belongs in the search placeholder. This compatibility prop is ignored. */
   title: ReactNode;
   keyword?: string;
   keywordPlaceholder?: string;
@@ -11,25 +11,22 @@ export interface DocumentTableTitleProps {
 }
 
 /**
- * @sunxu-reason Keeps the MES table title and temporary keyword entry together in the result heading.
- * Field filters retain their own host-owned entry point.
+ * @deprecated Use DocumentKeywordSearch directly. A visible title beside a
+ * cross-field keyword search duplicates the current route and wastes toolbar space.
+ * @sunxu-reason Backwards-compatible adapter for older MES consumers.
  */
 export function DocumentTableTitle({
-  title,
   keyword,
   keywordPlaceholder,
   keywordLoading = false,
   onKeywordSearch,
 }: DocumentTableTitleProps) {
   return (
-    <Space align="center" size={12} wrap>
-      <span>{title}</span>
-      <DocumentKeywordSearch
-        value={keyword}
-        placeholder={keywordPlaceholder}
-        loading={keywordLoading}
-        onSearch={onKeywordSearch}
-      />
-    </Space>
+    <DocumentKeywordSearch
+      value={keyword}
+      placeholder={keywordPlaceholder}
+      loading={keywordLoading}
+      onSearch={onKeywordSearch}
+    />
   );
 }

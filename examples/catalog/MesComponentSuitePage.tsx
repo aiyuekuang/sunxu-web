@@ -16,7 +16,6 @@ import {
   DocumentCustomFieldPanel,
   DocumentLedgerViewSwitch,
   DocumentKeywordSearch,
-  DocumentTableTitle,
   EntityThumbnail,
   MesUiProvider,
   PermissionButton,
@@ -517,16 +516,16 @@ export function MesComponentSuitePage() {
         ) : null}
       </SectionCard>
 
-      <SectionCard title="MES 单据表格标题与关键词搜索">
+      <SectionCard title="MES 单据关键词搜索">
         <Typography.Paragraph type="secondary">
-          关键词是当前查询的临时条件，不写入个人视图；清空立即通知宿主，提交时去除首尾空格。
+          搜索范围直接写在输入提示中；关键词是当前查询的临时条件，不写入个人视图。清空立即通知宿主，提交时去除首尾空格。
         </Typography.Paragraph>
         <Space orientation="vertical" size={12} style={{ width: '100%' }}>
-          <DocumentTableTitle
-            title="采购订单"
-            keyword={documentKeyword}
-            keywordLoading={documentKeywordLoading}
-            onKeywordSearch={setDocumentKeyword}
+          <DocumentKeywordSearch
+            value={documentKeyword}
+            loading={documentKeywordLoading}
+            placeholder="输入采购订单号、供应商、物料或行备注搜索"
+            onSearch={setDocumentKeyword}
           />
           <Space wrap size={8}>
             <Button
@@ -537,13 +536,6 @@ export function MesComponentSuitePage() {
             </Button>
             <Typography.Text type="secondary">当前宿主查询词：</Typography.Text>
             <Typography.Text code>{documentKeyword || '（空）'}</Typography.Text>
-          </Space>
-          <Space wrap size={12}>
-            <Typography.Text type="secondary">独立关键词入口：</Typography.Text>
-            <DocumentKeywordSearch
-              value={documentKeyword}
-              onSearch={setDocumentKeyword}
-            />
           </Space>
         </Space>
       </SectionCard>

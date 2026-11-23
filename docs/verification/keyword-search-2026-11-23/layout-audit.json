@@ -1,0 +1,178 @@
+{
+  "route": "http://127.0.0.1:4174/ (MES UI 套件 catalog)",
+  "component": "DocumentKeywordSearch",
+  "date": "2026-11-23",
+  "viewports": [
+    {
+      "name": "desktop",
+      "width": 1440,
+      "height": 900,
+      "ariaLabel": "关键字搜索",
+      "clippingAncestors": [],
+      "documentClientWidth": 1440,
+      "documentWidth": 1768,
+      "hasVisibleTitlePrefix": false,
+      "inputRect": {
+        "bottom": 543,
+        "height": 22,
+        "right": 483,
+        "width": 181,
+        "x": 302,
+        "y": 521
+      },
+      "placeholder": "输入采购订单号、供应商、物料或行备注搜索",
+      "searchRect": {
+        "bottom": 550,
+        "height": 36,
+        "right": 546,
+        "width": 256,
+        "x": 290,
+        "y": 514
+      },
+      "sectionRect": {
+        "bottom": 611,
+        "height": 190,
+        "right": 1391,
+        "width": 1118,
+        "x": 273,
+        "y": 420
+      },
+      "toolbarItemRect": {
+        "bottom": 550,
+        "height": 36,
+        "right": 1374,
+        "width": 1084,
+        "x": 290,
+        "y": 514
+      },
+      "toolbarItemText": "",
+      "toolbarSiblings": [
+        {
+          "rect": {
+            "bottom": 594,
+            "height": 32,
+            "right": 1374,
+            "width": 1084,
+            "x": 290,
+            "y": 562
+          },
+          "text": "演示加载态\n当前宿主查询词：\n（空）"
+        }
+      ],
+      "viewport": {
+        "height": 900,
+        "width": 1440
+      }
+    },
+    {
+      "name": "narrow",
+      "width": 860,
+      "height": 760,
+      "ariaLabel": "关键字搜索",
+      "clippingAncestors": [],
+      "documentClientWidth": 860,
+      "documentWidth": 1740,
+      "hasVisibleTitlePrefix": false,
+      "inputRect": {
+        "bottom": 495,
+        "height": 22,
+        "right": 371,
+        "width": 97,
+        "x": 274,
+        "y": 473
+      },
+      "placeholder": "输入采购订单号、供应商、物料或行备注搜索",
+      "searchRect": {
+        "bottom": 502,
+        "height": 36,
+        "right": 434,
+        "width": 172,
+        "x": 262,
+        "y": 466
+      },
+      "sectionClientWidth": 576,
+      "sectionRect": {
+        "bottom": 563,
+        "height": 212,
+        "right": 823,
+        "width": 578,
+        "x": 245,
+        "y": 350
+      },
+      "sectionScrollWidth": 576,
+      "toolbarItemRect": {
+        "bottom": 502,
+        "height": 36,
+        "right": 806,
+        "width": 544,
+        "x": 262,
+        "y": 466
+      },
+      "toolbarItemText": "",
+      "toolbarSiblings": [
+        {
+          "rect": {
+            "bottom": 546,
+            "height": 32,
+            "right": 806,
+            "width": 544,
+            "x": 262,
+            "y": 514
+          },
+          "text": "演示加载态\n当前宿主查询词：\n（空）"
+        }
+      ],
+      "viewport": {
+        "height": 760,
+        "width": 860
+      }
+    }
+  ],
+  "loadingState": {
+    "ariaLabel": "关键字搜索",
+    "hasVisibleTitlePrefix": false,
+    "inputRect": {
+      "bottom": 345,
+      "height": 22,
+      "right": 371,
+      "width": 97,
+      "x": 274,
+      "y": 323
+    },
+    "placeholder": "输入采购订单号、供应商、物料或行备注搜索",
+    "searchRect": {
+      "bottom": 352,
+      "height": 36,
+      "right": 434,
+      "width": 172,
+      "x": 262,
+      "y": 316
+    },
+    "sectionClientWidth": 576,
+    "sectionRect": {
+      "bottom": 413,
+      "height": 212,
+      "right": 823,
+      "width": 578,
+      "x": 245,
+      "y": 201
+    },
+    "sectionScrollWidth": 576,
+    "viewport": {
+      "height": 760,
+      "width": 860
+    },
+    "screenshot": "catalog-narrow-loading.png"
+  },
+  "screenshots": [
+    "catalog-desktop.png",
+    "catalog-narrow.png",
+    "catalog-narrow-loading.png"
+  ],
+  "consoleErrors": [],
+  "notes": [
+    "The shared component card fits its container with no horizontal overflow or clipping.",
+    "The placeholder and aria-label remain present; no separate visible title prefix is rendered.",
+    "The overall catalog document contains other wider examples; overflow is not inside the keyword-search card."
+  ]
+}
