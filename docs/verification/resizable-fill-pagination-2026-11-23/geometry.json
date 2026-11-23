@@ -1,0 +1,38 @@
+{
+  "source": "sunxu-web local Catalog dev server with current working tree",
+  "url": "http://127.0.0.1:4173/",
+  "viewport": { "width": 1470, "height": 1000 },
+  "cases": [
+    {
+      "route": "MES 表格组件",
+      "component": "ResizableProTable fitContainerHeight",
+      "root": { "x": 290, "y": 315, "width": 1114, "height": 427, "bottom": 743 },
+      "tableRoot": { "x": 306, "y": 389, "width": 1082, "height": 343, "bottom": 733 },
+      "section": { "x": 306, "y": 389, "width": 1082, "height": 303, "bottom": 693, "flex": "1 1 auto" },
+      "body": { "x": 306, "y": 417, "width": 1082, "height": 276, "bottom": 693, "flex": "1 1 auto" },
+      "pagination": { "x": 306, "y": 701, "width": 1082, "height": 32, "bottom": 733 },
+      "paginationToTableRootBottom": 0,
+      "renderedBodyRows": 6
+    },
+    {
+      "route": "CRUD 列表工作台",
+      "component": "CrudListWorkbench fill",
+      "root": { "x": 290, "y": 1048, "width": 1114, "height": 360, "bottom": 1408 },
+      "section": { "x": 290, "y": 1048, "width": 1114, "height": 320, "bottom": 1368, "flex": "1 1 auto" },
+      "body": { "x": 290, "y": 1075, "width": 1114, "height": 274, "bottom": 1349, "flex": "1 1 auto" },
+      "pagination": { "x": 290, "y": 1376, "width": 1114, "height": 32, "bottom": 1408 },
+      "paginationToTableRootBottom": 0,
+      "renderedBodyRows": 4
+    }
+  ],
+  "assertions": {
+    "bothBodyHeightsAtLeast200px": true,
+    "bothPaginationsTouchTheirTableRootBottom": true,
+    "documentHorizontalOverflow": false
+  },
+  "remoteBusinessRoute": {
+    "url": "http://103.236.92.32:53196/purchase/orders",
+    "viewport": { "width": 1470, "height": 745 },
+    "result": "UNVERIFIED_AFTER_FIX: connected test site is still serving the old bundle; expected section marker sxw-crud-list-workbench__fill-table-section is absent, table root bottom is 711px and pagination bottom is 413px (298px gap)."
+  }
+}

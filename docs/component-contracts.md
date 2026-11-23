@@ -365,10 +365,12 @@
 - **排序与查询**：ProTable 的 `request` 由宿主实现。默认对可排序业务字段发出服务端排序参数；设置 `serverSortFields` 后，仅白名单字段可排序。使用本地 `dataSource` 时按日期、数值和中文自然顺序比较；AntD Table 列可用 `sortValue`、`sortable` 控制。排序状态使用单独 key 持久化。外部 `params` 的 `undefined`、`null`、空字符串和空数组会在请求前移除；日期范围列合并通用快捷日期选项，`createdAt` / `updatedAt` 字段可补充仅日期展示列。表单 transform 和接口字段映射由宿主继续控制。
 - **筛选、空态和汇总**：保留 ProTable 查询表单与列设置 API；列变更会同步导出布局。`emptyGuidance` 可提供业务空态下一步建议，默认 `TableEmpty` 展示“暂无数据”和筛选/上游数据提示；宿主传入 `locale.emptyText` 时完全覆盖。`summary` 仍是 AntD/ProTable 的宿主回调；自动行号存在时组件为汇总行补齐首列。`paginationSummary` 将宿主摘要放在分页栏左侧并保留分页范围文案，窄容器下换到分页控件上方；关闭分页时不显示该插槽。
 - **高度适配**：`fitContainerHeight` 缺省关闭；设为 `true` 或 `{ enabled, bottomOffset, minBodyHeight, maxBodyHeight }` 后，组件结合视口、`fitContainerHeight` 所在结果边界、表头、分页、汇总和 footer 动态计算纵向滚动高度。单列表视口页的外部父级必须提供确定高度和可收缩的 flex 布局；长页面/多表页面不启用。
+- **fit 短数据布局**：高度计算值作为 `scroll.y` 传入后，适配器也会通过 Ant Design Table/Spin 公开语义 `classNames` 和工作台自有 flex 规则撑开内层表格与滚动体；分页固定在结果边界底部，表头保持自然高度。宿主自定义 `loading` 时应合并 `tableProps.loading` 并只更新 `spinning`，保留共享 Spin 布局语义类。
 - **导出布局**：有 `request` 的表默认产出当前可见列、列序和排序布局；仅用本地 `dataSource` 的表需显式设 `exportLayoutEnabled`。`useTableExportLayout()` 读取当前表布局，表格边界在导出按钮点击捕获阶段激活对应布局，避免同一路由多个表格串用。导出 API 和服务仍由宿主实现；布局只能表达用户选择，不能扩大后端允许导出的字段集合。
 - **行操作和编辑宿主接缝**：`TableActions` 将有效按钮、链接、权限按钮和确认操作统一收入“更多”菜单；权限判断、确认和结果仍归动作节点/宿主。`MesUiProvider` 可选注入 `isTableActionColumn(column)` 识别宿主操作列，避免嵌套菜单；`resolveRowEditAction(columns, record)` 只返回宿主当前可见且允许执行的编辑回调，表格双击才调用它。未提供时不产生编辑副作用。不得在 Sunxu 中硬编码 Umi `useAccess`、权限码、MES API、路由或业务动作。
 - **密度和局部溢出**：ProTable 工具栏提供“宽松 / 中等 / 紧凑 / 0 间距”密度菜单，存储键为 `mes-admin:table-density`；主题 token 同步控制单元格纵向间距。列宽总和超过可视区时，仅表格容器横向滚动，页面保持视口宽度；宿主若需要纯键盘浏览，应提供命名且可聚焦的表格滚动区域。`TableActions` 的 `max` 只为旧调用签名兼容，不改变全动作收纳策略。
 - **本次行为边界**：排序恢复与宽度持久化使用稳定的列 schema 输入，排序指示在最终渲染列上合并，避免服务端排序状态更新把已保存列宽重置为默认值。此项是适配层修正，保留 MES 排序与列宽行为。
+- **fill 分页视觉验收**：真实 Catalog 路由“MES 表格组件”的 `fitContainerHeight` 表格与“CRUD 列表工作台”的 `fill` 适配器均验证短数据；截图和几何数据见 [`docs/verification/resizable-fill-pagination-2026-11-23/README.md`](./verification/resizable-fill-pagination-2026-11-23/README.md)。Admin 真实业务路由需由测试环境加载更新后的共享包后复验。
 - **目录示例和证据**：真实 Catalog 路由“MES 表格组件”覆盖 ProTable 与原生 Table、服务端/本地排序、列宽拖拽和刷新、列显隐与导出列数、密度、双击编辑回调、空态、汇总、视口内纵向高度及 375px 键盘横向滚动。截图、几何、接缝审计、build/typecheck 与未验收项见 [`docs/verification/mes-resizable-table-2026-11-20/README.md`](./verification/mes-resizable-table-2026-11-20/README.md)。宿主 MES 权限解析接线、读屏器、深色主题、844×390 横屏和自定义溢出容器仍为 `UNVERIFIED`。
 
 ### `sunxu-web/mes` 兼容组件

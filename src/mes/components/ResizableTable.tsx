@@ -7,6 +7,7 @@ import {
 } from '@ant-design/pro-components';
 import {
   ConfigProvider,
+  type SpinProps,
   Table,
   type TablePaginationConfig,
   type TableProps,
@@ -268,6 +269,12 @@ const FIT_CONTAINER_STYLE: React.CSSProperties = {
 const FIT_CONTAINER_CLASS_NAME = 'mes-fit-pro-table';
 const FIT_CONTAINER_HORIZONTAL_SCROLL_CLASS_NAME =
   'mes-fit-pro-table-horizontal-scroll';
+const FIT_CONTAINER_TABLE_CLASSES = {
+  tableRoot: 'mes-fit-pro-table__table-root',
+  tableSection: 'mes-fit-pro-table__table-section',
+  spinRoot: 'mes-fit-pro-table__spin-root',
+  spinContainer: 'mes-fit-pro-table__spin-container',
+} as const;
 const FIT_BOUNDARY_SELECTOR =
   '.sxw-mes-fit-table-boundary, .ant-modal-body, .ant-drawer-body, .ant-splitter-panel, .ant-pro-page-container, .ant-pro-layout-content, .runtime-keep-alive-layout, .runtime-keep-alive-layout-no';
 const COLUMN_SETTING_RESET_BUTTON_CLASS =
@@ -427,6 +434,77 @@ function mergeClassName(
 ): string | undefined {
   const merged = classNames.filter(Boolean).join(' ');
   return merged || undefined;
+}
+
+type ProTableClassNames<T extends object, U extends ParamsType> = NonNullable<
+  ProTableProps<T, U>['classNames']
+>;
+type ProTableClassNameFactory<T extends object> = (info: {
+  props: TableProps<T>;
+}) => unknown;
+type ProTableClassNameSlots<T extends object, U extends ParamsType> = Exclude<
+  ProTableClassNames<T, U>,
+  ProTableClassNameFactory<T>
+>;
+
+function addFitTableClassNames<T extends object, U extends ParamsType>(
+  classNames: ProTableProps<T, U>['classNames'],
+): ProTableProps<T, U>['classNames'] {
+  const merge = (current?: ProTableClassNameSlots<T, U>) =>
+    ({
+      ...current,
+      root: mergeClassName(
+        current?.root,
+        FIT_CONTAINER_TABLE_CLASSES.tableRoot,
+      ),
+      section: mergeClassName(
+        current?.section,
+        FIT_CONTAINER_TABLE_CLASSES.tableSection,
+      ),
+    }) as ProTableClassNameSlots<T, U>;
+
+  if (typeof classNames === 'function') {
+    return ((info) =>
+      merge(classNames(info) as ProTableClassNameSlots<T, U>)) as ProTableClassNames<T, U>;
+  }
+  return merge(classNames as ProTableClassNameSlots<T, U>) as ProTableClassNames<T, U>;
+}
+
+type SpinClassNames = NonNullable<SpinProps['classNames']>;
+type SpinClassNameFactory = (info: { props: SpinProps }) => unknown;
+type SpinClassNameSlots = Exclude<SpinClassNames, SpinClassNameFactory>;
+
+function addFitSpinClassNames(
+  classNames: SpinProps['classNames'],
+): SpinProps['classNames'] {
+  const merge = (current?: SpinClassNameSlots) => ({
+    ...current,
+    root: mergeClassName(current?.root, FIT_CONTAINER_TABLE_CLASSES.spinRoot),
+    container: mergeClassName(
+      current?.container,
+      FIT_CONTAINER_TABLE_CLASSES.spinContainer,
+    ),
+  }) as SpinClassNameSlots;
+
+  if (typeof classNames === 'function') {
+    return (info) => merge(classNames(info) as SpinClassNameSlots);
+  }
+  return merge(classNames as SpinClassNameSlots);
+}
+
+function addFitLoadingClassNames<T extends object, U extends ParamsType>(
+  loading: ProTableProps<T, U>['loading'],
+): ProTableProps<T, U>['loading'] {
+  const current =
+    typeof loading === 'object' && loading !== null
+      ? loading
+      : loading === undefined
+        ? {}
+        : { spinning: loading };
+  return {
+    ...current,
+    classNames: addFitSpinClassNames(current.classNames),
+  };
 }
 
 function mergeCellClassName(current: unknown) {
@@ -3261,6 +3339,12 @@ function ResizableProTableInner<
     scrollY,
     shouldWrap: fitShouldWrap,
   } = useFitContainerScrollY(fitContainerHeight);
+  const fitClassNames = fitEnabled
+    ? addFitTableClassNames<T, U>(rest.classNames)
+    : rest.classNames;
+  const fitLoading = fitEnabled
+    ? addFitLoadingClassNames<T, U>(rest.loading)
+    : rest.loading;
   const mergedScroll = useMemo(() => {
     const y = resolveScrollY(scroll?.y, scrollY);
     if (y === undefined) return scroll;
@@ -3278,6 +3362,8 @@ function ResizableProTableInner<
       search={mergedSearch}
       locale={mergedLocale}
       {...rest}
+      classNames={fitClassNames}
+      loading={fitLoading}
       params={normalizedParams}
       pagination={mergedPagination}
       summary={summaryWithoutColumnSettings}
@@ -3304,6 +3390,8 @@ function ResizableProTableInner<
       search={mergedSearch}
       locale={mergedLocale}
       {...rest}
+      classNames={fitClassNames}
+      loading={fitLoading}
       params={normalizedParams}
       pagination={mergedPagination}
       summary={mergedSummary}

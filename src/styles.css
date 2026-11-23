@@ -499,6 +499,10 @@
   overflow: hidden;
 }
 
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-section > :first-child {
+  flex: 0 0 auto;
+}
+
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-spin-container > :first-child {
   display: flex;
   min-width: 0;

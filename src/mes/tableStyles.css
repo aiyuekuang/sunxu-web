@@ -121,7 +121,10 @@
 .mes-fit-pro-table > .ant-pro-table .ant-pro-card-body,
 .mes-fit-pro-table > .ant-pro-table .ant-table-wrapper,
 .mes-fit-pro-table > .ant-pro-table .ant-spin-nested-loading,
-.mes-fit-pro-table > .ant-pro-table .ant-spin-container {
+.mes-fit-pro-table > .ant-pro-table .mes-fit-pro-table__table-root,
+.mes-fit-pro-table > .ant-pro-table .mes-fit-pro-table__table-section,
+.mes-fit-pro-table > .ant-pro-table .mes-fit-pro-table__spin-root,
+.mes-fit-pro-table > .ant-pro-table .mes-fit-pro-table__spin-container {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -132,6 +135,42 @@
 .mes-fit-pro-table > .ant-pro-table .ant-pro-table-list-toolbar,
 .mes-fit-pro-table > .ant-pro-table .ant-table-pagination {
   flex: 0 0 auto;
+}
+
+.mes-fit-pro-table
+  > .ant-pro-table
+  .mes-fit-pro-table__spin-container
+  > :first-child {
+  display: flex;
+  flex: 1 1 auto;
+  flex-direction: column;
+  min-inline-size: 0;
+  min-block-size: 0;
+  overflow: hidden;
+}
+
+.mes-fit-pro-table > .ant-pro-table .mes-fit-pro-table__table-section {
+  overflow: hidden;
+}
+
+.mes-fit-pro-table
+  > .ant-pro-table
+  .mes-fit-pro-table__table-section
+  > :first-child {
+  flex: 0 0 auto;
+}
+
+.mes-fit-pro-table
+  > .ant-pro-table
+  .mes-fit-pro-table__table-section
+  > :first-child + *,
+.mes-fit-pro-table
+  > .ant-pro-table
+  .mes-fit-pro-table__table-section
+  > :only-child {
+  flex: 1 1 auto;
+  min-inline-size: 0;
+  min-block-size: 0;
 }
 
 .mes-fit-pro-table > .ant-pro-table .ant-table-body,
