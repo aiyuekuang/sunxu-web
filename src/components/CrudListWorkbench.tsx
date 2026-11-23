@@ -751,6 +751,7 @@ export function CrudListWorkbench<
         className={[
           'sxw-crud-list-workbench',
           layout === 'embedded' ? 'sxw-crud-list-workbench--embedded' : '',
+          layout === 'embedded' ? '' : 'sxw-crud-list-workbench--page-surface',
           fill ? 'sxw-crud-list-workbench--fill' : '',
           hasFacetSidebar && !compactFacet
             ? 'sxw-crud-list-workbench--with-facet'

@@ -16,7 +16,7 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 
 | 场景 | MUST 使用 | Sunxu 上游直通出口 / 禁止替代 |
 |---|---|---|
-| CRUD 列表工作台 | `CrudListWorkbench`；字段、请求、权限和编辑流程由宿主提供 | 工作台不渲染页级标题；当前导航已说明任务时不重复标题，需要标题时由宿主在工作台外组合 `PageHeader`。ProTable 列能表达的查询字段优先用 `proTableSearch` 和列 schema；外部业务控件用工作台筛选插槽，不复制 ProTable 查询表单。只有现有业务确需可调整列宽等表格扩展时才使用 `renderTable`；筛选与列表级操作由工作台紧邻结果区承载；新增使用 `onCreate`，由组件固定文案为“新增”；行内标准操作用 `RowActions` 的 `kind` 固定文案 |
+| CRUD 列表工作台 | `CrudListWorkbench`；字段、请求、权限和编辑流程由宿主提供 | 页面级工作台使用主题容器面，视图/筛选/操作栏与结果区保持同一表面；内嵌工作台透明并继承父面。工作台不渲染页级标题；当前导航已说明任务时不重复标题，需要标题时由宿主在工作台外组合 `PageHeader`。ProTable 列能表达的查询字段优先用 `proTableSearch` 和列 schema；外部业务控件用工作台筛选插槽，不复制 ProTable 查询表单。只有现有业务确需可调整列宽等表格扩展时才使用 `renderTable`；筛选与列表级操作由工作台紧邻结果区承载；新增使用 `onCreate`，由组件固定文案为“新增”；行内标准操作用 `RowActions` 的 `kind` 固定文案 |
 | MES 列表/明细需要保留旧表格能力 | `ResizableProTable` / `ResizableTable`（`sunxu-web/mes`） | 组件承接列宽、列序/显隐、排序、行号、密度、空态和导出布局等 MES UI 行为；请求、查询字段、权限、动作和记录仍由宿主提供。用于工作台时仅通过 `renderTable` 接入，工作台不渲染页级标题，只负责筛选与紧邻表格的列表操作工具栏 |
 | 采购申请列表展开行的只读物料明细 | `PurchaseRequisitionItemsTable`（`sunxu-web/mes`） | 固定优先显示物料身份、单位和数量，再显示供应商/采购日期等上下文，最后显示行号、备注和审计时间；宿主传入行数据和格式函数，不在展开表中复制列渲染或数量回退逻辑 |
 | 同单位/同币种字段与表格列一一对应 | `TableSummary`（默认 `fixed`）+ AntD `Table.Summary.Cell` | 可加字段放在对应列下方并固定在表格底部；汇总单元格按最终可见列顺序提供 |

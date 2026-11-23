@@ -204,6 +204,14 @@ body {
   width: 100%;
 }
 
+.sxw-crud-workbench-example__surface-host {
+  box-sizing: border-box;
+  min-width: 0;
+  padding: 12px;
+  background: var(--sxw-background);
+  border-radius: var(--ant-border-radius-lg, 10px);
+}
+
 .sxw-crud-workbench-example__facet {
   display: flex;
   width: 100%;
@@ -479,6 +487,10 @@ body {
 
   .sxw-crud-workbench-example__scene-mobile {
     display: inline-flex;
+  }
+
+  .sxw-crud-workbench-example__surface-host {
+    padding: 8px;
   }
 
   .sxw-docs-header {

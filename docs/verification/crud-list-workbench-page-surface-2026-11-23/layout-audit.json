@@ -1,0 +1,226 @@
+{
+  "schema_version": 1,
+  "audit_name": "CRUD page surface frame and spacing audit",
+  "command": "TARGET_URL=http://127.0.0.1:5173/ node run.js /tmp/playwright-test-crud-surface.js",
+  "seams": [
+    {
+      "route": "Sunxu Web catalog → CRUD 列表工作台",
+      "state": "light theme, 1440×1000 viewport, category and status filters visible",
+      "previous": "场景预览 SectionCard",
+      "next": "page-level CrudListWorkbench surface host",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 330.421875,
+        "width": 1118,
+        "height": 110.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 346.421875,
+        "right": 1391,
+        "bottom": 856.421875,
+        "width": 1118,
+        "height": 510
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "library",
+        "value": "16px vertical gap",
+        "source": "examples/catalog/catalog.css:195-200 (.sxw-docs-page-content gap)"
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-page-surface-2026-11-23/light-desktop.png",
+      "screenshot_sha256": "87c8e6a8dd3d86ef647832f4f37b9eac530d9e412013d8c17d88c66d2ab64e18",
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Inspected the visible gray gutter between the white preview card and the page-level workbench in the rendered screenshot.",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "Playwright: open catalog, select CRUD 列表工作台, capture light desktop screenshot and DOM geometry",
+      "status": "PASS"
+    }
+  ],
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "route": "Sunxu Web catalog → CRUD 列表工作台",
+        "state": "light theme, 1440×1000",
+        "workspace": ".sxw-crud-workbench-example__surface-host (--sxw-background)",
+        "content": ".sxw-crud-list-workbench--page-surface (--sxw-surface)",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "workspace_rect": {
+          "left": 273,
+          "top": 346.421875,
+          "right": 1391,
+          "bottom": 856.421875,
+          "width": 1118,
+          "height": 510
+        },
+        "content_rect": {
+          "left": 285,
+          "top": 358.421875,
+          "right": 1379,
+          "bottom": 844.421875,
+          "width": 1094,
+          "height": 486
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 12,
+          "right": 12,
+          "bottom": 12,
+          "left": 12
+        },
+        "expected": {
+          "kind": "token",
+          "value": "--sxw-surface nested inside --sxw-background",
+          "source": "src/styles.css:10-11, 414-417; examples/catalog/catalog.css:209-216"
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-page-surface-2026-11-23/light-desktop.png",
+        "screenshot_sha256": "87c8e6a8dd3d86ef647832f4f37b9eac530d9e412013d8c17d88c66d2ab64e18",
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected the rendered screenshot and DOM computed colors; the contrasting workspace band is visible on every required side.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "status": "PASS"
+      },
+      {
+        "route": "Sunxu Web catalog → CRUD 列表工作台",
+        "state": "dark theme, 1440×1000",
+        "workspace": ".sxw-crud-workbench-example__surface-host (--sxw-background)",
+        "content": ".sxw-crud-list-workbench--page-surface (--sxw-surface)",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "workspace_rect": {
+          "left": 273,
+          "top": 346.421875,
+          "right": 1391,
+          "bottom": 856.421875,
+          "width": 1118,
+          "height": 510
+        },
+        "content_rect": {
+          "left": 285,
+          "top": 358.421875,
+          "right": 1379,
+          "bottom": 844.421875,
+          "width": 1094,
+          "height": 486
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 12,
+          "right": 12,
+          "bottom": 12,
+          "left": 12
+        },
+        "expected": {
+          "kind": "token",
+          "value": "--sxw-surface nested inside --sxw-background",
+          "source": "src/styles.css:10-11, 414-417; examples/catalog/catalog.css:209-216"
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-page-surface-2026-11-23/dark-desktop.png",
+        "screenshot_sha256": "54b49e7ee82ce29b78124e5456af8ad31ac2e11e6369e2f0ff25764b2bbb196e",
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected the rendered screenshot and DOM computed colors; the contrasting workspace band is visible on every required side.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "status": "PASS"
+      },
+      {
+        "route": "Sunxu Web catalog → CRUD 列表工作台",
+        "state": "light theme, 390×844",
+        "workspace": ".sxw-crud-workbench-example__surface-host (--sxw-background)",
+        "content": ".sxw-crud-list-workbench--page-surface (--sxw-surface)",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "workspace_rect": {
+          "left": 33,
+          "top": 382.421875,
+          "right": 357,
+          "bottom": 1004.421875,
+          "width": 324,
+          "height": 622
+        },
+        "content_rect": {
+          "left": 41,
+          "top": 390.421875,
+          "right": 349,
+          "bottom": 996.421875,
+          "width": 308,
+          "height": 606
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 8,
+          "right": 8,
+          "bottom": 8,
+          "left": 8
+        },
+        "expected": {
+          "kind": "token",
+          "value": "--sxw-surface nested inside --sxw-background",
+          "source": "src/styles.css:10-11, 414-417; examples/catalog/catalog.css:209-216"
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-page-surface-2026-11-23/light-mobile.png",
+        "screenshot_sha256": "27e915fb75e8bec7d2deb1e8899193be403c217a8014196fc0ef5e2d43f4a299",
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected the rendered screenshot and DOM computed colors; the contrasting workspace band is visible on every required side.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "status": "PASS"
+      }
+    ]
+  }
+}

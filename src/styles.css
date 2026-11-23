@@ -409,6 +409,12 @@
   container-type: inline-size;
 }
 
+/* A page-level list is one content surface; embedded lists inherit their parent surface. */
+.sxw-crud-list-workbench--page-surface {
+  background-color: var(--sxw-surface);
+  border-radius: var(--ant-border-radius-lg, 10px);
+}
+
 /* Embedded workbenches live inside a page, Tab panel or card and never own a page inset. */
 .sxw-crud-list-workbench--embedded {
   min-height: 0;

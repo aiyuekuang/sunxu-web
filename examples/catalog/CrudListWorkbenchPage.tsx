@@ -427,227 +427,229 @@ export function CrudListWorkbenchPage() {
         </Space>
       </SectionCard>
 
-      <CrudListWorkbench<DemoProduct>
-        proTableSearch={
-          isProSearch
-            ? {
-                filterType: 'query',
-                defaultCollapsed: true,
-                defaultFormItemsNumber: 2,
-                span: { xs: 24, sm: 12, md: 8, lg: 6 },
-              }
-            : undefined
-        }
-        primaryTabs={
-          isCategory
-            ? {
-                ariaLabel: '按产品分类筛选',
-                value: snapshot.baseType,
-                items: baseTypeTabs,
-                onChange: (value) => {
-                  if (isProductCategory(value)) updateSnapshot({ baseType: value });
-                },
-              }
-            : undefined
-        }
-        statusFilters={
-          isCategory || isComplex
-            ? {
-                ariaLabel: '按启用状态筛选',
-                value: snapshot.status,
-                onChange: (value) => {
-                  if (isStatusFilter(value)) updateSnapshot({ status: value });
-                },
-                items: [
-                  { key: 'active', label: '启用中' },
-                  { key: 'all', label: '全部' },
-                  { key: 'inactive', label: '已停用' },
-                ],
-                size: 'small',
-              }
-            : undefined
-        }
-        search={
-          isProSearch
-            ? undefined
-            : (
-                <Input.Search
-                  aria-label="搜索产品名称"
-                  placeholder="产品名称"
-                  allowClear
-                  style={{ width: '100%' }}
-                  value={keywordDraft}
-                  onChange={(event) => {
-                    const keyword = event.target.value;
-                    setKeywordDraft(keyword);
-                    if (!keyword) updateSnapshot({ keyword: '' });
-                  }}
-                  onSearch={(keyword) => updateSnapshot({ keyword: keyword.trim() })}
-                />
-              )
-        }
-        quickFilters={isProSearch ? undefined : quickFilters}
-        viewBar={
-          isComplex ? (
-            <SavedViewBar
-              views={views}
-              activeViewId={activeViewId}
-              dirty={dirty}
-              onChange={(viewId) => {
-                const view = views.find((item) => item.id === viewId);
-                if (!view) return false;
-                applyView(view);
-              }}
-              onSave={saveCurrentView}
-              onSaveAs={saveViewAs}
-              onRename={(viewId, name) => {
-                setViews((current) => current.map((view) => view.id === viewId ? { ...view, name } : view));
-              }}
-              onDelete={(viewId) => {
-                setViews((current) => current.filter((view) => view.id !== viewId));
-                if (viewId === activeViewId) {
-                  const fallback = views.find((view) => view.id !== viewId);
-                  if (fallback) applyView(fallback);
+      <div className="sxw-crud-workbench-example__surface-host">
+        <CrudListWorkbench<DemoProduct>
+          proTableSearch={
+            isProSearch
+              ? {
+                  filterType: 'query',
+                  defaultCollapsed: true,
+                  defaultFormItemsNumber: 2,
+                  span: { xs: 24, sm: 12, md: 8, lg: 6 },
                 }
-              }}
-              onSetDefault={(viewId) => {
-                setViews((current) => current.map((view) => ({ ...view, isDefault: view.id === viewId })));
-              }}
-              onReorder={(orderedIds) => {
-                setViews((current) => {
-                  const byId = new Map(current.map((view) => [view.id, view]));
-                  return orderedIds.flatMap((id) => {
-                    const view = byId.get(id);
-                    return view ? [view] : [];
+              : undefined
+          }
+          primaryTabs={
+            isCategory
+              ? {
+                  ariaLabel: '按产品分类筛选',
+                  value: snapshot.baseType,
+                  items: baseTypeTabs,
+                  onChange: (value) => {
+                    if (isProductCategory(value)) updateSnapshot({ baseType: value });
+                  },
+                }
+              : undefined
+          }
+          statusFilters={
+            isCategory || isComplex
+              ? {
+                  ariaLabel: '按启用状态筛选',
+                  value: snapshot.status,
+                  onChange: (value) => {
+                    if (isStatusFilter(value)) updateSnapshot({ status: value });
+                  },
+                  items: [
+                    { key: 'active', label: '启用中' },
+                    { key: 'all', label: '全部' },
+                    { key: 'inactive', label: '已停用' },
+                  ],
+                  size: 'small',
+                }
+              : undefined
+          }
+          search={
+            isProSearch
+              ? undefined
+              : (
+                  <Input.Search
+                    aria-label="搜索产品名称"
+                    placeholder="产品名称"
+                    allowClear
+                    style={{ width: '100%' }}
+                    value={keywordDraft}
+                    onChange={(event) => {
+                      const keyword = event.target.value;
+                      setKeywordDraft(keyword);
+                      if (!keyword) updateSnapshot({ keyword: '' });
+                    }}
+                    onSearch={(keyword) => updateSnapshot({ keyword: keyword.trim() })}
+                  />
+                )
+          }
+          quickFilters={isProSearch ? undefined : quickFilters}
+          viewBar={
+            isComplex ? (
+              <SavedViewBar
+                views={views}
+                activeViewId={activeViewId}
+                dirty={dirty}
+                onChange={(viewId) => {
+                  const view = views.find((item) => item.id === viewId);
+                  if (!view) return false;
+                  applyView(view);
+                }}
+                onSave={saveCurrentView}
+                onSaveAs={saveViewAs}
+                onRename={(viewId, name) => {
+                  setViews((current) => current.map((view) => view.id === viewId ? { ...view, name } : view));
+                }}
+                onDelete={(viewId) => {
+                  setViews((current) => current.filter((view) => view.id !== viewId));
+                  if (viewId === activeViewId) {
+                    const fallback = views.find((view) => view.id !== viewId);
+                    if (fallback) applyView(fallback);
+                  }
+                }}
+                onSetDefault={(viewId) => {
+                  setViews((current) => current.map((view) => ({ ...view, isDefault: view.id === viewId })));
+                }}
+                onReorder={(orderedIds) => {
+                  setViews((current) => {
+                    const byId = new Map(current.map((view) => [view.id, view]));
+                    return orderedIds.flatMap((id) => {
+                      const view = byId.get(id);
+                      return view ? [view] : [];
+                    });
                   });
-                });
-              }}
-            />
-          ) : undefined
-        }
-        toolbarActions={tableToolbarActions}
-        onCreate={() => openEditor()}
-        advancedFilters={
-          isCategory || isComplex
-            ? {
-                activeCount: activeFilterCount,
-                onReset: () => {
-                  setDraftCode('');
-                  setDraftMissingSpecification(false);
-                },
-                onCancel: () => restoreDraft(snapshot),
-                onApply: () => {
-                  updateSnapshot({
-                    code: draftCode.trim(),
-                    missingSpecification: draftMissingSpecification,
-                  });
-                },
-                children: (
-                  <Form layout="vertical">
-                    <Form.Item label="产品编码">
-                      <Input
-                        value={draftCode}
-                        placeholder="输入编码片段"
-                        onChange={(event) => setDraftCode(event.target.value)}
-                      />
-                    </Form.Item>
-                    <Form.Item>
-                      <Checkbox
-                        checked={draftMissingSpecification}
-                        onChange={(event) => setDraftMissingSpecification(event.target.checked)}
-                      >
-                        仅看未维护规格
-                      </Checkbox>
-                    </Form.Item>
-                  </Form>
-                ),
-              }
-            : undefined
-        }
-        appliedFilters={!isProSearch && activeFilterCount ? appliedFilterTags : undefined}
-        facetLabel="产品分类"
-        facetSidebar={
-          isComplex ? (
-            <div className="sxw-crud-workbench-example__facet">
-              <Tree
-                aria-label="产品分类"
-                selectedKeys={snapshot.baseType === 'all' ? ['all'] : [snapshot.baseType]}
-                treeData={[
-                  { title: '全部产品', key: 'all' },
-                  { title: '原材料', key: 'raw' },
-                  { title: '半成品', key: 'semi' },
-                  { title: '成品', key: 'finished' },
-                ]}
-                onSelect={(keys) => {
-                  const selected = String(keys[0] ?? 'all');
-                  if (isProductCategory(selected)) updateSnapshot({ baseType: selected });
                 }}
               />
-            </div>
-          ) : undefined
-        }
-        renderTable={
-          isComplex
-            ? (tableProps) => (
-                <ProTable<DemoProduct>
-                  {...tableProps}
-                  scroll={{ ...tableProps.scroll, x: tableProps.scroll?.x ?? 'max-content' }}
+            ) : undefined
+          }
+          toolbarActions={tableToolbarActions}
+          onCreate={() => openEditor()}
+          advancedFilters={
+            isCategory || isComplex
+              ? {
+                  activeCount: activeFilterCount,
+                  onReset: () => {
+                    setDraftCode('');
+                    setDraftMissingSpecification(false);
+                  },
+                  onCancel: () => restoreDraft(snapshot),
+                  onApply: () => {
+                    updateSnapshot({
+                      code: draftCode.trim(),
+                      missingSpecification: draftMissingSpecification,
+                    });
+                  },
+                  children: (
+                    <Form layout="vertical">
+                      <Form.Item label="产品编码">
+                        <Input
+                          value={draftCode}
+                          placeholder="输入编码片段"
+                          onChange={(event) => setDraftCode(event.target.value)}
+                        />
+                      </Form.Item>
+                      <Form.Item>
+                        <Checkbox
+                          checked={draftMissingSpecification}
+                          onChange={(event) => setDraftMissingSpecification(event.target.checked)}
+                        >
+                          仅看未维护规格
+                        </Checkbox>
+                      </Form.Item>
+                    </Form>
+                  ),
+                }
+              : undefined
+          }
+          appliedFilters={!isProSearch && activeFilterCount ? appliedFilterTags : undefined}
+          facetLabel="产品分类"
+          facetSidebar={
+            isComplex ? (
+              <div className="sxw-crud-workbench-example__facet">
+                <Tree
+                  aria-label="产品分类"
+                  selectedKeys={snapshot.baseType === 'all' ? ['all'] : [snapshot.baseType]}
+                  treeData={[
+                    { title: '全部产品', key: 'all' },
+                    { title: '原材料', key: 'raw' },
+                    { title: '半成品', key: 'semi' },
+                    { title: '成品', key: 'finished' },
+                  ]}
+                  onSelect={(keys) => {
+                    const selected = String(keys[0] ?? 'all');
+                    if (isProductCategory(selected)) updateSnapshot({ baseType: selected });
+                  }}
                 />
-              )
-            : undefined
-        }
-        tableProps={{
-          actionRef,
-          rowKey: 'id',
-          columns,
-          cardBordered: true,
-          dataSource: isProSearch ? undefined : visibleProducts,
-          request: isProSearch
-            ? async (params) => {
-                const getText = (key: string) => String(params[key] ?? '').trim().toLowerCase();
-                const name = getText('name');
-                const code = getText('code');
-                const unit = getText('unit');
-                const baseType = getText('baseType');
-                const status = getText('status');
-                const data = products.filter((product) =>
-                  (!name || product.name.toLowerCase().includes(name)) &&
-                  (!code || product.code.toLowerCase().includes(code)) &&
-                  (!unit || product.unit === unit) &&
-                  (!baseType || product.baseType === baseType) &&
-                  (!status || product.status === status),
-                );
-                return { data, success: true, total: data.length };
-              }
-            : undefined,
-          pagination: { defaultPageSize: 5, showSizeChanger: true },
-          scroll: { x: 1020 },
-          options: isComplex ? { setting: true, density: false, reload: true } : false,
-          rowSelection: {
-            selectedRowKeys: selectedKeys,
-            onChange: (keys) => setSelectedKeys(keys),
-          },
-          tableAlertOptionRender: ({ selectedRows, onCleanSelected }) => (
-            <Space size={8}>
-              <Button
-                size="small"
-                onClick={() => {
-                  const selectedIds = new Set(selectedRows.map((product) => product.id));
-                  setProducts((current) =>
-                    current.map((product) =>
-                      selectedIds.has(product.id) ? { ...product, status: 'inactive' } : product,
-                    ),
+              </div>
+            ) : undefined
+          }
+          renderTable={
+            isComplex
+              ? (tableProps) => (
+                  <ProTable<DemoProduct>
+                    {...tableProps}
+                    scroll={{ ...tableProps.scroll, x: tableProps.scroll?.x ?? 'max-content' }}
+                  />
+                )
+              : undefined
+          }
+          tableProps={{
+            actionRef,
+            rowKey: 'id',
+            columns,
+            cardBordered: true,
+            dataSource: isProSearch ? undefined : visibleProducts,
+            request: isProSearch
+              ? async (params) => {
+                  const getText = (key: string) => String(params[key] ?? '').trim().toLowerCase();
+                  const name = getText('name');
+                  const code = getText('code');
+                  const unit = getText('unit');
+                  const baseType = getText('baseType');
+                  const status = getText('status');
+                  const data = products.filter((product) =>
+                    (!name || product.name.toLowerCase().includes(name)) &&
+                    (!code || product.code.toLowerCase().includes(code)) &&
+                    (!unit || product.unit === unit) &&
+                    (!baseType || product.baseType === baseType) &&
+                    (!status || product.status === status),
                   );
-                  onCleanSelected();
-                  message.success(`已批量停用 ${selectedRows.length} 个产品`);
-                }}
-              >
-                批量停用
-              </Button>
-            </Space>
-          ),
-        }}
-      />
+                  return { data, success: true, total: data.length };
+                }
+              : undefined,
+            pagination: { defaultPageSize: 5, showSizeChanger: true },
+            scroll: { x: 1020 },
+            options: isComplex ? { setting: true, density: false, reload: true } : false,
+            rowSelection: {
+              selectedRowKeys: selectedKeys,
+              onChange: (keys) => setSelectedKeys(keys),
+            },
+            tableAlertOptionRender: ({ selectedRows, onCleanSelected }) => (
+              <Space size={8}>
+                <Button
+                  size="small"
+                  onClick={() => {
+                    const selectedIds = new Set(selectedRows.map((product) => product.id));
+                    setProducts((current) =>
+                      current.map((product) =>
+                        selectedIds.has(product.id) ? { ...product, status: 'inactive' } : product,
+                      ),
+                    );
+                    onCleanSelected();
+                    message.success(`已批量停用 ${selectedRows.length} 个产品`);
+                  }}
+                >
+                  批量停用
+                </Button>
+              </Space>
+            ),
+          }}
+        />
+      </div>
 
       <SectionCard title="新增与编辑由宿主提供表单">
         <Typography.Text type="secondary">
