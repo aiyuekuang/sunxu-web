@@ -1,0 +1,36 @@
+{
+  "routeScope": "CatalogApp > CRUD 列表工作台 > fill 模式：单列表视口页 > MES ResizableProTable",
+  "viewport": {
+    "width": 1470,
+    "height": 1000,
+    "pageScrollHeight": 1473,
+    "pageScrollWidth": 1470
+  },
+  "state": {
+    "rows": 3,
+    "pagination": true,
+    "workbenchParentHeight": 360
+  },
+  "geometry": {
+    "workbench": { "top": 574, "bottom": 934, "height": 360 },
+    "layout": { "top": 574, "bottom": 934, "height": 360 },
+    "tableContainer": { "top": 574, "bottom": 934, "height": 360 },
+    "tableRoot": { "top": 574, "bottom": 934, "height": 360 },
+    "tableSection": { "top": 574, "bottom": 894, "height": 320 },
+    "tableBody": {
+      "top": 602,
+      "bottom": 876,
+      "height": 274,
+      "scrollHeight": 274,
+      "overflowY": "scroll"
+    },
+    "pagination": { "top": 902, "bottom": 934, "height": 32 },
+    "paginationBottomGap": 0
+  },
+  "checks": {
+    "shortDataDoesNotCollapseBody": true,
+    "paginationAnchoredToWorkbenchBottom": true,
+    "pageHorizontalOverflow": false
+  },
+  "hostPurchaseOrdersRoute": "UNVERIFIED until mes-admin consumes the new sunxu-web commit and the updated build is loaded in the authenticated test environment"
+}

@@ -214,6 +214,7 @@
 - **结果卡片内边距**：为避免 ProTable 默认左右 24 px 内边距挤压宽表格，工作台在未显式提供 `tableProps.cardProps` 时，通过 ProTable 公共 `cardProps.styles.body` 将结果卡片的水平内边距统一为 16 px；纵向间距继续由 ProTable 管理。显式传入 `cardProps`（包括 `false`）时由宿主接管结果卡片外观；宿主需用该公开 API 设置样式，不覆盖内部 DOM class。页面工作区外框仍只由 `ListScreenContainer` 或宿主 shell 中的一方拥有。
 - **状态/恢复**：高级筛选抽屉打开时由宿主字段控件持有草稿；“重置”只清草稿，“取消/关闭”调用 `onCancel` 保留已应用结果，“应用”调用宿主 `onApply`。返回 `false` 或抛错时抽屉保持打开，错误时显示可恢复提示。`open` 存在时为受控模式，宿主必须响应 `onOpenChange`；省略 `open` 时由工作台管理开关。加载、空、错误、分页、排序和行选择状态由 ProTable/宿主传入；**`fill` 模式下分页的可见位置和表体高度由工作台负责**，宿主不得再用页面级 `:has()` CSS 或外部高度测量控制表体。
 - **高度与分页契约**：`fill` 只用于单列表视口页，宿主必须给工作台提供确定的可用高度。工作台根节点、results、layout、table 容器、适配器和 ProTable 的公开卡片/表格/Spin 语义槽形成可收缩的纵向 flex 链；测量只查询工作台注入的语义 class，不依赖 Ant Design 或 Pro Components 的内部类名。工作台用 `ResizeObserver` + `MutationObserver` 测量表头、footer、分页和额外结果内容之外的可滚动高度，并作为 `scroll.y` 传给 ProTable。表头保持其内容所需的自然高度，不参与 flex 收缩；分页始终渲染在结果区底部且不参与收缩，短数据也不会让表格和分页停在结果区上方；表格体在内部滚动。长页面（多卡片、图表或多个列表）不得开启 `fill`，保持默认文档流由页面整体滚动。
+- **短数据分页填充实现**：Ant Design Table 没有为内层 Table 和滚动表体分别暴露语义样式槽；工作台通过公开 Table `classNames.root`、Spin `classNames.container`、Table `classNames.section` 标记边界，在标记范围内让内层表格及表头后的滚动内容参与 flex-grow。分页保持在结果区底部，短表体仍保留内部滚动行为。
 - **Facet**：`facetSidebar` 只用于高频层级导航。工作区有效宽度低于 `facetSidebarBreakpoint`（默认 1024px）时，同一内容移入左侧 Drawer；组件用 ResizeObserver 测量列表内宽，不用浏览器 viewport 猜测。桌面侧栏与结果区由 16px grid gap 分隔，间距由工作台单独拥有，Facet 不再叠加末端留白；竖向填充布局中 Facet 受结果区高度约束，超出内容在 Facet 内滚动。侧栏卡片的边框、内边距和内容布局由宿主负责，子内容不得超出 Facet 轨道宽度。
 - **布局与响应式**：主分类 Tab 在左，状态 Segmented 在右；列表动作与新增位于紧邻结果区的搜索/筛选行右侧，即使没有筛选也右对齐；少量外部快捷筛选与关键字在宽度允许时保持同一行。`responsiveQuickFilters` 默认启用，工作台测量实际容器和筛选控件宽度；宽度不足时将快捷筛选折叠到“展开筛选”区域，用户可展开查看并再次收起，空间恢复后自动回到单行。ProTable 原生查询表单按自身响应式 `span` / `defaultFormItemsNumber` / `defaultCollapsed` 规则处理；两种查询方式避免重复配置同一业务字段。内容不足 900px 时分类和状态换行；不足 767px 时筛选区纵向组织。ProTable 的横向滚动/列配置由 `tableProps` 公共 API 控制，不覆盖内部 class。
 - **状态筛选所有权**：分类由 `primaryTabs` 或 Facet 二选一；状态由 `statusFilters` 或宿主快捷条件二选一；不要在视图标签、快捷控件和抽屉重复同一字段。
@@ -221,6 +222,7 @@
 - **可访问性**：筛选区用 `FilterBar` 的 `role=search` 和必需名称；分类 Tab 与状态 Segmented 分别提供可读名称和选中态；筛选图标按钮有 `aria-label`，Tooltip 可键盘聚焦；Drawer/ProTable 原生键盘和焦点行为不被覆盖。Facets 用具名 `<aside>` / Drawer。
 - **间距与主题**：父级 `ListScreenContainer` 拥有页面内边距；工作台默认使用 `section` 根元素并只管工具组间距。应用外壳不提供 main landmark 时可显式传 `as="main"`。颜色使用 `--sxw-*` 语义变量，ProTable/AntD 控件几何遵循上游 token。
 - **证据**：`examples/catalog` 的 CRUD 列表工作台真实路由覆盖自定义筛选自动折叠、ProTable 原生查询和宿主表格适配插槽；原组合验收见 `docs/verification/crud-list-workbench-2026-11-10/`，Facet 间距与目录轨道几何见 `docs/verification/crud-list-workbench-spacing-2026-11-11/`。未覆盖的状态仍标为 `UNVERIFIED`。
+- **fill 分页视觉验收**：3 行短数据下工作台 360px 高、表格体 255px，分页底边与结果区底边相差 0px；截图和几何数据见 [`docs/verification/crud-list-workbench-fill-pagination-2026-11-23/`](./verification/crud-list-workbench-fill-pagination-2026-11-23/README.md)。MES Admin 采购订单真实路由仍需加载更新后的宿主构建后验收。
 
 - **搜索插槽宽度**：桌面搜索区以 `320px` 为宽度基准、最小 `180px`；搜索控件根节点受插槽宽度约束，不得溢出。工作区窄于 `767px` 时筛选区改为纵向布局，搜索控件仍限于可用宽度。
 

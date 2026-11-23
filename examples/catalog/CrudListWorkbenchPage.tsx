@@ -24,6 +24,7 @@ import {
   SectionCard,
   type SavedViewItem,
 } from '../../src';
+import { ResizableProTable } from '../../src/mes';
 
 type ProductBaseType = 'raw' | 'semi' | 'finished';
 type ProductStatus = 'active' | 'inactive';
@@ -657,7 +658,7 @@ export function CrudListWorkbenchPage() {
       <SectionCard title="fill 模式：单列表视口页">
         <Space direction="vertical" size={8} style={{ width: '100%' }}>
           <Typography.Text type="secondary">
-            宿主提供确定高度后，工作台让短数据分页贴近底部、表格体在内部滚动。仅用于整页只有一张列表的场景；
+            宿主提供确定高度后，工作台让短数据分页固定在结果区底部、表格体在内部滚动。仅用于整页只有一张列表的场景；
             长页面中的子列表使用 <Typography.Text code>layout=&quot;embedded&quot;</Typography.Text>。
           </Typography.Text>
           <div style={{ display: 'flex', height: 360, minHeight: 0, minWidth: 0 }}>
@@ -665,8 +666,9 @@ export function CrudListWorkbenchPage() {
               layout="embedded"
               fill
               renderTable={(tableProps) => (
-                <ProTable<DemoProduct>
+                <ResizableProTable<DemoProduct>
                   {...tableProps}
+                  resizable={{ persistenceKey: false }}
                   scroll={{ x: 'max-content' }}
                 />
               )}
@@ -686,7 +688,7 @@ export function CrudListWorkbenchPage() {
                     render: (_, record) => (record.status === 'active' ? '启用' : '停用'),
                   },
                 ],
-                dataSource: products,
+                dataSource: products.slice(0, 3),
                 pagination: { defaultPageSize: 9, showSizeChanger: false },
               }}
             />

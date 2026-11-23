@@ -146,6 +146,7 @@ const FILL_TABLE_CLASSES = {
   card: 'sxw-crud-list-workbench__fill-card',
   cardBody: 'sxw-crud-list-workbench__fill-card-body',
   tableRoot: 'sxw-crud-list-workbench__fill-table-root',
+  tableSection: 'sxw-crud-list-workbench__fill-table-section',
   spinRoot: 'sxw-crud-list-workbench__fill-spin-root',
   spinContainer: 'sxw-crud-list-workbench__fill-spin-container',
   header: 'sxw-crud-list-workbench__fill-table-header',
@@ -169,6 +170,7 @@ function addFillTableClassNames<T extends object, Params extends Record<string, 
   const merge = (current?: TableClassNameSlots<T, Params>) => ({
     ...current,
     root: joinClassNames(current?.root, FILL_TABLE_CLASSES.tableRoot),
+    section: joinClassNames(current?.section, FILL_TABLE_CLASSES.tableSection),
     header: {
       ...current?.header,
       wrapper: joinClassNames(current?.header?.wrapper, FILL_TABLE_CLASSES.header),

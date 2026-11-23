@@ -457,6 +457,7 @@
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-card,
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-card-body,
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-root,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-section,
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-spin-root,
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-spin-container {
   display: flex;
@@ -470,6 +471,7 @@
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-card,
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-card-body,
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-root,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-section,
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-spin-root,
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-spin-container {
   flex: 1 1 auto;
@@ -489,6 +491,28 @@
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-footer,
 .sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-pagination {
   flex: 0 0 auto;
+}
+
+/* Ant Design exposes its table wrapper and section, but not the inner table/scroll-body slots.
+   Use those semantic boundaries to flex the inner table, then its scroll body, for short results. */
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-section {
+  overflow: hidden;
+}
+
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-spin-container > :first-child {
+  display: flex;
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
+  flex-direction: column;
+  overflow: hidden;
+}
+
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-section > :first-child + *,
+.sxw-crud-list-workbench--fill .sxw-crud-list-workbench__fill-table-section > :only-child {
+  min-width: 0;
+  min-height: 0;
+  flex: 1 1 auto;
 }
 
 .sxw-table-scroll-hint {
