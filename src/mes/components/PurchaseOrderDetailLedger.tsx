@@ -902,7 +902,7 @@ export function PurchaseOrderDetailLedger({
     <>
       <CrudListWorkbench<PurchaseOrderDetailLedgerRow, PurchaseOrderDetailLedgerTableParams>
         as="section"
-        layout="embedded"
+        layout="page"
         fill
         search={
           <Input.Search
