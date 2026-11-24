@@ -750,13 +750,15 @@
 .sxw-saved-view-bar__row {
   display: flex;
   min-width: 0;
-  align-items: center;
-  gap: 8px;
+  align-items: stretch;
+  flex-direction: column;
+  gap: 6px;
   padding-block: 0 2px;
 }
 
 .sxw-saved-view-bar__tabs {
   min-width: 0;
+  width: 100%;
   flex: 1 1 auto;
   overflow: hidden;
 }
@@ -791,6 +793,8 @@
 
 .sxw-saved-view-bar__actions {
   flex: 0 0 auto;
+  justify-content: flex-end;
+  width: 100%;
   white-space: nowrap;
 }
 
