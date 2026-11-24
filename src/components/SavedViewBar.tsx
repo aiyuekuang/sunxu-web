@@ -323,12 +323,12 @@ export function SavedViewBar({
               items={tabItems}
               onChange={requestChange}
               size="small"
-              tabBarExtraContent={sortAction ? { right: sortAction } : undefined}
               tabBarGutter={12}
             />
           </Spin>
         </div>
         <Space size={6} className="sxw-saved-view-bar__actions">
+          {sortAction}
           {dirty ? <Tag color="orange">未保存</Tag> : null}
           {activeView?.scope === 'personal' && onSave ? (
             <Tooltip title="更新当前视图">

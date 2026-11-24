@@ -16,10 +16,10 @@
 | `ListScreenContainer` | 组织特殊列表的标题、紧邻工具栏和结果区 | `ScreenContainer` + `PageHeader`；标准 CRUD 列表优先用 `CrudListWorkbench` |
 | `CrudListWorkbench` | 组合分类/状态、轻筛选、高级筛选、视图插槽与表格结果适配器；不渲染页级标题 | `ListScreenContainer` + `FilterBar` + `StatusTabs` + Pro Components 3 ProTable |
 | `PaginationSummary` | 在分页栏左侧显示宿主提供的筛选结果摘要 | AntD `Pagination.showTotal`；统计口径由宿主提供 |
-| `SavedViewBar` | 选择和管理受控的系统/个人列表视图 | AntD Tabs / Dropdown / Modal；视图数据和持久化由宿主提供 |
+| `SavedViewBar` | 选择和管理受控的系统/个人列表视图；排序动作置于标签下方的独立操作行，窄屏不遮挡标签 | AntD Tabs / Dropdown / Modal；视图数据和持久化由宿主提供 |
 | `FormScreenContainer` | 分离可滚动表单内容和固定 footer | `ScreenContainer` + `StickyActionBar`；ProForm 归宿主 |
 | `DetailScreenContainer` | 组织详情内容和固定操作区 | `ScreenContainer` + `PageHeader` |
-| `MesDetailPageContainer` / `MesDetailPageContent` / `MesDetailPageState` | 组合 MES 详情页面框架、纯内容插槽及加载/错误/空状态 | `DetailScreenContainer` + `DetailHeader` / AntD `Spin`、`Empty`、`Button`；状态与重试决策由宿主提供 |
+| `MesDetailPageContainer` / `MesDetailPageContent` / `MesDetailPageState` | 组合 MES 详情页面框架、纯内容插槽及加载/错误/空状态；错误和空状态可显示宿主注入的重试/返回操作 | `DetailScreenContainer` + `DetailHeader` / AntD `Spin`、`Empty`、`Button`；状态与重试决策由宿主提供 |
 | `HeaderActionButton` | 统一纯图标顶栏/工具栏操作的尺寸、颜色和交互态；必填 `aria-label` | AntD `Button` + AntD semantic tokens；Tooltip、Popover、Badge 和动作由宿主组合 |
 | `MesAnnouncementBanner` | 轮播呈现公告摘要、优先级、数量和当前项隐藏操作 | AntD `Button` / `NotificationOutlined` + 语义公告样式；数据、权限、轮询与导航由宿主提供 |
 | `MesMenuSearchInput` | 呈现受控菜单搜索输入与候选上下文 | AntD `AutoComplete` / `Input`；过滤、键盘导航、菜单授权和路由由宿主提供 |
@@ -232,7 +232,7 @@
 - **API**：`views: { id, name, scope: system | personal, isDefault? }[]`、`onChange` 必填；`activeViewId`、`dirty`、`loading` 受控；`onSave`、`onSaveAs`、`onRename`、`onDelete`、`onSetDefault`、`onReorder` 可选。操作回调可以同步或返回 Promise；返回 `false` 或 reject 表示未成功。
 - **状态/恢复**：加载中有 Spin 并禁止重复变更；回调失败保留当前视图，显示通用恢复提示并把原错误传给 `onActionError`。删除个人视图要求二次确认；系统视图不可重命名/删除；仅个人视图可保存覆盖。
 - **持久化与快照**：不读写本地存储或调用 API。宿主提供系统/个人视图和访问权限，并只保存允许的筛选、排序、列可见性/顺序/固定状态；不保存授权决定、选择行、临时抽屉草稿或业务动作。
-- **布局与可访问性**：视图标签按基线 MES 的紧凑间距排列，当前标签文字下方显示主题色指示线；每个可管理视图在标签内提供菜单，排序按钮放在 AntD Tabs 右侧扩展区，与导航底线共同布局；保存/另存操作紧邻标签区。窄屏下导航操作与保存操作分行，保存操作右对齐，选中标签自动滚动到可见位置；管理菜单、排序和命名弹窗提供可读名称及键盘可操作的按钮。
+- **布局与可访问性**：视图标签按基线 MES 的紧凑间距排列，当前标签文字下方显示主题色指示线；每个可管理视图在标签内提供菜单。排序、保存、另存动作放在标签下方的独立操作行，避免挤占标签命中区；窄屏横向滚动的标签与操作行分离，选中标签自动滚动到可见位置；管理菜单、排序和命名弹窗提供可读名称及键盘可操作的按钮。
 - **证据**：`examples/catalog` CRUD 列表工作台的复杂视图真实路由，以及桌面/窄屏标签栏、管理菜单、排序、未保存、另存和切换确认的截图与 DOM 几何数据记录于 `docs/verification/saved-view-bar-mes-alignment-2026-11-16/`；排序控件与导航底线间距在宽/窄视口验证。未覆盖的键盘读屏流程、深色主题和其他视口仍标 `UNVERIFIED`。
 
 ### `SectionCard`

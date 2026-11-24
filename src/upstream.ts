@@ -164,6 +164,13 @@ export {
   ZoomOutOutlined,
 } from '@ant-design/icons';
 
+export type {
+  ActionType,
+  ProColumns,
+  ProFormInstance,
+  ProFormRef,
+} from '@ant-design/pro-components';
+
 export {
   DrawerForm,
   EditableProTable,
@@ -195,7 +202,20 @@ export {
   StatisticCard,
 } from '@ant-design/pro-components';
 
+export type {
+  CollapseProps,
+  MenuProps,
+  SelectProps,
+  TableColumnsType,
+  UploadFile,
+} from 'antd';
+
+export type { ColumnsType } from 'antd/es/table';
+export type { DataNode } from 'antd/es/tree';
+export type { RcFile } from 'antd/es/upload/interface';
+
 export {
+  App,
   Alert,
   AutoComplete,
   Avatar,
@@ -216,11 +236,13 @@ export {
   Flex,
   FloatButton,
   Form,
+  Grid,
   Image,
   Input,
   InputNumber,
   List,
   Modal,
+  message,
   Popconfirm,
   Popover,
   Progress,
@@ -245,4 +267,5 @@ export {
   Tree,
   Typography,
   Upload,
+  theme,
 } from 'antd';

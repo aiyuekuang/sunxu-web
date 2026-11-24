@@ -1,5 +1,5 @@
 import type { ReactNode } from 'react';
-import { Breadcrumb, Button, Empty, Spin } from 'antd';
+import { Breadcrumb, Button, Empty, Space, Spin } from 'antd';
 import type { BreadcrumbProps } from 'antd';
 import {
   DetailScreenContainer,
@@ -37,6 +37,8 @@ export type MesDetailPageStateProps = {
   state: MesDetailPageStateKind;
   description?: ReactNode;
   onRetry?: () => void;
+  onBack?: () => void;
+  backLabel?: string;
 };
 
 /**
@@ -48,6 +50,8 @@ export function MesDetailPageState({
   state,
   description,
   onRetry,
+  onBack,
+  backLabel = '返回列表',
 }: MesDetailPageStateProps) {
   if (state === 'loading') {
     return (
@@ -58,16 +62,30 @@ export function MesDetailPageState({
   }
 
   if (state === 'empty') {
-    return <Empty description={description ?? '未找到数据'} />;
+    return (
+      <div style={{ textAlign: 'center', padding: 80 }}>
+        <Empty description={description ?? '未找到数据'} />
+        {onBack ? (
+          <Button onClick={onBack} style={{ marginTop: 16 }}>
+            {backLabel}
+          </Button>
+        ) : null}
+      </div>
+    );
   }
 
   return (
     <div style={{ textAlign: 'center', padding: 80 }}>
       <Empty description={description ?? '加载失败，请重试'} />
-      {onRetry ? (
-        <Button type="primary" onClick={onRetry} style={{ marginTop: 16 }}>
-          重试
-        </Button>
+      {onRetry || onBack ? (
+        <Space style={{ marginTop: 16 }}>
+          {onRetry ? (
+            <Button type="primary" onClick={onRetry}>
+              重试
+            </Button>
+          ) : null}
+          {onBack ? <Button onClick={onBack}>{backLabel}</Button> : null}
+        </Space>
       ) : null}
     </div>
   );

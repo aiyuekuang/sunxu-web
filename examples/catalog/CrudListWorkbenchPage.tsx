@@ -1,4 +1,5 @@
 import { useMemo, useRef, useState } from 'react';
+import type { Key } from 'react';
 import {
   App as AntdApp,
   Button,
@@ -13,15 +14,14 @@ import {
   Tag,
   Tree,
   Typography,
-} from 'antd';
-import { ProTable, type ActionType, type ProColumns } from '@ant-design/pro-components';
-import { TagOutlined } from '@ant-design/icons';
-import type { Key } from 'react';
-import {
   CrudListWorkbench,
+  ProTable,
   RowActions,
   SavedViewBar,
   SectionCard,
+  TagOutlined,
+  type ActionType,
+  type ProColumns,
   type SavedViewItem,
 } from '../../src';
 import { ResizableProTable } from '../../src/mes';

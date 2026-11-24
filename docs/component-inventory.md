@@ -12,7 +12,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `PageHeader` | 有条件渲染的页面标题、说明、面包屑和操作插槽 |
 | `ListScreenContainer` | 标题 → 紧邻列表工具栏 → 结果区 |
 | `CrudListWorkbench` | 页面级以主题容器面组合分类/状态、视图、筛选和结果区；有分类/状态行时视图栏紧随其后，否则排在筛选行之前；内嵌模式继承父表面；不渲染页级标题；结果卡片默认使用 16px 水平内边距；fill 模式由工作台测量并归一化最终表格的纵向滚动高度，短数据分页固定在结果区底部，同时保留适配器横向滚动配置 |
-| `SavedViewBar` | 受控的系统/个人视图切换和管理操作 |
+| `SavedViewBar` | 受控系统/个人视图切换和管理操作；排序及保存动作在标签下方独立呈现 |
 | `EditableDetailTable` | 受控重复明细编辑、行选择和批量字段设置 |
 | `BatchFieldSettingsButton` | 选择批量覆盖字段并在确认后生成宿主 patch |
 | `RemoteSelect` | 搜索候选时由宿主请求并由组件防抖的 Select |
@@ -27,7 +27,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `MesStatusTag`（`sunxu-web/mes`） | 将宿主 MES 状态枚举映射为统一高对比只读标签；保留空/未知状态与 children 文案回退 |
 | `MesReportQuickRangeButtons`（`sunxu-web/mes`） | 报表快捷范围的受控 Segmented 选择；匹配规则、日期范围和数据刷新由宿主提供 |
 | `MesConfigEntryLink`、`MesConfigEntryFieldLabel`（`sunxu-web/mes`） | 在字段标签旁提供宿主授权的配置页新标签页链接；目标路由与权限结果由宿主提供 |
-| `MesDetailPageContainer`、`MesDetailPageContent`、`MesDetailPageState`（`sunxu-web/mes`） | 组合 MES 详情页容器/内容/加载错误空状态；请求、路由、权限、重试决策与审批服务由宿主保留 |
+| `MesDetailPageContainer`、`MesDetailPageContent`、`MesDetailPageState`（`sunxu-web/mes`） | 组合 MES 详情页容器/内容/加载错误空状态；错误和空状态支持宿主注入重试/返回；请求、路由、权限、重试决策与审批服务由宿主保留 |
 | `HeaderActionButton`（`sunxu-web`） | 统一顶栏纯图标按钮的主题、焦点与按压呈现；无障碍名称必填，提示、徽标、弹层和动作由宿主组合 |
 | `MesAnnouncementBanner`（`sunxu-web/mes`） | 呈现公告优先级、轮播摘要、数量和隐藏操作；公告数据、可见权限、轮询与详情路由由宿主保留 |
 | `MesMenuSearchInput`（`sunxu-web/mes`） | 呈现受控菜单搜索框和上下文候选；菜单过滤、快捷键、授权和导航由宿主保留 |
