@@ -766,6 +766,7 @@
 }
 
 .sxw-saved-view-bar__tabs-item {
+  flex-shrink: 0;
   padding-block: 2px;
 }
 
