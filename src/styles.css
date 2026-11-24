@@ -1055,6 +1055,28 @@
   .sxw-filter-bar__fields {
     width: 100%;
   }
+
+  .sxw-saved-view-bar__row {
+    align-items: stretch;
+    flex-direction: column;
+    gap: 8px;
+  }
+
+  .sxw-saved-view-bar__actions {
+    justify-content: flex-end;
+    width: 100%;
+  }
+
+  .sxw-saved-view-bar__tabs,
+  .sxw-saved-view-bar__tabs-spin,
+  .sxw-saved-view-bar__tabs-spin-container,
+  .sxw-saved-view-bar__tabs-root,
+  .sxw-saved-view-bar__tabs-header {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 100%;
+    min-width: 0;
+  }
 }
 
 @container sxw-crud-list (max-width: 900px) {
