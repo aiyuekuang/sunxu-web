@@ -33,7 +33,7 @@ export function DocumentViewSwitchPresetsDemo() {
     <SectionCard title="MES 单据与明细视图切换">
       <Space wrap size={[24, 16]}>
         {presets.map(([label, ViewSwitch]) => (
-          <Space key={label} direction="vertical" size={4}>
+          <Space key={label} orientation="vertical" size={4}>
             <Typography.Text type="secondary">{label}</Typography.Text>
             <ViewSwitch value={view} onChange={setView} />
           </Space>

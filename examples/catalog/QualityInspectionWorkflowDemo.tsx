@@ -206,7 +206,7 @@ export function QualityInspectionWorkflowDemo() {
 
   return (
     <SectionCard title="MES 质量检验工作流">
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Paragraph type="secondary">
           展示检验结果自动判定、抽检数量联动、缺陷覆盖提示和新增缺陷；服务与业务计算由此目录示例模拟。
         </Typography.Paragraph>

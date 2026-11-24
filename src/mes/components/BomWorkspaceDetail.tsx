@@ -274,7 +274,7 @@ export function BomWorkspaceDetail({
   };
 
   return (
-    <Space direction="vertical" size={12} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={12} style={{ width: '100%' }}>
       {detail ? (
         <InfoCard<BomWorkspaceBomDetail>
           title="BOM 明细"

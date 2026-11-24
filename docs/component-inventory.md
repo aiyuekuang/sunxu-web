@@ -143,7 +143,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `PurchaseInquiryDetailLedger`、`PurchaseRequisitionDetailLedger`、`InternalIssueDetailLedger`、`ProductionReceiptDetailLedger`（`sunxu-web/mes`） | 保留采购询价/申请、内部领用、生产入库明细台账的筛选、动态列、汇总、视图、导出/打印入口和详情动作；API、权限结果、选择器、记忆分页、格式、导航及持久化由 MES 宿主注入 |
 | `PurchaseRequisitionItemsTable`（`sunxu-web/mes`） | 保留采购申请展开行的物料优先列序、数量回退、建议采购上下文和缺失到货日期提示；单位、数量、日期格式由宿主注入 |
 | `PurchaseOrderDetailLedger`（`sunxu-web/mes`） | 保留采购订单筛选、价格可见性、来料质检、费用汇总权限、行操作与同供应商批量收货约束；列表/权限/动作/收货流程由 MES 宿主注入 |
-| `PurchaseReturnDetailLedger`、`QuotationDetailLedger`、`MaterialIssueDetailLedger`、`PurchaseReceiptDetailLedger`（`sunxu-web/mes`） | 保留采购退料/报价/生产领料/采购入库台账的筛选、状态、汇总、自定义字段、行操作和打印；API、权限、费用/价格脱敏、来料质检、视图与生命周期弹窗由 MES 宿主注入 |
+| `PurchaseReturnDetailLedger`、`QuotationDetailLedger`、`MaterialIssueDetailLedger`、`PurchaseReceiptDetailLedger`（`sunxu-web/mes`） | 保留采购退料/报价/生产领料/采购入库台账的筛选、状态、汇总、自定义字段、行操作和打印；公开行/嵌套对象与视图控制器使用结构化类型，宿主扩展字段为 `unknown`；API、权限、费用/价格脱敏、来料质检、视图与生命周期弹窗由 MES 宿主注入 |
 | `StockTransferDetailLedger`、`StockConversionDetailLedger`（`sunxu-web/mes`） | 保留调拨只读明细、投入/产出转换台账、筛选、列/排序、摘要和视图切换；API/导出、权限、字典、自定义字段、格式和持久化由宿主注入 |
 | `StockTransferModal`、`StockTransferActionModals`（`sunxu-web/mes`） | 保留仓库调拨单编辑、物料批量加入、确认/取消/撤销流程和明细校验；仓库/物料/库存服务及权限由宿主注入 |
 | `CustomerMaterialDispositionDetailLedger`、`CustomerMaterialDispositionForm`、`CustomerMaterialDispositionReverseModal`（`sunxu-web/mes`） | 保留客户料处置台账筛选/个人视图/汇总、来源余额/批次校验、自定义字段和冲正；数据、权限、字典、导航与反馈由宿主注入 |
@@ -175,7 +175,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `DrawingFilesInline`、`FileUrlsInline`、`DrawingFilesGallery`、`PdfPreviewDrawer`（`sunxu-web/mes`） | MES 图纸/附件上传、订单头附件关联、分组预览/打印和 PDF 分页缩放；文件代理、原名解析和上传由宿主注入 |
 | `MaterialDrawingsPanel`（`sunxu-web/mes`） | 保留物料图纸/附件列表、图片/PDF/GLB 预览、受权限控制的上传/删除及上传策略校验；文件请求、授权 URL 和预览 renderer 由宿主注入，可接入套件 `GlbModelViewer` |
 | `GlbModelViewer`（`sunxu-web/mes`） | 提供 GLB/GLTF 加载、旋转缩放、网格/线框切换、恢复视角、加载失败及 WebGL 资源清理；宿主传入已授权可读 URL，three 为可选 peer 且挂载后动态加载 |
-| `ResizableProTable`（`sunxu-web/mes`） | MES 分页列表表格适配：可调列宽、持久化列序/显隐/排序、全局行号、密度、空态、导出布局和单列表视口高度；短数据分页固定在结果边界底部 |
+| `ResizableProTable`（`sunxu-web/mes`） | MES 分页列表表格适配：可调列宽、持久化列序/显隐/排序、全局行号、密度、空态和导出布局；单列表视口高度由 `CrudListWorkbench fill` 唯一拥有，旧 `fitContainerHeight` 仅为存量调用提供迁移兼容 |
 | `ResizableTable`（`sunxu-web/mes`） | 原生 AntD Table 的 MES 明细表适配：可调列宽、可选行号、密度、空态和本地排序 |
 | `TableActions`、`TableDensityOption`、`TableEmpty`（`sunxu-web/mes`） | MES 表格的行操作收纳、密度控制和带业务引导的空态；完整宿主菜单列用 `markCompleteActionMenuColumn` 标记，避免二次套菜单 |
 | `todayBusinessDate`（`sunxu-web/mes`） | 以 `Asia/Shanghai` 返回当前 MES 业务日 `YYYY-MM-DD`，供日期默认值和业务日比较复用 |

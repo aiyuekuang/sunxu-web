@@ -498,7 +498,7 @@ function OutsourcingComponentsDemoContent() {
       <Typography.Paragraph type="secondary">
         演示保留委外投入/收货明细筛选、保存视图、批量打印与扫码进度步骤。列表 API、权限、候选项、格式化、二维码渲染和消息反馈由宿主能力注入。
       </Typography.Paragraph>
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Space wrap>
           <Segmented
             aria-label="委外组件权限状态"

@@ -340,7 +340,7 @@ export function PurchaseOrderDetailLedgerDemo() {
         return undefined;
       },
       renderDocumentActions: (_row, actions) => (
-        <Space direction="vertical" size={0}>
+        <Space orientation="vertical" size={0}>
           {actions.canViewOrder ? (
             <Button type="link" size="small" onClick={actions.onOpenOrder}>
               订单详情

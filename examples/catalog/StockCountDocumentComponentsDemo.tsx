@@ -608,7 +608,7 @@ export function StockCountDocumentComponentsDemo() {
 
   return (
     <SectionCard title="MES 库存盘点单组件">
-      <Space direction="vertical" style={{ width: '100%' }} size={12}>
+      <Space orientation="vertical" style={{ width: '100%' }} size={12}>
         <Typography.Paragraph type="secondary" style={{ margin: 0 }}>
           演示新建盲盘单、仓库与仓位字段注入、盘点行自定义字段、实盘录入、批量设置，以及审核/冲正/取消表单。所有数据和操作均由本地 mock 提供。
         </Typography.Paragraph>

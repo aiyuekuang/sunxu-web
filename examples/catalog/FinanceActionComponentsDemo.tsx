@@ -271,7 +271,7 @@ export function FinanceActionComponentsDemo() {
       <Typography.Paragraph type="secondary">
         演示资金流水导入/新增，以及应收应付币别修复、取消和贷项退款；选择器、接口、权限、消息与导航由本页模拟注入。
       </Typography.Paragraph>
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Space wrap>
           <Typography.Text>资金流水维护</Typography.Text>
           <Segmented

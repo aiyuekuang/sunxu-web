@@ -11,6 +11,10 @@
  */
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
+import {
+  safeLocalStorageGetItem,
+  safeLocalStorageSetItem,
+} from '../utils/safeStorage';
 import { LABEL_STYLES } from './label-styles';
 
 /**
@@ -79,7 +83,7 @@ export function getLabelOrientation(
 /** 读取自定义标签纸尺寸 */
 export function getCustomLabelSize(): { width: number; height: number } {
   try {
-    const raw = localStorage.getItem(CUSTOM_STORAGE_KEY);
+    const raw = safeLocalStorageGetItem(CUSTOM_STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
       if (parsed.width && parsed.height) return parsed;
@@ -92,7 +96,10 @@ export function getCustomLabelSize(): { width: number; height: number } {
 
 /** 保存自定义标签纸尺寸 */
 export function setCustomLabelSize(width: number, height: number) {
-  localStorage.setItem(CUSTOM_STORAGE_KEY, JSON.stringify({ width, height }));
+  safeLocalStorageSetItem(
+    CUSTOM_STORAGE_KEY,
+    JSON.stringify({ width, height }),
+  );
 }
 
 interface LabelSizeInfo {
@@ -105,7 +112,7 @@ interface LabelSizeInfo {
 
 /** 读取当前标签纸尺寸设置 */
 export function getLabelSize(): LabelSizeInfo {
-  const key = (localStorage.getItem(STORAGE_KEY) ??
+  const key = (safeLocalStorageGetItem(STORAGE_KEY) ??
     DEFAULT_SIZE) as LabelSizeKey;
   if (key === 'custom') {
     const custom = getCustomLabelSize();
@@ -126,7 +133,7 @@ export function getLabelSize(): LabelSizeInfo {
 
 /** 保存标签纸尺寸设置 */
 export function setLabelSize(key: LabelSizeKey) {
-  localStorage.setItem(STORAGE_KEY, key);
+  safeLocalStorageSetItem(STORAGE_KEY, key);
 }
 
 export function useLabelPrint(docTitle?: string) {

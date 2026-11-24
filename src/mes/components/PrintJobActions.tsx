@@ -1260,7 +1260,7 @@ export function usePrintJobAction(actionRef?: PrintJobActionReloadRef) {
 
       <Drawer
         title="打印预览"
-        width="80vw"
+        size="80vw"
         open={drawerOpen}
         destroyOnHidden
         onClose={() => {
@@ -1328,7 +1328,7 @@ export function usePrintJobAction(actionRef?: PrintJobActionReloadRef) {
               style={{ marginBottom: 16 }}
               message={`有 ${batchPrintFailures.length} 条单据生成失败`}
               description={
-                <Space direction="vertical" size={8}>
+                <Space orientation="vertical" size={8}>
                   <Typography.Text>
                     已生成的单据仍可预览和打印；失败项不会被忽略，可修正数据后重试。
                   </Typography.Text>
@@ -1485,7 +1485,7 @@ export function usePrintJobAction(actionRef?: PrintJobActionReloadRef) {
 
       <Drawer
         title={recordQuery?.title ?? '打印记录'}
-        width={720}
+        size={720}
         open={recordsOpen}
         destroyOnHidden
         onClose={() => {
@@ -1567,7 +1567,7 @@ export function usePrintJobAction(actionRef?: PrintJobActionReloadRef) {
                   }
                   description={
                     <Space
-                      direction="vertical"
+                      orientation="vertical"
                       size={2}
                       style={{ width: '100%' }}
                     >

@@ -268,7 +268,7 @@ export function BomExplosionTree({
   const chartHeight = Math.max(520, Math.min(1800, data.summary.totalNodes * 58));
 
   return (
-    <Space direction="vertical" size={12} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={12} style={{ width: '100%' }}>
       <Space wrap>
         <Tag color="blue">
           节点 {formatCompactNumber(data.summary.totalNodes)}
@@ -293,7 +293,7 @@ export function BomExplosionTree({
           showIcon
           message="展开提示"
           description={
-            <Space direction="vertical" size={4}>
+            <Space orientation="vertical" size={4}>
               {data.warnings.slice(0, 5).map((warning) => (
                 <Typography.Text key={`${warning.code}-${warning.path}`}>
                   [{formatWarningCode(warning.code)}] {warning.message}

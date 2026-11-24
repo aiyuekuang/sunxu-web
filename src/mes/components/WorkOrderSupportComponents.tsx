@@ -78,22 +78,24 @@ export function ProductionReceiptSummaryCard({
           <Statistic
             title={`待确认数量（${summary.pendingReceiptCount} 单）`}
             value={summary.pendingReceiptQty}
-            valueStyle={
+            styles={{
+              content:
               Number(summary.pendingReceiptQty) > 0
                 ? { color: '#1677FF' }
                 : undefined
-            }
+            }}
           />
         </Col>
         <Col span={6}>
           <Statistic
             title="暂存未处理数量"
             value={summary.outputBufferOpenQty}
-            valueStyle={
+            styles={{
+              content:
               Number(summary.outputBufferOpenQty) > 0
                 ? { color: '#FF8F1F' }
                 : undefined
-            }
+            }}
           />
         </Col>
         <Col span={6}>
@@ -111,7 +113,7 @@ export type WorkOrderSplitResult = {
 
 export type WorkOrderSplitFieldHelp = {
   label: string;
-  tooltip?: { title: ReactNode; overlayStyle?: CSSProperties };
+  tooltip?: { title: ReactNode; styles?: { root?: CSSProperties } };
 };
 
 export type WorkOrderSplitModalProps = {

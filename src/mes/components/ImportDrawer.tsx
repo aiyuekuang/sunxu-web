@@ -37,7 +37,7 @@ function ContextualHelp({
       {label}
       <Tooltip
         title={
-          <Space direction="vertical" size={4}>
+          <Space orientation="vertical" size={4}>
             <strong>{title}</strong>
             <span>{content}</span>
           </Space>
@@ -190,7 +190,7 @@ const ImportDrawer: React.FC<ImportDrawerProps> = ({
       title={title}
       open={open}
       onClose={handleClose}
-      width={520}
+      size={520}
       destroyOnHidden
       footer={
         phase === 'upload' ? (
@@ -305,7 +305,7 @@ const ImportDrawer: React.FC<ImportDrawerProps> = ({
               result.errors.length === 0 ? '导入完成' : '导入完成（部分失败）'
             }
             subTitle={
-              <Space direction="vertical" size={4}>
+              <Space orientation="vertical" size={4}>
                 <Text>
                   <CheckCircleOutlined
                     style={{ color: '#52c41a', marginRight: 4 }}

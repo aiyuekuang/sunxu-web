@@ -19,7 +19,7 @@ export function PrintLayoutsDemo() {
       <Typography.Paragraph type="secondary">
         A4 单据、连续纸和标签布局保留 MES 模板结构；标签纸设置由宿主提供，打印 iframe 样式通过导出的样式常量注入。
       </Typography.Paragraph>
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <PrintLayout title="采购收货单" docNo="RCV-2026-0321" metaLines={['供应商：示例供应商']} printDate="2026年11月20日">
           <table className="print-desc">
             <tbody>

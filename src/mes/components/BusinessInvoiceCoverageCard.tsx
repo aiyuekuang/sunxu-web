@@ -327,7 +327,7 @@ export function BusinessInvoiceCoverageCard(
       width: 180,
       render: (_, line) =>
         line.invoiceAllocations.length > 0 ? (
-          <Space direction="vertical" size={0}>
+          <Space orientation="vertical" size={0}>
             {line.invoiceAllocations.map((allocation) => (
               <Button
                 key={`${allocation.invoiceId}:${allocation.invoiceLineId}`}
@@ -391,7 +391,7 @@ export function BusinessInvoiceCoverageCard(
       }
     >
       <Space
-        direction="vertical"
+        orientation="vertical"
         align="start"
         size={16}
       >

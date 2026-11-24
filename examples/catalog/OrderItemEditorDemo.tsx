@@ -80,7 +80,7 @@ export function OrderItemEditorDemo() {
 
   return (
     <SectionCard title="MES 单据明细编辑器">
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Segmented
           aria-label="明细布局"
           value={layout}

@@ -156,7 +156,7 @@ export function BomEffectiveBomSelector({
     .join(' · ');
 
   return (
-    <Space direction="vertical" size={8} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={8} style={{ width: '100%' }}>
       <Alert
         showIcon
         type="info"
@@ -166,7 +166,7 @@ export function BomEffectiveBomSelector({
             : '型号差异 BOM 不能直接做多级展开'
         }
         description={
-          <Space direction="vertical" size={8} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={8} style={{ width: '100%' }}>
             <Typography.Text type="secondary">
               {isProductBase
                 ? '请选择具体物料型号，系统会按当前有效配置解析型号有效 BOM。'
@@ -198,7 +198,7 @@ export function BomEffectiveBomSelector({
               查看型号有效 BOM
             </Button>
             {resolution?.candidates.length ? (
-              <Space direction="vertical" size={6} style={{ width: '100%' }}>
+              <Space orientation="vertical" size={6} style={{ width: '100%' }}>
                 <Typography.Text strong>
                   当前型号存在多个可用 BOM，请选择要展开的方案和版本
                 </Typography.Text>

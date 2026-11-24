@@ -401,7 +401,7 @@ export function PurchaseReturnEditDrawerDemo() {
 
   return (
     <SectionCard title="采购退货编辑">
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Paragraph type="secondary">
           来源入库退货按收货行金额比例核算；独立退料展示供应商、仓库、订单、价格和库存检查。配置、服务、权限、字典和通知均通过宿主能力接入。
         </Typography.Paragraph>

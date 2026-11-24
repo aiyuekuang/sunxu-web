@@ -525,7 +525,7 @@ export function ConvertToProductionDrawer({
       modalProps={{
         destroyOnHidden: true,
         centered: false,
-        maskClosable: false,
+        mask: { closable: false },
         className: 'document-form-modal',
       }}
       dateFormatter="string"
@@ -662,7 +662,7 @@ export function ConvertToProductionDrawer({
                 PREPARATION_CONCLUSION_TEXT[productionPreparation.conclusion]
               }
               description={
-                <Space direction="vertical" size={4}>
+                <Space orientation="vertical" size={4}>
                   <Typography.Text>
                     明细行图纸：
                     {productionPreparation.drawing.hasDrawing
@@ -712,7 +712,7 @@ export function ConvertToProductionDrawer({
                 width: 200,
                 fixed: 'left',
                 render: (_, row) => (
-                  <Space direction="vertical" size={0}>
+                  <Space orientation="vertical" size={0}>
                     <Typography.Text type="secondary" style={{ fontSize: 12 }}>
                       订单行 #{row.saleOrderItemLineNo}
                     </Typography.Text>
@@ -923,7 +923,7 @@ export function ConvertToProductionDrawer({
                   const disabled = Number(row.remainingRequiredQty ?? 0) <= 0;
                   if (usesDocumentBomProductionSource(row)) {
                     return (
-                      <Space direction="vertical" size={2}>
+                      <Space orientation="vertical" size={2}>
                         <Space size={6} wrap>
                           <Tag color="processing">本单 BOM</Tag>
                           <Typography.Text>
@@ -945,7 +945,7 @@ export function ConvertToProductionDrawer({
                   }
                   return (
                     <Space
-                      direction="vertical"
+                      orientation="vertical"
                       size={2}
                       style={{ width: '100%' }}
                     >
@@ -990,7 +990,7 @@ export function ConvertToProductionDrawer({
                   const disabled = Number(row.remainingRequiredQty ?? 0) <= 0;
                   return (
                     <Space
-                      direction="vertical"
+                      orientation="vertical"
                       size={2}
                       style={{ width: '100%' }}
                     >
@@ -1052,7 +1052,7 @@ export function ConvertToProductionDrawer({
                   }
                   if (warnings.length > 0) {
                     return (
-                      <Space direction="vertical" size={2}>
+                      <Space orientation="vertical" size={2}>
                         {warnings.map((warning) => (
                           <Typography.Text type="warning" key={warning}>
                             {warning}

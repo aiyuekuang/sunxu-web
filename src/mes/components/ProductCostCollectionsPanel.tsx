@@ -240,7 +240,7 @@ export function ProductCostCollectionsPanel({
   const draftColumns = createDraftColumns(capabilities);
 
   return (
-    <Space direction="vertical" size={16} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={16} style={{ width: '100%' }}>
       <ResizableProTable<ProductCostExpenseDraftRecord>
         key={`draft-${query.accountingBookCode}-${query.fiscalPeriod}-${reloadVersion}`}
         rowKey="id"

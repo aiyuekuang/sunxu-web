@@ -86,7 +86,7 @@ export function CustomFieldValuePanelDemo() {
       <Typography.Paragraph type="secondary">
         详情字段、公式值/异常、空态与编辑抽屉沿用 MES 规则；schema/value 保存 API 由宿主注入。
       </Typography.Paragraph>
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Space wrap>
           <Segmented
             aria-label="自定义字段详情场景"

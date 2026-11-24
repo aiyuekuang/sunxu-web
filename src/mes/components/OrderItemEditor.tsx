@@ -1599,7 +1599,7 @@ export function OrderItemEditor({
 
         if (allowTemporaryItem && itemMode === 'temporary') {
           return (
-            <Space direction="vertical" size={6} style={{ width: '100%' }}>
+            <Space orientation="vertical" size={6} style={{ width: '100%' }}>
               <Space wrap size={6}>
                 <Input
                   value={item.temporaryItemCode}
@@ -1711,7 +1711,7 @@ export function OrderItemEditor({
             ? disableQtyInput(item, index)
             : disableQtyInput;
         return (
-          <Space direction="vertical" size={4} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={4} style={{ width: '100%' }}>
             <DocumentLineQuantityInput
               value={item.qty}
               onChange={(value) => update({ qty: value })}

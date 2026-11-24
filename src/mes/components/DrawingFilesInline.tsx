@@ -757,7 +757,7 @@ export function DrawingFilesInline({
     props.onChange?.(normalizeFileUrls([...rowUploadedUrls, ...selectedUrls]));
   };
   return (
-    <Space direction="vertical" size={6}>
+    <Space orientation="vertical" size={6}>
       <FileUrlsInline
         {...props}
         accept={

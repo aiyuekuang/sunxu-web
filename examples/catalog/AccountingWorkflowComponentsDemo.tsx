@@ -523,7 +523,7 @@ export function AccountingWorkflowComponentsDemo() {
       <Typography.Paragraph type="secondary">
         演示对账、账簿、科目和在产品成本组件的新增、编辑、只读权限、表格及确认操作；接口和权限状态由本页模拟注入。
       </Typography.Paragraph>
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Space wrap>
           <Typography.Text>维护权限</Typography.Text>
           <Segmented

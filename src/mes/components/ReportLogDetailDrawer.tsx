@@ -152,7 +152,7 @@ export function ReportLogDetailDrawer({
       }
       open={open}
       onClose={onClose}
-      width={640}
+      size={640}
       destroyOnHidden
       extra={
         record.workOrderId ? (
@@ -431,7 +431,7 @@ export function ReportLogDetailDrawer({
         ]}
       />
       <Space
-        direction="vertical"
+        orientation="vertical"
         size={20}
         style={{ display: 'flex', marginTop: 20 }}
       >

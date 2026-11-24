@@ -24,7 +24,7 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 | 同单位/同币种字段与表格列一一对应 | `TableSummary`（默认 `fixed`）+ AntD `Table.Summary.Cell` | 可加字段放在对应列下方并固定在表格底部；汇总单元格按最终可见列顺序提供 |
 | 多单位/多货主汇总较长，且要跟随结果行滚动 | `TableSummary fixed={false}` + AntD `Table.Summary.Cell` | 在数据行后显示并随表格纵向、横向滚动；用合并单元格承载分组摘要，固定操作列保持空白；由上游提供全筛选结果口径 |
 | 简短筛选摘要不需要跟随结果行滚动 | `PaginationSummary` + `paginationSummary` 插槽 | 放在分页栏左侧；只承载紧凑摘要。汇总来自上游同一查询，不使用当前页数据累加，也不与列合计重复展示同一指标 |
-| 单列表视口页（整页只有一张列表） | `CrudListWorkbench` + `layout="page" fill` | 分页和表头必须保持可见；工作台统一拥有表体纵向滚动高度，适配器只配置横向滚动；不得用页面级 `:has()` CSS、`table-viewport-page` 类或外部高度测量控制表体 |
+| 单列表视口页（整页只有一张列表） | `CrudListWorkbench` + `layout="page" fill` | 分页和表头必须保持可见；工作台统一拥有表体纵向滚动高度，适配器只配置横向滚动；不得用页面级 `:has()` CSS、`table-viewport-page` 类、`ResizableProTable.fitContainerHeight` 或外部高度测量控制表体 |
 | 页面内嵌列表（Tab 面板、卡片、长页面中的子列表） | `CrudListWorkbench` + `layout="embedded"` | 不拥有页面外框、不渲染页头、不强制 `min-height: 100%`；不得再包一层页面容器 |
 | 特殊或只读列表 | `ListScreenContainer`；若有筛选，工具须在结果区紧邻 `toolbar` 内 | 表格按场景用 ProTable 或 AntD Table；不得把列表操作单独放在远置的页头行 |
 | 列表筛选 | `CrudListWorkbench` 组合 ProTable 原生查询表单、`FilterBar` 轻筛选与可选高级筛选抽屉 | 少量外部快捷筛选默认同行展示；宽度不足时自动移入可展开区域。筛选值、查询和请求仍由宿主管理 |
@@ -78,6 +78,7 @@ import { ResizableProTable } from 'sunxu-web/mes';
 - 没有宿主外框的独立应用保持默认 `workspaceFrame="container"`，由 `ScreenContainer` 应用桌面 24 px / 窄屏 16 px 外框。
 - 页面内嵌容器必须声明 `layout="embedded"`（`CrudListWorkbench`）或 `frame="none"`（其他页面容器），避免第二层页面内边距和重复页头。
 - `fill` 只用于单列表视口页；长页面、图表页、多列表页不得开启，否则会把本应整页滚动的内容锁进固定高度。
+- `ResizableProTable.fitContainerHeight` 已弃用。新列表页必须迁移到 `CrudListWorkbench fill`；迁移完成前，现有宿主调用和有明确局部边界的嵌套表仍可使用兼容 API。不要为新页面增加该 prop 或依赖 AntD / Pro 内部容器选择器计算高度。
 
 ### 功能标记与 ESLint 核验
 

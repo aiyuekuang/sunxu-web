@@ -430,7 +430,7 @@ export function AccountingInventoryProductCostDemo() {
   );
 
   return (
-    <Space direction="vertical" size={24} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={24} style={{ width: '100%' }}>
       <Space align="center" wrap>
         <Typography.Text>授权管理操作</Typography.Text>
         <Switch checked={canManage} onChange={setCanManage} />
@@ -443,7 +443,7 @@ export function AccountingInventoryProductCostDemo() {
         <Typography.Paragraph type="secondary">
           期初余额维护、按入库/出库/待成本筛选核算结果，以及本期收发存汇总。
         </Typography.Paragraph>
-        <Space direction="vertical" size={16} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={16} style={{ width: '100%' }}>
           <InventoryOpeningBalancePanel
             query={period}
             canManage={canManage}

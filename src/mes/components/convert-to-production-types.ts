@@ -12,7 +12,7 @@ export type ProductionFieldHelpKey =
 
 export interface SaleOrderConvertFieldHelpProps {
   label: string;
-  tooltip?: { title: ReactNode; overlayStyle?: CSSProperties };
+  tooltip?: { title: ReactNode; styles?: { root?: CSSProperties } };
 }
 
 export interface ProductionOption {

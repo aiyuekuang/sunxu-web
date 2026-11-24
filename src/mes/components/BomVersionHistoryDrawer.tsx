@@ -186,7 +186,7 @@ export function BomVersionHistoryDrawer<
     <Drawer
       title={master ? `${master.name} · 版本记录` : '版本记录'}
       open={open}
-      width={860}
+      size={860}
       destroyOnHidden
       onClose={() => onOpenChange(false)}
     >

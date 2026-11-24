@@ -76,7 +76,7 @@ function DecisionList({
   decisions: PriceControlDecision[];
 }) {
   return (
-    <Space direction="vertical" size={4} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={4} style={{ width: '100%' }}>
       {decisions.map((decision, index) => (
         <div key={`${decision.ruleId}-${decision.sourceItemId ?? index}`}>
           <Space size={4} wrap>
@@ -297,7 +297,7 @@ export function PriceControlPrecheckButton({
         open={modalOpen}
         width={620}
         onCancel={() => setModalOpen(false)}
-        maskClosable={false}
+        mask={{ closable: false }}
         footer={
           <Space>
             <Button onClick={() => setModalOpen(false)}>返回修改</Button>
@@ -316,7 +316,7 @@ export function PriceControlPrecheckButton({
           </Space>
         }
       >
-        <Space direction="vertical" size={12} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={12} style={{ width: '100%' }}>
           {hasBlocker ? (
             <Alert
               type="error"
@@ -331,7 +331,7 @@ export function PriceControlPrecheckButton({
               showIcon
               message="以下价格需要价格例外审批"
               description={
-                <Space direction="vertical" size={8} style={{ width: '100%' }}>
+                <Space orientation="vertical" size={8} style={{ width: '100%' }}>
                   <DecisionList decisions={approvalRequired} />
                   <Space wrap>
                     {approvalRequired.map((decision, index) => (

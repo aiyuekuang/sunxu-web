@@ -252,7 +252,7 @@ export function BomComponentsDemo() {
       <Typography.Paragraph type="secondary">
         BOM 解析和采购价目查询由宿主注入；组件保留型号有效 BOM 选择、冲突候选处理与单个 BOM 行的供应来源配置。
       </Typography.Paragraph>
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <BomExplosionTree
           data={explosionData}
           unitLabelMap={{ piece: '个' }}
@@ -283,7 +283,7 @@ export function BomComponentsDemo() {
             }
           }}
         />
-        <Space direction="vertical" size={4}>
+        <Space orientation="vertical" size={4}>
           <Typography.Text strong>BOM 位供应来源</Typography.Text>
           <Typography.Text type="secondary">
             选择允许该 BOM 位使用的供应商价目、主选和优先级。

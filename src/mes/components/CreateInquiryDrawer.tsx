@@ -95,7 +95,7 @@ export function CreateInquiryDrawer({
       modalProps={{
         destroyOnHidden: true,
         centered: false,
-        maskClosable: false,
+        mask: { closable: false },
         className: 'document-form-modal',
       }}
       onFinish={async (values) => {

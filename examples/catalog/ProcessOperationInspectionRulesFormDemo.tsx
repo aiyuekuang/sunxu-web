@@ -191,7 +191,7 @@ export function ProcessOperationInspectionRulesFormDemo() {
         </Form>
       </MesUiProvider>
   <Space
-    direction="vertical"
+    orientation="vertical"
     size={6}
     style={{ marginTop: 12, width: '100%' }}
   >

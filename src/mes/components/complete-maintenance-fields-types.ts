@@ -25,7 +25,7 @@ export interface CompleteMaintenanceFieldsCapabilities {
     key: MaintenanceCompletionFieldHelpKey,
   ) => {
     label: string;
-    tooltip?: { title: ReactNode; overlayStyle?: CSSProperties };
+    tooltip?: { title: ReactNode; styles?: { root?: CSSProperties } };
   };
 }
 

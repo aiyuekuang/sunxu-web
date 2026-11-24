@@ -1342,7 +1342,7 @@ export function WorkOrderMaterialShortageSection({
               expandable={{
                 expandedRowRender: (record) => (
                   <Space
-                    direction="vertical"
+                    orientation="vertical"
                     size={12}
                     style={{ width: '100%' }}
                   >

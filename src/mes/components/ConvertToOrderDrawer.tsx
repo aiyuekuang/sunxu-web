@@ -210,7 +210,7 @@ export function ConvertToOrderDrawer({
       modalProps={{
         destroyOnHidden: true,
         centered: false,
-        maskClosable: false,
+        mask: { closable: false },
         className: 'document-form-modal',
       }}
       submitter={{ searchConfig: { submitText: '确认转单' } }}
@@ -278,7 +278,7 @@ export function ConvertToOrderDrawer({
               showIcon
               message="选中明细缺少期望到货日期"
               description={
-                <Space direction="vertical" size={8}>
+                <Space orientation="vertical" size={8}>
                   <Typography.Text>
                     采购申请行的期望到货日期会带入采购订单明细交货日期，请在下方行内补齐后再转单。
                   </Typography.Text>
@@ -404,7 +404,7 @@ export function ConvertToOrderDrawer({
                   const options =
                     candidateOptions.length > 0 ? candidateOptions : supplierOptions;
                   return (
-                    <Space direction="vertical" size={4} style={{ width: '100%' }}>
+                    <Space orientation="vertical" size={4} style={{ width: '100%' }}>
                       <RemoteSelect<string>
                         allowClear
                         placeholder={

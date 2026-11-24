@@ -90,7 +90,7 @@ export function ReportLogDetailDrawerDemo() {
       <Typography.Paragraph type="secondary">
         展示报工数量、工时、报废处置、现场照片与追溯标识；状态字典、查看权限、时间/工价/报废率格式和导航由宿主注入。
       </Typography.Paragraph>
-      <Space direction="vertical" size={8}>
+      <Space orientation="vertical" size={8}>
         <Button type="primary" onClick={() => setOpen(true)}>
           查看报工详情
         </Button>

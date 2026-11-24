@@ -74,7 +74,7 @@ export function AccountingCrudPageDemo() {
       <Typography.Paragraph type="secondary">
         通用台账保留 MES 搜索、分页、新增/编辑表单和操作权限；服务、字段定义与分页策略由页面提供。
       </Typography.Paragraph>
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Space wrap>
           <Typography.Text>权限</Typography.Text>
           <Segmented

@@ -17,7 +17,7 @@ export interface ProductionBomOptionRequestParams {
 
 export interface ProductionBomFieldHelpProps {
   label: string;
-  tooltip?: { title: ReactNode; overlayStyle?: CSSProperties };
+  tooltip?: { title: ReactNode; styles?: { root?: CSSProperties } };
 }
 
 export interface ProductionBomConfigEntryLabelProps {

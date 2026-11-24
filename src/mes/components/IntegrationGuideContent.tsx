@@ -308,7 +308,7 @@ const ROBOT_MESSAGE_FIELDS = [
 
 function ApiGuide() {
   return (
-    <Space direction="vertical" size={16} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={16} style={{ width: '100%' }}>
       <Paragraph>
         API Token 用于让 ERP、WMS 或其他受控系统调用 MES 开放接口。Token
         沿用创建账号的权限、当前公司和数据范围，不会额外扩大访问权限。
@@ -340,7 +340,7 @@ function ApiGuide() {
 
 function WebhookGuide() {
   return (
-    <Space direction="vertical" size={16} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={16} style={{ width: '100%' }}>
       <Paragraph>
         Webhook 将 MES
         已支持的业务事件推送到外部系统。创建配置后，接收端负责校验签名、处理事件并快速返回成功响应。
@@ -421,7 +421,7 @@ function WebhookGuide() {
 
 function RobotGuide() {
   return (
-    <Space direction="vertical" size={16} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={16} style={{ width: '100%' }}>
       <Paragraph>
         群机器人把 MES
         业务提醒发送到飞书、企业微信或钉钉群，适合提醒岗位及时处理事项；审批、报工和单据确认仍要回到
@@ -445,7 +445,7 @@ function RobotGuide() {
           key: group.key,
           label: `${group.label}（${group.key}）`,
           children: (
-            <Space direction="vertical" size={4}>
+            <Space orientation="vertical" size={4}>
               {group.fields.map((field) => (
                 <Text key={field.key}>
                   <Text code>{field.key}</Text> — {field.label}（
@@ -471,7 +471,7 @@ function RobotGuide() {
 
 function DevicePointGuide() {
   return (
-    <Space direction="vertical" size={16} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={16} style={{ width: '100%' }}>
       <Paragraph>
         设备点位映射用于把外部网关上报的设备编码和点位名称，对应到 MES
         设备及标准点位，避免同一测量值在两边叫法不同。
@@ -497,7 +497,7 @@ function DevicePointGuide() {
 
 function SyncGuide() {
   return (
-    <Space direction="vertical" size={16} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={16} style={{ width: '100%' }}>
       <Paragraph>
         “同步与运行记录”用于跟踪已有外部连接任务的执行情况，帮助双方按同一条记录定位失败，不在这里重新录入业务单据。同步任务、主动同步进度和通用运行记录分别在对应页签查看；Webhook
         投递记录在 Webhook 模块查看，AI 调用日志在 AI 集成模块查看。

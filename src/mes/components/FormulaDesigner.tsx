@@ -771,7 +771,7 @@ export default function FormulaDesigner({
     }
     return (
       <Space
-        direction="vertical"
+        orientation="vertical"
         size={6}
         className="mes-formula-library-groups"
       >
@@ -815,7 +815,7 @@ export default function FormulaDesigner({
       declaredCategory !== null &&
       resultType !== declaredCategory;
     return (
-      <Space direction="vertical" size={8} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={8} style={{ width: '100%' }}>
         <Typography.Text>
           结果：
           <Typography.Text strong>

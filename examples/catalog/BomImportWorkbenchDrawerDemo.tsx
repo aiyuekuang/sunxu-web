@@ -156,7 +156,7 @@ export function BomImportWorkbenchDrawerDemo() {
 
   return (
     <SectionCard title="BOM 专用导入工作台">
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Paragraph type="secondary">
           演示映射方案选择、逐行映射结果、物料候选确认建料/忽略与警告行导入。API、字典标签、字段帮助和消息由宿主 capabilities 提供。
         </Typography.Paragraph>

@@ -61,7 +61,7 @@ export function ConfigHelpIcon({
 
   return (
     <Tooltip
-      overlayStyle={{ maxWidth: 380 }}
+      styles={{ root: { maxWidth: 380 } }}
       placement="top"
       title={
         <span className="operationConfigTooltipContent">

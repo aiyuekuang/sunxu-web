@@ -53,7 +53,7 @@ function QuickCreateDemoDrawer({
       title={`新增${label}`}
       open={open}
       onClose={() => onOpenChange(false)}
-      width={480}
+      size={480}
       destroyOnHidden
       extra={
         <Button type="primary" loading={saving} onClick={() => form.submit()}>

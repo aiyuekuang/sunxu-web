@@ -124,7 +124,7 @@ export function BusinessInvoiceOpeningImportDrawer({
       title={`批量导入期初未匹配${isPurchase ? '采购' : '销售'}发票`}
       open={open}
       onClose={onClose}
-      width={900}
+      size={900}
       destroyOnHidden
       extra={
         <Space>
@@ -137,7 +137,7 @@ export function BusinessInvoiceOpeningImportDrawer({
         </Space>
       }
     >
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Upload.Dragger
           accept=".xlsx,.csv"
           maxCount={1}

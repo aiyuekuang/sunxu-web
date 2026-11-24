@@ -125,7 +125,7 @@ export function FundsExpenseComponentsDemo() {
 
   return (
     <SectionCard title="费用明细与资金流水组件">
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Paragraph type="secondary">
           演示费用类别、金额校验、采购入库单搜索、自定义字段与公式预览、批量编辑和合计，以及宿主加载的资金流水详情。
         </Typography.Paragraph>

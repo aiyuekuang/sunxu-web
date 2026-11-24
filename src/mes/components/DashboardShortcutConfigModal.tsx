@@ -436,7 +436,7 @@ export function DashboardShortcutConfigModal({
       destroyOnHidden
       closable={mode === 'list'}
       keyboard={mode === 'list'}
-      maskClosable={mode === 'list'}
+      mask={{ closable: mode === 'list' }}
       onCancel={handleCancel}
       styles={{
         body: {

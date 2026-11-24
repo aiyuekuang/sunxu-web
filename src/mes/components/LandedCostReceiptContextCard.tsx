@@ -184,7 +184,7 @@ export function LandedCostReceiptContextCard({
           if (!capabilities.canReadAccountingSource) return '无会计来源查看权限';
           if (accountingSourceLoadFailed) return '会计来源状态加载失败';
           return (
-            <Space direction="vertical" size={4}>
+            <Space orientation="vertical" size={4}>
               {sourceIds.map((sourceId) => {
                 const source = accountingSourceById.get(sourceId);
                 if (!source) {

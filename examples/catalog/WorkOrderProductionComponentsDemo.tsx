@@ -210,7 +210,7 @@ function WorkOrderProductionComponentsDemoContent() {
         renderConfigEntryFieldLabel: ({ children }) => children,
       }}
     >
-      <Space direction="vertical" size={16} style={{ display: 'flex' }}>
+      <Space orientation="vertical" size={16} style={{ display: 'flex' }}>
         <Card title="批量报工组件">
           <Button type="primary" onClick={() => setBatchOpen(true)}>打开批量报工</Button>
         </Card>

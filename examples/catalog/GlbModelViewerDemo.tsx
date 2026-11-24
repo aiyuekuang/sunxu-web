@@ -46,7 +46,7 @@ function GlbModelViewerDemoContent() {
 
   return (
     <SectionCard title="GLB 三维模型查看器">
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Paragraph type="secondary">
           three 和 OrbitControls / GLTFLoader 在查看器挂载后按需加载；MaterialDrawingsPanel 的宿主通过 renderModelPreview 插槽传入此组件，并负责解析文件访问 URL。
         </Typography.Paragraph>

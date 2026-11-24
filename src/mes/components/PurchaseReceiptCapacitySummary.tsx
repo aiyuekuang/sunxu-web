@@ -24,7 +24,7 @@ export function PurchaseReceiptCapacitySummary({
     });
 
   return (
-    <Space direction="vertical" size={0}>
+    <Space orientation="vertical" size={0}>
       <Typography.Text type="secondary" style={{ fontSize: 12 }}>
         订单 {formatBaseQty(orderedQty)}
       </Typography.Text>

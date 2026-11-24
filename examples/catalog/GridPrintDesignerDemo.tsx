@@ -121,7 +121,7 @@ export function GridPrintDesignerDemo() {
   );
 
   return (
-    <Space direction="vertical" size={16} style={{ display: 'flex' }}>
+    <Space orientation="vertical" size={16} style={{ display: 'flex' }}>
       {messageContextHolder}
       <Alert
         showIcon

@@ -191,7 +191,7 @@ export function PurchaseInquiryAndOrderFilterComponentsDemo() {
   };
 
   return (
-    <Space direction="vertical" size={16} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={16} style={{ width: '100%' }}>
       <SectionCard title="采购询价操作">
         <Typography.Paragraph type="secondary">
           演示供应商报价登记、比价定标、正式物料绑定和定标转单；权限、服务、提示及物料配置链接均由宿主注入。

@@ -27,7 +27,7 @@ function ProviderSizeSample({
       componentSize={componentSize}
       workspaceFrame="host"
     >
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Text strong>{label}</Typography.Text>
         <Space wrap>
           <Input aria-label="单号" placeholder="单号" style={{ width: 160 }} />

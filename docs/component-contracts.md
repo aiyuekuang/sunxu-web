@@ -51,7 +51,7 @@
 | `BatchFieldSettingsButton` | 让用户勾选要覆盖的字段并应用到已选行 | AntD Modal / 表单控件；patch builder 由宿主提供 |
 | `RemoteSelect` | 用 AntD Select 展示远程候选并防抖搜索 | AntD Select；`onSearch` 由宿主提供 |
 | `MaterialFilteredSelect` / `MaterialSelectField` / `MaterialMultiSelectField` | 保留 MES 物料筛选、单/多选字段和扫码候选校验 | AntD Select + Pro Components `ProForm.Item`；数据和宿主集成由 `MesUiProvider` 注入 |
-| `MasterDataQuickCreateSelect` | 在客户/供应商关联候选下拉中新增主数据并回填当前 ProForm 字段 | Pro Components `ProFormSelect` + AntD Select / Drawer；新建表单、权限和配置路由由 `MesUiProvider` 注入 |
+| `MasterDataQuickCreateSelect` | 在客户/供应商关联候选下拉中新增主数据并回填当前 ProForm 字段 | Pro Components `ProFormSelect` + AntD Select / Drawer；宿主 `fieldProps.popupRender` 先渲染，再由组件追加快捷新建入口；新建表单、权限和配置路由由 `MesUiProvider` 注入 |
 | `AccountingBookField` / `FiscalPeriodField` / `VoucherWordField` / `AccountField` | 会计账簿、期间、凭证字和科目字段；按账簿联动候选、默认值与空数据配置入口 | Pro Components `ProFormSelect`；MES 列表服务和配置路由由 `MesUiProvider.accountingSelectorCapabilities` 注入 |
 | `PurchaseReceiptCapacitySummary` | 显示采购订单量、已收量和待收量，并按 MES 数量/单位口径格式化 | AntD `Space` / `Typography.Text`；单位标签映射由宿主传入 |
 | `GeneratePurchaseReceiptBatchNoButton` | 按采购收货批号规则请求系统批号，并回填当前明细 | AntD `Button` / `Tooltip` / `App`；批号请求由 `MesUiProvider.purchaseReceiptCapabilities` 注入 |
@@ -365,7 +365,7 @@
 - **完整行菜单**：从 `sunxu-web/mes` 导入 `markCompleteActionMenuColumn(column)`，用于标记 renderer 已经提供完整菜单的操作列（例如宿主的单据动作下拉菜单）。被标记列不会再由表格适配器转换并套入 `TableActions`；普通按钮操作继续交给适配器收纳，标准列优先使用共享 `RowActions`/`TableActions`。
 - **排序与查询**：ProTable 的 `request` 由宿主实现。默认对可排序业务字段发出服务端排序参数；设置 `serverSortFields` 后，仅白名单字段可排序。使用本地 `dataSource` 时按日期、数值和中文自然顺序比较；AntD Table 列可用 `sortValue`、`sortable` 控制。排序状态使用单独 key 持久化。外部 `params` 的 `undefined`、`null`、空字符串和空数组会在请求前移除；日期范围列合并通用快捷日期选项，`createdAt` / `updatedAt` 字段可补充仅日期展示列。表单 transform 和接口字段映射由宿主继续控制。
 - **筛选、空态和汇总**：保留 ProTable 查询表单与列设置 API；列变更会同步导出布局。`emptyGuidance` 可提供业务空态下一步建议，默认 `TableEmpty` 展示“暂无数据”和筛选/上游数据提示；宿主传入 `locale.emptyText` 时完全覆盖。`summary` 仍是 AntD/ProTable 的宿主回调；自动行号存在时组件为汇总行补齐首列。`paginationSummary` 将宿主摘要放在分页栏左侧并保留分页范围文案，窄容器下换到分页控件上方；关闭分页时不显示该插槽。
-- **高度适配**：`fitContainerHeight` 缺省关闭；设为 `true` 或 `{ enabled, bottomOffset, minBodyHeight, maxBodyHeight }` 后，组件结合视口、`fitContainerHeight` 所在结果边界、表头、分页、汇总和 footer 动态计算纵向滚动高度。单列表视口页的外部父级必须提供确定高度和可收缩的 flex 布局；长页面/多表页面不启用。
+- **高度所有权**：单列表视口页统一使用 `CrudListWorkbench fill`，由工作台测量结果区并设置表体滚动高度；新页面不得用 `fitContainerHeight` 或页面级 `:has()` CSS 自行计算。`fitContainerHeight` 已弃用，缺省关闭；仅为现有宿主兼容和有明确边界的嵌套/弹窗表保留，取值仍为 `true` 或 `{ enabled, bottomOffset, minBodyHeight, maxBodyHeight }`。它依赖页面视口与 Ant Design / Pro Components 容器结构来确定结果边界；迁完现有宿主后再移除该 API。
 - **fit 短数据布局**：高度计算值作为 `scroll.y` 传入后，适配器也会通过 Ant Design Table/Spin 公开语义 `classNames` 和工作台自有 flex 规则撑开内层表格与滚动体；分页固定在结果边界底部，表头保持自然高度。宿主自定义 `loading` 时应合并 `tableProps.loading` 并只更新 `spinning`，保留共享 Spin 布局语义类。
 - **导出布局**：有 `request` 的表默认产出当前可见列、列序和排序布局；仅用本地 `dataSource` 的表需显式设 `exportLayoutEnabled`。`useTableExportLayout()` 读取当前表布局，表格边界在导出按钮点击捕获阶段激活对应布局，避免同一路由多个表格串用。导出 API 和服务仍由宿主实现；布局只能表达用户选择，不能扩大后端允许导出的字段集合。
 - **行操作和编辑宿主接缝**：`TableActions` 将有效按钮、链接、权限按钮和确认操作统一收入“更多”菜单；权限判断、确认和结果仍归动作节点/宿主。`MesUiProvider` 可选注入 `isTableActionColumn(column)` 识别宿主操作列，避免嵌套菜单；列渲染器已提供完整菜单时使用内部标记跳过通用二次包装。`resolveRowEditAction(columns, record)` 只返回宿主当前可见且允许执行的编辑回调，表格双击才调用它。未提供时不产生编辑副作用。不得在 Sunxu 中硬编码 Umi `useAccess`、权限码、MES API、路由或业务动作。
@@ -620,6 +620,7 @@
 #### 单据 Modal 样式适配
 
 - `mergeMesDocumentModalStyles` 合并调用方语义槽与 MES 单据表单默认样式，支持工作区/视口 overlay、公式工作台和带内边距的表单 body；`mergeMesDocumentModalPanelStyle` 将全屏尺寸落在对话框面板并保留调用方覆盖。
+- 遮罩交互优先通过 `modalProps.mask.closable` 配置；迁移期间传入的旧 `modalProps.maskClosable` 会被转译到公开 `mask` 对象，不再转发给 Ant Design。
 - 完整宽度 `DocumentModalForm` 的 Pro 包装层、内部表单布局和 Modal 语义插槽共同参与高度分配；表单 body 自己滚动，视口层使用 `100dvh`。
 - **边界**：样式只定义布局；业务字段、公式 schema、保存状态和路由由 MES 宿主控制。未运行浏览器验收，视口和嵌套 keep-alive 几何为 `UNVERIFIED`。
 
@@ -688,6 +689,7 @@
 - `QuotationDetailLedger` 保留报价状态/客户/物料/日期筛选、报价行明细、自定义字段、报价汇总、绑定材料/详情导航和打印入口；查询/导出、绑定动作、权限、动态列、格式与保存视图由宿主注入。
 - `MaterialIssueDetailLedger` 保留生产领料类型/状态/人员/部门/设备/工单/物料/仓库/批号/日期筛选、动态字段、数量汇总、生命周期动作与打印入口；请求、动作/弹窗、权限、候选项、视图和格式由宿主注入。
 - `PurchaseReceiptDetailLedger` 保留收货记录及展开的退货流水、采购来源明细筛选、价格显示/遮罩、质检状态、动态字段与不同入库/退货打印参数；API、权限、质检文案/跳转、字段、筛选候选、生命周期动作和打印由宿主注入。
+- **公开类型**：四个台账的行类型显式声明当前展示/操作读取的字段及物料、订单、仓位等嵌套结构；额外服务端字段保持为 `unknown` 扩展，不使用 `any`。日期快捷项使用 Ant Design `RangePickerProps['presets']`，视图控制器限定为 `DocumentViewBarView`；报价行内绑定回调要求稳定 ID，批量绑定对象允许尚未持久化的可选 ID。
 - 四项 Catalog 示例使用本地确定性 capabilities。源 SHA-256：采购退料 `3ec221312e274a91993a38a34a9908c601b5a453fc5ac55e6fd58fe1f412905b`；报价 `c16f961d6c1c689db117bdd40ce9360b23244957226bbc86efa4efff5ec772f9`；生产领料 `09a67d33779c3243da46f3fcd6714eaaa1ea986636def420a2b7d8c178094342`；采购入库流水 `933497679520b4f8e656944faefe277416c56902581517e5e97417681ad05df2`。宿主 service/permission/action wiring 和浏览器视觉验收为 `UNVERIFIED`。
 - `PurchaseRequisitionDetailLedger`、`PurchaseOrderDetailLedger`、`PurchaseReturnDetailLedger`、`QuotationDetailLedger` 和 `PurchaseReceiptDetailLedger` 的 MES 路由继续负责 URL 状态解析（报价状态需按有效枚举过滤）、保存视图资源/筛选键/默认排序、单据动作权限/状态门槛和 KeepAlive 回页刷新。来源路由对这五页调用 `useReloadOnKeepAliveReturn`；宿主替换调用时应把 hook 接到对应的 `tableActionRef.reload()`。Sunxu 组件不引入 Umi 或路由运行时。
 

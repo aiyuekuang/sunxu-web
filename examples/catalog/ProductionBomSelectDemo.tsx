@@ -64,7 +64,7 @@ export function ProductionBomSelectDemo() {
                 </Typography.Paragraph>
               </div>
             ),
-            overlayStyle: { maxWidth: 420 },
+            styles: { root: { maxWidth: 420 } },
           },
         };
       },

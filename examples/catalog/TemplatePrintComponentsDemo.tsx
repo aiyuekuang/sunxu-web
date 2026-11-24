@@ -81,7 +81,7 @@ export function TemplatePrintComponentsDemo() {
 
   return (
     <SectionCard title="MES 打印模板字段与版式">
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Segmented
           aria-label="模板类型"
           value={templateType}

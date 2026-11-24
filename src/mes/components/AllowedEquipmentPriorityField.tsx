@@ -480,7 +480,7 @@ export function AllowedEquipmentPriorityField({
               }`
             : '留空时继承工序默认值';
         return (
-          <Space direction="vertical" size={2} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={2} style={{ width: '100%' }}>
             <InputNumber
               min={0.0001}
               max={999999.9999}
@@ -517,7 +517,7 @@ export function AllowedEquipmentPriorityField({
           Boolean(profile.shiftCalendarId),
         );
         const content = (
-          <Space direction="vertical" size={8} style={{ width: 390 }}>
+          <Space orientation="vertical" size={8} style={{ width: 390 }}>
             <Typography.Text type="secondary">
               班次工时覆盖该设备默认工时；留空的班次沿用设备默认值，再继承工序默认值。
             </Typography.Text>
@@ -563,7 +563,7 @@ export function AllowedEquipmentPriorityField({
                       ]);
                     }}
                   />
-                  <Space direction="vertical" size={2}>
+                  <Space orientation="vertical" size={2}>
                     <InputNumber
                       min={0.0001}
                       max={999999.9999}

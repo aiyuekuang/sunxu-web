@@ -9,7 +9,7 @@ import {
 
 function resolveDocumentMask(
   mask: ModalProps['mask'],
-  legacyMaskClosable: boolean | undefined,
+  legacyMaskClosable: ModalProps['maskClosable'],
   minimized: boolean,
 ): ModalProps['mask'] {
   if (minimized || mask === false) return false;

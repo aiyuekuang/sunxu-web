@@ -54,7 +54,7 @@ const transactionColumns: ProColumns<TransactionDemoRow>[] = [
 
 export function TableSummaryPage() {
   return (
-    <Space direction="vertical" size={16} style={{ display: 'flex' }}>
+    <Space orientation="vertical" size={16} style={{ display: 'flex' }}>
       <SectionCard title="列对齐的固定合计行">
         <Typography.Paragraph type="secondary">
           同单位的可加字段按表格列对齐，并固定在表格底部。

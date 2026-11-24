@@ -93,7 +93,7 @@ export function QualityInspectionActionModals({
   if (!inspection) return null;
   if (!detail && (submitOpen || defectOpen)) {
     return loadError ? (
-      <Space direction="vertical" style={{ padding: 24 }}>
+      <Space orientation="vertical" style={{ padding: 24 }}>
         <Alert type="error" showIcon message={loadError} />
         <Button onClick={retryLoad}>重试</Button>
         <Button

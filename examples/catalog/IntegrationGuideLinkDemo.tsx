@@ -5,7 +5,7 @@ import { IntegrationGuideLink } from '../../src/mes/components/IntegrationGuideL
 export function IntegrationGuideLinkDemo() {
   return (
     <SectionCard title="MES 接入说明弹窗">
-      <Space direction="vertical" size={12}>
+      <Space orientation="vertical" size={12}>
         <Typography.Text type="secondary">
           弹窗布局由组件提供，接入主题的标题和说明内容由宿主传入。
         </Typography.Text>

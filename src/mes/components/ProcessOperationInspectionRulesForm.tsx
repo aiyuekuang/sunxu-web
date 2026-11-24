@@ -266,7 +266,7 @@ export function ProcessOperationInspectionRulesForm({
     onSelect: (next: string | undefined) => void,
     placeholder: string,
   ) => (
-    <Space direction="vertical" size={4} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={4} style={{ width: '100%' }}>
       {capabilities.renderConfigEntryFieldLabel({
         target: 'qualityTemplate',
         label,
@@ -315,7 +315,7 @@ export function ProcessOperationInspectionRulesForm({
       required
       extra="先选默认模板；可按单个物料新增专属模板。工单创建时优先命中物料专属模板，未命中则冻结默认模板。"
     >
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         {hasLegacyBindings ? (
           <Alert
             type="warning"
@@ -338,7 +338,7 @@ export function ProcessOperationInspectionRulesForm({
             wrap
             style={{ display: 'flex', width: '100%' }}
           >
-            <Space direction="vertical" size={4} style={{ width: 260 }}>
+            <Space orientation="vertical" size={4} style={{ width: 260 }}>
               {capabilities.renderConfigEntryFieldLabel({
                 target: 'material',
                 label: '适配物料',
@@ -413,7 +413,7 @@ export function ProcessOperationInspectionRulesForm({
             wrap
             style={{ display: 'flex', width: '100%' }}
           >
-            <Space direction="vertical" size={4} style={{ width: 260 }}>
+            <Space orientation="vertical" size={4} style={{ width: 260 }}>
               {renderMaterialLabel(materialBaseEmpty && !binding.materialId)}
               <MaterialFilteredSelect
                 request={capabilities.requestMaterials}

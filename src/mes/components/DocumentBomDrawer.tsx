@@ -1778,7 +1778,7 @@ export function DocumentBomDrawer({
       );
     }
     return (
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Descriptions
           size="small"
           bordered
@@ -2026,7 +2026,7 @@ export function DocumentBomDrawer({
   };
 
   const renderEditBody = () => (
-    <Space direction="vertical" size={12} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={12} style={{ width: '100%' }}>
       <Space wrap>
         <Button icon={<PlusOutlined />} onClick={addEditLine}>
           手工加行
@@ -2065,7 +2065,7 @@ export function DocumentBomDrawer({
                 record.itemSource === 'temporary' ? 'temporary' : 'material';
               const sourceLocked = Boolean(record.sourceStandardBomItemId);
               return (
-                <Space direction="vertical" size={6} style={{ width: '100%' }}>
+                <Space orientation="vertical" size={6} style={{ width: '100%' }}>
                   <Segmented
                     size="small"
                     block
@@ -2101,7 +2101,7 @@ export function DocumentBomDrawer({
                   />
                   {itemSource === 'temporary' ? (
                     <Space
-                      direction="vertical"
+                      orientation="vertical"
                       size={4}
                       style={{ width: '100%' }}
                     >
@@ -2516,7 +2516,7 @@ export function DocumentBomDrawer({
       title={title ?? '单据 BOM'}
       open={open}
       onClose={onClose}
-      width={editing && canEdit ? 1280 : 1040}
+      size={editing && canEdit ? 1280 : 1040}
       destroyOnHidden
       extra={drawerExtra}
     >
@@ -2532,7 +2532,7 @@ export function DocumentBomDrawer({
         confirmLoading={pasteMatching}
         destroyOnHidden
       >
-        <Space direction="vertical" size={12} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={12} style={{ width: '100%' }}>
           <Space wrap>
             <Upload
               accept=".xlsx,.csv,.tsv,.txt"

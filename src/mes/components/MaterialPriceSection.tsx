@@ -141,7 +141,7 @@ export function MaterialPriceSection({
         ) : null}
       </Row>
 
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         {averageCost != null ? (
           <Typography.Text type="secondary">
             平均成本（库存移动加权，只读）：{averageCost}

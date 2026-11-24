@@ -254,7 +254,7 @@ export function PackageUnitCreateDrawer({
       open={open}
       width="100vw"
       layout="vertical"
-      modalProps={{ destroyOnHidden: true, centered: false, maskClosable: false, className: 'document-form-modal' }}
+      modalProps={{ destroyOnHidden: true, centered: false, mask: { closable: false }, className: 'document-form-modal' }}
       onOpenChange={(nextOpen) => {
         onOpenChange(nextOpen);
         if (!nextOpen) resetState();
@@ -446,7 +446,7 @@ export function PackageUnitCreateDrawer({
             fieldProps={{
               optionFilterProp: 'label',
               notFoundContent: (
-                <Space direction="vertical" size={4} style={{ padding: 8 }}>
+                <Space orientation="vertical" size={4} style={{ padding: 8 }}>
                   <Typography.Text type="secondary">
                     没有找到符合当前筛选条件且可包装的库存或完工来源。请检查仓库、物料、批号和日期；刚完工的产品需先完成生产入库。
                   </Typography.Text>
@@ -486,7 +486,7 @@ export function PackageUnitCreateDrawer({
 
           {selectedSource ? (
             <Card size="small" style={{ marginBottom: 16 }}>
-              <Space direction="vertical" size={4}>
+              <Space orientation="vertical" size={4}>
                 <Text>来源：{SOURCE_MODE_TEXT[selectedSource.sourceMode]} / {selectedSource.warehouseName}</Text>
                 <Text>批号：{getSourceBatchText(selectedSource)}</Text>
                 {selectedSource.sourceWorkOrderNo ? <Text>来源工单：{selectedSource.sourceWorkOrderNo}</Text> : null}
@@ -554,7 +554,7 @@ export function PackageUnitCreateDrawer({
             </Space>
           }
         >
-          <Space direction="vertical" style={{ width: '100%' }} size={12}>
+          <Space orientation="vertical" style={{ width: '100%' }} size={12}>
             {plans.map((plan, index) => (
               <Space key={plan.key} align="start" style={{ width: '100%' }}>
                 <Text style={{ minWidth: 56, paddingTop: 6 }}>{`第 ${index + 1} 箱`}</Text>

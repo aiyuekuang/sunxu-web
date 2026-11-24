@@ -68,7 +68,7 @@ export function BomIssueOperationSelectDemo() {
       <Typography.Paragraph type="secondary">
         每条路线只能绑定一个投料工序；切换路线版本后，无法识别的历史绑定仍保留并可搜索。
       </Typography.Paragraph>
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Segmented
           aria-label="父项物料"
           value={materialId ?? 'none'}

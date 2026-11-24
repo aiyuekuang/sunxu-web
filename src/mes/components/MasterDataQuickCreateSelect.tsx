@@ -116,7 +116,7 @@ export function MasterDataQuickCreateSelect({
   const originalRequestRef = useRef(originalRequest);
   originalRequestRef.current = originalRequest;
   const hasOriginalRequest = Boolean(originalRequest);
-  const originalDropdownRender = fieldProps?.dropdownRender;
+  const originalPopupRender = fieldProps?.popupRender;
   const quickCreateDisabled = Boolean(
     disabled || readonly || fieldProps?.disabled,
   );
@@ -266,9 +266,9 @@ export function MasterDataQuickCreateSelect({
           setDropdownOpen(nextOpen);
           fieldProps?.onOpenChange?.(nextOpen);
         },
-        dropdownRender: (menu: ReactElement) => (
+        popupRender: (menu: ReactElement) => (
           <>
-            {originalDropdownRender ? originalDropdownRender(menu) : menu}
+            {originalPopupRender ? originalPopupRender(menu) : menu}
             {!quickCreateDisabled ? (
               <>
                 <Divider style={{ margin: '4px 0' }} />

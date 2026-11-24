@@ -192,7 +192,7 @@ export function PaymentStatementActionComponentsDemo() {
       <Typography.Paragraph type="secondary">
         演示付款申请编辑/执行、对账单列配置/自定义模板，以及邮件、复制和系统分享状态；请求、权限、消息、下载均由本页模拟注入。
       </Typography.Paragraph>
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Space wrap>
           <Typography.Text>付款账户列表</Typography.Text>
           <Segmented

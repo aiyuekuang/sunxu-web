@@ -2079,7 +2079,7 @@ function StaticTextEditor({ cellId, onCommit, value }: StaticTextEditorProps) {
   }, [cellId, value]);
 
   return (
-    <Space direction="vertical" size={4} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={4} style={{ width: '100%' }}>
       <Typography.Text type="secondary" style={{ fontSize: 12 }}>
         文本（支持在光标处换行）
       </Typography.Text>
@@ -6138,7 +6138,7 @@ export function GridPrintDesigner({
           <Typography.Text strong>属性</Typography.Text>
           {selectedCell ? (
             <Space
-              direction="vertical"
+              orientation="vertical"
               style={{ marginTop: 12, width: '100%' }}
             >
               <Space wrap>
@@ -6181,7 +6181,7 @@ export function GridPrintDesigner({
                   下方插入一行
                 </Button>
               </Space>
-              <Space direction="vertical" size={4} style={{ width: '100%' }}>
+              <Space orientation="vertical" size={4} style={{ width: '100%' }}>
                 <Typography.Text type="secondary" style={{ fontSize: 12 }}>
                   打印范围
                 </Typography.Text>
@@ -6273,7 +6273,7 @@ export function GridPrintDesigner({
                 />
               ) : null}
               {selectedCell.content.type === 'aggregate_field' ? (
-                <Space direction="vertical" size={6} style={{ width: '100%' }}>
+                <Space orientation="vertical" size={6} style={{ width: '100%' }}>
                   <Select
                     showSearch
                     optionFilterProp="label"
@@ -6318,7 +6318,7 @@ export function GridPrintDesigner({
                 </Space>
               ) : null}
               {selectedCell.content.type === 'image' ? (
-                <Space direction="vertical" size={4} style={{ width: '100%' }}>
+                <Space orientation="vertical" size={4} style={{ width: '100%' }}>
                   <Upload
                     accept="image/*"
                     beforeUpload={handleImageUpload}
@@ -6537,7 +6537,7 @@ export function GridPrintDesigner({
             </Space>
           ) : selectedRegion ? (
             <Space
-              direction="vertical"
+              orientation="vertical"
               style={{ marginTop: 12, width: '100%' }}
             >
               <Tag>{selectedRegion.id}</Tag>
@@ -6747,14 +6747,14 @@ export function GridPrintDesigner({
               <Typography.Text type="secondary" style={{ fontSize: 12 }}>
                 可为数量、金额等列配置求和；合计按整单计算，只在最后一页打印。
               </Typography.Text>
-              <Space direction="vertical" style={{ width: '100%' }}>
+              <Space orientation="vertical" style={{ width: '100%' }}>
                 {selectedRegion.columns.map((column, index) => (
                   <div
                     key={detailColumnKey(column, index)}
                     style={detailColumnEditorStyle}
                   >
                     <Space
-                      direction="vertical"
+                      orientation="vertical"
                       size={6}
                       style={{ width: '100%' }}
                     >
@@ -6824,7 +6824,7 @@ export function GridPrintDesigner({
                           </Checkbox>
                           {column.fieldPath ? (
                             <Space
-                              direction="vertical"
+                              orientation="vertical"
                               size={6}
                               style={{ width: '100%' }}
                             >
@@ -6905,7 +6905,7 @@ export function GridPrintDesigner({
             </Space>
           ) : selectedGridCell ? (
             <Space
-              direction="vertical"
+              orientation="vertical"
               style={{ marginTop: 12, width: '100%' }}
             >
               <Space wrap>
@@ -6968,7 +6968,7 @@ export function GridPrintDesigner({
             </Space>
           ) : (
             <Space
-              direction="vertical"
+              orientation="vertical"
               style={{ marginTop: 12, width: '100%' }}
             >
               <Typography.Text type="secondary">未选中对象</Typography.Text>

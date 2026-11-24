@@ -319,7 +319,7 @@ export const StockLocationSelectField: React.FC<
   if (precheck.locationControlMode === 'none') return storageLocationText;
 
   return (
-    <Space direction="vertical" size={8} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={8} style={{ width: '100%' }}>
       {displayBlockers.length > 0 ? (
         <Alert type="error" showIcon message={displayBlockers.join('；')} />
       ) : null}
@@ -635,7 +635,7 @@ export const StockLocationInlineSelector: React.FC<
       : undefined;
 
   return (
-    <Space direction="vertical" size={6} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={6} style={{ width: '100%' }}>
       {displayBlockers.length > 0 ? (
         <Alert type="error" showIcon message={displayBlockers.join('；')} />
       ) : null}

@@ -10,7 +10,7 @@ export interface RescheduleFieldHelpProps {
   label: string;
   tooltip?: {
     title: ReactNode;
-    overlayStyle?: CSSProperties;
+    styles?: { root?: CSSProperties };
   };
 }
 

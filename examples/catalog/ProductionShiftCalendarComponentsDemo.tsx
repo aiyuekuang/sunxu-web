@@ -338,7 +338,7 @@ export function ProductionShiftCalendarComponentsDemo() {
   }, [exceptions, shifts]);
 
   return (
-    <Space direction="vertical" size={12} style={{ display: 'flex', width: '100%' }}>
+    <Space orientation="vertical" size={12} style={{ display: 'flex', width: '100%' }}>
       <Typography.Paragraph type="secondary" style={{ margin: 0 }}>
         班次与例外的 API、权限、选项、字段帮助、消息及变更记录均由此 Demo 的宿主能力提供。
       </Typography.Paragraph>

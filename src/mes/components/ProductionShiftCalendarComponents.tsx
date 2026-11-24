@@ -1025,7 +1025,7 @@ export function ExceptionTable({ capabilities, refreshKey, supplierId }: Calenda
 /** @sunxu-component mes-specific @sunxu-domain production-schedule @sunxu-reason Combines the production shift and calendar-exception ledgers while all MES data, access checks, configuration help and side effects stay host supplied. */
 export function ProductionShiftCalendar({ capabilities, refreshKey, supplierId }: ProductionShiftCalendarProps) {
   return (
-    <Space direction="vertical" size={16} style={{ display: 'flex', width: '100%' }}>
+    <Space orientation="vertical" size={16} style={{ display: 'flex', width: '100%' }}>
       <ShiftTable capabilities={capabilities} refreshKey={refreshKey} supplierId={supplierId} />
       <ExceptionTable capabilities={capabilities} refreshKey={refreshKey} supplierId={supplierId} />
     </Space>

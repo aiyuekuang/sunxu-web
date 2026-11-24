@@ -169,7 +169,7 @@ export function BusinessPrintTemplatesDemo() {
       <Typography.Paragraph type="secondary">
         10 种 MES 打印模板保留各自字段、明细、汇总和签字区域；二维码编码、字典文案与金额脱敏由宿主注入。
       </Typography.Paragraph>
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Segmented
           aria-label="选择打印模板"
           block

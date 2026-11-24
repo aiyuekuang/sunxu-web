@@ -253,7 +253,7 @@ export function BatchSuggestInput({
         }}
         onSearch={handleSearch}
         placeholder={materialId ? placeholder : '请先选择物料'}
-        suffixIcon={loading ? <Spin size="small" /> : undefined}
+        suffix={loading ? <Spin size="small" /> : undefined}
         onFocus={() => {
           setScanEnabled(true);
           void fetchOptions(value);

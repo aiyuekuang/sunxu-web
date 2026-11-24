@@ -443,11 +443,11 @@ export const TraceTimelineDrawer: React.FC<TraceTimelineDrawerProps> = ({
       title="追溯查询"
       open={open}
       onClose={onClose}
-      width="min(900px, 94vw)"
+      size="min(900px, 94vw)"
       destroyOnHidden
       styles={{ body: { padding: 20 } }}
     >
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Segmented
           disabled={loading}
           value={identifierType}
@@ -496,11 +496,11 @@ export const TraceTimelineDrawer: React.FC<TraceTimelineDrawerProps> = ({
           allowClear
           onSearch={(value) => void runSearch(identifierType, value, direction)}
         />
-        {loading ? <Spin tip="正在整理追溯记录…" /> : null}
+        {loading ? <Spin description="正在整理追溯记录…" /> : null}
         {error ? <Alert type="error" showIcon message={error} /> : null}
 
         {result ? (
-          <Space direction="vertical" size={12} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={12} style={{ width: '100%' }}>
             <Card size="small">
               <Descriptions size="small" column={{ xs: 1, sm: 2 }}>
                 <Descriptions.Item label={result.kind === 'batch' ? '批号' : '成品序列号'}>
@@ -587,7 +587,7 @@ export const TraceTimelineDrawer: React.FC<TraceTimelineDrawerProps> = ({
                       color: event.scope === 'serial' ? 'blue' : 'gray',
                       children: (
                         <Card size="small" styles={{ body: { padding: '10px 12px' } }}>
-                          <Space direction="vertical" size={4} style={{ width: '100%' }}>
+                          <Space orientation="vertical" size={4} style={{ width: '100%' }}>
                             <Space wrap size={[6, 4]}>
                               <Typography.Text strong>
                                 {event.title || dictionaries.eventLabels[event.type] || '追溯记录'}

@@ -167,7 +167,7 @@ export function SalesDeliveryComponentsDemo() {
   }), [message]);
 
   return (
-    <Space direction="vertical" size={24} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={24} style={{ width: '100%' }}>
       <section>
         <Typography.Title level={4}>销售出库明细与执行调整</Typography.Title>
         <SaleDeliveryItemsPanel

@@ -38,7 +38,7 @@ export function SelectedWorkOrdersTable({
             const code =
               capabilities.getMaterialCode(record) || record.temporaryItemCode;
             return (
-              <Space direction="vertical" size={0}>
+              <Space orientation="vertical" size={0}>
                 <Typography.Text ellipsis={{ tooltip: name }}>
                   {name}
                 </Typography.Text>

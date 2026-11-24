@@ -286,7 +286,7 @@ const ImportWorkbenchDrawer: React.FC<ImportWorkbenchDrawerProps> = ({
       title={title}
       open={open}
       onClose={onClose}
-      width={960}
+      size={960}
       destroyOnHidden
       extra={
         <Space>
@@ -304,7 +304,7 @@ const ImportWorkbenchDrawer: React.FC<ImportWorkbenchDrawerProps> = ({
         </Space>
       }
     >
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         {resolvedTargets.length > 1 && (
           <Segmented
             value={activeTarget}

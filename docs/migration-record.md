@@ -141,3 +141,13 @@
 - 真实 MES 页面仍无法启动：`useAmountDisplay` 在 access provider 尚未初始化时读取权限导致崩溃，且 API 代理 `127.0.0.1:6033` 不可用；工具链不能读取此前授权测试会话的 DOM。因此真实路由、视口截图、键盘流程和几何/溢出为 `UNVERIFIED`。
 
 detail-ledger 适配仍由 `src/pages/purchase/requisitions/detail-ledger.test.tsx`、`src/pages/warehouse/internal-issue/InternalIssueDetailLedger.test.ts`、`src/pages/system/print/components/grid-designer/GridPrintDesigner.test.tsx`、`src/pages/warehouse/material-issue/detail-ledger.test.tsx` 覆盖；本轮运行了 `src/pages/detail-ledger-filter-layout.test.ts`、销售报价明细、采购订单布局及采购入库明细相关测试。后续迁移继续复用这些宿主行为用例。
+
+## 组件持久化与表格高度契约收口（2026-11-24）
+
+- `safeStorage` 增加异常安全的 localStorage 读取；表格排序恢复、标签打印偏好和针打纸张/抬头偏好统一使用容错读写，浏览器存储不可用时回退默认值并继续渲染。
+- 单列表视口页以 `CrudListWorkbench fill` 作为唯一高度所有者。`ResizableProTable.fitContainerHeight` 标记弃用并保留存量兼容，等宿主调用迁移后再删除；本次不改外部 `mes-admin` 调用点。
+- 四个采购入库、报价、采购退货和领料账本的公开行/嵌套对象、日期快捷项及保存视图控制器类型去除 `any`，通过结构类型和 `unknown` 扩展字段保持宿主接入。
+- 按 Ant Design 6.7 的新 API 迁移语义等价的 `Space`、`Drawer`、`Spin`、`AutoComplete`、`Tooltip`、`Statistic`、`Timeline`、`Select` 和 `Modal` 用法，并同步更新主数据选择器与 tooltip 配置类型；Alert 内容语义、List 结构和 InputNumber 附加控件留待单独评审。
+- 新增 `npm test`，以 Node 内置测试运行器串行执行仓库 `.test.mjs` 用例，并在 GitHub Actions 中运行测试、类型检查和构建。
+- 本地验证：`npm test` 66 项通过，`npm run typecheck` 通过，`npm run build` 通过；Catalog 浏览器 E2 在 1440×900 与 390×844 检查表格边界、表体分页几何和横向溢出。截图、DOM 几何与运行时提示见 [`docs/verification/sunxu-web-hardening-2026-11-24/`](./verification/sunxu-web-hardening-2026-11-24/)。Catalog 表格示例记录了列宽适配提示，Pro Components LightFilter 内部仍触发 Ant Design `labelAlign` 弃用提示；详见证据 README。
+- 真实 MES Admin 路由/API/权限接线、深色主题、键盘与读屏器流程仍为 `UNVERIFIED`；宿主迁移 `fitContainerHeight` 后再移除兼容 API。

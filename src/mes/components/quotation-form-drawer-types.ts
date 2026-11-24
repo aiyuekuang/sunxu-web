@@ -19,7 +19,7 @@ export type QuotationFieldHelpKey =
 
 export interface QuotationFieldHelpProps {
   label: string;
-  tooltip?: { title: ReactNode; overlayStyle?: CSSProperties };
+  tooltip?: { title: ReactNode; styles?: { root?: CSSProperties } };
 }
 
 export interface QuotationMaterial {

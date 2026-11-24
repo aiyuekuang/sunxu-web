@@ -490,7 +490,7 @@ function PurchaseWorkflowDemoContent() {
       materialSelectCapabilities={materialSelectCapabilities}
     >
       <SectionCard title="采购订单视图切换与发送">
-        <Space direction="vertical" size={12}>
+        <Space orientation="vertical" size={12}>
           <PurchaseOrderViewSwitch value={view} onChange={setView} />
           <Typography.Text type="secondary">当前视图：{view === 'orders' ? '单据' : '明细'}</Typography.Text>
           <Space wrap>

@@ -212,7 +212,7 @@ export function CustomerOrderPortalQrModal({
           <Spin />
         </div>
       ) : (
-        <Space direction="vertical" size={12} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={12} style={{ width: '100%' }}>
           <Typography.Text>
             {customer?.name}
             {customer?.customerCode ? `（${customer.customerCode}）` : ''}

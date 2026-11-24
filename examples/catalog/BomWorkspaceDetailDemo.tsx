@@ -124,7 +124,7 @@ export function BomWorkspaceDetailDemo() {
 
   return (
     <SectionCard title="BOM 工作区详情">
-      <Space direction="vertical" size={10} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={10} style={{ width: '100%' }}>
         <Typography.Text type="secondary">
           BOM 明细、有效版本解析、多级展开、导出和导航分别由宿主能力提供。
         </Typography.Text>

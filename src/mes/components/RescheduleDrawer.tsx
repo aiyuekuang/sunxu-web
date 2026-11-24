@@ -870,7 +870,7 @@ export function RescheduleDrawer({
         }
         open={open}
         onClose={onClose}
-        width="min(1120px, calc(100vw - 48px))"
+        size="min(1120px, calc(100vw - 48px))"
         destroyOnHidden
         extra={
           <Space wrap>
@@ -1187,7 +1187,7 @@ export function RescheduleDrawer({
         {preview ? (
           <>
             <Divider />
-            <Space direction="vertical" size={16} style={{ width: '100%' }}>
+            <Space orientation="vertical" size={16} style={{ width: '100%' }}>
               <Space wrap size={16}>
                 <Statistic
                   title="新增排产"
@@ -1243,7 +1243,7 @@ export function RescheduleDrawer({
                   showIcon
                   message="本次临时保护的工单"
                   description={
-                    <Space direction="vertical" size={8}>
+                    <Space orientation="vertical" size={8}>
                       <Typography.Text type="secondary">
                         这些工单只在当前插单预览和提交中保持原排产时间，不会写入正式排程锁。
                       </Typography.Text>
@@ -1400,7 +1400,7 @@ export function RescheduleDrawer({
         title="重排影响明细"
         open={detailOpen}
         onClose={() => setDetailOpen(false)}
-        width={900}
+        size={900}
       >
         {detail?.run ? (
           <Descriptions

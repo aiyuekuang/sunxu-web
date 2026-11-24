@@ -86,7 +86,7 @@ export function QuotationBindMaterialsModal({
       <Typography.Paragraph type="secondary">
         绑定只补充下游销售订单需要的正式物料，不会修改已发送给客户的数量、单价和临时报价信息。
       </Typography.Paragraph>
-      <Space direction="vertical" style={{ width: '100%' }} size={12}>
+      <Space orientation="vertical" style={{ width: '100%' }} size={12}>
         {temporaryItems.map((item) => (
           <div key={item.id}>
             <Typography.Text strong>

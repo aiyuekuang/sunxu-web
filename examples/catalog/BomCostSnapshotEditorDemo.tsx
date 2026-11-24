@@ -80,7 +80,7 @@ export function BomCostSnapshotEditorDemo() {
       <Typography.Paragraph type="secondary">
         支持按 MES 行能力改数量、删除/恢复、选择批准替代料与供应商价目；成本预览和单位字典由宿主提供。
       </Typography.Paragraph>
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Segmented
           aria-label="BOM 快照展示模式"
           value={variant}

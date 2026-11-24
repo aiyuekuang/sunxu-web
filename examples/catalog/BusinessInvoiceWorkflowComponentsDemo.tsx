@@ -435,7 +435,7 @@ export function BusinessInvoiceWorkflowComponentsDemo() {
 
   return (
     <SectionCard title="业务发票录入与来源匹配">
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Space wrap>
           <Typography.Text>业务类型</Typography.Text>
           <Segmented

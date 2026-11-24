@@ -208,14 +208,14 @@ export function LandedCostDetailDrawer({
   return (
     <Drawer
       title="分摊单详情"
-      width={960}
+      size={960}
       open={open}
       onClose={() => onOpenChange(false)}
       destroyOnHidden
       loading={loading}
     >
       {detail ? (
-        <Space direction="vertical" size={16} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={16} style={{ width: '100%' }}>
           <DetailDocumentActions
             document={detail}
             actions={detailActions}
@@ -316,7 +316,7 @@ export function LandedCostDetailDrawer({
                   ) : accountingSourceIds.length === 0 ? (
                     '-'
                   ) : (
-                    <Space direction="vertical" size={8} style={{ width: '100%' }}>
+                    <Space orientation="vertical" size={8} style={{ width: '100%' }}>
                       {accountingSourceIds.map((sourceId) => {
                         const source = accountingSourceById.get(sourceId);
                         if (!source) return null;

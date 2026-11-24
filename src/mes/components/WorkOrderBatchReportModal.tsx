@@ -999,7 +999,7 @@ export function WorkOrderBatchReportModal({
                 style={{ marginBottom: 16 }}
                 message={`工序 ${currentOperation.sequence} · ${currentOperation.operationName}`}
                 description={
-                  <Space direction="vertical" size={2}>
+                  <Space orientation="vertical" size={2}>
                     <Typography.Text>
                       当前最多可报 {formatQty(maxQty)} {unit}；本次合计{' '}
                       {formatQty(totalQty)} {unit}，报后剩余{' '}

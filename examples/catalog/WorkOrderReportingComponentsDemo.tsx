@@ -206,7 +206,7 @@ const reportCapabilities: WorkOrderReportCapabilities = {
     Object.entries(map).map(([value, item]) => ({ label: item.text, value })),
   getAutoFieldHelpProps: (label) => ({ label }),
   getReportFieldHelpProps: (label) => ({ label }),
-  scrollableModalProps: { destroyOnHidden: true, maskClosable: false },
+  scrollableModalProps: { destroyOnHidden: true, mask: { closable: false } },
   requestReporterOptions: requestUsers,
   requestAvailableEquipmentOptions: requestEquipment,
   loadCurrentEquipmentSession: async () => ({
@@ -384,10 +384,10 @@ function WorkOrderReportingComponentsDemoContent() {
       productionBomSelectCapabilities={productionBomSelectCapabilities}
       bomCostSnapshotCapabilities={bomCostSnapshotCapabilities}
     >
-      <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+      <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
         <Typography.Title level={4}>工单报工与表单</Typography.Title>
         <Card title="工单列表摘要">
-          <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+          <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
             <WorkOrderRiskTags
               record={{
                 isOverdue: true,

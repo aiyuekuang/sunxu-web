@@ -207,7 +207,7 @@ export function SalesOutboundComponentsDemo() {
   );
 
   return (
-    <Space direction="vertical" size={20} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={20} style={{ width: '100%' }}>
       <Typography.Paragraph type="secondary">
         示例展示销售订单出库入口、销售出库单生命周期菜单，以及带库存净额、生产 BOM、路线和生产准备信息的转生产抽屉。请求、权限、消息和页面导航均由宿主提供。
       </Typography.Paragraph>

@@ -47,7 +47,7 @@ export function IncomingInspectionCell({
     : null;
 
   return (
-    <Space direction="vertical" size={2}>
+    <Space orientation="vertical" size={2}>
       {qualityGateReason ? (
         <Tooltip title={qualityGateReason}>
           <span

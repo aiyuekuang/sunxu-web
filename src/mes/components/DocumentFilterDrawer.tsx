@@ -89,7 +89,7 @@ export function DocumentFilterDrawer({
           ) : null}
         </Space>
       }
-      width="min(440px, 100vw)"
+      size="min(440px, 100vw)"
       open={open}
       onClose={() => onOpenChange(false)}
       destroyOnHidden={false}

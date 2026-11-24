@@ -334,6 +334,9 @@ export function ResizableTablePage() {
           </Typography.Text>
         </Space>
 
+        <Typography.Text type="secondary" role="note">
+          兼容旧宿主的局部高度适配示例。新建单列表视口页请使用 CRUD 列表工作台的 fill 模式。
+        </Typography.Text>
         <div className="sxw-mes-fit-table-boundary sxw-catalog-fit-table-boundary">
           <KeyboardTableRegion
             label="MES 物料台账，可用左右方向键查看全部列"

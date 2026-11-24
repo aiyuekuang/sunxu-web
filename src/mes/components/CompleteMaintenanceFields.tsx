@@ -56,7 +56,7 @@ export function CompleteMaintenanceFields({
       {steps.length > 0 ? (
         <Form.List name="steps">
           {(fields) => (
-            <Space direction="vertical" size="middle" style={{ width: '100%' }}>
+            <Space orientation="vertical" size="middle" style={{ width: '100%' }}>
               {fields.map((field, index) => {
                 const step = steps[index];
                 const isRequired = step?.required !== false;

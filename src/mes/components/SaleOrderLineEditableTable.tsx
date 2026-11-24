@@ -563,7 +563,7 @@ export function SaleOrderLineEditableTable({
         width: 130,
         align: 'right',
         render: (item, _index, update) => (
-          <Space direction="vertical" size={2} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={2} style={{ width: '100%' }}>
             <DocumentLineQuantityInput
               min={SALE_ORDER_MIN_QUANTITY}
               step={SALE_ORDER_MIN_QUANTITY}
@@ -872,7 +872,7 @@ export function SaleOrderLineEditableTable({
         const nonStandard = isNonStandardManufactureMode(item.manufactureMode, capabilities.normalizeManufactureMode);
 
         return (
-          <Space direction="vertical" size={12} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={12} style={{ width: '100%' }}>
             <Space wrap size={12}>
               {capabilities.renderDrawingFiles({
                 value: getDrawingUrls(item),

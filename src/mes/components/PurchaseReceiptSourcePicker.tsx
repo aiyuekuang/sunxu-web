@@ -195,7 +195,7 @@ export function PurchaseReceiptSourcePicker({
 
   return (
     <>
-      <Space direction="vertical" size={4}>
+      <Space orientation="vertical" size={4}>
         <Space.Compact>
           <Button
             disabled={sourceSelectionDisabled}
@@ -265,7 +265,7 @@ export function PurchaseReceiptSourcePicker({
         destroyOnHidden
         closable={!isPreviewingSelection}
         keyboard={!isPreviewingSelection}
-        maskClosable={!isPreviewingSelection}
+        mask={{ closable: !isPreviewingSelection }}
         onCancel={() => {
           if (isPreviewingSelection) return;
           setOpen(false);

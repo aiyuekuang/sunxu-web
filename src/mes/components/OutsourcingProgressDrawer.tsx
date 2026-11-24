@@ -174,7 +174,7 @@ export function OutsourcingProgressDrawer({
     <Drawer
       open={open}
       onClose={onClose}
-      width="min(760px, 100vw)"
+      size="min(760px, 100vw)"
       title={'委外进度 · ' + (order?.orderNo || '')}
       destroyOnHidden
     >

@@ -54,6 +54,7 @@ import {
 } from '../theme/tableDensity';
 import {
   ensureTableCacheCapacity,
+  safeLocalStorageGetItem,
   safeLocalStorageSetItem,
 } from '../utils/safeStorage';
 import {
@@ -171,6 +172,10 @@ export type ResizableProTableProps<
   /** 列支持 sortValue / sortable，用于本地数据表的列头排序，见 withLocalSorters。 */
   columns?: Array<LocalSortableColumn<T> & ResizableColumnOptions>;
   resizable?: boolean | ResizableTableConfig;
+  /**
+   * @deprecated For single-list viewport pages, use `CrudListWorkbench` with `fill`.
+   * Retained for existing host integrations and locally bounded nested tables while they migrate.
+   */
   fitContainerHeight?: FitContainerHeight;
   /** 分页列表默认展示 ERP 风格的全局序号；详情/明细表可显式关闭。 */
   showRowIndex?: boolean;
@@ -1264,7 +1269,7 @@ function readPersistedSort(
   key: string | undefined,
 ): PersistedSortState | undefined {
   if (!key || typeof window === 'undefined') return undefined;
-  const raw = window.localStorage.getItem(key);
+  const raw = safeLocalStorageGetItem(key);
   if (!raw) return undefined;
   try {
     const parsed = JSON.parse(raw) as { field?: unknown; order?: unknown };

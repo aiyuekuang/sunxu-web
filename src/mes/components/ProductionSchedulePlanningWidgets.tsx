@@ -830,7 +830,7 @@ export function GanttInspector<TEntry>({
                   className="sunxu-mes-gantt-inspector-guidance"
                   action={
                     model.dependency.guidance.actions?.length ? (
-                      <Space direction="vertical" size={8}>
+                      <Space orientation="vertical" size={8}>
                         {model.dependency.guidance.actions.map(renderAction)}
                       </Space>
                     ) : undefined

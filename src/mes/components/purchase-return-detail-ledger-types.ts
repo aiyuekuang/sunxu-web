@@ -1,18 +1,32 @@
 import type { ActionType, ProColumns, ProFormInstance, ProTableProps } from '@ant-design/pro-components';
+import type { RangePickerProps } from 'antd/es/date-picker';
 import type { ReactNode, RefObject } from 'react';
 import type { DocumentDetailLedgerSavedViewController } from './DocumentDetailLedgerTable';
+import type { DocumentViewBarView } from './DocumentViewBar';
 import type { MesStatusEnum } from './StatusDisplay';
 import type { ResizableTableConfig } from './ResizableTable';
 import type { DocumentViewMode } from './DocumentViewSwitch';
 
-export interface PurchaseReturnDetailLedgerRow extends Record<string, any> {
+export interface PurchaseReturnDetailLedgerMaterial {
+  id?: string;
+  name?: string | null;
+  code?: string | null;
+  spec?: string | null;
+  unit?: string | null;
+  [key: string]: unknown;
+}
+
+export interface PurchaseReturnDetailLedgerRow {
   id: string; returnOrderId?: string; returnNo?: string; status?: string;
-  material?: Record<string, any>; returnQty?: number | string; outboundQty?: number | string;
+  material?: PurchaseReturnDetailLedgerMaterial | null;
+  returnQty?: number | string; outboundQty?: number | string;
+  unit?: string | null; batchNo?: string | null; location?: string | null;
   unitPrice?: number | null; totalAmount?: number | null; reasonCode?: string;
   reasonLabelSnapshot?: string; supplierName?: string; sourcePurchaseOrderNo?: string;
   sourceReceiptNo?: string; outboundWarehouseName?: string; returnDate?: string;
   outboundDate?: string; reversalDate?: string; financialAction?: string;
   orderCreatedAt?: string; orderUpdatedAt?: string; remarks?: string;
+  [key: string]: unknown;
 }
 export interface PurchaseReturnDetailLedgerQuery extends Record<string, unknown> { orderBy?: string; orderDir?: 'ASC' | 'DESC'; }
 export interface PurchaseReturnDetailLedgerSummary extends Record<string, number | null | undefined> {
@@ -33,7 +47,7 @@ export interface PurchaseReturnDetailLedgerProps {
     exportExcel(query: PurchaseReturnDetailLedgerQuery): Promise<Blob>;
     supplierFilterColumn: Partial<ProColumns<PurchaseReturnDetailLedgerRow>>;
     materialFilterColumn: Partial<ProColumns<PurchaseReturnDetailLedgerRow>>;
-    dateRangePresets: readonly any[];
+    dateRangePresets: NonNullable<RangePickerProps['presets']>;
     statusEnum: MesStatusEnum; financialActionEnum: MesStatusEnum;
     unitLabelMap?: Readonly<Record<string, string>>;
     reasonLabelMap?: Readonly<Record<string, string>>;
@@ -45,7 +59,7 @@ export interface PurchaseReturnDetailLedgerProps {
     canViewReturn: boolean; canExport: boolean; canCreate: boolean;
     exportPermission: string; createPermission?: string;
     resizable: ResizableTableConfig; serverSortFields?: readonly string[];
-    savedViewController: DocumentDetailLedgerSavedViewController<any>;
+    savedViewController: DocumentDetailLedgerSavedViewController<DocumentViewBarView>;
     permission?: string;
     navigateToReturn: (id: string) => void;
     renderDocumentActions: (row: PurchaseReturnDetailLedgerRow, reload: () => void) => ReactNode;

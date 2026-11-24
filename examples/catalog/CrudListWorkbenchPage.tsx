@@ -658,7 +658,7 @@ export function CrudListWorkbenchPage() {
       </SectionCard>
 
       <SectionCard title="fill 模式：单列表视口页">
-        <Space direction="vertical" size={8} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={8} style={{ width: '100%' }}>
           <Typography.Text type="secondary">
             宿主提供确定高度后，工作台让短数据分页固定在结果区底部、表格体在内部滚动。仅用于整页只有一张列表的场景；
             长页面中的子列表使用 <Typography.Text code>layout=&quot;embedded&quot;</Typography.Text>。

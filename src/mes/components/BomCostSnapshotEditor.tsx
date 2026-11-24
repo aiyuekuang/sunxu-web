@@ -247,7 +247,7 @@ export function BomCostSnapshotEditor({
         title: 'BOM 子件型号',
         dataIndex: 'materialName',
         render: (_, record) => (
-          <Space direction="vertical" size={0}>
+          <Space orientation="vertical" size={0}>
             <Typography.Text delete={record.removed}>
               {record.materialName ?? '-'}
             </Typography.Text>
@@ -281,7 +281,7 @@ export function BomCostSnapshotEditor({
             record.overrideQty !== undefined &&
             record.overrideQty !== record.computedQty;
           return (
-            <Space direction="vertical" size={0} style={{ width: '100%' }}>
+            <Space orientation="vertical" size={0} style={{ width: '100%' }}>
               <Space size={4}>
                 <InputNumber
                   min={0}
@@ -326,7 +326,7 @@ export function BomCostSnapshotEditor({
                 const unitLabel = formatUnitLabel(record.unit, unitLabelMap);
                 const shortageQty = Number(record.shortageQty ?? 0);
                 return (
-                  <Space direction="vertical" size={0}>
+                  <Space orientation="vertical" size={0}>
                     <Space size={6} wrap>
                       <Typography.Text
                         strong
@@ -366,7 +366,7 @@ export function BomCostSnapshotEditor({
           const caps = record.lineCapabilities;
           if (record.removed) {
             return (
-              <Space direction="vertical" size={4}>
+              <Space orientation="vertical" size={4}>
                 <Tag color="default">已删除</Tag>
                 <Button
                   size="small"
@@ -395,7 +395,7 @@ export function BomCostSnapshotEditor({
               record.adjustReason,
           );
           return (
-            <Space direction="vertical" size={4} style={{ width: '100%' }}>
+            <Space orientation="vertical" size={4} style={{ width: '100%' }}>
               {abilityTags.length > 0 ? (
                 <Space size={2} wrap>
                   {abilityTags.map((label) => (
@@ -500,7 +500,7 @@ export function BomCostSnapshotEditor({
           const needsManualPick =
             !record.selectedPriceTierId && candidates.length > 1;
           return (
-            <Space direction="vertical" size={4} style={{ width: '100%' }}>
+            <Space orientation="vertical" size={4} style={{ width: '100%' }}>
               <Select
                 allowClear
                 showSearch
@@ -546,7 +546,7 @@ export function BomCostSnapshotEditor({
 
   return (
     <div style={{ width: '100%', marginTop: 8 }}>
-      <Space direction="vertical" size={8} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={8} style={{ width: '100%' }}>
         <Space style={{ width: '100%', justifyContent: 'space-between' }}>
           <Space>
             <Typography.Text strong>本单 BOM 明细</Typography.Text>

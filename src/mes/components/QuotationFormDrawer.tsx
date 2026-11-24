@@ -931,7 +931,7 @@ export function QuotationFormDrawer(props: QuotationFormDrawerProps) {
       modalProps={{
         destroyOnHidden: true,
         centered: false,
-        maskClosable: false,
+        mask: { closable: false },
         className: 'document-form-modal quotation-form-drawer',
       }}
       onFinish={async (values) => {

@@ -121,7 +121,7 @@ export function ServerInfoCard({
       size="small"
     >
       {!stats && loading ? (
-        <Spin tip="正在加载服务器信息" />
+        <Spin description="正在加载服务器信息" />
       ) : null}
       {!stats && errorMessage ? (
         <Alert type="error" showIcon message={errorMessage} />
@@ -224,12 +224,12 @@ export function ServerInfoCard({
                 <Statistic
                   title="系统运行"
                   value={capabilities.formatUptime(stats.os.uptime)}
-                  valueStyle={{ fontSize: 13 }}
+                  styles={{ content: { fontSize: 13 } }}
                 />
                 <Statistic
                   title="进程运行"
                   value={capabilities.formatUptime(stats.node.processUptime)}
-                  valueStyle={{ fontSize: 13 }}
+                  styles={{ content: { fontSize: 13 } }}
                 />
               </Space>
             </Space>
@@ -274,8 +274,12 @@ export function ServerInfoCard({
                 }
                 value={capabilities.formatCompactNumber(orphanStats?.count ?? 0)}
                 suffix={`个 (${capabilities.formatBytes(orphanStats?.size ?? 0)})`}
-                valueStyle={{
-                  color: orphanStats?.count ? token.colorError : token.colorSuccess,
+                styles={{
+                  content: {
+                    color: orphanStats?.count
+                      ? token.colorError
+                      : token.colorSuccess,
+                  },
                 }}
               />
             </Col>
@@ -285,12 +289,12 @@ export function ServerInfoCard({
                   <Statistic
                     title="Node RSS"
                     value={capabilities.formatBytes(stats.node.rssBytes)}
-                    valueStyle={{ fontSize: 14 }}
+                    styles={{ content: { fontSize: 14 } }}
                   />
                   <Statistic
                     title="Heap 已用"
                     value={capabilities.formatBytes(stats.node.heapUsedBytes)}
-                    valueStyle={{ fontSize: 14 }}
+                    styles={{ content: { fontSize: 14 } }}
                   />
                 </Space>
               </Col>

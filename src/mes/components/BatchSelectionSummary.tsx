@@ -21,12 +21,12 @@ export function BatchSelectionSummary({
   if (items.length === 0) return null;
 
   return (
-    <Space direction="vertical" size={6} style={{ width: '100%' }}>
+    <Space orientation="vertical" size={6} style={{ width: '100%' }}>
       <Typography.Text type="secondary">
         {label}（{items.length}）
       </Typography.Text>
       <Space
-        direction="vertical"
+        orientation="vertical"
         size={4}
         style={{ maxHeight, overflowY: 'auto', width: '100%' }}
       >

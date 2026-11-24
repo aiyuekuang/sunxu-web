@@ -105,7 +105,7 @@ test('purchase accrual preview preserves selection totals and confirmation safeg
 
   assert.match(source, /closable=\{!confirming\}/);
   assert.match(source, /keyboard=\{!confirming\}/);
-  assert.match(source, /maskClosable=\{!confirming\}/);
+  assert.match(source, /mask=\{\{ closable: !confirming \}\}/);
   assert.match(source, /footer=\{/);
   assert.match(source, /已选 \{selectedLineIds\.length\} 行，金额/);
   assert.match(source, /确认暂估/);

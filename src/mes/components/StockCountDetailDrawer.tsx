@@ -429,12 +429,12 @@ export function StockCountDetailDrawer({
           detail ? labels.countTitle(detail.countNo) : labels.emptyTitle
         }
         open={open}
-        width="86vw"
+        size="86vw"
         onClose={onClose}
         destroyOnHidden
       >
         {detail ? (
-          <Space direction="vertical" size={16} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={16} style={{ width: '100%' }}>
             <Space wrap>
               {statusPresentation ? (
                 <Tag color={statusPresentation.color}>

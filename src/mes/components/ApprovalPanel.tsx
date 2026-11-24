@@ -355,8 +355,8 @@ export function ApprovalPanel({
           }}
           items={data.steps.map((step) => ({
             color: stepColor(step.status),
-            dot: stepDot(step.status),
-            children: (
+            icon: stepDot(step.status),
+            content: (
               <div>
                 <Space>
                   <Typography.Text strong>

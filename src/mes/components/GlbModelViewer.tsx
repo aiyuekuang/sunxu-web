@@ -346,7 +346,7 @@ export function GlbModelViewer({ url, name }: GlbModelViewerProps) {
       <div ref={canvasContainerRef} className="mes-glb-model-viewer-canvas">
         {loading ? (
           <div className="mes-glb-model-viewer-status">
-            <Spin tip="正在加载3D模型" />
+            <Spin description="正在加载3D模型" />
           </div>
         ) : null}
         {error ? (

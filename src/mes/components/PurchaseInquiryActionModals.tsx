@@ -184,7 +184,7 @@ export function PurchaseInquiryActionModals({
         onCancel={() => onOpenChange(false)}
       >
         {detailError ? (
-          <Space direction="vertical">
+          <Space orientation="vertical">
             <Alert type="error" showIcon message={detailError} />
             <Button onClick={retryLoad}>重试</Button>
           </Space>
@@ -233,7 +233,7 @@ export function PurchaseInquiryActionModals({
         <Typography.Paragraph type="secondary">
           绑定只补充采购订单和库存履约需要的正式物料，不会修改询价和报价快照。
         </Typography.Paragraph>
-        <Space direction="vertical" style={{ width: '100%' }} size={12}>
+        <Space orientation="vertical" style={{ width: '100%' }} size={12}>
           {temporaryItems.map((item) => (
             <div key={item.id}>
               <Typography.Text strong>
@@ -308,11 +308,11 @@ export function PurchaseInquiryActionModals({
           return true;
         }}
       >
-        <Space direction="vertical" style={{ width: '100%' }}>
+        <Space orientation="vertical" style={{ width: '100%' }}>
           {(compare?.items ?? []).map((line) => (
             <Space
               key={line.inquiryItem.id}
-              direction="vertical"
+              orientation="vertical"
               style={{ width: '100%' }}
             >
               <Typography.Text strong>
@@ -421,7 +421,7 @@ export function PurchaseInquiryActionModals({
         <ProFormDigit name="taxRate" label="税率（%）" min={0} max={100} />
         <ProFormDigit name="freightAmount" label="运费" min={0} />
       </ProFormGroup>
-      <Space direction="vertical" style={{ width: '100%' }} size={12}>
+      <Space orientation="vertical" style={{ width: '100%' }} size={12}>
         {(detail.items ?? []).map((item) => (
           <Space key={item.id} align="start" style={{ width: '100%' }}>
             <Typography.Text style={{ width: 220 }}>

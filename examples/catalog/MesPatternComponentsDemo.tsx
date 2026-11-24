@@ -61,7 +61,7 @@ export function MesPatternComponentsDemo() {
         <Typography.Paragraph type="secondary">
           展示 MES 信息卡、明细表、页签、批量选择摘要、字段帮助和表单抽屉的公开契约。
         </Typography.Paragraph>
-        <Space direction="vertical" size={16} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={16} style={{ width: '100%' }}>
           <DetailHeader
             title="SO-2026-0142"
             status={{ value: records[0].status, enumMap: statusMap }}
@@ -115,7 +115,7 @@ export function MesPatternComponentsDemo() {
         <Typography.Paragraph type="secondary">
           展示宿主传入业务数据、权限结果、路由动作和二维码内容的方式。
         </Typography.Paragraph>
-        <Space direction="vertical" size={16} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={16} style={{ width: '100%' }}>
           <MesAnnouncementBanner
             items={[
               {

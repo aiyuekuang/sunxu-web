@@ -137,7 +137,7 @@ export function CustomerOrderPortalQrModalDemo() {
 
   return (
     <SectionCard title="客户订单门户二维码弹窗">
-      <Space direction="vertical" size={12}>
+      <Space orientation="vertical" size={12}>
         <Typography.Paragraph type="secondary" style={{ marginBlockEnd: 0 }}>
           客户信息、权限、接口、门户 origin、URL 归一化、通知和二维码 renderer 均通过宿主能力注入。
         </Typography.Paragraph>

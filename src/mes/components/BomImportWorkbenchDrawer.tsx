@@ -370,7 +370,7 @@ export function BomImportWorkbenchDrawer({
         onClose();
         resetState();
       }}
-      width={1000}
+      size={1000}
       destroyOnHidden
       extra={
         <Space>
@@ -388,7 +388,7 @@ export function BomImportWorkbenchDrawer({
         </Space>
       }
     >
-      <Space direction="vertical" size={16} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Space wrap>
           <Select
             style={{ width: 320 }}
@@ -446,7 +446,7 @@ export function BomImportWorkbenchDrawer({
         )}
 
         {materialCandidates.length > 0 && (
-          <Space direction="vertical" size={8} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={8} style={{ width: '100%' }}>
             <Space>
               <Button
                 type="primary"

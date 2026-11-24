@@ -69,7 +69,7 @@ export function PurchaseAccrualDetailDrawer({
 }: PurchaseAccrualDetailDrawerProps) {
   return (
     <Drawer
-      width="88vw"
+      size="88vw"
       title={`采购暂估批次 ${detail?.run.runNo ?? ''}`}
       open={Boolean(detail)}
       onClose={onClose}
@@ -345,12 +345,12 @@ export function PurchaseAccrualPreviewDrawer({
 
   return (
     <Drawer
-      width="92vw"
+      size="92vw"
       title={`采购暂估预览 ${preview?.fiscalPeriod ?? ''}`}
       open={Boolean(preview)}
       closable={!confirming}
       keyboard={!confirming}
-      maskClosable={!confirming}
+      mask={{ closable: !confirming }}
       onClose={() => {
         if (!confirming) onClose();
       }}

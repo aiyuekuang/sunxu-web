@@ -171,7 +171,7 @@ export function BomItemSourcingModal({
     {
       title: '供应商 / 等级 / 价目',
       render: (_, record) => (
-        <Space direction="vertical" size={0}>
+        <Space orientation="vertical" size={0}>
           <Typography.Text>{record.supplierName}</Typography.Text>
           <Typography.Text type="secondary">
             {record.grade ? `等级 ${record.grade}` : '无等级'} ·{' '}

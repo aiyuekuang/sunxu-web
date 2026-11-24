@@ -68,7 +68,7 @@ export function ApprovalPanelDemo() {
       <Typography.Paragraph type="secondary">
         按 MES 状态展示流程步骤、提交/撤回/通过/驳回/重置操作；权限策略、状态查询和动作 API 均由宿主提供。
       </Typography.Paragraph>
-      <Space direction="vertical" size={12} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Space wrap>
           <Segmented
             aria-label="审批状态场景"

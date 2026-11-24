@@ -196,7 +196,7 @@ export function SendActionModal<
               style={{ width: '100%' }}
               aria-label="发送方式"
             >
-              <Space direction="vertical" style={{ width: '100%' }} size={10}>
+              <Space orientation="vertical" style={{ width: '100%' }} size={10}>
                 {(optionsData?.options ?? []).map((option) => (
                   <Radio
                     key={option.channel}

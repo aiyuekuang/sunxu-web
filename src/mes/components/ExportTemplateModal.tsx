@@ -331,7 +331,7 @@ export function ExportTemplateModal({
       footer={null}
       onCancel={() => onOpenChange(false)}
     >
-      <Space direction="vertical" size={16} style={{ display: 'flex' }}>
+      <Space orientation="vertical" size={16} style={{ display: 'flex' }}>
         <Space wrap>
           <Typography.Text>
             当前生效：
@@ -412,7 +412,7 @@ export function ExportTemplateModal({
               key: 'advanced',
               label: '高级：自定义 Excel 版式模板（抬头/落款/Logo/自由排版）',
               children: (
-                <Space direction="vertical" size={16} style={{ display: 'flex' }}>
+                <Space orientation="vertical" size={16} style={{ display: 'flex' }}>
                   <ContextualHelp
                     label="模板用法"
                     title="上传后按自定义版式导出"

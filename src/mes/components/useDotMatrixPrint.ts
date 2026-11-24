@@ -11,6 +11,10 @@
  */
 import { useRef } from 'react';
 import { useReactToPrint } from 'react-to-print';
+import {
+  safeLocalStorageGetItem,
+  safeLocalStorageSetItem,
+} from '../utils/safeStorage';
 import { DOT_MATRIX_STYLES } from './dotmatrix-styles';
 
 /**
@@ -48,7 +52,7 @@ export interface DotMatrixPaperInfo {
 /** 读取自定义纸张尺寸 */
 export function getCustomDotMatrixPaper(): { width: number; height: number } {
   try {
-    const raw = localStorage.getItem(CUSTOM_STORAGE_KEY);
+    const raw = safeLocalStorageGetItem(CUSTOM_STORAGE_KEY);
     if (raw) {
       const parsed = JSON.parse(raw);
       if (parsed.width && parsed.height) return parsed;
@@ -61,12 +65,15 @@ export function getCustomDotMatrixPaper(): { width: number; height: number } {
 
 /** 保存自定义纸张尺寸 */
 export function setCustomDotMatrixPaper(width: number, height: number) {
-  localStorage.setItem(CUSTOM_STORAGE_KEY, JSON.stringify({ width, height }));
+  safeLocalStorageSetItem(
+    CUSTOM_STORAGE_KEY,
+    JSON.stringify({ width, height }),
+  );
 }
 
 /** 读取当前针打纸张设置 */
 export function getDotMatrixPaper(): DotMatrixPaperInfo {
-  const key = (localStorage.getItem(PAPER_STORAGE_KEY) ??
+  const key = (safeLocalStorageGetItem(PAPER_STORAGE_KEY) ??
     DEFAULT_PAPER) as DotMatrixPaperKey;
   if (key === 'custom') {
     const custom = getCustomDotMatrixPaper();
@@ -84,17 +91,17 @@ export function getDotMatrixPaper(): DotMatrixPaperInfo {
 
 /** 保存针打纸张设置 */
 export function setDotMatrixPaper(key: DotMatrixPaperKey) {
-  localStorage.setItem(PAPER_STORAGE_KEY, key);
+  safeLocalStorageSetItem(PAPER_STORAGE_KEY, key);
 }
 
 /** 读取打印抬头公司名（针打用） */
 export function getDotMatrixCompany(): string {
-  return localStorage.getItem(COMPANY_STORAGE_KEY) ?? '';
+  return safeLocalStorageGetItem(COMPANY_STORAGE_KEY) ?? '';
 }
 
 /** 保存打印抬头公司名 */
 export function setDotMatrixCompany(name: string) {
-  localStorage.setItem(COMPANY_STORAGE_KEY, name);
+  safeLocalStorageSetItem(COMPANY_STORAGE_KEY, name);
 }
 
 export function useDotMatrixPrint(docTitle?: string) {

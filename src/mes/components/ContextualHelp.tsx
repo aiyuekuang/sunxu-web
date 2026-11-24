@@ -21,7 +21,7 @@ export function ContextualHelp({ label, title, content, ariaLabel, trigger = ['h
     <Space size={4} align="center">
       {label}
       <Tooltip
-        title={<Space direction="vertical" size={4}><strong>{title}</strong>{content ? <span>{content}</span> : null}</Space>}
+        title={<Space orientation="vertical" size={4}><strong>{title}</strong>{content ? <span>{content}</span> : null}</Space>}
         trigger={trigger}
         styles={{ root: { maxWidth: 380 } }}
       >

@@ -414,7 +414,7 @@ export function PurchaseReceiptActionModal<
             0,
           );
           return (
-            <Space direction="vertical" size={2} style={{ width: '100%' }}>
+            <Space orientation="vertical" size={2} style={{ width: '100%' }}>
               <InputNumber
                 min={0}
                 max={arrivalMaxQuantity}
@@ -463,7 +463,7 @@ export function PurchaseReceiptActionModal<
             0,
           );
           return (
-            <Space direction="vertical" size={2} style={{ width: '100%' }}>
+            <Space orientation="vertical" size={2} style={{ width: '100%' }}>
               <InputNumber
                 min={0}
                 max={rejectedMaxQuantity}
@@ -565,7 +565,7 @@ export function PurchaseReceiptActionModal<
         title: '系统批号',
         width: 160,
         render: (item, _index, update) => (
-          <Space direction="vertical" size={4} style={{ width: '100%' }}>
+          <Space orientation="vertical" size={4} style={{ width: '100%' }}>
             {item.requiresBatchNo &&
             item.arrivalReceiptQty > item.rejectedReceiptQty ? (
               <GeneratePurchaseReceiptBatchNoButton
@@ -609,7 +609,7 @@ export function PurchaseReceiptActionModal<
         width: 250,
         render: (item, _index, update) =>
           item.requiresBatchNo ? (
-            <Space direction="vertical" size={4} style={{ width: '100%' }}>
+            <Space orientation="vertical" size={4} style={{ width: '100%' }}>
               <DatePicker
                 allowClear
                 placeholder="生产日期（可选）"
@@ -847,7 +847,7 @@ export function PurchaseReceiptActionModal<
       modalProps={{
         destroyOnHidden: true,
         ...SCROLLABLE_MODAL_PROPS,
-        maskClosable: false,
+        mask: { closable: false },
       }}
       onOpenChange={(open) => {
         if (!open && !submittingRef.current) onClose();

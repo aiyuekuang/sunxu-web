@@ -272,7 +272,7 @@ export function InvoiceSourceCandidateTable({
           }
           const reasons = source.blockingReasons;
           return (
-            <Space direction="vertical" size={0}>
+            <Space orientation="vertical" size={0}>
               <Tag color="error">需处理</Tag>
               <Tooltip
                 title={reasons.join('；') || '该来源单当前不可收票/开票'}

@@ -157,7 +157,7 @@ export function StockOperationsFieldsDemo() {
       <Typography.Paragraph type="secondary">
         字段、策略提示和库存摘要由 MES UI 套件提供；查询、权限、选项、格式化和业务文案通过宿主能力注入。
       </Typography.Paragraph>
-      <Space direction="vertical" size={20} style={{ width: '100%' }}>
+      <Space orientation="vertical" size={20} style={{ width: '100%' }}>
         <ProForm
           layout="vertical"
           submitter={false}
@@ -173,7 +173,7 @@ export function StockOperationsFieldsDemo() {
             action="inbound"
           />
         </ProForm>
-        <Space direction="vertical" size={4} style={{ width: '100%' }}>
+        <Space orientation="vertical" size={4} style={{ width: '100%' }}>
           <Typography.Text strong>行内仓位选择与库存预览</Typography.Text>
           <StockLocationInlineSelector
             capabilities={locationCapabilities}

@@ -1565,7 +1565,7 @@ export function SaleDeliveryDocumentActionDrawer({
       ) : !order ? (
         <Empty description="未找到销售出库单" />
       ) : (
-        <Space direction="vertical" size="large" style={{ width: '100%' }}>
+        <Space orientation="vertical" size="large" style={{ width: '100%' }}>
           <div>
             <Space align="center" wrap>
               <div>

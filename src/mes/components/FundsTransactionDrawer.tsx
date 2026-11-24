@@ -49,7 +49,7 @@ export function FundsTransactionDrawer({
 
   return (
     <Drawer
-      width="min(640px, calc(100vw - 24px))"
+      size="min(640px, calc(100vw - 24px))"
       title="资金流水"
       open={open}
       onClose={onClose}
