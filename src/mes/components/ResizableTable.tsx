@@ -78,12 +78,57 @@ import {
   updateActiveTableExportLayout,
 } from '../table/exportLayout';
 import { TableExportLayoutBoundary } from '../table/ExportLayoutBoundary';
-import { useMesTableCapabilities } from '../MesUiProvider';
+import {
+  useMesAmountVisibilityRevision,
+  useMesTableCapabilities,
+} from '../MesUiProvider';
 import 'use-antd-resizable-header/dist/style.css';
 
 const DEFAULT_PAGE_SIZE = 20;
 const COMPACT_TABLE_ACTION_COLUMN_WIDTH = 48;
 const isCompactTableActionMode = true;
+const AMOUNT_VISIBILITY_REVISION_KEY = '__mesAmountVisibilityRevision';
+
+type AmountVisibilityAwareColumn = {
+  render?: unknown;
+  children?: AmountVisibilityAwareColumn[];
+  [AMOUNT_VISIBILITY_REVISION_KEY]?: unknown;
+};
+
+function withAmountVisibilityRevision<T extends AmountVisibilityAwareColumn>(
+  columns: T[] | undefined,
+  revision: string | number | boolean | undefined,
+): T[] | undefined {
+  if (!columns || revision === undefined) return columns;
+
+  return columns.map((column) => {
+    const nextChildren = column.children
+      ? withAmountVisibilityRevision(column.children, revision)
+      : undefined;
+    const childrenChanged =
+      nextChildren !== undefined &&
+      nextChildren.some((child, index) => child !== column.children?.[index]);
+    const children = childrenChanged ? nextChildren : column.children;
+    const hasRenderer = typeof column.render === 'function';
+    const existingRevision = column[AMOUNT_VISIBILITY_REVISION_KEY];
+    const nextRevision =
+      existingRevision === undefined
+        ? revision
+        : `${String(existingRevision)}:${String(revision)}`;
+    const revisionChanged =
+      hasRenderer && existingRevision !== nextRevision;
+
+    if (!revisionChanged && !childrenChanged) return column;
+
+    return {
+      ...column,
+      ...(childrenChanged ? { children } : {}),
+      ...(revisionChanged
+        ? { [AMOUNT_VISIBILITY_REVISION_KEY]: nextRevision }
+        : {}),
+    } as T;
+  });
+}
 
 type PersistenceType = 'localStorage' | 'sessionStorage';
 
@@ -3022,6 +3067,7 @@ function ResizableProTableInner<
     materialColumnPriority,
     ...rest
   } = props;
+  const amountVisibilityRevision = useMesAmountVisibilityRevision();
   const shouldShowRowIndex =
     showRowIndex ??
     ((request !== undefined || dataSource !== undefined) &&
@@ -3030,13 +3076,17 @@ function ResizableProTableInner<
     () => normalizeExternalQueryParams(params),
     [params],
   );
+  const columnsWithAmountVisibilityRevision = useMemo(
+    () => withAmountVisibilityRevision(columns, amountVisibilityRevision),
+    [amountVisibilityRevision, columns],
+  );
   const columnsWithMaterialPriority = useMemo(
     () =>
       prioritizeMaterialDetailColumns(
-        columns as ProColumns<T>[] | undefined,
+        columnsWithAmountVisibilityRevision as ProColumns<T>[] | undefined,
         materialColumnPriority,
       ),
-    [columns, materialColumnPriority],
+    [columnsWithAmountVisibilityRevision, materialColumnPriority],
   );
   const columnsWithAuditDates = useMemo(
     () =>
@@ -3699,6 +3749,7 @@ function ResizableTableInner<T extends object>({
   const tableDensityKey = useTableDensityKey();
   const tableSize = getAntdTableSize(tableDensityKey);
   const { isTableActionColumn } = useMesTableCapabilities();
+  const amountVisibilityRevision = useMesAmountVisibilityRevision();
   const config = resolveResizableConfig(resizable);
   const shouldShowRowIndex =
     showRowIndex ?? (pagination !== undefined && pagination !== false);
@@ -3708,9 +3759,17 @@ function ResizableTableInner<T extends object>({
   useEffect(() => {
     if (config.enabled) ensureTableCacheCapacity();
   }, [config.enabled]);
+  const columnsWithAmountVisibilityRevision = useMemo(
+    () => withAmountVisibilityRevision(columns, amountVisibilityRevision),
+    [amountVisibilityRevision, columns],
+  );
   const columnsWithMaterialPriority = useMemo(
-    () => prioritizeMaterialDetailColumns(columns, materialColumnPriority),
-    [columns, materialColumnPriority],
+    () =>
+      prioritizeMaterialDetailColumns(
+        columnsWithAmountVisibilityRevision,
+        materialColumnPriority,
+      ),
+    [columnsWithAmountVisibilityRevision, materialColumnPriority],
   );
   const columnsWithRowIndex = useMemo(() => {
     if (

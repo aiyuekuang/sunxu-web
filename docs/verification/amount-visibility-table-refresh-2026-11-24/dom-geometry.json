@@ -1,0 +1,340 @@
+{
+  "targetUrl": "http://127.0.0.1:4173/",
+  "catalogPage": {
+    "label": "MES 表格组件",
+    "pageKey": "resizable-table"
+  },
+  "route": "http://127.0.0.1:4173/",
+  "viewport": {
+    "width": 1440,
+    "height": 900
+  },
+  "transition": {
+    "hiddenRequestCount": 1,
+    "visibleRequestCount": 1,
+    "hiddenAgainRequestCount": 1,
+    "requestCountStable": true
+  },
+  "states": {
+    "proTable": [
+      {
+        "state": "hidden",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "document": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440
+        },
+        "region": {
+          "x": 290,
+          "y": 337,
+          "width": 1084,
+          "height": 430,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 430,
+          "clientHeight": 430
+        },
+        "wrapper": {
+          "x": 306,
+          "y": 411,
+          "width": 1052,
+          "height": 343,
+          "scrollWidth": 1052,
+          "clientWidth": 1052,
+          "scrollHeight": 344,
+          "clientHeight": 343
+        },
+        "table": {
+          "x": 306,
+          "y": 411,
+          "width": 1632,
+          "height": 27,
+          "scrollWidth": 1632,
+          "clientWidth": 1632,
+          "scrollHeight": 27,
+          "clientHeight": 27
+        },
+        "scroll": {
+          "x": 306,
+          "y": 439,
+          "width": 1052,
+          "height": 276,
+          "scrollWidth": 1632,
+          "clientWidth": 1052,
+          "scrollHeight": 280,
+          "clientHeight": 276
+        },
+        "sampleRowText": "1\t6061 铝型材\tRM-AL-0081\t\n40 × 40 × 2.0 mm，阳极氧化银白色\n\t支\t24\t在用\t****\t\n来料后按图纸核对截面、长度、壁厚和表面处理要求，并记录包装状态。\n\t2026-11-18 09:20:00\t2026-11-18\t"
+      },
+      {
+        "state": "visible",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "document": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440
+        },
+        "region": {
+          "x": 290,
+          "y": 337,
+          "width": 1084,
+          "height": 430,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 430,
+          "clientHeight": 430
+        },
+        "wrapper": {
+          "x": 306,
+          "y": 411,
+          "width": 1052,
+          "height": 343,
+          "scrollWidth": 1052,
+          "clientWidth": 1052,
+          "scrollHeight": 344,
+          "clientHeight": 343
+        },
+        "table": {
+          "x": 306,
+          "y": 411,
+          "width": 1632,
+          "height": 27,
+          "scrollWidth": 1632,
+          "clientWidth": 1632,
+          "scrollHeight": 27,
+          "clientHeight": 27
+        },
+        "scroll": {
+          "x": 306,
+          "y": 439,
+          "width": 1052,
+          "height": 276,
+          "scrollWidth": 1632,
+          "clientWidth": 1052,
+          "scrollHeight": 280,
+          "clientHeight": 276
+        },
+        "sampleRowText": "1\t6061 铝型材\tRM-AL-0081\t\n40 × 40 × 2.0 mm，阳极氧化银白色\n\t支\t24\t在用\t¥1280.50\t\n来料后按图纸核对截面、长度、壁厚和表面处理要求，并记录包装状态。\n\t2026-11-18 09:20:00\t2026-11-18\t"
+      },
+      {
+        "state": "hidden-again",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "document": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440
+        },
+        "region": {
+          "x": 290,
+          "y": 337,
+          "width": 1084,
+          "height": 430,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 430,
+          "clientHeight": 430
+        },
+        "wrapper": {
+          "x": 306,
+          "y": 411,
+          "width": 1052,
+          "height": 343,
+          "scrollWidth": 1052,
+          "clientWidth": 1052,
+          "scrollHeight": 344,
+          "clientHeight": 343
+        },
+        "table": {
+          "x": 306,
+          "y": 411,
+          "width": 1632,
+          "height": 27,
+          "scrollWidth": 1632,
+          "clientWidth": 1632,
+          "scrollHeight": 27,
+          "clientHeight": 27
+        },
+        "scroll": {
+          "x": 306,
+          "y": 439,
+          "width": 1052,
+          "height": 276,
+          "scrollWidth": 1632,
+          "clientWidth": 1052,
+          "scrollHeight": 280,
+          "clientHeight": 276
+        },
+        "sampleRowText": "1\t6061 铝型材\tRM-AL-0081\t\n40 × 40 × 2.0 mm，阳极氧化银白色\n\t支\t24\t在用\t****\t\n来料后按图纸核对截面、长度、壁厚和表面处理要求，并记录包装状态。\n\t2026-11-18 09:20:00\t2026-11-18\t"
+      }
+    ],
+    "nativeTable": [
+      {
+        "state": "hidden",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "document": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440
+        },
+        "region": {
+          "x": 290,
+          "y": 627,
+          "width": 1084,
+          "height": 207,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 207,
+          "clientHeight": 207
+        },
+        "wrapper": {
+          "x": 290,
+          "y": 627,
+          "width": 1084,
+          "height": 207,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 207,
+          "clientHeight": 207
+        },
+        "table": {
+          "x": 290,
+          "y": 627,
+          "width": 1084,
+          "height": 143,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 143,
+          "clientHeight": 143
+        },
+        "scroll": {
+          "x": 290,
+          "y": 627,
+          "width": 1084,
+          "height": 143,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 143,
+          "clientHeight": 143
+        },
+        "sampleRowText": "1\n\t6061 铝型材\tRM-AL-0081\t24\t****\t在用"
+      },
+      {
+        "state": "visible",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "document": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440
+        },
+        "region": {
+          "x": 290,
+          "y": 627,
+          "width": 1084,
+          "height": 207,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 207,
+          "clientHeight": 207
+        },
+        "wrapper": {
+          "x": 290,
+          "y": 627,
+          "width": 1084,
+          "height": 207,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 207,
+          "clientHeight": 207
+        },
+        "table": {
+          "x": 290,
+          "y": 627,
+          "width": 1084,
+          "height": 143,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 143,
+          "clientHeight": 143
+        },
+        "scroll": {
+          "x": 290,
+          "y": 627,
+          "width": 1084,
+          "height": 143,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 143,
+          "clientHeight": 143
+        },
+        "sampleRowText": "1\n\t6061 铝型材\tRM-AL-0081\t24\t¥1280.50\t在用"
+      },
+      {
+        "state": "hidden-again",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "document": {
+          "scrollWidth": 1440,
+          "clientWidth": 1440
+        },
+        "region": {
+          "x": 290,
+          "y": 627,
+          "width": 1084,
+          "height": 207,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 207,
+          "clientHeight": 207
+        },
+        "wrapper": {
+          "x": 290,
+          "y": 627,
+          "width": 1084,
+          "height": 207,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 207,
+          "clientHeight": 207
+        },
+        "table": {
+          "x": 290,
+          "y": 627,
+          "width": 1084,
+          "height": 143,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 143,
+          "clientHeight": 143
+        },
+        "scroll": {
+          "x": 290,
+          "y": 627,
+          "width": 1084,
+          "height": 143,
+          "scrollWidth": 1084,
+          "clientWidth": 1084,
+          "scrollHeight": 143,
+          "clientHeight": 143
+        },
+        "sampleRowText": "1\n\t6061 铝型材\tRM-AL-0081\t24\t****\t在用"
+      }
+    ]
+  },
+  "consoleErrors": [
+    "[use-antd-resizable-header] 请不要在所有列上添加 `width` 属性，这将导致表格无法自适应",
+    "Warning: [antd: Form.Item] `labelAlign=left|right` is deprecated. Please use `labelAlign=start|end` instead."
+  ]
+}

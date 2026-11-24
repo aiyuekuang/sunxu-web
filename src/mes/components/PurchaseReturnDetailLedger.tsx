@@ -64,9 +64,14 @@ export function PurchaseReturnDetailLedger({ capabilities: c, onCreate, onViewCh
   ], [c, priceVisible]);
   const lightFilter = { formValuesFromFilters: (f: Record<string, unknown>) => ({ returnNo: f.returnNo, supplierId: f.supplierId, materialId: f.materialId, status: f.status, ...restoreDetailLedgerDateRange(f, 'returnDateRange', 'returnDateStart', 'returnDateEnd'), ...restoreDetailLedgerDateRange(f, 'createdAtRange', 'createdAtStart', 'createdAtEnd') }) };
   const fallbackSavedView = c.savedViewController;
+  const formatAmount = (value: number | null | undefined) =>
+    value == null
+      ? '-'
+      : (c.maskAmount?.(c.format.formatCurrency(value)) ??
+        c.format.formatCurrency(value));
   const footer = summary ? <Space wrap>
     <span>退货单数 {c.format.formatNumber(summary.returnCount)}</span><span>明细行 {c.format.formatNumber(summary.itemCount)}</span><span>物料数 {c.format.formatNumber(summary.materialCount)}</span><span>退货量 {c.format.formatNumber(summary.totalReturnQty)}</span><span>出库量 {c.format.formatNumber(summary.totalOutboundQty)}</span><span>已定价行 {c.format.formatNumber(summary.pricedItemCount)}</span><span>未定价行 {c.format.formatNumber(summary.unpricedItemCount)}</span>
-    {priceVisible ? <><span>金额 {summary.amount == null ? '-' : c.format.formatCurrency(summary.amount)}</span><span>折扣金额 {summary.discountAmount == null ? '-' : c.format.formatCurrency(summary.discountAmount)}</span><span>折后金额 {summary.discountedAmount == null ? '-' : c.format.formatCurrency(summary.discountedAmount)}</span><span>税额 {summary.taxAmount == null ? '-' : c.format.formatCurrency(summary.taxAmount)}</span><span>总金额 {summary.totalAmount == null ? '-' : c.format.formatCurrency(summary.totalAmount)}</span><span>已定价折后金额 {summary.pricedAmountTotal == null ? '-' : c.format.formatCurrency(summary.pricedAmountTotal)}</span></> : null}
+    {priceVisible ? <><span>金额 {formatAmount(summary.amount)}</span><span>折扣金额 {formatAmount(summary.discountAmount)}</span><span>折后金额 {formatAmount(summary.discountedAmount)}</span><span>税额 {formatAmount(summary.taxAmount)}</span><span>总金额 {formatAmount(summary.totalAmount)}</span><span>已定价折后金额 {formatAmount(summary.pricedAmountTotal)}</span></> : null}
   </Space> : null;
   return <>
     <DocumentDetailLedgerTable<PurchaseReturnDetailLedgerRow, PurchaseReturnDetailLedgerQuery, import('./purchase-return-detail-ledger-types').PurchaseReturnDetailLedgerResponse>

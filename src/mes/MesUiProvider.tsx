@@ -59,6 +59,12 @@ export interface MesUiProviderProps {
     formattedAmount: string | number | null | undefined,
   ) => string;
   /**
+   * Changes when host-controlled amount visibility changes, even when the
+   * current user is not permitted to reveal prices. Resizable tables use this
+   * revision to refresh custom render closures without resetting saved widths.
+   */
+  amountVisibilityRevision?: string | number | boolean;
+  /**
    * Resolve a visible row edit action from the host's action-column metadata.
    * MES keeps its permission and action definitions; the table suite only calls
    * the returned action after a valid double click.
@@ -128,6 +134,7 @@ type MesUiContextValue = Pick<
   MesUiProviderProps,
   | 'hasPermission'
   | 'maskAmount'
+  | 'amountVisibilityRevision'
   | 'resolveRowEditAction'
   | 'isTableActionColumn'
   | 'actionIntentRoute'
@@ -162,6 +169,7 @@ const MesUiContext = createContext<MesUiContextValue | null>(null);
 export function MesUiProvider({
   hasPermission,
   maskAmount,
+  amountVisibilityRevision,
   resolveRowEditAction,
   isTableActionColumn,
   actionIntentRoute,
@@ -196,6 +204,7 @@ export function MesUiProvider({
       value={{
         hasPermission,
         maskAmount,
+        amountVisibilityRevision,
         resolveRowEditAction,
         isTableActionColumn,
         actionIntentRoute,
@@ -251,6 +260,17 @@ export function useMesAmountMask(): NonNullable<MesUiContextValue['maskAmount']>
     host?.maskAmount ??
     ((formattedAmount) => (formattedAmount == null ? '-' : '****'))
   );
+}
+
+/**
+ * Host-owned amount visibility state used to refresh cached table renderers.
+ * Keep this separate from `maskAmount`: a page may allow an override that
+ * differs from the host's general price permission.
+ */
+export function useMesAmountVisibilityRevision():
+  | MesUiContextValue['amountVisibilityRevision']
+  | undefined {
+  return useContext(MesUiContext)?.amountVisibilityRevision;
 }
 
 /** Permission checks fail closed when a host has not supplied an authorization provider. */

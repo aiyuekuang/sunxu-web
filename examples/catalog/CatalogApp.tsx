@@ -242,7 +242,7 @@ function CatalogWorkspace({
                                   : page === 'mes-host-controls'
                                     ? '查看状态、报表快捷范围、配置入口、字典选择和导出控件的宿主注入契约。'
                                   : page === 'resizable-table'
-                                    ? '查看 MES 表格列宽、排序、行号、空态和导出布局；单列表视口高度统一由 CRUD 工作台的 fill 模式管理。'
+                                    ? '查看 MES 表格列宽、排序、行号、金额显隐刷新、空态和导出布局；单列表视口高度统一由 CRUD 工作台的 fill 模式管理。'
                                   : '展示状态和身份组件如何组合 Ant Design 的原生反馈行为。'}
                   </Typography.Paragraph>
                 </div>

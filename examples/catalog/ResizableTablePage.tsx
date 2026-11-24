@@ -18,6 +18,7 @@ type DemoMaterial = {
   materialSpec: string;
   materialUnit: string;
   quantity: number;
+  standardCost: number;
   status: '在用' | '待检' | '停用';
   remark: string;
   createdAt: string;
@@ -31,6 +32,7 @@ const materials: DemoMaterial[] = [
     materialSpec: '40 × 40 × 2.0 mm，阳极氧化银白色',
     materialUnit: '支',
     quantity: 24,
+    standardCost: 1280.5,
     status: '在用',
     remark: '来料后按图纸核对截面、长度、壁厚和表面处理要求，并记录包装状态。',
     createdAt: '2026-11-18 09:20:00',
@@ -42,6 +44,7 @@ const materials: DemoMaterial[] = [
     materialSpec: '五层瓦楞，内尺寸 600 × 400 × 320 mm',
     materialUnit: '个',
     quantity: 6,
+    standardCost: 52.75,
     status: '待检',
     remark: '核对供应商标签、箱体破损和本批包装数量。',
     createdAt: '2026-11-17 14:10:00',
@@ -53,6 +56,7 @@ const materials: DemoMaterial[] = [
     materialSpec: 'YE3-90S-4，1.1 kW，380 V',
     materialUnit: '台',
     quantity: 3,
+    standardCost: 1860,
     status: '在用',
     remark: '安装前确认铭牌、接线盒、轴端和防护等级符合采购技术要求。',
     createdAt: '2026-11-16 11:45:00',
@@ -64,6 +68,7 @@ const materials: DemoMaterial[] = [
     materialSpec: 'M8 × 40，8.8 级，镀锌',
     materialUnit: '件',
     quantity: 180,
+    standardCost: 0.82,
     status: '在用',
     remark: '按包装批次抽检螺纹和镀层，异常件单独隔离。',
     createdAt: '2026-11-15 08:15:00',
@@ -75,6 +80,7 @@ const materials: DemoMaterial[] = [
     materialSpec: 'SUS304，厚度 1.5 mm，2B 面',
     materialUnit: '张',
     quantity: 12,
+    standardCost: 740.25,
     status: '待检',
     remark: '确认炉批号、材质证明和表面划伤后完成来料检验。',
     createdAt: '2026-11-14 16:30:00',
@@ -86,6 +92,7 @@ const materials: DemoMaterial[] = [
     materialSpec: 'M12，PNP 常开，检测距离 4 mm',
     materialUnit: '只',
     quantity: 8,
+    standardCost: 95,
     status: '停用',
     remark: '替代型号评审通过后再恢复领用。',
     createdAt: '2026-11-13 10:05:00',
@@ -97,6 +104,7 @@ const materials: DemoMaterial[] = [
     materialSpec: '宽 500 mm，厚 20 μm',
     materialUnit: '卷',
     quantity: 15,
+    standardCost: 18.6,
     status: '在用',
     remark: '确认膜卷端面和净重后入库。',
     createdAt: '2026-11-12 13:25:00',
@@ -173,11 +181,17 @@ function ExportLayoutStatus() {
 
 export function ResizableTablePage() {
   const [showEmpty, setShowEmpty] = useState(false);
+  const [amountVisible, setAmountVisible] = useState(false);
   const [lastAction, setLastAction] = useState('尚未触发行操作');
   const [requestCount, setRequestCount] = useState(0);
   const actionRef = useRef<ActionType | undefined>(undefined);
   const previousShowEmpty = useRef(showEmpty);
   const data = useMemo(() => (showEmpty ? [] : materials), [showEmpty]);
+  const maskAmount = useCallback(
+    (value: string | number | null | undefined) =>
+      value == null ? '-' : amountVisible ? String(value) : '****',
+    [amountVisible],
+  );
 
   useEffect(() => {
     if (previousShowEmpty.current === showEmpty) return;
@@ -239,6 +253,14 @@ export function ResizableTablePage() {
         render: (_, row) => <TableLongText value={row.remark} />,
       },
       { title: '数量', dataIndex: 'quantity', width: 100, search: false, align: 'right' },
+      {
+        title: '参考成本',
+        dataIndex: 'standardCost',
+        width: 120,
+        search: false,
+        align: 'right',
+        render: (_, row) => maskAmount(`¥${row.standardCost.toFixed(2)}`),
+      },
       { title: '单位', dataIndex: 'materialUnit', width: 84, search: false },
       { title: '规格型号', dataIndex: 'materialSpec', search: false, ellipsis: true },
       { title: '物料编码', dataIndex: 'materialCode', width: 148, search: false },
@@ -267,7 +289,7 @@ export function ResizableTablePage() {
       },
       editActionColumn,
     ];
-  }, []);
+  }, [maskAmount]);
 
   const request = useCallback<
     NonNullable<ProTableProps<DemoMaterial, Record<string, unknown>>['request']>
@@ -328,6 +350,14 @@ export function ResizableTablePage() {
             />
             <span>查看业务空态</span>
           </label>
+          <label className="sxw-catalog-toggle">
+            <Switch
+              checked={amountVisible}
+              onChange={setAmountVisible}
+              aria-label="显示金额"
+            />
+            <span>显示金额</span>
+          </label>
           <Tag color="blue">请求 {requestCount} 次</Tag>
           <Typography.Text type="secondary" role="status">
             {lastAction}；双击普通行可触发行编辑回调。
@@ -344,6 +374,8 @@ export function ResizableTablePage() {
           >
             <MesUiProvider
               hasPermission={() => true}
+              maskAmount={maskAmount}
+              amountVisibilityRevision={amountVisible}
               isTableActionColumn={(column) =>
                 Boolean((column as DemoActionColumn)[ACTION_COLUMN])
               }
@@ -406,28 +438,42 @@ export function ResizableTablePage() {
 
       <SectionCard title="ResizableTable：本地明细表格">
         <Typography.Paragraph type="secondary">
-          原生 Table 保留 MES 的序号、列宽记忆和排序状态；列宽拖动手柄仅在表头出现。
+            原生 Table 保留 MES 的序号、列宽记忆、排序状态和金额显隐刷新；列宽拖动手柄仅在表头出现。
         </Typography.Paragraph>
-        <KeyboardTableRegion label="MES 本地物料明细，可用左右方向键查看全部列">
-          <ResizableTable<DemoMaterial>
-            rowKey="id"
-            columns={[
-              { title: '物料名称', dataIndex: 'materialName' },
-              { title: '物料编码', dataIndex: 'materialCode', width: 148 },
-              {
-                title: '本地数量排序',
-                dataIndex: 'quantity',
-                width: 140,
-                sorter: (left, right) => left.quantity - right.quantity,
-              },
-              { title: '状态', dataIndex: 'status', width: 100 },
-            ]}
-            dataSource={materials.slice(0, 4)}
-            pagination={{ defaultPageSize: 4, pageSize: 4 }}
-            scroll={{ x: 568 }}
-            resizable={{ persistenceKey: 'sxw_catalog_mes_local_detail_table' }}
-            materialColumnPriority="preserve"
-          />
+          <KeyboardTableRegion label="MES 本地物料明细，可用左右方向键查看全部列">
+            <MesUiProvider
+              hasPermission={() => true}
+              maskAmount={maskAmount}
+              amountVisibilityRevision={amountVisible}
+            >
+              <ResizableTable<DemoMaterial>
+                rowKey="id"
+                columns={[
+                  { title: '物料名称', dataIndex: 'materialName' },
+                  { title: '物料编码', dataIndex: 'materialCode', width: 148 },
+                  {
+                    title: '本地数量排序',
+                    dataIndex: 'quantity',
+                    width: 140,
+                    sorter: (left, right) => left.quantity - right.quantity,
+                  },
+                  {
+                    title: '参考成本',
+                    dataIndex: 'standardCost',
+                    width: 120,
+                    align: 'right',
+                    render: (_, row) =>
+                      maskAmount(`¥${row.standardCost.toFixed(2)}`),
+                  },
+                  { title: '状态', dataIndex: 'status', width: 100 },
+                ]}
+                dataSource={materials.slice(0, 4)}
+                pagination={{ defaultPageSize: 4, pageSize: 4 }}
+                scroll={{ x: 688 }}
+                resizable={{ persistenceKey: 'sxw_catalog_mes_local_detail_table' }}
+                materialColumnPriority="preserve"
+              />
+            </MesUiProvider>
         </KeyboardTableRegion>
       </SectionCard>
     </div>

@@ -369,6 +369,7 @@
 - **fit 短数据布局**：高度计算值作为 `scroll.y` 传入后，适配器也会通过 Ant Design Table/Spin 公开语义 `classNames` 和工作台自有 flex 规则撑开内层表格与滚动体；分页固定在结果边界底部，表头保持自然高度。宿主自定义 `loading` 时应合并 `tableProps.loading` 并只更新 `spinning`，保留共享 Spin 布局语义类。
 - **导出布局**：有 `request` 的表默认产出当前可见列、列序和排序布局；仅用本地 `dataSource` 的表需显式设 `exportLayoutEnabled`。`useTableExportLayout()` 读取当前表布局，表格边界在导出按钮点击捕获阶段激活对应布局，避免同一路由多个表格串用。导出 API 和服务仍由宿主实现；布局只能表达用户选择，不能扩大后端允许导出的字段集合。
 - **行操作和编辑宿主接缝**：`TableActions` 将有效按钮、链接、权限按钮和确认操作统一收入“更多”菜单；权限判断、确认和结果仍归动作节点/宿主。`MesUiProvider` 可选注入 `isTableActionColumn(column)` 识别宿主操作列，避免嵌套菜单；列渲染器已提供完整菜单时使用内部标记跳过通用二次包装。`resolveRowEditAction(columns, record)` 只返回宿主当前可见且允许执行的编辑回调，表格双击才调用它。未提供时不产生编辑副作用。不得在 Sunxu 中硬编码 Umi `useAccess`、权限码、MES API、路由或业务动作。
+- **金额显隐刷新**：`MesUiProvider.amountVisibilityRevision` 由宿主在全局金额显示状态变化时更新，即使宿主权限仍要求遮罩也必须同步更新。`ResizableProTable`、`ResizableTable` 会将版本附到自定义 render 列，让缓存列回调及时替换并保留已保存的列宽；金额格式和权限仍由宿主的 `maskAmount` 与各页面权限策略决定。目录页“MES 表格组件”可切换“显示金额”查看这一行为。
 - **密度和局部溢出**：ProTable 工具栏提供“宽松 / 中等 / 紧凑 / 0 间距”密度菜单，存储键为 `mes-admin:table-density`；主题 token 同步控制单元格纵向间距。列宽总和超过可视区时，仅表格容器横向滚动，页面保持视口宽度；宿主若需要纯键盘浏览，应提供命名且可聚焦的表格滚动区域。`TableActions` 的 `max` 只为旧调用签名兼容，不改变全动作收纳策略。
 - **本次行为边界**：排序恢复与宽度持久化使用稳定的列 schema 输入，排序指示在最终渲染列上合并，避免服务端排序状态更新把已保存列宽重置为默认值。此项是适配层修正，保留 MES 排序与列宽行为。
 - **fill 分页视觉验收**：真实 Catalog 路由“MES 表格组件”的 `fitContainerHeight` 表格与“CRUD 列表工作台”的 `fill` 适配器均验证短数据；截图和几何数据见 [`docs/verification/resizable-fill-pagination-2026-11-23/README.md`](./verification/resizable-fill-pagination-2026-11-23/README.md)。Admin 真实业务路由需由测试环境加载更新后的共享包后复验。
