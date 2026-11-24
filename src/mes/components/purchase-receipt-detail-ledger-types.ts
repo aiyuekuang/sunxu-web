@@ -47,6 +47,8 @@ export interface PurchaseReceiptDetailLedgerRow {
   reversedQty?: number | string; effectiveQty?: number | string; rejectedQty?: number | string;
   unitPrice?: number | null; amount?: number | null; effectiveAmount?: number | null; totalAmount?: number | null;
   taxAmount?: number | null; supplierName?: string; purchaseOrderNo?: string; warehouseName?: string;
+  qualityGateStatus?: string; qualityGateReason?: string | null;
+  qualityInspection?: { id: string; inspectionNo: string; status: string } | null;
   receiptUnit?: string | null; baseUnit?: string | null;
   batchNo?: string; supplierBatchNo?: string;
   location?: { pathName?: string | null; name?: string | null; [key: string]: unknown } | string | null;
