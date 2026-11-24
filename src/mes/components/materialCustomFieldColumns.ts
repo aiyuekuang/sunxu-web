@@ -25,6 +25,9 @@ export interface DocumentLineColumn<T extends DocumentLineRow> {
 interface CreateMaterialCustomFieldColumnsOptions<T> {
   getMaterial: (record: T) => unknown;
   prefixTitle?: string;
+  maskAmount?: (value: string | number | null | undefined, priceAllowed: boolean) => string;
+  priceAllowed?: boolean;
+  amountVisibilityRevision?: string;
 }
 
 interface CreateMaterialCustomFieldLineColumnsOptions<T extends DocumentLineRow> {
@@ -83,22 +86,37 @@ export function createMaterialCustomFieldColumns<T>(
   options: CreateMaterialCustomFieldColumnsOptions<T>,
 ): ProColumns<T>[] {
   const titlePrefix = options.prefixTitle ?? '物料';
-  return getVisibleMaterialCustomFields(schema).map((field) => ({
-    title: `${titlePrefix}·${field.label}`,
-    key: `material-custom-${field.fieldKey}`,
-    width: resolveMaterialCustomFieldWidth(field),
-    ellipsis: true,
-    search: false,
-    sorter: false,
-    render: (_value: unknown, record: T) => {
-      const material = readObject(options.getMaterial(record));
-      return renderCustomFieldCell(field, {
-        computedValues: material.customComputedValues,
-        rawValues: material.customValues,
-        errors: material.customComputedErrors,
-      });
-    },
-  } as ProColumns<T>));
+  return getVisibleMaterialCustomFields(schema).map((field) => {
+    const column: ProColumns<T> & { __mesAmountVisibilityRevision?: string } = {
+      title: `${titlePrefix}·${field.label}`,
+      key: `material-custom-${field.fieldKey}`,
+      width: resolveMaterialCustomFieldWidth(field),
+      ellipsis: true,
+      search: false,
+      sorter: false,
+      render: (_value: unknown, record: T) => {
+        const material = readObject(options.getMaterial(record));
+        const rendered = renderCustomFieldCell(field, {
+          computedValues: material.customComputedValues,
+          rawValues: material.customValues,
+          errors: material.customComputedErrors,
+        });
+        if (
+          field.dataType === 'money' &&
+          typeof rendered === 'string' &&
+          rendered !== '-' &&
+          options.maskAmount
+        ) {
+          return options.maskAmount(rendered, options.priceAllowed ?? false);
+        }
+        return rendered;
+      },
+    };
+    if (field.dataType === 'money' && options.amountVisibilityRevision) {
+      column.__mesAmountVisibilityRevision = options.amountVisibilityRevision;
+    }
+    return column;
+  });
 }
 
 /** Material custom fields for editable document-line table adapters. */

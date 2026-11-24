@@ -61,7 +61,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `SaleReturnReceiveModal`、`SaleReturnReverseModal`、`SaleReturnStockConversionDrawer`、`SaleReturnEditDrawer`（`sunxu-web/mes`） | 保留销售退货实收、冲正、库存转换与编辑表单；校验、价格权限、字典、自定义字段和 API 由宿主注入 |
 | `SaleOrderShipActionModal`、`SaleDeliveryDocumentActionsDropdown`、`ConvertToProductionDrawer`（`sunxu-web/mes`） | 保留销售订单出库入口、出库单动作与审批/信用额度流程、转生产数量/物料/路线交互；所有服务与权限由宿主注入 |
 | `SaleDeliveryItemsPanel`、`SaleDeliveryEditorModal`、`ProductSerialPicker`、`PackageUnitPickerModal`、`SaleOrderLineEditableTable`（`sunxu-web/mes`） | 保留出库明细编辑、成品序列号及包装单元选择、订单行物料/价格/BOM/图纸编辑；接口、权限、字典、金额、自定义字段与选择器能力由宿主注入 |
-| `SaleOrderDetailLedger`、`SaleReturnDetailLedger`、`SaleDeliveryDetailLedger`、`SaleDeliveryDocumentActionDrawer`（`sunxu-web/mes`） | 保留销售订单/退货/出库明细台账与出库动作抽屉；显示原始交期/出库日期，行操作单击一次展开；筛选、分页、打印、权限和服务由宿主注入 |
+| `SaleOrderDetailLedger`、`SaleReturnDetailLedger`、`SaleDeliveryDetailLedger`、`SaleDeliveryDocumentActionDrawer`（`sunxu-web/mes`） | 保留销售订单/退货/出库明细台账与出库动作抽屉；显示原始交期/出库日期，行操作单击一次展开；自定义金额列/汇总遵循金额显隐；筛选、分页、打印、权限和服务由宿主注入 |
 | `PackageSpecManager`、`PackageUnitCreateDrawer`（`sunxu-web/mes`） | 保留包装规格维护、可包装来源筛选、箱规建议、创建校验和权限门控；数据请求、字典、配置入口和消息由宿主注入 |
 | `CustomerOrderPortalQrModal`（`sunxu-web/mes`） | 保留客户门户二维码、全局展示配置、字段选择和库存可见性设置；权限、请求、门户 URL、二维码 renderer 与消息由宿主注入 |
 | `VoiceBroadcastSettingsPanel`（`sunxu-web/mes`） | 保留大屏语音播报间隔、异常/生产事件类型设置、待播数量提示与清理已播记录；偏好存储和清理确认由宿主注入 |
@@ -96,7 +96,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `CustomFieldFormSection`（`sunxu-web/mes`） | 按 MES 自定义字段 schema 生成动态表单、校验、编辑值回填和运行时元数据；字段 schema/value API 与错误格式由宿主注入 |
 | `FormulaDesigner`（`sunxu-web/mes`） | 保留字段/函数/运算符目录、表达式编辑、样例预览、类型诊断和依赖字段；schema、公式预览与错误格式由宿主注入 |
 | `CustomFieldValuePanel`（`sunxu-web/mes`） | 展示详情/公式字段、计算异常、空态和编辑抽屉；schema/value 查询、保存和错误文案由宿主注入 |
-| `CustomFieldCell`、`materialCustomFieldColumns`、`useDocumentCustomFieldDetailVisibility`（`sunxu-web/mes`） | 共享计算值/原始值展示、公式错误文案、物料自定义列可见性/排序/宽度，以及详情展开 schema 判定；schema 请求由宿主注入 |
+| `CustomFieldCell`、`materialCustomFieldColumns`、`useDocumentCustomFieldDetailVisibility`（`sunxu-web/mes`） | 共享计算值/原始值展示、公式错误文案、物料自定义列可见性/排序/宽度；销售台账中的 `money` 自定义列服从金额显隐；详情展开 schema 请求由宿主注入 |
 | `ApprovalPanel`（`sunxu-web/mes`） | 保留审批状态、步骤时间线、提交/撤回/通过/驳回/重置流程；审批接口和实体级/全局权限决策由宿主注入 |
 | `BomCostSnapshotEditor`（`sunxu-web/mes`） | 保留 BOM 成本/库存快照、替代料与订单改配能力、供应商价选择和缺料提示；成本预览 API、单位标签由宿主注入 |
 | `BomEffectiveBomSelector`（`sunxu-web/mes`） | 保留系列基础/型号差异 BOM 的有效版本解析、冲突候选选择和当前展开结果；物料搜索、解析请求与文档更新回调由宿主注入 |

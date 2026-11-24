@@ -131,7 +131,7 @@ const saleOrderRow: SaleOrderDetailLedgerRow = {
   createdAt: demoOrder.createdAt,
   updatedAt: demoOrder.updatedAt,
   remarks: '目录演示订单行',
-  customValues: {},
+  customValues: { lineAmount: 35.5 },
 };
 
 const saleDeliveryRow: SaleDeliveryDetailLedgerRow = {
@@ -158,7 +158,7 @@ const saleDeliveryRow: SaleDeliveryDetailLedgerRow = {
   createdAt: demoOrder.createdAt,
   updatedAt: demoOrder.updatedAt,
   remarks: '目录演示出库行',
-  customValues: {},
+  customValues: { lineAmount: 35.5 },
 };
 
 const saleReturnRow: SaleReturnDetailLedgerRow = {
@@ -180,7 +180,7 @@ const saleReturnRow: SaleReturnDetailLedgerRow = {
   createdAt: demoOrder.createdAt,
   updatedAt: demoOrder.updatedAt,
   remarks: '目录演示退货行',
-  customValues: {},
+  customValues: { lineAmount: 35.5 },
 };
 
 const orderSummary: SaleOrderDetailLedgerSummary = {
@@ -193,7 +193,9 @@ const orderSummary: SaleOrderDetailLedgerSummary = {
   discountedAmount: 444,
   taxAmount: 57.72,
   totalAmount: 501.72,
-  customFieldSummaries: [],
+  customFieldSummaries: [
+    { fieldKey: 'lineAmount', label: '自定义金额', mode: 'sum', value: 35.5 },
+  ],
 };
 
 const deliverySummary: SaleDeliveryDetailLedgerSummary = {
@@ -206,7 +208,9 @@ const deliverySummary: SaleDeliveryDetailLedgerSummary = {
   discountedAmount: 222,
   taxAmount: 28.86,
   totalAmount: 250.86,
-  customFieldSummaries: [],
+  customFieldSummaries: [
+    { fieldKey: 'lineAmount', label: '自定义金额', value: 35.5 },
+  ],
 };
 
 const returnSummary: SaleReturnDetailLedgerSummary = {
@@ -242,6 +246,21 @@ const returnStatusEnum: MesStatusEnum = {
 const returnTypeEnum: MesStatusEnum = {
   customer_return: { text: '客户退货', status: 'Warning' },
   exchange: { text: '换货', status: 'Processing' },
+};
+
+const salesLineCustomFieldSchema = {
+  schemaVersion: 1,
+  fields: [
+    {
+      fieldKey: 'lineAmount',
+      label: '自定义金额',
+      fieldKind: 'input',
+      dataType: 'money',
+      isActive: true,
+      sortOrder: 1,
+      displayJson: { showInList: true, listWidth: 130, sortOrder: 1 },
+    },
+  ],
 };
 
 function formatNumber(value: number | string | null | undefined): string {
@@ -311,7 +330,7 @@ function demoBaseCapabilities<
     statusEnum: orderStatusEnum,
     filterColumns: demoFilters<TRow>(),
     materialCustomFields: [],
-    lineCustomFieldSchema: { schemaVersion: 1, fields: [] },
+    lineCustomFieldSchema: salesLineCustomFieldSchema,
     formatCurrency,
     formatNumber,
     formatDate: (value) => value ? value.slice(0, 10) : '-',

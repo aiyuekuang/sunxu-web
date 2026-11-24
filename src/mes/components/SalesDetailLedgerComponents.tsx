@@ -64,6 +64,41 @@ import type {
   SalesDetailLedgerResponse,
 } from './sales-detail-ledger-types';
 
+type AmountMask = SaleOrderDetailLedgerCapabilities['maskAmount'];
+const amountMaskRevisionByCallback = new WeakMap<AmountMask, number>();
+let nextAmountMaskRevision = 0;
+
+function getAmountVisibilityRevision(
+  maskAmount: AmountMask,
+  priceAllowed: boolean,
+): string {
+  let callbackRevision = amountMaskRevisionByCallback.get(maskAmount);
+  if (callbackRevision === undefined) {
+    callbackRevision = ++nextAmountMaskRevision;
+    amountMaskRevisionByCallback.set(maskAmount, callbackRevision);
+  }
+  return `${callbackRevision}:${priceAllowed ? 'allowed' : 'restricted'}`;
+}
+
+function withAmountVisibilityRevision<T extends object>(
+  column: ProColumns<T>,
+  revision: string,
+): ProColumns<T> {
+  return {
+    ...column,
+    __mesAmountVisibilityRevision: revision,
+  } as ProColumns<T>;
+}
+
+function withAmountVisibilityRevisions<T extends object>(
+  columns: ProColumns<T>[],
+  revision: string,
+): ProColumns<T>[] {
+  return columns.map((column) =>
+    withAmountVisibilityRevision(column, revision),
+  );
+}
+
 function readRecord(value: unknown): Record<string, unknown> {
   return value && typeof value === 'object' && !Array.isArray(value)
     ? (value as Record<string, unknown>)
@@ -72,6 +107,26 @@ function readRecord(value: unknown): Record<string, unknown> {
 
 function readDisplayJson(value: unknown): Record<string, unknown> {
   return readRecord(value);
+}
+
+function formatCustomFieldSummaryValue(
+  item: { fieldKey: string; value: number | null },
+  schema:
+    | import('./document-line-custom-field-types').DocumentLineCustomFieldSchema
+    | null
+    | undefined,
+  formatNumber: (value: number | string | null | undefined) => string,
+  maskAmount: AmountMask,
+  priceAllowed: boolean,
+): string {
+  if (item.value == null) return '-';
+  const formatted = formatNumber(item.value);
+  const field = schema?.fields?.find(
+    (candidate) => candidate.fieldKey === item.fieldKey,
+  );
+  return field?.dataType === 'money' || !field
+    ? maskAmount(formatted, priceAllowed)
+    : formatted;
 }
 
 function lineCustomFieldWidth(field: {
@@ -138,6 +193,11 @@ function createLedgerDateColumn<T extends object>(
 function createLineCustomFieldColumns<T extends object>(
   schema: import('./document-line-custom-field-types').DocumentLineCustomFieldSchema | null | undefined,
   prefixTitle: string,
+  options: {
+    maskAmount: AmountMask;
+    priceAllowed: boolean;
+    amountVisibilityRevision: string;
+  },
 ): ProColumns<T>[] {
   const fields = (schema?.fields ?? [])
     .filter(
@@ -155,22 +215,38 @@ function createLineCustomFieldColumns<T extends object>(
         typeof rightOrder === 'number' ? rightOrder : (right.sortOrder ?? 0);
       return leftValue - rightValue;
     });
-  return fields.map((field) => ({
-    title: `${prefixTitle}·${field.label}`,
-    key: `line-custom-${field.fieldKey}`,
-    width: lineCustomFieldWidth(field),
-    ellipsis: true,
-    search: false,
-    sorter: false,
-    render: (_value, row) => {
-      const carrier = readRecord(row);
-      return renderCustomFieldCell(field, {
-        computedValues: carrier.customComputedValues,
-        rawValues: carrier.customValues,
-        errors: carrier.customComputedErrors,
-      });
-    },
-  }));
+  return fields.map((field) => {
+    const column: ProColumns<T> = {
+      title: `${prefixTitle}·${field.label}`,
+      key: `line-custom-${field.fieldKey}`,
+      width: lineCustomFieldWidth(field),
+      ellipsis: true,
+      search: false,
+      sorter: false,
+      render: (_value, row) => {
+        const carrier = readRecord(row);
+        const rendered = renderCustomFieldCell(field, {
+          computedValues: carrier.customComputedValues,
+          rawValues: carrier.customValues,
+          errors: carrier.customComputedErrors,
+        });
+        if (
+          field.dataType === 'money' &&
+          typeof rendered === 'string' &&
+          rendered !== '-'
+        ) {
+          return options.maskAmount(rendered, options.priceAllowed);
+        }
+        return rendered;
+      },
+    };
+    return field.dataType === 'money'
+      ? withAmountVisibilityRevision(
+          column,
+          options.amountVisibilityRevision,
+        )
+      : column;
+  });
 }
 
 export interface SalesDetailLedgerPrintAction<TRow extends object>
@@ -424,6 +500,10 @@ export function SaleOrderDetailLedger({
 }: SaleOrderDetailLedgerProps) {
   const [summary, setSummary] = useState<SaleOrderDetailLedgerSummary>();
   const [priceAllowed, setPriceAllowed] = useState(false);
+  const amountVisibilityRevision = getAmountVisibilityRevision(
+    capabilities.maskAmount,
+    priceAllowed,
+  );
   const [shipOrder, setShipOrder] = useState<SaleOrderLedgerActionRecord | null>(
     null,
   );
@@ -675,11 +755,21 @@ export function SaleOrderDetailLedger({
       },
       ...createMaterialCustomFieldColumns(
         capabilities.materialCustomFields,
-        { getMaterial: (row: SaleOrderDetailLedgerRow) => row.material },
+        {
+          getMaterial: (row: SaleOrderDetailLedgerRow) => row.material,
+          maskAmount: capabilities.maskAmount,
+          priceAllowed,
+          amountVisibilityRevision,
+        },
       ),
       ...createLineCustomFieldColumns<SaleOrderDetailLedgerRow>(
         capabilities.lineCustomFieldSchema,
         '订单明细',
+        {
+          maskAmount: capabilities.maskAmount,
+          priceAllowed,
+          amountVisibilityRevision,
+        },
       ),
       {
         title: '订单号',
@@ -724,7 +814,7 @@ export function SaleOrderDetailLedger({
           requireSaleOrder(row).customer?.name ||
           '-',
       },
-      ...priceColumns,
+      ...withAmountVisibilityRevisions(priceColumns, amountVisibilityRevision),
       createLedgerDateColumn(
         'effectiveDeliveryDate',
         '交货日期',
@@ -802,7 +892,7 @@ export function SaleOrderDetailLedger({
         },
       }),
     ];
-  }, [capabilities, priceAllowed]);
+  }, [capabilities, priceAllowed, amountVisibilityRevision]);
 
   const lightFilter = useMemo(
     () => ({
@@ -942,7 +1032,13 @@ function SaleOrderLedgerFooter({
                 : item.mode === 'count_non_empty'
                   ? '（非空数）'
                   : '（合计）'}{' '}
-          {item.value == null ? '-' : capabilities.formatNumber(item.value)}
+          {formatCustomFieldSummaryValue(
+            item,
+            capabilities.lineCustomFieldSchema,
+            capabilities.formatNumber,
+            capabilities.maskAmount,
+            priceAllowed,
+          )}
         </span>
       ))}
     </>
@@ -1035,6 +1131,10 @@ export function SaleReturnDetailLedger({
 }: SaleReturnDetailLedgerProps) {
   const [summary, setSummary] = useState<SaleReturnDetailLedgerSummary>();
   const [priceAllowed, setPriceAllowed] = useState(false);
+  const amountVisibilityRevision = getAmountVisibilityRevision(
+    capabilities.maskAmount,
+    priceAllowed,
+  );
   const [actionDetail, setActionDetail] = useState<SaleReturnLedgerDocument | null>(
     null,
   );
@@ -1157,7 +1257,7 @@ export function SaleReturnDetailLedger({
         render: (_value, row) => capabilities.formatNumber(row.rejectedQty),
       },
       ...(priceAllowed
-        ? [
+        ? withAmountVisibilityRevisions<SaleReturnDetailLedgerRow>([
             {
               title: '实退金额',
               dataIndex: 'netRefundAmount',
@@ -1172,15 +1272,25 @@ export function SaleReturnDetailLedger({
                       priceAllowed,
                     ),
             },
-          ]
+          ], amountVisibilityRevision)
         : []),
       ...createMaterialCustomFieldColumns(
         capabilities.materialCustomFields,
-        { getMaterial: (row: SaleReturnDetailLedgerRow) => row.material },
+        {
+          getMaterial: (row: SaleReturnDetailLedgerRow) => row.material,
+          maskAmount: capabilities.maskAmount,
+          priceAllowed,
+          amountVisibilityRevision,
+        },
       ),
       ...createLineCustomFieldColumns<SaleReturnDetailLedgerRow>(
         capabilities.lineCustomFieldSchema,
         '退货明细',
+        {
+          maskAmount: capabilities.maskAmount,
+          priceAllowed,
+          amountVisibilityRevision,
+        },
       ),
       {
         title: '退货单号',
@@ -1356,7 +1466,7 @@ export function SaleReturnDetailLedger({
         },
       }),
     ];
-  }, [capabilities, priceAllowed]);
+  }, [capabilities, priceAllowed, amountVisibilityRevision]);
 
   const lightFilter = useMemo(
     () => ({
@@ -1684,6 +1794,10 @@ export function SaleDeliveryDetailLedger({
 }: SaleDeliveryDetailLedgerProps) {
   const [summary, setSummary] = useState<SaleDeliveryDetailLedgerSummary>();
   const [priceAllowed, setPriceAllowed] = useState(false);
+  const amountVisibilityRevision = getAmountVisibilityRevision(
+    capabilities.maskAmount,
+    priceAllowed,
+  );
   const columns = useMemo<ProColumns<SaleDeliveryDetailLedgerRow>[]>(() => {
     const filters: ProColumns<SaleDeliveryDetailLedgerRow>[] = [
       {
@@ -1788,11 +1902,21 @@ export function SaleDeliveryDetailLedger({
       },
       ...createMaterialCustomFieldColumns(
         capabilities.materialCustomFields,
-        { getMaterial: (record: SaleDeliveryDetailLedgerRow) => record.material },
+        {
+          getMaterial: (record: SaleDeliveryDetailLedgerRow) => record.material,
+          maskAmount: capabilities.maskAmount,
+          priceAllowed,
+          amountVisibilityRevision,
+        },
       ),
       ...createLineCustomFieldColumns<SaleDeliveryDetailLedgerRow>(
         capabilities.lineCustomFieldSchema,
         '出库明细',
+        {
+          maskAmount: capabilities.maskAmount,
+          priceAllowed,
+          amountVisibilityRevision,
+        },
       ),
       {
         title: '销售出库单编号',
@@ -1886,7 +2010,7 @@ export function SaleDeliveryDetailLedger({
           record.storageLocationSnapshot || record.location?.pathName || '-',
       },
       ...(priceAllowed
-        ? [
+        ? withAmountVisibilityRevisions<SaleDeliveryDetailLedgerRow>([
             {
               title: '发生金额',
               dataIndex: 'ledgerAmount',
@@ -1916,7 +2040,7 @@ export function SaleDeliveryDetailLedger({
                       priceAllowed,
                     ),
             },
-          ]
+          ], amountVisibilityRevision)
         : []),
       createLedgerDateColumn('createdAt', '创建时间', capabilities.formatDate, {
         width: 180,
@@ -1957,7 +2081,7 @@ export function SaleDeliveryDetailLedger({
         },
       }),
     ];
-  }, [capabilities, priceAllowed, tableActionRef]);
+  }, [capabilities, priceAllowed, amountVisibilityRevision, tableActionRef]);
 
   const lightFilter = useMemo(
     () => ({
@@ -2205,7 +2329,14 @@ function SaleDeliveryLedgerFooter({
       ) : null}
       {(summary.customFieldSummaries ?? []).map((item) => (
         <span key={item.fieldKey}>
-          {item.label} {item.value == null ? '-' : capabilities.formatNumber(item.value)}
+          {item.label}{' '}
+          {formatCustomFieldSummaryValue(
+            item,
+            capabilities.lineCustomFieldSchema,
+            capabilities.formatNumber,
+            capabilities.maskAmount,
+            priceAllowed,
+          )}
         </span>
       ))}
     </>

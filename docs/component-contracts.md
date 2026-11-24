@@ -96,7 +96,7 @@
 | `DocumentViewBar` | 组合 MES 单据个人视图与筛选按钮；把视图对象、另存参数和脏切换流程适配到 `SavedViewBar` | Sunxu `SavedViewBar` + `DocumentFilterButton`；视图控制器和筛选开关由宿主提供 |
 | `PriceControlPrecheckButton` | 确认/发送前展示服务端价格提醒、阻断和审批结果；支持页面前置校验、无原始预检权限回退、例外申请、二次确认与失败对话框 | MES `PermissionButton` + AntD `Modal` / `Alert`；原始权限、预检/例外 API 和错误消息由 `MesUiProvider.priceControlCapabilities` 注入 |
 | `MaterialPriceSection` | 编辑物料参考进价/售价并展示有权限的价格上下界、币别、移动加权平均成本及币别提示；跳转到物料价格规则或销售价目 | Ant Design `Form` / `InputNumber`；价格更新服务、权限结果和路由导航由宿主 props 注入 |
-| `SaleOrderDetailLedger` / `SaleReturnDetailLedger` / `SaleDeliveryDetailLedger` / `SaleDeliveryDocumentActionDrawer` | 展示销售订单、退货、出库明细与出库单动作抽屉；订单交期和出库日期读取明细记录的原始日期字段；行菜单首次点击即展开动作 | MES `ResizableProTable` / `DocumentDetailLedgerTable` / AntD Drawer；请求、格式、权限、动作和刷新由宿主 capabilities 注入 |
+| `SaleOrderDetailLedger` / `SaleReturnDetailLedger` / `SaleDeliveryDetailLedger` / `SaleDeliveryDocumentActionDrawer` | 展示销售订单、退货、出库明细与出库单动作抽屉；订单交期和出库日期读取明细记录的原始日期字段；行菜单首次点击即展开动作；自定义 `money` 明细列和汇总遵循宿主金额显隐 | MES `ResizableProTable` / `DocumentDetailLedgerTable` / AntD Drawer；请求、格式、权限、金额遮罩、动作和刷新由宿主 capabilities 注入 |
 | `PackageSpecManager` / `PackageUnitCreateDrawer` | 管理物料包装规格，并按批次/生产入库/库存来源创建包装单元；保留查询、删除确认、字段校验、建议箱规和来源筛选 | AntD / ProForm / MES `ResizableProTable`；服务、权限、字段选项、配置入口及反馈由宿主 capabilities 注入 |
 | `ExpenseBillLinesEditableTable` / `FundsTransactionDrawer` | 编辑费用单明细并展示资金流水详情；保留必填/数值校验、来源快照、自定义字段、公式预览、合计与空值回退 | MES `DocumentLineEditableTable` / AntD Drawer；入库单搜索、公式预览、流水查询与格式化由宿主 capabilities 注入 |
 | `ProductionBomSelect` | 提供 MES BOM ProForm 字段；保留物料/销售订单联动、唯一候选自动选中、关键词参数、请求竞态保护、字段说明及返回配置页后的重新请求 | Pro Components `ProFormSelect`；BOM 请求、`bomHeaderId` 字段帮助和有权限时的 BOM 配置标签由 `MesUiProvider.productionBomSelectCapabilities` 注入 |
@@ -607,7 +607,7 @@
 #### 自定义字段展示与物料列表列适配
 
 - `CustomFieldCell` 优先显示计算异常原因，其次用计算值回退原始值；布尔、单选、多选、日期和日期时间格式统一，空值为 `-`，异常展示带 Tooltip 的告警文案。
-- `materialCustomFieldColumns` 仅显示启用且配置为列表可见的字段，按显示排序排序并按配置宽度生成只读 ProColumns 或明细行列；选项 label、计算字段和错误回退共用 CustomFieldCell。
+- `materialCustomFieldColumns` 仅显示启用且配置为列表可见的字段，按显示排序排序并按配置宽度生成只读 ProColumns 或明细行列；选项 label、计算字段和错误回退共用 CustomFieldCell。只读列可选注入 `maskAmount` / `priceAllowed`，仅对 `money` 类型遮罩，并可用 `amountVisibilityRevision` 通知可调整列宽表格更新金额 render 闭包。
 - `useDocumentCustomFieldDetailVisibility` 在启用且对象类型有效时请求 schema，只有含启用详情字段才展示展开入口；禁用/对象切换时隐藏，组件卸载或参数变化后忽略迟到响应。schema 请求使用 `MesUiProvider.customFieldFormCapabilities.requestFormSchema`。
 
 #### `DocumentBomOpenButton` 组件规格
