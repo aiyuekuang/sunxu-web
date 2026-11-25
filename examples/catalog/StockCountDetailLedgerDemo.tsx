@@ -81,6 +81,7 @@ export function StockCountDetailLedgerDemo() {
       params: {},
       activeFilterCount: 0,
       beforeSearchSubmit: (values) => values,
+      resetFilters: () => undefined,
       changeColumns: () => undefined,
       changeSort: () => undefined,
     }),

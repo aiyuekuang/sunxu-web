@@ -65,6 +65,7 @@ export type DocumentDetailLedgerSavedViewController<
   params: Record<string, unknown>;
   activeFilterCount: number;
   beforeSearchSubmit: (values: Record<string, unknown>) => Record<string, unknown>;
+  resetFilters: () => void;
   changeColumns: (columns: Record<string, ColumnsState>) => void;
   changeSort: (
     field: string | undefined,
@@ -499,7 +500,10 @@ export function DocumentDetailLedgerTable<
       beforeSearchSubmit={savedView?.controller.beforeSearchSubmit}
       search={
         savedView
-          ? createDocumentFilterSearchConfig(onTransientQueryReset)
+          ? createDocumentFilterSearchConfig(() => {
+              savedView.controller.resetFilters();
+              onTransientQueryReset?.();
+            })
           : { labelWidth: 'auto', filterType: 'light', span: 6 }
       }
       searchFormRender={

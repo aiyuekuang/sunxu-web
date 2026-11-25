@@ -247,6 +247,7 @@ export function CustomerMaterialDispositionComponentsDemo() {
       params: {},
       activeFilterCount: 0,
       beforeSearchSubmit: (values) => values,
+      resetFilters: () => undefined,
       changeColumns: () => undefined,
       changeSort: (field, order) => {
         if (field && order) sortRef.current = { field, order };

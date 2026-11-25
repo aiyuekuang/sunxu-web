@@ -151,6 +151,12 @@ function useSavedViewController(): DocumentDetailLedgerSavedViewController<DemoV
       applyingViewRef,
       params,
       beforeSearchSubmit: (values: Record<string, unknown>) => values,
+      resetFilters: () =>
+        setParams(
+          activeViewId === 'overdue'
+            ? { overdueOnly: 'true', hideCompletedUndated: 'true' }
+            : { onlyInTransit: 'true', hideCompletedUndated: 'true' },
+        ),
       changeColumns: setColumnState,
       changeSort: (field, order) => {
         if (!field || !order) return;

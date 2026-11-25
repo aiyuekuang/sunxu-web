@@ -157,7 +157,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `DocumentViewSortModal`（`sunxu-web/mes`） | 支持拖动与键盘传感器调整 MES 视图顺序；保存请求由宿主处理 |
 | `DocumentLineCustomFieldFormItems`（`sunxu-web/mes`） | 按单据行 schema 排序并渲染启用、可见的输入字段；字段值路径由宿主指定，表单/行布局由调用方提供 |
 | `documentLineCustomFieldColumns`（`sunxu-web/mes`） | 统一单据行 schema 显隐/排序/宽度、编辑与只读列、payload、预览投影及聚合；API 数据、权限、业务计算与持久化由宿主负责 |
-| `DocumentDetailLedgerTable`（`sunxu-web/mes`） | 保留单据/明细切换、轻量筛选与个人视图、服务端分页排序、当前查询导出和新增入口；请求、权限、导出下载与记忆分页由宿主注入 |
+| `DocumentDetailLedgerTable`（`sunxu-web/mes`） | 保留单据/明细切换、轻量筛选与个人视图、恢复当前视图筛选基线的重置、服务端分页排序、当前查询导出和新增入口；请求、权限、导出下载与记忆分页由宿主注入 |
 | `PrintLayout`、`DotMatrixLayout`、`LabelLayout`（`sunxu-web/mes`） | 保留 A4、针式连续纸、标签纸三种 MES 打印根布局；打印模板样式导出供打印宿主注入，标签纸方向由宿主当前设置提供 |
 | MES 单据打印模板（`sunxu-web/mes`） | 送货单针打/A4、质检报告、领料单、工序流转卡、采购订单针打/A4、采购入库单、销售订单和生产工单；二维码、单位/状态/质量/付款文案及金额脱敏由宿主注入 |
 | `usePrint`、`useDotMatrixPrint`、`useLabelPrint`（`sunxu-web/mes`） | 分别提供 A4、可配置连续纸和可配置标签纸打印 ref、纸型/抬头设置及隔离样式；使用 `react-to-print` |

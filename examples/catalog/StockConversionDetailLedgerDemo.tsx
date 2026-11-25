@@ -125,6 +125,7 @@ function StockConversionDetailLedgerDemoContent() {
       params: activeViewId === 'converted' ? { status: 'converted' } : {},
       activeFilterCount: activeViewId === 'converted' ? 1 : 0,
       beforeSearchSubmit: (values) => values,
+      resetFilters: () => undefined,
       changeColumns: setColumnState,
       changeSort: (field, order) => {
         if (!field || !order) return;

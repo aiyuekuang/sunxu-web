@@ -121,6 +121,7 @@ export function BusinessInvoiceLedgerAndImportDemo() {
       applyingViewRef,
       params: activeViewId === 'unmatched' ? { matchStatus: 'unmatched' } : {},
       beforeSearchSubmit: (values) => values,
+      resetFilters: () => undefined,
       changeColumns: setColumnState,
       changeSort: (field, order) => {
         if (!field || !order) return;

@@ -236,6 +236,7 @@ function useSavedViewController(
       applyingViewRef,
       params: {},
       beforeSearchSubmit: (values: Record<string, unknown>) => values,
+      resetFilters: () => undefined,
       changeColumns: setColumnState,
       changeSort: (field, order) => {
         if (!field || !order) return;

@@ -100,6 +100,7 @@ export function DocumentDetailLedgerTableDemo() {
       applyingViewRef,
       params: activeViewId === 'active' ? { status: 'active' } : {},
       beforeSearchSubmit: (values) => values,
+      resetFilters: () => undefined,
       changeColumns: setColumnState,
       changeSort: (field, order) => {
         if (!field || !order) return;

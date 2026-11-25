@@ -246,6 +246,7 @@ function OutsourcingComponentsDemoContent() {
       applyingViewRef,
       params: activeViewId === 'in-progress' ? { status: 'in_progress' } : {},
       beforeSearchSubmit: (values) => values,
+      resetFilters: () => undefined,
       changeColumns: setColumnState,
       changeSort: (field, order) => {
         if (!field || !order) return;

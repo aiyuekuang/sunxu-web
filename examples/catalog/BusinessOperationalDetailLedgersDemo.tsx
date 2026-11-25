@@ -71,6 +71,7 @@ export function BusinessOperationalDetailLedgersDemo() {
     views, loading: false, activeViewId, dirty: false, activeFilterCount: activeViewId === 'recent' ? 1 : 0,
     currentConfig: { sort, columns: columnState }, currentSortRef, applyingViewRef,
     params: activeViewId === 'recent' ? { status: 'completed' } : {}, beforeSearchSubmit: (values) => values,
+    resetFilters: () => undefined,
     changeColumns: setColumnState, changeSort: (field, order) => { if (field && order) setSort({ field, order }); }, selectView: setActiveViewId,
     save: () => true,
     saveAs: ({ name }) => { setViews((current) => [...current, { id: `view-${current.length + 1}`, name }]); return true; },
