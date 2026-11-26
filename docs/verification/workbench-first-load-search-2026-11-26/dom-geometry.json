@@ -1,0 +1,42 @@
+{
+  "url": "http://127.0.0.1:4173/",
+  "viewport": {
+    "width": 1280,
+    "height": 720
+  },
+  "mode": "ProTable 查询",
+  "searchVisible": true,
+  "search": {
+    "x": 285,
+    "y": 402,
+    "width": 934,
+    "height": 94,
+    "clientWidth": 932,
+    "scrollWidth": 932,
+    "clientHeight": 92,
+    "scrollHeight": 92
+  },
+  "table": {
+    "x": 302,
+    "y": 503,
+    "width": 900,
+    "height": 224,
+    "clientWidth": 900,
+    "scrollWidth": 900,
+    "clientHeight": 224,
+    "scrollHeight": 224
+  },
+  "workbench": {
+    "x": 285,
+    "y": 402,
+    "width": 934,
+    "height": 366,
+    "clientWidth": 934,
+    "scrollWidth": 934,
+    "clientHeight": 366,
+    "scrollHeight": 366
+  },
+  "rowsInWorkbench": 5,
+  "emptyStateVisible": false,
+  "paginationText": "第 1-5 条/总共 7 条\n1\n2\n5 条/页"
+}
