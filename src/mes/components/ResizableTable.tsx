@@ -1585,12 +1585,28 @@ function resolveProTableSearch<T extends object, U extends ParamsType>(
   search: ProTableProps<T, U>['search'],
   columns: ProColumns<T>[] | undefined,
   hasCustomSearchHost = false,
+  canRenderLightSearch = true,
 ): ProTableProps<T, U>['search'] {
   if (search === false) return search;
-  if (isRecord(search) && search.filterType !== undefined) return search;
+  if (isRecord(search) && search.filterType !== undefined) {
+    // LightFilter is hosted by ProTable's toolbar. If the host is disabled,
+    // keep an explicit light preference usable by switching to the full form.
+    if (
+      search.filterType === 'light' &&
+      !canRenderLightSearch &&
+      !hasCustomSearchHost
+    ) {
+      return { ...search, filterType: 'query' };
+    }
+    return search;
+  }
   // 搜索表单由外部宿主（如单据筛选抽屉的 searchFormRender）托管时，宿主期望完整
   // 查询表单；此时不再套用可搜索列数的 light 简洁模式降级。
-  if (hasCustomSearchHost) return search;
+  // LightFilter is rendered inside ProTable's own toolbar. A host such as
+  // CrudListWorkbench sets toolBarRender=false and expects QueryFilter to remain
+  // visible; auto-selecting LightFilter there also prevents the search form's
+  // initialization from starting the first request.
+  if (hasCustomSearchHost || !canRenderLightSearch) return search;
 
   const searchableCount = countSearchableColumns(columns);
   if (searchableCount === 0 || searchableCount > LIGHT_SEARCH_FIELD_LIMIT) {
@@ -3158,8 +3174,14 @@ function ResizableProTableInner<
         search,
         columnsExposedToColumnSetting,
         props.searchFormRender !== undefined,
+        props.toolBarRender !== false,
       ),
-    [columnsExposedToColumnSetting, search, props.searchFormRender],
+    [
+      columnsExposedToColumnSetting,
+      search,
+      props.searchFormRender,
+      props.toolBarRender,
+    ],
   );
   const columnsWithLightRemoteSearch = useMemo(
     () =>

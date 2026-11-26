@@ -432,7 +432,6 @@ export function CrudListWorkbenchPage() {
           proTableSearch={
             isProSearch
               ? {
-                  filterType: 'query',
                   defaultCollapsed: true,
                   defaultFormItemsNumber: 2,
                   span: { xs: 24, sm: 12, md: 8, lg: 6 },
@@ -588,12 +587,19 @@ export function CrudListWorkbenchPage() {
             ) : undefined
           }
           renderTable={
-            isComplex
+            isComplex || isProSearch
               ? (tableProps) => (
-                  <ProTable<DemoProduct>
-                    {...tableProps}
-                    scroll={{ ...tableProps.scroll, x: tableProps.scroll?.x ?? 'max-content' }}
-                  />
+                  isProSearch ? (
+                    <ResizableProTable<DemoProduct>
+                      {...tableProps}
+                      resizable={{ persistenceKey: false }}
+                    />
+                  ) : (
+                    <ProTable<DemoProduct>
+                      {...tableProps}
+                      scroll={{ ...tableProps.scroll, x: tableProps.scroll?.x ?? 'max-content' }}
+                    />
+                  )
                 )
               : undefined
           }
@@ -602,6 +608,7 @@ export function CrudListWorkbenchPage() {
             rowKey: 'id',
             columns,
             cardBordered: true,
+            params: isProSearch ? { status: 'active' } : undefined,
             dataSource: isProSearch ? undefined : visibleProducts,
             request: isProSearch
               ? async (params) => {
