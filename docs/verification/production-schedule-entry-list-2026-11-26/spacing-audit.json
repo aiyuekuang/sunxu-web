@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "surface_frame_gate": {
+    "status": "UNVERIFIED",
+    "reason": "The shared catalog example passed visual checks. The authenticated MES host route was not rendered in this session.",
+    "rows": [
+      {
+        "route": "Sunxu Web Catalog / MES UI 套件",
+        "state": "生产排程组件组 > 排产列表，默认状态，示例记录已加载",
+        "workspace": "Visible main work area within a 1440×900 browser viewport",
+        "content": "Production schedule entry list block",
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/production-schedule-entry-list-2026-11-26/after-1440x900.png",
+        "screenshot_sha256": "d78282cb30e45c0f25dbcb2bac1d98c191e813b25162643e7a0ab66279a1b481",
+        "viewport": { "width": 1440, "height": 900 },
+        "workspace_rect": { "left": 224, "top": 56, "right": 1440, "bottom": 900, "width": 1216, "height": 844 },
+        "content_rect": { "left": 273, "top": 380.234375, "right": 1391, "bottom": 668.65625, "width": 1118, "height": 288.421875 },
+        "relationship": "separate",
+        "status": "PASS",
+        "required_sides": ["top", "right", "bottom", "left"],
+        "insets_px": { "top": 324.234375, "right": 49, "bottom": 231.34375, "left": 49 },
+        "expected": {
+          "kind": "contract",
+          "value": "The entry list remains within the visible main work area with clear inset on every side.",
+          "source": "sunxu-web/examples/catalog/catalog.css (.sxw-docs-main, .sxw-docs-surface)"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "Inspected the rendered 1440×900 screenshot and confirmed visible main-work-area margins around the list block.",
+          "painted_frame_sides": ["top", "right", "bottom", "left"]
+        }
+      }
+    ]
+  },
+  "seams": [
+    {
+      "route": "Sunxu Web Catalog / MES UI 套件",
+      "state": "生产排程组件组 > 排产列表，列设置关闭",
+      "previous": "ResizableProTable options toolbar with column settings gear",
+      "next": "排产结果表头与记录",
+      "axis": "vertical",
+      "executed_command": "cd /Users/suconnect/.claude/skills/playwright-skill && node run.js /tmp/playwright-schedule-entry-list-final.js",
+      "viewport": { "width": 1440, "height": 900 },
+      "previous_rect": { "left": 289, "top": 484.234375, "right": 1375, "bottom": 548.234375, "width": 1086, "height": 64 },
+      "next_rect": { "left": 289, "top": 548.234375, "right": 1375, "bottom": 618.65625, "width": 1086, "height": 70.421875 },
+      "gap_px": 0,
+      "expected": {
+        "kind": "contract",
+        "value": "The list toolbar is attached directly to its result table.",
+        "source": "sunxu-web/AGENTS.md (list operations sit beside their result area); docs/component-contracts.md (Production Schedule EntryList)"
+      },
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/production-schedule-entry-list-2026-11-26/after-1440x900.png",
+      "screenshot_sha256": "d78282cb30e45c0f25dbcb2bac1d98c191e813b25162643e7a0ab66279a1b481",
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Inspected the rendered screenshot; the gear is in the list toolbar and the toolbar directly meets the table.",
+        "exception": "Intentional joined seam: the options toolbar is part of the result block and has no spacer before its table."
+      }
+    }
+  ],
+  "host_route_check": {
+    "status": "UNVERIFIED",
+    "route": "mes-admin /production/schedule (list tab)",
+    "reason": "No authenticated Admin runtime was available for this task. The shared component and local catalog example were rendered and verified."
+  }
+}

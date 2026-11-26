@@ -2,6 +2,7 @@ import {
   CheckCircleOutlined,
   RollbackOutlined,
 } from '@ant-design/icons';
+import type { ActionType, ParamsType, ProColumns } from '@ant-design/pro-components';
 import {
   Alert,
   Button,
@@ -14,15 +15,15 @@ import {
   Select,
   Space,
   Spin,
-  Table,
   Tag,
   TreeSelect,
   Typography,
 } from 'antd';
-import type { TableColumnsType, TablePaginationConfig } from 'antd';
+import type { TablePaginationConfig } from 'antd';
 import dayjs from 'dayjs';
-import React, { useCallback, useEffect, useState } from 'react';
+import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { EntityThumbnail } from './EntityThumbnail';
+import { ResizableProTable, type ResizableProTableProps } from './ResizableTable';
 import type {
   EntryFormDrawerProps,
   EntryListProps,
@@ -43,6 +44,23 @@ const STATUS_TABS: Array<{ key: string; label: string }> = [
   { key: 'cancelled', label: '已取消' },
 ];
 const SERVER_SORT_DIRECTIONS: Array<'ascend' | 'descend'> = ['ascend', 'descend'];
+
+type EntryListTableParams = ParamsType & {
+  current?: number;
+  pageSize?: number;
+  entryId?: string;
+  workOrderId?: string;
+  operationId?: string;
+  keyword?: string;
+  status?: string;
+  startDate?: string;
+  endDate?: string;
+  refreshKey?: number;
+};
+
+type EntryListRequest = NonNullable<
+  ResizableProTableProps<ScheduleEntryRecord, EntryListTableParams>['request']
+>;
 
 function fieldRules(required: boolean, message: string) {
   return required ? [{ required: true, message }] : [];
@@ -288,12 +306,10 @@ export function EntryFormDrawer({
 }
 
 export function EntryList({ onEdit, onRefresh, refreshKey, initialEntryId, initialWorkOrderId, initialOperationId, canUpdate, canDelete, capabilities }: EntryListProps) {
-  const [rows, setRows] = useState<ScheduleEntryRecord[]>([]);
-  const [loading, setLoading] = useState(false);
+  const actionRef = useRef<ActionType | undefined>(undefined);
   const [error, setError] = useState<unknown>();
   const [page, setPage] = useState(1);
   const [pageSize, setPageSize] = useState(20);
-  const [total, setTotal] = useState(0);
   const [status, setStatus] = useState('all');
   const [entryId, setEntryId] = useState(initialEntryId);
   const [workOrderId, setWorkOrderId] = useState(initialWorkOrderId);
@@ -301,22 +317,50 @@ export function EntryList({ onEdit, onRefresh, refreshKey, initialEntryId, initi
   const [keyword, setKeyword] = useState('');
   const [debouncedKeyword, setDebouncedKeyword] = useState('');
   const [range, setRange] = useState<[dayjs.Dayjs | null, dayjs.Dayjs | null]>([null, null]);
-  const [sortField, setSortField] = useState<string>('plannedStart');
-  const [sortOrder, setSortOrder] = useState<'ASC' | 'DESC'>('ASC');
   const [selectedKeys, setSelectedKeys] = useState<string[]>([]);
   const [selectedRows, setSelectedRows] = useState<ScheduleEntryRecord[]>([]);
 
   useEffect(() => { setEntryId(initialEntryId); setWorkOrderId(initialWorkOrderId); setOperationId(initialOperationId); }, [initialEntryId, initialWorkOrderId, initialOperationId]);
   useEffect(() => { const timer = setTimeout(() => setDebouncedKeyword(keyword.trim()), 300); return () => clearTimeout(timer); }, [keyword]);
-  const load = useCallback(async () => {
-    setLoading(true); setError(undefined);
+  const tableParams = useMemo(() => ({
+    entryId,
+    workOrderId,
+    operationId,
+    keyword: debouncedKeyword || undefined,
+    status: status === 'all' ? undefined : status,
+    startDate: range[0]?.format('YYYY-MM-DD'),
+    endDate: range[1]?.format('YYYY-MM-DD'),
+    refreshKey,
+  }), [entryId, workOrderId, operationId, debouncedKeyword, status, range, refreshKey]);
+  const request = useCallback<EntryListRequest>(async (params, sort) => {
+    setError(undefined);
+    const activeSort = Object.entries(sort).find(([, direction]) => direction === 'ascend' || direction === 'descend');
+    const rawField = activeSort?.[0];
+    const orderBy = rawField === 'workOrder.orderNo' || rawField === 'workOrder,orderNo'
+      ? 'orderNo'
+      : rawField ?? 'plannedStart';
     try {
-      const response = await capabilities.load({ page, pageSize, entryId, workOrderId, operationId, keyword: debouncedKeyword || undefined, status: status === 'all' ? undefined : status, startDate: range[0]?.format('YYYY-MM-DD'), endDate: range[1]?.format('YYYY-MM-DD'), orderBy: sortField, orderDir: sortOrder });
-      setRows(response.list ?? []); setTotal(response.total ?? response.list?.length ?? 0);
-    } catch (cause) { setError(cause); capabilities.reportError(cause, { operation: 'load-schedule-entry-list' }); }
-    finally { setLoading(false); }
-  }, [capabilities, page, pageSize, entryId, workOrderId, operationId, debouncedKeyword, status, range, sortField, sortOrder]);
-  useEffect(() => { void load(); }, [load, refreshKey]);
+      const response = await capabilities.load({
+        page: params.current ?? 1,
+        pageSize: params.pageSize ?? 20,
+        entryId: params.entryId,
+        workOrderId: params.workOrderId,
+        operationId: params.operationId,
+        keyword: params.keyword,
+        status: params.status,
+        startDate: params.startDate,
+        endDate: params.endDate,
+        orderBy,
+        orderDir: activeSort?.[1] === 'descend' ? 'DESC' : 'ASC',
+      });
+      const data = response.list ?? [];
+      return { data, total: response.total ?? data.length, success: true };
+    } catch (cause) {
+      setError(cause);
+      capabilities.reportError(cause, { operation: 'load-schedule-entry-list' });
+      throw cause;
+    }
+  }, [capabilities]);
 
   const doAction = async (action: 'confirm' | 'unconfirm' | 'unplan', ids: string[]) => {
     try {
@@ -324,14 +368,14 @@ export function EntryList({ onEdit, onRefresh, refreshKey, initialEntryId, initi
       if (action === 'unconfirm') await capabilities.unconfirm(ids);
       if (action === 'unplan') await capabilities.unplan(ids, { reasonCode: 'manual_adjustment', reason: ids.length > 1 ? '排产列表批量撤排' : '排产列表手动撤排' });
       capabilities.notify('success', action === 'confirm' ? `已确认 ${ids.length} 条排产` : action === 'unconfirm' ? `已取消确认 ${ids.length} 条排产` : `已撤排 ${ids.length} 条排产`);
-      setSelectedKeys([]); setSelectedRows([]); onRefresh(); void load();
+      setSelectedKeys([]); setSelectedRows([]); onRefresh();
     } catch (cause) { const byId = new Map(selectedRows.map((row) => [row.id, row])); const routeIds = ids.map((id) => byId.get(id)?.workOrder?.routeId).filter((id): id is string => !!id); capabilities.reportError(cause, { operation: `schedule-${action}`, routeIds }); throw cause; }
   };
   const confirmAction = (action: 'confirm' | 'unconfirm' | 'unplan', ids: string[], title: string, description: React.ReactNode, okText: string) => Modal.confirm({ title, content: description, okText, okType: action === 'unplan' ? 'danger' : 'primary', onOk: () => doAction(action, ids) });
-  const removeEntry = (row: ScheduleEntryRecord) => Modal.confirm({ title: '移入已取消', content: '确定要将此排产记录移入已取消吗？它会从“全部”隐藏，可在“已取消”中查看；若关联工单未开工，将同时取消该工单。', okText: '移入已取消', okType: 'danger', onOk: async () => { try { const result = await capabilities.remove(row.id); capabilities.notify('success', result.cancelledWorkOrderNo ? `已移入已取消并取消工单 ${result.cancelledWorkOrderNo}` : '排产记录已移入已取消'); onRefresh(); void load(); } catch (cause) { capabilities.reportError(cause, { operation: 'cancel-schedule-entry', routeIds: row.workOrder?.routeId ? [row.workOrder.routeId] : [] }); throw cause; } } });
+  const removeEntry = (row: ScheduleEntryRecord) => Modal.confirm({ title: '移入已取消', content: '确定要将此排产记录移入已取消吗？它会从“全部”隐藏，可在“已取消”中查看；若关联工单未开工，将同时取消该工单。', okText: '移入已取消', okType: 'danger', onOk: async () => { try { const result = await capabilities.remove(row.id); capabilities.notify('success', result.cancelledWorkOrderNo ? `已移入已取消并取消工单 ${result.cancelledWorkOrderNo}` : '排产记录已移入已取消'); onRefresh(); } catch (cause) { capabilities.reportError(cause, { operation: 'cancel-schedule-entry', routeIds: row.workOrder?.routeId ? [row.workOrder.routeId] : [] }); throw cause; } } });
   const selectionSummary = <Space orientation="vertical" size={4}>{selectedRows.map((row) => <Typography.Text key={row.id}>{row.workOrder?.orderNo ?? row.id} · {row.workOrder?.material?.name ?? '-'} · {row.operation?.operationName ?? row.operationName ?? '-'}</Typography.Text>)}</Space>;
   const batchActions = status === 'scheduled' ? <Space><Button type="link" icon={<CheckCircleOutlined />} disabled={!selectedKeys.length} onClick={() => confirmAction('confirm', selectedKeys, '批量确认排产', <Space orientation="vertical"><Typography.Text>确定要确认选中的 {selectedKeys.length} 条排产记录吗？</Typography.Text>{selectionSummary}</Space>, '批量确认')}>批量确认 ({selectedKeys.length})</Button><Button type="link" danger disabled={!selectedKeys.length} onClick={() => confirmAction('unplan', selectedKeys, '批量撤排', <Space orientation="vertical"><Typography.Text>撤排只释放资源占位，不取消工单。</Typography.Text>{selectionSummary}</Space>, '批量撤排')}>批量撤排 ({selectedKeys.length})</Button></Space> : status === 'confirmed' ? <Space><Button type="link" icon={<RollbackOutlined />} disabled={!selectedKeys.length} onClick={() => confirmAction('unconfirm', selectedKeys, '批量取消确认排产', <Space orientation="vertical"><Typography.Text>取消确认后才可调整工时，确定继续吗？</Typography.Text>{selectionSummary}</Space>, '批量取消确认')}>批量取消确认 ({selectedKeys.length})</Button><Button type="link" danger disabled={!selectedKeys.length} onClick={() => confirmAction('unplan', selectedKeys, '批量撤排', <Space orientation="vertical"><Typography.Text>撤排只释放资源占位，不取消工单。</Typography.Text>{selectionSummary}</Space>, '批量撤排')}>批量撤排 ({selectedKeys.length})</Button></Space> : null;
-  const columns: TableColumnsType<ScheduleEntryRecord> = [
+  const columns: ProColumns<ScheduleEntryRecord>[] = [
     { title: '工单号', dataIndex: ['workOrder', 'orderNo'], width: 170, sorter: true, sortDirections: SERVER_SORT_DIRECTIONS, render: (_, row) => row.workOrder?.orderNo ? <Typography.Text copyable>{row.workOrder.orderNo}</Typography.Text> : '-' },
     { title: '计划号', width: 145, render: (_, row) => { const value = row.workOrder?.planNo ?? row.planNo; return value ? <Typography.Text copyable>{value}</Typography.Text> : '-'; } },
     { title: '物料名称', width: 170, ellipsis: true, render: (_, row) => row.workOrder?.material?.name ?? '-' },
@@ -341,25 +385,38 @@ export function EntryList({ onEdit, onRefresh, refreshKey, initialEntryId, initi
     { title: '依赖检查', width: 180, ellipsis: true, render: (_, row) => row.dependencyConflictReason ? <Tag color="error" title={row.dependencyConflictReason}>依赖冲突</Tag> : row.dependencyWarning ? <Tag color="warning" title={row.dependencyWarning}>依赖提醒</Tag> : row.predecessorSummary ?? '-' },
     { title: '工作中心', width: 120, render: (_, row) => row.isOutsourced ? <Tag color="purple">委外加工</Tag> : row.workCenter?.name ?? '-' },
     { title: '设备', width: 110, render: (_, row) => row.isOutsourced ? '外部资源' : row.equipment?.name ?? '-' },
-    { title: '计划开始', dataIndex: 'plannedStart', width: 160, sorter: true, sortDirections: SERVER_SORT_DIRECTIONS, render: (value) => value ? dayjs(value).format('YYYY-MM-DD HH:mm') : '-' },
-    { title: '计划结束', dataIndex: 'plannedEnd', width: 160, sorter: true, sortDirections: SERVER_SORT_DIRECTIONS, render: (value) => value ? dayjs(value).format('YYYY-MM-DD HH:mm') : '-' },
+    { title: '计划开始', dataIndex: 'plannedStart', width: 160, sorter: true, sortDirections: SERVER_SORT_DIRECTIONS, render: (_, row) => row.plannedStart ? dayjs(row.plannedStart).format('YYYY-MM-DD HH:mm') : '-' },
+    { title: '计划结束', dataIndex: 'plannedEnd', width: 160, sorter: true, sortDirections: SERVER_SORT_DIRECTIONS, render: (_, row) => row.plannedEnd ? dayjs(row.plannedEnd).format('YYYY-MM-DD HH:mm') : '-' },
     { title: '工时', width: 100, render: (_, row) => { const mins = row.durationMinutes; return !mins || mins <= 0 ? '-' : mins >= 60 ? `${Math.floor(mins / 60)}h ${mins % 60}min` : `${mins}min`; } },
     { title: '执行人', width: 100, render: (_, row) => row.assignee?.realName ?? row.assignee?.username ?? '-' },
     { title: '状态', dataIndex: 'status', width: 150, sorter: true, sortDirections: SERVER_SORT_DIRECTIONS, render: (_, row) => { const cfg = capabilities.formatStatus(row.status); return <Space wrap><Tag color={cfg.color}>{cfg.label}</Tag>{row.reconfirmRequired && <Tag color="warning">待重确认</Tag>}{row.derivedFromEntryId && <Tag color="processing">剩余量补排</Tag>}{row.splitGroup && <Tag>拆分并行</Tag>}</Space>; } },
     { title: '操作', fixed: 'right', width: 210, render: (_, row) => <Space wrap>{canUpdate && row.status === 'scheduled' && <Button type="link" size="small" onClick={() => confirmAction('confirm', [row.id], '确认排产', `确定要确认排产记录「${row.workOrder?.orderNo ?? row.id}」吗？`, '确认')}>确认</Button>}{canUpdate && row.status === 'confirmed' && <Button type="link" size="small" onClick={() => confirmAction('unconfirm', [row.id], '取消确认排产', '取消确认后才可调整工时，确定继续吗？', '取消确认')}>取消确认</Button>}{canUpdate && ['scheduled', 'confirmed'].includes(row.status) && <Button type="link" size="small" onClick={() => onEdit(row)}>编辑</Button>}{canUpdate && ['scheduled', 'confirmed'].includes(row.status) && <Button type="link" size="small" danger onClick={() => confirmAction('unplan', [row.id], '撤排', '撤排只释放资源占位，不取消工单。', '撤排')}>撤排</Button>}{canDelete && ['scheduled', 'confirmed'].includes(row.status) && <Button type="link" size="small" danger onClick={() => removeEntry(row)}>移入已取消</Button>}</Space> },
   ];
-  const onTableChange = (pagination: TablePaginationConfig, _filters: unknown, sorter: unknown) => {
+  const onTableChange = (pagination: TablePaginationConfig) => {
     setPage(pagination.current ?? 1); setPageSize(pagination.pageSize ?? 20);
-    const item = (Array.isArray(sorter) ? sorter[0] : sorter) as { field?: string | string[]; order?: 'ascend' | 'descend' };
-    const rawField = Array.isArray(item?.field) ? item.field.join('.') : item?.field;
-    const field = rawField === 'workOrder.orderNo' || rawField === 'workOrder,orderNo' ? 'orderNo' : rawField;
-    setSortField(field ?? 'plannedStart'); setSortOrder(item?.order === 'descend' ? 'DESC' : 'ASC');
   };
   return <Space orientation="vertical" style={{ width: '100%' }} size="middle">
     <Space wrap><Typography.Title level={5} style={{ margin: 0 }}>排产列表</Typography.Title><Space.Compact>{STATUS_TABS.map((tab) => <Button key={tab.key} type={status === tab.key ? 'primary' : 'default'} onClick={() => { setStatus(tab.key); setPage(1); setSelectedKeys([]); setSelectedRows([]); }}>{tab.label}</Button>)}</Space.Compact></Space>
     <Space wrap>{entryId && <Tag closable onClose={(event) => { event.preventDefault(); setEntryId(undefined); }}>待办定位</Tag>}<Input.Search aria-label="搜索排产记录" allowClear value={keyword} onChange={(event) => setKeyword(event.target.value)} onSearch={() => setDebouncedKeyword(keyword.trim())} placeholder="搜索计划号/工单号/物料/工序/设备/执行人" style={{ width: 320 }} /><DatePicker.RangePicker aria-label="排产记录日期范围" presets={capabilities.dateRangePresets?.map((preset) => ({ label: preset.label, value: preset.value.map((value) => dayjs(value)) as [dayjs.Dayjs, dayjs.Dayjs] }))} value={range} onChange={(dates) => { setRange(dates as [dayjs.Dayjs | null, dayjs.Dayjs | null]); setPage(1); }} allowClear /></Space>
     {batchActions}
-    {Boolean(error) && <Alert type="error" showIcon message="排产列表加载失败" action={<Button size="small" onClick={() => void load()}>重试</Button>} />}
-    <Table rowKey="id" size="small" scroll={{ x: 2100 }} columns={columns} dataSource={rows} loading={loading} onChange={onTableChange} rowSelection={canUpdate && ['scheduled', 'confirmed'].includes(status) ? { selectedRowKeys: selectedKeys, preserveSelectedRowKeys: true, onChange: (keys, selected) => { const ids = keys.map(String); setSelectedKeys(ids); setSelectedRows((current) => { const byId = new Map(current.map((row) => [row.id, row])); selected.forEach((row) => byId.set(row.id, row)); return ids.flatMap((id) => { const row = byId.get(id); return row ? [row] : []; }); }); }, getCheckboxProps: (record) => ({ disabled: record.status !== status }) } : undefined} pagination={{ current: page, pageSize, total, showSizeChanger: true, pageSizeOptions: [10, 20, 50, 100] }} />
+    {Boolean(error) && <Alert type="error" showIcon message="排产列表加载失败" action={<Button size="small" onClick={() => actionRef.current?.reload()}>重试</Button>} />}
+    <ResizableProTable<ScheduleEntryRecord, EntryListTableParams>
+      actionRef={actionRef}
+      rowKey="id"
+      size="small"
+      search={false}
+      fitContainerHeight={false}
+      showRowIndex={false}
+      scroll={{ x: 2300 }}
+      columns={columns}
+      request={request}
+      params={tableParams}
+      materialColumnPriority="preserve"
+      resizable={{ persistenceKey: 'production-schedule-entry-list', sortPersistenceKey: false }}
+      options={{ reload: false, density: false, fullScreen: false, setting: true }}
+      onChange={onTableChange}
+      rowSelection={canUpdate && ['scheduled', 'confirmed'].includes(status) ? { selectedRowKeys: selectedKeys, preserveSelectedRowKeys: true, onChange: (keys, selected) => { const ids = keys.map(String); setSelectedKeys(ids); setSelectedRows((current) => { const byId = new Map(current.map((row) => [row.id, row])); selected.forEach((row) => byId.set(row.id, row)); return ids.flatMap((id) => { const row = byId.get(id); return row ? [row] : []; }); }); }, getCheckboxProps: (record) => ({ disabled: record.status !== status }) } : undefined}
+      pagination={{ current: page, pageSize, showSizeChanger: true, pageSizeOptions: [10, 20, 50, 100] }}
+    />
   </Space>;
 }

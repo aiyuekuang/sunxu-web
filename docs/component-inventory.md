@@ -133,7 +133,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `ProductionShiftCalendar`、`ShiftFormModal`、`ShiftTable`、`ExceptionFormModal`、`ExceptionTable`（`sunxu-web/mes`） | 保留班次及日期例外的归属、校验、分页筛选、分域权限动作、删除确认与变更历史；业务请求、主数据候选和字段级消息由宿主注入 |
 | `RescheduleDrawer`、`ChangeHistoryModal`（`sunxu-web/mes`） | 保留排程策略配置、影响预览/筛选、风险入口、历史与提交刷新；权限、字典、服务、错误和导航由宿主注入 |
 | 生产排程甘特组件（`sunxu-web/mes`） | 保留产能格、排程条拖拽/缩放/选择、右键菜单、详情检查器、日期筛选工具栏、提示和待排产拖放；待排产面板/容量条位置和右键选择行为可配置，时间/排产模型、颜色/文案、权限动作、数据和提交由宿主注入 |
-| `AutoScheduleDrawer`、`ScheduleFromPlansDrawer`、`BottleneckPanel`、`ScenarioCompare`、`EntryFormDrawer`、`EntryList`、`ProductionScheduleGanttView`（`sunxu-web/mes`） | 保留自动/计划排产、计划与外协摘要、瓶颈/方案分析、人工排程表单与台账、甘特交互；策略/API/权限/字典/导航/提交由 MES 宿主注入 |
+| `AutoScheduleDrawer`、`ScheduleFromPlansDrawer`、`BottleneckPanel`、`ScenarioCompare`、`EntryFormDrawer`、`EntryList`、`ProductionScheduleGanttView`（`sunxu-web/mes`） | 保留自动/计划排产、计划与外协摘要、瓶颈/方案分析、人工排程表单与台账（列设置与列宽使用共享 `ResizableProTable`）、甘特交互；策略/API/权限/字典/导航/提交由 MES 宿主注入 |
 | `BatchReleaseModal`（`sunxu-web/mes`） | 保留生产计划批量下达草稿的增删、数量/交期编辑、受保护行过滤、日期序列化和成功刷新；草稿查询/保存与提示由宿主注入 |
 | `TemplateFieldSelector`、`TemplateLayoutPresetSelect`（`sunxu-web/mes`） | 保留打印字段筛选、必选锁定、默认选择、搜索、拖拽排序与 12 种版式 SVG；打印字段、模板枚举、版式选项和字段帮助由宿主注入 |
 | `GridPrintDesigner`（`sunxu-web/mes`） | 保留网格打印模板画布、字段/样例数据加载、模板 schema 兼容和预览入口；授权字段、样例数据、纸张参数与预览动作由 MES 宿主注入 |

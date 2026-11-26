@@ -1,0 +1,366 @@
+{
+  "status": "RENDERED",
+  "url": "http://127.0.0.1:4173/",
+  "geometry": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "scroll": {
+      "windowY": 54694,
+      "mainTop": 0
+    },
+    "mainRect": {
+      "left": 224,
+      "top": -54638,
+      "right": 1440,
+      "bottom": 4533.328125,
+      "width": 1216,
+      "height": 59171.328125
+    },
+    "contentRect": {
+      "left": 248,
+      "top": -54614,
+      "right": 1416,
+      "bottom": 4509.328125,
+      "width": 1168,
+      "height": 59123.328125
+    },
+    "listRect": {
+      "left": 273,
+      "top": 380.234375,
+      "right": 1391,
+      "bottom": 668.65625,
+      "width": 1118,
+      "height": 288.421875
+    },
+    "titleRect": {
+      "left": 273,
+      "top": 386.234375,
+      "right": 337,
+      "bottom": 410.234375,
+      "width": 64,
+      "height": 24
+    },
+    "toolbarRect": {
+      "left": 289,
+      "top": 484.234375,
+      "right": 1375,
+      "bottom": 548.234375,
+      "width": 1086,
+      "height": 64
+    },
+    "gearRect": {
+      "left": 1355,
+      "top": 500.234375,
+      "right": 1371,
+      "bottom": 532.234375,
+      "width": 16,
+      "height": 32
+    },
+    "gearCount": 1,
+    "tableWrapperRect": {
+      "left": 289,
+      "top": 548.234375,
+      "right": 1375,
+      "bottom": 658.65625,
+      "width": 1086,
+      "height": 110.421875
+    },
+    "tableRect": {
+      "left": 289,
+      "top": 548.234375,
+      "right": 1375,
+      "bottom": 618.65625,
+      "width": 1086,
+      "height": 70.421875
+    },
+    "scrollSurfaceRect": {
+      "left": 289,
+      "top": 548.234375,
+      "right": 1375,
+      "bottom": 618.65625,
+      "width": 1086,
+      "height": 70.421875
+    },
+    "scrollSurface": {
+      "clientWidth": 1086,
+      "scrollWidth": 1938,
+      "overflowX": true,
+      "computedOverflowX": "auto"
+    },
+    "visibleHeaderCount": 15,
+    "resizableHeaderCount": 14,
+    "headers": [
+      {
+        "text": "工单号",
+        "rect": {
+          "left": 289,
+          "top": 548.234375,
+          "right": 459,
+          "bottom": 575.65625,
+          "width": 170,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "计划号",
+        "rect": {
+          "left": 459,
+          "top": 548.234375,
+          "right": 604,
+          "bottom": 575.65625,
+          "width": 145,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "物料名称",
+        "rect": {
+          "left": 604,
+          "top": 548.234375,
+          "right": 774,
+          "bottom": 575.65625,
+          "width": 170,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "计划数量",
+        "rect": {
+          "left": 774,
+          "top": 548.234375,
+          "right": 884,
+          "bottom": 575.65625,
+          "width": 110,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "缩略图",
+        "rect": {
+          "left": 884,
+          "top": 548.234375,
+          "right": 974,
+          "bottom": 575.65625,
+          "width": 90,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "工序名称",
+        "rect": {
+          "left": 974,
+          "top": 548.234375,
+          "right": 1099,
+          "bottom": 575.65625,
+          "width": 125,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "依赖检查",
+        "rect": {
+          "left": 1099,
+          "top": 548.234375,
+          "right": 1279,
+          "bottom": 575.65625,
+          "width": 180,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "工作中心",
+        "rect": {
+          "left": 1279,
+          "top": 548.234375,
+          "right": 1399,
+          "bottom": 575.65625,
+          "width": 120,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "设备",
+        "rect": {
+          "left": 1399,
+          "top": 548.234375,
+          "right": 1509,
+          "bottom": 575.65625,
+          "width": 110,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "计划开始",
+        "rect": {
+          "left": 1509,
+          "top": 548.234375,
+          "right": 1669,
+          "bottom": 575.65625,
+          "width": 160,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "计划结束",
+        "rect": {
+          "left": 1669,
+          "top": 548.234375,
+          "right": 1829,
+          "bottom": 575.65625,
+          "width": 160,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "工时",
+        "rect": {
+          "left": 1829,
+          "top": 548.234375,
+          "right": 1929,
+          "bottom": 575.65625,
+          "width": 100,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "执行人",
+        "rect": {
+          "left": 1929,
+          "top": 548.234375,
+          "right": 2029,
+          "bottom": 575.65625,
+          "width": 100,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "状态",
+        "rect": {
+          "left": 2029,
+          "top": 548.234375,
+          "right": 2179,
+          "bottom": 575.65625,
+          "width": 150,
+          "height": 27.421875
+        },
+        "resizeHandle": true
+      },
+      {
+        "text": "",
+        "rect": {
+          "left": 1327,
+          "top": 548.234375,
+          "right": 1375,
+          "bottom": 575.65625,
+          "width": 48,
+          "height": 27.421875
+        },
+        "resizeHandle": false
+      }
+    ],
+    "visibleRowCount": 1,
+    "visibleRowText": [
+      "WO-2026-0196PP-2026-0088不锈钢阀体300 piece下料依赖提醒下料中心激光切割机 012026-11-27 08:002026-11-27 12:004h 0min张工待确认"
+    ]
+  },
+  "columnSettingsPopoverText": "列展示\n重置\n不固定\n工单号\n计划号\n物料名称\n计划数量\n缩略图\n工序名称\n依赖检查\n工作中心\n设备\n固定在右侧",
+  "resize": {
+    "column": "工单号",
+    "widthBefore": 170,
+    "widthAfter": 206,
+    "delta": 36,
+    "succeeded": true
+  },
+  "storageKeys": [
+    {
+      "key": "mes_table_cols_production-schedule-entry-list",
+      "value": "{\"workOrder,orderNo\":{\"show\":true,\"order\":0},\"resizable-col-id-计划号-1\":{\"show\":true,\"order\":1},\"resizable-col-id-物料名称-2\":{\"show\":true,\"order\":2},\"resizable-col-id-计划数量-3\":{\"show\":true,\"order\":3},\"resizable-col-id-缩略图-4\":{\"show\":true,\"order\":4},\"resizable-col-id-工序名称-5\":{\"show\":true,\"order\":5},\"resizable-col-id-依赖检查-6\":{\"show\":true,\"order\":6},\"resizable-col-id-工作中心-7\":{\"show\":true,\"order\":7},\"resizable-col-id-设备-8\":{\"show\":true,\"order\":8},\"plannedStart\":{\"show\":true,\"order\":9},\"plannedEnd\":{\"show\":true,\"order\":10},\"resizable-col-id-工时-11\":{\"show\":true,\"order\":11},\"resizable-col-id-执行人-12\":{\"show\":true,\"order\":12},\"status\":{\"show\":true,\"order\":13},\"__mes_table_spacer__\":{\"show\":false,\"order\":14},\"resizable-col-id--15\":{\"show\":true,\"fixed\":\"right\",\"order\":15}}"
+    },
+    {
+      "key": "production-schedule-entry-list",
+      "value": "{\"resizableColumns\":[{\"dataIndex\":[\"workOrder\",\"orderNo\"],\"width\":206,\"title\":\"工单号\"},{\"dataIndex\":\"resizable-col-id-计划号-1\",\"width\":145,\"title\":\"计划号\"},{\"dataIndex\":\"resizable-col-id-物料名称-2\",\"width\":170,\"title\":\"物料名称\"},{\"dataIndex\":\"resizable-col-id-计划数量-3\",\"width\":110,\"title\":\"计划数量\"},{\"dataIndex\":\"resizable-col-id-缩略图-4\",\"width\":90,\"title\":\"缩略图\"},{\"dataIndex\":\"resizable-col-id-工序名称-5\",\"width\":125,\"title\":\"工序名称\"},{\"dataIndex\":\"resizable-col-id-依赖检查-6\",\"width\":180,\"title\":\"依赖检查\"},{\"dataIndex\":\"resizable-col-id-工作中心-7\",\"width\":120,\"title\":\"工作中心\"},{\"dataIndex\":\"resizable-col-id-设备-8\",\"width\":110,\"title\":\"设备\"},{\"dataIndex\":\"plannedStart\",\"width\":160,\"title\":\"计划开始\"},{\"dataIndex\":\"plannedEnd\",\"width\":160,\"title\":\"计划结束\"},{\"dataIndex\":\"resizable-col-id-工时-11\",\"width\":100,\"title\":\"工时\"},{\"dataIndex\":\"resizable-col-id-执行人-12\",\"width\":100,\"title\":\"执行人\"},{\"dataIndex\":\"status\",\"width\":150,\"title\":\"状态\"},{\"dataIndex\":\"__mes_table_spacer__\",\"key\":\"__mes_table_spacer__\",\"title\":\"\"},{\"dataIndex\":\"resizable-col-id--15\",\"width\":48,\"title\":\"\"}]}"
+    }
+  ],
+  "compact": {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "scroll": {
+      "windowY": 57555,
+      "mainTop": 0
+    },
+    "gearRect": {
+      "left": 951,
+      "top": 434.03125,
+      "right": 967,
+      "bottom": 466.03125,
+      "width": 16,
+      "height": 32
+    },
+    "wrapperRect": {
+      "left": 261,
+      "top": 482.03125,
+      "right": 971,
+      "bottom": 592.453125,
+      "width": 710,
+      "height": 110.421875
+    },
+    "scrollSurfaceRect": {
+      "left": 261,
+      "top": 482.03125,
+      "right": 971,
+      "bottom": 552.453125,
+      "width": 710,
+      "height": 70.421875
+    },
+    "scrollSurface": {
+      "clientWidth": 710,
+      "scrollWidth": 1974,
+      "overflowX": true,
+      "computedOverflowX": "auto"
+    },
+    "listRect": {
+      "left": 245,
+      "top": 314.03125,
+      "right": 987,
+      "bottom": 602.453125,
+      "width": 742,
+      "height": 288.421875
+    }
+  },
+  "screenshots": [
+    {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/production-schedule-entry-list-2026-11-26/after-1440x900.png",
+      "sha256": "d78282cb30e45c0f25dbcb2bac1d98c191e813b25162643e7a0ab66279a1b481"
+    },
+    {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/production-schedule-entry-list-2026-11-26/after-1440x900-column-settings.png",
+      "sha256": "8f8788979e208f4caec39650ba500f3675699c0fc4483989743177ae53c7a6c0"
+    },
+    {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/production-schedule-entry-list-2026-11-26/after-1440x900-resized.png",
+      "sha256": "a0b84c2f64612808b42cb6bdbce167f2778a18edf9c818b9e679dd713eb52e56"
+    },
+    {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/production-schedule-entry-list-2026-11-26/after-1024x768.png",
+      "sha256": "04d8f0bfbf71fd6da9832ab9ddeb7228d1aeb7f01e427ee47feb0b44e07e723b"
+    }
+  ],
+  "pageErrors": []
+}
