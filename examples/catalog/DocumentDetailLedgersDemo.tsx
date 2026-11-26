@@ -7,14 +7,14 @@ import type {
 import type { ColumnsState } from '@ant-design/pro-components';
 import dayjs from 'dayjs';
 import { useMemo, useRef, useState, type Key } from 'react';
-import { MesUiProvider } from '../../src/business';
-import { InternalIssueDetailLedger } from '../../src/business/components/InternalIssueDetailLedger';
-import { ProductionReceiptDetailLedger } from '../../src/business/components/ProductionReceiptDetailLedger';
-import { PurchaseInquiryDetailLedger } from '../../src/business/components/PurchaseInquiryDetailLedger';
-import { PurchaseRequisitionDetailLedger } from '../../src/business/components/PurchaseRequisitionDetailLedger';
-import type { DocumentDetailLedgerSavedViewController } from '../../src/business/components/DocumentDetailLedgerTable';
-import type { DocumentViewBarView } from '../../src/business/components/DocumentViewBar';
-import type { MesUiProviderProps } from '../../src/business/MesUiProvider';
+import { BusinessUiProvider } from '../../src/business';
+import { InternalIssueDetailLedger } from '../../src/business/domains/inventory/InternalIssueDetailLedger';
+import { ProductionReceiptDetailLedger } from '../../src/business/domains/manufacturing/ProductionReceiptDetailLedger';
+import { PurchaseInquiryDetailLedger } from '../../src/business/domains/procurement/PurchaseInquiryDetailLedger';
+import { PurchaseRequisitionDetailLedger } from '../../src/business/domains/procurement/PurchaseRequisitionDetailLedger';
+import type { DocumentDetailLedgerSavedViewController } from '../../src/business/domains/documents/DocumentDetailLedgerTable';
+import type { DocumentViewBarView } from '../../src/business/domains/documents/DocumentViewBar';
+import type { BusinessUiProviderProps } from '../../src/business/providers/BusinessUiProvider';
 import type {
   DetailLedgerBatchPrintCapabilities,
   DetailLedgerFormatCapabilities,
@@ -22,7 +22,7 @@ import type {
   PurchaseInquiryDetailLedgerRow,
   PurchaseRequisitionDetailLedgerRow,
   ProductionReceiptDetailLedgerRow,
-} from '../../src/business/components/detail-ledger-components-types';
+} from '../../src/business/domains/documents/detail-ledger-components-types';
 import type { StatusMap } from '../../src/components/StatusDisplay';
 
 type DemoView = DocumentViewBarView;
@@ -318,7 +318,7 @@ function selectFilter<TRow extends object>(
 export function DocumentDetailLedgersDemo() {
   const [lastAction, setLastAction] = useState('尚未执行操作');
   const exportCapabilities = useMemo<
-    NonNullable<MesUiProviderProps['documentDetailLedgerCapabilities']>
+    NonNullable<BusinessUiProviderProps['documentDetailLedgerCapabilities']>
   >(
     () => ({
       pagination: { defaultPageSize: 10 },
@@ -336,7 +336,7 @@ export function DocumentDetailLedgersDemo() {
   );
 
   return (
-    <MesUiProvider
+    <BusinessUiProvider
       hasPermission={(permission) => permission.startsWith('demo:')}
       documentDetailLedgerCapabilities={exportCapabilities}
     >
@@ -352,7 +352,7 @@ export function DocumentDetailLedgersDemo() {
           {lastAction}
         </Typography.Text>
       </Space>
-    </MesUiProvider>
+    </BusinessUiProvider>
   );
 }
 

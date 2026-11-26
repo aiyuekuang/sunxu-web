@@ -4,7 +4,7 @@ import { Button, Form, Input, Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   AccountingCrudPage,
-  MesUiProvider,
+  BusinessUiProvider,
   type AccountingCrudService,
 } from '../../src/business';
 
@@ -88,7 +88,7 @@ export function AccountingCrudPageDemo() {
           />
           <Button onClick={() => setRows((current) => [...current])}>刷新演示数据</Button>
         </Space>
-        <MesUiProvider hasPermission={() => canManage}>
+        <BusinessUiProvider hasPermission={() => canManage}>
           <AccountingCrudPage<DemoAccountingRow>
             title="会计基础资料"
             columns={columns}
@@ -114,7 +114,7 @@ export function AccountingCrudPageDemo() {
               </>
             )}
           />
-        </MesUiProvider>
+        </BusinessUiProvider>
       </Space>
     </SectionCard>
   );

@@ -1,7 +1,7 @@
 import { message } from 'antd';
 import { useEffect, useState } from 'react';
-import { useMesCustomFieldFormCapabilities } from '../MesUiProvider';
-import type { MesCustomFieldSchema } from '../components/custom-field-form-types';
+import { useCustomFieldFormCapabilities } from '../providers/BusinessUiProvider';
+import type { CustomFieldSchema } from '../domains/documents/custom-field-form-types';
 
 function readObject(value: unknown): Record<string, unknown> {
   return value && typeof value === 'object' && !Array.isArray(value)
@@ -9,7 +9,7 @@ function readObject(value: unknown): Record<string, unknown> {
     : {};
 }
 
-function hasDetailFields(schema: MesCustomFieldSchema | null) {
+function hasDetailFields(schema: CustomFieldSchema | null) {
   return (schema?.fields ?? []).some(
     (field) =>
       field.isActive !== false &&
@@ -25,7 +25,7 @@ export function useDocumentCustomFieldDetailVisibility(
   objectType?: string,
   enabled = true,
 ) {
-  const capabilities = useMesCustomFieldFormCapabilities();
+  const capabilities = useCustomFieldFormCapabilities();
   const [visible, setVisible] = useState(false);
 
   useEffect(() => {

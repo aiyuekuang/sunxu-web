@@ -1,10 +1,10 @@
 import { Form, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { QualityInspectionItemResultFields } from '../../src/business/components/QualityInspectionItemResultFields';
+import { QualityInspectionItemResultFields } from '../../src/business/domains/quality/QualityInspectionItemResultFields';
 import type {
   QualityInspectionItemResultFieldsCapabilities,
   QualityInspectionResultItem,
-} from '../../src/business/components/quality-inspection-item-result-fields-types';
+} from '../../src/business/domains/quality/quality-inspection-item-result-fields-types';
 
 const demoItems: QualityInspectionResultItem[] = [
   {

@@ -5,9 +5,9 @@ import {
   DrawingFilesGallery,
   DrawingFilesInline,
   FileUrlsInline,
-  MesUiProvider,
+  BusinessUiProvider,
   type DrawingFileGroup,
-  type MesDrawingFilesCapabilities,
+  type DrawingFilesCapabilities,
 } from '../../src/business';
 import drawingImageUrl from './fixtures/mes-drawing-sample.png';
 import drawingPdfUrl from './fixtures/mes-drawing-sample.pdf?url&no-inline';
@@ -68,7 +68,7 @@ export function DrawingFilesDemo() {
     },
   ];
 
-  const drawingFilesCapabilities = useMemo<MesDrawingFilesCapabilities>(
+  const drawingFilesCapabilities = useMemo<DrawingFilesCapabilities>(
     () => ({
       pdfWorkerSrc: pdfWorkerUrl,
       uploadFiles: async ({ data }) => {
@@ -110,7 +110,7 @@ export function DrawingFilesDemo() {
         <Typography.Paragraph type="secondary" style={{ marginBottom: 0 }}>
           附件上传、代理下载和原始文件名解析由宿主注入；此目录示例使用本地文件模拟。
         </Typography.Paragraph>
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => true}
           drawingFilesCapabilities={drawingFilesCapabilities}
         >
@@ -148,7 +148,7 @@ export function DrawingFilesDemo() {
               </Typography.Text>
             </div>
           </Space>
-        </MesUiProvider>
+        </BusinessUiProvider>
       </Space>
     </SectionCard>
   );

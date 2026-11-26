@@ -5,7 +5,7 @@ import {
   SaleDeliveryDocumentActionDrawer,
   SaleOrderDetailLedger,
   SaleReturnDetailLedger,
-} from '../../src/business/components/SalesDetailLedgerComponents';
+} from '../../src/business/domains/sales/SalesDetailLedgerComponents';
 import type {
   SaleDeliveryActionDrawerModel,
   SaleDeliveryDetailLedgerCapabilities,
@@ -22,18 +22,18 @@ import type {
   SalesDetailLedgerQueryBase,
   SalesDetailLedgerResponse,
   SalesDetailLedgerFilterColumns,
-} from '../../src/business/components/sales-detail-ledger-types';
+} from '../../src/business/domains/sales/sales-detail-ledger-types';
 import type {
   SaleDeliveryDocumentActionsCapabilities,
-} from '../../src/business/components/sale-delivery-document-actions-dropdown-types';
+} from '../../src/business/domains/sales/sale-delivery-document-actions-dropdown-types';
 import type {
   SaleDeliveryItemsPanelCapabilities,
-} from '../../src/business/components/sales-delivery-components-types';
+} from '../../src/business/domains/sales/sales-delivery-components-types';
 import type {
   SaleReturnEditCapabilities,
   SaleReturnReceiveCapabilities,
   SaleReturnStockConversionCapabilities,
-} from '../../src/business/components/sale-return-components-types';
+} from '../../src/business/domains/sales/sale-return-components-types';
 import type { StatusMap } from '../../src/components/StatusDisplay';
 import type { ProColumns } from '@ant-design/pro-components';
 

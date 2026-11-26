@@ -2,18 +2,18 @@ import { useMemo, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import { Button, Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { MesUiProvider, type MesDocumentDetailLedgerCapabilities } from '../../src/business';
+import { BusinessUiProvider, type DocumentDetailLedgerCapabilities } from '../../src/business';
 import type { ColumnsState } from '@ant-design/pro-components';
-import type { DocumentDetailLedgerSavedViewController } from '../../src/business/components/DocumentDetailLedgerTable';
-import type { DocumentViewBarView } from '../../src/business/components/DocumentViewBar';
-import { PurchaseReturnDetailLedger } from '../../src/business/components/PurchaseReturnDetailLedger';
-import { QuotationDetailLedger } from '../../src/business/components/QuotationDetailLedger';
-import { MaterialIssueDetailLedger } from '../../src/business/components/MaterialIssueDetailLedger';
-import { PurchaseReceiptDetailLedger } from '../../src/business/components/PurchaseReceiptDetailLedger';
-import type { PurchaseReturnDetailLedgerRow, PurchaseReturnDetailLedgerQuery, PurchaseReturnDetailLedgerResponse } from '../../src/business/components/purchase-return-detail-ledger-types';
-import type { QuotationDetailLedgerRow, QuotationDetailLedgerQuery, QuotationDetailLedgerResponse } from '../../src/business/components/quotation-detail-ledger-types';
-import type { MaterialIssueDetailLedgerRow, MaterialIssueDetailLedgerQuery, MaterialIssueDetailLedgerResponse } from '../../src/business/components/material-issue-detail-ledger-types';
-import type { PurchaseReceiptDetailLedgerRow, PurchaseReceiptDetailLedgerQuery, PurchaseReceiptDetailLedgerResponse } from '../../src/business/components/purchase-receipt-detail-ledger-types';
+import type { DocumentDetailLedgerSavedViewController } from '../../src/business/domains/documents/DocumentDetailLedgerTable';
+import type { DocumentViewBarView } from '../../src/business/domains/documents/DocumentViewBar';
+import { PurchaseReturnDetailLedger } from '../../src/business/domains/procurement/PurchaseReturnDetailLedger';
+import { QuotationDetailLedger } from '../../src/business/domains/sales/QuotationDetailLedger';
+import { MaterialIssueDetailLedger } from '../../src/business/domains/inventory/MaterialIssueDetailLedger';
+import { PurchaseReceiptDetailLedger } from '../../src/business/domains/procurement/PurchaseReceiptDetailLedger';
+import type { PurchaseReturnDetailLedgerRow, PurchaseReturnDetailLedgerQuery, PurchaseReturnDetailLedgerResponse } from '../../src/business/domains/procurement/purchase-return-detail-ledger-types';
+import type { QuotationDetailLedgerRow, QuotationDetailLedgerQuery, QuotationDetailLedgerResponse } from '../../src/business/domains/sales/quotation-detail-ledger-types';
+import type { MaterialIssueDetailLedgerRow, MaterialIssueDetailLedgerQuery, MaterialIssueDetailLedgerResponse } from '../../src/business/domains/inventory/material-issue-detail-ledger-types';
+import type { PurchaseReceiptDetailLedgerRow, PurchaseReceiptDetailLedgerQuery, PurchaseReceiptDetailLedgerResponse } from '../../src/business/domains/procurement/purchase-receipt-detail-ledger-types';
 
 type BusinessOperationalCapabilities = {
   purchaseReturn: ComponentProps<typeof PurchaseReturnDetailLedger>['capabilities'];
@@ -130,17 +130,17 @@ const formats = { formatNumber, formatCurrency, formatDate, formatDateTime, form
       renderLifecycle: () => <Typography.Text type="secondary">宿主注入：退料编辑/出库、质检详情、落地成本和打印作业。</Typography.Text>,
     },
   }), [savedViewController, showAmounts]);
-  const ledgerCapabilities = useMemo<MesDocumentDetailLedgerCapabilities>(() => ({ pagination: { defaultPageSize: 10, showSizeChanger: false }, renderExportAction: ({ exportFn, label }) => <Button onClick={async () => { const file = await exportFn(); setLastAction(`模拟导出完成：${file.size} bytes`); }}>{label}</Button> }), []);
+  const ledgerCapabilities = useMemo<DocumentDetailLedgerCapabilities>(() => ({ pagination: { defaultPageSize: 10, showSizeChanger: false }, renderExportAction: ({ exportFn, label }) => <Button onClick={async () => { const file = await exportFn(); setLastAction(`模拟导出完成：${file.size} bytes`); }}>{label}</Button> }), []);
   const action = <Button type="primary" onClick={() => setLastAction('打开新增 / 创建表单')}>新建单据</Button>;
   return <SectionCard title="采购与销售业务明细台账迁移 Demo">
     <Typography.Paragraph type="secondary">保留业务筛选、动态明细字段、状态/权限呈现、摘要、个人视图与行级操作；API、权限判断、导航、字典、格式化、导出/打印和生命周期动作均由宿主能力注入。</Typography.Paragraph>
     <Space wrap style={{ marginBottom: 12 }}><Segmented aria-label="选择明细台账" value={kind} onChange={(v) => setKind(String(v))} options={[{ label: '采购退料', value: 'purchase-return' }, { label: '销售报价', value: 'quotation' }, { label: '生产领料', value: 'material-issue' }, { label: '采购入库流水', value: 'purchase-receipt' }]} />{action}</Space>
     {lastAction ? <Typography.Text type="secondary" style={{ display: 'block', marginBottom: 8 }}>最近操作：{lastAction}</Typography.Text> : null}
-    <MesUiProvider hasPermission={() => true} documentDetailLedgerCapabilities={ledgerCapabilities}>
+    <BusinessUiProvider hasPermission={() => true} documentDetailLedgerCapabilities={ledgerCapabilities}>
       {kind === 'purchase-return' ? <PurchaseReturnDetailLedger capabilities={capabilities.purchaseReturn} onCreate={() => setLastAction('新建采购退料')} /> : null}
       {kind === 'quotation' ? <QuotationDetailLedger capabilities={capabilities.quotation} initialDateRange={['2026-11-01', '2026-11-30']} onCreate={() => setLastAction('新建报价')} /> : null}
       {kind === 'material-issue' ? <MaterialIssueDetailLedger capabilities={capabilities.materialIssue} onCreate={() => setLastAction('新建领料单')} /> : null}
       {kind === 'purchase-receipt' ? <PurchaseReceiptDetailLedger capabilities={capabilities.purchaseReceipt} initialDateRange={['2026-11-01', '2026-11-30']} onCreate={() => setLastAction('新建采购入库')} onEdit={(id) => setLastAction(`编辑入库单 ${id}`)} /> : null}
-    </MesUiProvider>
+    </BusinessUiProvider>
   </SectionCard>;
 }

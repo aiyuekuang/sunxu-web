@@ -25,7 +25,7 @@ function assertOrdered(source, markers) {
 
 test('account import keeps full-sheet validation and row-level correction feedback', () => {
   const source = section(
-    read('src/business/components/AccountingImportComponents.tsx'),
+    read('src/business/domains/accounting/AccountingImportComponents.tsx'),
     'export function AccountImportModal',
     'export function OpeningBalanceImportModal',
   );
@@ -38,7 +38,7 @@ test('account import keeps full-sheet validation and row-level correction feedba
 });
 
 test('opening balance import stays a precheck flow and reports row validation issues', () => {
-  const file = read('src/business/components/AccountingImportComponents.tsx');
+  const file = read('src/business/domains/accounting/AccountingImportComponents.tsx');
   const start = file.indexOf('export function OpeningBalanceImportModal');
   assert.ok(start >= 0, 'missing opening balance import modal');
   const source = file.slice(start);
@@ -50,7 +50,7 @@ test('opening balance import stays a precheck flow and reports row validation is
 });
 
 test('inventory results keep direction and pending-cost filters in one table', () => {
-  const file = read('src/business/components/AccountingInventoryComponents.tsx');
+  const file = read('src/business/domains/accounting/AccountingInventoryComponents.tsx');
   const source = section(
     file,
     'export function InventoryResultTable',
@@ -73,7 +73,7 @@ test('inventory results keep direction and pending-cost filters in one table', (
 
 test('inventory opening balance edits preserve the selected material and warehouse', () => {
   const source = section(
-    read('src/business/components/AccountingInventoryComponents.tsx'),
+    read('src/business/domains/accounting/AccountingInventoryComponents.tsx'),
     'export function InventoryOpeningBalancePanel',
     'export function InventoryResultTable',
   );
@@ -86,7 +86,7 @@ test('inventory opening balance edits preserve the selected material and warehou
 
 test('narrative summary filters submit and reset through the shared ledger query', () => {
   const source = section(
-    read('src/business/components/AccountingLedgerComponents.tsx'),
+    read('src/business/domains/accounting/AccountingLedgerComponents.tsx'),
     'export function NarrativeSummaryTable',
     'export function TrialBalanceButton',
   );
@@ -98,7 +98,7 @@ test('narrative summary filters submit and reset through the shared ledger query
 });
 
 test('purchase accrual preview preserves selection totals and confirmation safeguards', () => {
-  const file = read('src/business/components/PurchaseAccrualComponents.tsx');
+  const file = read('src/business/domains/accounting/PurchaseAccrualComponents.tsx');
   const start = file.indexOf('export function PurchaseAccrualPreviewDrawer');
   assert.ok(start >= 0, 'missing purchase accrual preview drawer');
   const source = file.slice(start);
@@ -114,7 +114,7 @@ test('purchase accrual preview preserves selection totals and confirmation safeg
 });
 
 test('purchase accrual detail uses shared status and resizable-table components', () => {
-  const file = read('src/business/components/PurchaseAccrualComponents.tsx');
+  const file = read('src/business/domains/accounting/PurchaseAccrualComponents.tsx');
   const source = section(
     file,
     'export function PurchaseAccrualDetailDrawer',
@@ -129,7 +129,7 @@ test('purchase accrual detail uses shared status and resizable-table components'
 });
 
 test('requisition form preserves draft, submit, duplicate-submit, and failure recovery behavior', () => {
-  const source = read('src/business/components/RequisitionFormModal.tsx');
+  const source = read('src/business/domains/procurement/RequisitionFormModal.tsx');
 
   assert.match(source, /<Dropdown\.Button/);
   assert.match(source, /保存并提交审批/);
@@ -142,12 +142,12 @@ test('requisition form preserves draft, submit, duplicate-submit, and failure re
 
 test('BOM expansion and conversion preserve material-first line columns', () => {
   const bom = section(
-    read('src/business/components/BomExpansionCreateModal.tsx'),
+    read('src/business/domains/procurement/BomExpansionCreateModal.tsx'),
     'const previewColumns',
     "title: '来源'",
   );
   const conversion = section(
-    read('src/business/components/ConvertToOrderDrawer.tsx'),
+    read('src/business/domains/procurement/ConvertToOrderDrawer.tsx'),
     'dataSource={remainingItems}',
     "title: '行号'",
   );
@@ -164,9 +164,9 @@ test('BOM expansion and conversion preserve material-first line columns', () => 
 });
 
 test('package management and sales conversion preserve material-first columns', () => {
-  const packageManager = read('src/business/components/PackageSpecManager.tsx');
+  const packageManager = read('src/business/domains/inventory/PackageSpecManager.tsx');
   const conversion = section(
-    read('src/business/components/ConvertToProductionDrawer.tsx'),
+    read('src/business/domains/sales/ConvertToProductionDrawer.tsx'),
     'columns={[',
     "title: '订单图纸'",
   );
@@ -182,7 +182,7 @@ test('package management and sales conversion preserve material-first columns', 
 });
 
 test('quotation drawer keeps host success callback and shared custom-field section', () => {
-  const source = read('src/business/components/QuotationFormDrawer.tsx');
+  const source = read('src/business/domains/sales/QuotationFormDrawer.tsx');
 
   assert.match(source, /capabilitiesRef\.current\.createQuotation\(payload\)/);
   assert.match(source, /onSuccess\?\.\(quotation\)/);
@@ -191,7 +191,7 @@ test('quotation drawer keeps host success callback and shared custom-field secti
 });
 
 test('sales order detail ledger keeps filters, material-first columns, actions, and totals', () => {
-  const sales = read('src/business/components/SalesDetailLedgerComponents.tsx');
+  const sales = read('src/business/domains/sales/SalesDetailLedgerComponents.tsx');
   const ledger = section(
     sales,
     'export function SaleOrderDetailLedger',
@@ -240,7 +240,7 @@ test('sales order detail ledger keeps filters, material-first columns, actions, 
 });
 
 test('sales return detail ledger keeps host-driven actions and saved-view filtering', () => {
-  const sales = read('src/business/components/SalesDetailLedgerComponents.tsx');
+  const sales = read('src/business/domains/sales/SalesDetailLedgerComponents.tsx');
   const ledger = section(
     sales,
     'export function SaleReturnDetailLedger',
@@ -255,7 +255,7 @@ test('sales return detail ledger keeps host-driven actions and saved-view filter
 });
 
 test('sales-order shipping delegates the gated action to the host editor', () => {
-  const source = read('src/business/components/SaleOrderShipActionModal.tsx');
+  const source = read('src/business/domains/sales/SaleOrderShipActionModal.tsx');
 
   assert.match(source, /capabilities\.renderDeliveryEditor\(\{/);
   assert.match(source, /open: open && Boolean\(order\?\.id\)/);

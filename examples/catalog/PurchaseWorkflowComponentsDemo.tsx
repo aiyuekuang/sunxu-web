@@ -3,43 +3,43 @@ import { App, Button, Modal, Space, Typography } from 'antd';
 import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import drawingPdfUrl from './fixtures/mes-drawing-sample.pdf?url&no-inline';
 import { SectionCard } from '../../src';
-import { MesUiProvider } from '../../src/business';
-import { CreateInquiryDrawer } from '../../src/business/components/CreateInquiryDrawer';
+import { BusinessUiProvider } from '../../src/business';
+import { CreateInquiryDrawer } from '../../src/business/domains/procurement/CreateInquiryDrawer';
 import type {
   CreateInquiryDrawerCapabilities,
   InquiryRequisition,
-} from '../../src/business/components/create-inquiry-drawer-types';
-import { ConvertToOrderDrawer } from '../../src/business/components/ConvertToOrderDrawer';
+} from '../../src/business/domains/procurement/create-inquiry-drawer-types';
+import { ConvertToOrderDrawer } from '../../src/business/domains/procurement/ConvertToOrderDrawer';
 import type {
   ConvertToOrderDrawerCapabilities,
   ConvertToOrderRequisition,
-} from '../../src/business/components/convert-to-order-drawer-types';
+} from '../../src/business/domains/procurement/convert-to-order-drawer-types';
 import {
   PurchaseOrderViewSwitch,
-} from '../../src/business/components/PurchaseOrderViewSwitch';
-import type { PurchaseOrderViewMode } from '../../src/business/components/purchase-order-view-switch-types';
-import { RequisitionFormModal } from '../../src/business/components/RequisitionFormModal';
+} from '../../src/business/domains/procurement/PurchaseOrderViewSwitch';
+import type { PurchaseOrderViewMode } from '../../src/business/domains/procurement/purchase-order-view-switch-types';
+import { RequisitionFormModal } from '../../src/business/domains/procurement/RequisitionFormModal';
 import type {
   RequisitionFormModalCapabilities,
   RequisitionFormRecord,
-} from '../../src/business/components/requisition-form-modal-types';
+} from '../../src/business/domains/procurement/requisition-form-modal-types';
 import {
   SendPurchaseOrderModal,
-} from '../../src/business/components/SendPurchaseOrderModal';
-import type { PurchaseOrderSendCapabilities } from '../../src/business/components/send-action-modal-types';
+} from '../../src/business/domains/procurement/SendPurchaseOrderModal';
+import type { PurchaseOrderSendCapabilities } from '../../src/business/domains/documents/send-action-modal-types';
 import {
   PurchaseReceiptActionModal,
-} from '../../src/business/components/PurchaseReceiptActionModal';
+} from '../../src/business/domains/procurement/PurchaseReceiptActionModal';
 import type {
   PurchaseReceiptActionCapabilities,
   PurchaseReceiptActionReceipt,
-} from '../../src/business/components/purchase-receipt-action-modal-types';
-import type { MesUiProviderProps } from '../../src/business/MesUiProvider';
-import type { MesStockLocationSelectCapabilities } from '../../src/business/components/stock-location-select-field-types';
-import type { MesWarehouseRemoteSelectCapabilities } from '../../src/business/components/warehouse-remote-select-types';
-import type { MesPurchaseReceiptCapabilities } from '../../src/business/components/purchase-receipt-types';
-import type { MesMaterialTablePickerCapabilities } from '../../src/business/components/material-table-picker-types';
-import type { MesMaterialSelectCapabilities } from '../../src/business/components/material-select-types';
+} from '../../src/business/domains/procurement/purchase-receipt-action-modal-types';
+import type { BusinessUiProviderProps } from '../../src/business/providers/BusinessUiProvider';
+import type { StockLocationSelectCapabilities } from '../../src/business/domains/inventory/stock-location-select-field-types';
+import type { WarehouseRemoteSelectCapabilities } from '../../src/business/domains/inventory/warehouse-remote-select-types';
+import type { PurchaseReceiptCapabilities } from '../../src/business/domains/procurement/purchase-receipt-types';
+import type { MaterialTablePickerCapabilities } from '../../src/business/domains/inventory/material-table-picker-types';
+import type { MaterialSelectCapabilities } from '../../src/business/domains/inventory/material-select-types';
 
 async function fetchDemoPdf() {
   const response = await fetch(drawingPdfUrl);
@@ -122,7 +122,7 @@ const requisitionRecord: RequisitionFormRecord = {
   ],
 };
 
-const stockLocationCapabilities: MesStockLocationSelectCapabilities = {
+const stockLocationCapabilities: StockLocationSelectCapabilities = {
   canAccessLocations: false,
   requestCacheScope: 'purchase-workflow-demo',
   requestPrecheck: async ({ action, warehouseId }) => ({
@@ -140,7 +140,7 @@ const stockLocationCapabilities: MesStockLocationSelectCapabilities = {
   renderConfigEntryFieldLabel: ({ children }) => children,
 };
 
-const warehouseRemoteSelectCapabilities: MesWarehouseRemoteSelectCapabilities = {
+const warehouseRemoteSelectCapabilities: WarehouseRemoteSelectCapabilities = {
   requestOptions: async () => [
     {
       label: '原材料主仓',
@@ -153,14 +153,14 @@ const warehouseRemoteSelectCapabilities: MesWarehouseRemoteSelectCapabilities = 
   ],
 };
 
-const materialTablePickerCapabilities: MesMaterialTablePickerCapabilities = {
+const materialTablePickerCapabilities: MaterialTablePickerCapabilities = {
   requestCategoryTree: async () => [],
   requestMaterials: async () => ({ list: [], total: 0 }),
   requestCustomerStockSummary: async () => ({ items: [] }),
   pagination: false,
 };
 
-const materialSelectCapabilities: MesMaterialSelectCapabilities = {
+const materialSelectCapabilities: MaterialSelectCapabilities = {
   loadSelectorCustomFields: async () => [],
 };
 
@@ -448,7 +448,7 @@ function PurchaseWorkflowDemoContent() {
     () => ({ pdfWorkerSrc: pdfWorkerUrl, fetchFileBlob: fetchDemoPdf }),
     [],
   );
-  const quickCreateCapabilities = useMemo<NonNullable<MesUiProviderProps['masterDataQuickCreateCapabilities']>>(
+  const quickCreateCapabilities = useMemo<NonNullable<BusinessUiProviderProps['masterDataQuickCreateCapabilities']>>(
     () => ({
       canCreate: (entity) => entity === 'supplier',
       renderDrawer: ({ entity, open, onOpenChange, onCreated }) => (
@@ -474,13 +474,13 @@ function PurchaseWorkflowDemoContent() {
     }),
     [],
   );
-  const purchaseReceiptProviderCapabilities = useMemo<MesPurchaseReceiptCapabilities>(
+  const purchaseReceiptProviderCapabilities = useMemo<PurchaseReceiptCapabilities>(
     () => ({ generateSystemBatchNo: async () => ({ batchNo: 'PR-LOT-2026-018' }) }),
     [],
   );
 
   return (
-    <MesUiProvider
+    <BusinessUiProvider
       hasPermission={() => true}
       drawingFilesCapabilities={drawingFilesCapabilities}
       masterDataQuickCreateCapabilities={quickCreateCapabilities}
@@ -557,7 +557,7 @@ function PurchaseWorkflowDemoContent() {
         onOpenCreated={(id) => setLastAction(`打开询价单：${id}`)}
         capabilities={inquiryCapabilities}
       />
-    </MesUiProvider>
+    </BusinessUiProvider>
   );
 }
 

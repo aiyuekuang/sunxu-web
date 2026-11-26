@@ -3,7 +3,7 @@ import { Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   MaterialSupplierPriceTierSummary,
-  MesUiProvider,
+  BusinessUiProvider,
   type SupplierPriceTierSummaryRecord,
 } from '../../src/business';
 
@@ -49,7 +49,7 @@ export function MaterialSupplierPriceTierSummaryDemo() {
       <Typography.Paragraph type="secondary">
         按等级、默认标记和优先级排序，只显示前三项并折叠其余数量；等级字典、币种默认值和金额脱敏由宿主提供。
       </Typography.Paragraph>
-      <MesUiProvider
+      <BusinessUiProvider
         hasPermission={() => true}
         maskAmount={(amount) =>
           amount == null ? '-' : showAmounts ? String(amount) : '****'
@@ -65,7 +65,7 @@ export function MaterialSupplierPriceTierSummaryDemo() {
             {showAmounts ? '隐藏价格' : '显示价格'}
           </Button>
         </Space>
-      </MesUiProvider>
+      </BusinessUiProvider>
     </SectionCard>
   );
 }

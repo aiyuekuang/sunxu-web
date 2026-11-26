@@ -2,15 +2,15 @@ import { useMemo, useState } from 'react';
 import dayjs from 'dayjs';
 import { App, Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { ExpenseBillLinesEditableTable } from '../../src/business/components/ExpenseBillLinesEditableTable';
-import { FundsTransactionDrawer } from '../../src/business/components/FundsTransactionDrawer';
+import { ExpenseBillLinesEditableTable } from '../../src/business/domains/accounting/ExpenseBillLinesEditableTable';
+import { FundsTransactionDrawer } from '../../src/business/domains/accounting/FundsTransactionDrawer';
 import type {
   ExpenseBillLineCustomFieldSchema,
   ExpenseBillLineDraft,
   ExpenseBillLinesEditableTableCapabilities,
   ExpenseReceiptOption,
-} from '../../src/business/components/expense-bill-lines-editable-table-types';
-import type { FundsTransactionDrawerCapabilities } from '../../src/business/components/funds-transaction-drawer-types';
+} from '../../src/business/domains/accounting/expense-bill-lines-editable-table-types';
+import type { FundsTransactionDrawerCapabilities } from '../../src/business/domains/accounting/funds-transaction-drawer-types';
 
 const receiptOptions: ExpenseReceiptOption[] = [
   {

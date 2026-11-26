@@ -3,11 +3,11 @@ import { Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   ImportWorkbenchDrawer,
-  MesUiProvider,
-  type MesImportWorkbenchCapabilities,
+  BusinessUiProvider,
+  type ImportWorkbenchCapabilities,
 } from '../../src/business';
 
-const demoCapabilities: MesImportWorkbenchCapabilities = {
+const demoCapabilities: ImportWorkbenchCapabilities = {
   requestTemplate: async () =>
     new Blob(['code,name\nM-001,示例物料'], { type: 'text/csv' }),
   preview: async () => ({
@@ -53,8 +53,8 @@ export function ImportWorkbenchDrawerDemo() {
           {lastAction}
         </Typography.Text>
       </Space>
-      <MesUiProvider
-        hasPermission={(permission) => permission !== 'mes:import:supplier'}
+      <BusinessUiProvider
+        hasPermission={(permission) => permission !== 'demo:import:supplier'}
         importWorkbenchCapabilities={demoCapabilities}
       >
         <ImportWorkbenchDrawer
@@ -64,23 +64,23 @@ export function ImportWorkbenchDrawerDemo() {
             {
               value: 'material',
               label: '物料档案',
-              requiredPermission: 'mes:import:material',
+              requiredPermission: 'demo:import:material',
             },
             {
               value: 'customer',
               label: '客户档案',
-              requiredPermission: 'mes:import:customer',
+              requiredPermission: 'demo:import:customer',
             },
             {
               value: 'supplier',
               label: '供应商档案',
-              requiredPermission: 'mes:import:supplier',
+              requiredPermission: 'demo:import:supplier',
             },
           ]}
           onClose={() => setOpen(false)}
           onSuccess={() => setLastAction('导入完成，宿主已请求刷新列表')}
         />
-      </MesUiProvider>
+      </BusinessUiProvider>
     </SectionCard>
   );
 }

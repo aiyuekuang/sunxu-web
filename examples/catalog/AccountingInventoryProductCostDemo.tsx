@@ -8,29 +8,29 @@ import type { ActionType } from '@ant-design/pro-components';
 import {
   ClosingWipModal,
   OpeningWipModal,
-} from '../../src/business/components/ProductCostWipModals';
+} from '../../src/business/domains/accounting/ProductCostWipModals';
 import {
   InventoryOpeningBalancePanel,
   InventoryResultTable,
   InventoryStockSummaryTable,
-} from '../../src/business/components/AccountingInventoryComponents';
-import { ProductCostCollectionsPanel } from '../../src/business/components/ProductCostCollectionsPanel';
+} from '../../src/business/domains/accounting/AccountingInventoryComponents';
+import { ProductCostCollectionsPanel } from '../../src/business/domains/accounting/ProductCostCollectionsPanel';
 import type {
   InventoryCostResultRecord,
   InventoryOpeningBalanceRecord,
   InventoryPeriodQuery,
   InventoryResultFilter,
   InventoryStockSummaryRow,
-} from '../../src/business/components/accounting-inventory-components-types';
+} from '../../src/business/domains/accounting/accounting-inventory-components-types';
 import type {
   ProductCostExpenseCollectionRecord,
   ProductCostExpenseDraftRecord,
-} from '../../src/business/components/product-cost-collection-types';
+} from '../../src/business/domains/accounting/product-cost-collection-types';
 import type {
   ProductCostClosingWipRecord,
   ProductCostOpeningWipRecord,
-} from '../../src/business/components/product-cost-wip-types';
-import { PRODUCT_COST_ALLOCATION_BASIS_OPTIONS } from '../../src/business/components/accounting-options';
+} from '../../src/business/domains/accounting/product-cost-wip-types';
+import { PRODUCT_COST_ALLOCATION_BASIS_OPTIONS } from '../../src/business/domains/accounting/accounting-options';
 import type { StatusMap } from '../../src/components/StatusDisplay';
 
 const period: InventoryPeriodQuery = {

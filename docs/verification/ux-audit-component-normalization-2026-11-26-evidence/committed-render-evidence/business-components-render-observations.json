@@ -1,0 +1,69 @@
+{
+  "capturedAt": "2026-11-26T11:44:10.868Z",
+  "previewUrl": "http://127.0.0.1:4175/",
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "document": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 83534
+    },
+    "pageHorizontalOverflow": false,
+    "hostIntegrationCard": {
+      "x": 33,
+      "y": 31.09375,
+      "width": 324,
+      "height": 1212.484375,
+      "right": 357,
+      "scrollWidth": 322,
+      "clientWidth": 322
+    },
+    "targetFound": true
+  },
+  "runtimeExceptions": [],
+  "screenshots": [
+    "business-components-scrolled-desktop-1440x900.png",
+    "app-download-panel-desktop-1440x900.png",
+    "app-download-panel-mobile-390x844.png"
+  ],
+  "route": "Catalog → 业务复合组件",
+  "desktopRouteState": "Scrolled to the host integration and application-shell demonstrations",
+  "desktop": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "scrollHeight": 59506
+    },
+    "pageHorizontalOverflow": false
+  },
+  "desktopIntegrationSection": {
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "scrollHeight": 59506
+    },
+    "pageHorizontalOverflow": false,
+    "hostIntegrationCard": {
+      "x": 273,
+      "y": 124.8125,
+      "width": 1118,
+      "height": 1000.109375,
+      "right": 1391,
+      "scrollWidth": 1116,
+      "clientWidth": 1116
+    },
+    "tableScrollRegion": null
+  },
+  "mobileRouteState": "Scrolled to the host integration and application-shell demonstrations"
+}

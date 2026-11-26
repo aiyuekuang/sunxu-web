@@ -2,12 +2,12 @@ import { useMemo, useState } from 'react';
 import { ProForm } from '@ant-design/pro-components';
 import { Segmented, Space } from 'antd';
 import { SectionCard, Typography } from '../../src';
-import { TemplateFieldSelector } from '../../src/business/components/TemplateFieldSelector';
+import { TemplateFieldSelector } from '../../src/business/domains/printing/TemplateFieldSelector';
 import type {
   TemplateFieldSelectorCapabilities,
   TemplateLayoutPresetOption,
-} from '../../src/business/components/template-print-types';
-import { TemplateLayoutPresetSelect } from '../../src/business/components/TemplateLayoutPresetSelect';
+} from '../../src/business/domains/printing/template-print-types';
+import { TemplateLayoutPresetSelect } from '../../src/business/domains/printing/TemplateLayoutPresetSelect';
 
 type DemoTemplateType = 'label_compact' | 'document_flow' | 'continuous_fixed';
 

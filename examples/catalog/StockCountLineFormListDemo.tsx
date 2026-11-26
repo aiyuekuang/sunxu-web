@@ -2,10 +2,10 @@ import { useMemo } from 'react';
 import { Button, Form, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
-  MesUiProvider,
+  BusinessUiProvider,
   StockCountLineFormList,
   type BatchMaterialRecord,
-  type MesMaterialTablePickerCapabilities,
+  type MaterialTablePickerCapabilities,
   type StockCountLineFormCapabilities,
   type StockCountLineFormRow,
 } from '../../src/business';
@@ -39,7 +39,7 @@ export function StockCountLineFormListDemo() {
     | undefined;
   const lines = watchedLines ?? [];
 
-  const materialPickerCapabilities = useMemo<MesMaterialTablePickerCapabilities>(
+  const materialPickerCapabilities = useMemo<MaterialTablePickerCapabilities>(
     () => ({
       requestCategoryTree: async () => [],
       requestMaterials: async ({ page, pageSize }) => ({
@@ -104,7 +104,7 @@ export function StockCountLineFormListDemo() {
       <Typography.Paragraph type="secondary">
         表单保留物料、货主、仓位、批号、行备注和动态自定义字段；列表请求、空行构造与配置权限由宿主注入。
       </Typography.Paragraph>
-      <MesUiProvider
+      <BusinessUiProvider
         hasPermission={() => true}
         materialTablePickerCapabilities={materialPickerCapabilities}
       >
@@ -124,7 +124,7 @@ export function StockCountLineFormListDemo() {
             </Typography.Text>
           </Space>
         </Form>
-      </MesUiProvider>
+      </BusinessUiProvider>
     </SectionCard>
   );
 }

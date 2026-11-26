@@ -10,7 +10,7 @@ import {
 import type {
   ScheduleHeatmapWeekCell,
   ShiftBreakValue,
-} from '../../src/business/components/production-schedule-widget-types';
+} from '../../src/business/domains/manufacturing/production-schedule-widget-types';
 
 const TIMELINE_WIDTH = 960;
 const noop = () => undefined;

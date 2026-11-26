@@ -3,15 +3,15 @@ import { Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   GeneratePurchaseReceiptBatchNoButton,
-  MesUiProvider,
-  type MesPurchaseReceiptCapabilities,
+  BusinessUiProvider,
+  type PurchaseReceiptCapabilities,
 } from '../../src/business';
 
 export function PurchaseReceiptBatchNoButtonDemo() {
   const [batchNo, setBatchNo] = useState('');
   const [generatedBatchNo, setGeneratedBatchNo] = useState('');
   const [requestCount, setRequestCount] = useState(0);
-  const capabilities = useMemo<MesPurchaseReceiptCapabilities>(
+  const capabilities = useMemo<PurchaseReceiptCapabilities>(
     () => ({
       async generateSystemBatchNo({ materialId }) {
         setRequestCount((current) => current + 1);
@@ -32,7 +32,7 @@ export function PurchaseReceiptBatchNoButtonDemo() {
       <Typography.Paragraph type="secondary">
         服务由宿主注入。成功后把系统批号回填当前明细；已有批号或未选择物料时不可生成。
       </Typography.Paragraph>
-      <MesUiProvider
+      <BusinessUiProvider
         hasPermission={() => true}
         purchaseReceiptCapabilities={capabilities}
       >
@@ -90,7 +90,7 @@ export function PurchaseReceiptBatchNoButtonDemo() {
             服务请求次数：{requestCount}
           </Typography.Text>
         </Space>
-      </MesUiProvider>
+      </BusinessUiProvider>
       <Space wrap align="center">
         <GeneratePurchaseReceiptBatchNoButton
           materialId="material-no-provider"

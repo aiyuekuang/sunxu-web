@@ -13,11 +13,11 @@ import {
   createAccountingSelectorRequests,
   FiscalPeriodField,
   getLocalBusinessDate,
-  MesUiProvider,
+  BusinessUiProvider,
   selectPreferredFiscalPeriod,
   VoucherWordField,
   type AccountingFiscalPeriodRecord,
-  type MesAccountingSelectorCapabilities,
+  type AccountingSelectorCapabilities,
 } from '../../src/business';
 
 function monthCode(value: Date) {
@@ -33,7 +33,7 @@ function periodForMonth(value: Date, status: AccountingFiscalPeriodRecord['statu
   return { periodCode: code, status, startDate, endDate };
 }
 
-function makeCapabilities(emptyBooks: boolean): MesAccountingSelectorCapabilities {
+function makeCapabilities(emptyBooks: boolean): AccountingSelectorCapabilities {
   return {
     async listAccountingBooks() {
       return emptyBooks
@@ -109,7 +109,7 @@ function AccountingSelectorDemoForm({
   disabled,
   emptyBooks,
 }: {
-  capabilities: MesAccountingSelectorCapabilities;
+  capabilities: AccountingSelectorCapabilities;
   autoDefault: boolean;
   disabled: boolean;
   emptyBooks: boolean;
@@ -160,7 +160,7 @@ function AccountingSelectorDemoForm({
   }, [capabilities, requests]);
 
   return (
-    <MesUiProvider
+    <BusinessUiProvider
       hasPermission={() => true}
       accountingSelectorCapabilities={capabilities}
     >
@@ -196,7 +196,7 @@ function AccountingSelectorDemoForm({
       <Typography.Text type="secondary" role="status">
         Helper 结果：{helperResult}
       </Typography.Text>
-    </MesUiProvider>
+    </BusinessUiProvider>
   );
 }
 

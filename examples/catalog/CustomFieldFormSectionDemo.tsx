@@ -4,15 +4,15 @@ import { Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   CustomFieldFormSection,
-  MesUiProvider,
-  type MesCustomFieldFormCapabilities,
-  type MesCustomFieldSchema,
+  BusinessUiProvider,
+  type CustomFieldFormCapabilities,
+  type CustomFieldSchema,
   type CustomFieldFormRuntime,
 } from '../../src/business';
 
 type DemoMode = 'create' | 'update' | 'empty' | 'error';
 
-const demoSchema: MesCustomFieldSchema = {
+const demoSchema: CustomFieldSchema = {
   schemaVersion: 7,
   fields: [
     {
@@ -83,7 +83,7 @@ export function CustomFieldFormSectionDemo() {
   const [mode, setMode] = useState<DemoMode>('create');
   const [runtime, setRuntime] = useState<CustomFieldFormRuntime | null>(null);
   const [lastSubmitted, setLastSubmitted] = useState('尚未提交');
-  const capabilities = useMemo<MesCustomFieldFormCapabilities>(
+  const capabilities = useMemo<CustomFieldFormCapabilities>(
     () => ({
       async requestFormSchema() {
         await new Promise((resolve) => window.setTimeout(resolve, 120));
@@ -127,7 +127,7 @@ export function CustomFieldFormSectionDemo() {
           ]}
           onChange={(value) => setMode(value as DemoMode)}
         />
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => true}
           customFieldFormCapabilities={capabilities}
         >
@@ -144,7 +144,7 @@ export function CustomFieldFormSectionDemo() {
               onRuntimeChange={setRuntime}
             />
           </ProForm>
-        </MesUiProvider>
+        </BusinessUiProvider>
         <Typography.Text role="status" aria-live="polite">
           Schema：{runtime ? `v${runtime.schemaVersion}` : '未就绪'}；输入字段{' '}
           {runtime?.inputKeys.length ?? 0} 项，表单字段{' '}

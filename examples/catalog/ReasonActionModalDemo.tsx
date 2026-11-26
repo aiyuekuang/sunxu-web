@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { MesUiProvider, ReasonActionModal } from '../../src/business';
+import { BusinessUiProvider, ReasonActionModal } from '../../src/business';
 
 export function ReasonActionModalDemo() {
   const [open, setOpen] = useState(false);
@@ -18,7 +18,7 @@ export function ReasonActionModalDemo() {
         </Button>
         <Typography.Text aria-live="polite">提交原因：{submittedReason}</Typography.Text>
       </Space>
-      <MesUiProvider hasPermission={() => true}>
+      <BusinessUiProvider hasPermission={() => true}>
         <ReasonActionModal
           open={open}
           title="撤销采购单"
@@ -32,7 +32,7 @@ export function ReasonActionModalDemo() {
             setOpen(false);
           }}
         />
-      </MesUiProvider>
+      </BusinessUiProvider>
     </SectionCard>
   );
 }

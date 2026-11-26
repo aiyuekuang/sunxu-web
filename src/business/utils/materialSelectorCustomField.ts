@@ -1,5 +1,5 @@
 import dayjs from 'dayjs';
-import type { MaterialSelectorCustomFieldDefinition } from '../components/material-select-types';
+import type { MaterialSelectorCustomFieldDefinition } from '../domains/inventory/material-select-types';
 
 export interface MaterialSelectorCustomFieldSource {
   computedValues?: unknown;

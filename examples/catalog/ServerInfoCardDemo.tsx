@@ -1,11 +1,11 @@
 import { useMemo, useRef, useState } from 'react';
 import { Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { ServerInfoCard } from '../../src/business/components/ServerInfoCard';
+import { ServerInfoCard } from '../../src/business/domains/application/ServerInfoCard';
 import type {
   ServerInfoCardCapabilities,
   ServerSystemStats,
-} from '../../src/business/components/server-info-card-types';
+} from '../../src/business/domains/application/server-info-card-types';
 
 const initialStats: ServerSystemStats = {
   cpu: {

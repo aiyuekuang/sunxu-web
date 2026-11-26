@@ -1,0 +1,77 @@
+{
+  "url": "http://127.0.0.1:4173",
+  "title": "榫序 Web 组件目录",
+  "activePage": "业务复合组件",
+  "pageErrors": [],
+  "consoleErrors": [
+    "Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.",
+    "[use-antd-resizable-header] 请不要在所有列上添加 `width` 属性，这将导致表格无法自适应",
+    "Warning: [antd: Alert] `message` is deprecated. Please use `title` instead.",
+    "Warning: [antd: Form.Item] `labelAlign=left|right` is deprecated. Please use `labelAlign=start|end` instead.",
+    "Warning: [antd: InputNumber] `addonAfter` is deprecated. Please use `Space.Compact` instead.",
+    "Warning: Form already set 'initialValues' with path 'fulfillmentScenario'. Field can not overwrite it.",
+    "Warning: Form already set 'initialValues' with path 'settlementMode'. Field can not overwrite it.",
+    "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. data:image/svg+xml,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2296%22%20height%3D%2296%22%20viewBox%3D%220%200%2096%2096%22%3E%3Crect%20width%3D%2296%22%20height%3D%2296%22%20rx%3D%2212%22%20fill%3D%22%23e6f4ff%22%2F%3E%3Cpath%20d%3D%22M15%2070%2035%2046l14%2016%2010-12%2022%2020H15Z%22%20fill%3D%22%231677ff%22%2F%3E%3Ccircle%20cx%3D%2234%22%20cy%3D%2231%22%20r%3D%228%22%20fill%3D%22%2369b1ff%22%2F%3E%3C%2Fsvg%3E",
+    "Encountered two children with the same key, `%s`. Keys should be unique so that components maintain their identity across updates. Non-unique keys may cause children to be duplicated and/or omitted — the behavior is unsupported and could change in a future version. empty",
+    "Warning: [antd: InputNumber] `addonBefore` is deprecated. Please use `Space.Compact` instead.",
+    "Warning: Instance created by `useForm` is not connected to any Form element. Forget to pass `form` prop?"
+  ],
+  "desktop": {
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "scrollY": 24764.5,
+    "document": {
+      "clientWidth": 1280,
+      "scrollWidth": 1280
+    },
+    "trigger": {
+      "x": 350,
+      "y": 437.8125,
+      "width": 24,
+      "height": 24,
+      "right": 374,
+      "bottom": 461.8125
+    },
+    "tooltip": {
+      "x": 249.948974609375,
+      "y": 367.05426025390625,
+      "width": 224.10205078125,
+      "height": 59.496124267578125,
+      "right": 474.051025390625,
+      "bottom": 426.5503845214844
+    },
+    "tooltipText": "金额口径\n金额由单据币种和税率共同决定。",
+    "tooltipFitsViewport": true
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scrollY": 34194,
+    "document": {
+      "clientWidth": 390,
+      "scrollWidth": 390
+    },
+    "trigger": {
+      "x": 110,
+      "y": 400.171875,
+      "width": 44,
+      "height": 44,
+      "right": 154,
+      "bottom": 444.171875
+    },
+    "tooltip": {
+      "x": 19.952224731445312,
+      "y": 329.55615234375,
+      "width": 224.09555053710938,
+      "height": 59.494384765625,
+      "right": 244.0477752685547,
+      "bottom": 389.050537109375
+    },
+    "tooltipText": "金额口径\n金额由单据币种和税率共同决定。",
+    "tooltipFitsViewport": true
+  }
+}

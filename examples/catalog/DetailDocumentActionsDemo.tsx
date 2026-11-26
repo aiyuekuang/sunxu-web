@@ -4,7 +4,7 @@ import { SectionCard } from '../../src';
 import {
   DetailDocumentActions,
   DetailLedgerDocumentActions,
-  MesUiProvider,
+  BusinessUiProvider,
   type DocumentActionDefinition,
   type DocumentActionState,
 } from '../../src/business';
@@ -52,7 +52,7 @@ export function DetailDocumentActionsDemo() {
       <Typography.Paragraph type="secondary">
         详情动作按服务端可用动作与宿主权限共同筛选；高频操作显示完整名称，低频操作放入“更多操作”。台账菜单按需加载权威单据后由宿主处理跳转。
       </Typography.Paragraph>
-      <MesUiProvider
+      <BusinessUiProvider
         hasPermission={() => true}
         documentNavigation={navigation}
       >
@@ -79,7 +79,7 @@ export function DetailDocumentActionsDemo() {
             loadDocument={async () => demoDocument}
           />
         </Space>
-      </MesUiProvider>
+      </BusinessUiProvider>
       <Typography.Text type="secondary" aria-live="polite">
         {lastAction}
       </Typography.Text>

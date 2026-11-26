@@ -3,23 +3,23 @@ import { ProFormSelect } from '@ant-design/pro-components';
 import { App, Button, Segmented, Space, Typography } from 'antd';
 import dayjs from 'dayjs';
 import { SectionCard } from '../../src';
-import { FundsTransactionImportModal, CreateFundsTransactionModal } from '../../src/business/components/FundsTransactionModals';
-import { FinanceInvoiceCurrencyRepairModal } from '../../src/business/components/FinanceInvoiceCurrencyRepairModal';
-import { FinanceInvoiceCancelModal } from '../../src/business/components/FinanceInvoiceCancelModal';
-import { CreditNoteRefundModal } from '../../src/business/components/CreditNoteRefundModal';
+import { FundsTransactionImportModal, CreateFundsTransactionModal } from '../../src/business/domains/accounting/FundsTransactionModals';
+import { FinanceInvoiceCurrencyRepairModal } from '../../src/business/domains/accounting/FinanceInvoiceCurrencyRepairModal';
+import { FinanceInvoiceCancelModal } from '../../src/business/domains/accounting/FinanceInvoiceCancelModal';
+import { CreditNoteRefundModal } from '../../src/business/domains/accounting/CreditNoteRefundModal';
 import type {
   FundsTransactionCreateModalCapabilities,
   FundsTransactionImportModalCapabilities,
-} from '../../src/business/components/funds-transaction-modals-types';
+} from '../../src/business/domains/accounting/funds-transaction-modals-types';
 import type {
   FinanceInvoiceActionRecord,
   FinanceInvoiceCurrencyRepairResult,
-} from '../../src/business/components/finance-invoice-action-types';
-import type { FinanceInvoiceCurrencyRepairCapabilities } from '../../src/business/components/finance-invoice-currency-repair-modal-types';
-import type { FinanceInvoiceCancelCapabilities } from '../../src/business/components/finance-invoice-cancel-modal-types';
+} from '../../src/business/domains/accounting/finance-invoice-action-types';
+import type { FinanceInvoiceCurrencyRepairCapabilities } from '../../src/business/domains/accounting/finance-invoice-currency-repair-modal-types';
+import type { FinanceInvoiceCancelCapabilities } from '../../src/business/domains/accounting/finance-invoice-cancel-modal-types';
 import type {
   CreditNoteRefundCapabilities,
-} from '../../src/business/components/credit-note-refund-modal-types';
+} from '../../src/business/domains/accounting/credit-note-refund-modal-types';
 
 interface DemoFinancePayment {
   id: string;

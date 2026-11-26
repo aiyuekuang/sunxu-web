@@ -6,7 +6,7 @@ import {
   LandedCostDetailDrawer,
   LandedCostFormDrawer,
   LandedCostReceiptContextCard,
-  MesUiProvider,
+  BusinessUiProvider,
   type LandedCostAccountingSourceDocument,
   type LandedCostActionDocument,
   type LandedCostAllocationBasis,
@@ -459,7 +459,7 @@ export function LandedCostComponentsDemo() {
           {emptyOptions ? '恢复候选项' : '模拟空候选配置入口'}
         </Button>
       </Space>
-      <MesUiProvider hasPermission={canPermission}>
+      <BusinessUiProvider hasPermission={canPermission}>
         <LandedCostReceiptContextCard
           receiptOrderId="receipt-1"
           onOpenLandedCost={() => setDetailOpen(true)}
@@ -482,7 +482,7 @@ export function LandedCostComponentsDemo() {
           onAction={handleAction}
           capabilities={detailCapabilities}
         />
-      </MesUiProvider>
+      </BusinessUiProvider>
       <Space style={{ marginTop: 12 }}>
         <Segmented
           aria-label="会计来源状态演示"

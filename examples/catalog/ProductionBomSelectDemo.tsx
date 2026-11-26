@@ -3,9 +3,9 @@ import { ProForm, ProFormText } from '@ant-design/pro-components';
 import { Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
-  MesUiProvider,
+  BusinessUiProvider,
   ProductionBomSelect,
-  type MesProductionBomSelectCapabilities,
+  type ProductionBomSelectCapabilities,
   type ProductionBomOption,
 } from '../../src/business';
 
@@ -28,7 +28,7 @@ export function ProductionBomSelectDemo() {
   const [optionCount, setOptionCount] = useState<DemoOptionCount>('single');
   const [allowBomConfig, setAllowBomConfig] = useState(true);
   const [lastSubmitted, setLastSubmitted] = useState('尚未提交');
-  const capabilities = useMemo<MesProductionBomSelectCapabilities>(
+  const capabilities = useMemo<ProductionBomSelectCapabilities>(
     () => ({
       async requestOptions({ materialId, keyWords }) {
         await new Promise((resolve) => window.setTimeout(resolve, 120));
@@ -134,12 +134,12 @@ export function ProductionBomSelectDemo() {
           />
           <ProFormText name="saleOrderId" label="销售订单 ID（可选）" />
           <ProFormText name="saleOrderItemId" label="销售订单明细 ID（可选）" />
-          <MesUiProvider
+          <BusinessUiProvider
             hasPermission={() => true}
             productionBomSelectCapabilities={capabilities}
           >
             <ProductionBomSelect />
-          </MesUiProvider>
+          </BusinessUiProvider>
         </ProForm>
         <Typography.Text role="status" aria-live="polite">
           最近提交：{lastSubmitted}

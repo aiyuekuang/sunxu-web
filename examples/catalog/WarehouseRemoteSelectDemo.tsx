@@ -2,9 +2,9 @@ import { useMemo, useState } from 'react';
 import { Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
-  MesUiProvider,
+  BusinessUiProvider,
   WarehouseRemoteSelect,
-  type MesWarehouseRemoteSelectCapabilities,
+  type WarehouseRemoteSelectCapabilities,
   type WarehouseSelectOption,
 } from '../../src/business';
 
@@ -38,7 +38,7 @@ const demoWarehouses: WarehouseSelectOption[] = [
 export function WarehouseRemoteSelectDemo() {
   const [warehouseId, setWarehouseId] = useState('warehouse-legacy');
   const [warehouseName, setWarehouseName] = useState('历史仓库名称');
-  const capabilities = useMemo<MesWarehouseRemoteSelectCapabilities>(
+  const capabilities = useMemo<WarehouseRemoteSelectCapabilities>(
     () => ({
       async requestOptions({ keyWords, scope, typeFamilies }) {
         await new Promise((resolve) => window.setTimeout(resolve, 120));
@@ -70,7 +70,7 @@ export function WarehouseRemoteSelectDemo() {
       <Typography.Paragraph type="secondary">
         宿主提供仓库候选请求和类型族筛选；组件保留历史仓库名称回显，并在选择或清空时同时回传仓库 ID 与名称。
       </Typography.Paragraph>
-      <MesUiProvider
+      <BusinessUiProvider
         hasPermission={() => true}
         warehouseRemoteSelectCapabilities={capabilities}
       >
@@ -94,7 +94,7 @@ export function WarehouseRemoteSelectDemo() {
             onChange={() => undefined}
           />
         </Space>
-      </MesUiProvider>
+      </BusinessUiProvider>
     </SectionCard>
   );
 }

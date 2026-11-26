@@ -1,25 +1,25 @@
 import { useMemo, useState } from 'react';
 import { App, Button, Modal, Space, Typography } from 'antd';
-import { MesUiProvider } from '../../src/business/MesUiProvider';
-import { QuotationBindMaterialsModal } from '../../src/business/components/QuotationBindMaterialsModal';
-import { QuotationFormDrawer } from '../../src/business/components/QuotationFormDrawer';
-import { SendQuotationModal } from '../../src/business/components/SendQuotationModal';
+import { BusinessUiProvider } from '../../src/business/providers/BusinessUiProvider';
+import { QuotationBindMaterialsModal } from '../../src/business/domains/sales/QuotationBindMaterialsModal';
+import { QuotationFormDrawer } from '../../src/business/domains/sales/QuotationFormDrawer';
+import { SendQuotationModal } from '../../src/business/domains/sales/SendQuotationModal';
 import type {
   QuotationBindMaterialsCapabilities,
-} from '../../src/business/components/quotation-bind-materials-modal-types';
+} from '../../src/business/domains/sales/quotation-bind-materials-modal-types';
 import type {
   QuotationFormDrawerCapabilities,
   QuotationRecord,
-} from '../../src/business/components/quotation-form-drawer-types';
+} from '../../src/business/domains/sales/quotation-form-drawer-types';
 import type {
   QuotationSendChannel,
   SendQuotationCapabilities,
-} from '../../src/business/components/send-quotation-modal-types';
-import type { MesBomCostSnapshotCapabilities } from '../../src/business/components/bom-cost-types';
-import type { MesCustomFieldFormCapabilities } from '../../src/business/components/custom-field-form-types';
-import type { MesOrderItemEditorCapabilities } from '../../src/business/components/order-item-editor-types';
-import type { MesMasterDataQuickCreateCapabilities } from '../../src/business/components/master-data-quick-create-types';
-import type { MesMaterialSelectCapabilities } from '../../src/business/components/material-select-types';
+} from '../../src/business/domains/sales/send-quotation-modal-types';
+import type { BomCostSnapshotCapabilities } from '../../src/business/domains/manufacturing/bom-cost-types';
+import type { CustomFieldFormCapabilities } from '../../src/business/domains/documents/custom-field-form-types';
+import type { OrderItemEditorCapabilities } from '../../src/business/domains/sales/order-item-editor-types';
+import type { MasterDataQuickCreateCapabilities } from '../../src/business/domains/documents/master-data-quick-create-types';
+import type { MaterialSelectCapabilities } from '../../src/business/domains/inventory/material-select-types';
 
 const demoMaterials = [
   {
@@ -298,7 +298,7 @@ export function QuotationComponentsDemo() {
     [message],
   );
 
-  const quickCreateCapabilities = useMemo<MesMasterDataQuickCreateCapabilities>(
+  const quickCreateCapabilities = useMemo<MasterDataQuickCreateCapabilities>(
     () => ({
       canCreate: (entity) => entity === 'customer',
       renderDrawer: ({ entity, open, onOpenChange, onCreated }) => (
@@ -330,7 +330,7 @@ export function QuotationComponentsDemo() {
     [],
   );
 
-  const customFieldCapabilities = useMemo<MesCustomFieldFormCapabilities>(
+  const customFieldCapabilities = useMemo<CustomFieldFormCapabilities>(
     () => ({
       requestFormSchema: async () => ({
         schemaVersion: 1,
@@ -356,7 +356,7 @@ export function QuotationComponentsDemo() {
     [],
   );
 
-  const orderItemCapabilities = useMemo<MesOrderItemEditorCapabilities>(
+  const orderItemCapabilities = useMemo<OrderItemEditorCapabilities>(
     () => ({
       requestMaterials: async (params) => {
         const keyword = params?.keyWords?.toLowerCase() ?? '';
@@ -405,11 +405,11 @@ export function QuotationComponentsDemo() {
     [],
   );
 
-  const materialSelectCapabilities = useMemo<MesMaterialSelectCapabilities>(
+  const materialSelectCapabilities = useMemo<MaterialSelectCapabilities>(
     () => ({ unitLabelMap: { M: '米', EA: '只' } }),
     [],
   );
-  const bomCostCapabilities = useMemo<MesBomCostSnapshotCapabilities>(
+  const bomCostCapabilities = useMemo<BomCostSnapshotCapabilities>(
     () => ({
       requestCostPreview: async ({ bomCostSnapshot }) => ({
         snapshot:
@@ -456,7 +456,7 @@ export function QuotationComponentsDemo() {
         {lastAction}
       </Typography.Text>
 
-      <MesUiProvider
+      <BusinessUiProvider
         hasPermission={() => true}
         masterDataQuickCreateCapabilities={quickCreateCapabilities}
         customFieldFormCapabilities={customFieldCapabilities}
@@ -477,7 +477,7 @@ export function QuotationComponentsDemo() {
           }}
           capabilities={formCapabilities}
         />
-      </MesUiProvider>
+      </BusinessUiProvider>
       <QuotationBindMaterialsModal
         quotation={demoQuotation}
         open={bindOpen}

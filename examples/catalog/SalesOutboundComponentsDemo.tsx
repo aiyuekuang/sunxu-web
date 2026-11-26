@@ -1,15 +1,15 @@
 import { App, Button, Modal, Space, Typography } from 'antd';
 import { useMemo, useState } from 'react';
-import { ConvertToProductionDrawer } from '../../src/business/components/ConvertToProductionDrawer';
-import { SaleDeliveryDocumentActionsDropdown } from '../../src/business/components/SaleDeliveryDocumentActionsDropdown';
-import { SaleOrderShipActionModal } from '../../src/business/components/SaleOrderShipActionModal';
-import type { ConvertToProductionDrawerProps } from '../../src/business/components/convert-to-production-types';
+import { ConvertToProductionDrawer } from '../../src/business/domains/sales/ConvertToProductionDrawer';
+import { SaleDeliveryDocumentActionsDropdown } from '../../src/business/domains/sales/SaleDeliveryDocumentActionsDropdown';
+import { SaleOrderShipActionModal } from '../../src/business/domains/sales/SaleOrderShipActionModal';
+import type { ConvertToProductionDrawerProps } from '../../src/business/domains/manufacturing/convert-to-production-types';
 import type {
   SaleOrderConvertInfoItem,
   SaleOrderProductionPreparation,
-} from '../../src/business/components/convert-to-production-types';
-import type { SaleDeliveryDocumentActionsCapabilities } from '../../src/business/components/sale-delivery-document-actions-dropdown-types';
-import type { SaleOrderShipActionCapabilities } from '../../src/business/components/sale-order-ship-action-types';
+} from '../../src/business/domains/manufacturing/convert-to-production-types';
+import type { SaleDeliveryDocumentActionsCapabilities } from '../../src/business/domains/sales/sale-delivery-document-actions-dropdown-types';
+import type { SaleOrderShipActionCapabilities } from '../../src/business/domains/sales/sale-order-ship-action-types';
 
 const demoOrder = { id: 'sale-order-demo-018', orderNo: 'SO-2026-018' };
 

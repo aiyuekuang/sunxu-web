@@ -3,15 +3,15 @@ import { Button, Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   CustomFieldValuePanel,
-  MesUiProvider,
-  type MesCustomFieldFormCapabilities,
-  type MesCustomFieldSchema,
-  type MesCustomFieldValueDetail,
+  BusinessUiProvider,
+  type CustomFieldFormCapabilities,
+  type CustomFieldSchema,
+  type CustomFieldValueDetail,
 } from '../../src/business';
 
 type DemoMode = 'filled' | 'empty' | 'error';
 
-const schema: MesCustomFieldSchema = {
+const schema: CustomFieldSchema = {
   schemaVersion: 12,
   fields: [
     {
@@ -51,7 +51,7 @@ export function CustomFieldValuePanelDemo() {
   const [mode, setMode] = useState<DemoMode>('filled');
   const [editable, setEditable] = useState(true);
   const [lastSave, setLastSave] = useState('尚未保存');
-  const [values, setValues] = useState<MesCustomFieldValueDetail>({
+  const [values, setValues] = useState<CustomFieldValueDetail>({
     customValues: {
       supplierGrade: 'qualified',
       auditDate: '2026-10-15',
@@ -61,7 +61,7 @@ export function CustomFieldValuePanelDemo() {
     customComputedErrors: {},
   });
 
-  const capabilities = useMemo<MesCustomFieldFormCapabilities>(
+  const capabilities = useMemo<CustomFieldFormCapabilities>(
     () => ({
       async requestFormSchema() {
         if (mode === 'error') throw new Error('自定义字段服务暂不可用');
@@ -102,7 +102,7 @@ export function CustomFieldValuePanelDemo() {
             {editable ? '切换为只读' : '切换为可编辑'}
           </Button>
         </Space>
-        <MesUiProvider hasPermission={() => true} customFieldFormCapabilities={capabilities}>
+        <BusinessUiProvider hasPermission={() => true} customFieldFormCapabilities={capabilities}>
           <CustomFieldValuePanel
             key={mode}
             objectType="supplier"
@@ -111,7 +111,7 @@ export function CustomFieldValuePanelDemo() {
             title="供应商扩展信息"
             emptyExtra={<Button size="small">打开字段配置</Button>}
           />
-        </MesUiProvider>
+        </BusinessUiProvider>
         <Typography.Text role="status" aria-live="polite">{lastSave}</Typography.Text>
       </Space>
     </SectionCard>

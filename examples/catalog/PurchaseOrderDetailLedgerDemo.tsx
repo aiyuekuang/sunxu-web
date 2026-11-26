@@ -7,18 +7,18 @@ import type {
 import type { ColumnsState } from '@ant-design/pro-components';
 import dayjs from 'dayjs';
 import { useMemo, useRef, useState } from 'react';
-import { MesUiProvider } from '../../src/business';
-import type { MesUiProviderProps } from '../../src/business/MesUiProvider';
-import { PurchaseOrderDetailLedger } from '../../src/business/components/PurchaseOrderDetailLedger';
-import { PermissionButton } from '../../src/business/components/PermissionButton';
+import { BusinessUiProvider } from '../../src/business';
+import type { BusinessUiProviderProps } from '../../src/business/providers/BusinessUiProvider';
+import { PurchaseOrderDetailLedger } from '../../src/business/domains/procurement/PurchaseOrderDetailLedger';
+import { PermissionButton } from '../../src/business/domains/shared/PermissionButton';
 import type {
   PurchaseOrderDetailLedgerCapabilities,
   PurchaseOrderDetailLedgerFilterColumn,
   PurchaseOrderDetailLedgerRow,
   PurchaseOrderDetailLedgerSavedFilters,
-} from '../../src/business/components/purchase-order-detail-ledger-types';
-import type { DocumentDetailLedgerSavedViewController } from '../../src/business/components/DocumentDetailLedgerTable';
-import type { DocumentViewBarView } from '../../src/business/components/DocumentViewBar';
+} from '../../src/business/domains/procurement/purchase-order-detail-ledger-types';
+import type { DocumentDetailLedgerSavedViewController } from '../../src/business/domains/documents/DocumentDetailLedgerTable';
+import type { DocumentViewBarView } from '../../src/business/domains/documents/DocumentViewBar';
 import type { StatusMap } from '../../src/components/StatusDisplay';
 
 type DemoView = DocumentViewBarView;
@@ -223,7 +223,7 @@ export function PurchaseOrderDetailLedgerDemo() {
   const tableActionRef = useRef<ActionType | null>(null);
   const filterFormRef = useRef<ProFormInstance | undefined>(undefined);
   const providerCapabilities = useMemo<
-    NonNullable<MesUiProviderProps['documentDetailLedgerCapabilities']>
+    NonNullable<BusinessUiProviderProps['documentDetailLedgerCapabilities']>
   >(
     () => ({
       pagination: { defaultPageSize: 10 },
@@ -413,7 +413,7 @@ export function PurchaseOrderDetailLedgerDemo() {
   );
 
   return (
-    <MesUiProvider
+    <BusinessUiProvider
       hasPermission={(permission) => permission.startsWith('demo:')}
       documentDetailLedgerCapabilities={providerCapabilities}
     >
@@ -440,6 +440,6 @@ export function PurchaseOrderDetailLedgerDemo() {
           {lastAction}
         </Typography.Text>
       </Space>
-    </MesUiProvider>
+    </BusinessUiProvider>
   );
 }

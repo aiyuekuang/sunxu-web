@@ -10,13 +10,13 @@ type ModalStyleRecord = Exclude<
 >;
 type ModalStyleFunctionInfo = Parameters<ModalStyleFunction>[0];
 
-export type MesDocumentModalStyleOptions = {
+export type DocumentModalStyleOptions = {
   paddedBody?: boolean;
   variant?: 'document-form' | 'formula-workbench';
   overlay?: 'tab' | 'viewport';
 };
 
-const mesDocumentFormStyles = {
+const documentFormStyles = {
   root: {
     display: 'flex',
     flexDirection: 'column',
@@ -80,7 +80,7 @@ const mesDocumentFormStyles = {
   },
 } satisfies ModalStyleRecord;
 
-const mesDocumentFormPanelStyle = {
+const documentFormPanelStyle = {
   display: 'flex',
   flexDirection: 'column',
   top: 0,
@@ -170,17 +170,17 @@ function mergeStyleRecords(
   };
 }
 
-/** Merge the MES full-screen document layout with Ant Design Modal slots. */
-export function mergeMesDocumentModalStyles(
+/** Merge the full-screen document layout with Ant Design Modal slots. */
+export function mergeDocumentModalStyles(
   overrides: ModalProps['styles'],
-  options: MesDocumentModalStyleOptions = {},
+  options: DocumentModalStyleOptions = {},
 ): NonNullable<ModalProps['styles']> {
   const componentDefaults =
     options.variant === 'formula-workbench'
       ? formulaWorkbenchStyles
       : options.paddedBody
-        ? mergeStyleRecords(mesDocumentFormStyles, paddedDocumentFormBodyStyles)
-        : mesDocumentFormStyles;
+        ? mergeStyleRecords(documentFormStyles, paddedDocumentFormBodyStyles)
+        : documentFormStyles;
   const overlayDefaults =
     options.overlay === 'viewport'
       ? viewportOverlayStyles
@@ -200,11 +200,11 @@ export function mergeMesDocumentModalStyles(
 }
 
 /** Keep full-screen geometry on the dialog panel and preserve caller overrides. */
-export function mergeMesDocumentModalPanelStyle(
+export function mergeDocumentModalPanelStyle(
   overrides: ModalProps['style'],
 ): NonNullable<ModalProps['style']> {
   return {
-    ...mesDocumentFormPanelStyle,
+    ...documentFormPanelStyle,
     ...overrides,
   };
 }

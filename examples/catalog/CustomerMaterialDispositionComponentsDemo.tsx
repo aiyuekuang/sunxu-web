@@ -2,14 +2,14 @@ import dayjs from 'dayjs';
 import { useMemo, useRef, useState } from 'react';
 import { Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { MesUiProvider } from '../../src/business';
-import { CustomerMaterialDispositionDetailLedger } from '../../src/business/components/CustomerMaterialDispositionDetailLedger';
-import { CustomerMaterialDispositionForm } from '../../src/business/components/CustomerMaterialDispositionForm';
-import { CustomerMaterialDispositionReverseModal } from '../../src/business/components/CustomerMaterialDispositionReverseModal';
-import type { DocumentDetailLedgerSavedViewController } from '../../src/business/components/DocumentDetailLedgerTable';
-import type { DocumentLineCustomFieldSchema } from '../../src/business/components/document-line-custom-field-types';
-import type { DocumentViewBarView } from '../../src/business/components/DocumentViewBar';
-import type { MesStockLocationSelectCapabilities } from '../../src/business/components/stock-location-select-field-types';
+import { BusinessUiProvider } from '../../src/business';
+import { CustomerMaterialDispositionDetailLedger } from '../../src/business/domains/inventory/CustomerMaterialDispositionDetailLedger';
+import { CustomerMaterialDispositionForm } from '../../src/business/domains/inventory/CustomerMaterialDispositionForm';
+import { CustomerMaterialDispositionReverseModal } from '../../src/business/domains/inventory/CustomerMaterialDispositionReverseModal';
+import type { DocumentDetailLedgerSavedViewController } from '../../src/business/domains/documents/DocumentDetailLedgerTable';
+import type { DocumentLineCustomFieldSchema } from '../../src/business/domains/documents/document-line-custom-field-types';
+import type { DocumentViewBarView } from '../../src/business/domains/documents/DocumentViewBar';
+import type { StockLocationSelectCapabilities } from '../../src/business/domains/inventory/stock-location-select-field-types';
 import type {
   CustomerMaterialDispositionDetailLedgerCapabilities,
   CustomerMaterialDispositionDetailListQuery,
@@ -17,7 +17,7 @@ import type {
   CustomerMaterialDispositionFormCapabilities,
   CustomerMaterialDispositionOrder,
   CustomerMaterialDispositionReverseCapabilities,
-} from '../../src/business/components/customer-material-disposition-types';
+} from '../../src/business/domains/inventory/customer-material-disposition-types';
 
 const formSchema: DocumentLineCustomFieldSchema = {
   schemaVersion: 3,
@@ -104,7 +104,7 @@ function normalizeDateOnly(value: unknown): string | undefined {
     : undefined;
 }
 
-function createStockLocationCapabilities(): MesStockLocationSelectCapabilities {
+function createStockLocationCapabilities(): StockLocationSelectCapabilities {
   return {
     canAccessLocations: true,
     requestCacheScope: 'customer-disposition-demo',
@@ -333,7 +333,7 @@ export function CustomerMaterialDispositionComponentsDemo() {
           单据列表
         </Button>
       </Space>
-      <MesUiProvider
+      <BusinessUiProvider
         hasPermission={() => true}
         documentDetailLedgerCapabilities={{
           renderExportAction: ({ exportFn, label }) => (
@@ -369,7 +369,7 @@ export function CustomerMaterialDispositionComponentsDemo() {
           onOpenChange={(open) => setReverseOpen(open)}
           onSuccess={() => setLastAction('处置冲正完成，台账已刷新')}
         />
-      </MesUiProvider>
+      </BusinessUiProvider>
       <Typography.Text type="secondary" aria-live="polite">
         {lastAction}
       </Typography.Text>

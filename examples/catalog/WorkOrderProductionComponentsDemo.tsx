@@ -1,13 +1,13 @@
 import { App as AntdApp, Button, Card, Space } from 'antd';
 import dayjs from 'dayjs';
 import { useMemo, useState } from 'react';
-import { MesUiProvider } from '../../src/business/MesUiProvider';
-import { WorkOrderBatchReportModal } from '../../src/business/components/WorkOrderBatchReportModal';
-import { WorkOrderMaterialShortageSection } from '../../src/business/components/WorkOrderMaterialShortageSection';
-import { buildTemporaryReportPortalUrl, canPrintTemporaryReportQr } from '../../src/business/components/WorkOrderTemporaryReportQrPrint';
-import type { MaterialShortageCapabilities, MaterialShortageSupplyOrder, WorkOrderMaterialShortageDetail } from '../../src/business/components/work-order-material-shortage-types';
-import type { WorkOrderBatchOperation, WorkOrderBatchReportCapabilities } from '../../src/business/components/work-order-batch-report-types';
-import type { WorkOrderReportScheduleSlot } from '../../src/business/components/work-order-report-types';
+import { BusinessUiProvider } from '../../src/business/providers/BusinessUiProvider';
+import { WorkOrderBatchReportModal } from '../../src/business/domains/manufacturing/WorkOrderBatchReportModal';
+import { WorkOrderMaterialShortageSection } from '../../src/business/domains/manufacturing/WorkOrderMaterialShortageSection';
+import { buildTemporaryReportPortalUrl, canPrintTemporaryReportQr } from '../../src/business/domains/manufacturing/WorkOrderTemporaryReportQrPrint';
+import type { MaterialShortageCapabilities, MaterialShortageSupplyOrder, WorkOrderMaterialShortageDetail } from '../../src/business/domains/manufacturing/work-order-material-shortage-types';
+import type { WorkOrderBatchOperation, WorkOrderBatchReportCapabilities } from '../../src/business/domains/manufacturing/work-order-batch-report-types';
+import type { WorkOrderReportScheduleSlot } from '../../src/business/domains/manufacturing/work-order-report-types';
 
 const slot: WorkOrderReportScheduleSlot = {
   id: 'schedule-demo-1',
@@ -202,7 +202,7 @@ function WorkOrderProductionComponentsDemoContent() {
   }), [message]);
 
   return (
-    <MesUiProvider
+    <BusinessUiProvider
       hasPermission={() => true}
       productionBomSelectCapabilities={{
         requestOptions: async () => [{ label: 'BOM 版本 A', value: 'bom-demo-1' }],
@@ -234,7 +234,7 @@ function WorkOrderProductionComponentsDemoContent() {
           capabilities={batchCapabilities}
         />
       </Space>
-    </MesUiProvider>
+    </BusinessUiProvider>
   );
 }
 

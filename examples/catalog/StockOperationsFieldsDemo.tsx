@@ -16,7 +16,7 @@ import {
   StockBusinessDateField,
   StockLocationDependencyField,
   StockLocationInlineSelector,
-  type MesStockLocationSelectCapabilities,
+  type StockLocationSelectCapabilities,
   type SaleOrderFieldOption,
   type StockBalancePreviewCapabilities,
 } from '../../src/business';
@@ -49,7 +49,7 @@ const helpCopy = {
   },
 };
 
-const stockLocationCapabilities: MesStockLocationSelectCapabilities = {
+const stockLocationCapabilities: StockLocationSelectCapabilities = {
   canAccessLocations: true,
   requestCacheScope: 'catalog-demo-user-tenant',
   requestPrecheck: async ({ action, warehouseId }) => ({

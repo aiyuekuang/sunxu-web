@@ -2,9 +2,9 @@ import { useMemo, useState } from 'react';
 import { Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
-  MesUiProvider,
+  BusinessUiProvider,
   WorkOrderScanSelect,
-  type MesWorkOrderScanSelectCapabilities,
+  type WorkOrderScanSelectCapabilities,
   type WorkOrderScanRecord,
 } from '../../src/business';
 
@@ -39,7 +39,7 @@ export function WorkOrderScanSelectDemo() {
   const [value, setValue] = useState<string>();
   const [valueMode, setValueMode] = useState<'id' | 'orderNo'>('id');
   const [resolved, setResolved] = useState('尚未扫码解析');
-  const capabilities = useMemo<MesWorkOrderScanSelectCapabilities>(
+  const capabilities = useMemo<WorkOrderScanSelectCapabilities>(
     () => ({
       async requestWorkOrders({ keyWords } = {}) {
         await new Promise((resolve) => window.setTimeout(resolve, 120));
@@ -86,7 +86,7 @@ export function WorkOrderScanSelectDemo() {
             setValue(undefined);
           }}
         />
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => true}
           workOrderScanSelectCapabilities={capabilities}
         >
@@ -101,7 +101,7 @@ export function WorkOrderScanSelectDemo() {
               workOrder.status === 'cancelled' ? '已取消工单不可选择' : true
             }
           />
-        </MesUiProvider>
+        </BusinessUiProvider>
         <Typography.Text type="secondary" aria-live="polite">
           当前值：{value ?? '空'}；解析结果：{resolved}
         </Typography.Text>

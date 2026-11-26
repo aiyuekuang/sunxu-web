@@ -2,20 +2,20 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import { App, Button, Space, Tooltip, Typography } from 'antd';
 import { useMemo, useState } from 'react';
 import { SectionCard } from '../../src';
-import { BomExpansionCreateModal } from '../../src/business/components/BomExpansionCreateModal';
+import { BomExpansionCreateModal } from '../../src/business/domains/procurement/BomExpansionCreateModal';
 import type {
   MaterialCategoryNode,
   MaterialPickerRecord,
-  MesMaterialTablePickerCapabilities,
-} from '../../src/business/components/material-table-picker-types';
-import type { MaterialFilteredSelectOption } from '../../src/business/components/material-select-types';
-import type { MesOrderItemEditorCapabilities } from '../../src/business/components/order-item-editor-types';
+  MaterialTablePickerCapabilities,
+} from '../../src/business/domains/inventory/material-table-picker-types';
+import type { MaterialFilteredSelectOption } from '../../src/business/domains/inventory/material-select-types';
+import type { OrderItemEditorCapabilities } from '../../src/business/domains/sales/order-item-editor-types';
 import type {
   BomExpansionCreateModalCapabilities,
   BomRequisitionPreviewRequest,
   BomRequisitionPreviewResponse,
   CreateRequisitionFromBomRequest,
-} from '../../src/business/components/bom-expansion-create-modal-types';
+} from '../../src/business/domains/manufacturing/bom-expansion-create-modal-types';
 
 const demoMaterials: MaterialPickerRecord[] = [
   {
@@ -106,7 +106,7 @@ export function BomExpansionCreateModalDemo() {
   const [open, setOpen] = useState(false);
   const [receipt, setReceipt] = useState('尚未生成采购申请');
 
-  const pickerCapabilities = useMemo<MesMaterialTablePickerCapabilities>(
+  const pickerCapabilities = useMemo<MaterialTablePickerCapabilities>(
     () => ({
       async requestCategoryTree() {
         return demoCategories;
@@ -152,7 +152,7 @@ export function BomExpansionCreateModalDemo() {
     [],
   );
 
-  const orderItemEditorCapabilities = useMemo<MesOrderItemEditorCapabilities>(
+  const orderItemEditorCapabilities = useMemo<OrderItemEditorCapabilities>(
     () => ({
       requestMaterialListCustomFields: async () => [],
       requestDocumentLineCustomFieldSchema: async () => undefined,

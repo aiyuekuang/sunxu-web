@@ -1,10 +1,10 @@
 import { Button, Space, Tabs, Typography } from 'antd';
 import dayjs from 'dayjs';
 import { useMemo, useState } from 'react';
-import { AutoScheduleDrawer, ScheduleFromPlansDrawer } from '../../src/business/components/ProductionScheduleExecutionDrawers';
-import { BottleneckPanel, ScenarioCompare } from '../../src/business/components/ProductionScheduleAnalysisWidgets';
-import { EntryFormDrawer, EntryList } from '../../src/business/components/ProductionScheduleEntryComponents';
-import { ProductionScheduleGanttView } from '../../src/business/components/ProductionScheduleGanttView';
+import { AutoScheduleDrawer, ScheduleFromPlansDrawer } from '../../src/business/domains/manufacturing/ProductionScheduleExecutionDrawers';
+import { BottleneckPanel, ScenarioCompare } from '../../src/business/domains/manufacturing/ProductionScheduleAnalysisWidgets';
+import { EntryFormDrawer, EntryList } from '../../src/business/domains/manufacturing/ProductionScheduleEntryComponents';
+import { ProductionScheduleGanttView } from '../../src/business/domains/manufacturing/ProductionScheduleGanttView';
 import type {
   AutoScheduleCapabilities,
   BottleneckCapabilities,
@@ -14,7 +14,7 @@ import type {
   ScenarioCompareCapabilities,
   ScheduleWorkOrderRow,
   SchedulePreviewResult,
-} from '../../src/business/components/production-schedule-workflows-types';
+} from '../../src/business/domains/manufacturing/production-schedule-workflows-types';
 import type {
   CapacityBarCapabilities,
   GanttBarPresentation,
@@ -22,8 +22,8 @@ import type {
   GanttToolbarCapabilities,
   GanttViewState,
   UnscheduledWorkOrder,
-} from '../../src/business/components/production-schedule-planning-types';
-import type { ScheduleHeatmapCapabilities } from '../../src/business/components/production-schedule-widget-types';
+} from '../../src/business/domains/manufacturing/production-schedule-planning-types';
+import type { ScheduleHeatmapCapabilities } from '../../src/business/domains/manufacturing/production-schedule-widget-types';
 
 const today = dayjs().startOf('day');
 const scheduleState: GanttViewState = {

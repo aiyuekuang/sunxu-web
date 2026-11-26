@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
 import 'antd/dist/reset.css';
-import '../../src/index';
+import '../../src';
+import '../../src/business/tableStyles.css';
 import { CatalogApp } from './CatalogApp';
 import './catalog.css';
 

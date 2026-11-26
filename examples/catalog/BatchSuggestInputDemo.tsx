@@ -3,10 +3,10 @@ import { Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   BatchSuggestInput,
-  MesUiProvider,
+  BusinessUiProvider,
   type BatchSuggestionMode,
   type BatchSuggestionRecord,
-  type MesBatchSuggestCapabilities,
+  type BatchSuggestCapabilities,
 } from '../../src/business';
 
 const demoBatches: BatchSuggestionRecord[] = [
@@ -42,7 +42,7 @@ export function BatchSuggestInputDemo() {
   const [mode, setMode] = useState<BatchSuggestionMode>('outbound');
   const [batchNo, setBatchNo] = useState('');
   const [selectedBatch, setSelectedBatch] = useState('尚未选择批次');
-  const capabilities = useMemo<MesBatchSuggestCapabilities>(
+  const capabilities = useMemo<BatchSuggestCapabilities>(
     () => ({
       statusText: { available: '可用', consumed: '已耗用' },
       async listBatches(params) {
@@ -73,7 +73,7 @@ export function BatchSuggestInputDemo() {
           ]}
           onChange={(value) => setMode(value as BatchSuggestionMode)}
         />
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => true}
           batchSuggestCapabilities={capabilities}
         >
@@ -85,7 +85,7 @@ export function BatchSuggestInputDemo() {
             onChange={setBatchNo}
             onSelectBatch={(batch) => setSelectedBatch(batch.batchNo)}
           />
-        </MesUiProvider>
+        </BusinessUiProvider>
         <Typography.Text type="secondary" aria-live="polite">
           当前批号：{batchNo || '空'}；选中记录：{selectedBatch}
         </Typography.Text>

@@ -3,10 +3,10 @@ import { Segmented, Space, Switch, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   MaterialTablePicker,
-  MesUiProvider,
+  BusinessUiProvider,
   type MaterialCategoryNode,
   type MaterialPickerRecord,
-  type MesMaterialTablePickerCapabilities,
+  type MaterialTablePickerCapabilities,
   type MaterialTablePickerMode,
   type MaterialTablePickerSelection,
 } from '../../src/business';
@@ -61,7 +61,7 @@ const demoCategories: MaterialCategoryNode[] = [
 ];
 
 export function createDemoMaterialTablePickerCapabilities():
-  MesMaterialTablePickerCapabilities {
+  MaterialTablePickerCapabilities {
   return {
     async requestCategoryTree() {
       await new Promise((resolve) => window.setTimeout(resolve, 100));
@@ -172,7 +172,7 @@ export function MaterialTablePickerDemo() {
             <Typography.Text>客户货主库存口径</Typography.Text>
           </Space>
         </Space>
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => true}
           materialTablePickerCapabilities={capabilities}
         >
@@ -192,7 +192,7 @@ export function MaterialTablePickerDemo() {
             }}
             onValuesChange={handleMultipleChange}
           />
-        </MesUiProvider>
+        </BusinessUiProvider>
         <Typography.Text role="status" aria-live="polite">
           {receipt}
         </Typography.Text>

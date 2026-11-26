@@ -6,7 +6,7 @@ import {
   DotMatrixLayout,
   LABEL_STYLES,
   LabelLayout,
-  MesUiProvider,
+  BusinessUiProvider,
   PrintLayout,
   type LabelOrientation,
 } from '../../src/business';
@@ -55,7 +55,7 @@ export function PrintLayoutsDemo() {
             />
           </Space>
           <style>{LABEL_STYLES}</style>
-          <MesUiProvider hasPermission={() => false} labelLayoutCapabilities={{ getOrientation: () => orientation }}>
+          <BusinessUiProvider hasPermission={() => false} labelLayoutCapabilities={{ getOrientation: () => orientation }}>
             <LabelLayout>
               <div className="label-item" style={{ width: orientation === 'horizontal' ? 240 : 128, height: orientation === 'horizontal' ? 128 : 240, border: '1px dashed #888' }}>
                 <div className="label-title">6061 铝型材</div>
@@ -70,7 +70,7 @@ export function PrintLayoutsDemo() {
                 </div>
               </div>
             </LabelLayout>
-          </MesUiProvider>
+          </BusinessUiProvider>
         </div>
       </Space>
     </SectionCard>

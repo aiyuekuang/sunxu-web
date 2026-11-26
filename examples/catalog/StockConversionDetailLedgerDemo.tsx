@@ -5,14 +5,14 @@ import dayjs from 'dayjs';
 import { App, Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
-  MesUiProvider,
+  BusinessUiProvider,
   type DocumentDetailLedgerSavedViewController,
   type DocumentViewBarView,
-  type MesDocumentDetailLedgerCapabilities,
+  type DocumentDetailLedgerCapabilities,
   type StockConversionDetailLedgerCapabilities,
   type StockConversionDetailLedgerItem,
 } from '../../src/business';
-import { StockConversionDetailLedger } from '../../src/business/components/StockConversionDetailLedger';
+import { StockConversionDetailLedger } from '../../src/business/domains/inventory/StockConversionDetailLedger';
 
 type DemoView = DocumentViewBarView;
 
@@ -259,7 +259,7 @@ function StockConversionDetailLedgerDemoContent() {
     [permissions, savedViewController],
   );
 
-  const ledgerCapabilities = useMemo<MesDocumentDetailLedgerCapabilities>(
+  const ledgerCapabilities = useMemo<DocumentDetailLedgerCapabilities>(
     () => ({
       pagination: { defaultPageSize: 20, showSizeChanger: false },
       renderExportAction: ({ exportFn, label }) => (
@@ -292,7 +292,7 @@ function StockConversionDetailLedgerDemoContent() {
           当前为{permissions === 'full' ? '完整权限' : '只读权限'}，切换权限
         </Button>
         <App>
-          <MesUiProvider
+          <BusinessUiProvider
             hasPermission={() => permissions === 'full'}
             documentDetailLedgerCapabilities={ledgerCapabilities}
           >
@@ -304,7 +304,7 @@ function StockConversionDetailLedgerDemoContent() {
               onOpenDetail={(id) => setLastAction(`宿主将打开单据 ${id}`)}
               onCreate={() => setLastAction('宿主将打开库存转换单创建表单')}
             />
-          </MesUiProvider>
+          </BusinessUiProvider>
         </App>
         <Typography.Text role="status" aria-live="polite">
           {lastAction}

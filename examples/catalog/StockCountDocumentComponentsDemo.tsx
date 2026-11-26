@@ -3,14 +3,14 @@ import { Button, Form, Space, Tag, Typography } from 'antd';
 import dayjs, { type Dayjs } from 'dayjs';
 import { useMemo, useRef, useState } from 'react';
 import { SectionCard } from '../../src/components/SectionCard';
-import { MesUiProvider } from '../../src/business/MesUiProvider';
-import { CreateStockCountModal } from '../../src/business/components/CreateStockCountModal';
-import { StockCountDetailDrawer } from '../../src/business/components/StockCountDetailDrawer';
-import type { BatchMaterialRecord } from '../../src/business/components/batch-material-add-types';
-import type { DocumentLineCustomFieldSchema } from '../../src/business/components/document-line-custom-field-types';
+import { BusinessUiProvider } from '../../src/business/providers/BusinessUiProvider';
+import { CreateStockCountModal } from '../../src/business/domains/inventory/CreateStockCountModal';
+import { StockCountDetailDrawer } from '../../src/business/domains/inventory/StockCountDetailDrawer';
+import type { BatchMaterialRecord } from '../../src/business/domains/manufacturing/batch-material-add-types';
+import type { DocumentLineCustomFieldSchema } from '../../src/business/domains/documents/document-line-custom-field-types';
 import type {
-  MesMaterialTablePickerCapabilities,
-} from '../../src/business/components/material-table-picker-types';
+  MaterialTablePickerCapabilities,
+} from '../../src/business/domains/inventory/material-table-picker-types';
 import type {
   CreateStockCountModalProps,
   StockCountCreateCapabilities,
@@ -18,8 +18,8 @@ import type {
   StockCountDetailCapabilities,
   StockCountDetailModel,
   StockCountLineFormValue,
-} from '../../src/business/components/stock-count-document-components-types';
-import type { StockCountLineFormCapabilities } from '../../src/business/components/stock-count-line-form-list-types';
+} from '../../src/business/domains/inventory/stock-count-document-components-types';
+import type { StockCountLineFormCapabilities } from '../../src/business/domains/inventory/stock-count-line-form-list-types';
 
 const customFieldSchema: DocumentLineCustomFieldSchema = {
   schemaVersion: 2,
@@ -101,7 +101,7 @@ const demoLineCapabilities: StockCountLineFormCapabilities<StockCountLineFormVal
   isEmptyRow: (line) => !line.materialId,
 };
 
-const materialPickerCapabilities: MesMaterialTablePickerCapabilities = {
+const materialPickerCapabilities: MaterialTablePickerCapabilities = {
   requestCategoryTree: async () => [],
   requestMaterials: async ({ page, pageSize }) => ({
     list: materials.slice((page - 1) * pageSize, page * pageSize),
@@ -619,7 +619,7 @@ export function StockCountDocumentComponentsDemo() {
           <Button onClick={() => setDrawerOpen(true)}>打开盘点详情</Button>
           <Tag color="processing">盲盘 · 盘点中</Tag>
         </Space>
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => true}
           materialTablePickerCapabilities={materialPickerCapabilities}
         >
@@ -644,7 +644,7 @@ export function StockCountDocumentComponentsDemo() {
             onPrint={() => undefined}
             capabilities={detailCapabilities}
           />
-        </MesUiProvider>
+        </BusinessUiProvider>
       </Space>
     </SectionCard>
   );

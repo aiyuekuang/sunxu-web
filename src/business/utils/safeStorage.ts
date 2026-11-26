@@ -1,3 +1,8 @@
+import {
+  LEGACY_TABLE_CACHE_CAPACITY_PROBE_KEY,
+  LEGACY_TABLE_CACHE_KEY_PREFIXES,
+} from '../compat/legacyStorageKeys';
+
 /**
  * localStorage 容错写入工具。
  *
@@ -12,15 +17,6 @@
  * 而是对纯 UI 缓存的合理容量恢复。业务数据、登录态等不应使用本工具。
  */
 
-/** 所有可重建的表格 UI 缓存 key 前缀（列宽 / 排序 / 列显隐，含新旧两套命名）。 */
-const TABLE_CACHE_KEY_PREFIXES = [
-  'mes-admin:table-width:',
-  'mes-admin:table-sort:',
-  'mes_table_width_',
-  'mes_table_sort_',
-  'mes_table_cols_',
-] as const;
-const TABLE_CACHE_CAPACITY_PROBE_KEY = '__mes_table_cache_capacity_probe__';
 // 以一个足以覆盖常见列状态写入的探针提前发现存储空间不足。表格缓存可重建，
 // 配额不足时应当在用户调整列宽/列展示前腾出空间，而不是等第三方组件写入失败。
 const TABLE_CACHE_CAPACITY_PROBE_VALUE = '0'.repeat(16 * 1024);
@@ -37,7 +33,7 @@ function getLocalStorage(): Storage | undefined {
 }
 
 function isTableCacheKey(key: string): boolean {
-  return TABLE_CACHE_KEY_PREFIXES.some((prefix) => key.startsWith(prefix));
+  return LEGACY_TABLE_CACHE_KEY_PREFIXES.some((prefix) => key.startsWith(prefix));
 }
 
 function isQuotaExceededError(error: unknown): boolean {
@@ -143,7 +139,7 @@ export function ensureTableCacheCapacity(): boolean {
   }
 
   const wrote = safeLocalStorageSetItem(
-    TABLE_CACHE_CAPACITY_PROBE_KEY,
+    LEGACY_TABLE_CACHE_CAPACITY_PROBE_KEY,
     TABLE_CACHE_CAPACITY_PROBE_VALUE,
   );
   if (!wrote) {
@@ -153,7 +149,7 @@ export function ensureTableCacheCapacity(): boolean {
 
   const storage = getLocalStorage();
   try {
-    storage?.removeItem(TABLE_CACHE_CAPACITY_PROBE_KEY);
+    storage?.removeItem(LEGACY_TABLE_CACHE_CAPACITY_PROBE_KEY);
   } catch {
     // 探针残留不影响业务；下次预检会覆盖同一 key。
   }

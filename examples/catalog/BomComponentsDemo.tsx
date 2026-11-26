@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { Button, Space, message } from 'antd';
 import { SectionCard, Typography } from '../../src';
-import { BomEffectiveBomSelector } from '../../src/business/components/BomEffectiveBomSelector';
-import type { BomEffectiveBomSelectorCapabilities } from '../../src/business/components/bom-effective-bom-selector-types';
-import { BomExplosionTree } from '../../src/business/components/BomExplosionTree';
+import { BomEffectiveBomSelector } from '../../src/business/domains/manufacturing/BomEffectiveBomSelector';
+import type { BomEffectiveBomSelectorCapabilities } from '../../src/business/domains/manufacturing/bom-effective-bom-selector-types';
+import { BomExplosionTree } from '../../src/business/domains/manufacturing/BomExplosionTree';
 import type {
   BomExplosionChartRendererProps,
   BomExplosionData,
-} from '../../src/business/components/bom-explosion-tree-types';
-import { BomItemSourcingModal } from '../../src/business/components/BomItemSourcingModal';
-import type { BomItemSourcingModalCapabilities } from '../../src/business/components/bom-item-sourcing-modal-types';
+} from '../../src/business/domains/manufacturing/bom-explosion-tree-types';
+import { BomItemSourcingModal } from '../../src/business/domains/manufacturing/BomItemSourcingModal';
+import type { BomItemSourcingModalCapabilities } from '../../src/business/domains/manufacturing/bom-item-sourcing-modal-types';
 
 type DemoTreeNode = {
   name: string;

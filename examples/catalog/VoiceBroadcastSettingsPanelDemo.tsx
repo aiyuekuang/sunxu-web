@@ -2,10 +2,10 @@ import { useState } from 'react';
 import { Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
-  MES_VOICE_EVENT_TYPE_OPTIONS,
+  VOICE_EVENT_TYPE_OPTIONS,
   VoiceBroadcastSettingsPanel,
   type VoiceBroadcastSettings,
-} from '../../src/business';
+} from '../../src/business/domains/application';
 
 const initialSettings: VoiceBroadcastSettings = {
   enabled: true,
@@ -28,7 +28,7 @@ export function VoiceBroadcastSettingsPanelDemo() {
           {open ? '关闭设置' : '打开设置'}
         </Button>
         <Typography.Text type="secondary">
-          {MES_VOICE_EVENT_TYPE_OPTIONS.filter(
+          {VOICE_EVENT_TYPE_OPTIONS.filter(
             (option) => settings.types[option.value] !== false,
           ).length}{' '}
           类事件已开启 · 清理记录 {resetCount} 次

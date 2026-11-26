@@ -8,26 +8,26 @@ import type { ReactNode } from 'react';
 import { useMemo, useRef, useState } from 'react';
 import { SectionCard } from '../../src';
 import {
-  MesUiProvider,
+  BusinessUiProvider,
   type DocumentDetailLedgerSavedViewController,
   type DocumentViewBarView,
 } from '../../src/business';
 import { BUSINESS_DATE_RANGE_PRESETS } from '../../src/business/table/dateRangePresets';
-import { OutsourcingOrderDetailLedger } from '../../src/business/components/OutsourcingOrderDetailLedger';
-import { OutsourcingProgressDrawer } from '../../src/business/components/OutsourcingProgressDrawer';
+import { OutsourcingOrderDetailLedger } from '../../src/business/domains/procurement/OutsourcingOrderDetailLedger';
+import { OutsourcingProgressDrawer } from '../../src/business/domains/procurement/OutsourcingProgressDrawer';
 import type {
   OutsourcingOrderDetailLedgerCapabilities,
   OutsourcingOrderDetailLedgerQuery,
   OutsourcingOrderDetailLedgerRow,
   OutsourcingOrderDetailLedgerResponse,
-} from '../../src/business/components/outsourcing-detail-ledger-types';
+} from '../../src/business/domains/procurement/outsourcing-detail-ledger-types';
 import type {
   OutsourcingOrderStep,
   OutsourcingOrderStepInput,
   OutsourcingProgressDrawerCapabilities,
   OutsourcingProgressOrderRef,
   OutsourcingProgressReport,
-} from '../../src/business/components/outsourcing-progress-drawer-types';
+} from '../../src/business/domains/procurement/outsourcing-progress-drawer-types';
 import type { StatusMap } from '../../src/components/StatusDisplay';
 
 const orderStatuses: StatusMap = {
@@ -512,7 +512,7 @@ function OutsourcingComponentsDemoContent() {
           />
           <Button onClick={() => setDrawerOpen(true)}>查看委外扫码进度</Button>
         </Space>
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => canManage}
           documentDetailLedgerCapabilities={ledgerProviderCapabilities}
         >
@@ -522,7 +522,7 @@ function OutsourcingComponentsDemoContent() {
             onOpenOrder={(id) => setLastAction('打开委外单 ' + id)}
             onCreate={() => setLastAction('已调用宿主新增委外单入口')}
           />
-        </MesUiProvider>
+        </BusinessUiProvider>
         <OutsourcingProgressDrawer
           open={drawerOpen}
           order={progressOrder}

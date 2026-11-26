@@ -6,13 +6,13 @@ import { SectionCard } from '../../src';
 import {
   BusinessInvoiceDetailLedger,
   BusinessInvoiceOpeningImportDrawer,
-  MesUiProvider,
+  BusinessUiProvider,
   type BusinessInvoiceDetailQuery,
   type BusinessInvoiceDetailRow,
   type BusinessInvoiceDetailView,
   type BusinessInvoiceMode,
   type DocumentDetailLedgerSavedViewController,
-  type MesDocumentDetailLedgerCapabilities,
+  type DocumentDetailLedgerCapabilities,
 } from '../../src/business';
 
 const invoiceRows: BusinessInvoiceDetailRow[] = [
@@ -154,7 +154,7 @@ export function BusinessInvoiceLedgerAndImportDemo() {
     [activeViewId, columnState, sort],
   );
 
-  const ledgerCapabilities = useMemo<MesDocumentDetailLedgerCapabilities>(
+  const ledgerCapabilities = useMemo<DocumentDetailLedgerCapabilities>(
     () => ({
       pagination: { defaultPageSize: 20, showSizeChanger: false },
       renderExportAction: ({ exportFn, label }) => (
@@ -223,7 +223,7 @@ export function BusinessInvoiceLedgerAndImportDemo() {
           导入期初发票
         </Button>
       </Space>
-      <MesUiProvider
+      <BusinessUiProvider
         hasPermission={() => true}
         documentDetailLedgerCapabilities={ledgerCapabilities}
       >
@@ -326,7 +326,7 @@ export function BusinessInvoiceLedgerAndImportDemo() {
           onViewChange={setViewMode}
           onCreate={() => setLastAction('已调用宿主新增发票入口')}
         />
-      </MesUiProvider>
+      </BusinessUiProvider>
       <Typography.Text type="secondary" aria-live="polite">
         当前视图：{viewMode === 'detail' ? '明细台账' : '发票列表'}；{lastAction}
       </Typography.Text>

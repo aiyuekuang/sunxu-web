@@ -1,6 +1,6 @@
 import { useState } from 'react';
 import { Button, Form, Input, Select, Space, Typography } from 'antd';
-import type { QualityTemplateItemFormValue } from '../../src/business/components/QualityTemplateItemsEditor';
+import type { QualityTemplateItemFormValue } from '../../src/business/domains/quality/QualityTemplateItemsEditor';
 import { SectionCard } from '../../src';
 import { QualityTemplateItemsEditor } from '../../src/business';
 
@@ -56,6 +56,8 @@ export function QualityTemplateItemsEditorDemo() {
       >
         <QualityTemplateItemsEditor
           emptyItem={emptyItem}
+          requiredItemMode="always_required"
+          showSpcControl={false}
           renderSpecTypeField={({ name, label, rules }) => (
             <Form.Item name={name} label={label} rules={rules}>
               <Select

@@ -1,35 +1,35 @@
 import { Alert, App, Button, Space, Typography } from 'antd';
 import { useState, type Key } from 'react';
 import { SectionCard } from '../../src/components/SectionCard';
-import { MesUiProvider } from '../../src/business/MesUiProvider';
-import type { MesAccountingSelectorCapabilities } from '../../src/business/components/accounting-selector-types';
+import { BusinessUiProvider } from '../../src/business/providers/BusinessUiProvider';
+import type { AccountingSelectorCapabilities } from '../../src/business/domains/accounting/accounting-selector-types';
 import {
   AccountImportModal,
   OpeningBalanceImportModal,
-} from '../../src/business/components/AccountingImportComponents';
+} from '../../src/business/domains/accounting/AccountingImportComponents';
 import {
   LedgerQueryContext,
   NarrativeSummaryTable,
   TrialBalanceButton,
-} from '../../src/business/components/AccountingLedgerComponents';
+} from '../../src/business/domains/accounting/AccountingLedgerComponents';
 import {
   PurchaseAccrualDetailDrawer,
   PurchaseAccrualPreviewDrawer,
-} from '../../src/business/components/PurchaseAccrualComponents';
+} from '../../src/business/domains/accounting/PurchaseAccrualComponents';
 import type { StatusMap } from '../../src/components/StatusDisplay';
 import type {
   AccountingAccountBalanceRow,
   AccountingNarrativeSummaryRow,
   AccountingTrialBalanceResult,
   LedgerRouteFilters,
-} from '../../src/business/components/accounting-ledger-components-types';
-import type { OpeningBalanceImportDetail } from '../../src/business/components/accounting-import-components-types';
+} from '../../src/business/domains/accounting/accounting-ledger-components-types';
+import type { OpeningBalanceImportDetail } from '../../src/business/domains/accounting/accounting-import-components-types';
 import type {
   PurchaseAccrualDetail,
   PurchaseAccrualPreview,
-} from '../../src/business/components/purchase-accrual-components-types';
+} from '../../src/business/domains/procurement/purchase-accrual-components-types';
 
-const accountingSelectorCapabilities: MesAccountingSelectorCapabilities = {
+const accountingSelectorCapabilities: AccountingSelectorCapabilities = {
   listAccountingBooks: async () => [
     { code: 'MAIN', name: '本位账簿', isPrimary: true },
   ],
@@ -385,7 +385,7 @@ function DemoBody() {
 export function AccountingLedgerImportAndAccrualDemo() {
   return (
     <App>
-      <MesUiProvider
+      <BusinessUiProvider
         hasPermission={() => true}
         accountingSelectorCapabilities={accountingSelectorCapabilities}
       >
@@ -393,7 +393,7 @@ export function AccountingLedgerImportAndAccrualDemo() {
           示例数据仅用于交互演示；真实权限、请求、文件下载与导航由宿主注入。
         </Typography.Paragraph>
         <DemoBody />
-      </MesUiProvider>
+      </BusinessUiProvider>
     </App>
   );
 }

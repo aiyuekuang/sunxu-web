@@ -2,11 +2,11 @@ import { useMemo, useRef, useState } from 'react';
 import { Button, Space, Typography, theme } from 'antd';
 import { SectionCard } from '../../src';
 import {
-  MesUiProvider,
-  type MesDrawingFilesCapabilities,
+  BusinessUiProvider,
+  type DrawingFilesCapabilities,
 } from '../../src/business';
-import { MaterialDrawingsPanel } from '../../src/business/components/MaterialDrawingsPanel';
-import type { MaterialDrawingsPanelCapabilities } from '../../src/business/components/material-drawings-panel-types';
+import { MaterialDrawingsPanel } from '../../src/business/domains/inventory/MaterialDrawingsPanel';
+import type { MaterialDrawingsPanelCapabilities } from '../../src/business/domains/inventory/material-drawings-panel-types';
 import drawingImageUrl from './fixtures/mes-drawing-sample.png';
 import drawingPdfUrl from './fixtures/mes-drawing-sample.pdf?url&no-inline';
 import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
@@ -139,7 +139,7 @@ export function MaterialDrawingsPanelDemo() {
     [policyFailure],
   );
 
-  const drawingFilesCapabilities = useMemo<MesDrawingFilesCapabilities>(
+  const drawingFilesCapabilities = useMemo<DrawingFilesCapabilities>(
     () => ({
       pdfWorkerSrc: pdfWorkerUrl,
       fetchFileBlob: (url) =>
@@ -167,7 +167,7 @@ export function MaterialDrawingsPanelDemo() {
             {policyFailure ? '恢复上传规则' : '模拟上传规则错误'}
           </Button>
         </Space>
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => true}
           drawingFilesCapabilities={drawingFilesCapabilities}
         >
@@ -179,7 +179,7 @@ export function MaterialDrawingsPanelDemo() {
             capabilities={capabilities}
             onReload={() => setLastAction('资料已刷新')}
           />
-        </MesUiProvider>
+        </BusinessUiProvider>
         <Typography.Text type="secondary" role="status">
           操作状态：{lastAction}；资料数：{drawings.length}
         </Typography.Text>

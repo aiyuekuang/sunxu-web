@@ -1,0 +1,90 @@
+{
+  "url": "http://127.0.0.1:4173",
+  "title": "榫序 Web 组件目录",
+  "activePage": "宿主注入能力",
+  "errors": [],
+  "desktop": {
+    "viewport": {
+      "width": 1280,
+      "height": 900
+    },
+    "scrollY": 0,
+    "document": {
+      "clientWidth": 1280,
+      "scrollWidth": 1280,
+      "clientHeight": 900,
+      "scrollHeight": 1749
+    },
+    "statusCard": {
+      "rect": {
+        "x": 290,
+        "y": 313.421875,
+        "width": 454,
+        "height": 251.140625,
+        "right": 744,
+        "bottom": 564.5625
+      },
+      "clientWidth": 452,
+      "scrollWidth": 452,
+      "clientHeight": 249,
+      "scrollHeight": 249
+    },
+    "tagRow": {
+      "rect": {
+        "x": 307,
+        "y": 370.5625,
+        "width": 420,
+        "height": 53,
+        "right": 727,
+        "bottom": 423.5625
+      },
+      "clientWidth": 420,
+      "scrollWidth": 420,
+      "scrollHeight": 53
+    },
+    "statusDisplays": 9,
+    "visibleStatusText": "状态映射组件\n标签\n草稿\n处理中\n已完成\n待复核\n失败\n自定义颜色\n-\n未知状态\n宿主回退文案\n徽标\n处理中\n已完成\n文本\n待复核\n失败\n宿主传入状态字典；空值、未知值和标签覆盖沿用同一组件契约。组件只负责呈现，不更新业务状态。"
+  },
+  "mobile": {
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "scrollY": 1,
+    "document": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "clientHeight": 844,
+      "scrollHeight": 2885
+    },
+    "statusCard": {
+      "rect": {
+        "x": 50,
+        "y": 392.421875,
+        "width": 290,
+        "height": 303.640625,
+        "right": 340,
+        "bottom": 696.0625
+      },
+      "clientWidth": 288,
+      "scrollWidth": 288,
+      "clientHeight": 302,
+      "scrollHeight": 302
+    },
+    "tagRow": {
+      "rect": {
+        "x": 67,
+        "y": 449.5625,
+        "width": 256,
+        "height": 83.5,
+        "right": 323,
+        "bottom": 533.0625
+      },
+      "clientWidth": 256,
+      "scrollWidth": 256,
+      "scrollHeight": 84
+    },
+    "statusDisplays": 9,
+    "visibleStatusText": "状态映射组件\n标签\n草稿\n处理中\n已完成\n待复核\n失败\n自定义颜色\n-\n未知状态\n宿主回退文案\n徽标\n处理中\n已完成\n文本\n待复核\n失败\n宿主传入状态字典；空值、未知值和标签覆盖沿用同一组件契约。组件只负责呈现，不更新业务状态。"
+  }
+}

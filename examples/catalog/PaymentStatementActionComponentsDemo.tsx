@@ -2,12 +2,12 @@ import { useMemo, useState } from 'react';
 import { ProFormSelect } from '@ant-design/pro-components';
 import { App, Button, Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { PaymentRequestActionModals } from '../../src/business/components/PaymentRequestActionModals';
-import { ExportTemplateModal } from '../../src/business/components/ExportTemplateModal';
-import { SendStatementModal } from '../../src/business/components/SendStatementModal';
-import type { PaymentRequestActionCapabilities, PaymentRequestActionRecord } from '../../src/business/components/payment-request-action-modals-types';
-import type { ExportTemplateModalCapabilities, FinanceStatementType } from '../../src/business/components/finance-statement-template-types';
-import type { SendStatementCapabilities, StatementSendPayload } from '../../src/business/components/send-statement-modal-types';
+import { PaymentRequestActionModals } from '../../src/business/domains/accounting/PaymentRequestActionModals';
+import { ExportTemplateModal } from '../../src/business/domains/accounting/ExportTemplateModal';
+import { SendStatementModal } from '../../src/business/domains/accounting/SendStatementModal';
+import type { PaymentRequestActionCapabilities, PaymentRequestActionRecord } from '../../src/business/domains/accounting/payment-request-action-modals-types';
+import type { ExportTemplateModalCapabilities, FinanceStatementType } from '../../src/business/domains/accounting/finance-statement-template-types';
+import type { SendStatementCapabilities, StatementSendPayload } from '../../src/business/domains/accounting/send-statement-modal-types';
 
 interface DemoPayment {
   id: string;

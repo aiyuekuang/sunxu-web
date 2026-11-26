@@ -2,8 +2,8 @@ import { Form, InputNumber } from 'antd';
 import { SectionCard } from '../../src';
 import {
   AllowedEquipmentPriorityField,
-  MesUiProvider,
-  type MesAllowedEquipmentPriorityCapabilities,
+  BusinessUiProvider,
+  type AllowedEquipmentPriorityCapabilities,
 } from '../../src/business';
 
 const equipment = [
@@ -23,7 +23,7 @@ const equipment = [
   },
 ];
 
-const capabilities: MesAllowedEquipmentPriorityCapabilities = {
+const capabilities: AllowedEquipmentPriorityCapabilities = {
   requestEquipmentDetail: async ({ id }) =>
     equipment.find((item) => item.id === id) ?? {
       id,
@@ -77,14 +77,14 @@ export function AllowedEquipmentPriorityFieldDemo() {
         <Form.Item name="equipmentTimeProfiles" hidden>
           <HiddenJsonFormValue />
         </Form.Item>
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => true}
           allowedEquipmentPriorityCapabilities={capabilities}
         >
           <Form.Item name="allowedEquipmentIds" label="排产设备">
             <AllowedEquipmentPriorityField equipmentType="lathe" workCenterId="turning-center" />
           </Form.Item>
-        </MesUiProvider>
+        </BusinessUiProvider>
       </Form>
     </SectionCard>
   );

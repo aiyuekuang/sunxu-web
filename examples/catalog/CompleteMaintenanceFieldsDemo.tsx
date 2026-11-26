@@ -1,7 +1,7 @@
 import { ProForm } from '@ant-design/pro-components';
 import { SectionCard } from '../../src';
-import { CompleteMaintenanceFields } from '../../src/business/components/CompleteMaintenanceFields';
-import type { CompleteMaintenanceFieldsCapabilities } from '../../src/business/components/complete-maintenance-fields-types';
+import { CompleteMaintenanceFields } from '../../src/business/domains/manufacturing/CompleteMaintenanceFields';
+import type { CompleteMaintenanceFieldsCapabilities } from '../../src/business/domains/manufacturing/complete-maintenance-fields-types';
 
 const capabilities: CompleteMaintenanceFieldsCapabilities = {
   getFieldHelpProps: (label) => ({

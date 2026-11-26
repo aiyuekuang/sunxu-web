@@ -1,4 +1,4 @@
-/* MES table layout and density rules, scoped to the MES suite entry. */
+/* Shared business table layout and density rules for all domain entry points. */
 .sxw-business-invoice-coverage {
   box-sizing: border-box;
   width: 100%;

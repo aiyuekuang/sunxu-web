@@ -3,11 +3,11 @@ import type { ProFormInstance } from '@ant-design/pro-components';
 import { ProForm } from '@ant-design/pro-components';
 import { Alert, Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import FormulaDesigner from '../../src/business/components/FormulaDesigner';
+import FormulaDesigner from '../../src/business/domains/documents/FormulaDesigner';
 import type {
   FormulaDesignerCapabilities,
   FormulaFormSchema,
-} from '../../src/business/components/formula-designer-types';
+} from '../../src/business/domains/manufacturing/formula-designer-types';
 
 const schema: FormulaFormSchema = {
   systemFields: [

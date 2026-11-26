@@ -3,8 +3,8 @@ import { Input, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   DocumentBomOpenButton,
-  MesUiProvider,
-  type MesDocumentBomOpenCapabilities,
+  BusinessUiProvider,
+  type DocumentBomOpenCapabilities,
 } from '../../src/business';
 
 const demoDocumentBom = {
@@ -38,7 +38,7 @@ const demoDocumentBom = {
   ],
 };
 
-const capabilities: MesDocumentBomOpenCapabilities = {
+const capabilities: DocumentBomOpenCapabilities = {
   canView: () => true,
   canUpdate: () => false,
   drawerCapabilities: {
@@ -163,7 +163,7 @@ export function DocumentBomOpenButtonDemo() {
   return (
     <SectionCard title="单据 BOM 入口与抽屉">
       <Space wrap>
-        <MesUiProvider hasPermission={() => true} documentBomOpenCapabilities={capabilities}>
+        <BusinessUiProvider hasPermission={() => true} documentBomOpenCapabilities={capabilities}>
           <DocumentBomOpenButton
             documentType="sale_order_item"
             documentId="sale-order-line-demo"
@@ -173,7 +173,7 @@ export function DocumentBomOpenButtonDemo() {
           >
             查看单据 BOM
           </DocumentBomOpenButton>
-        </MesUiProvider>
+        </BusinessUiProvider>
         <Typography.Text role="status" aria-live="polite">
           {lastSaved}
         </Typography.Text>

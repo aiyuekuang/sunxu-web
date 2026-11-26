@@ -1,6 +1,6 @@
 import { Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { IntegrationGuideLink } from '../../src/business/components/IntegrationGuideLink';
+import { IntegrationGuideLink } from '../../src/business/domains/application/IntegrationGuideLink';
 
 export function IntegrationGuideLinkDemo() {
   return (

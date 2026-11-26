@@ -1,0 +1,96 @@
+{
+  "schema_version": 1,
+  "surface_frame_gate": {
+    "status": "NOT APPLICABLE",
+    "reason": "This audit checks StatusDisplay and the ContextualHelp overlay in the component catalog. No editable workspace or host-owned primary work surface is within this component-level scope.",
+    "rows": []
+  },
+  "seams": [
+    {
+      "route": "Catalog → 业务复合组件",
+      "state": "ContextualHelp tooltip open by desktop hover",
+      "viewport": {
+        "width": 1280,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous": "ContextualHelp tooltip",
+      "next": "ContextualHelp trigger",
+      "previous_rect": {
+        "left": 249.948974609375,
+        "top": 367.05426025390625,
+        "right": 474.051025390625,
+        "bottom": 426.5503845214844,
+        "width": 224.10205078125,
+        "height": 59.496124267578125
+      },
+      "next_rect": {
+        "left": 350,
+        "top": 437.8125,
+        "right": 374,
+        "bottom": 461.8125,
+        "width": 24,
+        "height": 24.0
+      },
+      "gap_px": 11.262115478515625,
+      "expected": {
+        "kind": "library",
+        "value": "Ant Design Tooltip overlay placement",
+        "source": "src/components/ContextualHelp.tsx:18-34"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Committed Playwright DOM rectangles plus screenshot inspection",
+        "observed_clear_band_px": 11.262115478515625
+      },
+      "executed_command": "Committed Playwright observation: docs/verification/component-normalization-2026-11-26/contextual-help-observations.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/ux-audit-component-normalization-2026-11-26-evidence/committed-render-evidence/contextual-help-desktop-1280x900.png",
+      "screenshot_sha256": "d0f5ac9555c107574aaec884977270edb6d30d6a53083b711d168937dfb93ff1",
+      "status": "PASS"
+    },
+    {
+      "route": "Catalog → 业务复合组件",
+      "state": "ContextualHelp tooltip open by touch tap",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous": "ContextualHelp tooltip",
+      "next": "ContextualHelp trigger",
+      "previous_rect": {
+        "left": 19.952224731445312,
+        "top": 329.55615234375,
+        "right": 244.0477752685547,
+        "bottom": 389.050537109375,
+        "width": 224.09555053710938,
+        "height": 59.494384765625
+      },
+      "next_rect": {
+        "left": 110,
+        "top": 400.171875,
+        "right": 154,
+        "bottom": 444.171875,
+        "width": 44,
+        "height": 44.0
+      },
+      "gap_px": 11.121337890625,
+      "expected": {
+        "kind": "library",
+        "value": "Ant Design Tooltip overlay placement",
+        "source": "src/components/ContextualHelp.tsx:18-34"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "Committed Playwright DOM rectangles plus screenshot inspection",
+        "observed_clear_band_px": 11.121337890625
+      },
+      "executed_command": "Committed Playwright observation: docs/verification/component-normalization-2026-11-26/contextual-help-observations.json",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/ux-audit-component-normalization-2026-11-26-evidence/committed-render-evidence/contextual-help-mobile-390x844.png",
+      "screenshot_sha256": "e2f69cfff94e8d881e77f5efcaa608be43ee59f6401972e91b603e18421c4941",
+      "status": "PASS"
+    }
+  ]
+}

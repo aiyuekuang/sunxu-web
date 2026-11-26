@@ -3,9 +3,9 @@ import { Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   ApprovalPanel,
-  MesUiProvider,
+  BusinessUiProvider,
   type ApprovalPanelStatusData,
-  type MesApprovalCapabilities,
+  type ApprovalCapabilities,
 } from '../../src/business';
 
 type DemoStatus = ApprovalPanelStatusData['status'];
@@ -47,7 +47,7 @@ function createApprovalData(status: DemoStatus): ApprovalPanelStatusData {
 export function ApprovalPanelDemo() {
   const [status, setStatus] = useState<DemoStatus>('none');
   const [canManage, setCanManage] = useState(true);
-  const capabilities = useMemo<MesApprovalCapabilities>(
+  const capabilities = useMemo<ApprovalCapabilities>(
     () => ({
       canAccess: (_entityType, capability) =>
         capability === 'view' || canManage,
@@ -92,7 +92,7 @@ export function ApprovalPanelDemo() {
             onChange={(value) => setCanManage(value === 'manager')}
           />
         </Space>
-        <MesUiProvider hasPermission={() => canManage} approvalCapabilities={capabilities}>
+        <BusinessUiProvider hasPermission={() => canManage} approvalCapabilities={capabilities}>
           <ApprovalPanel
             key={`${status}-${canManage}`}
             entityType="purchase_requisition"
@@ -100,7 +100,7 @@ export function ApprovalPanelDemo() {
             entityStatus="draft"
             onStatusChange={() => undefined}
           />
-        </MesUiProvider>
+        </BusinessUiProvider>
       </Space>
     </SectionCard>
   );

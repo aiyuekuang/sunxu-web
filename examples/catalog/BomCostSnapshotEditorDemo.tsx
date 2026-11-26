@@ -3,9 +3,9 @@ import { Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   BomCostSnapshotEditor,
-  MesUiProvider,
+  BusinessUiProvider,
   type BomCostPreviewSnapshot,
-  type MesBomCostSnapshotCapabilities,
+  type BomCostSnapshotCapabilities,
 } from '../../src/business';
 
 const initialSnapshot: BomCostPreviewSnapshot = {
@@ -65,7 +65,7 @@ const initialSnapshot: BomCostPreviewSnapshot = {
 export function BomCostSnapshotEditorDemo() {
   const [variant, setVariant] = useState<'cost' | 'inventory'>('cost');
   const [snapshot, setSnapshot] = useState<BomCostPreviewSnapshot>();
-  const capabilities = useMemo<MesBomCostSnapshotCapabilities>(
+  const capabilities = useMemo<BomCostSnapshotCapabilities>(
     () => ({
       unitLabelMap: { piece: '件' },
       async requestCostPreview(params) {
@@ -90,7 +90,7 @@ export function BomCostSnapshotEditorDemo() {
           ]}
           onChange={(value) => setVariant(value as typeof variant)}
         />
-        <MesUiProvider hasPermission={() => false} bomCostSnapshotCapabilities={capabilities}>
+        <BusinessUiProvider hasPermission={() => false} bomCostSnapshotCapabilities={capabilities}>
           <BomCostSnapshotEditor
             key={variant}
             bomHeaderId="bom-demo"
@@ -100,7 +100,7 @@ export function BomCostSnapshotEditorDemo() {
             value={snapshot}
             onChange={setSnapshot}
           />
-        </MesUiProvider>
+        </BusinessUiProvider>
       </Space>
     </SectionCard>
   );

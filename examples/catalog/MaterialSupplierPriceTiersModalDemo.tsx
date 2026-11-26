@@ -3,8 +3,8 @@ import { Button, Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   MaterialSupplierPriceTiersModal,
-  MesUiProvider,
-  type MesSupplierPriceTierCapabilities,
+  BusinessUiProvider,
+  type SupplierPriceTierCapabilities,
   type SupplierPriceTierContext,
   type SupplierPriceTierRecord,
 } from '../../src/business';
@@ -74,7 +74,7 @@ export function MaterialSupplierPriceTiersModalDemo() {
   const [permissions, setPermissions] = useState<'all' | 'read-only'>('all');
   const [showAmounts, setShowAmounts] = useState(false);
 
-  const capabilities = useMemo<MesSupplierPriceTierCapabilities>(
+  const capabilities = useMemo<SupplierPriceTierCapabilities>(
     () => ({
       materialGradeOptions: [
         { label: '优等', value: 'A' },
@@ -147,7 +147,7 @@ export function MaterialSupplierPriceTiersModalDemo() {
       <Typography.Paragraph type="secondary">
         展示阶梯价列表、新增/编辑字段、权限控制和删除确认；目录用本地确定性服务模拟宿主请求，不连接真实接口。
       </Typography.Paragraph>
-      <MesUiProvider
+      <BusinessUiProvider
         hasPermission={() => permissions === 'all'}
         maskAmount={(amount) =>
           amount == null ? '-' : showAmounts ? String(amount) : '****'
@@ -189,7 +189,7 @@ export function MaterialSupplierPriceTiersModalDemo() {
           }}
           onChanged={() => setTiers((current) => [...current])}
         />
-      </MesUiProvider>
+      </BusinessUiProvider>
     </SectionCard>
   );
 }

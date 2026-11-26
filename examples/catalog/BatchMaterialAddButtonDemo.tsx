@@ -3,7 +3,7 @@ import { Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   BatchMaterialAddButton,
-  MesUiProvider,
+  BusinessUiProvider,
   type BatchMaterialRecord,
 } from '../../src/business';
 import { createDemoMaterialTablePickerCapabilities } from './MaterialTablePickerDemo';
@@ -30,7 +30,7 @@ export function BatchMaterialAddButtonDemo() {
       <Typography.Paragraph type="secondary">
         批量选料时跳过当前明细已有的物料，成功追加后移除空占位行，并遵守明细最大行数；数量、库存与物料候选由物料表格弹窗提供。
       </Typography.Paragraph>
-      <MesUiProvider
+      <BusinessUiProvider
         hasPermission={() => true}
         materialTablePickerCapabilities={capabilities}
       >
@@ -70,7 +70,7 @@ export function BatchMaterialAddButtonDemo() {
             </Typography.Text>
           </Space>
         </Space>
-      </MesUiProvider>
+      </BusinessUiProvider>
     </SectionCard>
   );
 }

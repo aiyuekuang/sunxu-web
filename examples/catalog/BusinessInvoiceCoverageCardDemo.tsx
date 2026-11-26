@@ -3,10 +3,10 @@ import { Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   BusinessInvoiceCoverageCard,
-  MesUiProvider,
+  BusinessUiProvider,
   type BusinessInvoiceMode,
   type InvoiceCoverageResponse,
-  type MesBusinessInvoiceCoverageCapabilities,
+  type BusinessInvoiceCoverageCapabilities,
 } from '../../src/business';
 
 type DemoScenario = 'ready' | 'draft' | 'unpriced' | 'price-hidden' | 'pending-red' | 'no-permission';
@@ -110,7 +110,7 @@ export function BusinessInvoiceCoverageCardDemo() {
   const [scenario, setScenario] = useState<DemoScenario>('ready');
   const [hostAction, setHostAction] = useState('尚未触发宿主操作');
 
-  const capabilities = useMemo<MesBusinessInvoiceCoverageCapabilities>(
+  const capabilities = useMemo<BusinessInvoiceCoverageCapabilities>(
     () => ({
       canView: () => scenario !== 'no-permission',
       canCreate: () => true,
@@ -205,12 +205,12 @@ export function BusinessInvoiceCoverageCardDemo() {
             />
           </div>
         </div>
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => true}
           businessInvoiceCoverageCapabilities={capabilities}
         >
           {card}
-        </MesUiProvider>
+        </BusinessUiProvider>
         <Typography.Text type="secondary" aria-live="polite">
           {hostAction}
         </Typography.Text>

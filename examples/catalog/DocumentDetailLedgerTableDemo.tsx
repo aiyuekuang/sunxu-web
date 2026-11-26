@@ -5,10 +5,10 @@ import { Button, Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   DocumentDetailLedgerTable,
-  MesUiProvider,
+  BusinessUiProvider,
   type DocumentDetailLedgerSavedViewController,
   type DocumentViewBarView,
-  type MesDocumentDetailLedgerCapabilities,
+  type DocumentDetailLedgerCapabilities,
 } from '../../src/business';
 
 type DemoLedgerRow = {
@@ -141,7 +141,7 @@ export function DocumentDetailLedgerTableDemo() {
     [activeViewId, columnState, sort, views],
   );
 
-  const ledgerCapabilities = useMemo<MesDocumentDetailLedgerCapabilities>(
+  const ledgerCapabilities = useMemo<DocumentDetailLedgerCapabilities>(
     () => ({
       pagination: { defaultPageSize: 20, showSizeChanger: false },
       renderExportAction: ({ exportFn, label }) => (
@@ -184,7 +184,7 @@ export function DocumentDetailLedgerTableDemo() {
             onChange={(value) => setPermissions(value as typeof permissions)}
           />
         </Space>
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => permissions === 'full'}
           documentDetailLedgerCapabilities={ledgerCapabilities}
         >
@@ -243,7 +243,7 @@ export function DocumentDetailLedgerTableDemo() {
             onResponse={(response) => setResponseCount(response.total)}
             footer={<Typography.Text>{responseCount} 行</Typography.Text>}
           />
-        </MesUiProvider>
+        </BusinessUiProvider>
         <Typography.Text role="status" aria-live="polite">
           {lastAction}
         </Typography.Text>

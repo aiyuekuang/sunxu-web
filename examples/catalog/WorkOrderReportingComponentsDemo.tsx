@@ -1,25 +1,25 @@
 import { App as AntdApp, Button, Card, Space, Typography } from 'antd';
 import { useState } from 'react';
-import { MesUiProvider } from '../../src/business/MesUiProvider';
-import { WorkOrderFormDrawer } from '../../src/business/components/WorkOrderFormDrawer';
+import { BusinessUiProvider } from '../../src/business/providers/BusinessUiProvider';
+import { WorkOrderFormDrawer } from '../../src/business/domains/manufacturing/WorkOrderFormDrawer';
 import {
   WorkOrderRiskTags,
   WorkOrderListProgress,
-} from '../../src/business/components/WorkOrderListExecutionSummary';
-import { WorkOrderReportDirectModal } from '../../src/business/components/WorkOrderReportDirectModal';
-import { WorkOrderReportModal } from '../../src/business/components/WorkOrderReportModal';
-import type { MesBomCostSnapshotCapabilities } from '../../src/business/components/bom-cost-types';
-import type { MesDrawingFilesCapabilities } from '../../src/business/components/drawing-files-types';
-import type { MesMaterialSelectCapabilities } from '../../src/business/components/material-select-types';
-import type { MesProductionBomSelectCapabilities } from '../../src/business/components/production-bom-select-types';
-import type { WorkOrderFormDrawerCapabilities } from '../../src/business/components/work-order-form-types';
+} from '../../src/business/domains/manufacturing/WorkOrderListExecutionSummary';
+import { WorkOrderReportDirectModal } from '../../src/business/domains/manufacturing/WorkOrderReportDirectModal';
+import { WorkOrderReportModal } from '../../src/business/domains/manufacturing/WorkOrderReportModal';
+import type { BomCostSnapshotCapabilities } from '../../src/business/domains/manufacturing/bom-cost-types';
+import type { DrawingFilesCapabilities } from '../../src/business/domains/inventory/drawing-files-types';
+import type { MaterialSelectCapabilities } from '../../src/business/domains/inventory/material-select-types';
+import type { ProductionBomSelectCapabilities } from '../../src/business/domains/manufacturing/production-bom-select-types';
+import type { WorkOrderFormDrawerCapabilities } from '../../src/business/domains/manufacturing/work-order-form-types';
 import type {
   WorkOrderDemandAllocation,
   WorkOrderOperation,
   WorkOrderReportCapabilities,
   WorkOrderReportScheduleSlot,
   WorkOrderSelectRequest,
-} from '../../src/business/components/work-order-report-types';
+} from '../../src/business/domains/manufacturing/work-order-report-types';
 
 const demandAllocations: WorkOrderDemandAllocation[] = [
   {
@@ -287,7 +287,7 @@ const reportCapabilities: WorkOrderReportCapabilities = {
   },
 };
 
-const materialSelectCapabilities: MesMaterialSelectCapabilities = {
+const materialSelectCapabilities: MaterialSelectCapabilities = {
   baseTypeOptions: [{ label: '成品', value: 'finished' }],
   unitLabelMap: { piece: '件' },
   requestFamilies: async () => [],
@@ -299,19 +299,19 @@ const materialSelectCapabilities: MesMaterialSelectCapabilities = {
     show ? <Button type="link" size="small" onClick={onOpen}>{children}</Button> : children,
 };
 
-const productionBomSelectCapabilities: MesProductionBomSelectCapabilities = {
+const productionBomSelectCapabilities: ProductionBomSelectCapabilities = {
   requestOptions: async () => [{ label: 'BOM-018 · 当前版本', value: 'bom-demo-1' }],
   getFieldHelpProps: () => ({ label: 'BOM 版本' }),
   renderConfigEntryFieldLabel: ({ children, show, onOpen }) =>
     show ? <Button type="link" size="small" onClick={onOpen}>{children}</Button> : children,
 };
 
-const bomCostSnapshotCapabilities: MesBomCostSnapshotCapabilities = {
+const bomCostSnapshotCapabilities: BomCostSnapshotCapabilities = {
   requestCostPreview: async () => ({ snapshot: { lines: [] } }),
   unitLabelMap: { piece: '件' },
 };
 
-const drawingFilesCapabilities: MesDrawingFilesCapabilities = {
+const drawingFilesCapabilities: DrawingFilesCapabilities = {
   uploadFiles: async () => ({ urls: ['https://demo.invalid/work-order-drawing.pdf'] }),
   fetchFileBlob: async () => new Blob(),
   downloadUrl: async () => undefined,
@@ -380,7 +380,7 @@ function WorkOrderReportingComponentsDemoContent() {
   const [editDrawerOpen, setEditDrawerOpen] = useState(false);
 
   return (
-    <MesUiProvider
+    <BusinessUiProvider
       hasPermission={() => true}
       materialSelectCapabilities={materialSelectCapabilities}
       drawingFilesCapabilities={drawingFilesCapabilities}
@@ -481,7 +481,7 @@ function WorkOrderReportingComponentsDemoContent() {
         onSuccess={() => void message.success('工单编辑示例已完成')}
         capabilities={formDrawerCapabilities}
       />
-    </MesUiProvider>
+    </BusinessUiProvider>
   );
 }
 

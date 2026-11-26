@@ -11,11 +11,11 @@ import type {
   InspectionTemplateSummary,
   ProcessOperationInspectionRulesCapabilities,
   ProcessOperationInspectionTemplateListParams,
-} from '../../src/business/components/process-operation-inspection-rules-types';
-import type { MesMaterialSelectCapabilities } from '../../src/business/components/MaterialFilteredSelect';
+} from '../../src/business/domains/quality/process-operation-inspection-rules-types';
+import type { MaterialSelectCapabilities } from '../../src/business/domains/inventory/MaterialFilteredSelect';
 import { SectionCard } from '../../src';
 import {
-  MesUiProvider,
+  BusinessUiProvider,
   ProcessOperationInspectionRulesForm,
 } from '../../src/business';
 
@@ -75,7 +75,7 @@ export function ProcessOperationInspectionRulesFormDemo() {
     JSON.stringify(initialBindings, null, 2),
   );
 
-  const materialSelectCapabilities = useMemo<MesMaterialSelectCapabilities>(
+  const materialSelectCapabilities = useMemo<MaterialSelectCapabilities>(
     () => ({
       baseTypeOptions: [
         { label: '原材料', value: 'raw_material' },
@@ -164,7 +164,7 @@ export function ProcessOperationInspectionRulesFormDemo() {
           onChange={(value) => setDisabled(value === '只读')}
         />
       </Space>
-      <MesUiProvider
+      <BusinessUiProvider
         hasPermission={() => true}
         materialSelectCapabilities={materialSelectCapabilities}
       >
@@ -189,7 +189,7 @@ export function ProcessOperationInspectionRulesFormDemo() {
             />
           </Form.Item>
         </Form>
-      </MesUiProvider>
+      </BusinessUiProvider>
   <Space
     orientation="vertical"
     size={6}

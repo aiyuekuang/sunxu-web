@@ -1,17 +1,17 @@
 import { App, Button, Form, Select, Space, Typography } from 'antd';
 import { ProFormSelect } from '@ant-design/pro-components';
 import { useState } from 'react';
-import { SaleReturnEditDrawer } from '../../src/business/components/SaleReturnEditDrawer';
-import { SaleReturnReceiveModal } from '../../src/business/components/SaleReturnReceiveModal';
-import { SaleReturnReverseModal } from '../../src/business/components/SaleReturnReverseModal';
-import { SaleReturnStockConversionDrawer } from '../../src/business/components/SaleReturnStockConversionDrawer';
+import { SaleReturnEditDrawer } from '../../src/business/domains/sales/SaleReturnEditDrawer';
+import { SaleReturnReceiveModal } from '../../src/business/domains/sales/SaleReturnReceiveModal';
+import { SaleReturnReverseModal } from '../../src/business/domains/sales/SaleReturnReverseModal';
+import { SaleReturnStockConversionDrawer } from '../../src/business/domains/sales/SaleReturnStockConversionDrawer';
 import type {
   SaleReturnDetail,
   SaleReturnEditCapabilities,
   SaleReturnReceiveCapabilities,
   SaleReturnReverseCapabilities,
   SaleReturnStockConversionCapabilities,
-} from '../../src/business/components/sale-return-components-types';
+} from '../../src/business/domains/sales/sale-return-components-types';
 
 const demoDetail: SaleReturnDetail = {
   id: 'sale-return-demo',

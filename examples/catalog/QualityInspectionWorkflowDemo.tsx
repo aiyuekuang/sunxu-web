@@ -2,19 +2,19 @@ import { useState } from 'react';
 import { ProFormSelect } from '@ant-design/pro-components';
 import { Alert, Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { QualityInspectionItemResultFields } from '../../src/business/components/QualityInspectionItemResultFields';
-import { QualityInspectionSubmitModal } from '../../src/business/components/QualityInspectionSubmitModal';
-import { QualityInspectionActionModals } from '../../src/business/components/QualityInspectionActionModals';
+import { QualityInspectionItemResultFields } from '../../src/business/domains/quality/QualityInspectionItemResultFields';
+import { QualityInspectionSubmitModal } from '../../src/business/domains/quality/QualityInspectionSubmitModal';
+import { QualityInspectionActionModals } from '../../src/business/domains/quality/QualityInspectionActionModals';
 import type {
   QualityInspectionItemResultFieldsCapabilities,
-} from '../../src/business/components/quality-inspection-item-result-fields-types';
+} from '../../src/business/domains/quality/quality-inspection-item-result-fields-types';
 import type {
   QualityInspectionDefectRecord,
   QualityInspectionDictionaryFieldProps,
   QualityInspectionHelpField,
   QualityInspectionItemRecord,
   QualityInspectionSubmitCapabilities,
-} from '../../src/business/components/quality-inspection-modal-types';
+} from '../../src/business/domains/quality/quality-inspection-modal-types';
 
 const items: QualityInspectionItemRecord[] = [
   {

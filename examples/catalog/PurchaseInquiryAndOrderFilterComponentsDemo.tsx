@@ -2,17 +2,17 @@ import { useMemo, useRef, useState } from 'react';
 import { App, Button, Space, Typography } from 'antd';
 import type { ProFormInstance } from '@ant-design/pro-components';
 import { BUSINESS_DATE_RANGE_PRESETS } from '../../src/business/table/dateRangePresets';
-import { PurchaseInquiryActionModals } from '../../src/business/components/PurchaseInquiryActionModals';
-import { PurchaseOrderFilterDrawer } from '../../src/business/components/PurchaseOrderFilterDrawer';
-import { PurchaseOrderDetailFilterDrawer } from '../../src/business/components/PurchaseOrderDetailFilterDrawer';
+import { PurchaseInquiryActionModals } from '../../src/business/domains/procurement/PurchaseInquiryActionModals';
+import { PurchaseOrderFilterDrawer } from '../../src/business/domains/procurement/PurchaseOrderFilterDrawer';
+import { PurchaseOrderDetailFilterDrawer } from '../../src/business/domains/procurement/PurchaseOrderDetailFilterDrawer';
 import type {
   PurchaseInquiryAction,
   PurchaseInquiryActionCapabilities,
   PurchaseInquiryDetail,
-} from '../../src/business/components/purchase-inquiry-action-modals-types';
-import type { PurchaseOrderFilterCapabilities } from '../../src/business/components/purchase-order-filter-drawer-types';
-import type { PurchaseOrderDetailFilterFormValues } from '../../src/business/components/purchase-order-detail-filter-drawer-types';
-import type { PurchaseOrderFilterFormValues } from '../../src/business/components/purchase-order-filter-drawer-types';
+} from '../../src/business/domains/procurement/purchase-inquiry-action-modals-types';
+import type { PurchaseOrderFilterCapabilities } from '../../src/business/domains/procurement/purchase-order-filter-drawer-types';
+import type { PurchaseOrderDetailFilterFormValues } from '../../src/business/domains/procurement/purchase-order-detail-filter-drawer-types';
+import type { PurchaseOrderFilterFormValues } from '../../src/business/domains/procurement/purchase-order-filter-drawer-types';
 import { SectionCard } from '../../src';
 
 const sampleInquiry: PurchaseInquiryDetail = {

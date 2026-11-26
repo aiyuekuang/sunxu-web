@@ -3,12 +3,12 @@ import dayjs from 'dayjs';
 import { App, Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
-  MesUiProvider,
+  BusinessUiProvider,
   type StockTransferDetailLedgerCapabilities,
   type StockTransferDetailLedgerQuery,
   type StockTransferDetailLedgerRow,
 } from '../../src/business';
-import { StockTransferDetailLedger } from '../../src/business/components/StockTransferDetailLedger';
+import { StockTransferDetailLedger } from '../../src/business/domains/inventory/StockTransferDetailLedger';
 
 const demoRows: StockTransferDetailLedgerRow[] = [
   {
@@ -155,14 +155,14 @@ function StockTransferDetailLedgerDemoContent() {
           {canExport ? '隐藏导出权限' : '恢复导出权限'}
         </Button>
         <App>
-          <MesUiProvider hasPermission={() => true}>
+          <BusinessUiProvider hasPermission={() => true}>
             <StockTransferDetailLedger
               capabilities={capabilities}
               onViewChange={(view) =>
                 setLastAction(`宿主收到视图切换：${view}`)
               }
             />
-          </MesUiProvider>
+          </BusinessUiProvider>
         </App>
         <Typography.Text role="status" aria-live="polite">
           {lastAction}

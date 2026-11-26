@@ -13,7 +13,7 @@ import {
   SaleOrderPrint,
   WorkOrderPrint,
   type BusinessPrintRecord,
-  type MesInternalDocumentQrKind,
+  type InternalDocumentQrKind,
 } from '../../src/business';
 
 const templateOptions = [
@@ -130,10 +130,10 @@ const renderBarcode = (value: string) => (
     ▦
   </span>
 );
-const buildDocumentQr = (kind: MesInternalDocumentQrKind, id: string | number) =>
-  `mes:${kind}:${id}`;
+const buildDocumentQr = (kind: InternalDocumentQrKind, id: string | number) =>
+  `demo:${kind}:${id}`;
 const buildOperationQr = (workOrderId: string | number, operationId: string | number) =>
-  `mes:work-order:${workOrderId}:operation:${operationId}`;
+  `demo:work-order:${workOrderId}:operation:${operationId}`;
 const maskAmount = (value: string) => value;
 
 export function BusinessPrintTemplatesDemo() {

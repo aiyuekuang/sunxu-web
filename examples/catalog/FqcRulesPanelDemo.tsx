@@ -1,15 +1,15 @@
 import { App, Button, Space, Switch, Typography } from 'antd';
 import { useMemo, useState } from 'react';
 import { SectionCard } from '../../src';
-import { MesUiProvider } from '../../src/business';
-import { FqcRulesPanel } from '../../src/business/components/FqcRulesPanel';
+import { BusinessUiProvider } from '../../src/business';
+import { FqcRulesPanel } from '../../src/business/domains/quality/FqcRulesPanel';
 import type {
   FqcControlRuleRecord,
   FqcRulesListQuery,
   FqcRulesPanelCapabilities,
   FqcRulesSelectOption,
-} from '../../src/business/components/fqc-rules-panel-types';
-import type { MesMaterialSelectCapabilities } from '../../src/business/components/material-select-types';
+} from '../../src/business/domains/quality/fqc-rules-panel-types';
+import type { MaterialSelectCapabilities } from '../../src/business/domains/inventory/material-select-types';
 
 const demoPermissions = {
   create: 'catalog.fqc-rule.create',
@@ -172,7 +172,7 @@ export function FqcRulesPanelDemo() {
     [canConfigure],
   );
 
-  const materialSelectCapabilities = useMemo<MesMaterialSelectCapabilities>(
+  const materialSelectCapabilities = useMemo<MaterialSelectCapabilities>(
     () => ({
       unitLabelMap: { kg: 'kg', m: 'm' },
       renderConfigEntryLabel: ({ children, show, onOpen }) => (
@@ -391,7 +391,7 @@ export function FqcRulesPanelDemo() {
               {showHealthIssues ? '恢复健康检查' : '模拟健康检查告警'}
             </Button>
           </Space>
-          <MesUiProvider
+          <BusinessUiProvider
             hasPermission={(permission) => {
               if (permission === demoPermissions.create) return canCreate;
               if (permission === demoPermissions.update) return canUpdate;
@@ -405,7 +405,7 @@ export function FqcRulesPanelDemo() {
               capabilities={capabilities}
               layout="embedded"
             />
-          </MesUiProvider>
+          </BusinessUiProvider>
           <Typography.Text type="secondary" role="status">
             操作状态：{lastAction}；规则总数：{rules.length}
           </Typography.Text>

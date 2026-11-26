@@ -6,7 +6,7 @@ import {
   MaterialFilteredSelect,
   MaterialMultiSelectField,
   MaterialSelectField,
-  MesUiProvider,
+  BusinessUiProvider,
   type FilterableSelectRequestFn,
   type MaterialBarcodeRecord,
   type MaterialCategoryRecord,
@@ -307,7 +307,7 @@ export function MaterialSelectorDemo() {
             </Typography.Text>
           </Space>
         </div>
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => canConfigureMaterials}
           materialSelectCapabilities={materialSelectCapabilities}
         >
@@ -357,7 +357,7 @@ export function MaterialSelectorDemo() {
               </Typography.Text>
             </Space>
           </div>
-        </MesUiProvider>
+        </BusinessUiProvider>
       </Space>
     </SectionCard>
   );

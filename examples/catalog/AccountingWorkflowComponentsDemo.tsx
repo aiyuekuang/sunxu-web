@@ -15,39 +15,39 @@ import {
   Typography,
 } from 'antd';
 import { SectionCard } from '../../src';
-import { MesUiProvider } from '../../src/business/MesUiProvider';
+import { BusinessUiProvider } from '../../src/business/providers/BusinessUiProvider';
 import {
   AccountModal,
-} from '../../src/business/components/AccountModal';
+} from '../../src/business/domains/accounting/AccountModal';
 import {
   BookModal,
-} from '../../src/business/components/BookModal';
+} from '../../src/business/domains/accounting/BookModal';
 import {
   ClosingWipPanel,
   OpeningWipPanel,
-} from '../../src/business/components/ProductCostWipPanels';
+} from '../../src/business/domains/accounting/ProductCostWipPanels';
 import {
   CreateReconciliationModal,
   EditLinesModal,
   MatchLineModal,
-} from '../../src/business/components/AccountingReconciliationModals';
+} from '../../src/business/domains/accounting/AccountingReconciliationModals';
 import type {
   AccountingReconciliationCapabilities,
   AccountingReconciliationLineRecord,
-} from '../../src/business/components/accounting-reconciliation-types';
+} from '../../src/business/domains/accounting/accounting-reconciliation-types';
 import type {
   AccountingBookModalCapabilities,
   AccountingBookRecord,
-} from '../../src/business/components/accounting-book-modal-types';
+} from '../../src/business/domains/accounting/accounting-book-modal-types';
 import type {
   AccountingAccountModalCapabilities,
   AccountingAccountRecord,
-} from '../../src/business/components/accounting-account-modal-types';
+} from '../../src/business/domains/accounting/accounting-account-modal-types';
 import type {
   ProductCostClosingWipRecord,
   ProductCostOpeningWipRecord,
   ProductCostWipCapabilities,
-} from '../../src/business/components/product-cost-wip-types';
+} from '../../src/business/domains/accounting/product-cost-wip-types';
 import {
   ACCOUNTING_ACCOUNT_NORMAL_BALANCE_OPTIONS,
   ACCOUNTING_ACCOUNT_STATUS_OPTIONS,
@@ -56,7 +56,7 @@ import {
   ACCOUNTING_BOOK_TYPE_OPTIONS,
   ACCOUNTING_DIMENSION_REQUIREMENT_OPTIONS,
   ACCOUNTING_DIMENSION_TYPE_OPTIONS,
-} from '../../src/business/components/accounting-master-data-options';
+} from '../../src/business/domains/accounting/accounting-master-data-options';
 
 interface DemoReconciliationDetail {
   id: string;

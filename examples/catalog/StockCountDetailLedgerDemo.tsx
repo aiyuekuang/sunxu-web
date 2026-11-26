@@ -1,13 +1,13 @@
 import { useMemo, useRef } from 'react';
 import { SectionCard } from '../../src';
-import { StockCountDetailLedger } from '../../src/business/components/StockCountDetailLedger';
-import type { DocumentDetailLedgerSavedViewController } from '../../src/business/components/DocumentDetailLedgerTable';
-import type { DocumentViewBarView } from '../../src/business/components/DocumentViewBar';
+import { StockCountDetailLedger } from '../../src/business/domains/inventory/StockCountDetailLedger';
+import type { DocumentDetailLedgerSavedViewController } from '../../src/business/domains/documents/DocumentDetailLedgerTable';
+import type { DocumentViewBarView } from '../../src/business/domains/documents/DocumentViewBar';
 import type {
   StockCountDetailLedgerCapabilities,
   StockCountDetailLedgerResponse,
   StockCountDetailLedgerRow,
-} from '../../src/business/components/stock-count-detail-ledger-types';
+} from '../../src/business/domains/inventory/stock-count-detail-ledger-types';
 
 const rows: StockCountDetailLedgerRow[] = [
   {

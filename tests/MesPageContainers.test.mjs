@@ -15,10 +15,10 @@ const { ListScreenContainer } = await vite.ssrLoadModule(
   '/src/components/PageContainers.tsx',
 );
 const {
-  MesDetailPageContainer,
-  MesDetailPageContent,
-  MesDetailPageState,
-} = await vite.ssrLoadModule('/src/business/components/MesDetailPageContainer.tsx');
+  DetailPageContainer,
+  DetailPageContent,
+  DetailPageState,
+} = await vite.ssrLoadModule('/src/business/domains/documents/DetailPageContainer.tsx');
 
 after(async () => {
   await vite.close();
@@ -50,7 +50,7 @@ test('list toolbar stays between the page header and its semantic results region
 test('MES detail container preserves breadcrumb, header, approval, body, and footer slots', () => {
   const html = renderToStaticMarkup(
     React.createElement(
-      MesDetailPageContainer,
+      DetailPageContainer,
       {
         title: '设备详情',
         onBack: () => undefined,
@@ -89,7 +89,7 @@ test('MES detail container preserves breadcrumb, header, approval, body, and foo
 test('MES detail content composes host slots without adding a screen or scroll container', () => {
   const html = renderToStaticMarkup(
     React.createElement(
-      MesDetailPageContent,
+      DetailPageContent,
       {
         header: React.createElement('header', null, '宿主详情标题'),
         approval: React.createElement('aside', null, '宿主审批面板'),
@@ -105,17 +105,17 @@ test('MES detail content composes host slots without adding a screen or scroll c
 
 test('MES detail state preserves loading, error retry, and empty presentation', () => {
   const loadingHtml = renderToStaticMarkup(
-    React.createElement(MesDetailPageState, { state: 'loading' }),
+    React.createElement(DetailPageState, { state: 'loading' }),
   );
   const errorHtml = renderToStaticMarkup(
-    React.createElement(MesDetailPageState, {
+    React.createElement(DetailPageState, {
       state: 'error',
       description: '加载失败，请重试',
       onRetry: () => undefined,
     }),
   );
   const emptyHtml = renderToStaticMarkup(
-    React.createElement(MesDetailPageState, {
+    React.createElement(DetailPageState, {
       state: 'empty',
       description: '未找到数据',
     }),

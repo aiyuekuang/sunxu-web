@@ -1,8 +1,8 @@
 import { App, Button, Space, Typography } from 'antd';
 import { useState } from 'react';
 import { SectionCard } from '../../src/components/SectionCard';
-import { EquipmentFaultVerifyModal } from '../../src/business/components/EquipmentFaultVerifyModal';
-import type { EquipmentFaultVerifyCapabilities } from '../../src/business/components/equipment-fault-verify-types';
+import { EquipmentFaultVerifyModal } from '../../src/business/domains/shared/EquipmentFaultVerifyModal';
+import type { EquipmentFaultVerifyCapabilities } from '../../src/business/domains/quality/equipment-fault-verify-types';
 
 const getFieldHelpProps: EquipmentFaultVerifyCapabilities['getFieldHelpProps'] = (
   label,

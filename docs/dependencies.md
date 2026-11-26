@@ -22,7 +22,7 @@
 
 Ant Design 6 与 Pro Components 当前稳定版 2.8.10 的 peer 范围不匹配：稳定版只声明 Ant Design 4/5；当前 beta 3.1.15-9 声明支持 Ant Design 6。项目按用户决定使用新组合，不降回 Ant Design 5。依赖升级前重新查询 npm tag 与 peerDependencies，并在安装、类型检查和构建后更新本表。
 
-React-PDF 宿主必须将 `pdfjs-dist/build/pdf.worker.min.mjs` 作为单独资源交给 `MesUiProvider.drawingFilesCapabilities.pdfWorkerSrc`；不得让 Worker 与组件包解析到不同的 PDF.js 版本。
+React-PDF 宿主必须将 `pdfjs-dist/build/pdf.worker.min.mjs` 作为单独资源交给 `BusinessUiProvider.drawingFilesCapabilities.pdfWorkerSrc`；不得让 Worker 与组件包解析到不同的 PDF.js 版本。
 
 Ant Design 提供主题算法与 token 的官方 `ConfigProvider` API；ProForm 是 Ant Design Form 的高层组合，ProTable、ProCard 等承担列表和页面模板。Sunxu Web 不复制这些基础职责，只对跨项目页面契约加薄封装。
 

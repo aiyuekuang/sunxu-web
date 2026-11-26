@@ -1,8 +1,8 @@
 import { useMemo, useState } from 'react';
 import { Alert, Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { ChangeHistoryModal } from '../../src/business/components/ChangeHistoryModal';
-import { RescheduleDrawer } from '../../src/business/components/RescheduleDrawer';
+import { ChangeHistoryModal } from '../../src/business/domains/manufacturing/ChangeHistoryModal';
+import { RescheduleDrawer } from '../../src/business/domains/manufacturing/RescheduleDrawer';
 import type {
   CalendarAuditRecord,
   CalendarHistoryCapabilities,
@@ -14,7 +14,7 @@ import type {
   ReschedulePreview,
   RescheduleRun,
   RescheduleRunDetail,
-} from '../../src/business/components/schedule-reschedule-types';
+} from '../../src/business/domains/manufacturing/schedule-reschedule-types';
 
 const demoShiftedEntries: RescheduleImpactEntry[] = [
   {

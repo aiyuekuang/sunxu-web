@@ -10,7 +10,7 @@
 ## 组件归一化调整（2026-11-26）
 
 - 后续架构决策取代 2026-11-19 将组件分成“通用层 + MES UI 套件”的产品边界：库内按原子、通用复合、业务复合分层，并按业务领域归类；相同业务任务在所有宿主使用同一权威实现、契约和视觉行为。
-- 业务 UI 源码由 `src/mes/**` 移至 `src/business/**`，公开入口新增 `sunxu-web/business`；`src/mes/index.ts` 和 `sunxu-web/mes` 保留为迁移转发入口，消费端逐步迁移后删除。
+- 业务 UI 源码由 `src/mes/**` 移至 `src/business/domains/**`，公开入口新增 `sunxu-web/business`；旧 `sunxu-web/mes` 路径现由 `src/business/compat/mesEntry.ts` 转发到同一实现。MES Admin 仍大量依赖旧入口，因此继续保留到所有已知消费端迁移完成，并在下一次主版本移除；源码不再保留 `src/mes` 组件目录。
 - 状态字典标签、徽标和文本收敛到根出口 `StatusDisplay`。原 `MesStatusTag` 只保留迁移适配并委托同一实现；多处业务类型改用根出口 `StatusMap`。
 - 重复的上下文帮助浮层收敛到根出口 `ContextualHelp`；导入流程和业务表单改为复用该实现。
 - 已更新工程指南、设计规范、组件契约、组件使用映射、组件来源清单和目录示例。组件内历史 `Mes` 命名与宿主适配 API 仍按迁移兼容策略逐步归一化。
@@ -60,7 +60,7 @@
 - 页面路由和页面控制器仍留在 `mes-admin`。迁移范围以 [MES 当前组件导入快照](./migrations/mes-admin-component-usage-2026-11-19.json) 和 [MES 公共组件逐文件清单](./migrations/mes-admin-src-components-2026-11-19.json) 为准；每条记录须映射到通用层、MES 套件、上游直通出口或宿主控制器，不得静默丢弃。
 - 已建立独立 `sunxu-web/mes` 运行时出口，已迁入 `TableLongText`、`DocumentLineBatchSettingsButton`、`DocumentLineQuantityInput`、`PermissionButton`、`StatusDisplay` 与 `DocumentModalForm` 等 MES 兼容适配；组件逐条覆盖仍在进行中。
 - `DocumentModalForm` 按当前 MES 行为重新适配到 Sunxu 命名空间和 Ant Design tokens，保留完整 `ModalForm` props、标签工作区定位、视口全屏选项、最小化草稿保留、还原条、open 状态重置及语义样式槽合并；请求和路由仍由宿主控制。最终读屏器流程为 `UNVERIFIED`。
-- MES `ResizableTable.tsx` 以 `mes-admin` 分支 `main-买断版本` 的提交 `e185f6b68b6d8ef94ed0b5312340e1952be5f2f1` 为行为基线（源文件 SHA-256 `f86cf0b9bc988036ddcce0246b48627ea80dcf25607d8db29cc721f99e542c3e`，3,699 行）。Sunxu 版本为 3,780 行的适配移植：列宽钩子、MES 表格工具、列状态/导出布局、Umi 权限接缝改为 `MesUiProvider` 能力注入；不读取或修改 `mes-admin` 工作区文件，也没有将来源文件原样不加处理地复制进通用层。
+- MES `ResizableTable.tsx` 以 `mes-admin` 分支 `main-买断版本` 的提交 `e185f6b68b6d8ef94ed0b5312340e1952be5f2f1` 为行为基线（源文件 SHA-256 `f86cf0b9bc988036ddcce0246b48627ea80dcf25607d8db29cc721f99e542c3e`，3,699 行）。Sunxu 版本为 3,780 行的适配移植：列宽钩子、MES 表格工具、列状态/导出布局、Umi 权限接缝改为 `BusinessUiProvider` 能力注入；不读取或修改 `mes-admin` 工作区文件，也没有将来源文件原样不加处理地复制进通用层。
 - 套件导出 `ResizableProTable` / `ResizableTable`、`TableActions`、`TableDensityOption`、`TableEmpty` 和 `useTableExportLayout`。保留源行为后，排序标记改为叠加到最终表格列，避免 ProTable 恢复已保存排序时改变列宽 hook 的输入并把已保存宽度覆盖回默认值。
 - 此前表格/单据批次后，账本中已有实现的 MES/通用组件引用从 9 项增至 16 项；待补实现从 75 项降至 71 项，需按变更源契约复核从 19 项降至 16 项。
 - 第二批从同一固定 MES 提交 `e185f6b68b6d8ef94ed0b5312340e1952be5f2f1` 核对并适配 `AmountText`、`AmountPolicySnapshotTag`、`DateText`、`UserText`、`DefaultRouteHint`、`CustomerMaterialCell` 和 `EntityThumbnail`。它们保留源格式、回退、快照解析、推荐路线提示、客户别名/内部物料并列、排序取值、图片 fallback/预览及行事件隔离；金额策略和路线 API 改为宿主注入。代码经契约适配，不将 MES 服务依赖或权限状态复制进 Sunxu。

@@ -1,7 +1,7 @@
 import { Modal, Space, Typography, message } from 'antd';
 import { ProFormSelect } from '@ant-design/pro-components';
 import { useMemo, useRef, useState } from 'react';
-import { ProductionShiftCalendar } from '../../src/business/components/ProductionShiftCalendarComponents';
+import { ProductionShiftCalendar } from '../../src/business/domains/manufacturing/ProductionShiftCalendarComponents';
 import type {
   CalendarExceptionRecord,
   CalendarExceptionType,
@@ -9,8 +9,8 @@ import type {
   CalendarShiftMessageSet,
   ProductionShiftCalendarCapabilities,
   ShiftCalendarRecord,
-} from '../../src/business/components/production-shift-calendar-types';
-import type { CalendarAuditRecord } from '../../src/business/components/schedule-reschedule-types';
+} from '../../src/business/domains/manufacturing/production-shift-calendar-types';
+import type { CalendarAuditRecord } from '../../src/business/domains/manufacturing/schedule-reschedule-types';
 
 const messageSet: CalendarShiftMessageSet = {
   shiftCreated: '创建成功',

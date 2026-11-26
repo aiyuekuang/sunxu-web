@@ -6,7 +6,7 @@ import {
   ResizableTable,
   TableActions,
   TableLongText,
-  MesUiProvider,
+  BusinessUiProvider,
   useTableExportLayout,
 } from '../../src/business';
 import { SectionCard } from '../../src';
@@ -372,7 +372,7 @@ export function ResizableTablePage() {
             label="物料台账，可用左右方向键查看全部列"
             className="sxw-catalog-fit-table-region"
           >
-            <MesUiProvider
+            <BusinessUiProvider
               hasPermission={() => true}
               maskAmount={maskAmount}
               amountVisibilityRevision={amountVisible}
@@ -431,7 +431,7 @@ export function ResizableTablePage() {
                   );
                 }}
               />
-            </MesUiProvider>
+            </BusinessUiProvider>
           </KeyboardTableRegion>
         </div>
       </SectionCard>
@@ -441,7 +441,7 @@ export function ResizableTablePage() {
             原生 Table 保留序号、列宽记忆、排序状态和金额显隐刷新；列宽拖动手柄仅在表头出现。
         </Typography.Paragraph>
           <KeyboardTableRegion label="本地物料明细，可用左右方向键查看全部列">
-            <MesUiProvider
+            <BusinessUiProvider
               hasPermission={() => true}
               maskAmount={maskAmount}
               amountVisibilityRevision={amountVisible}
@@ -473,7 +473,7 @@ export function ResizableTablePage() {
                 resizable={{ persistenceKey: 'sxw_catalog_mes_local_detail_table' }}
                 materialColumnPriority="preserve"
               />
-            </MesUiProvider>
+            </BusinessUiProvider>
         </KeyboardTableRegion>
       </SectionCard>
     </div>

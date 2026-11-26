@@ -1,12 +1,12 @@
 import { Alert, Card, Space, Typography, message } from 'antd';
 import { useMemo, useState } from 'react';
-import { GridPrintDesigner } from '../../src/business/components/grid-print-designer/GridPrintDesigner';
+import { GridPrintDesigner } from '../../src/business/domains/printing/grid-print-designer/GridPrintDesigner';
 import type {
   GridDesignerField,
   GridDesignerPaperProfile,
   GridPrintDesignerDataSource,
-} from '../../src/business/components/grid-print-designer/types';
-import type { GridPrintTemplateSchema } from '../../src/business/components/grid-print-designer/schema';
+} from '../../src/business/domains/printing/grid-print-designer/types';
+import type { GridPrintTemplateSchema } from '../../src/business/domains/printing/grid-print-designer/schema';
 
 const fields: GridDesignerField[] = [
   {

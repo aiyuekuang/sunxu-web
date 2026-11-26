@@ -3,8 +3,8 @@ import { Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   DocumentViewLegacyRedirect,
-  MesUiProvider,
-  type MesUiRoute,
+  BusinessUiProvider,
+  type HostRouteAdapter,
 } from '../../src/business';
 
 export function DocumentViewLegacyRedirectDemo() {
@@ -19,7 +19,7 @@ export function DocumentViewLegacyRedirectDemo() {
       search: queryIndex < 0 ? '' : path.slice(queryIndex),
     });
   }, []);
-  const route = useMemo<MesUiRoute>(
+  const route = useMemo<HostRouteAdapter>(
     () => ({ ...routeState, replace }),
     [replace, routeState],
   );
@@ -29,14 +29,14 @@ export function DocumentViewLegacyRedirectDemo() {
       <Typography.Paragraph type="secondary">
         打开历史详情路由时，将目标单据页的视图偏好设为“明细”，并保留搜索条件后执行宿主路由替换。
       </Typography.Paragraph>
-      <MesUiProvider hasPermission={() => true} actionIntentRoute={route}>
+      <BusinessUiProvider hasPermission={() => true} actionIntentRoute={route}>
         <DocumentViewLegacyRedirect
           description="正在打开采购订单明细台账…"
           legacyPath="/purchase/orders/legacy-detail"
           storageKey="catalog-document-view-preference"
           targetPath="/purchase/orders"
         />
-      </MesUiProvider>
+      </BusinessUiProvider>
       <Space orientation="vertical" size={0}>
         <Typography.Text type="secondary">
           当前宿主地址：{routeState.pathname}{routeState.search}

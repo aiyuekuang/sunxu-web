@@ -2,12 +2,12 @@ import { useState } from 'react';
 import { App, Segmented, Space } from 'antd';
 import { SectionCard } from '../../src';
 import {
-  MesUiProvider,
+  BusinessUiProvider,
   OrderItemEditor,
   type OrderItemDraft,
-  type MesOrderItemEditorCapabilities,
+  type OrderItemEditorCapabilities,
 } from '../../src/business';
-import { withSharedFieldHelp } from '../../src/business/components/shared-field-help';
+import { withSharedFieldHelp } from '../../src/business/domains/documents/shared-field-help';
 
 const demoMaterials = [
   { value: 'mat-al-01', label: '6061 铝型材', code: 'RM-AL-0081', name: '6061 铝型材', spec: '20 × 40 mm', unit: 'M' },
@@ -32,7 +32,7 @@ export function OrderItemEditorDemo() {
     },
   ]);
 
-  const capabilities: MesOrderItemEditorCapabilities = {
+  const capabilities: OrderItemEditorCapabilities = {
     requestMaterials: async (params) => {
       const keyword = params?.keyWords?.toLowerCase() ?? '';
       return demoMaterials.filter((item) =>
@@ -91,8 +91,8 @@ export function OrderItemEditorDemo() {
           ]}
           onChange={(value) => setLayout(value as typeof layout)}
         />
-        <MesUiProvider
-          hasPermission={(permission) => permission === 'mes:catalog:read'}
+        <BusinessUiProvider
+          hasPermission={(permission) => permission === 'demo:catalog:read'}
           materialSelectCapabilities={{ unitLabelMap: { M: '米', EA: '只' } }}
           orderItemEditorCapabilities={capabilities}
         >
@@ -112,7 +112,7 @@ export function OrderItemEditorDemo() {
             density="compact"
             expandBelowByDefault
           />
-        </MesUiProvider>
+        </BusinessUiProvider>
       </Space>
     </SectionCard>
   );

@@ -24,8 +24,58 @@
       "import": "./dist/business.js",
       "require": "./dist/business.cjs"
     },
+    "./business/accounting": {
+      "types": "./dist/types/business/domains/accounting/index.d.ts",
+      "import": "./dist/business-accounting.js",
+      "require": "./dist/business-accounting.cjs"
+    },
+    "./business/application": {
+      "types": "./dist/types/business/domains/application/index.d.ts",
+      "import": "./dist/business-application.js",
+      "require": "./dist/business-application.cjs"
+    },
+    "./business/documents": {
+      "types": "./dist/types/business/domains/documents/index.d.ts",
+      "import": "./dist/business-documents.js",
+      "require": "./dist/business-documents.cjs"
+    },
+    "./business/inventory": {
+      "types": "./dist/types/business/domains/inventory/index.d.ts",
+      "import": "./dist/business-inventory.js",
+      "require": "./dist/business-inventory.cjs"
+    },
+    "./business/manufacturing": {
+      "types": "./dist/types/business/domains/manufacturing/index.d.ts",
+      "import": "./dist/business-manufacturing.js",
+      "require": "./dist/business-manufacturing.cjs"
+    },
+    "./business/printing": {
+      "types": "./dist/types/business/domains/printing/index.d.ts",
+      "import": "./dist/business-printing.js",
+      "require": "./dist/business-printing.cjs"
+    },
+    "./business/procurement": {
+      "types": "./dist/types/business/domains/procurement/index.d.ts",
+      "import": "./dist/business-procurement.js",
+      "require": "./dist/business-procurement.cjs"
+    },
+    "./business/quality": {
+      "types": "./dist/types/business/domains/quality/index.d.ts",
+      "import": "./dist/business-quality.js",
+      "require": "./dist/business-quality.cjs"
+    },
+    "./business/sales": {
+      "types": "./dist/types/business/domains/sales/index.d.ts",
+      "import": "./dist/business-sales.js",
+      "require": "./dist/business-sales.cjs"
+    },
+    "./business/shared": {
+      "types": "./dist/types/business/domains/shared/index.d.ts",
+      "import": "./dist/business-shared.js",
+      "require": "./dist/business-shared.cjs"
+    },
     "./mes": {
-      "types": "./dist/types/mes/index.d.ts",
+      "types": "./dist/types/business/compat/mesEntry.d.ts",
       "import": "./dist/mes.js",
       "require": "./dist/mes.cjs"
     },

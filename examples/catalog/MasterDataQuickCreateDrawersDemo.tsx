@@ -3,16 +3,16 @@ import { Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   CustomerQuickCreateDrawer,
-  MesUiProvider,
+  BusinessUiProvider,
   SupplierQuickCreateDrawer,
-  type MesMasterDataQuickCreateCapabilities,
+  type MasterDataQuickCreateCapabilities,
 } from '../../src/business';
 
 export function MasterDataQuickCreateDrawersDemo() {
   const [customerOpen, setCustomerOpen] = useState(false);
   const [supplierOpen, setSupplierOpen] = useState(false);
   const [lastCreated, setLastCreated] = useState('尚未新建主数据');
-  const capabilities: MesMasterDataQuickCreateCapabilities = {
+  const capabilities: MasterDataQuickCreateCapabilities = {
     canCreate: () => true,
     renderDrawer: () => null,
     forms: {
@@ -46,7 +46,7 @@ export function MasterDataQuickCreateDrawersDemo() {
           {lastCreated}
         </Typography.Text>
       </Space>
-      <MesUiProvider hasPermission={() => true} masterDataQuickCreateCapabilities={capabilities}>
+      <BusinessUiProvider hasPermission={() => true} masterDataQuickCreateCapabilities={capabilities}>
         <CustomerQuickCreateDrawer
           open={customerOpen}
           onOpenChange={setCustomerOpen}
@@ -57,7 +57,7 @@ export function MasterDataQuickCreateDrawersDemo() {
           onOpenChange={setSupplierOpen}
           onCreated={(option) => setLastCreated(`已创建供应商：${option.label}`)}
         />
-      </MesUiProvider>
+      </BusinessUiProvider>
     </SectionCard>
   );
 }

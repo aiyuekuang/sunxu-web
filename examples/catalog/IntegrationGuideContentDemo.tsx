@@ -3,8 +3,8 @@ import { SectionCard } from '../../src';
 import {
   IntegrationGuideContent,
   INTEGRATION_GUIDE_TITLES,
-} from '../../src/business/components/IntegrationGuideContent';
-import type { IntegrationGuideTopic } from '../../src/business/components/IntegrationGuideContent';
+} from '../../src/business/domains/application/IntegrationGuideContent';
+import type { IntegrationGuideTopic } from '../../src/business/domains/application/IntegrationGuideContent';
 
 const topics: IntegrationGuideTopic[] = [
   'api',

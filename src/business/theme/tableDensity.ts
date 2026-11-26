@@ -1,7 +1,8 @@
 import { useSyncExternalStore } from 'react';
+import { LEGACY_TABLE_DENSITY_STORAGE_KEY } from '../compat/legacyStorageKeys';
 import { safeLocalStorageSetItem } from '../utils/safeStorage';
 
-export const TABLE_DENSITY_STORAGE_KEY = 'mes-admin:table-density';
+export const TABLE_DENSITY_STORAGE_KEY = LEGACY_TABLE_DENSITY_STORAGE_KEY;
 
 export type TableDensityKey = 'large' | 'middle' | 'small' | 'zero';
 

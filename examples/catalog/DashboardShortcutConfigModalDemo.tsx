@@ -3,7 +3,7 @@ import { Button, Space, Typography } from 'antd';
 import type {
   DashboardShortcutConfigCapabilities,
   DashboardShortcutPreferences,
-} from '../../src/business/components/dashboard-shortcut-config-types';
+} from '../../src/business/domains/application/dashboard-shortcut-config-types';
 import { SectionCard } from '../../src';
 import { DashboardShortcutConfigModal } from '../../src/business';
 

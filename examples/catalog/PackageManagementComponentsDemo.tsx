@@ -1,17 +1,17 @@
 import { useMemo, useState } from 'react';
 import { Button, Space, Typography, message } from 'antd';
 import { SectionCard } from '../../src';
-import { MesUiProvider } from '../../src/business/MesUiProvider';
-import { PackageSpecManager } from '../../src/business/components/PackageSpecManager';
-import { PackageUnitCreateDrawer } from '../../src/business/components/PackageUnitCreateDrawer';
+import { BusinessUiProvider } from '../../src/business/providers/BusinessUiProvider';
+import { PackageSpecManager } from '../../src/business/domains/inventory/PackageSpecManager';
+import { PackageUnitCreateDrawer } from '../../src/business/domains/inventory/PackageUnitCreateDrawer';
 import type {
   MaterialPackageSpecRecord,
   PackageAvailableSourceRecord,
   PackageSpecManagerCapabilities,
   PackageUnitCreateCapabilities,
   PackageUnitRecord,
-} from '../../src/business/components/package-management-types';
-import type { MesMaterialSelectCapabilities } from '../../src/business/components/material-select-types';
+} from '../../src/business/domains/inventory/package-management-types';
+import type { MaterialSelectCapabilities } from '../../src/business/domains/inventory/material-select-types';
 
 const initialSpecs: MaterialPackageSpecRecord[] = [
   {
@@ -106,7 +106,7 @@ export function PackageManagementComponentsDemo() {
   const [createOpen, setCreateOpen] = useState(false);
   const [permissions, setPermissions] = useState(true);
 
-  const materialSelectCapabilities = useMemo<MesMaterialSelectCapabilities>(() => ({
+  const materialSelectCapabilities = useMemo<MaterialSelectCapabilities>(() => ({
     unitLabelMap: { piece: '件' },
     baseTypeOptions: [
       { label: '半成品', value: 'semi' },
@@ -252,7 +252,7 @@ export function PackageManagementComponentsDemo() {
   }), [specs, unitRecords.length]);
 
   return (
-    <MesUiProvider
+    <BusinessUiProvider
       hasPermission={() => permissions}
       materialSelectCapabilities={materialSelectCapabilities}
     >
@@ -283,6 +283,6 @@ export function PackageManagementComponentsDemo() {
         }}
         capabilities={packageUnitCapabilities}
       />
-    </MesUiProvider>
+    </BusinessUiProvider>
   );
 }

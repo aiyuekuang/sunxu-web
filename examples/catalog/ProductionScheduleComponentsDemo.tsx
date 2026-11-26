@@ -10,7 +10,7 @@ import { Alert, Button, Space, Typography } from 'antd';
 import { useMemo, useRef, useState } from 'react';
 import type { MouseEvent } from 'react';
 import { SectionCard } from '../../src';
-import { BatchReleaseModal } from '../../src/business/components/BatchReleaseModal';
+import { BatchReleaseModal } from '../../src/business/domains/manufacturing/BatchReleaseModal';
 import {
   CapacityBar,
   GanttBar,
@@ -18,7 +18,7 @@ import {
   GanttInspector,
   GanttToolbar,
   UnscheduledPanel,
-} from '../../src/business/components/ProductionSchedulePlanningWidgets';
+} from '../../src/business/domains/manufacturing/ProductionSchedulePlanningWidgets';
 import type {
   BatchReleaseCapabilities,
   CapacityBarCapabilities,
@@ -32,7 +32,7 @@ import type {
   GanttToolbarCapabilities,
   GanttViewState,
   UnscheduledPanelCapabilities,
-} from '../../src/business/components/production-schedule-planning-types';
+} from '../../src/business/domains/manufacturing/production-schedule-planning-types';
 
 interface DemoScheduleEntry {
   id: string;

@@ -3,10 +3,10 @@ import { Button, Drawer, Form, Input, Space, Switch, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
   MasterDataQuickCreateSelect,
-  MesUiProvider,
+  BusinessUiProvider,
   type MasterDataQuickCreateDrawerProps,
   type MasterDataQuickCreateOption,
-  type MesMasterDataQuickCreateCapabilities,
+  type MasterDataQuickCreateCapabilities,
 } from '../../src/business';
 
 interface QuickCreateDemoOption extends MasterDataQuickCreateOption {
@@ -109,7 +109,7 @@ export function MasterDataQuickCreateSelectDemo() {
     [],
   );
 
-  const quickCreateCapabilities = useMemo<MesMasterDataQuickCreateCapabilities>(
+  const quickCreateCapabilities = useMemo<MasterDataQuickCreateCapabilities>(
     () => ({
       canCreate: () => canCreate,
       renderDrawer: (props) => <QuickCreateDemoDrawer {...props} />,
@@ -148,7 +148,7 @@ export function MasterDataQuickCreateSelectDemo() {
             <Switch checked={disabled} onChange={setDisabled} />
           </Space>
         </Space>
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => true}
           masterDataQuickCreateCapabilities={quickCreateCapabilities}
         >
@@ -191,7 +191,7 @@ export function MasterDataQuickCreateSelectDemo() {
               placeholder="搜索供应商"
             />
           </Form>
-        </MesUiProvider>
+        </BusinessUiProvider>
         <Space wrap size={[16, 4]}>
           <Typography.Text type="secondary" role="status">
             远程请求次数：{requestCount}

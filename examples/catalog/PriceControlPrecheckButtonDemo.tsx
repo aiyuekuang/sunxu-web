@@ -2,9 +2,9 @@ import { useMemo, useState } from 'react';
 import { Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
 import {
-  MesUiProvider,
+  BusinessUiProvider,
   PriceControlPrecheckButton,
-  type MesPriceControlCapabilities,
+  type PriceControlCapabilities,
   type PriceControlDecision,
   type PriceControlPrecheckResult,
 } from '../../src/business';
@@ -42,7 +42,7 @@ function decision(
 export function PriceControlPrecheckButtonDemo() {
   const [kind, setKind] = useState<DemoDecision>('warning');
   const [hostResult, setHostResult] = useState('尚未确认');
-  const capabilities = useMemo<MesPriceControlCapabilities>(
+  const capabilities = useMemo<PriceControlCapabilities>(
     () => ({
       hasRawViewPermission: () => kind !== 'no-precheck',
       async precheck() {
@@ -83,7 +83,7 @@ export function PriceControlPrecheckButtonDemo() {
           ]}
           onChange={(value) => setKind(value as DemoDecision)}
         />
-        <MesUiProvider
+        <BusinessUiProvider
           hasPermission={() => true}
           priceControlCapabilities={capabilities}
         >
@@ -116,7 +116,7 @@ export function PriceControlPrecheckButtonDemo() {
           >
             确认销售订单
           </PriceControlPrecheckButton>
-        </MesUiProvider>
+        </BusinessUiProvider>
         <Typography.Text type="secondary" aria-live="polite">
           {hostResult}
         </Typography.Text>
