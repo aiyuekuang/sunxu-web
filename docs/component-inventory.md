@@ -130,7 +130,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `TraceTimelineDrawer`（`sunxu-web/mes`） | 保留批号和成品序列号追溯、方向选择、时间线关系/上下文/照片/备注、汇总和警告；查询、字典及格式化由宿主注入 |
 | MES 单据视图切换预设（`sunxu-web/mes`） | 保留采购申请/退料/入库、销售订单/出库/退货、报价和生产领料各自的 `aria-label`，共享受控的明细/单据切换 |
 | `ScheduleGanttWidgets`、`ShiftBreakListField`（`sunxu-web/mes`） | 保留排产当前时刻线、负荷热力格点击与班次休息时段增删；产能格式/颜色和时间字段策略由宿主提供 |
-| `ProductionShiftCalendar`、`ShiftFormModal`、`ShiftTable`、`ExceptionFormModal`、`ExceptionTable`（`sunxu-web/mes`） | 保留班次及日期例外的归属、校验、分页筛选、分域权限动作、删除确认与变更历史；归属切换清理班次，历史错配班次在编辑时明确警告并清除，例外可按编辑权限启停且停用后不参与排产；业务请求、主数据候选和字段级消息由宿主注入 |
+| `ProductionShiftCalendar`、`ShiftFormModal`、`ShiftTable`、`ExceptionFormModal`、`ExceptionTable`（`sunxu-web/mes`） | 保留班次及日期例外的归属、校验、分页筛选、分域权限动作、删除确认与变更历史；归属切换清理班次，历史错配班次在编辑时明确警告并清除，状态列靠近日期/时段且停用后不参与排产；业务请求、主数据候选和字段级消息由宿主注入 |
 | `RescheduleDrawer`、`ChangeHistoryModal`（`sunxu-web/mes`） | 保留排程策略配置、影响预览/筛选、风险入口、历史与提交刷新；权限、字典、服务、错误和导航由宿主注入 |
 | 生产排程甘特组件（`sunxu-web/mes`） | 保留产能格、排程条拖拽/缩放/选择、右键菜单、详情检查器、日期筛选工具栏、提示和待排产拖放；待排产面板/容量条位置和右键选择行为可配置，时间/排产模型、颜色/文案、权限动作、数据和提交由宿主注入 |
 | `AutoScheduleDrawer`、`ScheduleFromPlansDrawer`、`BottleneckPanel`、`ScenarioCompare`、`EntryFormDrawer`、`EntryList`、`ProductionScheduleGanttView`（`sunxu-web/mes`） | 保留自动/计划排产、计划与外协摘要、瓶颈/方案分析、人工排程表单与台账（列设置与列宽使用共享 `ResizableProTable`）、甘特交互；策略/API/权限/字典/导航/提交由 MES 宿主注入 |
