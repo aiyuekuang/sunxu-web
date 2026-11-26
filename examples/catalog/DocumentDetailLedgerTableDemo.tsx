@@ -9,7 +9,7 @@ import {
   type DocumentDetailLedgerSavedViewController,
   type DocumentViewBarView,
   type MesDocumentDetailLedgerCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 type DemoLedgerRow = {
   id: string;

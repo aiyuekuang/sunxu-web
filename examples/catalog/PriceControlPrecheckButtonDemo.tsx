@@ -7,7 +7,7 @@ import {
   type MesPriceControlCapabilities,
   type PriceControlDecision,
   type PriceControlPrecheckResult,
-} from '../../src/mes';
+} from '../../src/business';
 
 type DemoDecision = 'clean' | 'warning' | 'blocker' | 'approval' | 'no-precheck';
 

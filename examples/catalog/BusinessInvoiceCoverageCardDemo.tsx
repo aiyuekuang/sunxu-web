@@ -7,7 +7,7 @@ import {
   type BusinessInvoiceMode,
   type InvoiceCoverageResponse,
   type MesBusinessInvoiceCoverageCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 type DemoScenario = 'ready' | 'draft' | 'unpriced' | 'price-hidden' | 'pending-red' | 'no-permission';
 
@@ -162,7 +162,7 @@ export function BusinessInvoiceCoverageCardDemo() {
   return (
     <SectionCard title="采购/销售发票覆盖卡">
       <Typography.Paragraph type="secondary">
-        展示覆盖数量与金额、关联发票、待定价和待红冲状态。权限、请求与保留当前返回地址的路由由 MES 宿主注入。
+        展示覆盖数量与金额、关联发票、待定价和待红冲状态。权限、请求与保留当前返回地址的路由由宿主注入。
       </Typography.Paragraph>
       <Space
         className="sxw-business-invoice-coverage-demo"

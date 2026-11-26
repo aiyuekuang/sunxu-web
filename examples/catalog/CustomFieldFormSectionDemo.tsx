@@ -8,7 +8,7 @@ import {
   type MesCustomFieldFormCapabilities,
   type MesCustomFieldSchema,
   type CustomFieldFormRuntime,
-} from '../../src/mes';
+} from '../../src/business';
 
 type DemoMode = 'create' | 'update' | 'empty' | 'error';
 
@@ -113,7 +113,7 @@ export function CustomFieldFormSectionDemo() {
   return (
     <SectionCard title="动态自定义字段表单">
       <Typography.Paragraph type="secondary">
-        按字段 schema 生成不同类型的 ProForm 控件；创建/更新必填策略、数值范围、选项禁用、值回填、加载重试和运行时元数据均保留，MES schema/value 请求由宿主提供。
+        按字段 schema 生成不同类型的 ProForm 控件；创建/更新必填策略、数值范围、选项禁用、值回填、加载重试和运行时元数据均保留，schema/value 请求由宿主提供。
       </Typography.Paragraph>
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Segmented

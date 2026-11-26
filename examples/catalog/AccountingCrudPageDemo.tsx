@@ -6,7 +6,7 @@ import {
   AccountingCrudPage,
   MesUiProvider,
   type AccountingCrudService,
-} from '../../src/mes';
+} from '../../src/business';
 
 type DemoAccountingRow = {
   id: string;
@@ -72,7 +72,7 @@ export function AccountingCrudPageDemo() {
   return (
     <SectionCard title="会计基础资料 CRUD">
       <Typography.Paragraph type="secondary">
-        通用台账保留 MES 搜索、分页、新增/编辑表单和操作权限；服务、字段定义与分页策略由页面提供。
+        通用台账保留搜索、分页、新增/编辑表单和操作权限；服务、字段定义与分页策略由页面提供。
       </Typography.Paragraph>
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Space wrap>

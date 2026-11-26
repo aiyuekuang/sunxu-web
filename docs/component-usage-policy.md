@@ -1,26 +1,26 @@
 # Sunxu Web 组件使用规范
 
-本规范将 Web 项目中的页面场景映射到 Sunxu Web 通用层、Sunxu Web MES 套件和上游 Ant Design / Ant Design Pro Components。MES 当前使用的 AntD、Pro 和图标组件从 `sunxu-web` 根出口使用；Sunxu 只直通导出上游实现，不复制其交互。MES 专用 UI 从 `sunxu-web/mes` 使用；API 请求、权限判定、路由、业务字段和副作用仍由宿主注入或负责。
+本规范将 Web 项目中的页面场景映射到 Sunxu Web 原子组件、通用复合组件、业务复合组件和上游 Ant Design / Ant Design Pro Components。多个项目接入同一组件库时，同一业务任务复用同一权威组件、契约和视觉行为；业务差异由宿主提供的数据、能力接口和明确配置承接。`sunxu-web/business` 是业务复合组件的权威入口；旧 `sunxu-web/mes` 只做迁移兼容转发，组件范围按稳定职责和业务领域确定。新增组件不得以宿主产品划分实现。
 
 ## MUST / ALLOWED / EXCEPTION
 
 - **MUST**：同一场景已有语义和交互匹配的组件时，必须复用，不另做同义实现。
-- **ALLOWED**：Sunxu 根出口没有匹配的上游直通项时，可以继续使用其他上游库；新增 MES 实际使用的 AntD/Pro/图标组件时，先把它加入 Sunxu 根出口清单，再切换宿主导入。
-- **EXCEPTION**：单页控制器、请求实现、路由或授权决策留在宿主。可复用的 MES 专用呈现和交互进入 `sunxu-web/mes`，通过 props、插槽和回调注入宿主能力，并说明其 MES 领域职责。
+- **ALLOWED**：Sunxu 根出口没有匹配的上游直通项时，可以继续使用其他上游库；新增接入项目实际使用的 AntD/Pro/图标组件时，先把它加入 Sunxu 根出口清单，再切换宿主导入。
+- **EXCEPTION**：单页控制器、请求实现、路由或授权决策留在宿主。稳定可复用的业务呈现和交互进入 Sunxu Web 业务组件层，通过 props、插槽和类型明确的能力接口接入宿主；一次性的业务组合留在宿主。
 
-Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页面模板使用 Ant Design Pro Components。通用组件放在根层，MES 专用组件放在 `src/mes/**`；Button、Input、Select、Modal、Drawer、Table 等基础控件通过根层直通出口提供，始终由上游维护实现。
+Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页面模板使用 Ant Design Pro Components。原子组件和通用复合组件由 Sunxu Web 统一维护，业务复合组件按业务领域组织；Button、Input、Select、Modal、Drawer、Table 等基础控件通过根层直通出口提供，始终由上游维护实现。
 
-消费端统一从 Sunxu Web 导入当前覆盖的 UI 组件：通用组件和 AntD/Pro/图标出口使用 `sunxu-web`，MES 专用组件使用 `sunxu-web/mes`。应用入口仍显式导入 `sunxu-web/styles.css`。新增 MES 使用的上游 UI 组件时，同步加入 `src/upstream.ts` 和当前 MES 覆盖清单。
+消费端统一从 Sunxu Web 导入当前覆盖的 UI 组件：原子与通用复合组件、AntD/Pro/图标出口使用 `sunxu-web`；业务复合组件使用 `sunxu-web/business`。已有 `sunxu-web/mes` 调用逐步迁移到 `/business`；兼容入口只转发实现，不得保留独立契约。应用入口仍显式导入 `sunxu-web/styles.css`。新增接入项目使用的上游 UI 组件时，同步加入 `src/upstream.ts` 和覆盖清单。
 
 ## 场景与组件映射
 
 | 场景 | MUST 使用 | Sunxu 上游直通出口 / 禁止替代 |
 |---|---|---|
-| 默认当前业务日期 | `todayBusinessDate`（`sunxu-web/mes`） | 按 `Asia/Shanghai` 生成 `YYYY-MM-DD`；不得从 UTC ISO 字符串截取日期 |
+| 默认当前业务日期 | `todayBusinessDate`（`sunxu-web/business`） | 按 `Asia/Shanghai` 生成 `YYYY-MM-DD`；不得从 UTC ISO 字符串截取日期 |
 | CRUD 列表工作台 | `CrudListWorkbench`；字段、请求、权限和编辑流程由宿主提供 | 页面级工作台使用主题容器面，视图/筛选/操作栏与结果区保持同一表面；内嵌工作台透明并继承父面。工作台不渲染页级标题；当前导航已说明任务时不重复标题，需要标题时由宿主在工作台外组合 `PageHeader`。ProTable 列能表达的查询字段优先用 `proTableSearch` 和列 schema；外部业务控件用工作台筛选插槽，不复制 ProTable 查询表单。只有现有业务确需可调整列宽等表格扩展时才使用 `renderTable`；筛选与列表级操作由工作台紧邻结果区承载；新增使用 `onCreate`，由组件固定文案为“新增”；行内标准操作用 `RowActions` 的 `kind` 固定文案 |
-| MES 列表/明细需要保留旧表格能力 | `ResizableProTable` / `ResizableTable`（`sunxu-web/mes`） | 组件承接列宽、列序/显隐、排序、行号、密度、空态和导出布局等 MES UI 行为；请求、查询字段、权限、动作和记录仍由宿主提供。完整宿主菜单列需用 `markCompleteActionMenuColumn` 标记，避免再次嵌套；标准行操作使用共享菜单。用于工作台时仅通过 `renderTable` 接入，工作台不渲染页级标题，只负责筛选与紧邻表格的列表操作工具栏 |
-| 列表单关键词跨字段搜索 | `DocumentKeywordSearch`（`sunxu-web/mes`） | 在列表标题/工具栏中直接使用；可搜索范围写在 placeholder 中，保留稳定的 `aria-label`，不得加可见标题前缀。`DocumentTableTitle` 仅为兼容旧调用保留且不再渲染标题 |
-| 采购申请列表展开行的只读物料明细 | `PurchaseRequisitionItemsTable`（`sunxu-web/mes`） | 固定优先显示物料身份、单位和数量，再显示供应商/采购日期等上下文，最后显示行号、备注和审计时间；宿主传入行数据和格式函数，不在展开表中复制列渲染或数量回退逻辑 |
+| 列表/明细需要保留扩展表格能力 | `ResizableProTable` / `ResizableTable`（`sunxu-web/business`） | 组件承接列宽、列序/显隐、排序、行号、密度、空态和导出布局等表格交互；请求、查询字段、授权、动作和记录仍由宿主提供。完整宿主菜单列需用 `markCompleteActionMenuColumn` 标记，避免再次嵌套；标准行操作使用共享菜单。用于工作台时仅通过 `renderTable` 接入，工作台不渲染页级标题，只负责筛选与紧邻表格的列表操作工具栏 |
+| 列表单关键词跨字段搜索 | `DocumentKeywordSearch`（`sunxu-web/business`） | 在列表标题/工具栏中直接使用；可搜索范围写在 placeholder 中，保留稳定的 `aria-label`，不得加可见标题前缀。`DocumentTableTitle` 仅为兼容旧调用保留且不再渲染标题 |
+| 采购申请列表展开行的只读物料明细 | `PurchaseRequisitionItemsTable`（`sunxu-web/business`） | 固定优先显示物料身份、单位和数量，再显示供应商/采购日期等上下文，最后显示行号、备注和审计时间；宿主传入行数据和格式函数，不在展开表中复制列渲染或数量回退逻辑 |
 | 同单位/同币种字段与表格列一一对应 | `TableSummary`（默认 `fixed`）+ AntD `Table.Summary.Cell` | 可加字段放在对应列下方并固定在表格底部；汇总单元格按最终可见列顺序提供 |
 | 多单位/多货主汇总较长，且要跟随结果行滚动 | `TableSummary fixed={false}` + AntD `Table.Summary.Cell` | 在数据行后显示并随表格纵向、横向滚动；用合并单元格承载分组摘要，固定操作列保持空白；由上游提供全筛选结果口径 |
 | 简短筛选摘要不需要跟随结果行滚动 | `PaginationSummary` + `paginationSummary` 插槽 | 放在分页栏左侧；只承载紧凑摘要。汇总来自上游同一查询，不使用当前页数据累加，也不与列合计重复展示同一指标 |
@@ -30,6 +30,7 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 | 列表筛选 | `CrudListWorkbench` 组合 ProTable 原生查询表单、`FilterBar` 轻筛选与可选高级筛选抽屉 | 少量外部快捷筛选默认同行展示；宽度不足时自动移入可展开区域。筛选值、查询和请求仍由宿主管理 |
 | 互斥状态筛选 | `StatusTabs` | 不用可导航的页面 Tab 冒充结果集合筛选；不在标签旁堆叠重复说明 |
 | 只读状态标签 | `StatusTag` | 状态文案和语义颜色由宿主映射；不以颜色代替状态文字；筛选使用 `StatusTabs` |
+| 宿主状态字典映射成标签、徽标或文本 | `StatusDisplay`（`sunxu-web`） | 同一状态字典和呈现模式复用该组件；状态值、文案、权限和状态变更由宿主管理 |
 | 标准表单页 | `FormScreenContainer` | 字段用 AntD `Form.Item` 与 Input/Select/DatePicker 等上游控件；长表单不自制滚动和固定页脚骨架 |
 | 复杂表单 | `FormScreenContainer` + Pro Components `ProForm`（按场景选择） | 不在 Sunxu Web 复制 Form.Item、表单校验或字段控件 |
 | 详情页 | `DetailScreenContainer` | 属性分组用 `DetailCard` 或 AntD Descriptions；不复刻页面安全区、标题和固定操作区 |
@@ -38,16 +39,16 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 | 设置项行 | `SettingsRow`（当行需要统一链接/按钮/静态语义时） | 不自绘同义的图标、标题、说明和箭头组合 |
 | 身份摘要 | `ProfileIdentity`（头像、姓名与宿主摘要组合） | 头像上传、资料权限和导航由宿主实现 |
 | 顶栏/工具栏纯图标动作 | `HeaderActionButton`（`sunxu-web`） | 必填 `aria-label`；Tooltip、Badge、Popover、权限和动作由宿主组合，不在页面复制按钮几何与交互态 |
-| MES 公告条、菜单搜索或业务侧栏 | `MesAnnouncementBanner` / `MesMenuSearchInput` / `MesBusinessSideNavView`（`sunxu-web/mes`） | 公告/菜单数据、权限过滤、键盘快捷键、路径判断、导航和轮询由宿主提供 |
-| MES 通知下拉面板 | `MesNotificationPanel`（`sunxu-web/mes`） | 受控弹层接收通知快照、未读数和状态；读取、标记已读、权限、时间与导航由宿主提供 |
-| MES 主题选择、App 下载或支持二维码 | `MesThemeOptionsPanel` / `MesAppDownloadPanel` / `MesSupportQRCode`（`sunxu-web/mes`） | 主题持久化、发布/服务器信息、联系数据和二维码 renderer 均由宿主提供 |
+| MES 公告条、菜单搜索或业务侧栏 | `MesAnnouncementBanner` / `MesMenuSearchInput` / `MesBusinessSideNavView`（`sunxu-web/business`） | 公告/菜单数据、权限过滤、键盘快捷键、路径判断、导航和轮询由宿主提供 |
+| MES 通知下拉面板 | `MesNotificationPanel`（`sunxu-web/business`） | 受控弹层接收通知快照、未读数和状态；读取、标记已读、权限、时间与导航由宿主提供 |
+| MES 主题选择、App 下载或支持二维码 | `MesThemeOptionsPanel` / `MesAppDownloadPanel` / `MesSupportQRCode`（`sunxu-web/business`） | 主题持久化、发布/服务器信息、联系数据和二维码 renderer 均由宿主提供 |
 | MES 详情路由需要统一标题、审批插槽、状态和页面态 | `MesDetailPageContainer`；若宿主已有页面框架则用 `MesDetailPageContent`；加载/错误/空态用 `MesDetailPageState` | 路由、数据加载/重试决定、审批 API、权限和详情内容由宿主提供；避免重复 screen 与滚动容器 |
 | 重复明细编辑/批量覆盖 | `EditableDetailTable` 与 `BatchFieldSettingsButton` | 不在业务页面复制同义的行选择、批量设置和明细编辑机制；字段 schema 和提交由宿主管理 |
-| MES 物料单选/多选、级联筛选或表格物料查询 | `MaterialSelectField` / `MaterialMultiSelectField` / `MaterialFilteredSelect`（`sunxu-web/mes`） | 注入 MES 候选请求、族/分类/类型字典、单位字典、扫码枪、条码查找和配置权限；不在页面自行拼物料 Select options |
-| 客户/供应商关联字段需要候选内快捷新增 | `MasterDataQuickCreateSelect`（`sunxu-web/mes`） | 宿主注入 `canCreate`、新增表单渲染器、配置链接和远程候选请求；新增权限、表单校验、API 与路由仍归宿主 |
-| 会计账簿、期间、凭证字或科目字段 | `AccountingBookField` / `FiscalPeriodField` / `VoucherWordField` / `AccountField`（`sunxu-web/mes`） | 通过 `MesUiProvider.accountingSelectorCapabilities` 注入基础资料请求和配置入口；ProTable 选项请求使用 `createAccountingSelectorRequests`；API、权限和配置路由由宿主负责 |
+| MES 物料单选/多选、级联筛选或表格物料查询 | `MaterialSelectField` / `MaterialMultiSelectField` / `MaterialFilteredSelect`（`sunxu-web/business`） | 注入 MES 候选请求、族/分类/类型字典、单位字典、扫码枪、条码查找和配置权限；不在页面自行拼物料 Select options |
+| 客户/供应商关联字段需要候选内快捷新增 | `MasterDataQuickCreateSelect`（`sunxu-web/business`） | 宿主注入 `canCreate`、新增表单渲染器、配置链接和远程候选请求；新增权限、表单校验、API 与路由仍归宿主 |
+| 会计账簿、期间、凭证字或科目字段 | `AccountingBookField` / `FiscalPeriodField` / `VoucherWordField` / `AccountField`（`sunxu-web/business`） | 通过 `MesUiProvider.accountingSelectorCapabilities` 注入基础资料请求和配置入口；ProTable 选项请求使用 `createAccountingSelectorRequests`；API、权限和配置路由由宿主负责 |
 | AntD 或 ProForm 日期/日期时间范围需要通用快捷预设 | `QuickDateRangePicker` / `QuickProFormDateRangePicker` / `QuickProFormDateTimeRangePicker`（`sunxu-web`） | 调用方专用预设优先，缺少的通用预设自动补齐；业务日期条件和报表请求仍由宿主管理 |
-| MES 图纸上传、订单附件行关联、图纸分组预览与打印 | `DrawingFilesInline` / `FileUrlsInline` / `DrawingFilesGallery`（`sunxu-web/mes`） | 使用 `MesUiProvider.drawingFilesCapabilities` 注入授权上传、文件代理下载、原名解析和 PDF worker；分组打印回调、权限与业务保存由宿主决定 |
+| MES 图纸上传、订单附件行关联、图纸分组预览与打印 | `DrawingFilesInline` / `FileUrlsInline` / `DrawingFilesGallery`（`sunxu-web/business`） | 使用 `MesUiProvider.drawingFilesCapabilities` 注入授权上传、文件代理下载、原名解析和 PDF worker；分组打印回调、权限与业务保存由宿主决定 |
 | 远程搜索候选 | `RemoteSelect` | 非远程/本地选项直接使用 AntD Select；请求和分页由宿主管理 |
 | 表格长文本最多显示两行并可查看全文 | `LongText` | 默认用 `displayMode="wrap"`；需要旧式截断时显式用 `displayMode="truncate"` |
 | 表格行操作收纳 | `RowActions` | 操作语义（权限、确认、跳转）由宿主决定；行内需要平铺展示的主操作直接用 AntD Button |
@@ -58,7 +59,7 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 当宿主确实已有可调整列宽等表格适配器时，通过 `renderTable` 接入结果区；MES 当前依赖列宽、列设置、密度、全局行号、导出布局等既有能力时，使用 `ResizableProTable` / `ResizableTable` 保留这些交互。适配器只消费工作台整理好的表格 props，不另画标题、筛选或列表级操作；`fill` 模式下工作台会在最终适配器元素上重新合并 `scroll`，确保业务适配器覆盖横向宽度时不丢失工作台高度。请求、权限、业务动作及页面副作用仍由宿主提供。组件覆盖门禁清零之前，不开始 MES 消费页面替换：
 
 ```tsx
-import { ResizableProTable } from 'sunxu-web/mes';
+import { ResizableProTable } from 'sunxu-web/business';
 
 <CrudListWorkbench
   layout="page"
@@ -70,7 +71,7 @@ import { ResizableProTable } from 'sunxu-web/mes';
 />
 ```
 
-若项目仍有暂未迁入的旧表格能力，可短期接入宿主适配器；目标实现已由 `sunxu-web/mes` 提供。没有列宽或 MES 表格策略需求时，使用工作台默认 ProTable。
+若项目仍有暂未迁入的旧表格能力，可短期接入宿主适配器；目标实现已由 `sunxu-web/business` 提供。没有列宽或 MES 表格策略需求时，使用工作台默认 ProTable。
 
 ### 外框与高度所有权
 
@@ -103,7 +104,7 @@ import { ResizableProTable } from 'sunxu-web/mes';
 ```tsx
 /**
  * @sunxu-page list
- * @sunxu-component business-specific
+ * @sunxu-layer business
  * @sunxu-domain inventory
  * @sunxu-reason 展示库存领域字段和权限控制；表格、筛选和页面骨架复用通用契约。
  * @sunxu-use filters
@@ -130,26 +131,26 @@ export function InventoryListPage() {
 
 应用路由外壳已经包含唯一 `<main>` landmark 时，Sunxu 页面容器用 `as="section"` 嵌入；不要在 `<main>` 中再渲染 `<main>`。
 
-## MES 套件组件标记
+## 组件分层与业务领域标记
 
-Sunxu Web 的 `src/components/**` 放跨项目通用组件，`src/mes/**` 放经当前 MES 实现核对的 MES 专用 UI。页面路由、请求服务、权限码和业务副作用留在宿主；组件通过受控 props、权限结果、服务函数和事件回调接入，不直接依赖 MES 服务或 Umi runtime。
+组件按原子、通用复合、业务复合分层，并按稳定业务领域归类。当前 `src/business/**` 是迁移期的历史存放位置，不代表组件只供某个产品使用；新增和重构组件不得再以宿主产品划分专用层。页面路由、请求服务、授权决策和业务副作用留在宿主；组件通过受控 props、插槽、回调或领域能力接口接入。
 
-纳入 lint 检查的每个导出组件都标注 `@sunxu-component shared`、`mes-specific` 或 `business-specific`。Sunxu MES 套件组件使用 `mes-specific`，并同时提供领域和理由：
+新建或重构的导出组件标注 `@sunxu-layer atomic`、`composite` 或 `business`。业务复合组件同时标注 `@sunxu-domain` 和 `@sunxu-reason`；理由说明它承载的稳定业务任务及跨项目复用价值，不得再用“仅供某宿主使用”作为组件归属理由：
 
 ```tsx
 /**
- * @sunxu-component mes-specific
- * @sunxu-domain inventory
- * @sunxu-reason 把 MES 批次追溯展示与库存记录操作组合在一起，其他业务宿主不共用这套领域交互。
+ * @sunxu-layer business
+ * @sunxu-domain inventory-traceability
+ * @sunxu-reason 统一批次追溯信息和记录操作的呈现；宿主注入记录、授权结果和动作回调。
  */
 export function InventoryBatchCard() {
   return <SectionCard title="批次">...</SectionCard>;
 }
 ```
 
-`@sunxu-reason` 要说明专用数据或交互为何不能由通用组件组合表达，不能只写“业务需要”。
+组件层级唯一使用 `@sunxu-layer atomic`、`@sunxu-layer composite` 和 `@sunxu-layer business`。业务层组件还必须声明 `@sunxu-domain` 与 `@sunxu-reason`；ESLint 不再接受旧分类标记。
 
-金额展示组件从 `MesUiProvider.maskAmount` 接收 MES 脱敏策略，路线提示通过 `DefaultRouteHint.requestCandidates` 接收候选查询；Provider 未配置金额策略时 fail closed。物料别名、内部物料快照和用户字段仍由 MES 页面映射，图片 URL 由宿主提供。组件库不得读取 MES 服务、Umi 权限或路由状态。
+主题、尺寸和语言等应用级默认值由 `SunxuWebProvider` 管理。业务服务、权限、路由、金额策略和数据由宿主提供；多个深层组件确需共享同一领域能力时，使用类型明确的领域能力 Provider，不把业务规则搬入通用原子组件，也不建立产品专属的总 Provider。
 
 ## 宿主 ESLint 接入
 
@@ -170,6 +171,6 @@ export default [
 ];
 ```
 
-`component-classification` 要求共享/MES 专用标记；MES 专用标记必须有领域和理由。`page-container` 要求页面标记与根容器匹配。`required-components` 按 `@sunxu-use` 校验控件。规则作为 lint error 接入本地开发和 CI 后才会阻断绕用。静态规则不猜业务含义；页面/组件的场景标签应由开发者依据真实职责维护。
+`component-classification` 要求组件层级标记；业务复合组件必须有领域和复用理由。迁移期旧标记仍被接受，但新代码不得新增。`page-container` 要求页面标记与根容器匹配。`required-components` 按 `@sunxu-use` 校验控件。规则作为 lint error 接入本地开发和 CI 后才会阻断绕用。静态规则不猜业务含义；页面/组件的场景标签应由开发者依据真实职责维护。
 
 例外须通过 `@sunxu-page custom` 和 `@sunxu-reason` 说明，并由代码评审确认；不用长期关闭规则或悄悄新增第二套通用实现。

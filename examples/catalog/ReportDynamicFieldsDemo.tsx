@@ -4,7 +4,7 @@ import { SectionCard } from '../../src';
 import {
   ReportDynamicFields,
   type ReportDynamicPrecheck,
-} from '../../src/mes';
+} from '../../src/business';
 
 const reportModes: Record<string, ReportDynamicPrecheck> = {
   operation: {

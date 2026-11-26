@@ -7,8 +7,8 @@ import {
   type StockTransferDetailLedgerCapabilities,
   type StockTransferDetailLedgerQuery,
   type StockTransferDetailLedgerRow,
-} from '../../src/mes';
-import { StockTransferDetailLedger } from '../../src/mes/components/StockTransferDetailLedger';
+} from '../../src/business';
+import { StockTransferDetailLedger } from '../../src/business/components/StockTransferDetailLedger';
 
 const demoRows: StockTransferDetailLedgerRow[] = [
   {

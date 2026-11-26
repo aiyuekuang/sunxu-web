@@ -5,7 +5,7 @@ import {
   MES_VOICE_EVENT_TYPE_OPTIONS,
   VoiceBroadcastSettingsPanel,
   type VoiceBroadcastSettings,
-} from '../../src/mes';
+} from '../../src/business';
 
 const initialSettings: VoiceBroadcastSettings = {
   enabled: true,

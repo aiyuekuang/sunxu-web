@@ -5,7 +5,7 @@ import {
   GeneratePurchaseReceiptBatchNoButton,
   MesUiProvider,
   type MesPurchaseReceiptCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 export function PurchaseReceiptBatchNoButtonDemo() {
   const [batchNo, setBatchNo] = useState('');
@@ -30,7 +30,7 @@ export function PurchaseReceiptBatchNoButtonDemo() {
   return (
     <SectionCard title="采购收货系统批号写入">
       <Typography.Paragraph type="secondary">
-        服务由 MES 宿主注入。成功后把系统批号回填当前明细；已有批号或未选择物料时不可生成。
+        服务由宿主注入。成功后把系统批号回填当前明细；已有批号或未选择物料时不可生成。
       </Typography.Paragraph>
       <MesUiProvider
         hasPermission={() => true}

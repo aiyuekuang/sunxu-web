@@ -6,11 +6,11 @@ import {
   GanttHeatmapCell,
   GanttNowLine,
   ShiftBreakListField,
-} from '../../src/mes';
+} from '../../src/business';
 import type {
   ScheduleHeatmapWeekCell,
   ShiftBreakValue,
-} from '../../src/mes/components/production-schedule-widget-types';
+} from '../../src/business/components/production-schedule-widget-types';
 
 const TIMELINE_WIDTH = 960;
 const noop = () => undefined;

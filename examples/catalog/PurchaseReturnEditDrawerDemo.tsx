@@ -2,17 +2,17 @@ import { useMemo, useState } from 'react';
 import { App, Button, Form, Select, Space, Typography } from 'antd';
 import { ProFormSelect } from '@ant-design/pro-components';
 import { SectionCard } from '../../src';
-import { PurchaseReturnEditDrawer } from '../../src/mes/components/PurchaseReturnEditDrawer';
+import { PurchaseReturnEditDrawer } from '../../src/business/components/PurchaseReturnEditDrawer';
 import type {
   PurchaseReturnCommercialAmountInput,
   PurchaseReturnEditCapabilities,
   PurchaseReturnEditDetail,
   PurchaseReturnEditLineFormValue,
   PurchaseReturnUpdatePayload,
-} from '../../src/mes/components/purchase-return-edit-drawer-types';
-import type { DocumentLineCustomFieldSchema } from '../../src/mes/components/document-line-custom-field-types';
-import type { MesStockLocationSelectCapabilities } from '../../src/mes/components/stock-location-select-field-types';
-import type { StockBalancePreviewCapabilities } from '../../src/mes/components/stock-balance-preview-types';
+} from '../../src/business/components/purchase-return-edit-drawer-types';
+import type { DocumentLineCustomFieldSchema } from '../../src/business/components/document-line-custom-field-types';
+import type { MesStockLocationSelectCapabilities } from '../../src/business/components/stock-location-select-field-types';
+import type { StockBalancePreviewCapabilities } from '../../src/business/components/stock-balance-preview-types';
 
 const lineCustomFieldSchema: DocumentLineCustomFieldSchema = {
   schemaVersion: 3,

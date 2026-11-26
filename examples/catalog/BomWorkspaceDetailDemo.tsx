@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Button, message } from 'antd';
 import { SectionCard, Space, Typography } from '../../src';
-import { BomWorkspaceDetail } from '../../src/mes/components/BomWorkspaceDetail';
-import type { BomWorkspaceDetailCapabilities } from '../../src/mes/components/bom-workspace-detail-types';
+import { BomWorkspaceDetail } from '../../src/business/components/BomWorkspaceDetail';
+import type { BomWorkspaceDetailCapabilities } from '../../src/business/components/bom-workspace-detail-types';
 
 const workspaceCapabilities: BomWorkspaceDetailCapabilities = {
   requestDetail: async (id) => ({

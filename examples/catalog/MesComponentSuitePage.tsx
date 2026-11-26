@@ -1,6 +1,7 @@
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { Button, Form, Input, Segmented, Switch } from 'antd';
-import { SectionCard, Space, Table, Typography } from '../../src';
+import { SectionCard, Space, StatusDisplay, Table, Typography } from '../../src';
+import type { StatusMap } from '../../src/components/StatusDisplay';
 import type { TableProps } from 'antd';
 import {
   DocumentLineBatchSettingsButton,
@@ -19,17 +20,15 @@ import {
   EntityThumbnail,
   MesUiProvider,
   PermissionButton,
-  StatusDisplay,
   TableLongText,
   UserText,
-  type MesStatusEnum,
   type DocumentLineBatchField,
   type DocumentActionDefinition,
   type DocumentActionState,
   type DocumentViewMode,
   type MesCustomFieldPanelRenderProps,
   type MesUiRoute,
-} from '../../src/mes';
+} from '../../src/business';
 import { MaterialSelectorDemo } from './MaterialSelectorDemo';
 import { DrawingFilesDemo } from './DrawingFilesDemo';
 import { MaterialDrawingsPanelDemo } from './MaterialDrawingsPanelDemo';
@@ -184,7 +183,7 @@ const warehouseOptions = [
   { label: '成品仓', value: 'finished-goods' },
 ];
 
-const statusOptions: MesStatusEnum = {
+const statusOptions: StatusMap = {
   in_progress: { text: '进行中', status: 'Processing' },
   completed: { text: '已完成', status: 'Success' },
   pending: { text: '待处理', status: 'Warning', color: '#FF8F1F' },
@@ -462,7 +461,7 @@ export function MesComponentSuitePage() {
       <DocumentViewBarDemo />
       <PriceControlPrecheckButtonDemo />
 
-      <SectionCard title="MES 表格长文本">
+      <SectionCard title="表格长文本">
         <Typography.Paragraph type="secondary">
           默认两行预览，悬停或点击查看全文；显式截断模式仍保留 64 字截断和“更多”弹层。
         </Typography.Paragraph>
@@ -516,7 +515,7 @@ export function MesComponentSuitePage() {
         ) : null}
       </SectionCard>
 
-      <SectionCard title="MES 单据关键词搜索">
+      <SectionCard title="单据关键词搜索">
         <Typography.Paragraph type="secondary">
           搜索范围直接写在输入提示中；关键词是当前查询的临时条件，不写入个人视图。清空立即通知宿主，提交时去除首尾空格。
         </Typography.Paragraph>
@@ -540,7 +539,7 @@ export function MesComponentSuitePage() {
         </Space>
       </SectionCard>
 
-      <SectionCard title="MES 明细批量字段设置">
+      <SectionCard title="明细批量字段设置">
         <Typography.Paragraph type="secondary">
           每个字段单独勾选；日期 patch 使用 YYYY-MM-DD，远程候选和提交回调由宿主提供。
         </Typography.Paragraph>
@@ -577,9 +576,9 @@ export function MesComponentSuitePage() {
         ) : null}
       </SectionCard>
 
-      <SectionCard title="MES 状态与权限组件">
+      <SectionCard title="状态与权限组件">
         <Typography.Paragraph type="secondary">
-          状态字典、标签和权限判断由 MES 宿主提供；权限不通过时操作不渲染。
+          状态字典、标签和权限判断由宿主提供；权限不通过时操作不渲染。
         </Typography.Paragraph>
         <Space wrap size={12} style={{ marginBottom: 12 }}>
           <StatusDisplay value="in_progress" enumMap={statusOptions} />
@@ -624,7 +623,7 @@ export function MesComponentSuitePage() {
         </MesUiProvider>
       </SectionCard>
 
-      <SectionCard title="MES 单据动作与深链">
+      <SectionCard title="单据动作与深链">
         <Typography.Paragraph type="secondary">
           动作集合同时受宿主权限和单据 availableActions 控制；深链只触发详情页已有流程。
         </Typography.Paragraph>
@@ -710,7 +709,7 @@ export function MesComponentSuitePage() {
         </MesUiProvider>
       </SectionCard>
 
-      <SectionCard title="MES 单据自定义字段容器">
+      <SectionCard title="单据自定义字段容器">
         <Typography.Paragraph type="secondary">
           字段 schema、请求和编辑器由宿主提供；空字段隐藏，加载错误保留提示，切换单据时先清除旧内容。
         </Typography.Paragraph>
@@ -768,9 +767,9 @@ export function MesComponentSuitePage() {
         </Space>
       </SectionCard>
 
-      <SectionCard title="MES 文本、金额与主数据展示">
+      <SectionCard title="文本、金额与主数据展示">
         <Typography.Paragraph type="secondary">
-          保留 MES 金额脱敏、日期格式、用户名称回退、默认工艺路线提示、客户物料双标识和图片行事件隔离；金额策略和路线请求由宿主注入。
+          保留金额脱敏、日期格式、用户名称回退、默认工艺路线提示、客户物料双标识和图片行事件隔离；金额策略和路线请求由宿主注入。
         </Typography.Paragraph>
         <MesUiProvider
           hasPermission={() => true}
@@ -859,7 +858,7 @@ export function MesComponentSuitePage() {
         </MesUiProvider>
       </SectionCard>
 
-      <SectionCard title="MES 单据与明细视图切换">
+      <SectionCard title="单据与明细视图切换">
         <Typography.Paragraph type="secondary">
           当前视图由页面控制；切换只更新本页状态，不改变路由，数据请求和刷新时机由宿主决定。
         </Typography.Paragraph>
@@ -875,7 +874,7 @@ export function MesComponentSuitePage() {
       </SectionCard>
 
       <div className="sxw-mes-document-modal-demo">
-        <SectionCard title="MES 单据编辑弹窗">
+        <SectionCard title="单据编辑弹窗">
           <Typography.Paragraph type="secondary">
             对比工作区全屏、视口全屏和固定宽度；最小化会保留表单草稿。
           </Typography.Paragraph>

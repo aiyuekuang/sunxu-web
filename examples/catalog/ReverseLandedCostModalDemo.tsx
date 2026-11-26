@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { ReverseLandedCostModal } from '../../src/mes';
+import { ReverseLandedCostModal } from '../../src/business';
 
 export function ReverseLandedCostModalDemo() {
   const [open, setOpen] = useState(false);

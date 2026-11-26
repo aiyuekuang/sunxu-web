@@ -11,26 +11,26 @@ import {
   MesUiProvider,
   type DocumentDetailLedgerSavedViewController,
   type DocumentViewBarView,
-} from '../../src/mes';
-import { BUSINESS_DATE_RANGE_PRESETS } from '../../src/mes/table/dateRangePresets';
-import { OutsourcingOrderDetailLedger } from '../../src/mes/components/OutsourcingOrderDetailLedger';
-import { OutsourcingProgressDrawer } from '../../src/mes/components/OutsourcingProgressDrawer';
+} from '../../src/business';
+import { BUSINESS_DATE_RANGE_PRESETS } from '../../src/business/table/dateRangePresets';
+import { OutsourcingOrderDetailLedger } from '../../src/business/components/OutsourcingOrderDetailLedger';
+import { OutsourcingProgressDrawer } from '../../src/business/components/OutsourcingProgressDrawer';
 import type {
   OutsourcingOrderDetailLedgerCapabilities,
   OutsourcingOrderDetailLedgerQuery,
   OutsourcingOrderDetailLedgerRow,
   OutsourcingOrderDetailLedgerResponse,
-} from '../../src/mes/components/outsourcing-detail-ledger-types';
+} from '../../src/business/components/outsourcing-detail-ledger-types';
 import type {
   OutsourcingOrderStep,
   OutsourcingOrderStepInput,
   OutsourcingProgressDrawerCapabilities,
   OutsourcingProgressOrderRef,
   OutsourcingProgressReport,
-} from '../../src/mes/components/outsourcing-progress-drawer-types';
-import type { MesStatusEnum } from '../../src/mes/components/StatusDisplay';
+} from '../../src/business/components/outsourcing-progress-drawer-types';
+import type { StatusMap } from '../../src/components/StatusDisplay';
 
-const orderStatuses: MesStatusEnum = {
+const orderStatuses: StatusMap = {
   draft: { text: '草稿', status: 'Default' },
   in_progress: { text: '加工中', status: 'Processing' },
   partial_received: { text: '部分收货', status: 'Warning' },
@@ -42,7 +42,7 @@ const orderStatuses: MesStatusEnum = {
   cancelled: { text: '已取消', status: 'Default' },
 };
 
-const lineRoles: MesStatusEnum = {
+const lineRoles: StatusMap = {
   input: { text: '投入', status: 'Processing' },
   output: { text: '收货', status: 'Success' },
 };

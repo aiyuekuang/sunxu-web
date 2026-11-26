@@ -2,19 +2,19 @@ import { useState } from 'react';
 import { ProFormSelect } from '@ant-design/pro-components';
 import { Alert, Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { QualityInspectionItemResultFields } from '../../src/mes/components/QualityInspectionItemResultFields';
-import { QualityInspectionSubmitModal } from '../../src/mes/components/QualityInspectionSubmitModal';
-import { QualityInspectionActionModals } from '../../src/mes/components/QualityInspectionActionModals';
+import { QualityInspectionItemResultFields } from '../../src/business/components/QualityInspectionItemResultFields';
+import { QualityInspectionSubmitModal } from '../../src/business/components/QualityInspectionSubmitModal';
+import { QualityInspectionActionModals } from '../../src/business/components/QualityInspectionActionModals';
 import type {
   QualityInspectionItemResultFieldsCapabilities,
-} from '../../src/mes/components/quality-inspection-item-result-fields-types';
+} from '../../src/business/components/quality-inspection-item-result-fields-types';
 import type {
   QualityInspectionDefectRecord,
   QualityInspectionDictionaryFieldProps,
   QualityInspectionHelpField,
   QualityInspectionItemRecord,
   QualityInspectionSubmitCapabilities,
-} from '../../src/mes/components/quality-inspection-modal-types';
+} from '../../src/business/components/quality-inspection-modal-types';
 
 const items: QualityInspectionItemRecord[] = [
   {
@@ -205,7 +205,7 @@ export function QualityInspectionWorkflowDemo() {
   };
 
   return (
-    <SectionCard title="MES 质量检验工作流">
+    <SectionCard title="质量检验工作流">
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Paragraph type="secondary">
           展示检验结果自动判定、抽检数量联动、缺陷覆盖提示和新增缺陷；服务与业务计算由此目录示例模拟。

@@ -19,7 +19,7 @@ import {
   type MesStockLocationSelectCapabilities,
   type SaleOrderFieldOption,
   type StockBalancePreviewCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 const fulfillmentOptions: SaleOrderFieldOption[] = [
   { label: '正常销售', value: 'normal_sale' },
@@ -153,9 +153,9 @@ export function StockOperationsFieldsDemo() {
   );
 
   return (
-    <SectionCard title="MES 库存与订单业务字段">
+    <SectionCard title="库存与订单业务字段">
       <Typography.Paragraph type="secondary">
-        字段、策略提示和库存摘要由 MES UI 套件提供；查询、权限、选项、格式化和业务文案通过宿主能力注入。
+        字段、策略提示和库存摘要由业务组件提供；查询、权限、选项、格式化和业务文案由宿主注入。
       </Typography.Paragraph>
       <Space orientation="vertical" size={20} style={{ width: '100%' }}>
         <ProForm
@@ -265,7 +265,7 @@ export function StockOperationsFieldsDemo() {
         <Alert
           type="info"
           showIcon
-          message="库位预检、库存余额与可见权限均由 MES 宿主实现。"
+          message="库位预检、库存余额与可见权限均由宿主实现。"
         />
       </Space>
     </SectionCard>

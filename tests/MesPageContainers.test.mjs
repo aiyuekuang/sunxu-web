@@ -18,7 +18,7 @@ const {
   MesDetailPageContainer,
   MesDetailPageContent,
   MesDetailPageState,
-} = await vite.ssrLoadModule('/src/mes/components/MesDetailPageContainer.tsx');
+} = await vite.ssrLoadModule('/src/business/components/MesDetailPageContainer.tsx');
 
 after(async () => {
   await vite.close();

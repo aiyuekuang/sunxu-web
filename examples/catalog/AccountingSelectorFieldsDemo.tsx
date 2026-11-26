@@ -18,7 +18,7 @@ import {
   VoucherWordField,
   type AccountingFiscalPeriodRecord,
   type MesAccountingSelectorCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 function monthCode(value: Date) {
   return `${value.getFullYear()}-${String(value.getMonth() + 1).padStart(2, '0')}`;
@@ -207,10 +207,10 @@ export function AccountingSelectorFieldsDemo() {
   const capabilities = useMemo(() => makeCapabilities(emptyBooks), [emptyBooks]);
 
   return (
-    <SectionCard title="MES 会计账簿与期间选择器">
+    <SectionCard title="会计账簿与期间选择器">
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Paragraph type="secondary" style={{ marginBottom: 0 }}>
-          账簿默认、会计期间与凭证字联动、科目搜索和空候选配置入口均按 MES 原规则保留；列表请求与权限由宿主注入。
+          账簿默认、会计期间与凭证字联动、科目搜索和空候选配置入口均按既有业务规则保留；列表请求与权限由宿主注入。
         </Typography.Paragraph>
         <Space wrap size={16}>
           <Space size={8}>

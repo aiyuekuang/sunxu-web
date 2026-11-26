@@ -8,7 +8,7 @@ import {
   TableLongText,
   MesUiProvider,
   useTableExportLayout,
-} from '../../src/mes';
+} from '../../src/business';
 import { SectionCard } from '../../src';
 
 type DemoMaterial = {
@@ -340,7 +340,7 @@ export function ResizableTablePage() {
 
   return (
     <div className="sxw-docs-page-content sxw-catalog-resizable-table-page">
-      <SectionCard title="ResizableProTable：完整 MES 列表行为">
+      <SectionCard title="ResizableProTable：完整列表行为">
         <Space wrap size={12} className="sxw-catalog-resizable-table-page__controls">
           <label className="sxw-catalog-toggle">
             <Switch
@@ -369,7 +369,7 @@ export function ResizableTablePage() {
         </Typography.Text>
         <div className="sxw-mes-fit-table-boundary sxw-catalog-fit-table-boundary">
           <KeyboardTableRegion
-            label="MES 物料台账，可用左右方向键查看全部列"
+            label="物料台账，可用左右方向键查看全部列"
             className="sxw-catalog-fit-table-region"
           >
             <MesUiProvider
@@ -438,9 +438,9 @@ export function ResizableTablePage() {
 
       <SectionCard title="ResizableTable：本地明细表格">
         <Typography.Paragraph type="secondary">
-            原生 Table 保留 MES 的序号、列宽记忆、排序状态和金额显隐刷新；列宽拖动手柄仅在表头出现。
+            原生 Table 保留序号、列宽记忆、排序状态和金额显隐刷新；列宽拖动手柄仅在表头出现。
         </Typography.Paragraph>
-          <KeyboardTableRegion label="MES 本地物料明细，可用左右方向键查看全部列">
+          <KeyboardTableRegion label="本地物料明细，可用左右方向键查看全部列">
             <MesUiProvider
               hasPermission={() => true}
               maskAmount={maskAmount}

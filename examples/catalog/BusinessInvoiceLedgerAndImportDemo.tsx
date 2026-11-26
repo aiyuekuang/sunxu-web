@@ -13,7 +13,7 @@ import {
   type BusinessInvoiceMode,
   type DocumentDetailLedgerSavedViewController,
   type MesDocumentDetailLedgerCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 const invoiceRows: BusinessInvoiceDetailRow[] = [
   {

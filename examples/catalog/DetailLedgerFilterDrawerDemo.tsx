@@ -6,7 +6,7 @@ import {
   DetailLedgerFilterDrawer,
   type DetailLedgerFilterField,
   type DetailLedgerFilterFormValues,
-} from '../../src/mes';
+} from '../../src/business';
 
 const fields: DetailLedgerFilterField[] = [
   { type: 'text', name: 'invoiceNo', label: '发票号', placeholder: '输入发票号' },

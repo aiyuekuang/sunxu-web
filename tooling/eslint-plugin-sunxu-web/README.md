@@ -4,7 +4,7 @@ ESLint rules for enforcing Sunxu Web page-container, component-usage, and busine
 
 ## Rules
 
-- `sunxu-web/component-classification`: exported components in configured directories must declare `@sunxu-component shared`, `mes-specific`, or `business-specific`. MES/business-specific components also need `@sunxu-domain` and `@sunxu-reason`.
+- `sunxu-web/component-classification`: exported components in configured directories declare `@sunxu-layer atomic`, `composite`, or `business`. Business components also need `@sunxu-domain` and `@sunxu-reason`.
 - `sunxu-web/page-container`: exported screens must declare `@sunxu-page` and return the matching Sunxu Web page container as their outer root.
 - `sunxu-web/required-components`: each declared `@sunxu-use` feature must be backed by the matching Sunxu Web or Ant Design component in the component's JSX.
 
@@ -35,9 +35,9 @@ Configure the actual component and route paths. The component package does not e
 
 ```tsx
 /**
- * @sunxu-component mes-specific
- * @sunxu-domain inventory
- * @sunxu-reason Combines MES inventory lot traceability and record actions that have no cross-project domain contract.
+ * @sunxu-layer business
+ * @sunxu-domain inventory-traceability
+ * @sunxu-reason Presents lot traceability and record actions consistently; the host supplies records, authorization, and callbacks.
  */
 export function InventoryBatchCard() {
   return <SectionCard title="Batch">...</SectionCard>;
@@ -45,7 +45,7 @@ export function InventoryBatchCard() {
 
 /**
  * @sunxu-page list
- * @sunxu-component business-specific
+ * @sunxu-layer business
  * @sunxu-domain inventory
  * @sunxu-reason Owns inventory fields and permission visibility while using shared page and table structures.
  * @sunxu-use filters

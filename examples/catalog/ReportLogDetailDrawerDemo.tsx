@@ -4,7 +4,7 @@ import { SectionCard } from '../../src';
 import {
   ReportLogDetailDrawer,
   type ReportLogDetailRecord,
-} from '../../src/mes';
+} from '../../src/business';
 
 const reportLog: ReportLogDetailRecord = {
   id: 'report-log-demo-001',

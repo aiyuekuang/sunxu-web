@@ -1,4 +1,5 @@
 export * from './ChartPanel';
+export * from './ContextualHelp';
 export * from './BatchFieldSettingsButton';
 export * from './CrudListWorkbench';
 export * from './DetailCard';
@@ -19,6 +20,7 @@ export * from './SectionCard';
 export * from './SavedViewBar';
 export * from './SettingsRow';
 export * from './StatusTag';
+export * from './StatusDisplay';
 export * from './StatusTabs';
 export * from './PaginationSummary';
 export * from './TableSummary';

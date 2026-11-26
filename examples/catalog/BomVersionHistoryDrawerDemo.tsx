@@ -4,7 +4,7 @@ import { SectionCard } from '../../src';
 import {
   BomVersionHistoryDrawer,
   type BomVersionHistoryRecord,
-} from '../../src/mes';
+} from '../../src/business';
 
 interface DemoBomVersion extends BomVersionHistoryRecord {
   isDefault: boolean;
@@ -46,7 +46,7 @@ export function BomVersionHistoryDrawerDemo() {
   return (
     <SectionCard title="BOM 版本记录">
       <Typography.Paragraph type="secondary">
-        版本记录支持点击行或版本号切换；状态文案、权限和操作由 MES 宿主提供。
+        版本记录支持点击行或版本号切换；状态文案、权限和操作由宿主提供。
       </Typography.Paragraph>
       <Space>
         <Button type="primary" onClick={() => setOpen(true)}>

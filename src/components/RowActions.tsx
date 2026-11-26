@@ -33,7 +33,7 @@ export type RowActionsProps = {
 };
 
 /**
- * @sunxu-component shared
+ * @sunxu-layer composite
  *
  * 数据表格行的通用操作收纳：全部操作收进一个竖向省略号菜单，避免操作列被内容撑宽。
  * 危险操作前自动插入分隔线（首个之前不加）；子级操作渲染为菜单分组。

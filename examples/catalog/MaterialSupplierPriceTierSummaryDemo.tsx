@@ -5,7 +5,7 @@ import {
   MaterialSupplierPriceTierSummary,
   MesUiProvider,
   type SupplierPriceTierSummaryRecord,
-} from '../../src/mes';
+} from '../../src/business';
 
 const demoPriceTiers: SupplierPriceTierSummaryRecord[] = [
   {
@@ -47,7 +47,7 @@ export function MaterialSupplierPriceTierSummaryDemo() {
   return (
     <SectionCard title="供应商阶梯价摘要">
       <Typography.Paragraph type="secondary">
-        按等级、默认标记和优先级排序，只显示前三项并折叠其余数量；等级字典、币种默认值和金额脱敏由 MES 宿主提供。
+        按等级、默认标记和优先级排序，只显示前三项并折叠其余数量；等级字典、币种默认值和金额脱敏由宿主提供。
       </Typography.Paragraph>
       <MesUiProvider
         hasPermission={() => true}

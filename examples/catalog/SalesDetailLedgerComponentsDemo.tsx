@@ -5,7 +5,7 @@ import {
   SaleDeliveryDocumentActionDrawer,
   SaleOrderDetailLedger,
   SaleReturnDetailLedger,
-} from '../../src/mes/components/SalesDetailLedgerComponents';
+} from '../../src/business/components/SalesDetailLedgerComponents';
 import type {
   SaleDeliveryActionDrawerModel,
   SaleDeliveryDetailLedgerCapabilities,
@@ -22,19 +22,19 @@ import type {
   SalesDetailLedgerQueryBase,
   SalesDetailLedgerResponse,
   SalesDetailLedgerFilterColumns,
-} from '../../src/mes/components/sales-detail-ledger-types';
+} from '../../src/business/components/sales-detail-ledger-types';
 import type {
   SaleDeliveryDocumentActionsCapabilities,
-} from '../../src/mes/components/sale-delivery-document-actions-dropdown-types';
+} from '../../src/business/components/sale-delivery-document-actions-dropdown-types';
 import type {
   SaleDeliveryItemsPanelCapabilities,
-} from '../../src/mes/components/sales-delivery-components-types';
+} from '../../src/business/components/sales-delivery-components-types';
 import type {
   SaleReturnEditCapabilities,
   SaleReturnReceiveCapabilities,
   SaleReturnStockConversionCapabilities,
-} from '../../src/mes/components/sale-return-components-types';
-import type { MesStatusEnum } from '../../src/mes/components/StatusDisplay';
+} from '../../src/business/components/sale-return-components-types';
+import type { StatusMap } from '../../src/components/StatusDisplay';
 import type { ProColumns } from '@ant-design/pro-components';
 
 type LedgerView = 'order' | 'delivery' | 'return';
@@ -228,22 +228,22 @@ const returnSummary: SaleReturnDetailLedgerSummary = {
   netRefundAmount: 37,
 };
 
-const orderStatusEnum: MesStatusEnum = {
+const orderStatusEnum: StatusMap = {
   draft: { text: '草稿', status: 'Default' },
   confirmed: { text: '已确认', status: 'Success' },
 };
 
-const deliveryStatusEnum: MesStatusEnum = {
+const deliveryStatusEnum: StatusMap = {
   draft: { text: '草稿', status: 'Default' },
   delivered: { text: '已出库', status: 'Success' },
 };
 
-const returnStatusEnum: MesStatusEnum = {
+const returnStatusEnum: StatusMap = {
   pending_receive: { text: '待收货', status: 'Processing' },
   received: { text: '已收货', status: 'Success' },
 };
 
-const returnTypeEnum: MesStatusEnum = {
+const returnTypeEnum: StatusMap = {
   customer_return: { text: '客户退货', status: 'Warning' },
   exchange: { text: '换货', status: 'Processing' },
 };
@@ -319,7 +319,7 @@ function demoBaseCapabilities<
 > {
   return {
     requestList: async () => ({ list: rows, total: rows.length, priceVisible: true, summary }),
-    exportExcel: async () => new Blob(['MES component catalog demo'], { type: 'text/plain' }),
+    exportExcel: async () => new Blob(['component catalog demo'], { type: 'text/plain' }),
     canCreate: true,
     canExport: true,
     createPermission: 'catalog.demo.create',
@@ -408,7 +408,7 @@ export function SalesDetailLedgerComponentsDemo() {
             <Button key="confirm" type="primary" onClick={onSuccess}>完成演示</Button>,
           ]}
         >
-          订单 {saleOrderId} 的出库编辑器由 MES 宿主提供。
+          订单 {saleOrderId} 的出库编辑器由宿主提供。
         </Modal>
       ),
     },
@@ -651,7 +651,7 @@ export function SalesDetailLedgerComponentsDemo() {
       <Card size="small">
         <Space wrap style={{ width: '100%', justifyContent: 'space-between' }}>
           <div>
-            <Typography.Title level={4} style={{ margin: 0 }}>MES 销售明细台账</Typography.Title>
+            <Typography.Title level={4} style={{ margin: 0 }}>销售明细台账</Typography.Title>
             <Typography.Text type="secondary">使用固定目录数据展示订单交期、出库日期、退货明细和单击展开的行操作菜单。</Typography.Text>
           </div>
           <Segmented<LedgerView>

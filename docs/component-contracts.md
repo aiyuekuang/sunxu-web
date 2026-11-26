@@ -6,6 +6,14 @@
 
 新增或变更 wrapper 时，同步记录职责、上游来源、API、状态、间距所有者、响应式规则、无障碍和已验证视口。本文列出的 wrapper 是当前公开自有层。
 
+## 组件分层
+
+- **原子组件**负责通用语义、令牌、无障碍和基础状态；不读取业务实体、权限、服务或流程。
+- **通用复合组件**组合原子组件，提供可复用的搜索、筛选、表格、表单和页面模式。
+- **业务复合组件**按稳定业务任务组合原子与通用复合组件，覆盖采购、库存、生产、质量、财务等业务需求；宿主通过类型明确的数据、能力接口和回调提供服务、授权、路由及副作用。
+- 多个项目接入时，同一业务任务使用同一权威实现、公开契约和视觉状态。组件目录按层级和业务领域组织，不按宿主产品划分专用组件集。
+- `sunxu-web/business` 是业务复合组件的当前权威入口；旧 `sunxu-web/mes` 和组件中的历史 `Mes` 命名仅用于兼容迁移，不限制组件可服务的宿主。
+
 ## 组件目录
 
 | 组件 | Layer / 稳定任务 | Source of truth |
@@ -32,7 +40,8 @@
 | `SectionCard` | 分组可选标题的内容，不制造空 header | Pro Components `ProCard` |
 | `StatusTabs` | 在互斥状态中选择当前结果集合 | AntD `Segmented` |
 | `StatusTag` | 以 Ant Design 实底颜色呈现单条只读状态 | AntD `Tag`，固定 `variant="solid"` |
-| `MesStatusTag` | 将宿主 MES 状态字典映射为统一只读标签，并处理空值/未知值 | `StatusTag` + 宿主 `enumMap`；状态词条与业务值由宿主提供 |
+| `StatusDisplay` | 将宿主状态字典映射为统一标签、徽标或文本呈现 | `StatusTag` / AntD `Badge`；字典、值和文案由宿主提供 |
+| `MesStatusTag` | 旧 API 兼容适配器；迁移到 `StatusDisplay` 后删除 | 转发到 `StatusDisplay`，不维护独立状态逻辑 |
 | `MesReportQuickRangeButtons` | 受控选择报表快捷范围；只报告被选中的选项 key | AntD `Segmented`；日期范围匹配和日期语义由宿主提供 |
 | `MesConfigEntryLink` / `MesConfigEntryFieldLabel` | 在授权且有目标地址时，把配置入口附在字段标签旁 | AntD `Typography.Link` / `Space`；路由与权限结果由宿主传入 |
 | `MesConfigurableProFormSelect` | 将 MES ProForm 远程选择器与空候选配置入口及回访刷新组合 | Pro Components `ProFormSelect`；请求、依赖规则、权限和路由由宿主传入 |
@@ -46,6 +55,7 @@
 | `ProfileIdentity` | 组合头像、姓名和宿主摘要字段 | AntD `Avatar` / `Button` / `Typography` |
 | `ChartPanel` | 给宿主图表提供统一标题和数据状态 | Pro `ProCard` + AntD `Spin` / `Empty` / `Alert` |
 | `ErrorBoundary` | 隔离渲染错误并提供宿主兜底/重试 | React error boundary + AntD `Result` |
+| `ContextualHelp` | 组合可选字段标签、图标触发器和可访问说明浮层 | AntD `Button` / `Tooltip`；标题、内容和触发方式由宿主提供 |
 | `PermissionGuard` | 消费宿主已计算的授权结果 | 受控 `permitted` prop；不做权限决策 |
 | `EditableDetailTable` | 编辑重复明细行，选择多行并按字段批量设置 | AntD ProTable + 受控 `rows`；请求和业务字段由宿主提供 |
 | `BatchFieldSettingsButton` | 让用户勾选要覆盖的字段并应用到已选行 | AntD Modal / 表单控件；patch builder 由宿主提供 |
@@ -248,14 +258,14 @@
 - `DateRangePickerPreset` 接受 `Dayjs` 起止值或返回该值的回调。调用方预设保持在前；追加今天、昨天、本周、上周、近 7 天、近 30 天、本月、上月和本年度共 9 个通用预设。相同字符串标签只保留首个，非字符串 ReactNode 标签不做语义猜测或去重。
 - 周从周一开始；完整日范围包含起止日，近 N 天包括今天，本年度从 1 月 1 日至今天结束。日期值由调用方和浏览器本地日期生成；组件不发起查询或改写业务 DTO。
 - 公开 DatePicker semantic `styles` 与宿主自定义样式合并。范围弹层最大宽度为 `calc(100vw - 64px)`，双月面板保持内容宽度并由弹层横向滚动；桌面双月布局保持不变，375px 手机视口弹层完整留在视口内。
-- **目录和证据**：MES UI 套件 Catalog 同时渲染三种字段包装器，验证自定义 `近7天` 覆盖同名默认预设、其他通用预设补齐、ProForm 日期/日期时间字段提交值，以及手机双月日历横向滚动。桌面和手机视口、弹层边界与 16 个相邻间距接缝见 [`docs/verification/quick-date-range-picker-2026-11-20/README.md`](./verification/quick-date-range-picker-2026-11-20/README.md)；MES 报表服务/权限接线和读屏器完整流程为 `UNVERIFIED`。
+- **目录和证据**：业务组件 Catalog 同时渲染三种字段包装器，验证自定义 `近7天` 覆盖同名默认预设、其他通用预设补齐、ProForm 日期/日期时间字段提交值，以及手机双月日历横向滚动。桌面和手机视口、弹层边界与 16 个相邻间距接缝见 [`docs/verification/quick-date-range-picker-2026-11-20/README.md`](./verification/quick-date-range-picker-2026-11-20/README.md)；MES 报表服务/权限接线和读屏器完整流程为 `UNVERIFIED`。
 
 ### 采购入库履约摘要
 
 - **API**：必填 `orderedQty`、`receivedQty`、`outstandingQty`；`baseUnit` 与 `unitLabelMap` 可选。数量按 `zh-CN` 分组并最多保留 3 位小数，单位标签由宿主字典传入；字典未命中时显示单位原值。
 - **显示**：沿用两行次序“订单数量”与“已收数量 · 待收数量”，AntD 次要文字、12px 字号和零间距垂直布局保持来源行为。
 - **边界**：组件不推导履约量、不查询采购单或字典、不执行权限判断；三个数量和单位字典由宿主提供。MES `qty-unit` 工具同时保留单位归一化、标签回退、双单位数量展示和基础量还原函数，供后续 MES 组件复用。
-- **证据**：Catalog 的 MES UI 套件展示已收/待收数及宿主单位标签。桌面/手机渲染、文本、几何与间距证据见 [`docs/verification/purchase-receipt-capacity-summary-2026-11-20/README.md`](./verification/purchase-receipt-capacity-summary-2026-11-20/README.md)。
+- **证据**：Catalog 的业务组件目录展示已收/待收数及宿主单位标签。桌面/手机渲染、文本、几何与间距证据见 [`docs/verification/purchase-receipt-capacity-summary-2026-11-20/README.md`](./verification/purchase-receipt-capacity-summary-2026-11-20/README.md)。
 
 ### 采购收货系统批号写入
 
@@ -359,10 +369,10 @@
 
 ### `ResizableProTable` 与 `ResizableTable`
 
-- **职责与入口**：`ResizableProTable<T, U>` 保留 ProTable API，`ResizableTable<T>` 保留 Ant Design Table API；列 schema、数据源、查询请求、权限、业务动作及分页策略仍由宿主提供。从 `sunxu-web/mes` 导入。`resizable={false}` 关闭宽度拖拽适配，但仍保留适用的 MES 表格行为。
+- **职责与入口**：`ResizableProTable<T, U>` 保留 ProTable API，`ResizableTable<T>` 保留 Ant Design Table API；列 schema、数据源、查询请求、权限、业务动作及分页策略仍由宿主提供。从 `sunxu-web/business` 导入。`resizable={false}` 关闭宽度拖拽适配，但仍保留适用的 MES 表格行为。
 - **宽度和布局持久化**：`resizable` 可设为布尔值或 `ResizableTableConfig`。默认列宽 120px、最小 48px、最大不限、拖拽结束防抖 500ms；`defaultWidth`、`minConstraints`、`maxConstraints`、`debounceWaitTime` 可覆盖。`persistenceKey` 默认按列生成，也可提供稳定业务 key 或设为 `false`；`persistenceType` 默认 `localStorage`，可选 `sessionStorage`。ProTable 的列宽状态与可见/顺序状态分别保存，排序状态由独立的 `sortPersistenceKey` 保存；`sortMigration` 可只替换已知旧默认排序。用户显式重置列设置时，宽度缓存同步重置。
 - **行号与列策略**：分页列表默认增加固定左侧“序号”列，跨页使用全局行号；可用 `showRowIndex={false}` 关闭。`materialColumnPriority` 缺省按物料名称、编码、规格、单位、主数量、辅助数量、业务上下文、扩展列、辅助信息和操作列整理默认列序；`'preserve'` 或 `{ mode: 'preserve' }` 保留声明次序，`false` 完全关闭整理，ProTable 用户保存的显式列序仍优先。不会把隐藏查询字段导出为业务列。
-- **完整行菜单**：从 `sunxu-web/mes` 导入 `markCompleteActionMenuColumn(column)`，用于标记 renderer 已经提供完整菜单的操作列（例如宿主的单据动作下拉菜单）。被标记列不会再由表格适配器转换并套入 `TableActions`；普通按钮操作继续交给适配器收纳，标准列优先使用共享 `RowActions`/`TableActions`。
+- **完整行菜单**：从 `sunxu-web/business` 导入 `markCompleteActionMenuColumn(column)`，用于标记 renderer 已经提供完整菜单的操作列（例如宿主的单据动作下拉菜单）。被标记列不会再由表格适配器转换并套入 `TableActions`；普通按钮操作继续交给适配器收纳，标准列优先使用共享 `RowActions`/`TableActions`。
 - **排序与查询**：ProTable 的 `request` 由宿主实现。默认对可排序业务字段发出服务端排序参数；设置 `serverSortFields` 后，仅白名单字段可排序。使用本地 `dataSource` 时按日期、数值和中文自然顺序比较；AntD Table 列可用 `sortValue`、`sortable` 控制。排序状态使用单独 key 持久化。外部 `params` 的 `undefined`、`null`、空字符串和空数组会在请求前移除；日期范围列合并通用快捷日期选项，`createdAt` / `updatedAt` 字段可补充仅日期展示列。表单 transform 和接口字段映射由宿主继续控制。
 - **筛选、空态和汇总**：保留 ProTable 查询表单与列设置 API；列变更会同步导出布局。只有 ProTable 内部工具栏可渲染时，少量可搜列才自动切为 `LightFilter`；宿主通过 `toolBarRender={false}` 关闭该工具栏时保留 `QueryFilter`，确保搜索控件可见且首屏请求可正常初始化。调用方显式设置 `filterType='light'` 且关闭内部工具栏时也会转为可见的 `QueryFilter`；其他显式 `filterType` 仍生效。`emptyGuidance` 可提供业务空态下一步建议，默认 `TableEmpty` 展示“暂无数据”和筛选/上游数据提示；宿主传入 `locale.emptyText` 时完全覆盖。`summary` 仍是 AntD/ProTable 的宿主回调；自动行号存在时组件为汇总行补齐首列。`paginationSummary` 将宿主摘要放在分页栏左侧并保留分页范围文案，窄容器下换到分页控件上方；关闭分页时不显示该插槽。
 - **高度所有权**：单列表视口页统一使用 `CrudListWorkbench fill`，由工作台测量结果区并设置表体滚动高度；新页面不得用 `fitContainerHeight` 或页面级 `:has()` CSS 自行计算。`fitContainerHeight` 已弃用，缺省关闭；仅为现有宿主兼容和有明确边界的嵌套/弹窗表保留，取值仍为 `true` 或 `{ enabled, bottomOffset, minBodyHeight, maxBodyHeight }`。它依赖页面视口与 Ant Design / Pro Components 容器结构来确定结果边界；迁完现有宿主后再移除该 API。
@@ -377,20 +387,21 @@
 
 ### `todayBusinessDate`
 
-- **职责 / API**：从 `sunxu-web/mes` 导入 `todayBusinessDate(): string`，返回 `Asia/Shanghai` 下的当前业务日期 `YYYY-MM-DD`。
+- **职责 / API**：从 `sunxu-web/business` 导入 `todayBusinessDate(): string`，返回 `Asia/Shanghai` 下的当前业务日期 `YYYY-MM-DD`。
 - **使用边界**：用于日期默认值和纯日期业务比较。不要用 `new Date().toISOString().slice(0, 10)`，因为该结果按 UTC 切日。
 
-### `sunxu-web/mes` 兼容组件
+### `sunxu-web/business` 业务组件
 
 #### 状态、报表范围、配置入口、字典字段与导出
 
-- **`MesStatusTag`**：API 为 `value?: string | null`、必填 `enumMap: Readonly<Record<string, { text?: ReactNode; color?: string; status?: string } | undefined>>`、可选 `children/className/style`。空值显示 children 或 `-`；未映射值显示 children 或“未知状态”；命中映射时 children 优先于 `text`，两者均未提供时标签内容为空。未提供显式 `color` 时按 `Default/Processing/Success/Warning/Error` 映射到 AntD 的 `grey/processing/success/warning/error` 预设色，未知令牌回退 AntD `grey`。它只呈现文本，不监听状态变化、不提供状态字典或业务动作；文字和颜色表现由基础 AntD `Tag` 的 `solid` 变体与颜色 API 决定，不额外计算或改写颜色。文本本身可被辅助技术读取，但不添加 live region 或状态 role。标签宽度由内容决定，列表内是否换行由宿主布局控制。
+- **`StatusDisplay`**：根出口公开；必填 `enumMap: Readonly<Record<string, { text: string; status?: string; color?: string }>>` 与可选 `value` 构成输入。`mode` 默认 `tag`，也可用 `badge` 或 `text`；`label` 覆盖当前文案，`emptyLabel` 和 `unknownLabel` 配置空值与未映射值（默认分别为 `-` 和原始值）。`size="small"` 只调整标签尺寸。预设状态色映射到 Ant Design 语义令牌，字典显式颜色保留。组件不监听状态变化，也不拥有状态字典、授权或业务动作。
+- **`MesStatusTag`**：迁移兼容 API 保留 `value/enumMap/children/className/style`，语义与旧状态回退行为一致，内部只委托 `StatusDisplay`。新代码不得使用；消费端迁移后删除。
 - **`MesReportQuickRangeButtons`**：受控 API 为可选 `value?: [string, string]`、`label`（默认“快捷筛选”）、必填 `options: readonly { key, label }[]`、`matchValue(value) => key | null` 和 `onSelect(key)`。当前范围是否匹配某选项及 key 的日期含义完全由宿主定义；组件仅用 AntD `Segmented` 展示选择并回传存在于 options 的字符串 key。无匹配时不选中；不解析日期、不自动刷新报表、不拥有清空或请求动作。`label` 作为 Segmented 的 `aria-label`；选项沿用上游键盘行为。组件不额外包装选项，宿主需确保选项数和标签长度适合其可用宽度，窄容器可在外层安排换行或横向滚动。
 - **`MesConfigEntryLink` / `MesConfigEntryFieldLabel`**：Link 接收 `href?`、`permitted?`（默认 false）、必填 `label`、`actionText?`（默认“去配置”）和 `onOpen?`；仅当权限为真且 href 非空时渲染。它使用新标签页链接、`rel="noreferrer"`、阻止点击冒泡，并调用宿主 `onOpen`。可访问名称包含可见操作文案和目标说明（“${actionText}：新标签页打开${label}”）。FieldLabel 接收 `children` 及同一 href/permission/onOpen，另有可选 `show`（默认 true）；通过 Space 将字段文字与链接并排显示，仅当 `show && permitted && href` 时显示链接，否则原样渲染 children。`MesConfigurableProFormSelect` 与两个字典选择器通过 `show` 传递已计算的候选/字段显示状态。FieldLabel 的 Space 不换行，长标签应由宿主检查窄宽度。组件不做权限计算、不生成 URL、不执行导航状态更新或返回后刷新。
 - **`MesConfigurableProFormSelect`**：保留 ProFormSelect 的其他公开 props，另需 `label: ReactNode`、必填宿主 `request` 和 `configEntry`，可选 `configWhen(params)` 与 `emptyText`（默认“暂无可选数据”）。在字段无值、非禁用/只读且依赖条件成立时，用移除 `keyWords/keyword/search/searchText` 的参数向宿主 request 探测基础候选；仅空数组显示配置标签，请求失败隐藏入口并继续向 ProForm 抛出查询错误。实际候选搜索保留其余参数和错误；搜索中不以关键词结果切换配置标签。配置标签打开时记录回访意图，窗口重新获得 focus 后递增刷新版本以重新请求；源请求前移除内部 `configEntryRefreshVersion`。字段校验、候选服务、路由和授权由宿主提供；组件内的 focus listener 在卸载时清理。ProForm 标签和 Select 键盘/表单状态由上游提供；目录无障碍名称来自表单 label。
 - **`MesDictionaryProFormSelect` / `MesDictionaryFormItem`**：共享 `dictionary: { options, loading?, error?, retry }`、配置入口 props 和 `showConfigEntry?`（默认 true）。前者使用 ProFormSelect，后者用于原生 `Form.Item`/`Form.List` 并克隆一个 AntD Select 子元素，把 options/loading 注入；子元素已有 `notFoundContent` 优先于组件默认内容。未覆盖时按 loading/error/空候选显示“正在加载字典项”/“字典项加载失败 + 重试”/“暂无可选字典项”。只有 `showConfigEntry` 为真、无当前值、无候选、无 loading/error、字段未禁用且授权/href 有效时才显示配置入口；返回窗口 focus 后调用宿主 retry。字典请求、错误分类、权限、路由及真实重试都归宿主；Select 下拉与 Form 的键盘、label、校验由 AntD/ProForm 管理，目录无障碍名称需使用明确字段 label。配置标签并排区不换行，宿主应检查长字段名。
 - **`MesExportButton` / `MesExportDropdownButton`**：`MesExportButton` 接收 `canExport?`（默认 true）、必填 `exportFn/fileName/download`，以及 `onPrepareExport/onSuccess/onError`；`canExport=false` 时不渲染。点击后进入 loading，顺序调用请求、下载、成功回调；捕获请求或下载错误交给 `onError`，最终清除 loading。Dropdown 接收 items（每项 `key/label/exportFn/fileName`，可选 `disabled/applyTableLayout`）、`download` 和相同结果回调；禁用项不可选，同 key 应唯一；`applyTableLayout` 默认 true，选中条目时先回调宿主布局意图再执行请求/下载。按钮本身的 click-capture 也会在打开菜单时调用 `onPrepareExport(true)`，所以宿主应将其视为菜单打开阶段的布局激活信号，选择条目后会再收到一次带条目值的信号。二者均不拥有权限判定、API、文件编码/实际下载、表格列授权或用户通知。可见按钮文字为可访问名称，图标不替代文字；AntD 提供按钮 loading、菜单键盘和禁用状态。目录下载只记录回调，不制造文件。布局适配由宿主表格在按钮捕获阶段激活；窄工具栏的按钮排列由宿主控制。
-- **目录示例**：Catalog “MES 宿主注入控件”展示九个组件的已映射/空值/未知/自定义状态文案、受控范围、配置入口权限/候选/请求失败、ProForm/原生 Form 字典的空/错误/重试/就绪状态、单项和多项导出的权限/loading/成功/错误回调及禁用菜单项。示例使用本地确定性宿主回调，不调用 MES 服务，也不下载文件。本次在本地 `http://127.0.0.1:4173/` 选中此 Catalog 页面；已实测报表范围选择、配置入口授权开关、远程候选空/有候选/请求错误显隐、ProForm/原生字典错误后重试、导出单项成功/错误与下拉项回调；AX 树已检查控件角色/可访问名称。截图未归档，精确视口尺寸未记录，且没有 DOM 几何数据，故间距/溢出/窄视口与完整键盘/读屏器流程均为 `UNVERIFIED`；真实 MES API/权限接线也未验证。
+- **目录示例**：Catalog“宿主注入能力”展示状态文案、受控范围、配置入口权限/候选/请求失败、ProForm/原生 Form 字典的空/错误/重试/就绪状态、单项和多项导出的权限/loading/成功/错误回调及禁用菜单项。示例使用本地确定性宿主回调，不调用 MES 服务，也不下载文件。旧视觉记录没有归档截图和 DOM 几何，故完整页面状态和视口仍为 `UNVERIFIED`；真实服务/权限接线也未验证。
 
 - `MesUiProvider` 接受 MES 宿主的 `hasPermission(permission)` 函数；`PermissionButton` 的 `permission` 由此函数判断，无 Provider 或无权限时 fail closed 并不渲染动作。确认文案、危险标记、异步 `onConfirm`、loading、成功提示和成功回调沿用 MES 当前实现；异步错误从 `info.msg`、`data.msg`、`response.data.msg` 或 `Error.message` 提取并显示可确认错误弹窗。请求和权限码的含义由宿主负责。
 - `MaterialFilteredSelect` 是 MES 物料业务复合控件；`MaterialSelectField` 与 `MaterialMultiSelectField` 将其接入 ProForm 字段，`materialSelectColumnProps(request, placeholder?)` 用作 ProTable 查询列。筛选模式为 `always/collapsible/hidden`，默认 hidden；保留 `requestKey` 外部刷新、300ms 防抖、族/系统类型/业务分类级联、选中项保留、关键词精确/前缀排序、旧搜索结果丢弃和选中后清空搜索。多选使用 `values/onValuesChange`，单选保留 `value/onChange` 契约；ProForm 注入的 `fieldProps.value/onChange` 会继续参与表单提交。
@@ -398,9 +409,9 @@
 - 候选副信息显示规格、单位标签及最多 3 个启用且 `displayJson.showInSelector=true` 的自定义字段；按 `displayJson.sortOrder` 回退到字段 `sortOrder` 排序。自定义字段显示保留 MES 的 select/multi-select 选项映射、布尔“是/否”、日期/时间格式和计算异常原因提示；schema 加载失败可重试，错误提示“物料选择器副信息加载失败，请刷新后重试”。
 - `renderConfigEntryLabel` 由宿主实现可见权限和配置页链接。来源 `ConfigEntryFieldLabel` 接受的 `show` 是已弃用兼容参数，来源实际忽略它；宿主应按授权决定是否返回链接，`onOpen` 用于回到表单时触发候选刷新。未提供此能力时只显示原标签。调用方拥有表单标签、必填/校验规则、字段间距和 ProTable 查询状态。
 - **状态与布局**：远程查询 loading、空候选、disabled、过期搜索拦截 warning、无候选的配置入口和扫码失败提示均由组件保留；筛选控件在容器变窄时换行，候选弹层最小宽度 320px，长副信息截断并通过 title 提供全文。族/系统类型/业务分类筛选器宽度默认 168/112/128px；系统类型默认宽度由来源的 92px 调为 112px，确保 Ant Design 6 下“系统分类”标签完整可见，可由 `baseTypeWidth` 覆盖。Form 标签用 ProForm.Item，基础键盘交互由 AntD Select 承担；扫码键盘监听由宿主注册并应在失焦/禁用时注销。
-- **目录和证据**：Catalog 的“MES UI 套件 → MES 物料选择器”覆盖桌面/375px 搜索、筛选、单/多选、单位与自定义字段、扫码验证和宿主配置权限。真实 MES API/权限/设备接线以及读屏器完整流程仍为 `UNVERIFIED`；证据见 [`docs/verification/mes-material-selector-2026-11-20/README.md`](./verification/mes-material-selector-2026-11-20/README.md)。
+- **目录和证据**：Catalog 的“业务组件目录 → 物料选择器”覆盖桌面/375px 搜索、筛选、单/多选、单位与自定义字段、扫码验证和宿主配置权限。真实 MES API/权限/设备接线以及读屏器完整流程仍为 `UNVERIFIED`；证据见 [`docs/verification/mes-material-selector-2026-11-20/README.md`](./verification/mes-material-selector-2026-11-20/README.md)。
 - `MasterDataQuickCreateSelect` 保留客户/供应商 `ProFormSelect` 字段和原有 `request/params/fieldProps`；只允许 customer/supplier 两种实体。客户创建返回的权威 `value/label` 以及可选 `salesRepId/paymentTerms` 回填当前字段；单选 `fieldProps.onChange(nextValue, option)`，多选/tags 将 ID 去重追加并回调 `fieldProps.onChange(values, [option])`，使宿主现有销售联动继续运行。新建后把返回选项保留在首屏候选未命中的情况下，并递增刷新参数；候选请求只用去掉 `keyWords/keyword/search/searchText` 后的参数探测基础候选是否为空，搜索与探测状态丢弃迟到响应。禁用/只读字段不展示新建入口；无 `renderDrawer` 或 `canCreate(entity)` 返回 false 时不渲染新建动作。打开宿主抽屉前收起当前选择下拉，避免候选弹层盖住抽屉；配置标签由宿主渲染，收到来源兼容 `show` 信号和返回配置后的刷新回调。`MesUiProvider.masterDataQuickCreateCapabilities` 提供 `canCreate`、`renderDrawer({entity,open,onOpenChange,onCreated})` 与可选 `renderConfigEntryLabel`。Admin 的 `app.tsx` 已通过此能力渲染 Sunxu 客户/供应商抽屉，并注入对应权限、创建接口、字典和字段帮助；真实 MES 服务/权限运行态、默认值业务联动及读屏器流程仍为 `UNVERIFIED`。
-- **目录和证据**：Catalog 的“MES UI 套件 → MES 主数据快捷新增选择器”覆盖配置入口回调、客户权限门控、创建后客户默认值/权威 ID、候选第一页未命中时保留新选项、供应商多选追加、禁用门控和 375px 下拉边界。目录使用本地确定性表单模拟宿主抽屉；真实 MES 抽屉/API/权限/路由与读屏器完整流程仍为 `UNVERIFIED`。证据见 [`docs/verification/mes-master-data-quick-create-2026-11-20/README.md`](./verification/mes-master-data-quick-create-2026-11-20/README.md)。
+- **目录和证据**：Catalog 的“业务组件目录 → 主数据快捷新增选择器”覆盖配置入口回调、客户权限门控、创建后客户默认值/权威 ID、候选第一页未命中时保留新选项、供应商多选追加、禁用门控和 375px 下拉边界。目录使用本地确定性表单模拟宿主抽屉；真实服务/API/权限/路由与读屏器完整流程仍为 `UNVERIFIED`。证据见 [`docs/verification/mes-master-data-quick-create-2026-11-20/README.md`](./verification/mes-master-data-quick-create-2026-11-20/README.md)。
 - 会计选择器完整保留来源字段名、标签、tooltip、required、disabled、autoDefault、宽度和 `bookFieldName`；`AccountingBookField` 取主账簿，无主账簿时仅在唯一选项下默认。`FiscalPeriodField` 将账簿编码放进 request `params` 以触发依赖变化后的请求，按期间编码倒序显示状态；只自动选择覆盖浏览器本地业务日期的期间，状态优先级为 open、soft_closed、not_opened、closed、locked，同级取期间编码较新者，不因未来期间已开启而默认未来期间。`VoucherWordField` 同样把账簿编码放入 params，按 `createdAt` 升序并默认首个启用项；当前凭证字无效时也回退到首项，无候选时不虚构默认值。`AccountField` 支持根字段名或 ProFormList 相对 NamePath，禁用/要求先选账簿、仅请求启用且允许记账的科目，后端按关键词搜索并保留 50 条页大小、300ms 防抖和关闭本地过滤。
 - `createAccountingSelectorRequests(capabilities)` 为 ProTable 搜索列提供来源原有七类选项适配：启用账簿、组织、币别，账簿期间，允许记账科目，按创建时间排序的凭证字，以及非末级/不可记账且排除当前编码的上级科目。固定状态、账簿条件和页大小由适配器补齐，实际服务请求由 `MesUiProvider.accountingSelectorCapabilities` 注入。`renderConfigEntryLabel` 接收来源配置目标和空候选 `show` 信号；表单字段未选值、可用且基础候选为空时才允许宿主显示配置入口，受账簿依赖的期间/凭证/科目还需有当前账簿。配置标签返回后的窗口 focus 会递增请求版本；搜索错误和旧请求不显示陈旧配置入口。真实 MES API/权限/配置页面由宿主提供。
 - **目录和证据**：Catalog “MES 会计账簿与期间选择器”覆盖主账簿默认、当前期间优先于未来已开启期间、凭证字排序默认、账簿参数联动、七类 ProTable 候选 helper、科目远程搜索、空账簿配置入口及手机下拉边界。真实 MES 服务、授权、配置路由和读屏器流程仍为 `UNVERIFIED`；截图、DOM 间距与交互记录见 [`docs/verification/mes-accounting-selector-fields-2026-11-20/README.md`](./verification/mes-accounting-selector-fields-2026-11-20/README.md)。
@@ -411,7 +422,8 @@
 - `DocumentActionIntent` 保留 `action/enabled/onTrigger`；路由 query 中的首个 `action` 匹配且 enabled 时先通过宿主 replace 到当前 pathname 清除 query，再调用详情页已有流程；组件实例只处理一次，深链不得绕过权威详情和预检。
 - `DocumentModalForm<T, U>` 保持 Pro `ModalForm` 的泛型和其余 props 透传。默认宽度为 `100vw` 并实际铺满当前工作区，默认 `getContainer` 为 `false`，不穿透 keep-alive 标签容器；只有显式 `viewportFullscreen` 且仍采用默认标签容器时才固定到视口。最小化时取消遮罩并隐藏弹窗，但保持表单挂载与草稿；左下角还原条回到同一组件所在工作区。`open` 变化时清除最小化状态。默认 `destroyOnHidden=true`、`mask.closable=false`、`closable=false`，标题栏提供带无障碍名称的最小化和关闭按钮；可通过调用方 `modalProps.mask` 覆盖遮罩行为。完整宽度子节点由组件提供 `20px 24px 24px` 内边距，render-function children 原样透传；调用方自定义 Modal 语义样式槽及浮层 `style` 会与默认布局合并。固定数值宽度使用普通 Modal 布局；显式自定义 `getContainer` 保留自定义挂载容器，但仍应用完整宽度布局。完整宽度 Modal 保留 `document-form-modal` class 供 MES 宿主现有全局样式过渡使用。组件不负责草稿保存、请求、权限、路由或业务校验。
 - `DocumentLineQuantityInput` 是受控数值编辑器：有效数值变化立即交给宿主，清空时只保留本地空草稿、不发送 `null`；失焦时恢复宿主当前值。`InputNumber` 的范围、精度、步长和外观 props 继续透传。
-- `StatusDisplay` 只消费宿主传入的 `enumMap`，不内置 MES 状态常量；按 `mode` 呈现 `StatusTag`、Ant Design `Badge` 或彩色文本，未知枚举回退原始值、空值显示 `-`。令牌颜色和显式色值沿用 MES 当前映射规则。
+- `StatusDisplay` 是状态字典到视图的唯一映射复合组件，所有宿主使用同一实现。标签模式组合 `StatusTag`，徽标模式组合 Ant Design `Badge`，文本模式输出带语义色的内联文本；三种模式都保留状态文字，颜色不单独表达状态。根宽度随内容，组件不设固定宽度或主动换行；窄容器内的换行由父布局决定。宿主传入值、字典、回退文案和颜色；组件不内置领域状态、授权、请求或状态迁移。目录示例覆盖已映射、空值、未知值、颜色覆盖和三种模式；实际视口与几何证据见 `docs/verification/component-normalization-2026-11-26/`。
+- `MesStatusTag` 暂时保留旧 `value/enumMap/children` 调用，通过参数映射委托 `StatusDisplay`；未知值、空值和 `children` 回退规则保持兼容。不得新增调用，消费端迁移后移除。
 - `TableLongText` 保留 MES 表格现有的 `mes-table-long-text` class，默认使用 `LongText` 的两行换行模式；可用 `maxLines` 调整行数，也可显式选择 `displayMode="truncate"` 使用 64 字符截断和对话框。两行模式的全文 Popover 支持鼠标悬停、触摸点击和键盘 Enter/Space 打开，Escape 关闭；点击不冒泡到可点击表格行。`isTableLongTextValue` 只接受 string/number。
 - `AmountText` 保留 `value/prefix/precision/placeholder` API；默认前缀为 `¥`、精度为 2、占位符为 `-`，使用 `zh-CN` 分组格式化，空值和非数字显示占位符。格式化后的字符串交给 `MesUiProvider.maskAmount`；没有宿主能力时 fail closed，空值为 `-`、金额为 `****`。金额显隐状态和权限仍由 MES 宿主管理。
 - `AmountPolicySnapshotTag` 保留嵌套快照解析、默认规则文案、版本展示、公式回退、数量/金额详情 Popover；显式 `mask` 优先，否则使用宿主金额脱敏能力。快照输入接受根对象、`priceSnapshot`、`amountPolicySnapshot` 与 `result` 嵌套形态，未识别有效 `policyCode` 时显示 `-`。
@@ -428,7 +440,7 @@
 - `MaterialDrawingsPanel` 保留物料图纸列表、默认首项选中、当前文件切换和图片/PDF/GLB预览；所有文件下载、仅有编辑权限时的上传/删除、上传策略加载与失败状态、扩展名/大小/数量限制、待上传列表、普通文件与 GLB 分别上传及按选择顺序恢复 URL。未返回 URL、请求失败、只读空态、删除确认和成功后清空/选中首项/刷新回调都保留。图片使用 AntD `Image.PreviewGroup`、PDF 复用 `PdfPreviewDrawer`，GLB 通过 `renderModelPreview(url, name)` 注入；文件服务、策略、权限结果、文件名/URL、消息与错误格式均由 `MaterialDrawingsPanelCapabilities` 注入。Catalog Demo 覆盖编辑权限切换、策略错误与预览类型；真实宿主文件代理接线及视口为 `UNVERIFIED`。源文件 SHA-256：`716b4db60255de468da108b58381c0efdcdea77233f5e637a9c4566b797b3b12`。
 - `GlbModelViewer` 接收宿主已授权且浏览器可读取的 `url` 与名称；保留 GLTF 场景加载、轨道旋转/缩放、网格显示、材质线框、恢复相机、加载中/失败状态及卸载、URL 变化和加载竞态时的 renderer/controls/geometry/material/texture 清理。与 `MaterialDrawingsPanel.renderModelPreview` 插槽可组合；three 及 OrbitControls / GLTFLoader 是可选 peer，仅在组件挂载时动态导入，Vite 库构建将其外置，未使用 Viewer 的消费者不会因静态 MES 入口加载 three。依赖版本与 MES 当前 `0.185.1` 对齐。源组件 SHA-256：`9e6ae482a3e1fb61cafc08e8153e7896478785d24b08328bfcde861c0fd985d5`。Catalog 独立展示正常/错误状态；实际渲染及无 three 消费端打包验证因 UV 暂停为 `UNVERIFIED`。
 - `DocumentLineBatchSettingsButton` 保留 MES 明细字段 schema；`number` 支持 `min/max/precision`，`date` 的 patch 收到 `YYYY-MM-DD` 字符串，`select` 的 patch 只接收字符串（数值选项仍归一为 `undefined`），`text` 保留最大长度。字段需独立勾选，勾选后留空表示清空；`required` 字段为空时阻止应用并提示。直接调用 `buildDocumentLineBatchPatches` 时可传日期字符串，UI 日期控件产生的 Dayjs 值会格式化为同一字符串。远程选择字段通过 `request(params, values)` 加载候选，竞态结果会丢弃；请求中对应 Select 显示 loading，失败在字段旁显示错误和“重试”入口，重试后清除错误。
-- MES 适配组件不请求 MES API、不查权限；远程候选请求、权限判断、状态字典和 `onApply` patch 提交由宿主提供。它们位于 `src/mes/**`，从 `sunxu-web/mes` 导入。
+- MES 适配组件不请求 MES API、不查权限；远程候选请求、权限判断、状态字典和 `onApply` patch 提交由宿主提供。它们位于 `src/business/**`，从 `sunxu-web/business` 导入。
 - MES 套件目录中的表格固定列宽为 566px；窄屏将横向溢出限制在表格内，并提供可聚焦命名区域，以左右方向键、Home 和 End 浏览列。
 - 两个适配器的桌面/375px 触摸窄屏/844×390 横屏渲染、全文查看、批量字段区滚动、键盘表格滚动与 DOM 几何记录见 `docs/verification/mes-ui-suite-2026-11-19/README.md`。读屏器完整流程仍为 `UNVERIFIED`。
 - `DocumentModalForm` 的工作区全屏、视口全屏、固定宽度、遮罩点击不关闭、最小化保留草稿、键盘 Space/Enter 还原、关闭和宿主提交已在目录真实页面完成渲染验收；截图、DOM 几何和横向溢出数据见 `docs/verification/mes-document-modal-form-2026-11-20/README.md`。自定义 `getContainer` 组合和读屏器流程标为 `UNVERIFIED`。
@@ -491,7 +503,7 @@
 - **`PrintLayout`**：保留 `title`、`docNo`、`metaLines`、`printDate` 和 `children` 契约；默认日期与打印时间均使用 `zh-CN` 本地化格式。包含 `/logo.png`、右侧元信息、正文和“本文档由 MES 系统生成”页脚，并按源实现渲染 A4 `PRINT_STYLES`。
 - **`DotMatrixLayout`**：保留可选 `companyName/docNo/docDate`、必填 `title/children`；缺少编号显示 `—`，缺少日期时使用当前中文日期。只渲染 `.dm-root`、抬头和正文，针打黑白宋体/连续纸样式作为 `DOT_MATRIX_STYLES` 导出，由打印宿主放进 iframe。
 - **`LabelLayout`**：保留 ref 与 children，按 `orientation` prop 优先级、宿主 `getOrientation()`、默认横版依次选取 `.horizontal/.vertical` 类。标签纸尺寸偏好仍由 MES 宿主维护；组件不访问 localStorage。`LABEL_STYLES` 保持从源端复制并导出，供打印宿主独立注入。
-- **组合 / 边界**：三种布局均为 ref-forwarding 容器，不负责读取单据、调用打印、选择打印机或保存纸张设置。打印样式字符串可从 `sunxu-web/mes` 导入；标签方向通过 `MesUiProvider.labelLayoutCapabilities` 提供，单次展示可用 `orientation` 覆盖。
+- **组合 / 边界**：三种布局均为 ref-forwarding 容器，不负责读取单据、调用打印、选择打印机或保存纸张设置。打印样式字符串可从 `sunxu-web/business` 导入；标签方向通过 `MesUiProvider.labelLayoutCapabilities` 提供，单次展示可用 `orientation` 覆盖。
 - **证据**：三个 MES 源文件 SHA-256 分别见迁移账本，Catalog 覆盖标题元数据、A4 表格、针打表格和标签横/竖版切换。UV 暂停期间没有真实打印 iframe/页面几何和打印设备验收，均为 `UNVERIFIED`。
 
 #### `AccountingCrudPage` 组件规格
@@ -564,7 +576,7 @@
 
 - **职责 / 层级**：在工序表单中维护允许参与排产的设备范围、优先级、设备默认单件工时和按班次覆盖的工时。
 - **状态 / 交互**：允许设备为空时表示按设备类型/工作中心匹配全范围；有设备时按用户排序优先级参与排程。设备选择弹窗保留分页搜索、工作中心及下级设备过滤、多页选中、确认后去重；删除允许设备时同步清理其班次工时配置。已配置设备详情失败时提示并保留移除能力。
-- **工时规则**：默认设备工时和班次工时均按分钟/件输入，精度 4 位；班次值覆盖设备默认值，设备默认值为空时继承工序默认值。班次不得重复配置；班次列表分页全量加载，空余班次可新增，已有配置可改班次或删除。
+- **工时规则**：默认设备工时和班次工时均按分钟/件输入，精度 4 位；班次值覆盖设备默认值，设备默认值为空时继承工序默认值。班次不得重复配置；班次列表分页全量加载，新配置只提供启用班次，已有停用班次作为当前历史值保留并禁用，空余启用班次可新增。
 - **边界**：设备与班次列表、设备详情、设备类型字典标签和 MES 记忆分页配置由 `MesUiProvider.allowedEquipmentPriorityCapabilities` 提供；设备范围和工时仍写入当前 AntD 表单字段 `value` 与 `equipmentTimeProfiles`。
 - **证据**：MES 源 SHA-256 为 `7e068d2c25047e24820ea3a313e9dd500014fa24c6cc847e66f51899efee75ef`；Catalog 展示设备候选、优先级和班次配置。UV 暂停期间真实目录路由、视口几何和键盘/主题验收为 `UNVERIFIED`。
 
@@ -572,9 +584,9 @@
 
 - **自动/计划排产**：`AutoScheduleDrawer` 保留排产算法、方向、派工规则与缓冲策略，候选工单分页搜索、预览/结果、工序安排和 BOM 外协摘要；`ScheduleFromPlansDrawer` 保留计划/工单树、筛选、已排状态、委外行、结果和刷新回调。策略、查询/预览/提交 API、权限、状态标签和错误消息由宿主注入。
 - **分析/方案**：`BottleneckPanel` 保留日期范围、瓶颈计划/实际工时与利用率；`ScenarioCompare` 保留方案指标比较、当前基线、风险/改进量、选择并采纳回调。方案组件维持 MES 请求契约，不额外提交仅用于展示的 `bufferRatio`。
-- **手工排程/台账**：`EntryFormDrawer` 保留工单扫码/选择、工序、资源、日期、班次、设备与工作中心联动、加载/验证和提交回调；`EntryList` 使用 `ResizableProTable`，保留排产业务列序、搜索/状态筛选、服务端分页/排序、复制/编辑/删除/批量状态动作及确认，并在结果区工具栏提供列设置齿轮和表头拖拽调宽。列宽、显隐和顺序按稳定列表 key 保存在浏览器本地；服务端排序不写入浏览器排序缓存。工单/工序/资源/班次请求、状态与权限、字段帮助、消息、删除确认、刷新和路由由宿主注入。
+- **手工排程/台账**：`EntryFormDrawer` 保留工单扫码/选择、工序、资源、日期、班次、设备与工作中心联动、加载/验证和提交回调；工单 ID 因扫码改变时清空原工序、工作中心和设备，同一工单重复扫码则保留已选值。`EntryList` 使用 `ResizableProTable`，保留排产业务列序、搜索/状态筛选、服务端分页/排序、复制/编辑/删除/批量状态动作及确认，并在结果区工具栏提供列设置齿轮和表头拖拽调宽。列宽、显隐和顺序按稳定列表 key 保存在浏览器本地；服务端排序不写入浏览器排序缓存。工单/工序/资源/班次请求、状态与权限、字段帮助、消息、删除确认、刷新和路由由宿主注入。
 - **甘特**：`ProductionScheduleGanttView` 与现有 `ProductionSchedulePlanningWidgets`、`ScheduleGanttWidgets` 组合，保留时间窗口/缩放/下钻、热力/产能、条目拖拽/缩放/选择、资源泳道、待排项拖入、上下文动作与阻止行告警；跨资源拖拽按最终资源分别提交，清空设备时保留合法空资源状态。待排产面板位置、容量条位置及右键选中行为可由宿主配置。甘特数据、日期计算、资源/状态呈现、权限动作、路由与拖拽提交由宿主注入。
-- **来源证据**：迁移归档中的 7 个源组件 SHA-256：AutoScheduleDrawer `08941101d38bff06dc7328c25b226865b4e8165e8809fb9996870b64122a93c8`；BottleneckPanel `de6e647cd338866ea5323c1da7aa80c39de42aeefc9a385420756d3f1445d3fa`；EntryFormDrawer `a46a491d26461ce576df623c63565fcbc3db3c0f485b506c4d25f56690bafbd2`；EntryList `9a529de6083995d161179bb318f0a6be6162daf9063a1f5948be2d3d179bb284`；ScenarioCompare `6ab0eec2a4f0daaa3c4a0393c7315f7d43655871e4492b7fe84837f63bab7047`；ScheduleFromPlansDrawer `b7b4ae680ae2a67c2e47ddf84985defb2e54e35699aecd799931e2fb96513437`；GanttView `b5b628b32bcf2a75e1a115222565fc24111e4d0f3113f03eea81a32fbd2e2e16`。当前 `EntryFormDrawer` 与 `EntryList` 同在 `src/mes/components/ProductionScheduleEntryComponents.tsx`，该实现文件 SHA-256 为 `38746cc3069a000d3b724396ddc5f56c7ff189c56b4dd00ee95d386a421ec42f`。Catalog `ProductionScheduleWorkflowsDemo` 在本地 capabilities 下已于 1440×900、1024×768 渲染，验证齿轮弹层、表头拖宽和本地列宽缓存，证据位于 `docs/verification/production-schedule-entry-list-2026-11-26/`；真实 MES 路由/API/权限接线仍为 `UNVERIFIED`。
+- **来源证据**：迁移归档中的 7 个源组件 SHA-256：AutoScheduleDrawer `08941101d38bff06dc7328c25b226865b4e8165e8809fb9996870b64122a93c8`；BottleneckPanel `de6e647cd338866ea5323c1da7aa80c39de42aeefc9a385420756d3f1445d3fa`；EntryFormDrawer `a46a491d26461ce576df623c63565fcbc3db3c0f485b506c4d25f56690bafbd2`；EntryList `9a529de6083995d161179bb318f0a6be6162daf9063a1f5948be2d3d179bb284`；ScenarioCompare `6ab0eec2a4f0daaa3c4a0393c7315f7d43655871e4492b7fe84837f63bab7047`；ScheduleFromPlansDrawer `b7b4ae680ae2a67c2e47ddf84985defb2e54e35699aecd799931e2fb96513437`；GanttView `b5b628b32bcf2a75e1a115222565fc24111e4d0f3113f03eea81a32fbd2e2e16`。当前 `EntryFormDrawer` 与 `EntryList` 同在 `src/business/components/ProductionScheduleEntryComponents.tsx`，该实现文件 SHA-256 为 `b3d63b3c7753bd7484973e75cb42d2a20819a138df5b813723a97790947dea7b`。Catalog `ProductionScheduleWorkflowsDemo` 在本地 capabilities 下已于 1440×900、1024×768 渲染，验证齿轮弹层、表头拖宽和本地列宽缓存，证据位于 `docs/verification/production-schedule-entry-list-2026-11-26/`；真实 MES 路由/API/权限接线仍为 `UNVERIFIED`。
 
 #### `ProductionShiftCalendar` 班次与例外日历
 
@@ -637,7 +649,7 @@
 - **模板字段**：物料标签显示名称、编码、可选规格、字典单位和物料条码（无条码时回退编码）；批次标签显示批号、可选物料/供应商/生产日期/有效期；设备标签显示名称、编码、可选型号/工作中心；包装单元显示包装号、可选产品/编码/批次/数量单位/包装类型/仓库；工装显示名称、编码、可选类型/规格；工单显示工单号、可选产品/编码/数量单位。
 - **条码 / 格式**：所有二维码尺寸 48、容错级别 M；工单 QR 值按 `work_order` 与 ID 由 MES 宿主编码。包装和工单数量最多显示 4 位小数；物料单位用宿主传入字典标签。
 - **边界**：组件只布局标签内容；`renderBarcode`、`unitLabelMap` 和工单 `buildQrValue` 由宿主注入。`LabelLayout` 的打印纸张方向仍由 `MesUiProvider.labelLayoutCapabilities` 决定。
-- **证据**：六个 MES 标签模板源码分别迁入 `src/mes/components/LabelTemplates.tsx`。Catalog 展示模板字段与宿主 adapter 插槽；UV 暂停期间打印机/纸张真实预览为 `UNVERIFIED`。
+- **证据**：六个 MES 标签模板源码分别迁入 `src/business/components/LabelTemplates.tsx`。Catalog 展示模板字段与宿主 adapter 插槽；UV 暂停期间打印机/纸张真实预览为 `UNVERIFIED`。
 
 #### MES 打印 Hooks
 
@@ -645,7 +657,7 @@
 - **`useDotMatrixPrint`**：返回打印 ref/回调；保留 241×140、241×93、241×279、190×140、210×140mm 预设，自定义纸张尺寸、本地公司抬头设置，并在打印 iframe 使用连续纸专属样式。
 - **`useLabelPrint`**：返回打印 ref/回调；保留横/竖版标签纸预设、自定义宽高、本地纸型设置、自动方向和标签专属打印样式。
 - **依赖 / 边界**：三个 Hook 使用 `react-to-print` peer dependency；纸型/公司抬头偏好使用 MES 约定的 localStorage key。打印模板数据、浏览器打印目标和打印操作由宿主控制。
-- **证据**：对应 MES 源文件及 `LabelTemplates/index.ts` 汇总出口已迁入 `src/mes`。UV 暂停期间浏览器打印预览和实际标签机输出为 `UNVERIFIED`。
+- **证据**：对应 MES 源文件及 `LabelTemplates/index.ts` 汇总出口已迁入 `src/business`。UV 暂停期间浏览器打印预览和实际标签机输出为 `UNVERIFIED`。
 
 #### MES 打印动作与记录
 
@@ -752,10 +764,10 @@
 - **`DetailTable`**：复用 MES `ResizableProTable`，默认关闭搜索/分页/序号、关闭刷新和密度菜单、开启列设置；可选服务端分页适配器保留 `remoteFn({page,pageSize})` 契约。远程适配器不接收排序参数，因此默认关闭隐式排序；调用方显式配置的 sorter 保留。固定列默认横向滚动。
 - **`TabsPanel`**：保留每项自定义渲染或 `DetailTable` 内容、基于当前本地数据长度生成标签、默认首项激活和外部刷新 `actionRef`。
 - **`BatchSelectionSummary`**：展示批次中每张单据编号、可复制入口和可选摘要；它不替代 ProTable 的选择计数/清空工具栏。
-- **`ContextualHelp` / `withSharedFieldHelp`**：图标触发器有稳定读屏名称；MES 表单和明细行说明沿用原始“作用/口径/怎么用”文案，错误和可执行状态仍应直接可见。
+- **`ContextualHelp` / `withSharedFieldHelp`**：标签可选，标题必填，内容和 aria-label 可配置；触发器始终有稳定读屏名称，默认由 hover/focus 显示提示，避免指针或触屏点击同时触发多种事件而关闭提示。触屏设备的点击聚焦触发 focus 提示，触控目标至少 44×44px；说明内容由宿主提供，错误和可执行状态仍应直接可见；不同业务不得复制同样的图标提示组合。
 - **`FormDrawer`**：保留 create/update 转换、记录切换后 reset 与初值回填、成功回调、BizError/HTTP toast 去重、校验失败提示和首个错误定位；支持普通 `DrawerForm` 与 MES `DocumentModalForm` 两种变体。
 - **宿主边界**：`AvatarDropdown`、`AvatarName`、`HeaderDropdown` 依赖 Umi 用户模型、退出登录、MES 支持联系方式和应用导航，留在 MES 应用壳；`DetailPageShell` 与 `ListPageShell` 的请求、路由 keepalive、审批/权限、批量操作、导入导出编排留在宿主，页面容器和可复用子组件使用 Sunxu Web/MES 契约。
-- **目录和证据**：`MesPatternComponentsDemo` 覆盖信息字段权限、详情头、明细表、页签、批次摘要、帮助提示及抽屉表单。当前 UV 暂停期间未执行真实浏览器几何/键盘验收，视觉状态为 `UNVERIFIED`。
+- **目录和证据**：`MesPatternComponentsDemo` 覆盖信息字段权限、详情头、明细表、页签、批次摘要、帮助提示及抽屉表单。字段帮助已在桌面与触屏窄屏验收；其余复合示例的完整键盘和视觉状态仍为 `UNVERIFIED`，记录见 `docs/verification/component-normalization-2026-11-26/`。
 
 #### MES 顶栏与宿主壳层呈现
 

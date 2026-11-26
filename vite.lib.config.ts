@@ -8,6 +8,7 @@ export default defineConfig({
     lib: {
       entry: {
         index: 'src/index.ts',
+        business: 'src/business/index.ts',
         mes: 'src/mes/index.ts',
       },
       name: 'SunxuWeb',

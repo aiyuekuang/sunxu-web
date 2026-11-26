@@ -12,7 +12,7 @@ import {
   type LandedCostAllocationBasis,
   type LandedCostRecord,
   type LandedCostSelectRequest,
-} from '../../src/mes';
+} from '../../src/business';
 
 const statusEnum = {
   draft: { text: '草稿', status: 'Default' },

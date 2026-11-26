@@ -2,8 +2,8 @@ import { QrcodeOutlined } from '@ant-design/icons';
 import { Alert, Button, Space, Typography } from 'antd';
 import { useMemo, useRef, useState } from 'react';
 import { SectionCard } from '../../src';
-import { CustomerOrderPortalQrModal } from '../../src/mes/components/CustomerOrderPortalQrModal';
-import type { CustomerOrderPortalQrModalCapabilities } from '../../src/mes/components/customer-order-portal-qr-modal-types';
+import { CustomerOrderPortalQrModal } from '../../src/business/components/CustomerOrderPortalQrModal';
+import type { CustomerOrderPortalQrModalCapabilities } from '../../src/business/components/customer-order-portal-qr-modal-types';
 
 const demoCustomer = {
   id: 'customer-demo-001',

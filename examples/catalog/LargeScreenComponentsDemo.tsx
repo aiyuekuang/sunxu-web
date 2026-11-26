@@ -7,7 +7,7 @@ import {
   ScreenHeader,
   ScreenScaler,
   StatCard,
-} from '../../src/mes';
+} from '../../src/business';
 import { SectionCard } from '../../src';
 
 type DemoRow = {
@@ -38,7 +38,7 @@ export function LargeScreenComponentsDemo() {
   );
 
   return (
-    <SectionCard title="MES 大屏组件">
+    <SectionCard title="大屏组件">
       <Typography.Paragraph type="secondary">
         指标卡、面板标题、空态、全屏缩放、顶部操作栏与自动滚动表格；表格提供可键盘操作的暂停按钮，并遵循系统减少动态效果设置。
       </Typography.Paragraph>
@@ -65,7 +65,7 @@ export function LargeScreenComponentsDemo() {
           >
             <ScreenHeader
               capabilities={{ navigate: () => setOpen(false) }}
-              title="MES 组件目录大屏预览"
+              title="组件目录大屏预览"
               lastUpdated={lastUpdated}
               autoPlaying={autoPlaying}
               onToggleAutoPlay={() => setAutoPlaying((value) => !value)}

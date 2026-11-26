@@ -1,8 +1,8 @@
 import { useState } from 'react';
 import { Button, Form, Input, Select, Space, Typography } from 'antd';
-import type { QualityTemplateItemFormValue } from '../../src/mes/components/QualityTemplateItemsEditor';
+import type { QualityTemplateItemFormValue } from '../../src/business/components/QualityTemplateItemsEditor';
 import { SectionCard } from '../../src';
-import { QualityTemplateItemsEditor } from '../../src/mes';
+import { QualityTemplateItemsEditor } from '../../src/business';
 
 const emptyItem: QualityTemplateItemFormValue = {
   name: '',

@@ -8,7 +8,7 @@ const vite = await createServer({
   appType: 'custom',
 });
 
-const storageApi = await vite.ssrLoadModule('/src/mes/utils/safeStorage.ts');
+const storageApi = await vite.ssrLoadModule('/src/business/utils/safeStorage.ts');
 const originalWindowDescriptor = Object.getOwnPropertyDescriptor(globalThis, 'window');
 
 function setWindow(value) {

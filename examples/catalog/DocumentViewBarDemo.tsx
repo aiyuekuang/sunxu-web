@@ -5,7 +5,7 @@ import {
   DocumentViewBar,
   type DocumentViewBarController,
   type DocumentViewBarView,
-} from '../../src/mes';
+} from '../../src/business';
 
 interface DemoView extends DocumentViewBarView {
   configVersion: number;
@@ -72,7 +72,7 @@ export function DocumentViewBarDemo() {
   return (
     <SectionCard title="单据视图栏与筛选入口">
       <Typography.Paragraph type="secondary">
-        SavedViewBar 负责视图保存、另存、重命名、默认视图、删除、排序和未保存切换；MES 适配器保持控制器方法参数与调用时序。
+        SavedViewBar 负责视图保存、另存、重命名、默认视图、删除、排序和未保存切换；宿主适配器保持控制器方法参数与调用时序。
       </Typography.Paragraph>
       <DocumentViewBar
         controller={controller}

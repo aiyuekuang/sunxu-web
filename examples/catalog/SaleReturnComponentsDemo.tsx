@@ -1,17 +1,17 @@
 import { App, Button, Form, Select, Space, Typography } from 'antd';
 import { ProFormSelect } from '@ant-design/pro-components';
 import { useState } from 'react';
-import { SaleReturnEditDrawer } from '../../src/mes/components/SaleReturnEditDrawer';
-import { SaleReturnReceiveModal } from '../../src/mes/components/SaleReturnReceiveModal';
-import { SaleReturnReverseModal } from '../../src/mes/components/SaleReturnReverseModal';
-import { SaleReturnStockConversionDrawer } from '../../src/mes/components/SaleReturnStockConversionDrawer';
+import { SaleReturnEditDrawer } from '../../src/business/components/SaleReturnEditDrawer';
+import { SaleReturnReceiveModal } from '../../src/business/components/SaleReturnReceiveModal';
+import { SaleReturnReverseModal } from '../../src/business/components/SaleReturnReverseModal';
+import { SaleReturnStockConversionDrawer } from '../../src/business/components/SaleReturnStockConversionDrawer';
 import type {
   SaleReturnDetail,
   SaleReturnEditCapabilities,
   SaleReturnReceiveCapabilities,
   SaleReturnReverseCapabilities,
   SaleReturnStockConversionCapabilities,
-} from '../../src/mes/components/sale-return-components-types';
+} from '../../src/business/components/sale-return-components-types';
 
 const demoDetail: SaleReturnDetail = {
   id: 'sale-return-demo',
@@ -91,7 +91,7 @@ const costAllocationMethodOptions = [
   { label: '手工金额', value: 'manual_amount' as const },
 ];
 
-/** Host adapters below stand in for MES APIs, dictionaries and global feedback. */
+/** Host adapters below stand in for APIs, dictionaries and global feedback. */
 export function SaleReturnComponentsDemo() {
   const { message } = App.useApp();
   const [receiveOpen, setReceiveOpen] = useState(false);
@@ -173,7 +173,7 @@ export function SaleReturnComponentsDemo() {
               type="link"
               size="small"
               htmlType="button"
-              onClick={() => message.info('字典配置由 MES 宿主打开')}
+              onClick={() => message.info('字典配置由宿主打开')}
             >
               配置扣款项目
             </Button>
@@ -231,7 +231,7 @@ export function SaleReturnComponentsDemo() {
   return (
     <section>
       <Typography.Paragraph type="secondary">
-        每个弹窗保留原销售退货字段和校验；目录中的能力对象模拟 MES 提供的 API、字典、日期转换及消息服务。
+        每个弹窗保留原销售退货字段和校验；目录中的能力对象模拟宿主提供的 API、字典、日期转换及消息服务。
       </Typography.Paragraph>
       <Space wrap>
         <Button onClick={() => setEditOpen(true)}>编辑退货</Button>

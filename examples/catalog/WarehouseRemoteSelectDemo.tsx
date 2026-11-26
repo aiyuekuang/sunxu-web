@@ -6,7 +6,7 @@ import {
   WarehouseRemoteSelect,
   type MesWarehouseRemoteSelectCapabilities,
   type WarehouseSelectOption,
-} from '../../src/mes';
+} from '../../src/business';
 
 const demoWarehouses: WarehouseSelectOption[] = [
   {

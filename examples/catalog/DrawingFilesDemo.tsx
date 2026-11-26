@@ -8,7 +8,7 @@ import {
   MesUiProvider,
   type DrawingFileGroup,
   type MesDrawingFilesCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 import drawingImageUrl from './fixtures/mes-drawing-sample.png';
 import drawingPdfUrl from './fixtures/mes-drawing-sample.pdf?url&no-inline';
 import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
@@ -105,7 +105,7 @@ export function DrawingFilesDemo() {
   );
 
   return (
-    <SectionCard title="MES 图纸与附件">
+    <SectionCard title="图纸与附件">
       <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Typography.Paragraph type="secondary" style={{ marginBottom: 0 }}>
           附件上传、代理下载和原始文件名解析由宿主注入；此目录示例使用本地文件模拟。

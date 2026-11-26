@@ -11,13 +11,13 @@ import type {
   InspectionTemplateSummary,
   ProcessOperationInspectionRulesCapabilities,
   ProcessOperationInspectionTemplateListParams,
-} from '../../src/mes/components/process-operation-inspection-rules-types';
-import type { MesMaterialSelectCapabilities } from '../../src/mes/components/MaterialFilteredSelect';
+} from '../../src/business/components/process-operation-inspection-rules-types';
+import type { MesMaterialSelectCapabilities } from '../../src/business/components/MaterialFilteredSelect';
 import { SectionCard } from '../../src';
 import {
   MesUiProvider,
   ProcessOperationInspectionRulesForm,
-} from '../../src/mes';
+} from '../../src/business';
 
 const templates: InspectionTemplateSummary[] = [
   { id: 'template-default', code: 'IPQC-060', name: '前切过程检验' },

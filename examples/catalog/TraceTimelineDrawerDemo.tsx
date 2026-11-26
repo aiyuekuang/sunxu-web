@@ -1,12 +1,12 @@
 import { useState } from 'react';
 import { Button, Space } from 'antd';
 import { SectionCard } from '../../src';
-import { TraceTimelineDrawer } from '../../src/mes';
+import { TraceTimelineDrawer } from '../../src/business';
 import type {
   TraceGraph,
   TraceTimelineCapabilities,
   TraceIdentifierType,
-} from '../../src/mes';
+} from '../../src/business';
 
 const demoStatuses = {
   pending: { text: '待处理', status: 'Warning' },
@@ -166,7 +166,7 @@ export function TraceTimelineDrawerDemo() {
 
   return (
     <>
-      <SectionCard title="MES 批号与成品追溯">
+      <SectionCard title="批号与成品追溯">
         <Space wrap>
           <Button type="primary" onClick={() => showTrace('batch')}>
             查看批号追溯

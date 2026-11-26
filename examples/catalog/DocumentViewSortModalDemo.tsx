@@ -4,7 +4,7 @@ import { SectionCard } from '../../src';
 import {
   DocumentViewSortModal,
   type SortableDocumentView,
-} from '../../src/mes';
+} from '../../src/business';
 
 export function DocumentViewSortModalDemo() {
   const [open, setOpen] = useState(false);

@@ -2,17 +2,17 @@ import { ProFormSelect } from '@ant-design/pro-components';
 import { App, Button, Segmented, Space, Typography } from 'antd';
 import { useMemo, useState } from 'react';
 import { SectionCard } from '../../src';
-import { BusinessInvoiceCreateDrawer } from '../../src/mes/components/BusinessInvoiceCreateDrawer';
-import { BusinessInvoiceEditDrawer } from '../../src/mes/components/BusinessInvoiceEditDrawer';
-import { BusinessInvoiceMatchDrawer } from '../../src/mes/components/BusinessInvoiceMatchDrawer';
-import { InvoiceSourceBatchModal } from '../../src/mes/components/InvoiceSourceBatchModal';
+import { BusinessInvoiceCreateDrawer } from '../../src/business/components/BusinessInvoiceCreateDrawer';
+import { BusinessInvoiceEditDrawer } from '../../src/business/components/BusinessInvoiceEditDrawer';
+import { BusinessInvoiceMatchDrawer } from '../../src/business/components/BusinessInvoiceMatchDrawer';
+import { InvoiceSourceBatchModal } from '../../src/business/components/InvoiceSourceBatchModal';
 import type {
   BusinessInvoiceWorkflowRecord,
   BusinessInvoiceCreateCapabilities,
   BusinessInvoiceMatchCapabilities,
   InvoiceSourceBatchCapabilities,
-} from '../../src/mes/components/business-invoice-workflow-types';
-import type { InvoiceCoverageResponse } from '../../src/mes/components/business-invoice-types';
+} from '../../src/business/components/business-invoice-workflow-types';
+import type { InvoiceCoverageResponse } from '../../src/business/components/business-invoice-types';
 
 const record: BusinessInvoiceWorkflowRecord = {
   id: 'invoice-demo-001',

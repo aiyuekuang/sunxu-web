@@ -1,25 +1,25 @@
 import { App as AntdApp, Button, Card, Space, Typography } from 'antd';
 import { useState } from 'react';
-import { MesUiProvider } from '../../src/mes/MesUiProvider';
-import { WorkOrderFormDrawer } from '../../src/mes/components/WorkOrderFormDrawer';
+import { MesUiProvider } from '../../src/business/MesUiProvider';
+import { WorkOrderFormDrawer } from '../../src/business/components/WorkOrderFormDrawer';
 import {
   WorkOrderRiskTags,
   WorkOrderListProgress,
-} from '../../src/mes/components/WorkOrderListExecutionSummary';
-import { WorkOrderReportDirectModal } from '../../src/mes/components/WorkOrderReportDirectModal';
-import { WorkOrderReportModal } from '../../src/mes/components/WorkOrderReportModal';
-import type { MesBomCostSnapshotCapabilities } from '../../src/mes/components/bom-cost-types';
-import type { MesDrawingFilesCapabilities } from '../../src/mes/components/drawing-files-types';
-import type { MesMaterialSelectCapabilities } from '../../src/mes/components/material-select-types';
-import type { MesProductionBomSelectCapabilities } from '../../src/mes/components/production-bom-select-types';
-import type { WorkOrderFormDrawerCapabilities } from '../../src/mes/components/work-order-form-types';
+} from '../../src/business/components/WorkOrderListExecutionSummary';
+import { WorkOrderReportDirectModal } from '../../src/business/components/WorkOrderReportDirectModal';
+import { WorkOrderReportModal } from '../../src/business/components/WorkOrderReportModal';
+import type { MesBomCostSnapshotCapabilities } from '../../src/business/components/bom-cost-types';
+import type { MesDrawingFilesCapabilities } from '../../src/business/components/drawing-files-types';
+import type { MesMaterialSelectCapabilities } from '../../src/business/components/material-select-types';
+import type { MesProductionBomSelectCapabilities } from '../../src/business/components/production-bom-select-types';
+import type { WorkOrderFormDrawerCapabilities } from '../../src/business/components/work-order-form-types';
 import type {
   WorkOrderDemandAllocation,
   WorkOrderOperation,
   WorkOrderReportCapabilities,
   WorkOrderReportScheduleSlot,
   WorkOrderSelectRequest,
-} from '../../src/mes/components/work-order-report-types';
+} from '../../src/business/components/work-order-report-types';
 
 const demandAllocations: WorkOrderDemandAllocation[] = [
   {
@@ -482,7 +482,7 @@ function WorkOrderReportingComponentsDemoContent() {
   );
 }
 
-/** @sunxu-component mes-specific @sunxu-domain manufacturing @sunxu-reason Demonstrates injected work-order report, form, risk, and progress interactions without MES services. */
+/** @sunxu-layer business @sunxu-domain manufacturing @sunxu-reason Demonstrates injected work-order report, form, risk, and progress interactions without services. */
 export function WorkOrderReportingComponentsDemo() {
   return (
     <AntdApp>

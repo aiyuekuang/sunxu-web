@@ -6,7 +6,7 @@ import {
   MesUiProvider,
   type ApprovalPanelStatusData,
   type MesApprovalCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 type DemoStatus = ApprovalPanelStatusData['status'];
 
@@ -66,7 +66,7 @@ export function ApprovalPanelDemo() {
   return (
     <SectionCard title="审批流程面板">
       <Typography.Paragraph type="secondary">
-        按 MES 状态展示流程步骤、提交/撤回/通过/驳回/重置操作；权限策略、状态查询和动作 API 均由宿主提供。
+        按状态展示流程步骤、提交/撤回/通过/驳回/重置操作；权限策略、状态查询和动作 API 均由宿主提供。
       </Typography.Paragraph>
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Space wrap>

@@ -3,14 +3,14 @@ import { Button, Form, Space, Tag, Typography } from 'antd';
 import dayjs, { type Dayjs } from 'dayjs';
 import { useMemo, useRef, useState } from 'react';
 import { SectionCard } from '../../src/components/SectionCard';
-import { MesUiProvider } from '../../src/mes/MesUiProvider';
-import { CreateStockCountModal } from '../../src/mes/components/CreateStockCountModal';
-import { StockCountDetailDrawer } from '../../src/mes/components/StockCountDetailDrawer';
-import type { BatchMaterialRecord } from '../../src/mes/components/batch-material-add-types';
-import type { DocumentLineCustomFieldSchema } from '../../src/mes/components/document-line-custom-field-types';
+import { MesUiProvider } from '../../src/business/MesUiProvider';
+import { CreateStockCountModal } from '../../src/business/components/CreateStockCountModal';
+import { StockCountDetailDrawer } from '../../src/business/components/StockCountDetailDrawer';
+import type { BatchMaterialRecord } from '../../src/business/components/batch-material-add-types';
+import type { DocumentLineCustomFieldSchema } from '../../src/business/components/document-line-custom-field-types';
 import type {
   MesMaterialTablePickerCapabilities,
-} from '../../src/mes/components/material-table-picker-types';
+} from '../../src/business/components/material-table-picker-types';
 import type {
   CreateStockCountModalProps,
   StockCountCreateCapabilities,
@@ -18,8 +18,8 @@ import type {
   StockCountDetailCapabilities,
   StockCountDetailModel,
   StockCountLineFormValue,
-} from '../../src/mes/components/stock-count-document-components-types';
-import type { StockCountLineFormCapabilities } from '../../src/mes/components/stock-count-line-form-list-types';
+} from '../../src/business/components/stock-count-document-components-types';
+import type { StockCountLineFormCapabilities } from '../../src/business/components/stock-count-line-form-list-types';
 
 const customFieldSchema: DocumentLineCustomFieldSchema = {
   schemaVersion: 2,
@@ -607,7 +607,7 @@ export function StockCountDocumentComponentsDemo() {
   };
 
   return (
-    <SectionCard title="MES 库存盘点单组件">
+    <SectionCard title="库存盘点单组件">
       <Space orientation="vertical" style={{ width: '100%' }} size={12}>
         <Typography.Paragraph type="secondary" style={{ margin: 0 }}>
           演示新建盲盘单、仓库与仓位字段注入、盘点行自定义字段、实盘录入、批量设置，以及审核/冲正/取消表单。所有数据和操作均由本地 mock 提供。

@@ -1,7 +1,7 @@
 import { ProForm } from '@ant-design/pro-components';
 import { SectionCard } from '../../src';
-import { CompleteMaintenanceFields } from '../../src/mes/components/CompleteMaintenanceFields';
-import type { CompleteMaintenanceFieldsCapabilities } from '../../src/mes/components/complete-maintenance-fields-types';
+import { CompleteMaintenanceFields } from '../../src/business/components/CompleteMaintenanceFields';
+import type { CompleteMaintenanceFieldsCapabilities } from '../../src/business/components/complete-maintenance-fields-types';
 
 const capabilities: CompleteMaintenanceFieldsCapabilities = {
   getFieldHelpProps: (label) => ({
@@ -12,7 +12,7 @@ const capabilities: CompleteMaintenanceFieldsCapabilities = {
 
 export function CompleteMaintenanceFieldsDemo() {
   return (
-    <SectionCard title="MES 保养完成表单字段">
+    <SectionCard title="保养完成表单字段">
       <ProForm
         layout="vertical"
         submitter={false}

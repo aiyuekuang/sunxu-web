@@ -3,23 +3,23 @@ import { ProFormSelect } from '@ant-design/pro-components';
 import { App, Button, Segmented, Space, Typography } from 'antd';
 import dayjs from 'dayjs';
 import { SectionCard } from '../../src';
-import { FundsTransactionImportModal, CreateFundsTransactionModal } from '../../src/mes/components/FundsTransactionModals';
-import { FinanceInvoiceCurrencyRepairModal } from '../../src/mes/components/FinanceInvoiceCurrencyRepairModal';
-import { FinanceInvoiceCancelModal } from '../../src/mes/components/FinanceInvoiceCancelModal';
-import { CreditNoteRefundModal } from '../../src/mes/components/CreditNoteRefundModal';
+import { FundsTransactionImportModal, CreateFundsTransactionModal } from '../../src/business/components/FundsTransactionModals';
+import { FinanceInvoiceCurrencyRepairModal } from '../../src/business/components/FinanceInvoiceCurrencyRepairModal';
+import { FinanceInvoiceCancelModal } from '../../src/business/components/FinanceInvoiceCancelModal';
+import { CreditNoteRefundModal } from '../../src/business/components/CreditNoteRefundModal';
 import type {
   FundsTransactionCreateModalCapabilities,
   FundsTransactionImportModalCapabilities,
-} from '../../src/mes/components/funds-transaction-modals-types';
+} from '../../src/business/components/funds-transaction-modals-types';
 import type {
   FinanceInvoiceActionRecord,
   FinanceInvoiceCurrencyRepairResult,
-} from '../../src/mes/components/finance-invoice-action-types';
-import type { FinanceInvoiceCurrencyRepairCapabilities } from '../../src/mes/components/finance-invoice-currency-repair-modal-types';
-import type { FinanceInvoiceCancelCapabilities } from '../../src/mes/components/finance-invoice-cancel-modal-types';
+} from '../../src/business/components/finance-invoice-action-types';
+import type { FinanceInvoiceCurrencyRepairCapabilities } from '../../src/business/components/finance-invoice-currency-repair-modal-types';
+import type { FinanceInvoiceCancelCapabilities } from '../../src/business/components/finance-invoice-cancel-modal-types';
 import type {
   CreditNoteRefundCapabilities,
-} from '../../src/mes/components/credit-note-refund-modal-types';
+} from '../../src/business/components/credit-note-refund-modal-types';
 
 interface DemoFinancePayment {
   id: string;

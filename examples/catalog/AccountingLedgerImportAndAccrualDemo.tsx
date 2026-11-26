@@ -1,33 +1,33 @@
 import { Alert, App, Button, Space, Typography } from 'antd';
 import { useState, type Key } from 'react';
 import { SectionCard } from '../../src/components/SectionCard';
-import { MesUiProvider } from '../../src/mes/MesUiProvider';
-import type { MesAccountingSelectorCapabilities } from '../../src/mes/components/accounting-selector-types';
+import { MesUiProvider } from '../../src/business/MesUiProvider';
+import type { MesAccountingSelectorCapabilities } from '../../src/business/components/accounting-selector-types';
 import {
   AccountImportModal,
   OpeningBalanceImportModal,
-} from '../../src/mes/components/AccountingImportComponents';
+} from '../../src/business/components/AccountingImportComponents';
 import {
   LedgerQueryContext,
   NarrativeSummaryTable,
   TrialBalanceButton,
-} from '../../src/mes/components/AccountingLedgerComponents';
+} from '../../src/business/components/AccountingLedgerComponents';
 import {
   PurchaseAccrualDetailDrawer,
   PurchaseAccrualPreviewDrawer,
-} from '../../src/mes/components/PurchaseAccrualComponents';
-import type { MesStatusEnum } from '../../src/mes/components/StatusDisplay';
+} from '../../src/business/components/PurchaseAccrualComponents';
+import type { StatusMap } from '../../src/components/StatusDisplay';
 import type {
   AccountingAccountBalanceRow,
   AccountingNarrativeSummaryRow,
   AccountingTrialBalanceResult,
   LedgerRouteFilters,
-} from '../../src/mes/components/accounting-ledger-components-types';
-import type { OpeningBalanceImportDetail } from '../../src/mes/components/accounting-import-components-types';
+} from '../../src/business/components/accounting-ledger-components-types';
+import type { OpeningBalanceImportDetail } from '../../src/business/components/accounting-import-components-types';
 import type {
   PurchaseAccrualDetail,
   PurchaseAccrualPreview,
-} from '../../src/mes/components/purchase-accrual-components-types';
+} from '../../src/business/components/purchase-accrual-components-types';
 
 const accountingSelectorCapabilities: MesAccountingSelectorCapabilities = {
   listAccountingBooks: async () => [
@@ -57,12 +57,12 @@ const accountingSelectorCapabilities: MesAccountingSelectorCapabilities = {
   ],
 };
 
-const accrualStatusEnum: MesStatusEnum = {
+const accrualStatusEnum: StatusMap = {
   confirmed: { text: '已确认', status: 'Success' },
   reversed: { text: '已冲销', status: 'Error' },
 };
 
-const accrualLineStatusEnum: MesStatusEnum = {
+const accrualLineStatusEnum: StatusMap = {
   open: { text: '未清算', status: 'Processing' },
   partial_cleared: { text: '部分清算', status: 'Warning' },
   cleared: { text: '已清算', status: 'Success' },
@@ -390,7 +390,7 @@ export function AccountingLedgerImportAndAccrualDemo() {
         accountingSelectorCapabilities={accountingSelectorCapabilities}
       >
         <Typography.Paragraph type="secondary">
-          示例数据仅用于交互演示；真实权限、请求、文件下载与导航由 MES 宿主注入。
+          示例数据仅用于交互演示；真实权限、请求、文件下载与导航由宿主注入。
         </Typography.Paragraph>
         <DemoBody />
       </MesUiProvider>

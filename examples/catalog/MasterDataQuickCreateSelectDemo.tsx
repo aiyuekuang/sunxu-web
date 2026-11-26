@@ -7,7 +7,7 @@ import {
   type MasterDataQuickCreateDrawerProps,
   type MasterDataQuickCreateOption,
   type MesMasterDataQuickCreateCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 interface QuickCreateDemoOption extends MasterDataQuickCreateOption {
   entity: 'customer' | 'supplier';
@@ -133,10 +133,10 @@ export function MasterDataQuickCreateSelectDemo() {
   );
 
   return (
-    <SectionCard title="MES 主数据快捷新增选择器">
+    <SectionCard title="主数据快捷新增选择器">
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Paragraph type="secondary" style={{ marginBottom: 0 }}>
-          新增入口、ProForm 字段回填、远程候选刷新和配置入口回调由 MES 宿主提供能力；目录用本地表单模拟客户与供应商建档。
+          新增入口、ProForm 字段回填、远程候选刷新和配置入口回调由宿主提供能力；目录用本地表单模拟客户与供应商建档。
         </Typography.Paragraph>
         <Space wrap size={16}>
           <Space size={8}>

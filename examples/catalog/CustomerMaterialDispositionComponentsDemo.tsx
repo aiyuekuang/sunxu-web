@@ -2,14 +2,14 @@ import dayjs from 'dayjs';
 import { useMemo, useRef, useState } from 'react';
 import { Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { MesUiProvider } from '../../src/mes';
-import { CustomerMaterialDispositionDetailLedger } from '../../src/mes/components/CustomerMaterialDispositionDetailLedger';
-import { CustomerMaterialDispositionForm } from '../../src/mes/components/CustomerMaterialDispositionForm';
-import { CustomerMaterialDispositionReverseModal } from '../../src/mes/components/CustomerMaterialDispositionReverseModal';
-import type { DocumentDetailLedgerSavedViewController } from '../../src/mes/components/DocumentDetailLedgerTable';
-import type { DocumentLineCustomFieldSchema } from '../../src/mes/components/document-line-custom-field-types';
-import type { DocumentViewBarView } from '../../src/mes/components/DocumentViewBar';
-import type { MesStockLocationSelectCapabilities } from '../../src/mes/components/stock-location-select-field-types';
+import { MesUiProvider } from '../../src/business';
+import { CustomerMaterialDispositionDetailLedger } from '../../src/business/components/CustomerMaterialDispositionDetailLedger';
+import { CustomerMaterialDispositionForm } from '../../src/business/components/CustomerMaterialDispositionForm';
+import { CustomerMaterialDispositionReverseModal } from '../../src/business/components/CustomerMaterialDispositionReverseModal';
+import type { DocumentDetailLedgerSavedViewController } from '../../src/business/components/DocumentDetailLedgerTable';
+import type { DocumentLineCustomFieldSchema } from '../../src/business/components/document-line-custom-field-types';
+import type { DocumentViewBarView } from '../../src/business/components/DocumentViewBar';
+import type { MesStockLocationSelectCapabilities } from '../../src/business/components/stock-location-select-field-types';
 import type {
   CustomerMaterialDispositionDetailLedgerCapabilities,
   CustomerMaterialDispositionDetailListQuery,
@@ -17,7 +17,7 @@ import type {
   CustomerMaterialDispositionFormCapabilities,
   CustomerMaterialDispositionOrder,
   CustomerMaterialDispositionReverseCapabilities,
-} from '../../src/mes/components/customer-material-disposition-types';
+} from '../../src/business/components/customer-material-disposition-types';
 
 const formSchema: DocumentLineCustomFieldSchema = {
   schemaVersion: 3,

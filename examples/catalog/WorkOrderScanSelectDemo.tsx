@@ -6,7 +6,7 @@ import {
   WorkOrderScanSelect,
   type MesWorkOrderScanSelectCapabilities,
   type WorkOrderScanRecord,
-} from '../../src/mes';
+} from '../../src/business';
 
 const demoWorkOrders: WorkOrderScanRecord[] = [
   {

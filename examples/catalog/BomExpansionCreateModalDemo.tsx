@@ -2,20 +2,20 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import { App, Button, Space, Tooltip, Typography } from 'antd';
 import { useMemo, useState } from 'react';
 import { SectionCard } from '../../src';
-import { BomExpansionCreateModal } from '../../src/mes/components/BomExpansionCreateModal';
+import { BomExpansionCreateModal } from '../../src/business/components/BomExpansionCreateModal';
 import type {
   MaterialCategoryNode,
   MaterialPickerRecord,
   MesMaterialTablePickerCapabilities,
-} from '../../src/mes/components/material-table-picker-types';
-import type { MaterialFilteredSelectOption } from '../../src/mes/components/material-select-types';
-import type { MesOrderItemEditorCapabilities } from '../../src/mes/components/order-item-editor-types';
+} from '../../src/business/components/material-table-picker-types';
+import type { MaterialFilteredSelectOption } from '../../src/business/components/material-select-types';
+import type { MesOrderItemEditorCapabilities } from '../../src/business/components/order-item-editor-types';
 import type {
   BomExpansionCreateModalCapabilities,
   BomRequisitionPreviewRequest,
   BomRequisitionPreviewResponse,
   CreateRequisitionFromBomRequest,
-} from '../../src/mes/components/bom-expansion-create-modal-types';
+} from '../../src/business/components/bom-expansion-create-modal-types';
 
 const demoMaterials: MaterialPickerRecord[] = [
   {

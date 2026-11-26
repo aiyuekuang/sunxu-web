@@ -13,7 +13,7 @@ import {
   type MaterialFamilyRecord,
   type MaterialFilteredSelectOption,
   type MaterialSelectorCustomFieldDefinition,
-} from '../../src/mes';
+} from '../../src/business';
 
 const demoMaterials: MaterialFilteredSelectOption[] = [
   {
@@ -280,14 +280,14 @@ export function MaterialSelectorDemo() {
   );
 
   return (
-    <SectionCard title="MES 物料选择器">
+    <SectionCard title="物料选择器">
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Paragraph
           type="secondary"
           data-mes-selector-part="intro"
           style={{ marginBottom: 0 }}
         >
-          搜索、筛选和扫码验证复用 MES 当前行为；候选、分类、字典、扫码枪与配置权限由宿主注入。
+          搜索、筛选和扫码验证复用既有交互；候选、分类、字典、扫码枪与配置权限由宿主注入。
         </Typography.Paragraph>
         <div data-mes-selector-part="host-controls">
           <Space wrap size={12}>

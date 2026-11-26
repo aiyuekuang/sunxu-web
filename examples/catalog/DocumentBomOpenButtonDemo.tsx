@@ -5,7 +5,7 @@ import {
   DocumentBomOpenButton,
   MesUiProvider,
   type MesDocumentBomOpenCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 const demoDocumentBom = {
   id: 'bom-demo',
@@ -179,7 +179,7 @@ export function DocumentBomOpenButtonDemo() {
         </Typography.Text>
       </Space>
       <Typography.Paragraph type="secondary" style={{ margin: '8px 0 0' }}>
-        抽屉、层级明细和只读状态由 Sunxu MES 套件提供；请求、权限、字典与物料选择器由宿主注入。
+        抽屉、层级明细和只读状态由 Sunxu 业务组件提供；请求、权限、字典与物料选择器由宿主注入。
       </Typography.Paragraph>
     </SectionCard>
   );

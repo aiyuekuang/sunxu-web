@@ -6,7 +6,7 @@ import {
   useBomIssueOperationOptions,
   type BomIssueOperationCapabilities,
   type BomIssueOperationBindingSelection,
-} from '../../src/mes';
+} from '../../src/business';
 
 const candidates = [
   {

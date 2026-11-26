@@ -5,7 +5,7 @@ import {
   DocumentFilterButton,
   DocumentFilterDrawer,
   renderDocumentFilterDrawerActions,
-} from '../../src/mes';
+} from '../../src/business';
 
 export function DocumentFilterDrawerDemo() {
   const [open, setOpen] = useState(false);

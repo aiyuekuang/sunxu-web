@@ -1,17 +1,17 @@
 import { useMemo, useState } from 'react';
 import { Button, Space, Typography, message } from 'antd';
 import { SectionCard } from '../../src';
-import { MesUiProvider } from '../../src/mes/MesUiProvider';
-import { PackageSpecManager } from '../../src/mes/components/PackageSpecManager';
-import { PackageUnitCreateDrawer } from '../../src/mes/components/PackageUnitCreateDrawer';
+import { MesUiProvider } from '../../src/business/MesUiProvider';
+import { PackageSpecManager } from '../../src/business/components/PackageSpecManager';
+import { PackageUnitCreateDrawer } from '../../src/business/components/PackageUnitCreateDrawer';
 import type {
   MaterialPackageSpecRecord,
   PackageAvailableSourceRecord,
   PackageSpecManagerCapabilities,
   PackageUnitCreateCapabilities,
   PackageUnitRecord,
-} from '../../src/mes/components/package-management-types';
-import type { MesMaterialSelectCapabilities } from '../../src/mes/components/material-select-types';
+} from '../../src/business/components/package-management-types';
+import type { MesMaterialSelectCapabilities } from '../../src/business/components/material-select-types';
 
 const initialSpecs: MaterialPackageSpecRecord[] = [
   {

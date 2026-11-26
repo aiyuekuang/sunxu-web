@@ -5,7 +5,7 @@ import {
   BatchMaterialAddButton,
   MesUiProvider,
   type BatchMaterialRecord,
-} from '../../src/mes';
+} from '../../src/business';
 import { createDemoMaterialTablePickerCapabilities } from './MaterialTablePickerDemo';
 
 interface DemoMaterialRow {

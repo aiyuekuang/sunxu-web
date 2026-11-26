@@ -8,7 +8,7 @@ export type StatusTagProps = Pick<
 
 /**
  * Static status label using Ant Design Tag's native solid variant and colors.
- * @sunxu-component shared
+ * @sunxu-layer atomic
  */
 export function StatusTag({
   children,

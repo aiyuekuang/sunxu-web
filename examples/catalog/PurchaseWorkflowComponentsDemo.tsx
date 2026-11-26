@@ -3,43 +3,43 @@ import { App, Button, Modal, Space, Typography } from 'antd';
 import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 import drawingPdfUrl from './fixtures/mes-drawing-sample.pdf?url&no-inline';
 import { SectionCard } from '../../src';
-import { MesUiProvider } from '../../src/mes';
-import { CreateInquiryDrawer } from '../../src/mes/components/CreateInquiryDrawer';
+import { MesUiProvider } from '../../src/business';
+import { CreateInquiryDrawer } from '../../src/business/components/CreateInquiryDrawer';
 import type {
   CreateInquiryDrawerCapabilities,
   InquiryRequisition,
-} from '../../src/mes/components/create-inquiry-drawer-types';
-import { ConvertToOrderDrawer } from '../../src/mes/components/ConvertToOrderDrawer';
+} from '../../src/business/components/create-inquiry-drawer-types';
+import { ConvertToOrderDrawer } from '../../src/business/components/ConvertToOrderDrawer';
 import type {
   ConvertToOrderDrawerCapabilities,
   ConvertToOrderRequisition,
-} from '../../src/mes/components/convert-to-order-drawer-types';
+} from '../../src/business/components/convert-to-order-drawer-types';
 import {
   PurchaseOrderViewSwitch,
-} from '../../src/mes/components/PurchaseOrderViewSwitch';
-import type { PurchaseOrderViewMode } from '../../src/mes/components/purchase-order-view-switch-types';
-import { RequisitionFormModal } from '../../src/mes/components/RequisitionFormModal';
+} from '../../src/business/components/PurchaseOrderViewSwitch';
+import type { PurchaseOrderViewMode } from '../../src/business/components/purchase-order-view-switch-types';
+import { RequisitionFormModal } from '../../src/business/components/RequisitionFormModal';
 import type {
   RequisitionFormModalCapabilities,
   RequisitionFormRecord,
-} from '../../src/mes/components/requisition-form-modal-types';
+} from '../../src/business/components/requisition-form-modal-types';
 import {
   SendPurchaseOrderModal,
-} from '../../src/mes/components/SendPurchaseOrderModal';
-import type { PurchaseOrderSendCapabilities } from '../../src/mes/components/send-action-modal-types';
+} from '../../src/business/components/SendPurchaseOrderModal';
+import type { PurchaseOrderSendCapabilities } from '../../src/business/components/send-action-modal-types';
 import {
   PurchaseReceiptActionModal,
-} from '../../src/mes/components/PurchaseReceiptActionModal';
+} from '../../src/business/components/PurchaseReceiptActionModal';
 import type {
   PurchaseReceiptActionCapabilities,
   PurchaseReceiptActionReceipt,
-} from '../../src/mes/components/purchase-receipt-action-modal-types';
-import type { MesUiProviderProps } from '../../src/mes/MesUiProvider';
-import type { MesStockLocationSelectCapabilities } from '../../src/mes/components/stock-location-select-field-types';
-import type { MesWarehouseRemoteSelectCapabilities } from '../../src/mes/components/warehouse-remote-select-types';
-import type { MesPurchaseReceiptCapabilities } from '../../src/mes/components/purchase-receipt-types';
-import type { MesMaterialTablePickerCapabilities } from '../../src/mes/components/material-table-picker-types';
-import type { MesMaterialSelectCapabilities } from '../../src/mes/components/material-select-types';
+} from '../../src/business/components/purchase-receipt-action-modal-types';
+import type { MesUiProviderProps } from '../../src/business/MesUiProvider';
+import type { MesStockLocationSelectCapabilities } from '../../src/business/components/stock-location-select-field-types';
+import type { MesWarehouseRemoteSelectCapabilities } from '../../src/business/components/warehouse-remote-select-types';
+import type { MesPurchaseReceiptCapabilities } from '../../src/business/components/purchase-receipt-types';
+import type { MesMaterialTablePickerCapabilities } from '../../src/business/components/material-table-picker-types';
+import type { MesMaterialSelectCapabilities } from '../../src/business/components/material-select-types';
 
 async function fetchDemoPdf() {
   const response = await fetch(drawingPdfUrl);

@@ -1,15 +1,15 @@
 import { App, Button, Modal, Space, Typography } from 'antd';
 import { useMemo, useState } from 'react';
-import { ConvertToProductionDrawer } from '../../src/mes/components/ConvertToProductionDrawer';
-import { SaleDeliveryDocumentActionsDropdown } from '../../src/mes/components/SaleDeliveryDocumentActionsDropdown';
-import { SaleOrderShipActionModal } from '../../src/mes/components/SaleOrderShipActionModal';
-import type { ConvertToProductionDrawerProps } from '../../src/mes/components/convert-to-production-types';
+import { ConvertToProductionDrawer } from '../../src/business/components/ConvertToProductionDrawer';
+import { SaleDeliveryDocumentActionsDropdown } from '../../src/business/components/SaleDeliveryDocumentActionsDropdown';
+import { SaleOrderShipActionModal } from '../../src/business/components/SaleOrderShipActionModal';
+import type { ConvertToProductionDrawerProps } from '../../src/business/components/convert-to-production-types';
 import type {
   SaleOrderConvertInfoItem,
   SaleOrderProductionPreparation,
-} from '../../src/mes/components/convert-to-production-types';
-import type { SaleDeliveryDocumentActionsCapabilities } from '../../src/mes/components/sale-delivery-document-actions-dropdown-types';
-import type { SaleOrderShipActionCapabilities } from '../../src/mes/components/sale-order-ship-action-types';
+} from '../../src/business/components/convert-to-production-types';
+import type { SaleDeliveryDocumentActionsCapabilities } from '../../src/business/components/sale-delivery-document-actions-dropdown-types';
+import type { SaleOrderShipActionCapabilities } from '../../src/business/components/sale-order-ship-action-types';
 
 const demoOrder = { id: 'sale-order-demo-018', orderNo: 'SO-2026-018' };
 
@@ -86,7 +86,7 @@ export function SalesOutboundComponentsDemo() {
           destroyOnHidden
         >
           <Typography.Text>
-            宿主在此渲染权威的销售出库单编辑器，页面及单据请求留在 MES。
+            宿主在此渲染权威的销售出库单编辑器，页面及单据请求留在宿主应用。
           </Typography.Text>
         </Modal>
       ),

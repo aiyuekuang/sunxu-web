@@ -6,7 +6,7 @@ import {
   MesUiProvider,
   type BomCostPreviewSnapshot,
   type MesBomCostSnapshotCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 const initialSnapshot: BomCostPreviewSnapshot = {
   lines: [
@@ -78,7 +78,7 @@ export function BomCostSnapshotEditorDemo() {
   return (
     <SectionCard title="BOM 成本与库存快照">
       <Typography.Paragraph type="secondary">
-        支持按 MES 行能力改数量、删除/恢复、选择批准替代料与供应商价目；成本预览和单位字典由宿主提供。
+        支持按行能力改数量、删除/恢复、选择批准替代料与供应商价目；成本预览和单位字典由宿主提供。
       </Typography.Paragraph>
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Segmented

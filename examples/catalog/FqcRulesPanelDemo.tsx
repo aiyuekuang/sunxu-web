@@ -1,15 +1,15 @@
 import { App, Button, Space, Switch, Typography } from 'antd';
 import { useMemo, useState } from 'react';
 import { SectionCard } from '../../src';
-import { MesUiProvider } from '../../src/mes';
-import { FqcRulesPanel } from '../../src/mes/components/FqcRulesPanel';
+import { MesUiProvider } from '../../src/business';
+import { FqcRulesPanel } from '../../src/business/components/FqcRulesPanel';
 import type {
   FqcControlRuleRecord,
   FqcRulesListQuery,
   FqcRulesPanelCapabilities,
   FqcRulesSelectOption,
-} from '../../src/mes/components/fqc-rules-panel-types';
-import type { MesMaterialSelectCapabilities } from '../../src/mes/components/material-select-types';
+} from '../../src/business/components/fqc-rules-panel-types';
+import type { MesMaterialSelectCapabilities } from '../../src/business/components/material-select-types';
 
 const demoPermissions = {
   create: 'catalog.fqc-rule.create',

@@ -7,14 +7,14 @@ import type {
 import type { ColumnsState } from '@ant-design/pro-components';
 import dayjs from 'dayjs';
 import { useMemo, useRef, useState, type Key } from 'react';
-import { MesUiProvider } from '../../src/mes';
-import { InternalIssueDetailLedger } from '../../src/mes/components/InternalIssueDetailLedger';
-import { ProductionReceiptDetailLedger } from '../../src/mes/components/ProductionReceiptDetailLedger';
-import { PurchaseInquiryDetailLedger } from '../../src/mes/components/PurchaseInquiryDetailLedger';
-import { PurchaseRequisitionDetailLedger } from '../../src/mes/components/PurchaseRequisitionDetailLedger';
-import type { DocumentDetailLedgerSavedViewController } from '../../src/mes/components/DocumentDetailLedgerTable';
-import type { DocumentViewBarView } from '../../src/mes/components/DocumentViewBar';
-import type { MesUiProviderProps } from '../../src/mes/MesUiProvider';
+import { MesUiProvider } from '../../src/business';
+import { InternalIssueDetailLedger } from '../../src/business/components/InternalIssueDetailLedger';
+import { ProductionReceiptDetailLedger } from '../../src/business/components/ProductionReceiptDetailLedger';
+import { PurchaseInquiryDetailLedger } from '../../src/business/components/PurchaseInquiryDetailLedger';
+import { PurchaseRequisitionDetailLedger } from '../../src/business/components/PurchaseRequisitionDetailLedger';
+import type { DocumentDetailLedgerSavedViewController } from '../../src/business/components/DocumentDetailLedgerTable';
+import type { DocumentViewBarView } from '../../src/business/components/DocumentViewBar';
+import type { MesUiProviderProps } from '../../src/business/MesUiProvider';
 import type {
   DetailLedgerBatchPrintCapabilities,
   DetailLedgerFormatCapabilities,
@@ -22,8 +22,8 @@ import type {
   PurchaseInquiryDetailLedgerRow,
   PurchaseRequisitionDetailLedgerRow,
   ProductionReceiptDetailLedgerRow,
-} from '../../src/mes/components/detail-ledger-components-types';
-import type { MesStatusEnum } from '../../src/mes/components/StatusDisplay';
+} from '../../src/business/components/detail-ledger-components-types';
+import type { StatusMap } from '../../src/components/StatusDisplay';
 
 type DemoView = DocumentViewBarView;
 
@@ -44,34 +44,34 @@ const demoFormat: DetailLedgerFormatCapabilities = {
   formatUnitLabel: (value, labels) => (value ? labels[value] ?? value : ''),
 };
 
-const inquiryStatus: MesStatusEnum = {
+const inquiryStatus: StatusMap = {
   draft: { text: '草稿', status: 'Default' },
   sent: { text: '已发出', status: 'Processing' },
   quoted: { text: '已报价', status: 'Success' },
 };
 
-const requisitionStatus: MesStatusEnum = {
+const requisitionStatus: StatusMap = {
   pending: { text: '待审批', status: 'Warning' },
   approved: { text: '已批准', status: 'Success' },
   closed: { text: '已关闭', status: 'Default' },
 };
 
-const requisitionSource: MesStatusEnum = {
+const requisitionSource: StatusMap = {
   manual: { text: '手工申请', status: 'Default' },
   production: { text: '生产需求', status: 'Processing' },
 };
 
-const issueType: MesStatusEnum = {
+const issueType: StatusMap = {
   production: { text: '生产领用', status: 'Processing' },
   maintenance: { text: '维修领用', status: 'Warning' },
 };
 
-const issueStatus: MesStatusEnum = {
+const issueStatus: StatusMap = {
   completed: { text: '已完成', status: 'Success' },
   cancelled: { text: '已取消', status: 'Default' },
 };
 
-const receiptStatus: MesStatusEnum = {
+const receiptStatus: StatusMap = {
   received: { text: '已入库', status: 'Success' },
   reversed: { text: '已冲正', status: 'Error' },
 };

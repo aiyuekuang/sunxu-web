@@ -184,10 +184,10 @@ function createClassificationRule() {
       docs: { description: 'Require exported React components to declare their Sunxu business scope.' },
       schema: [],
       messages: {
-        missing: 'Exported React component "{{name}}" must declare @sunxu-component shared, mes-specific, or business-specific.',
-        invalid: 'Component "{{name}}" must use @sunxu-component shared, mes-specific, or business-specific.',
-        domain: 'MES/business-specific component "{{name}}" must declare @sunxu-domain <domain>.',
-        reason: 'MES/business-specific component "{{name}}" must declare @sunxu-reason <why it belongs to this scope>.',
+        missing: 'Exported React component "{{name}}" must declare @sunxu-layer atomic, composite, or business.',
+        invalid: 'Component "{{name}}" must use @sunxu-layer atomic, composite, or business.',
+        domain: 'Business component "{{name}}" must declare @sunxu-domain <domain>.',
+        reason: 'Business component "{{name}}" must declare @sunxu-reason <reusable business task>.',
       },
     },
     create(context) {
@@ -204,17 +204,17 @@ function createClassificationRule() {
           if (inspected.has(key)) continue;
           inspected.add(key);
           const doc = getLeadingDoc(sourceCode, component.docNode);
-          const match = doc.match(/@sunxu-component\s+([^\s*]+)/);
-          if (!match) {
-            context.report({ node, messageId: 'missing', data: { name: component.name } });
+          const layer = doc.match(/@sunxu-layer\s+([^\s*]+)/);
+          if (layer) {
+            if (!['atomic', 'composite', 'business'].includes(layer[1])) {
+              context.report({ node, messageId: 'invalid', data: { name: component.name } });
+            } else if (layer[1] === 'business') {
+              if (!hasTag(doc, 'sunxu-domain')) context.report({ node, messageId: 'domain', data: { name: component.name } });
+              if (!hasTag(doc, 'sunxu-reason')) context.report({ node, messageId: 'reason', data: { name: component.name } });
+            }
             continue;
           }
-          if (!['shared', 'mes-specific', 'business-specific'].includes(match[1])) {
-            context.report({ node, messageId: 'invalid', data: { name: component.name } });
-          } else if (match[1] !== 'shared') {
-            if (!hasTag(doc, 'sunxu-domain')) context.report({ node, messageId: 'domain', data: { name: component.name } });
-            if (!hasTag(doc, 'sunxu-reason')) context.report({ node, messageId: 'reason', data: { name: component.name } });
-          }
+          context.report({ node, messageId: 'missing', data: { name: component.name } });
         }
       }
     },

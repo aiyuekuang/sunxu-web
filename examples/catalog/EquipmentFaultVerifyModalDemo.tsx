@@ -1,8 +1,8 @@
 import { App, Button, Space, Typography } from 'antd';
 import { useState } from 'react';
 import { SectionCard } from '../../src/components/SectionCard';
-import { EquipmentFaultVerifyModal } from '../../src/mes/components/EquipmentFaultVerifyModal';
-import type { EquipmentFaultVerifyCapabilities } from '../../src/mes/components/equipment-fault-verify-types';
+import { EquipmentFaultVerifyModal } from '../../src/business/components/EquipmentFaultVerifyModal';
+import type { EquipmentFaultVerifyCapabilities } from '../../src/business/components/equipment-fault-verify-types';
 
 const getFieldHelpProps: EquipmentFaultVerifyCapabilities['getFieldHelpProps'] = (
   label,
@@ -32,7 +32,7 @@ export function EquipmentFaultVerifyModalDemo() {
     <SectionCard title="设备故障验收">
       <Space orientation="vertical" size={12}>
         <Typography.Text type="secondary">
-          通过 / 退回维修两个结论都要求填写验收说明；MES 服务、字段帮助和消息由宿主提供。
+          通过 / 退回维修两个结论都要求填写验收说明；服务、字段帮助和消息由宿主提供。
         </Typography.Text>
         <Button type="primary" onClick={() => setOpen(true)}>
           打开故障验收

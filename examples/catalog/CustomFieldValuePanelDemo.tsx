@@ -7,7 +7,7 @@ import {
   type MesCustomFieldFormCapabilities,
   type MesCustomFieldSchema,
   type MesCustomFieldValueDetail,
-} from '../../src/mes';
+} from '../../src/business';
 
 type DemoMode = 'filled' | 'empty' | 'error';
 
@@ -84,7 +84,7 @@ export function CustomFieldValuePanelDemo() {
   return (
     <SectionCard title="自定义字段详情与编辑">
       <Typography.Paragraph type="secondary">
-        详情字段、公式值/异常、空态与编辑抽屉沿用 MES 规则；schema/value 保存 API 由宿主注入。
+        详情字段、公式值/异常、空态与编辑抽屉沿用业务规则；schema/value 保存 API 由宿主注入。
       </Typography.Paragraph>
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Space wrap>

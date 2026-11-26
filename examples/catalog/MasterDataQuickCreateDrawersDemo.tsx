@@ -6,7 +6,7 @@ import {
   MesUiProvider,
   SupplierQuickCreateDrawer,
   type MesMasterDataQuickCreateCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 export function MasterDataQuickCreateDrawersDemo() {
   const [customerOpen, setCustomerOpen] = useState(false);
@@ -37,7 +37,7 @@ export function MasterDataQuickCreateDrawersDemo() {
   return (
     <SectionCard title="客户与供应商快速新建">
       <Typography.Paragraph type="secondary">
-        表单字段、必填和格式校验、字典候选、销售/采购负责人回显以及创建后回选由 Sunxu MES 套件承载；请求和字段说明由宿主注入。
+        表单字段、必填和格式校验、字典候选、销售/采购负责人回显以及创建后回选由 Sunxu 业务组件承载；请求和字段说明由宿主注入。
       </Typography.Paragraph>
       <Space wrap>
         <Button onClick={() => setCustomerOpen(true)}>新建客户</Button>

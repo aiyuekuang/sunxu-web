@@ -8,30 +8,30 @@ import type { ActionType } from '@ant-design/pro-components';
 import {
   ClosingWipModal,
   OpeningWipModal,
-} from '../../src/mes/components/ProductCostWipModals';
+} from '../../src/business/components/ProductCostWipModals';
 import {
   InventoryOpeningBalancePanel,
   InventoryResultTable,
   InventoryStockSummaryTable,
-} from '../../src/mes/components/AccountingInventoryComponents';
-import { ProductCostCollectionsPanel } from '../../src/mes/components/ProductCostCollectionsPanel';
+} from '../../src/business/components/AccountingInventoryComponents';
+import { ProductCostCollectionsPanel } from '../../src/business/components/ProductCostCollectionsPanel';
 import type {
   InventoryCostResultRecord,
   InventoryOpeningBalanceRecord,
   InventoryPeriodQuery,
   InventoryResultFilter,
   InventoryStockSummaryRow,
-} from '../../src/mes/components/accounting-inventory-components-types';
+} from '../../src/business/components/accounting-inventory-components-types';
 import type {
   ProductCostExpenseCollectionRecord,
   ProductCostExpenseDraftRecord,
-} from '../../src/mes/components/product-cost-collection-types';
+} from '../../src/business/components/product-cost-collection-types';
 import type {
   ProductCostClosingWipRecord,
   ProductCostOpeningWipRecord,
-} from '../../src/mes/components/product-cost-wip-types';
-import { PRODUCT_COST_ALLOCATION_BASIS_OPTIONS } from '../../src/mes/components/accounting-options';
-import type { MesStatusEnum } from '../../src/mes/components/StatusDisplay';
+} from '../../src/business/components/product-cost-wip-types';
+import { PRODUCT_COST_ALLOCATION_BASIS_OPTIONS } from '../../src/business/components/accounting-options';
+import type { StatusMap } from '../../src/components/StatusDisplay';
 
 const period: InventoryPeriodQuery = {
   accountingBookCode: 'MAIN-CN',
@@ -53,7 +53,7 @@ const workOrderOptions = [
   { label: 'WO-2026-1092｜铜连接片', value: 'work-order-002' },
 ];
 
-const statusEnum: MesStatusEnum = {
+const statusEnum: StatusMap = {
   calculated: { text: '已核算', status: 'Success' },
   pending_cost: { text: '待成本', status: 'Warning' },
   draft: { text: '草稿', status: 'Default' },

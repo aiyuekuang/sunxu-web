@@ -6,8 +6,8 @@ import {
   OrderItemEditor,
   type OrderItemDraft,
   type MesOrderItemEditorCapabilities,
-} from '../../src/mes';
-import { withSharedFieldHelp } from '../../src/mes/components/shared-field-help';
+} from '../../src/business';
+import { withSharedFieldHelp } from '../../src/business/components/shared-field-help';
 
 const demoMaterials = [
   { value: 'mat-al-01', label: '6061 铝型材', code: 'RM-AL-0081', name: '6061 铝型材', spec: '20 × 40 mm', unit: 'M' },
@@ -79,7 +79,7 @@ export function OrderItemEditorDemo() {
   };
 
   return (
-    <SectionCard title="MES 单据明细编辑器">
+    <SectionCard title="单据明细编辑器">
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Segmented
           aria-label="明细布局"

@@ -4,7 +4,7 @@ import { SectionCard } from '../../src';
 import {
   DocumentLineCustomFieldFormItems,
   type DocumentLineCustomFieldSchema,
-} from '../../src/mes';
+} from '../../src/business';
 
 type DemoMode = 'fields' | 'empty';
 
@@ -143,7 +143,7 @@ export function DocumentLineCustomFieldFormItemsDemo() {
   return (
     <SectionCard title="单据行自定义字段表单项">
       <Typography.Paragraph type="secondary">
-        按 showInForm、启用状态与字段顺序生成单据行表单项；保留 MES 的字段类型映射、必填策略、禁用选项和日期字符串序列化。
+        按 showInForm、启用状态与字段顺序生成单据行表单项；保留字段类型映射、必填策略、禁用选项和日期字符串序列化。
         字段数据由调用方传入，组件不请求接口或保存业务数据。
       </Typography.Paragraph>
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>

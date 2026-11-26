@@ -11,8 +11,8 @@ import {
   SaleDeliveryViewSwitch,
   SaleOrderViewSwitch,
   SaleReturnViewSwitch,
-} from '../../src/mes';
-import type { DocumentViewMode } from '../../src/mes';
+} from '../../src/business';
+import type { DocumentViewMode } from '../../src/business';
 
 const presets = [
   ['采购申请', PurchaseRequisitionViewSwitch],
@@ -30,7 +30,7 @@ export function DocumentViewSwitchPresetsDemo() {
   const [view, setView] = useState<DocumentViewMode>('detail');
 
   return (
-    <SectionCard title="MES 单据与明细视图切换">
+    <SectionCard title="单据与明细视图切换">
       <Space wrap size={[24, 16]}>
         {presets.map(([label, ViewSwitch]) => (
           <Space key={label} orientation="vertical" size={4}>

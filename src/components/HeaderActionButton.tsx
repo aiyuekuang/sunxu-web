@@ -13,7 +13,7 @@ export type HeaderActionButtonProps = Omit<
 };
 
 /**
- * @sunxu-component shared
+ * @sunxu-layer composite
  * @sunxu-domain application-header
  * @sunxu-reason Standardizes accessible icon-only actions while Tooltip, Popover, Badge, permissions and action behavior remain host composed.
  *

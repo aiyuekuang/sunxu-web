@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { ScanAwareInput } from '../../src/mes';
+import { ScanAwareInput } from '../../src/business';
 
 export function ScanAwareInputDemo() {
   const [value, setValue] = useState('');

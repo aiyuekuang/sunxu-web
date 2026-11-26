@@ -7,7 +7,7 @@ import {
   type BatchSuggestionMode,
   type BatchSuggestionRecord,
   type MesBatchSuggestCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 const demoBatches: BatchSuggestionRecord[] = [
   {

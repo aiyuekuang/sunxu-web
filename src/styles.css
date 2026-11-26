@@ -238,6 +238,18 @@
   white-space: pre-wrap;
 }
 
+.sxw-contextual-help__trigger {
+  min-inline-size: 24px;
+  min-block-size: 24px;
+}
+
+@media (pointer: coarse) {
+  .sxw-contextual-help__trigger {
+    min-inline-size: 44px;
+    min-block-size: 44px;
+  }
+}
+
 .sxw-long-text--wrap {
   display: -webkit-box;
   min-inline-size: 0;

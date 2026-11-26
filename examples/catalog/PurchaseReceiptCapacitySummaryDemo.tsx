@@ -1,5 +1,5 @@
 import { SectionCard, Typography } from '../../src';
-import { PurchaseReceiptCapacitySummary } from '../../src/mes';
+import { PurchaseReceiptCapacitySummary } from '../../src/business';
 
 const unitLabelMap = {
   kg: '千克',

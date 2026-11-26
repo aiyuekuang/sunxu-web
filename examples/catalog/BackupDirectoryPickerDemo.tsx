@@ -4,7 +4,7 @@ import { SectionCard } from '../../src';
 import {
   BackupDirectoryPicker,
   type BackupDirectoryListResponse,
-} from '../../src/mes';
+} from '../../src/business';
 
 const directories: Record<string, BackupDirectoryListResponse> = {
   '/': {
@@ -46,7 +46,7 @@ export function BackupDirectoryPickerDemo() {
   return (
     <SectionCard title="服务器备份目录选择">
       <Typography.Paragraph type="secondary">
-        浏览服务器实际目录；文件系统访问和新目录创建由 MES 宿主服务控制。
+        浏览服务器实际目录；文件系统访问和新目录创建由宿主服务控制。
       </Typography.Paragraph>
       <Space>
         <Button type="primary" onClick={() => setOpen(true)}>

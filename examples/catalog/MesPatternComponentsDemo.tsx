@@ -9,10 +9,10 @@ import {
   Tag,
   Typography,
 } from 'antd';
-import { HeaderActionButton, SectionCard } from '../../src';
+import { ContextualHelp, HeaderActionButton, SectionCard } from '../../src';
+import type { StatusMap } from '../../src/components/StatusDisplay';
 import {
   BatchSelectionSummary,
-  ContextualHelp,
   DetailHeader,
   DetailTable,
   FormDrawer,
@@ -27,8 +27,7 @@ import {
   MesThemeOptionsPanel,
   MesUiProvider,
   TabsPanel,
-  type MesStatusEnum,
-} from '../../src/mes';
+} from '../../src/business';
 
 type DemoRecord = {
   id: string;
@@ -43,7 +42,7 @@ const records: DemoRecord[] = [
   { id: '2', documentNo: 'SO-2026-0143', partner: '昆山示例客户', status: 'completed', amount: 960 },
 ];
 
-const statusMap: MesStatusEnum = {
+const statusMap: StatusMap = {
   in_progress: { text: '进行中', status: 'Processing' },
   completed: { text: '已完成', status: 'Success' },
 };
@@ -57,9 +56,9 @@ export function MesPatternComponentsDemo() {
   const [navCollapsed, setNavCollapsed] = useState(false);
   return (
     <MesUiProvider hasPermission={(permission) => permission !== 'mes:amount:read'}>
-      <SectionCard title="MES 信息与表单模式">
+      <SectionCard title="信息与表单模式">
         <Typography.Paragraph type="secondary">
-          展示 MES 信息卡、明细表、页签、批量选择摘要、字段帮助和表单抽屉的公开契约。
+          展示信息卡、明细表、页签、批量选择摘要、字段帮助和表单抽屉的公开契约。
         </Typography.Paragraph>
         <Space orientation="vertical" size={16} style={{ width: '100%' }}>
           <DetailHeader
@@ -111,7 +110,7 @@ export function MesPatternComponentsDemo() {
         </Space>
       </SectionCard>
 
-      <SectionCard title="MES 宿主界面组件">
+      <SectionCard title="宿主集成组件">
         <Typography.Paragraph type="secondary">
           展示宿主传入业务数据、权限结果、路由动作和二维码内容的方式。
         </Typography.Paragraph>
@@ -261,7 +260,7 @@ export function MesPatternComponentsDemo() {
         </Space>
       </SectionCard>
 
-      <SectionCard title="MES 详情页容器">
+      <SectionCard title="详情页容器">
         <MesDetailPageContainer
           as="section"
           frame="none"

@@ -5,7 +5,7 @@ import {
   MaterialScrapDeductionPolicySection,
   ScrapDeductionPolicySection,
   type ScrapDeductionPolicyCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 export function ScrapDeductionPolicySectionsDemo() {
   const [notice, setNotice] = useState('');

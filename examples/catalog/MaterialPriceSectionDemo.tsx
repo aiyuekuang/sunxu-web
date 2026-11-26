@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { MaterialPriceSection } from '../../src/mes';
+import { MaterialPriceSection } from '../../src/business';
 
 export function MaterialPriceSectionDemo() {
   const [canEdit, setCanEdit] = useState(true);
@@ -11,7 +11,7 @@ export function MaterialPriceSectionDemo() {
   return (
     <SectionCard title="物料参考价格与价格控制">
       <Typography.Paragraph type="secondary">
-        参考进价/售价维护、价格边界只读展示与价格管理跳转；权限、更新服务和路由由 MES 宿主注入。
+        参考进价/售价维护、价格边界只读展示与价格管理跳转；权限、更新服务和路由由宿主注入。
       </Typography.Paragraph>
       <Space wrap style={{ marginBottom: 16 }}>
         <Button onClick={() => setCanEdit((value) => !value)}>

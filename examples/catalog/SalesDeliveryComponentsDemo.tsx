@@ -1,18 +1,18 @@
 import { App, Button, Input, Modal, Select, Space, Tag, Typography } from 'antd';
 import { useMemo, useState } from 'react';
-import { PackageUnitPickerModal } from '../../src/mes/components/PackageUnitPickerModal';
-import { ProductSerialPicker } from '../../src/mes/components/ProductSerialPicker';
-import { SaleDeliveryEditorModal } from '../../src/mes/components/SaleDeliveryEditorModal';
-import { SaleDeliveryItemsPanel } from '../../src/mes/components/SaleDeliveryItemsPanel';
-import { SaleOrderLineEditableTable } from '../../src/mes/components/SaleOrderLineEditableTable';
-import type { OrderItemDraft } from '../../src/mes/components/OrderItemEditor';
-import type { SalesDeliveryPackageUnitRecord } from '../../src/mes/components/sales-delivery-components-types';
+import { PackageUnitPickerModal } from '../../src/business/components/PackageUnitPickerModal';
+import { ProductSerialPicker } from '../../src/business/components/ProductSerialPicker';
+import { SaleDeliveryEditorModal } from '../../src/business/components/SaleDeliveryEditorModal';
+import { SaleDeliveryItemsPanel } from '../../src/business/components/SaleDeliveryItemsPanel';
+import { SaleOrderLineEditableTable } from '../../src/business/components/SaleOrderLineEditableTable';
+import type { OrderItemDraft } from '../../src/business/components/OrderItemEditor';
+import type { SalesDeliveryPackageUnitRecord } from '../../src/business/components/sales-delivery-components-types';
 import type {
   SaleDeliveryDetailRecord,
   SaleDeliveryExecutionPayload,
   SaleDeliveryItemsPanelCapabilities,
   SaleOrderLineEditableTableCapabilities,
-} from '../../src/mes/components/sales-delivery-components-types';
+} from '../../src/business/components/sales-delivery-components-types';
 
 const initialDelivery: SaleDeliveryDetailRecord = {
   id: 'delivery-demo',

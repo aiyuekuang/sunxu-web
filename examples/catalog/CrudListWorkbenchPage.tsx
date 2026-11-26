@@ -24,7 +24,7 @@ import {
   type ProColumns,
   type SavedViewItem,
 } from '../../src';
-import { ResizableProTable } from '../../src/mes';
+import { ResizableProTable } from '../../src/business';
 
 type ProductBaseType = 'raw' | 'semi' | 'finished';
 type ProductStatus = 'active' | 'inactive';

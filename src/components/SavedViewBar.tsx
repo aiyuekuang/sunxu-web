@@ -65,7 +65,7 @@ type NameDialog =
   | null;
 
 /**
- * @sunxu-component shared
+ * @sunxu-layer composite
  *
  * Controlled system/personal list view selector and manager. The host owns persistence,
  * filter/sort/column snapshots, authorization, and the API that applies a selected view.

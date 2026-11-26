@@ -3,9 +3,9 @@ import { Button, Space, Typography } from 'antd';
 import type {
   DashboardShortcutConfigCapabilities,
   DashboardShortcutPreferences,
-} from '../../src/mes/components/dashboard-shortcut-config-types';
+} from '../../src/business/components/dashboard-shortcut-config-types';
 import { SectionCard } from '../../src';
-import { DashboardShortcutConfigModal } from '../../src/mes';
+import { DashboardShortcutConfigModal } from '../../src/business';
 
 const initialPreferences: DashboardShortcutPreferences = {
   systemItems: [

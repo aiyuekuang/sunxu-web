@@ -4,7 +4,7 @@ import {
   AllowedEquipmentPriorityField,
   MesUiProvider,
   type MesAllowedEquipmentPriorityCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 const equipment = [
   {
@@ -42,19 +42,40 @@ const capabilities: MesAllowedEquipmentPriorityCapabilities = {
     list: [
       { id: 'day', name: '白班', isActive: true, startTime: '08:00', endTime: '17:00' },
       { id: 'night', name: '夜班', isActive: true, startTime: '20:00', endTime: '05:00' },
+      { id: 'inactive', name: '旧班次', isActive: false, startTime: '18:00', endTime: '20:00' },
     ],
-    total: 2,
+    total: 3,
   }),
   equipmentTypeLabels: { lathe: '车床' },
   pagination: { defaultPageSize: 20, showSizeChanger: true },
 };
 
+function HiddenJsonFormValue({ value }: { value?: unknown }) {
+  return <input type="hidden" value={JSON.stringify(value ?? [])} readOnly />;
+}
+
 export function AllowedEquipmentPriorityFieldDemo() {
   return (
     <SectionCard title="允许设备与优先级">
-      <Form layout="vertical" initialValues={{ standardTime: 2.5 }}>
+      <Form
+        layout="vertical"
+        initialValues={{
+          standardTime: 2.5,
+          allowedEquipmentIds: ['equipment-lathe-01'],
+          equipmentTimeProfiles: [
+            {
+              equipmentId: 'equipment-lathe-01',
+              shiftCalendarId: 'inactive',
+              standardTime: 3.2,
+            },
+          ],
+        }}
+      >
         <Form.Item name="standardTime" label="工序默认单件工时（分钟/件）">
           <InputNumber readOnly />
+        </Form.Item>
+        <Form.Item name="equipmentTimeProfiles" hidden>
+          <HiddenJsonFormValue />
         </Form.Item>
         <MesUiProvider
           hasPermission={() => true}

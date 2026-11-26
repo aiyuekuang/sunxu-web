@@ -14,7 +14,7 @@ import {
   WorkOrderPrint,
   type BusinessPrintRecord,
   type MesInternalDocumentQrKind,
-} from '../../src/mes';
+} from '../../src/business';
 
 const templateOptions = [
   { label: '送货单针打', value: 'delivery-dot' },
@@ -165,9 +165,9 @@ export function BusinessPrintTemplatesDemo() {
   })();
 
   return (
-    <SectionCard title="MES 单据打印模板">
+    <SectionCard title="单据打印模板">
       <Typography.Paragraph type="secondary">
-        10 种 MES 打印模板保留各自字段、明细、汇总和签字区域；二维码编码、字典文案与金额脱敏由宿主注入。
+        10 种打印模板保留各自字段、明细、汇总和签字区域；二维码编码、字典文案与金额脱敏由宿主注入。
       </Typography.Paragraph>
       <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Segmented

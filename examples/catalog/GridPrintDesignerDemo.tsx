@@ -1,12 +1,12 @@
 import { Alert, Card, Space, Typography, message } from 'antd';
 import { useMemo, useState } from 'react';
-import { GridPrintDesigner } from '../../src/mes/components/grid-print-designer/GridPrintDesigner';
+import { GridPrintDesigner } from '../../src/business/components/grid-print-designer/GridPrintDesigner';
 import type {
   GridDesignerField,
   GridDesignerPaperProfile,
   GridPrintDesignerDataSource,
-} from '../../src/mes/components/grid-print-designer/types';
-import type { GridPrintTemplateSchema } from '../../src/mes/components/grid-print-designer/schema';
+} from '../../src/business/components/grid-print-designer/types';
+import type { GridPrintTemplateSchema } from '../../src/business/components/grid-print-designer/schema';
 
 const fields: GridDesignerField[] = [
   {
@@ -105,7 +105,7 @@ const paperProfile: GridDesignerPaperProfile = {
   marginLeftMm: 10,
 };
 
-/** Independent fixture for exercising the designer without MES APIs or permissions. */
+/** Independent fixture for exercising the designer without APIs or permissions. */
 export function GridPrintDesignerDemo() {
   const [messageApi, messageContextHolder] = message.useMessage();
   const [value, setValue] = useState<GridPrintTemplateSchema>();
@@ -127,7 +127,7 @@ export function GridPrintDesignerDemo() {
         showIcon
         type="info"
         message="网格打印设计器"
-        description="本演示通过类型化 capability 注入打印字段和样例数据；页面权限、保存与打印由 MES 宿主负责。"
+        description="本演示通过类型化 capability 注入打印字段和样例数据；页面权限、保存与打印由宿主负责。"
       />
       <Card>
         <Space size={16} wrap>

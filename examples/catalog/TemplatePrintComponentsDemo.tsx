@@ -2,12 +2,12 @@ import { useMemo, useState } from 'react';
 import { ProForm } from '@ant-design/pro-components';
 import { Segmented, Space } from 'antd';
 import { SectionCard, Typography } from '../../src';
-import { TemplateFieldSelector } from '../../src/mes/components/TemplateFieldSelector';
+import { TemplateFieldSelector } from '../../src/business/components/TemplateFieldSelector';
 import type {
   TemplateFieldSelectorCapabilities,
   TemplateLayoutPresetOption,
-} from '../../src/mes/components/template-print-types';
-import { TemplateLayoutPresetSelect } from '../../src/mes/components/TemplateLayoutPresetSelect';
+} from '../../src/business/components/template-print-types';
+import { TemplateLayoutPresetSelect } from '../../src/business/components/TemplateLayoutPresetSelect';
 
 type DemoTemplateType = 'label_compact' | 'document_flow' | 'continuous_fixed';
 
@@ -80,7 +80,7 @@ export function TemplatePrintComponentsDemo() {
   );
 
   return (
-    <SectionCard title="MES 打印模板字段与版式">
+    <SectionCard title="打印模板字段与版式">
       <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <Segmented
           aria-label="模板类型"

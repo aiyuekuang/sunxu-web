@@ -2,11 +2,11 @@ import { QuestionCircleOutlined } from '@ant-design/icons';
 import { App, Button, Space, Tooltip, Typography } from 'antd';
 import { useMemo, useState } from 'react';
 import { SectionCard } from '../../src';
-import { BomImportWorkbenchDrawer } from '../../src/mes/components/BomImportWorkbenchDrawer';
+import { BomImportWorkbenchDrawer } from '../../src/business/components/BomImportWorkbenchDrawer';
 import type {
   BomImportMaterialCandidate,
   BomImportWorkbenchCapabilities,
-} from '../../src/mes/components/bom-import-workbench-types';
+} from '../../src/business/components/bom-import-workbench-types';
 
 const candidates: BomImportMaterialCandidate[] = [
   {

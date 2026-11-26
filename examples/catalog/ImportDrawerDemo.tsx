@@ -4,7 +4,7 @@ import { SectionCard } from '../../src';
 import {
   ImportDrawer,
   type ImportResult,
-} from '../../src/mes';
+} from '../../src/business';
 
 export function ImportDrawerDemo() {
   const [open, setOpen] = useState(false);

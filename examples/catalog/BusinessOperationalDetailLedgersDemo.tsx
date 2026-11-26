@@ -2,18 +2,18 @@ import { useMemo, useRef, useState } from 'react';
 import type { ComponentProps } from 'react';
 import { Button, Segmented, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { MesUiProvider, type MesDocumentDetailLedgerCapabilities } from '../../src/mes';
+import { MesUiProvider, type MesDocumentDetailLedgerCapabilities } from '../../src/business';
 import type { ColumnsState } from '@ant-design/pro-components';
-import type { DocumentDetailLedgerSavedViewController } from '../../src/mes/components/DocumentDetailLedgerTable';
-import type { DocumentViewBarView } from '../../src/mes/components/DocumentViewBar';
-import { PurchaseReturnDetailLedger } from '../../src/mes/components/PurchaseReturnDetailLedger';
-import { QuotationDetailLedger } from '../../src/mes/components/QuotationDetailLedger';
-import { MaterialIssueDetailLedger } from '../../src/mes/components/MaterialIssueDetailLedger';
-import { PurchaseReceiptDetailLedger } from '../../src/mes/components/PurchaseReceiptDetailLedger';
-import type { PurchaseReturnDetailLedgerRow, PurchaseReturnDetailLedgerQuery, PurchaseReturnDetailLedgerResponse } from '../../src/mes/components/purchase-return-detail-ledger-types';
-import type { QuotationDetailLedgerRow, QuotationDetailLedgerQuery, QuotationDetailLedgerResponse } from '../../src/mes/components/quotation-detail-ledger-types';
-import type { MaterialIssueDetailLedgerRow, MaterialIssueDetailLedgerQuery, MaterialIssueDetailLedgerResponse } from '../../src/mes/components/material-issue-detail-ledger-types';
-import type { PurchaseReceiptDetailLedgerRow, PurchaseReceiptDetailLedgerQuery, PurchaseReceiptDetailLedgerResponse } from '../../src/mes/components/purchase-receipt-detail-ledger-types';
+import type { DocumentDetailLedgerSavedViewController } from '../../src/business/components/DocumentDetailLedgerTable';
+import type { DocumentViewBarView } from '../../src/business/components/DocumentViewBar';
+import { PurchaseReturnDetailLedger } from '../../src/business/components/PurchaseReturnDetailLedger';
+import { QuotationDetailLedger } from '../../src/business/components/QuotationDetailLedger';
+import { MaterialIssueDetailLedger } from '../../src/business/components/MaterialIssueDetailLedger';
+import { PurchaseReceiptDetailLedger } from '../../src/business/components/PurchaseReceiptDetailLedger';
+import type { PurchaseReturnDetailLedgerRow, PurchaseReturnDetailLedgerQuery, PurchaseReturnDetailLedgerResponse } from '../../src/business/components/purchase-return-detail-ledger-types';
+import type { QuotationDetailLedgerRow, QuotationDetailLedgerQuery, QuotationDetailLedgerResponse } from '../../src/business/components/quotation-detail-ledger-types';
+import type { MaterialIssueDetailLedgerRow, MaterialIssueDetailLedgerQuery, MaterialIssueDetailLedgerResponse } from '../../src/business/components/material-issue-detail-ledger-types';
+import type { PurchaseReceiptDetailLedgerRow, PurchaseReceiptDetailLedgerQuery, PurchaseReceiptDetailLedgerResponse } from '../../src/business/components/purchase-receipt-detail-ledger-types';
 
 type BusinessOperationalCapabilities = {
   purchaseReturn: ComponentProps<typeof PurchaseReturnDetailLedger>['capabilities'];
@@ -132,7 +132,7 @@ const formats = { formatNumber, formatCurrency, formatDate, formatDateTime, form
   }), [savedViewController, showAmounts]);
   const ledgerCapabilities = useMemo<MesDocumentDetailLedgerCapabilities>(() => ({ pagination: { defaultPageSize: 10, showSizeChanger: false }, renderExportAction: ({ exportFn, label }) => <Button onClick={async () => { const file = await exportFn(); setLastAction(`模拟导出完成：${file.size} bytes`); }}>{label}</Button> }), []);
   const action = <Button type="primary" onClick={() => setLastAction('打开新增 / 创建表单')}>新建单据</Button>;
-  return <SectionCard title="MES 采购与销售业务明细台账迁移 Demo">
+  return <SectionCard title="采购与销售业务明细台账迁移 Demo">
     <Typography.Paragraph type="secondary">保留业务筛选、动态明细字段、状态/权限呈现、摘要、个人视图与行级操作；API、权限判断、导航、字典、格式化、导出/打印和生命周期动作均由宿主能力注入。</Typography.Paragraph>
     <Space wrap style={{ marginBottom: 12 }}><Segmented aria-label="选择明细台账" value={kind} onChange={(v) => setKind(String(v))} options={[{ label: '采购退料', value: 'purchase-return' }, { label: '销售报价', value: 'quotation' }, { label: '生产领料', value: 'material-issue' }, { label: '采购入库流水', value: 'purchase-receipt' }]} />{action}</Space>
     {lastAction ? <Typography.Text type="secondary" style={{ display: 'block', marginBottom: 8 }}>最近操作：{lastAction}</Typography.Text> : null}

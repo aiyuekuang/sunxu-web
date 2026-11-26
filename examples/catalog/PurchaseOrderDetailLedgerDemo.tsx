@@ -7,35 +7,35 @@ import type {
 import type { ColumnsState } from '@ant-design/pro-components';
 import dayjs from 'dayjs';
 import { useMemo, useRef, useState } from 'react';
-import { MesUiProvider } from '../../src/mes';
-import type { MesUiProviderProps } from '../../src/mes/MesUiProvider';
-import { PurchaseOrderDetailLedger } from '../../src/mes/components/PurchaseOrderDetailLedger';
-import { PermissionButton } from '../../src/mes/components/PermissionButton';
+import { MesUiProvider } from '../../src/business';
+import type { MesUiProviderProps } from '../../src/business/MesUiProvider';
+import { PurchaseOrderDetailLedger } from '../../src/business/components/PurchaseOrderDetailLedger';
+import { PermissionButton } from '../../src/business/components/PermissionButton';
 import type {
   PurchaseOrderDetailLedgerCapabilities,
   PurchaseOrderDetailLedgerFilterColumn,
   PurchaseOrderDetailLedgerRow,
   PurchaseOrderDetailLedgerSavedFilters,
-} from '../../src/mes/components/purchase-order-detail-ledger-types';
-import type { DocumentDetailLedgerSavedViewController } from '../../src/mes/components/DocumentDetailLedgerTable';
-import type { DocumentViewBarView } from '../../src/mes/components/DocumentViewBar';
-import type { MesStatusEnum } from '../../src/mes/components/StatusDisplay';
+} from '../../src/business/components/purchase-order-detail-ledger-types';
+import type { DocumentDetailLedgerSavedViewController } from '../../src/business/components/DocumentDetailLedgerTable';
+import type { DocumentViewBarView } from '../../src/business/components/DocumentViewBar';
+import type { StatusMap } from '../../src/components/StatusDisplay';
 
 type DemoView = DocumentViewBarView;
 
-const orderStatus: MesStatusEnum = {
+const orderStatus: StatusMap = {
   confirmed: { text: '已确认', status: 'Processing' },
   partially_received: { text: '部分收货', status: 'Warning' },
   received: { text: '已收完', status: 'Success' },
 };
 
-const inspectionStatus: MesStatusEnum = {
+const inspectionStatus: StatusMap = {
   pending: { text: '待检', status: 'Warning' },
   passed: { text: '合格', status: 'Success' },
   failed: { text: '不合格', status: 'Error' },
 };
 
-const trackingStatus: MesStatusEnum = {
+const trackingStatus: StatusMap = {
   not_reported: { text: '待报检', status: 'Warning' },
 };
 
@@ -390,7 +390,7 @@ export function PurchaseOrderDetailLedgerDemo() {
           }}
         >
           <Typography.Paragraph>
-            已选择 {sourceItemIds?.length ?? 0} 条采购订单明细。实际收货表单与提交由 MES 宿主提供。
+            已选择 {sourceItemIds?.length ?? 0} 条采购订单明细。实际收货表单与提交由宿主提供。
           </Typography.Paragraph>
           {onPrintReceipt ? (
             <Button onClick={() => onPrintReceipt('receipt-demo-1')}>

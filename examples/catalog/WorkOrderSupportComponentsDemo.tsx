@@ -4,7 +4,7 @@ import { SectionCard } from '../../src';
 import {
   ProductionReceiptSummaryCard,
   WorkOrderSplitModal,
-} from '../../src/mes';
+} from '../../src/business';
 
 export function WorkOrderSupportComponentsDemo() {
   const [splitOpen, setSplitOpen] = useState(false);
@@ -20,7 +20,7 @@ export function WorkOrderSupportComponentsDemo() {
   return (
     <SectionCard title="工单辅助组件">
       <Typography.Paragraph type="secondary">
-        展示工单生产入库摘要和拆分弹窗。权限、摘要查询、列表导航、拆分请求、单位字典、字段帮助与成功提示均由 MES 宿主注入。
+        展示工单生产入库摘要和拆分弹窗。权限、摘要查询、列表导航、拆分请求、单位字典、字段帮助与成功提示均由宿主注入。
       </Typography.Paragraph>
       <ProductionReceiptSummaryCard
         workOrderId="work-order-001"

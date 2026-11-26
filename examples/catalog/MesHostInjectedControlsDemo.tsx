@@ -12,7 +12,7 @@ import {
   Switch,
   Typography,
 } from 'antd';
-import { SectionCard } from '../../src';
+import { SectionCard, StatusDisplay } from '../../src';
 import {
   MesConfigEntryFieldLabel,
   MesConfigEntryLink,
@@ -22,9 +22,8 @@ import {
   MesExportButton,
   MesExportDropdownButton,
   MesReportQuickRangeButtons,
-  MesStatusTag,
   type MesDictionarySelectState,
-} from '../../src/mes';
+} from '../../src/business';
 
 const statusMap = {
   draft: { text: '草稿', status: 'Default' },
@@ -104,26 +103,39 @@ export function MesHostInjectedControlsDemo() {
 
   return (
     <div className="sxw-docs-page-content">
-      <SectionCard title="MES 宿主注入控件">
+      <SectionCard title="宿主注入能力组件">
         <Typography.Paragraph type="secondary">
-          这些 UI 组件保留 MES 当前展示和交互；状态字典、日期规则、候选请求、授权、下载及路由仍由宿主传入。
+          组件按统一契约呈现状态、日期快捷范围、字典和操作反馈；状态字典、候选请求、授权、下载及路由由宿主提供。
         </Typography.Paragraph>
         <Row gutter={[16, 16]}>
           <Col xs={24} xl={12}>
-            <SectionCard title="MesStatusTag">
-              <Space wrap>
-                <MesStatusTag value="draft" enumMap={statusMap} />
-                <MesStatusTag value="processing" enumMap={statusMap} />
-                <MesStatusTag value="completed" enumMap={statusMap} />
-                <MesStatusTag value="warning" enumMap={statusMap} />
-                <MesStatusTag value="failed" enumMap={statusMap} />
-                <MesStatusTag value="custom" enumMap={statusMap} />
-                <MesStatusTag value={null} enumMap={statusMap} />
-                <MesStatusTag value="legacy-unknown" enumMap={statusMap} />
-                <MesStatusTag value="legacy-unknown" enumMap={statusMap}>宿主回退文案</MesStatusTag>
+            <SectionCard title="状态映射组件">
+              <Space orientation="vertical" size={12} style={{ width: '100%' }}>
+                <Space wrap>
+                  <Typography.Text type="secondary">标签</Typography.Text>
+                  <StatusDisplay value="draft" enumMap={statusMap} />
+                  <StatusDisplay value="processing" enumMap={statusMap} />
+                  <StatusDisplay value="completed" enumMap={statusMap} />
+                  <StatusDisplay value="warning" enumMap={statusMap} />
+                  <StatusDisplay value="failed" enumMap={statusMap} />
+                  <StatusDisplay value="custom" enumMap={statusMap} />
+                  <StatusDisplay value={null} enumMap={statusMap} />
+                  <StatusDisplay value="legacy-unknown" enumMap={statusMap} unknownLabel="未知状态" />
+                  <StatusDisplay value="legacy-unknown" enumMap={statusMap} label="宿主回退文案" />
+                </Space>
+                <Space wrap>
+                  <Typography.Text type="secondary">徽标</Typography.Text>
+                  <StatusDisplay value="processing" enumMap={statusMap} mode="badge" />
+                  <StatusDisplay value="completed" enumMap={statusMap} mode="badge" />
+                </Space>
+                <Space wrap>
+                  <Typography.Text type="secondary">文本</Typography.Text>
+                  <StatusDisplay value="warning" enumMap={statusMap} mode="text" />
+                  <StatusDisplay value="failed" enumMap={statusMap} mode="text" />
+                </Space>
               </Space>
               <Typography.Paragraph type="secondary" style={{ marginTop: 12, marginBottom: 0 }}>
-                未知状态保留灰色回退；最后一项演示宿主 children 覆盖文案。只读标签不承担状态更新。
+                宿主传入状态字典；空值、未知值和标签覆盖沿用同一组件契约。组件只负责呈现，不更新业务状态。
               </Typography.Paragraph>
             </SectionCard>
           </Col>

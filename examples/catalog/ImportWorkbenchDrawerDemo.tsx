@@ -5,7 +5,7 @@ import {
   ImportWorkbenchDrawer,
   MesUiProvider,
   type MesImportWorkbenchCapabilities,
-} from '../../src/mes';
+} from '../../src/business';
 
 const demoCapabilities: MesImportWorkbenchCapabilities = {
   requestTemplate: async () =>
@@ -41,9 +41,9 @@ export function ImportWorkbenchDrawerDemo() {
   const [lastAction, setLastAction] = useState('尚未执行导入');
 
   return (
-    <SectionCard title="MES 快速导入工作台">
+    <SectionCard title="快速导入工作台">
       <Typography.Paragraph type="secondary">
-        覆盖多目标切换、权限过滤、模板下载、Excel 预览、警告策略和逐行错误/警告；服务由 MES 宿主注入。
+        覆盖多目标切换、权限过滤、模板下载、Excel 预览、警告策略和逐行错误/警告；服务由宿主注入。
       </Typography.Paragraph>
       <Space wrap>
         <Button type="primary" onClick={() => setOpen(true)}>

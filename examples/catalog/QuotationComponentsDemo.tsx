@@ -1,25 +1,25 @@
 import { useMemo, useState } from 'react';
 import { App, Button, Modal, Space, Typography } from 'antd';
-import { MesUiProvider } from '../../src/mes/MesUiProvider';
-import { QuotationBindMaterialsModal } from '../../src/mes/components/QuotationBindMaterialsModal';
-import { QuotationFormDrawer } from '../../src/mes/components/QuotationFormDrawer';
-import { SendQuotationModal } from '../../src/mes/components/SendQuotationModal';
+import { MesUiProvider } from '../../src/business/MesUiProvider';
+import { QuotationBindMaterialsModal } from '../../src/business/components/QuotationBindMaterialsModal';
+import { QuotationFormDrawer } from '../../src/business/components/QuotationFormDrawer';
+import { SendQuotationModal } from '../../src/business/components/SendQuotationModal';
 import type {
   QuotationBindMaterialsCapabilities,
-} from '../../src/mes/components/quotation-bind-materials-modal-types';
+} from '../../src/business/components/quotation-bind-materials-modal-types';
 import type {
   QuotationFormDrawerCapabilities,
   QuotationRecord,
-} from '../../src/mes/components/quotation-form-drawer-types';
+} from '../../src/business/components/quotation-form-drawer-types';
 import type {
   QuotationSendChannel,
   SendQuotationCapabilities,
-} from '../../src/mes/components/send-quotation-modal-types';
-import type { MesBomCostSnapshotCapabilities } from '../../src/mes/components/bom-cost-types';
-import type { MesCustomFieldFormCapabilities } from '../../src/mes/components/custom-field-form-types';
-import type { MesOrderItemEditorCapabilities } from '../../src/mes/components/order-item-editor-types';
-import type { MesMasterDataQuickCreateCapabilities } from '../../src/mes/components/master-data-quick-create-types';
-import type { MesMaterialSelectCapabilities } from '../../src/mes/components/material-select-types';
+} from '../../src/business/components/send-quotation-modal-types';
+import type { MesBomCostSnapshotCapabilities } from '../../src/business/components/bom-cost-types';
+import type { MesCustomFieldFormCapabilities } from '../../src/business/components/custom-field-form-types';
+import type { MesOrderItemEditorCapabilities } from '../../src/business/components/order-item-editor-types';
+import type { MesMasterDataQuickCreateCapabilities } from '../../src/business/components/master-data-quick-create-types';
+import type { MesMaterialSelectCapabilities } from '../../src/business/components/material-select-types';
 
 const demoMaterials = [
   {
@@ -102,7 +102,7 @@ const lineSchema = {
   ],
 };
 
-/** Host adapters below stand in for MES APIs, permission results and feedback. */
+/** Host adapters below stand in for APIs, permission results and feedback. */
 export function QuotationComponentsDemo() {
   const { message } = App.useApp();
   const [formOpen, setFormOpen] = useState(false);
@@ -232,7 +232,7 @@ export function QuotationComponentsDemo() {
               htmlType="button"
               onClick={() => {
                 onOpen();
-                message.info('由 MES 宿主打开收款条件字典配置');
+                message.info('由宿主打开收款条件字典配置');
               }}
             >
               配置字典
@@ -282,7 +282,7 @@ export function QuotationComponentsDemo() {
               htmlType="button"
               onClick={() => {
                 onOpen();
-                message.info('由 MES 宿主打开物料配置');
+                message.info('由宿主打开物料配置');
               }}
             >
               配置物料
@@ -428,7 +428,7 @@ export function QuotationComponentsDemo() {
   return (
     <section>
       <Typography.Paragraph type="secondary">
-        报价表单、临时报价品绑定及发送方式选择保留 MES 当前交互；API、字典、权限结果、配置导航与消息由宿主能力对象提供。
+        报价表单、临时报价品绑定及发送方式选择保留既有交互；API、字典、权限结果、配置导航与消息由宿主能力对象提供。
       </Typography.Paragraph>
       <Space wrap>
         <Button

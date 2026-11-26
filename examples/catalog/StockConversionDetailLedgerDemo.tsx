@@ -11,8 +11,8 @@ import {
   type MesDocumentDetailLedgerCapabilities,
   type StockConversionDetailLedgerCapabilities,
   type StockConversionDetailLedgerItem,
-} from '../../src/mes';
-import { StockConversionDetailLedger } from '../../src/mes/components/StockConversionDetailLedger';
+} from '../../src/business';
+import { StockConversionDetailLedger } from '../../src/business/components/StockConversionDetailLedger';
 
 type DemoView = DocumentViewBarView;
 

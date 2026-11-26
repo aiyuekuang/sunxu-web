@@ -67,9 +67,9 @@ const navItems: MenuProps['items'] = [
     { key: 'editable-table', icon: <BarsOutlined aria-hidden="true" />, label: '可编辑明细' },
     { key: 'crud-workbench', icon: <BarsOutlined aria-hidden="true" />, label: 'CRUD 列表工作台' },
     { key: 'table-summary', icon: <BarsOutlined aria-hidden="true" />, label: '表格合计与结果摘要' },
-    { key: 'mes-suite', icon: <AppstoreOutlined aria-hidden="true" />, label: 'MES UI 套件' },
-    { key: 'mes-host-controls', icon: <AppstoreOutlined aria-hidden="true" />, label: 'MES 宿主注入控件' },
-    { key: 'resizable-table', icon: <BarsOutlined aria-hidden="true" />, label: 'MES 表格组件' },
+    { key: 'mes-suite', icon: <AppstoreOutlined aria-hidden="true" />, label: '业务复合组件' },
+    { key: 'mes-host-controls', icon: <AppstoreOutlined aria-hidden="true" />, label: '宿主注入能力' },
+    { key: 'resizable-table', icon: <BarsOutlined aria-hidden="true" />, label: '扩展表格组件' },
   ] },
 ];
 
@@ -169,9 +169,9 @@ function CatalogWorkspace({
     'editable-table': '可编辑明细',
     'crud-workbench': 'CRUD 列表工作台',
     'table-summary': '表格合计与结果摘要',
-    'mes-suite': 'MES UI 套件',
-    'mes-host-controls': 'MES 宿主注入控件',
-    'resizable-table': 'MES 表格组件',
+    'mes-suite': '业务复合组件',
+    'mes-host-controls': '宿主注入能力',
+    'resizable-table': '扩展表格组件',
   };
 
   return (
@@ -224,7 +224,7 @@ function CatalogWorkspace({
                     {page === 'overview'
                       ? '面向多个 React Web 项目的共享组件与页面容器。'
                       : page === 'mappings'
-                        ? '查看 MES Web 管理端公共组件在 Sunxu Web 中的适配、上游映射和宿主边界。'
+                        ? '查看 Sunxu Web 公共组件的目录、上游映射和宿主接入边界。'
                         : page === 'tokens'
                           ? '沿用 Sunxu 的绿色语义主题，并通过 Ant Design ConfigProvider 应用。'
                           : page === 'containers'
@@ -238,11 +238,11 @@ function CatalogWorkspace({
                                 : page === 'table-summary'
                                   ? '查看列合计、跟随结果行的多单位汇总和简短分页摘要。'
                                 : page === 'mes-suite'
-                                  ? '展示按 MES 当前实现适配的组件；远程候选和提交由宿主注入。'
+                                  ? '按业务领域组合的可复用组件；候选请求、权限结果和提交动作由宿主注入。'
                                   : page === 'mes-host-controls'
                                     ? '查看状态、报表快捷范围、配置入口、字典选择和导出控件的宿主注入契约。'
                                   : page === 'resizable-table'
-                                    ? '查看 MES 表格列宽、排序、行号、金额显隐刷新、空态和导出布局；单列表视口高度统一由 CRUD 工作台的 fill 模式管理。'
+                                    ? '查看表格列宽、排序、行号、金额显隐刷新、空态和导出布局；单列表视口高度统一由 CRUD 工作台的 fill 模式管理。'
                                   : '展示状态和身份组件如何组合 Ant Design 的原生反馈行为。'}
                   </Typography.Paragraph>
                 </div>
@@ -492,7 +492,7 @@ function MappingsPage({ dataSource, search }: { dataSource: ComponentMapping[]; 
             {search ? `“${search}”匹配 ${dataSource.length} 项` : `当前映射 ${dataSource.length} 项`}
           </Typography.Text>
           <Space wrap size={4}>
-            {!search && <Tag color="cyan">MES Web：4 个通用源文件已适配</Tag>}
+            {!search && <Tag color="cyan">源组件适配：4 项</Tag>}
             <Tag color="success">ADAPTED：Sunxu Web</Tag>
             <Tag color="processing">UPSTREAM：AntD / Pro</Tag>
             <Tag color="gold">HOST：宿主</Tag>

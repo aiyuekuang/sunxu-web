@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Button, Space, Typography } from 'antd';
 import { SectionCard } from '../../src';
-import { MesUiProvider, ReasonActionModal } from '../../src/mes';
+import { MesUiProvider, ReasonActionModal } from '../../src/business';
 
 export function ReasonActionModalDemo() {
   const [open, setOpen] = useState(false);

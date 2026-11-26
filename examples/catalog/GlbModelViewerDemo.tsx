@@ -1,7 +1,7 @@
 import { App, Segmented, Space, Typography } from 'antd';
 import { useState } from 'react';
 import { SectionCard } from '../../src';
-import { GlbModelViewer } from '../../src/mes/components/GlbModelViewer';
+import { GlbModelViewer } from '../../src/business/components/GlbModelViewer';
 
 const triangleBuffer = 'data:application/octet-stream;base64,AAAAAAAAAAAAAAAAAACAPwAAAAAAAAAAAAAAAAAAgD8AAAAAAAABAAIA';
 

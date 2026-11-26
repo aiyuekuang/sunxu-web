@@ -12,7 +12,7 @@ import {
   summarizeDocumentLineCustomFields,
   type DocumentLineCustomFieldCarrier,
   type DocumentLineCustomFieldSchema,
-} from '../../src/mes';
+} from '../../src/business';
 
 interface DemoLine extends DocumentLineCustomFieldCarrier {
   _key: string;

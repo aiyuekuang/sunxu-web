@@ -7,7 +7,7 @@ import {
   ProductionBomSelect,
   type MesProductionBomSelectCapabilities,
   type ProductionBomOption,
-} from '../../src/mes';
+} from '../../src/business';
 
 type DemoOptionCount = 'empty' | 'single' | 'multiple';
 

@@ -1,5 +1,5 @@
 import { Card, Space, Typography } from 'antd';
-import { PurchaseRequisitionItemsTable } from '../../src/mes';
+import { PurchaseRequisitionItemsTable } from '../../src/business';
 
 const items = [
   {
@@ -42,7 +42,7 @@ const items = [
 ];
 
 /**
- * @sunxu-component mes-specific
+ * @sunxu-layer business
  * @sunxu-domain purchase-requisition
  * @sunxu-reason Demonstrates the expanded purchase-requisition material rows with host-supplied formatting.
  */
@@ -51,7 +51,7 @@ export function PurchaseRequisitionItemsTableDemo() {
     <Card title="采购申请展开物料明细">
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Text type="secondary">
-          展开采购申请后，按物料名称、编码、规格、单位和数量优先核对；单位、数量与日期格式由 MES 宿主传入。
+          展开采购申请后，按物料名称、编码、规格、单位和数量优先核对；单位、数量与日期格式由宿主传入。
         </Typography.Text>
         <PurchaseRequisitionItemsTable
           items={items}

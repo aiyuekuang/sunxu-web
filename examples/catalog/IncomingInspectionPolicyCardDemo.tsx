@@ -1,4 +1,4 @@
-import { IncomingInspectionPolicyCard } from '../../src/mes/components/IncomingInspectionPolicyCard';
+import { IncomingInspectionPolicyCard } from '../../src/business/components/IncomingInspectionPolicyCard';
 
 export function IncomingInspectionPolicyCardDemo() {
   return <IncomingInspectionPolicyCard />;

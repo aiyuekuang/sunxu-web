@@ -5,7 +5,7 @@ import {
   DocumentViewLegacyRedirect,
   MesUiProvider,
   type MesUiRoute,
-} from '../../src/mes';
+} from '../../src/business';
 
 export function DocumentViewLegacyRedirectDemo() {
   const [routeState, setRouteState] = useState({

@@ -9,7 +9,7 @@ import {
   type MesMaterialTablePickerCapabilities,
   type MaterialTablePickerMode,
   type MaterialTablePickerSelection,
-} from '../../src/mes';
+} from '../../src/business';
 
 const demoMaterials: MaterialPickerRecord[] = [
   {

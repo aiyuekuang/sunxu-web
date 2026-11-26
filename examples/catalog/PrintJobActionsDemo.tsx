@@ -6,7 +6,7 @@ import {
   PrintRecordsAction,
   type PrintJobActionCapabilities,
   type PrintJobRecord,
-} from '../../src/mes';
+} from '../../src/business';
 
 const html = `<!doctype html><html><head><style>body{font:14px sans-serif;padding:24px}table{width:100%;border-collapse:collapse}td,th{border:1px solid #bbb;padding:8px}</style></head><body><h1>生产工单</h1><p>WO-2026-0188 · 示例模板预览</p><table><tr><th>物料</th><th>计划数量</th></tr><tr><td>6061 铝型材</td><td>24 米</td></tr></table></body></html>`;
 
@@ -69,7 +69,7 @@ export function PrintJobActionsDemo() {
   };
 
   return (
-    <SectionCard title="MES 打印操作与记录">
+    <SectionCard title="打印操作与记录">
       <Space wrap>
         <PrintJobActionsProvider capabilities={capabilities}>
           <PrintAction businessType="work_order" businessId="WO-2026-0188" />

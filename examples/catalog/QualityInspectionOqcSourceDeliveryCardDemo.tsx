@@ -1,5 +1,5 @@
 import { SectionCard } from '../../src';
-import { OqcSourceDeliveryCard } from '../../src/mes';
+import { OqcSourceDeliveryCard } from '../../src/business';
 
 const delivery = {
   id: 'delivery-001',

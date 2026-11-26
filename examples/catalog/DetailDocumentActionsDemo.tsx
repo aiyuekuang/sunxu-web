@@ -7,7 +7,7 @@ import {
   MesUiProvider,
   type DocumentActionDefinition,
   type DocumentActionState,
-} from '../../src/mes';
+} from '../../src/business';
 
 type DemoDocument = DocumentActionState & { documentNo: string };
 

@@ -2,7 +2,7 @@ import { ProTable } from '@ant-design/pro-components';
 import type { ProColumns } from '@ant-design/pro-components';
 import { Space, Typography } from 'antd';
 import { PaginationSummary, SectionCard, TableSummary } from '../../src';
-import { ResizableProTable } from '../../src/mes';
+import { ResizableProTable } from '../../src/business';
 
 type InventoryDemoRow = {
   id: string;

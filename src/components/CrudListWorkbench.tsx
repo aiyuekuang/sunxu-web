@@ -381,7 +381,7 @@ function useFillTableHeight(
 }
 
 /**
- * @sunxu-component shared
+ * @sunxu-layer composite
  * @sunxu-page list
  * @sunxu-use filters
  * @sunxu-use status-tabs

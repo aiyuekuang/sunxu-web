@@ -3,8 +3,8 @@ import { SectionCard } from '../../src';
 import {
   IntegrationGuideContent,
   INTEGRATION_GUIDE_TITLES,
-} from '../../src/mes/components/IntegrationGuideContent';
-import type { IntegrationGuideTopic } from '../../src/mes/components/IntegrationGuideContent';
+} from '../../src/business/components/IntegrationGuideContent';
+import type { IntegrationGuideTopic } from '../../src/business/components/IntegrationGuideContent';
 
 const topics: IntegrationGuideTopic[] = [
   'api',
@@ -16,7 +16,7 @@ const topics: IntegrationGuideTopic[] = [
 
 export function IntegrationGuideContentDemo() {
   return (
-    <SectionCard title="MES 集成指南内容">
+    <SectionCard title="集成指南内容">
       <Tabs
         items={topics.map((topic) => ({
           key: topic,

@@ -7,7 +7,7 @@ import {
   type MesSupplierPriceTierCapabilities,
   type SupplierPriceTierContext,
   type SupplierPriceTierRecord,
-} from '../../src/mes';
+} from '../../src/business';
 
 const supplierContext: SupplierPriceTierContext = {
   materialId: 'material-al-6061',
@@ -145,7 +145,7 @@ export function MaterialSupplierPriceTiersModalDemo() {
   return (
     <SectionCard title="供应商阶梯价维护">
       <Typography.Paragraph type="secondary">
-        展示阶梯价列表、新增/编辑字段、权限控制和删除确认；目录用本地确定性服务模拟 MES 宿主请求，不连接真实接口。
+        展示阶梯价列表、新增/编辑字段、权限控制和删除确认；目录用本地确定性服务模拟宿主请求，不连接真实接口。
       </Typography.Paragraph>
       <MesUiProvider
         hasPermission={() => permissions === 'all'}

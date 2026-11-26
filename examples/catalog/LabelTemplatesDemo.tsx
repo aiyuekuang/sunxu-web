@@ -7,7 +7,7 @@ import {
   PackageUnitLabel,
   ToolingLabel,
   WorkOrderLabel,
-} from '../../src/mes';
+} from '../../src/business';
 
 function renderBarcode(value: string) {
   return <Typography.Text code aria-label={`条码 ${value}`}>{value}</Typography.Text>;
@@ -15,9 +15,9 @@ function renderBarcode(value: string) {
 
 export function LabelTemplatesDemo() {
   return (
-    <SectionCard title="MES 标签模板">
+    <SectionCard title="标签模板">
       <Typography.Paragraph type="secondary">
-        模板布局和字段映射在 Sunxu MES；实际 QRCodeSVG 绘制、单位字典和工单内部二维码值由宿主传入。
+        模板结构和字段映射由业务组件提供；实际 QRCodeSVG 绘制、单位字典和工单内部二维码值由宿主传入。
       </Typography.Paragraph>
       <Space wrap align="start">
         <MaterialLabel items={[{ code: 'M-001', name: '铝合金型材', spec: '20 × 30 mm', unit: 'PC' }]} unitLabelMap={{ PC: '件' }} renderBarcode={renderBarcode} />

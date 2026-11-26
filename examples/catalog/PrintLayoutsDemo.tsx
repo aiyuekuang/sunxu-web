@@ -9,15 +9,15 @@ import {
   MesUiProvider,
   PrintLayout,
   type LabelOrientation,
-} from '../../src/mes';
+} from '../../src/business';
 
 export function PrintLayoutsDemo() {
   const [orientation, setOrientation] = useState<LabelOrientation>('horizontal');
 
   return (
-    <SectionCard title="MES 打印布局">
+    <SectionCard title="打印布局">
       <Typography.Paragraph type="secondary">
-        A4 单据、连续纸和标签布局保留 MES 模板结构；标签纸设置由宿主提供，打印 iframe 样式通过导出的样式常量注入。
+        A4 单据、连续纸和标签布局保留模板结构；标签纸设置由宿主提供，打印 iframe 样式通过导出的样式常量注入。
       </Typography.Paragraph>
       <Space orientation="vertical" size={16} style={{ width: '100%' }}>
         <PrintLayout title="采购收货单" docNo="RCV-2026-0321" metaLines={['供应商：示例供应商']} printDate="2026年11月20日">

@@ -1,13 +1,13 @@
 import { useMemo, useRef } from 'react';
 import { SectionCard } from '../../src';
-import { StockCountDetailLedger } from '../../src/mes/components/StockCountDetailLedger';
-import type { DocumentDetailLedgerSavedViewController } from '../../src/mes/components/DocumentDetailLedgerTable';
-import type { DocumentViewBarView } from '../../src/mes/components/DocumentViewBar';
+import { StockCountDetailLedger } from '../../src/business/components/StockCountDetailLedger';
+import type { DocumentDetailLedgerSavedViewController } from '../../src/business/components/DocumentDetailLedgerTable';
+import type { DocumentViewBarView } from '../../src/business/components/DocumentViewBar';
 import type {
   StockCountDetailLedgerCapabilities,
   StockCountDetailLedgerResponse,
   StockCountDetailLedgerRow,
-} from '../../src/mes/components/stock-count-detail-ledger-types';
+} from '../../src/business/components/stock-count-detail-ledger-types';
 
 const rows: StockCountDetailLedgerRow[] = [
   {
@@ -135,7 +135,7 @@ export function StockCountDetailLedgerDemo() {
         filterFormRef={filterFormRef}
         savedViewController={savedViewController}
         rowSelection={{}}
-        printJobActionNode={<span>批量打印由 MES 宿主提供</span>}
+        printJobActionNode={<span>批量打印由宿主提供</span>}
         capabilities={capabilities}
       />
     </SectionCard>

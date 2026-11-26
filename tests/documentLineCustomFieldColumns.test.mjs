@@ -55,7 +55,7 @@ const {
   resolveDocumentLineCustomFieldWidth,
   summarizeDocumentLineCustomFields,
 } = await vite.ssrLoadModule(
-  '/src/mes/components/documentLineCustomFieldColumns.tsx',
+  '/src/business/components/documentLineCustomFieldColumns.tsx',
 );
 
 after(async () => {

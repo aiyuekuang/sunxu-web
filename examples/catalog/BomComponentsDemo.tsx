@@ -1,15 +1,15 @@
 import { useState } from 'react';
 import { Button, Space, message } from 'antd';
 import { SectionCard, Typography } from '../../src';
-import { BomEffectiveBomSelector } from '../../src/mes/components/BomEffectiveBomSelector';
-import type { BomEffectiveBomSelectorCapabilities } from '../../src/mes/components/bom-effective-bom-selector-types';
-import { BomExplosionTree } from '../../src/mes/components/BomExplosionTree';
+import { BomEffectiveBomSelector } from '../../src/business/components/BomEffectiveBomSelector';
+import type { BomEffectiveBomSelectorCapabilities } from '../../src/business/components/bom-effective-bom-selector-types';
+import { BomExplosionTree } from '../../src/business/components/BomExplosionTree';
 import type {
   BomExplosionChartRendererProps,
   BomExplosionData,
-} from '../../src/mes/components/bom-explosion-tree-types';
-import { BomItemSourcingModal } from '../../src/mes/components/BomItemSourcingModal';
-import type { BomItemSourcingModalCapabilities } from '../../src/mes/components/bom-item-sourcing-modal-types';
+} from '../../src/business/components/bom-explosion-tree-types';
+import { BomItemSourcingModal } from '../../src/business/components/BomItemSourcingModal';
+import type { BomItemSourcingModalCapabilities } from '../../src/business/components/bom-item-sourcing-modal-types';
 
 type DemoTreeNode = {
   name: string;
@@ -248,7 +248,7 @@ export function BomComponentsDemo() {
   const [sourcingOpen, setSourcingOpen] = useState(false);
 
   return (
-    <SectionCard title="MES BOM 领域组件">
+    <SectionCard title="生产 BOM 领域组件">
       <Typography.Paragraph type="secondary">
         BOM 解析和采购价目查询由宿主注入；组件保留型号有效 BOM 选择、冲突候选处理与单个 BOM 行的供应来源配置。
       </Typography.Paragraph>

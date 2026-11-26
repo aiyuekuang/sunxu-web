@@ -1,13 +1,13 @@
 import { App as AntdApp, Button, Card, Space } from 'antd';
 import dayjs from 'dayjs';
 import { useMemo, useState } from 'react';
-import { MesUiProvider } from '../../src/mes/MesUiProvider';
-import { WorkOrderBatchReportModal } from '../../src/mes/components/WorkOrderBatchReportModal';
-import { WorkOrderMaterialShortageSection } from '../../src/mes/components/WorkOrderMaterialShortageSection';
-import { buildTemporaryReportPortalUrl, canPrintTemporaryReportQr } from '../../src/mes/components/WorkOrderTemporaryReportQrPrint';
-import type { MaterialShortageCapabilities, MaterialShortageSupplyOrder, WorkOrderMaterialShortageDetail } from '../../src/mes/components/work-order-material-shortage-types';
-import type { WorkOrderBatchOperation, WorkOrderBatchReportCapabilities } from '../../src/mes/components/work-order-batch-report-types';
-import type { WorkOrderReportScheduleSlot } from '../../src/mes/components/work-order-report-types';
+import { MesUiProvider } from '../../src/business/MesUiProvider';
+import { WorkOrderBatchReportModal } from '../../src/business/components/WorkOrderBatchReportModal';
+import { WorkOrderMaterialShortageSection } from '../../src/business/components/WorkOrderMaterialShortageSection';
+import { buildTemporaryReportPortalUrl, canPrintTemporaryReportQr } from '../../src/business/components/WorkOrderTemporaryReportQrPrint';
+import type { MaterialShortageCapabilities, MaterialShortageSupplyOrder, WorkOrderMaterialShortageDetail } from '../../src/business/components/work-order-material-shortage-types';
+import type { WorkOrderBatchOperation, WorkOrderBatchReportCapabilities } from '../../src/business/components/work-order-batch-report-types';
+import type { WorkOrderReportScheduleSlot } from '../../src/business/components/work-order-report-types';
 
 const slot: WorkOrderReportScheduleSlot = {
   id: 'schedule-demo-1',

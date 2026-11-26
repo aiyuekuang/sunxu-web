@@ -8,7 +8,7 @@ import {
   type MesMaterialTablePickerCapabilities,
   type StockCountLineFormCapabilities,
   type StockCountLineFormRow,
-} from '../../src/mes';
+} from '../../src/business';
 
 interface DemoStockCountLine extends StockCountLineFormRow {
   id?: string;
@@ -100,9 +100,9 @@ export function StockCountLineFormListDemo() {
   );
 
   return (
-    <SectionCard title="MES 盘点明细表单">
+    <SectionCard title="盘点明细表单">
       <Typography.Paragraph type="secondary">
-        表单保留物料、货主、仓位、批号、行备注和动态自定义字段；列表请求、空行构造与配置权限由 MES 宿主注入。
+        表单保留物料、货主、仓位、批号、行备注和动态自定义字段；列表请求、空行构造与配置权限由宿主注入。
       </Typography.Paragraph>
       <MesUiProvider
         hasPermission={() => true}

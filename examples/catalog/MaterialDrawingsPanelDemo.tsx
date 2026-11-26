@@ -4,9 +4,9 @@ import { SectionCard } from '../../src';
 import {
   MesUiProvider,
   type MesDrawingFilesCapabilities,
-} from '../../src/mes';
-import { MaterialDrawingsPanel } from '../../src/mes/components/MaterialDrawingsPanel';
-import type { MaterialDrawingsPanelCapabilities } from '../../src/mes/components/material-drawings-panel-types';
+} from '../../src/business';
+import { MaterialDrawingsPanel } from '../../src/business/components/MaterialDrawingsPanel';
+import type { MaterialDrawingsPanelCapabilities } from '../../src/business/components/material-drawings-panel-types';
 import drawingImageUrl from './fixtures/mes-drawing-sample.png';
 import drawingPdfUrl from './fixtures/mes-drawing-sample.pdf?url&no-inline';
 import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
