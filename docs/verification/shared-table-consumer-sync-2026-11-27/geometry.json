@@ -1,0 +1,213 @@
+{
+  "targetUrl": "http://127.0.0.1:4174/",
+  "desktop": {
+    "label": "desktop",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "title": "榫序 Web 组件目录",
+    "heading": "扩展表格组件",
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "clientHeight": 900,
+      "scrollHeight": 1163
+    },
+    "page": {
+      "x": 273,
+      "y": 220,
+      "width": 1118,
+      "height": 894,
+      "clientWidth": 1118,
+      "scrollWidth": 1118,
+      "clientHeight": 894,
+      "scrollHeight": 894,
+      "overflowX": "visible",
+      "overflowY": "visible"
+    },
+    "controls": {
+      "x": 290,
+      "y": 277,
+      "width": 800,
+      "height": 28,
+      "clientWidth": 800,
+      "scrollWidth": 800,
+      "clientHeight": 28,
+      "scrollHeight": 28,
+      "overflowX": "visible",
+      "overflowY": "visible"
+    },
+    "tableRegions": [
+      {
+        "className": "sxw-catalog-table-region sxw-catalog-fit-table-region",
+        "x": 290,
+        "y": 337,
+        "width": 1084,
+        "height": 431,
+        "clientWidth": 1084,
+        "scrollWidth": 1084,
+        "clientHeight": 431,
+        "scrollHeight": 431,
+        "overflowX": "visible",
+        "overflowY": "visible",
+        "hasHorizontalOverflow": false
+      },
+      {
+        "className": "sxw-catalog-table-region",
+        "x": 290,
+        "y": 890,
+        "width": 1084,
+        "height": 207,
+        "clientWidth": 1084,
+        "scrollWidth": 1084,
+        "clientHeight": 207,
+        "scrollHeight": 207,
+        "overflowX": "visible",
+        "overflowY": "visible",
+        "hasHorizontalOverflow": false
+      }
+    ],
+    "proTable": {
+      "x": 290,
+      "y": 337,
+      "width": 1084,
+      "height": 431,
+      "clientWidth": 1084,
+      "scrollWidth": 1084,
+      "clientHeight": 431,
+      "scrollHeight": 431,
+      "overflowX": "visible",
+      "overflowY": "visible"
+    },
+    "tableBody": {
+      "x": 306,
+      "y": 439,
+      "width": 1052,
+      "height": 280,
+      "clientWidth": 1052,
+      "scrollWidth": 1592,
+      "clientHeight": 280,
+      "scrollHeight": 280,
+      "overflowX": "auto",
+      "overflowY": "scroll"
+    },
+    "rowCount": 9,
+    "tableCount": 2,
+    "documentHasHorizontalOverflow": false
+  },
+  "mobile": {
+    "label": "mobile",
+    "viewport": {
+      "width": 375,
+      "height": 812
+    },
+    "title": "榫序 Web 组件目录",
+    "heading": "扩展表格组件",
+    "document": {
+      "clientWidth": 375,
+      "scrollWidth": 375,
+      "clientHeight": 812,
+      "scrollHeight": 1379
+    },
+    "page": {
+      "x": 33,
+      "y": 278,
+      "width": 309,
+      "height": 1068,
+      "clientWidth": 309,
+      "scrollWidth": 309,
+      "clientHeight": 1068,
+      "scrollHeight": 1068,
+      "overflowX": "visible",
+      "overflowY": "visible"
+    },
+    "controls": {
+      "x": 50,
+      "y": 335,
+      "width": 275,
+      "height": 124,
+      "clientWidth": 275,
+      "scrollWidth": 275,
+      "clientHeight": 124,
+      "scrollHeight": 124,
+      "overflowX": "visible",
+      "overflowY": "visible"
+    },
+    "tableRegions": [
+      {
+        "className": "sxw-catalog-table-region sxw-catalog-fit-table-region",
+        "x": 50,
+        "y": 535,
+        "width": 275,
+        "height": 435,
+        "clientWidth": 275,
+        "scrollWidth": 275,
+        "clientHeight": 435,
+        "scrollHeight": 435,
+        "overflowX": "visible",
+        "overflowY": "visible",
+        "hasHorizontalOverflow": false
+      },
+      {
+        "className": "sxw-catalog-table-region",
+        "x": 50,
+        "y": 1122,
+        "width": 275,
+        "height": 207,
+        "clientWidth": 275,
+        "scrollWidth": 275,
+        "clientHeight": 207,
+        "scrollHeight": 207,
+        "overflowX": "visible",
+        "overflowY": "visible",
+        "hasHorizontalOverflow": false
+      }
+    ],
+    "proTable": {
+      "x": 50,
+      "y": 535,
+      "width": 275,
+      "height": 435,
+      "clientWidth": 275,
+      "scrollWidth": 275,
+      "clientHeight": 435,
+      "scrollHeight": 435,
+      "overflowX": "visible",
+      "overflowY": "visible"
+    },
+    "tableBody": {
+      "x": 66,
+      "y": 761,
+      "width": 243,
+      "height": 120,
+      "clientWidth": 243,
+      "scrollWidth": 1592,
+      "clientHeight": 120,
+      "scrollHeight": 280,
+      "overflowX": "auto",
+      "overflowY": "scroll"
+    },
+    "rowCount": 9,
+    "tableCount": 2,
+    "documentHasHorizontalOverflow": false
+  },
+  "errors": [
+    {
+      "type": "console",
+      "text": "[use-antd-resizable-header] 请不要在所有列上添加 `width` 属性，这将导致表格无法自适应"
+    },
+    {
+      "type": "console",
+      "text": "Warning: [antd: Form.Item] `labelAlign=left|right` is deprecated. Please use `labelAlign=start|end` instead."
+    },
+    {
+      "type": "console",
+      "text": "[use-antd-resizable-header] 请不要在所有列上添加 `width` 属性，这将导致表格无法自适应"
+    },
+    {
+      "type": "console",
+      "text": "Warning: [antd: Form.Item] `labelAlign=left|right` is deprecated. Please use `labelAlign=start|end` instead."
+    }
+  ]
+}
