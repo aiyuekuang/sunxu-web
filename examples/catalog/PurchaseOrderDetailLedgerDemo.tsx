@@ -1,4 +1,5 @@
-import { Button, Card, Modal, Space, Typography } from 'antd';
+import { MoreOutlined } from '@ant-design/icons';
+import { Button, Card, Dropdown, Modal, Space, Typography } from 'antd';
 import type {
   ActionType,
   ProFormInstance,
@@ -346,21 +347,32 @@ export function PurchaseOrderDetailLedgerDemo() {
         return undefined;
       },
       renderDocumentActions: (_row, actions) => (
-        <Space orientation="vertical" size={0}>
-          {actions.canViewOrder ? (
-            <Button type="link" size="small" onClick={actions.onOpenOrder}>
-              订单详情
-            </Button>
-          ) : null}
-          <Button type="link" size="small" onClick={actions.onViewReceipts}>
-            查看采购入库单
-          </Button>
-          {actions.canReceiveRow ? (
-            <Button type="link" size="small" onClick={actions.onReceive}>
-              采购收货
-            </Button>
-          ) : null}
-        </Space>
+        <Dropdown
+          trigger={['click']}
+          menu={{
+            items: [
+              ...(actions.canViewOrder
+                ? [{ key: 'view-order', label: '订单详情' }]
+                : []),
+              { key: 'view-receipts', label: '查看采购入库单' },
+              ...(actions.canReceiveRow
+                ? [{ key: 'receive', label: '采购收货' }]
+                : []),
+            ],
+            onClick: ({ key }) => {
+              if (key === 'view-order') actions.onOpenOrder();
+              else if (key === 'view-receipts') actions.onViewReceipts();
+              else if (key === 'receive') actions.onReceive();
+            },
+          }}
+        >
+          <Button
+            type="text"
+            size="small"
+            icon={<MoreOutlined />}
+            aria-label="更多操作"
+          />
+        </Dropdown>
       ),
       renderPurchaseReceiptAction: ({
         sourceItemIds,

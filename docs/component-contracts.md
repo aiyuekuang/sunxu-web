@@ -684,7 +684,7 @@
 
 ### 采购、报价、领用与入库明细台账
 
-- `PurchaseOrderDetailLedger` 保留关键词/单号/供应商/物料/状态/日期筛选、汇总与价格可见性、来料检验入口、权限感知行操作、同供应商批量收货勾选限制、收货成功刷新、导出/新增和打印入口。批量收货表单、行操作菜单、列表/导出请求、权限、远程选项、格式、保存视图和打印由 MES 宿主注入。来源 SHA-256：`bd701f1af1f14e09dca4a6c09c4639c5596792332e2f5c31a08f821e9d31fe14`；Catalog `PurchaseOrderDetailLedgerDemo` 使用本地数据，真实服务/权限接线及视口验收为 `UNVERIFIED`。
+- `PurchaseOrderDetailLedger` 保留关键词/单号/供应商/物料/状态/日期筛选、汇总与价格可见性、来料检验入口、权限感知行操作、同供应商批量收货勾选限制、收货成功刷新、导出/新增和打印入口。宿主传入完整行操作菜单时，台账标记该列，点击一次即可展开菜单，不再由表格包装成第二层菜单。批量收货表单、行操作菜单、列表/导出请求、权限、远程选项、格式、保存视图和打印由 MES 宿主注入。来源 SHA-256：`c98b229c8d6ce9ea9c12f3cddc2228c13f12237a38f6eab5ad8815918fdfd2fd`；Catalog `PurchaseOrderDetailLedgerDemo` 使用本地数据，1440×900 浏览器下的菜单、位置与横向溢出证据见 [`docs/verification/mes-purchase-order-bugs-2026-11-26/`](./verification/mes-purchase-order-bugs-2026-11-26/README.md)。MES Admin 真实服务/权限接线仍为 `UNVERIFIED`。
 - `PurchaseRequisitionItemsTable` 是采购申请列表展开行的只读物料表。列序为物料名称、编码、规格、单位、需求/已下单/剩余数量、建议供应商和采购/到货日期、行号、备注和审计日期；行号优先使用 `lineNo`，缺失时按 `sortOrder + 1` 或当前行序回退。缺少期望到货日期时显示红色“未填写”标签。单位、数量和日期格式函数由宿主传入；剩余数量缺失时按 `max(0, 需求数量 - 已下单数量)` 计算，非法数量按 0 处理。组件不读取 MES 服务、不判断权限，也不拥有采购申请列表/展开状态。Catalog 示例和 SSR 行为测试覆盖列序、格式注入、行号及缺失日期提示；Catalog 浏览器 E2 在 1280×900 与 390×844 视口通过，DOM 几何、横向滚动和截图见 [`verification/purchase-requisition-items-table-2026-11-22/`](./verification/purchase-requisition-items-table-2026-11-22/)。实际 MES Admin 路由视觉验收仍为 `UNVERIFIED`；目录其他示例造成的整体溢出已单独记录。
 - `PurchaseReturnDetailLedger` 保留退料单筛选/默认排序、物料与行自定义字段、价格权限遮罩、退料汇总、详情/来源动作和批量打印；列表/导出、权限、候选项、价格可见性、格式、保存视图及打印由宿主注入。
 - `QuotationDetailLedger` 保留报价状态/客户/物料/日期筛选、报价行明细、自定义字段、报价汇总、绑定材料/详情导航和打印入口；查询/导出、绑定动作、权限、动态列、格式与保存视图由宿主注入。
@@ -769,7 +769,7 @@
 
 #### MES `OrderItemEditor`
 
-- **布局与行行为**：保留 inline/card/table 三种布局，新增行、最小行数、复制/删除门控、临时件/档案物料切换、数量错误提示、物料选择后的联动回调、展开内容插槽、紧凑密度、列宽记忆与汇总行。
+- **布局与行行为**：保留 inline/card/table 三种布局，新增行、最小行数、复制/删除门控、临时件/档案物料切换、数量错误提示、物料选择后的联动回调、展开内容插槽、紧凑密度、列宽记忆与汇总行。表格新增、插入、复制和删除等操作基于最新行状态提交，保留操作前刚编辑的单元格值。
 - **业务字段**：保留单价/币种、商业金额折扣与税率、含税/未税口径、物料字段摘要、单据行自定义字段与公式预览、批量复制/删除和批量字段覆盖。
 - **`DocumentLineEditableTable`**：共享表格能力不足以覆盖 MES 列宽 key、展开行、Summary、compact 样式及来源行删除校验，因此在 MES suite 增加适配器；仍复用 Sunxu `ResizableTable` / `ResizableProTable`、`DocumentLineBatchSettingsButton` 和 `BatchFieldSettingsButton`。
 - **宿主能力**：物料/币种服务、字典与配置入口、客户/单据字段 schema、公式预览、金额策略试算与可选字段帮助通过 `MesUiProvider.orderItemEditorCapabilities` 注入。组件不直接访问 MES API 或权限码。

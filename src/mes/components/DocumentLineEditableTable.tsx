@@ -210,25 +210,34 @@ export function DocumentLineEditableTable<T extends DocumentLineRow>({
     [rows, selectedKeySet],
   );
 
+  const commitRows = useCallback(
+    (updater: (current: T[]) => T[]) => {
+      const nextRows = updater(rowsRef.current);
+      rowsRef.current = nextRows;
+      if (onRowsUpdate) onRowsUpdate(updater);
+      else onRowsChange(nextRows);
+    },
+    [onRowsChange, onRowsUpdate],
+  );
+
   const ensureMinRows = useCallback(
-    (nextRows: T[]) =>
+    (nextRows: T[], fallbackRows: T[]) =>
       nextRows.length >= minRows
         ? nextRows
-        : [
-            ...nextRows,
-            ...Array.from({ length: minRows - nextRows.length }, createRow),
-          ],
-    [createRow, minRows],
+        : [...nextRows, ...fallbackRows.slice(0, minRows - nextRows.length)],
+    [minRows],
   );
 
   useEffect(() => {
     if (rows.length >= minRows) return undefined;
+    const fallbackRows = Array.from({ length: minRows }, createRow);
     const timer = window.setTimeout(() => {
-      const latestRows = rowsRef.current;
-      if (latestRows.length < minRows) onRowsChange(ensureMinRows(latestRows));
+      commitRows((currentRows) =>
+        ensureMinRows(currentRows, fallbackRows),
+      );
     }, 0);
     return () => window.clearTimeout(timer);
-  }, [ensureMinRows, minRows, onRowsChange, rows.length]);
+  }, [commitRows, createRow, ensureMinRows, minRows, rows.length]);
 
   useEffect(() => {
     const availableKeys = new Set(rows.map((row) => row._key));
@@ -251,16 +260,6 @@ export function DocumentLineEditableTable<T extends DocumentLineRow>({
     if (addedKeys.length) setSelectedRowKeys(addedKeys);
   }, [batchEnabled, batchOperations?.autoSelectNewRows, rows]);
 
-  const commitRows = useCallback(
-    (updater: (current: T[]) => T[]) => {
-      const nextRows = updater(rowsRef.current);
-      rowsRef.current = nextRows;
-      if (onRowsUpdate) onRowsUpdate(updater);
-      else onRowsChange(nextRows);
-    },
-    [onRowsChange, onRowsUpdate],
-  );
-
   const updateRow = useCallback(
     (rowKey: string, patch: Partial<T>) => {
       const current = rowsRef.current.find((row) => row._key === rowKey);
@@ -275,75 +274,139 @@ export function DocumentLineEditableTable<T extends DocumentLineRow>({
   );
 
   const addRow = useCallback(() => {
-    onRowsChange([...rows, createRow()]);
-  }, [createRow, onRowsChange, rows]);
+    const nextRow = createRow();
+    commitRows((currentRows) => [...currentRows, nextRow]);
+  }, [commitRows, createRow]);
 
   const insertAfter = useCallback(
     (rowKey: string) => {
-      const index = rows.findIndex((row) => row._key === rowKey);
-      const next = createRow();
-      onRowsChange(
-        index < 0
-          ? [...rows, next]
-          : [...rows.slice(0, index + 1), next, ...rows.slice(index + 1)],
-      );
+      const nextRow = createRow();
+      commitRows((currentRows) => {
+        const index = currentRows.findIndex((row) => row._key === rowKey);
+        return index < 0
+          ? [...currentRows, nextRow]
+          : [
+              ...currentRows.slice(0, index + 1),
+              nextRow,
+              ...currentRows.slice(index + 1),
+            ];
+      });
     },
-    [createRow, onRowsChange, rows],
+    [commitRows, createRow],
   );
 
   const copyAfter = useCallback(
     (row: T) => {
-      const index = rows.findIndex((item) => item._key === row._key);
-      const next = cloneRow ? cloneRow(row) : createRow();
-      onRowsChange(
-        index < 0
-          ? [...rows, next]
-          : [...rows.slice(0, index + 1), next, ...rows.slice(index + 1)],
-      );
+      const sourceRow = rowsRef.current.find((item) => item._key === row._key);
+      if (!sourceRow) return;
+      const nextRow = cloneRow ? cloneRow(sourceRow) : createRow();
+      commitRows((currentRows) => {
+        const index = currentRows.findIndex((item) => item._key === row._key);
+        return index < 0
+          ? [...currentRows, nextRow]
+          : [
+              ...currentRows.slice(0, index + 1),
+              nextRow,
+              ...currentRows.slice(index + 1),
+            ];
+      });
     },
-    [cloneRow, createRow, onRowsChange, rows],
+    [cloneRow, commitRows, createRow],
   );
 
   const removeRow = useCallback(
     (rowKey: string) => {
-      const row = rows.find((item) => item._key === rowKey);
-      if (!row || batchOperations?.canRemoveRows?.([row], rows) === false) return;
-      onRowsChange(ensureMinRows(rows.filter((item) => item._key !== rowKey)));
+      const currentRows = rowsRef.current;
+      const row = currentRows.find((item) => item._key === rowKey);
+      if (
+        !row ||
+        batchOperations?.canRemoveRows?.([row], currentRows) === false
+      ) {
+        return;
+      }
+      const fallbackRows = Array.from({ length: minRows }, createRow);
+      commitRows((latestRows) =>
+        ensureMinRows(
+          latestRows.filter((item) => item._key !== rowKey),
+          fallbackRows,
+        ),
+      );
     },
-    [batchOperations, ensureMinRows, onRowsChange, rows],
+    [batchOperations, commitRows, createRow, ensureMinRows, minRows],
   );
 
   const clearSelection = useCallback(() => setSelectedRowKeys([]), []);
 
   const copySelectedRows = useCallback(() => {
-    if (!cloneRow || selectedRows.length === 0) return;
-    onRowsChange([...rows, ...selectedRows.map((row) => cloneRow(row))]);
+    if (!cloneRow) return;
+    const currentSelectedRows = rowsRef.current.filter((row) =>
+      selectedKeySet.has(row._key),
+    );
+    if (currentSelectedRows.length === 0) return;
+    const copies = currentSelectedRows.map((row) => cloneRow(row));
+    commitRows((currentRows) => [...currentRows, ...copies]);
     clearSelection();
-  }, [clearSelection, cloneRow, onRowsChange, rows, selectedRows]);
+  }, [clearSelection, cloneRow, commitRows, selectedKeySet]);
 
   const removeSelectedRows = useCallback(() => {
-    if (selectedRows.length === 0) return;
-    if (batchOperations?.canRemoveRows?.(selectedRows, rows) === false) return;
+    const currentRows = rowsRef.current;
+    const currentSelectedRows = currentRows.filter((row) =>
+      selectedKeySet.has(row._key),
+    );
+    if (currentSelectedRows.length === 0) return;
+    if (
+      batchOperations?.canRemoveRows?.(currentSelectedRows, currentRows) ===
+      false
+    ) {
+      return;
+    }
     Modal.confirm({
-      title: `确认删除选中的 ${selectedRows.length} 行？`,
+      title: `确认删除选中的 ${currentSelectedRows.length} 行？`,
       content: '删除后无法恢复；未保存的明细会直接从当前单据中移除。',
       okText: '删除',
       okButtonProps: { danger: true },
       cancelText: '取消',
       onOk: () => {
-        const keys = new Set(selectedRows.map((row) => row._key));
-        onRowsChange(ensureMinRows(rows.filter((row) => !keys.has(row._key))));
+        const keys = new Set(currentSelectedRows.map((row) => row._key));
+        const fallbackRows = Array.from({ length: minRows }, createRow);
+        commitRows((latestRows) => {
+          const latestSelectedRows = latestRows.filter((row) =>
+            keys.has(row._key),
+          );
+          if (
+            latestSelectedRows.length === 0 ||
+            batchOperations?.canRemoveRows?.(latestSelectedRows, latestRows) ===
+              false
+          ) {
+            return latestRows;
+          }
+          return ensureMinRows(
+            latestRows.filter((row) => !keys.has(row._key)),
+            fallbackRows,
+          );
+        });
         clearSelection();
       },
     });
-  }, [batchOperations, clearSelection, ensureMinRows, onRowsChange, rows, selectedRows]);
+  }, [
+    batchOperations,
+    clearSelection,
+    commitRows,
+    createRow,
+    ensureMinRows,
+    minRows,
+    selectedKeySet,
+  ]);
 
   const applyBatchPatches = useCallback(
     (patches: Array<Partial<T>>) => {
       const patch = Object.assign({}, ...patches) as Partial<T>;
-      if (selectedRows.length === 0) return;
-      onRowsChange(
-        rows.map((row) =>
+      const currentSelectedRows = rowsRef.current.filter((row) =>
+        selectedKeySet.has(row._key),
+      );
+      if (currentSelectedRows.length === 0) return;
+      commitRows((currentRows) =>
+        currentRows.map((row) =>
           selectedKeySet.has(row._key)
             ? {
                 ...row,
@@ -352,9 +415,9 @@ export function DocumentLineEditableTable<T extends DocumentLineRow>({
             : row,
         ),
       );
-      batchOperations?.onBatchPatchesApplied?.(selectedRows, patch);
+      batchOperations?.onBatchPatchesApplied?.(currentSelectedRows, patch);
     },
-    [batchOperations, onRowsChange, rows, selectedKeySet, selectedRows],
+    [batchOperations, commitRows, selectedKeySet],
   );
 
   const rowSelection = useMemo<TableRowSelection<T> | undefined>(

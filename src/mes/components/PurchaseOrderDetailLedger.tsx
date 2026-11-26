@@ -15,6 +15,7 @@ import dayjs, { type Dayjs } from 'dayjs';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { CrudListWorkbench } from '../../components/CrudListWorkbench';
 import { QuickProFormDateRangePicker } from '../../components/QuickDateRangePicker';
+import { markCompleteActionMenuColumn } from '../table/completeActionMenuColumn';
 import { DocumentLedgerViewSwitch } from './DocumentLedgerViewSwitch';
 import { DocumentViewBar } from './DocumentViewBar';
 import { PermissionButton } from './PermissionButton';
@@ -730,7 +731,7 @@ export function PurchaseOrderDetailLedger({
         search: false,
         render: (_value, row) => purchaseOrderName(row.remarks),
       },
-      {
+      markCompleteActionMenuColumn<PurchaseOrderDetailLedgerRow>({
         title: '更多操作',
         key: 'actions',
         dataIndex: '__purchaseOrderDocumentActions',
@@ -753,7 +754,7 @@ export function PurchaseOrderDetailLedger({
             onReceive: () => setReceiptSourceItemIds([row.id]),
           });
         },
-      },
+      }),
     ],
     [
       capabilities,

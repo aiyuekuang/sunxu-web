@@ -1,0 +1,88 @@
+{
+  "route": "http://127.0.0.1:4173/",
+  "viewport": "1440x900",
+  "rowInsert": {
+    "previousValue": "2",
+    "editedValue": "7",
+    "valueAfterInsert": "7",
+    "result": "PASS",
+    "geometry": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "row": {
+        "x": 315,
+        "y": 385.4,
+        "width": 1035,
+        "height": 53
+      },
+      "table": {
+        "x": 315,
+        "y": 346.4,
+        "width": 1035,
+        "height": 198
+      },
+      "tableScroll": {
+        "clientWidth": 1035,
+        "scrollWidth": 1035
+      },
+      "pageHorizontalOverflow": false
+    }
+  },
+  "purchaseOrderRowMenu": {
+    "row": "PO-2026-018",
+    "triggerButtons": 1,
+    "visibleActionMenusAfterOneClick": 1,
+    "visibleMenuItem": "查看采购入库单",
+    "result": "PASS",
+    "geometry": {
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "page": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "horizontalOverflow": false
+      },
+      "row": {
+        "x": 338,
+        "y": 412.5,
+        "width": 2689,
+        "height": 75,
+        "right": 3027,
+        "bottom": 487.5
+      },
+      "actionButton": {
+        "x": 1270,
+        "y": 433.5,
+        "width": 32,
+        "height": 32,
+        "right": 1302,
+        "bottom": 465.5
+      },
+      "menu": {
+        "x": 1270,
+        "y": 469,
+        "width": 130,
+        "height": 92.8,
+        "right": 1400,
+        "bottom": 561.8
+      },
+      "visibleActionMenuCount": 1,
+      "visibleRoleMenuCount": 2,
+      "actionMenuText": "订单详情\n查看采购入库单\n采购收货",
+      "actionInsideViewport": true,
+      "menuInsideViewport": true,
+      "tableClass": "ant-table ant-table-small css-var-_r_p1_ ant-table-css-var css-dev-only-do-not-override-i19pbt ant-table-fix-start-shadow ant-table-fix-end-shadow ant-table-fix-end-shadow-show ant-table-fixed-header ant-table-fixed-column ant-table-scroll-horizontal ant-table-has-fix-start ant-table-has-fix-end",
+      "purchaseTableScroll": {
+        "clientWidth": 988,
+        "scrollWidth": 2689,
+        "clientHeight": 80,
+        "scrollHeight": 114
+      }
+    }
+  },
+  "pageErrors": []
+}
