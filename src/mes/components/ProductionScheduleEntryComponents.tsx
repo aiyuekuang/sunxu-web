@@ -216,6 +216,13 @@ export function EntryFormDrawer({
     try {
       const scanned = await capabilities.resolveScannedWorkOrder(scanValue.trim());
       if (scanned.status !== 'released') { capabilities.notify('error', '只有已下达状态的工单才能手工排产'); return; }
+      if (form.getFieldValue('workOrderId') !== scanned.id) {
+        form.setFieldsValue({
+          operationId: undefined,
+          workCenterId: undefined,
+          equipmentId: undefined,
+        });
+      }
       form.setFieldValue('workOrderId', scanned.id);
       if (scanned.routeId) setWorkOrderRouteIds((current) => ({ ...current, [scanned.id]: scanned.routeId! }));
       setWorkOrderOptions((options) => options.some((option) => option.value === scanned.id) ? options : [...options, { value: scanned.id, label: scanned.label }]);

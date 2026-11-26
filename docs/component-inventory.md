@@ -150,7 +150,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `ImportDrawer`（`sunxu-web/mes`） | 保留模板下载、Excel 上传、Base64 导入、导入结果/错误展示和继续导入；导入/模板服务与刷新回调由调用方提供 |
 | `BackupDirectoryPicker`（`sunxu-web/mes`） | 保留服务器目录浏览、路径输入/上级跳转、失败重试、最近存在目录提示和当前目录选择；文件系统访问由宿主服务注入 |
 | `ImportWorkbenchDrawer`（`sunxu-web/mes`） | 保留单/多目标快速导入、权限过滤、模板下载、Excel 预览、警告行策略、错误/警告明细和确认执行；导入服务由 `MesUiProvider` 注入 |
-| `AllowedEquipmentPriorityField`（`sunxu-web/mes`） | 保留允许设备范围、设备优先级排序、默认/班次单件工时配置和工序默认工时继承；设备/班次请求、设备类型字典与分页策略由 `MesUiProvider` 注入 |
+| `AllowedEquipmentPriorityField`（`sunxu-web/mes`） | 保留允许设备范围、设备优先级排序、默认/班次单件工时配置和工序默认工时继承；新配置只选启用班次，已有停用班次值保留并禁用；设备/班次请求、设备类型字典与分页策略由 `MesUiProvider` 注入 |
 | `DocumentBomOpenButton`、`DocumentBomDrawer`（`sunxu-web/mes`） | 提供单据 BOM 权限降级、查看/编辑/导入、层级明细、文件/物料交互、校验与保存；API、字典、字段 schema、路线策略及选择器由宿主注入 |
 | `InfoCard`、`DetailHeader`、`DetailTable`、`TabsPanel`、`BatchSelectionSummary`、`ContextualHelp`、`FormDrawer`（`sunxu-web/mes`） | 保留 MES 信息字段权限与格式、详情标题/状态/操作槽、明细表默认、页签内容、批量单据摘要、字段帮助，以及新增/编辑表单的消息和弹窗生命周期 |
 | `OrderItemEditor`、`DocumentLineEditableTable`（`sunxu-web/mes`） | 保留物料/临时件、数量/价格/税率/折扣、金额与自定义字段预览、三种布局、列宽与密度、展开行和批量明细操作；服务与策略由宿主注入 |

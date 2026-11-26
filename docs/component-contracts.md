@@ -564,7 +564,7 @@
 
 - **职责 / 层级**：在工序表单中维护允许参与排产的设备范围、优先级、设备默认单件工时和按班次覆盖的工时。
 - **状态 / 交互**：允许设备为空时表示按设备类型/工作中心匹配全范围；有设备时按用户排序优先级参与排程。设备选择弹窗保留分页搜索、工作中心及下级设备过滤、多页选中、确认后去重；删除允许设备时同步清理其班次工时配置。已配置设备详情失败时提示并保留移除能力。
-- **工时规则**：默认设备工时和班次工时均按分钟/件输入，精度 4 位；班次值覆盖设备默认值，设备默认值为空时继承工序默认值。班次不得重复配置；班次列表分页全量加载，空余班次可新增，已有配置可改班次或删除。
+- **工时规则**：默认设备工时和班次工时均按分钟/件输入，精度 4 位；班次值覆盖设备默认值，设备默认值为空时继承工序默认值。班次不得重复配置；班次列表分页全量加载，新配置只提供启用班次，已有停用班次作为当前历史值保留并禁用，空余启用班次可新增。
 - **边界**：设备与班次列表、设备详情、设备类型字典标签和 MES 记忆分页配置由 `MesUiProvider.allowedEquipmentPriorityCapabilities` 提供；设备范围和工时仍写入当前 AntD 表单字段 `value` 与 `equipmentTimeProfiles`。
 - **证据**：MES 源 SHA-256 为 `7e068d2c25047e24820ea3a313e9dd500014fa24c6cc847e66f51899efee75ef`；Catalog 展示设备候选、优先级和班次配置。UV 暂停期间真实目录路由、视口几何和键盘/主题验收为 `UNVERIFIED`。
 
@@ -572,9 +572,9 @@
 
 - **自动/计划排产**：`AutoScheduleDrawer` 保留排产算法、方向、派工规则与缓冲策略，候选工单分页搜索、预览/结果、工序安排和 BOM 外协摘要；`ScheduleFromPlansDrawer` 保留计划/工单树、筛选、已排状态、委外行、结果和刷新回调。策略、查询/预览/提交 API、权限、状态标签和错误消息由宿主注入。
 - **分析/方案**：`BottleneckPanel` 保留日期范围、瓶颈计划/实际工时与利用率；`ScenarioCompare` 保留方案指标比较、当前基线、风险/改进量、选择并采纳回调。方案组件维持 MES 请求契约，不额外提交仅用于展示的 `bufferRatio`。
-- **手工排程/台账**：`EntryFormDrawer` 保留工单扫码/选择、工序、资源、日期、班次、设备与工作中心联动、加载/验证和提交回调；`EntryList` 使用 `ResizableProTable`，保留排产业务列序、搜索/状态筛选、服务端分页/排序、复制/编辑/删除/批量状态动作及确认，并在结果区工具栏提供列设置齿轮和表头拖拽调宽。列宽、显隐和顺序按稳定列表 key 保存在浏览器本地；服务端排序不写入浏览器排序缓存。工单/工序/资源/班次请求、状态与权限、字段帮助、消息、删除确认、刷新和路由由宿主注入。
+- **手工排程/台账**：`EntryFormDrawer` 保留工单扫码/选择、工序、资源、日期、班次、设备与工作中心联动、加载/验证和提交回调；工单 ID 因扫码改变时清空原工序、工作中心和设备，同一工单重复扫码则保留已选值。`EntryList` 使用 `ResizableProTable`，保留排产业务列序、搜索/状态筛选、服务端分页/排序、复制/编辑/删除/批量状态动作及确认，并在结果区工具栏提供列设置齿轮和表头拖拽调宽。列宽、显隐和顺序按稳定列表 key 保存在浏览器本地；服务端排序不写入浏览器排序缓存。工单/工序/资源/班次请求、状态与权限、字段帮助、消息、删除确认、刷新和路由由宿主注入。
 - **甘特**：`ProductionScheduleGanttView` 与现有 `ProductionSchedulePlanningWidgets`、`ScheduleGanttWidgets` 组合，保留时间窗口/缩放/下钻、热力/产能、条目拖拽/缩放/选择、资源泳道、待排项拖入、上下文动作与阻止行告警；跨资源拖拽按最终资源分别提交，清空设备时保留合法空资源状态。待排产面板位置、容量条位置及右键选中行为可由宿主配置。甘特数据、日期计算、资源/状态呈现、权限动作、路由与拖拽提交由宿主注入。
-- **来源证据**：迁移归档中的 7 个源组件 SHA-256：AutoScheduleDrawer `08941101d38bff06dc7328c25b226865b4e8165e8809fb9996870b64122a93c8`；BottleneckPanel `de6e647cd338866ea5323c1da7aa80c39de42aeefc9a385420756d3f1445d3fa`；EntryFormDrawer `a46a491d26461ce576df623c63565fcbc3db3c0f485b506c4d25f56690bafbd2`；EntryList `9a529de6083995d161179bb318f0a6be6162daf9063a1f5948be2d3d179bb284`；ScenarioCompare `6ab0eec2a4f0daaa3c4a0393c7315f7d43655871e4492b7fe84837f63bab7047`；ScheduleFromPlansDrawer `b7b4ae680ae2a67c2e47ddf84985defb2e54e35699aecd799931e2fb96513437`；GanttView `b5b628b32bcf2a75e1a115222565fc24111e4d0f3113f03eea81a32fbd2e2e16`。当前 `EntryFormDrawer` 与 `EntryList` 同在 `src/mes/components/ProductionScheduleEntryComponents.tsx`，该实现文件 SHA-256 为 `38746cc3069a000d3b724396ddc5f56c7ff189c56b4dd00ee95d386a421ec42f`。Catalog `ProductionScheduleWorkflowsDemo` 在本地 capabilities 下已于 1440×900、1024×768 渲染，验证齿轮弹层、表头拖宽和本地列宽缓存，证据位于 `docs/verification/production-schedule-entry-list-2026-11-26/`；真实 MES 路由/API/权限接线仍为 `UNVERIFIED`。
+- **来源证据**：迁移归档中的 7 个源组件 SHA-256：AutoScheduleDrawer `08941101d38bff06dc7328c25b226865b4e8165e8809fb9996870b64122a93c8`；BottleneckPanel `de6e647cd338866ea5323c1da7aa80c39de42aeefc9a385420756d3f1445d3fa`；EntryFormDrawer `a46a491d26461ce576df623c63565fcbc3db3c0f485b506c4d25f56690bafbd2`；EntryList `9a529de6083995d161179bb318f0a6be6162daf9063a1f5948be2d3d179bb284`；ScenarioCompare `6ab0eec2a4f0daaa3c4a0393c7315f7d43655871e4492b7fe84837f63bab7047`；ScheduleFromPlansDrawer `b7b4ae680ae2a67c2e47ddf84985defb2e54e35699aecd799931e2fb96513437`；GanttView `b5b628b32bcf2a75e1a115222565fc24111e4d0f3113f03eea81a32fbd2e2e16`。当前 `EntryFormDrawer` 与 `EntryList` 同在 `src/mes/components/ProductionScheduleEntryComponents.tsx`，该实现文件 SHA-256 为 `b3d63b3c7753bd7484973e75cb42d2a20819a138df5b813723a97790947dea7b`。Catalog `ProductionScheduleWorkflowsDemo` 在本地 capabilities 下已于 1440×900、1024×768 渲染，验证齿轮弹层、表头拖宽和本地列宽缓存，证据位于 `docs/verification/production-schedule-entry-list-2026-11-26/`；真实 MES 路由/API/权限接线仍为 `UNVERIFIED`。
 
 #### `ProductionShiftCalendar` 班次与例外日历
 

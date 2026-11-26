@@ -52,6 +52,7 @@ type SelectedEquipmentRow = {
 type ShiftOption = {
   label: string;
   value: string;
+  disabled?: boolean;
 };
 
 type PageResult<T> = {
@@ -242,6 +243,7 @@ export function AllowedEquipmentPriorityField({
           shifts.map((shift) => ({
             label: `${shift.name}${shift.isActive ? '' : '（已停用）'}（${shift.startTime}-${shift.endTime}）`,
             value: shift.id,
+            disabled: shift.isActive !== true,
           })),
         );
         setShiftOptionsLoaded(true);
@@ -540,8 +542,10 @@ export function AllowedEquipmentPriorityField({
                     placeholder="选择班次"
                     options={shiftOptions.filter(
                       (option) =>
-                        !usedShiftIds.has(option.value) ||
-                        option.value === profile.shiftCalendarId,
+                        (option.disabled !== true ||
+                          option.value === profile.shiftCalendarId) &&
+                        (!usedShiftIds.has(option.value) ||
+                          option.value === profile.shiftCalendarId),
                     )}
                     loading={!shiftOptionsLoaded}
                     style={{ width: 170 }}
@@ -618,7 +622,9 @@ export function AllowedEquipmentPriorityField({
                     .filter((id): id is string => Boolean(id)),
                 );
                 const nextShift = shiftOptions.find(
-                  (option) => !usedShiftIds.has(option.value),
+                  (option) =>
+                    option.disabled !== true &&
+                    !usedShiftIds.has(option.value),
                 );
                 if (!nextShift) {
                   message.info('没有可继续配置的班次');
