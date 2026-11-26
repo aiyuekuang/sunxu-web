@@ -455,6 +455,7 @@ export function ExceptionFormModal({
   const isEditing = editingException !== null;
   const scopeLocked = Boolean(fixedSupplierId);
   const dateFormat = CALENDAR_DATE_FORMAT;
+  const [form] = Form.useForm();
   const initialValues = useMemo(() => {
     if (!editingException) {
       return {
@@ -482,6 +483,22 @@ export function ExceptionFormModal({
       remarks: editingException.remarks,
     };
   }, [dateFormat, editingException, fixedSupplierId]);
+  const ownerContextKey = `${open ? 'open' : 'closed'}:${editingException?.id ?? 'new'}:${fixedSupplierId ?? ''}`;
+  const ownerValues = {
+    resourceScope: initialValues.resourceScope as CalendarResourceScope | undefined,
+    workCenterId: initialValues.workCenterId as string | undefined,
+    supplierId: initialValues.supplierId as string | undefined,
+  };
+  const ownerValuesRef = useRef({ contextKey: ownerContextKey, values: ownerValues });
+  if (ownerValuesRef.current.contextKey !== ownerContextKey) {
+    ownerValuesRef.current = { contextKey: ownerContextKey, values: ownerValues };
+  }
+  useEffect(() => {
+    if (!open) return;
+    form.resetFields();
+    form.setFieldsValue(initialValues);
+    ownerValuesRef.current = { contextKey: ownerContextKey, values: ownerValues };
+  }, [form, initialValues, open, ownerContextKey]);
 
   const handleFinish = async (values: {
     resourceScope?: CalendarResourceScope;
@@ -584,7 +601,12 @@ export function ExceptionFormModal({
         if (resolvedScope === 'workCenter') return Boolean(workCenterId) && shift.workCenterId === workCenterId;
         return Boolean(targetSupplierId) && shift.supplierId === targetSupplierId;
       })
-      .map((shift) => ({ label: shift.name, value: shift.id }));
+      .filter((shift) => shift.isActive !== false || shift.id === editingException?.shiftCalendarId)
+      .map((shift) => ({
+        label: shift.isActive === false ? `${shift.name}（已停用）` : shift.name,
+        value: shift.id,
+        disabled: shift.isActive === false,
+      }));
   };
 
   const exceptionTypeOptions = EXCEPTION_TYPE_VALUES.map((value) => ({
@@ -597,6 +619,24 @@ export function ExceptionFormModal({
       title={isEditing ? '编辑日历例外' : '新增日历例外'}
       open={open}
       onOpenChange={onOpenChange}
+      form={form}
+      onValuesChange={(changedValues, allValues) => {
+        const nextOwnerValues = {
+          resourceScope: allValues.resourceScope as CalendarResourceScope | undefined,
+          workCenterId: allValues.workCenterId as string | undefined,
+          supplierId: allValues.supplierId as string | undefined,
+        };
+        const ownerSelectionChanged = (
+          ['resourceScope', 'workCenterId', 'supplierId'] as const
+        ).some((field) => (
+          field in changedValues
+          && !Object.is(nextOwnerValues[field], ownerValuesRef.current.values[field])
+        ));
+        ownerValuesRef.current = { contextKey: ownerContextKey, values: nextOwnerValues };
+        if (ownerSelectionChanged) {
+          form.setFieldValue('shiftCalendarId', undefined);
+        }
+      }}
       modalProps={{
         destroyOnHidden: true,
         centered: true,

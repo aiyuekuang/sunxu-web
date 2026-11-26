@@ -130,6 +130,19 @@ const exceptionLabels: Record<CalendarExceptionType, { label: string; color: str
 
 const initialShifts: ShiftCalendarRecord[] = [
   {
+    id: 'shift-company-day',
+    code: 'SHIFT000000',
+    name: '公司标准白班',
+    shiftType: '白班',
+    wageMultiplier: 1,
+    startTime: '08:00',
+    endTime: '20:00',
+    workingDays: [1, 2, 3, 4, 5],
+    crossDay: false,
+    breaks: [{ startTime: '12:00', endTime: '13:00' }],
+    isActive: true,
+  },
+  {
     id: 'shift-assembly-day',
     code: 'SHIFT000001',
     name: '装配日班',
@@ -145,6 +158,21 @@ const initialShifts: ShiftCalendarRecord[] = [
     effectiveFrom: null,
     effectiveTo: null,
     isActive: true,
+  },
+  {
+    id: 'shift-machining-disabled',
+    code: 'SHIFT000009',
+    name: '机加工临时两班制',
+    shiftType: '两班制',
+    wageMultiplier: 1,
+    workCenterId: 'wc-machining',
+    workCenter: { id: 'wc-machining', name: '机加工中心', code: 'WC-MACH' },
+    startTime: '08:00',
+    endTime: '20:00',
+    workingDays: [1, 2, 3, 4, 5, 6],
+    crossDay: false,
+    breaks: [],
+    isActive: false,
   },
   {
     id: 'shift-supplier-night',
@@ -189,6 +217,18 @@ const initialExceptions: CalendarExceptionRecord[] = [
     shiftCalendarId: 'shift-supplier-night',
     shiftCalendar: { id: 'shift-supplier-night', name: '外协夜班' },
     remarks: '订单交付加班',
+  },
+  {
+    id: 'exception-disabled-shift',
+    workCenterId: 'wc-machining',
+    workCenter: { id: 'wc-machining', name: '机加工中心' },
+    startDate: '2026-11-26',
+    endDate: '2026-11-26',
+    isAllDay: true,
+    type: 'maintenance',
+    shiftCalendarId: 'shift-machining-disabled',
+    shiftCalendar: { id: 'shift-machining-disabled', name: '机加工临时两班制' },
+    remarks: '旧班次保留关联，编辑时可清除',
   },
 ];
 
