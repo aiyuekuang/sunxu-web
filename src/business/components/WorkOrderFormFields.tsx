@@ -293,6 +293,16 @@ export function WorkOrderFormFields({ record, capabilities }: WorkOrderFormField
       <section className="document-form-section">
         <div className="document-form-section-title">工单信息</div>
         {!record ? <RouteFieldResetter /> : null}
+        {!record ? (
+          <ProFormText
+            name="orderNo"
+            label="工单号"
+            placeholder="留空由系统生成"
+            extra="自定义编号可用于对应原系统工单。"
+            rules={[{ max: 64, message: '工单号最多64个字符' }]}
+            fieldProps={{ maxLength: 64, showCount: true }}
+          />
+        ) : null}
         <MaterialSelectField
           name="materialId"
           request={capabilities.requestMaterialOptions}

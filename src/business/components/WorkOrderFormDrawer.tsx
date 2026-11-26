@@ -105,10 +105,12 @@ export function WorkOrderFormDrawer({
       initialValues={record ? toFormValues(record) : undefined}
       onFinish={async (values) => {
         if (!record) {
-          let created: { id: string };
+          let created: { id: string; orderNo: string };
           try {
+            const { orderNo, ...createValues } = values;
             created = await capabilities.createWorkOrder({
-              ...values,
+              ...createValues,
+              orderNo: orderNo?.trim() || undefined,
               receiptWarehouseId:
                 'receiptWarehouseId' in values
                   ? values.receiptWarehouseId ?? null
@@ -120,7 +122,7 @@ export function WorkOrderFormDrawer({
           }
           message.success(
             <span>
-              草稿工单已创建{' '}
+              草稿工单 {created.orderNo} 已创建{' '}
               <a
                 href={capabilities.getWorkOrderDetailsHref(created.id)}
                 onClick={(event) => {

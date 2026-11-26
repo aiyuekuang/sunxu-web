@@ -120,7 +120,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `QualityTemplateItemsEditor`（`sunxu-web/business`） | 保留模板检验项动态增删/复制、数值范围与测量次数校验、选择结果、自动判定提示、SPC/必检/必拍开关；规格类型字典和每项全宽扩展字段由宿主渲染 |
 | `ScrapDeductionPolicySection`、`MaterialScrapDeductionPolicySection`（`sunxu-web/business`） | 保留公司级报废扣款策略和物料覆盖/继承编辑；权限、策略 API 与保存提示由宿主注入 |
 | `SelectedWorkOrdersTable`、`ProductionBatchNoField`、`WorkOrderAllocatedSerialsButton`（`sunxu-web/business`） | 保留批量工单核对、报工批号输入/扫码和已分配序列号查询；物料显示、批号候选和序列号服务由宿主注入 |
-| `WorkOrderReportModal`、`WorkOrderReportDirectModal`、`WorkOrderFormDrawer/Fields`、`WorkOrderListProgress/RiskTags`（`sunxu-web/business`） | 保留工序/整单报工、工单表单、动态字段与列表进度风险摘要；工单 API、权限、序列/仓位/批号候选及副作用由宿主注入 |
+| `WorkOrderReportModal`、`WorkOrderReportDirectModal`、`WorkOrderFormDrawer/Fields`、`WorkOrderListProgress/RiskTags`（`sunxu-web/business`） | 保留工序/整单报工、工单表单、动态字段与列表进度风险摘要；新建工单号可留空自动生成或填写自定义编号，编辑不开放改号；工单 API、公司内唯一校验、权限、序列/仓位/批号候选及副作用由宿主注入 |
 | `WorkOrderBatchReportModal`、`WorkOrderMaterialShortageSection`（`sunxu-web/business`） | 保留多工序批量报工和工单缺料补料闭环；数据/API、权限、上传、打印、字段帮助和消息由宿主注入 |
 | `WorkOrderTemporaryReportQrPrint`（`sunxu-web/business`） | 保留临时报工码资格、门户 URL、动态文案转义、六码分页和打印窗口；二维码 renderer 与窗口策略由宿主注入 |
 | `OutsourcingOrderDetailLedger`、`OutsourcingProgressDrawer`（`sunxu-web/business`） | 保留外协订单详情台账、批量打印、视图/筛选和供应商进度/二维码维护；台账与进度服务、权限、字典和打印/二维码能力由宿主注入 |

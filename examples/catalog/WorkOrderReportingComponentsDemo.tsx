@@ -340,7 +340,10 @@ const formDrawerCapabilities: WorkOrderFormDrawerCapabilities = {
   renderConfigEntryFieldLabel: ({ children, show, onOpen }) =>
     show ? <Button type="link" size="small" onClick={onOpen}>{children}</Button> : children,
   openConfiguration: () => undefined,
-  createWorkOrder: async () => ({ id: 'work-order-created-demo' }),
+  createWorkOrder: async (values) => ({
+    id: 'work-order-created-demo',
+    orderNo: typeof values.orderNo === 'string' ? values.orderNo : 'WO-2026-0023',
+  }),
   updateWorkOrder: async () => undefined,
   getWorkOrderDetailsHref: (id) => `/demo/work-orders/${id}`,
   openWorkOrderDetails: (id) => console.info('打开示例工单', id),

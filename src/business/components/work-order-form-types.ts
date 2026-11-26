@@ -76,6 +76,7 @@ export interface WorkOrderListExecutionRecord {
 }
 
 export interface WorkOrderFormValues extends Record<string, unknown> {
+  orderNo?: string;
   materialId?: string;
   plannedQty?: number;
   priority?: number;
@@ -126,7 +127,7 @@ export type WorkOrderFormFieldHelpProps = Omit<
 >;
 
 export interface WorkOrderFormDrawerCapabilities extends WorkOrderFormFieldsCapabilities {
-  createWorkOrder: (values: WorkOrderFormValues) => Promise<{ id: string }>;
+  createWorkOrder: (values: WorkOrderFormValues) => Promise<{ id: string; orderNo: string }>;
   updateWorkOrder: (values: Record<string, unknown>) => Promise<void>;
   getWorkOrderDetailsHref: (workOrderId: string) => string;
   openWorkOrderDetails: (workOrderId: string) => void;

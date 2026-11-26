@@ -166,7 +166,7 @@
 | `StockTransferModal` / `StockTransferActionModals` | 编辑调拨单并承载确认、取消草稿和撤销弹窗 | MES 物料/仓位/库存组件 + AntD Modal；请求、权限、日期规范化、提示和刷新由宿主注入 |
 | `CustomerMaterialDispositionDetailLedger` / `CustomerMaterialDispositionForm` / `CustomerMaterialDispositionReverseModal` | 查看客户料处置台账并维护处置/冲正；保留来源余额扣除、批号追溯、库存校验、自定义字段和个人视图 | MES `ResizableProTable` / ProForm / AntD Modal；查询/保存/冲正、权限、字典、字段帮助、导航与视图持久化由宿主注入 |
 | `SelectedWorkOrdersTable` / `ProductionBatchNoField` / `WorkOrderAllocatedSerialsButton` | 核对选中工单、录入/扫码报工批号、查看分配序列号 | MES 表格 / ProForm / AntD Modal；物料显示、批号候选和序列号服务由宿主注入 |
-| `WorkOrderReportModal` / `WorkOrderReportDirectModal` / `WorkOrderFormDrawer` / `WorkOrderFormFields` / `WorkOrderListProgress` / `WorkOrderRiskTags` | 工序/整单报工、工单新增编辑、执行摘要和风险标签 | ProForm / AntD；工单服务、规则、字典、权限、上传、扫码候选、导航和字段帮助由宿主注入 |
+| `WorkOrderReportModal` / `WorkOrderReportDirectModal` / `WorkOrderFormDrawer` / `WorkOrderFormFields` / `WorkOrderListProgress` / `WorkOrderRiskTags` | 工序/整单报工、工单新增编辑、执行摘要和风险标签；新建时工单号可留空由系统生成，填写后用于自定义编号（最多64字符），公司内重号由服务端拒绝；编辑时不开放改号 | ProForm / AntD；工单服务、工单号唯一性校验、规则、字典、权限、上传、扫码候选、导航和字段帮助由宿主注入 |
 | `ReportLogDetailDrawer` | 展示报工日志工单/操作、数量、工时、状态、计件工资、报废率和关联单据 | AntD Drawer / `Descriptions`；详情数据、查看权限、状态/日期/数值格式与来源导航由宿主注入 |
 | `WorkOrderFilterDrawer` | 工单状态、物料需求、执行状态、交期风险、物料/客户/计划/负责人、优先级及五类日期范围筛选 | ProForm / `DocumentFilterDrawer`；状态选项、远程候选、查询和重置由宿主注入 |
 | `ReportDynamicFields` | 根据正式报工预检结果渲染工序/成品数量、生产批号、排产、工时、报废及异常工时说明字段 | Ant Design `Form.Item` / `InputNumber` / `Select`；预检结果和数值格式由宿主传入 |
