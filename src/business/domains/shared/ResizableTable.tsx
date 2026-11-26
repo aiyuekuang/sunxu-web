@@ -233,6 +233,8 @@ export type ResizableProTableProps<
   fitContainerHeight?: FitContainerHeight;
   /** 分页列表默认展示 ERP 风格的全局序号；详情/明细表可显式关闭。 */
   showRowIndex?: boolean;
+  /** 自动补充创建/更新的仅日期展示列；重复信息场景可关闭。 */
+  showAuditDateColumns?: boolean;
   /** 列表空态的业务引导文案（数据由哪个上游生成/需要什么配置/筛选无结果如何调整）。 */
   emptyGuidance?: React.ReactNode;
   /** Host-provided summary for the filtered result, placed beside pagination. */
@@ -3091,6 +3093,7 @@ function ResizableProTableInner<
     paginationSummary,
     params,
     showRowIndex,
+    showAuditDateColumns = true,
     exportLayoutEnabled,
     materialColumnPriority,
     ...rest
@@ -3119,9 +3122,11 @@ function ResizableProTableInner<
   const columnsWithAuditDates = useMemo(
     () =>
       withQuickDateRangePresets(
-        withAuditDateColumns(columnsWithMaterialPriority as ProColumns<T>[]),
+        showAuditDateColumns
+          ? withAuditDateColumns(columnsWithMaterialPriority as ProColumns<T>[])
+          : columnsWithMaterialPriority as ProColumns<T>[] | undefined,
       ),
-    [columnsWithMaterialPriority],
+    [columnsWithMaterialPriority, showAuditDateColumns],
   );
   const rowIndexPageInfoRef = useRef<RowIndexPageInfo>(
     resolveInitialRowIndexPageInfo(pagination),

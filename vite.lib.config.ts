@@ -19,6 +19,7 @@ export default defineConfig({
         businessQuality: 'src/business/domains/quality/index.ts',
         businessSales: 'src/business/domains/sales/index.ts',
         businessShared: 'src/business/domains/shared/index.ts',
+        businessSharedTable: 'src/business/domains/shared/table.ts',
       },
       name: 'SunxuWeb',
       formats: ['es', 'cjs'],

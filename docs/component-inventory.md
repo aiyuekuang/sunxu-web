@@ -175,9 +175,9 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `DrawingFilesInline`、`FileUrlsInline`、`DrawingFilesGallery`、`PdfPreviewDrawer`（`sunxu-web/business`） | 业务图纸/附件上传、订单头附件关联、分组预览/打印和 PDF 分页缩放；文件代理、原名解析和上传由宿主注入 |
 | `MaterialDrawingsPanel`（`sunxu-web/business`） | 保留物料图纸/附件列表、图片/PDF/GLB 预览、受权限控制的上传/删除及上传策略校验；文件请求、授权 URL 和预览 renderer 由宿主注入，可接入套件 `GlbModelViewer` |
 | `GlbModelViewer`（`sunxu-web/business`） | 提供 GLB/GLTF 加载、旋转缩放、网格/线框切换、恢复视角、加载失败及 WebGL 资源清理；宿主传入已授权可读 URL，three 为可选 peer 且挂载后动态加载 |
-| `ResizableProTable`（`sunxu-web/business`） | 业务分页列表表格适配：可调列宽、持久化列序/显隐/排序、全局行号、密度、空态、金额显隐刷新和导出布局；单列表视口高度由 `CrudListWorkbench fill` 唯一拥有，旧 `fitContainerHeight` 仅为存量调用提供迁移兼容 |
-| `ResizableTable`（`sunxu-web/business`） | 原生 AntD Table 的业务明细表适配：可调列宽、可选行号、密度、空态、金额显隐刷新和本地排序 |
-| `TableActions`、`TableDensityOption`、`TableEmpty`（`sunxu-web/business`） | 业务表格的行操作收纳、密度控制和带业务引导的空态；完整宿主菜单列用 `markCompleteActionMenuColumn` 标记，避免二次套菜单 |
+| `ResizableProTable`（`sunxu-web/business/shared/table`） | 业务分页列表表格适配：可调列宽、持久化列序/显隐/排序、全局行号、密度、空态、金额显隐刷新和导出布局；单列表视口高度由 `CrudListWorkbench fill` 唯一拥有，旧 `fitContainerHeight` 仅为存量调用提供迁移兼容 |
+| `ResizableTable`（`sunxu-web/business/shared/table`） | 原生 AntD Table 的业务明细表适配：可调列宽、可选行号、密度、空态、金额显隐刷新和本地排序 |
+| `TableActions`、`TableDensityOption`、`TableEmpty`（`sunxu-web/business/shared/table`） | 业务表格的行操作收纳、密度控制和带业务引导的空态；根主题联动通过共享密度状态 API；完整宿主菜单列用 `markCompleteActionMenuColumn` 标记，避免二次套菜单 |
 | `todayBusinessDate`（`sunxu-web/business`） | 以 `Asia/Shanghai` 返回当前业务业务日 `YYYY-MM-DD`，供日期默认值和业务日比较复用 |
 | `RowActions` | 表格行操作收纳为省略号菜单（来源：tel_admin `TableActions` 适配） |
 | `TableSummary` | 在表格结果区末尾固定展示列合计，或以普通表格行承载多单位摘要；`fullWidth` 由业务表格适配器按最终可见列解析，独立适配器可调用 `withResolvedTableSummary`；不承担请求、聚合或单位换算 |

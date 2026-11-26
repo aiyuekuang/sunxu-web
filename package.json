@@ -1,6 +1,6 @@
 {
   "name": "sunxu-web",
-  "version": "0.5.0",
+  "version": "0.5.1",
   "private": false,
   "description": "Shared React web components, page containers, and reusable business UI",
   "license": "MIT",
@@ -110,6 +110,14 @@
       "import": "./dist/business-shared.js",
       "require": "./dist/business-shared.cjs"
     },
+    "./business/shared/table": {
+      "types": "./dist/types/business/domains/shared/table.d.ts",
+      "node": {
+        "import": "./dist/node/business-shared-table.mjs"
+      },
+      "import": "./dist/business-shared-table.js",
+      "require": "./dist/business-shared-table.cjs"
+    },
     "./styles.css": {
       "default": "./dist/sunxu-web.css"
     }
@@ -117,6 +125,9 @@
   "sideEffects": [
     "**/*.css"
   ],
+  "dependencies": {
+    "use-antd-resizable-header": "^3.2.2"
+  },
   "scripts": {
     "dev": "vite --config vite.config.ts",
     "test": "node --test --test-concurrency=1",
@@ -140,8 +151,7 @@
     "react-dom": "^19.3.1",
     "react-pdf": "^10.4.1",
     "react-to-print": "^3.3.0",
-    "three": "^0.185.1",
-    "use-antd-resizable-header": "^3.2.2"
+    "three": "^0.185.1"
   },
   "devDependencies": {
     "@ant-design/icons": "6.3.4",

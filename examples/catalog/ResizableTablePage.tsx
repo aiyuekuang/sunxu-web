@@ -182,6 +182,7 @@ function ExportLayoutStatus() {
 export function ResizableTablePage() {
   const [showEmpty, setShowEmpty] = useState(false);
   const [amountVisible, setAmountVisible] = useState(false);
+  const [showAuditDates, setShowAuditDates] = useState(true);
   const [lastAction, setLastAction] = useState('尚未触发行操作');
   const [requestCount, setRequestCount] = useState(0);
   const actionRef = useRef<ActionType | undefined>(undefined);
@@ -358,6 +359,14 @@ export function ResizableTablePage() {
             />
             <span>显示金额</span>
           </label>
+          <label className="sxw-catalog-toggle">
+            <Switch
+              checked={showAuditDates}
+              onChange={setShowAuditDates}
+              aria-label="显示创建/更新日期伴列"
+            />
+            <span>显示日期伴列</span>
+          </label>
           <Tag color="blue">请求 {requestCount} 次</Tag>
           <Typography.Text type="secondary" role="status">
             {lastAction}；双击普通行可触发行编辑回调。
@@ -401,6 +410,7 @@ export function ResizableTablePage() {
                   labelWidth: 'auto',
                 }}
                 options={{ density: true, setting: true, reload: false, fullScreen: false }}
+                showAuditDateColumns={showAuditDates}
                 toolBarRender={() => [<ExportLayoutStatus key="export-layout" />]}
                 pagination={{ defaultPageSize: 5, pageSizeOptions: [5, 10] }}
                 scroll={{ x: 'max-content' }}

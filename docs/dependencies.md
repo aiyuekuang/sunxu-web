@@ -19,6 +19,7 @@
 | `@dnd-kit/sortable` | peer/dev `^10.0.0` | MES 可排序字段/列构建块 | npm registry 10.0.0 |
 | `@dnd-kit/utilities` | peer/dev `^3.2.2` | dnd-kit CSS transform 工具 | npm registry 3.2.2 |
 | `react-to-print` | peer/dev `^3.3.0` | MES React 内容打印 Hook | 官方包文档与 npm registry 3.3.0 |
+| `use-antd-resizable-header` | runtime dependency `^3.2.2` | ResizableTable 公开组件内部使用的列宽交互实现，由组件库统一安装 | 直接导入位于 `src/business/domains/shared/ResizableTable.tsx`；消费项目不单独管理 |
 
 Ant Design 6 与 Pro Components 当前稳定版 2.8.10 的 peer 范围不匹配：稳定版只声明 Ant Design 4/5；当前 beta 3.1.15-9 声明支持 Ant Design 6。项目按用户决定使用新组合，不降回 Ant Design 5。依赖升级前重新查询 npm tag 与 peerDependencies，并在安装、类型检查和构建后更新本表。
 

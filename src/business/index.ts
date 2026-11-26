@@ -473,6 +473,40 @@ export type {
   ResizableTableSortMigration,
 } from './domains/shared/ResizableTable';
 export { resolveScrollX } from './domains/shared/ResizableTable';
+export {
+  DEFAULT_TABLE_DENSITY_KEY,
+  getAntdTableSize,
+  getTableDensityKey,
+  getTableDensityTokens,
+  setTableDensityKey,
+  TABLE_DENSITY_OPTIONS,
+  TABLE_DENSITY_STORAGE_KEY,
+  useTableDensityKey,
+} from './theme/tableDensity';
+export type {
+  AntdTableSize,
+  TableDensityKey,
+  TableDensityOption as TableDensityOptionConfig,
+  TableDensityTokens,
+} from './theme/tableDensity';
+export {
+  activateTableExportLayout,
+  applyActiveTableExportLayout,
+  clearActiveTableExportLayout,
+  getActiveTableExportLayout,
+  getTableExportRouteKey,
+  updateActiveTableExportLayout,
+} from './table/exportLayout';
+export {
+  TABLE_COLUMN_KEY_PREFIX,
+  TABLE_SORT_KEY_PREFIX,
+  TABLE_SORT_STORAGE_PREFIX,
+  TABLE_WIDTH_KEY_PREFIX,
+  TABLE_WIDTH_STORAGE_PREFIX,
+  normalizeTableSortStorageKey,
+  normalizeTableWidthStorageKey,
+} from './utils/storageSchema';
+export { ROW_INDEX_COLUMN_KEY } from './table/tableHelpers';
 export { default as TableActions } from './table/TableActions';
 export { markCompleteActionMenuColumn } from './table/completeActionMenuColumn';
 export { todayBusinessDate } from './utils/businessDate';
