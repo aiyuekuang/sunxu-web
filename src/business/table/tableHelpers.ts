@@ -1,6 +1,6 @@
 import type { ProColumns } from '@ant-design/pro-components';
 
-export const ROW_INDEX_COLUMN_KEY = '__mes_row_index__';
+export const ROW_INDEX_COLUMN_KEY = '__sxw_row_index__';
 
 export interface RowIndexPageInfo {
   current: number;
@@ -43,10 +43,10 @@ const AUDIT_DATE_FIELDS = new Map([
   ['createdAt', '创建日期'],
   ['updatedAt', '更新日期'],
 ]);
-const RELATION_SORT_KEY_PREFIX = '__mes_relation_sort__';
+export const RELATION_SORT_KEY_PREFIX = '__sxw_relation_sort__';
 
 function getAuditDateColumnStateKey(dataIndex: string): string {
-  return `__mes-audit-date-${dataIndex}`;
+  return `__sxw-audit-date-${dataIndex}`;
 }
 
 function createDateOnlyColumn<T extends object>(

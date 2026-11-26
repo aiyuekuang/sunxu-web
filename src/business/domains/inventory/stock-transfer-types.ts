@@ -1,4 +1,4 @@
-import type { BatchMaterialRecord } from '../manufacturing/batch-material-add-types';
+import type { BatchMaterialRecord } from './batch-material-add-types';
 import type {
   FilterableSelectRequestFn,
   MaterialFilteredSelectOption,

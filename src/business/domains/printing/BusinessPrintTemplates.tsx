@@ -1,5 +1,5 @@
 /**
- * host business print templates migrated from mes-admin.
+ * reusable host business print templates.
  *
  * Host-owned host dictionaries, permission masking and QR payload encoding are
  * passed through props so this file has no dependency on host application hooks.

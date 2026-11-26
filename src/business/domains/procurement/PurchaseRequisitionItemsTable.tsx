@@ -187,7 +187,7 @@ export function PurchaseRequisitionItemsTable<
   return (
     <ProTable<Row>
       rowKey="id"
-      className="mes-expanded-detail-table"
+      className="sxw-expanded-detail-table"
       search={false}
       options={false}
       headerTitle={false}

@@ -37,7 +37,7 @@ export function MenuSearchInput({
   ariaLabel = '搜索菜单',
 }: MenuSearchInputProps) {
   return (
-    <div className="sxw-mes-menu-search">
+    <div className="sxw-menu-search">
       <AutoComplete
         allowClear
         filterOption={false}
@@ -49,10 +49,10 @@ export function MenuSearchInput({
         onSearch={onSearch}
         options={options.map(({ value: optionValue, title, context }) => ({
           label: (
-            <div className="sxw-mes-menu-search__option" title={optionValue}>
-              <span className="sxw-mes-menu-search__option-title">{title}</span>
+            <div className="sxw-menu-search__option" title={optionValue}>
+              <span className="sxw-menu-search__option-title">{title}</span>
               {context ? (
-                <span className="sxw-mes-menu-search__option-context">
+                <span className="sxw-menu-search__option-context">
                   {context}
                 </span>
               ) : null}
@@ -60,13 +60,13 @@ export function MenuSearchInput({
           ),
           value: optionValue,
         }))}
-        classNames={{ popup: { root: 'sxw-mes-menu-search__dropdown' } }}
+        classNames={{ popup: { root: 'sxw-menu-search__dropdown' } }}
         value={value}
       >
         <Input
           ref={inputRef}
           aria-label={ariaLabel}
-          className="sxw-mes-menu-search__input"
+          className="sxw-menu-search__input"
           onKeyDown={onKeyDown}
           placeholder={placeholder}
           prefix={<SearchOutlined aria-hidden="true" />}

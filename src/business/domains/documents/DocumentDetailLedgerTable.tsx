@@ -27,6 +27,7 @@ import {
   ResizableProTable,
   type ResizableTableConfig,
 } from '../shared/ResizableTable';
+import { RELATION_SORT_KEY_PREFIX } from '../../table/tableHelpers';
 import { useDocumentDetailLedgerCapabilities } from '../../providers/BusinessUiProvider';
 import type { MaterialColumnPriority } from '../../table/materialColumnPriority';
 import type { DocumentDetailLedgerExportActionProps } from './document-detail-ledger-types';
@@ -209,9 +210,8 @@ function resolveProTableSort(
   if (!activeSort) return {};
   const [rawField, rawOrder] = activeSort;
   const trimmed = rawField.trim();
-  const relationPrefix = '__mes_relation_sort__';
-  const sortField = trimmed.startsWith(relationPrefix)
-    ? trimmed.slice(relationPrefix.length) || trimmed
+  const sortField = trimmed.startsWith(RELATION_SORT_KEY_PREFIX)
+    ? trimmed.slice(RELATION_SORT_KEY_PREFIX.length) || trimmed
     : (trimmed.split(',').map((value) => value.trim()).filter(Boolean).pop() ?? trimmed)
         .split('.')
         .map((value) => value.trim())

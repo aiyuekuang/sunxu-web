@@ -1,8 +1,8 @@
-.mes-custom-field-panel {
+.sxw-custom-field-panel {
   min-height: 120px;
 }
 
-.mes-custom-field-panel-header {
+.sxw-custom-field-panel-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -10,7 +10,7 @@
   margin-bottom: 8px;
 }
 
-.mes-custom-field-panel-empty {
+.sxw-custom-field-panel-empty {
   display: flex;
   align-items: center;
   justify-content: center;
@@ -21,10 +21,10 @@
   background: var(--ant-color-bg-container, #fff);
 }
 
-.mes-custom-field-panel-empty .ant-empty {
+.sxw-custom-field-panel-empty .ant-empty {
   margin: 0;
 }
 
-.mes-custom-field-panel-empty .ant-empty-footer {
+.sxw-custom-field-panel-empty .ant-empty-footer {
   margin-top: 12px;
 }

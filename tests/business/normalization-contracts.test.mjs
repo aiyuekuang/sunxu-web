@@ -17,10 +17,10 @@ const domains = [
 
 const read = (path) => readFile(new URL(`../../${path}`, import.meta.url), 'utf8');
 
-test('business package exposes neutral, domain-based entry points and one compatibility layer', async () => {
+test('business package exposes neutral, domain-based entry points only', async () => {
   const pkg = JSON.parse(await read('package.json'));
   const root = await read('src/business/index.ts');
-  const compatibility = await read('src/business/compat/mesAliases.ts');
+  const vite = await read('vite.lib.config.ts');
 
   for (const domain of domains) {
     assert.ok(pkg.exports[`./business/${domain}`], `missing ${domain} export`);
@@ -28,36 +28,54 @@ test('business package exposes neutral, domain-based entry points and one compat
     assert.doesNotMatch(barrel, /\b(?:Mes[A-Z]|useMes[A-Z]|MES_[A-Z])/);
   }
   assert.match(root, /export \* from '\.\/providers\/BusinessUiProvider'/);
-  assert.doesNotMatch(root, /export \* from '\.\/compatibility'/);
+  assert.equal(pkg.exports['./mes'], undefined);
+  assert.doesNotMatch(vite, /\bmes:\s*['"]src\/business\/compat\//);
+  assert.doesNotMatch(root, /compat\/|Mes[A-Z]|useMes[A-Z]/);
   assert.doesNotMatch(root, /Mes[A-Z]|useMes[A-Z]/);
-  assert.match(compatibility, /BusinessUiProvider as MesUiProvider/);
-  assert.match(compatibility, /@deprecated/);
 });
 
-test('legacy MES package entry is generated from the shared compatibility layer', async () => {
+test('library source and package exports do not contain a MES compatibility entry', async () => {
   const pkg = JSON.parse(await read('package.json'));
   const vite = await read('vite.lib.config.ts');
-  const entry = await read('src/business/compat/mesEntry.ts');
+  const shared = await read('src/business/domains/shared/index.ts');
 
-  assert.ok(!pkg.exports['./mes'].types.includes('/types/mes/'));
-  assert.match(pkg.exports['./mes'].types, /business\/compat\/mesEntry\.d\.ts$/);
-  assert.match(vite, /mes: 'src\/business\/compat\/mesEntry\.ts'/);
-  assert.match(entry, /@deprecated/);
-  assert.match(entry, /export \* from '\.\.\/index'/);
-  assert.match(entry, /export \* from '\.\/mesAliases'/);
+  assert.equal(pkg.exports['./mes'], undefined);
+  assert.doesNotMatch(vite, /\bmes:/);
+  assert.match(shared, /TableActions/);
+  await assert.rejects(read('src/business/compat/mesEntry.ts'));
 });
 
-test('legacy table preference identifiers stay isolated in the compatibility layer', async () => {
-  const legacyKeys = await read('src/business/compat/legacyStorageKeys.ts');
+test('public business internals and catalog examples use neutral identifiers', async () => {
+  const paths = [
+    'src/business/domains/shared/ResizableTable.tsx',
+    'src/business/domains/inventory/materialCustomFieldColumns.ts',
+    'src/business/domains/sales/SalesDetailLedgerComponents.tsx',
+    'examples/catalog/ResizableTablePage.tsx',
+    'examples/catalog/LabelTemplatesDemo.tsx',
+    'examples/catalog/WorkOrderProductionComponentsDemo.tsx',
+  ];
+  for (const path of paths) {
+    assert.doesNotMatch(
+      await read(path),
+      /__mes|sxw_catalog_mes|https:\/\/mes\.example\.com|\/mes\/work-orders/,
+      `${path} should not expose product-specific identifiers`,
+    );
+  }
+});
+
+test('library storage uses neutral keys and leaves host migrations outside the package', async () => {
+  const schema = await read('src/business/utils/storageSchema.ts');
   const safeStorage = await read('src/business/utils/safeStorage.ts');
   const density = await read('src/business/theme/tableDensity.ts');
   const table = await read('src/business/domains/shared/ResizableTable.tsx');
 
-  assert.match(legacyKeys, /LEGACY_TABLE_DENSITY_STORAGE_KEY\s*=\s*'mes-admin:table-density'/);
-  assert.match(safeStorage, /LEGACY_TABLE_CACHE_KEY_PREFIXES/);
-  assert.match(density, /LEGACY_TABLE_DENSITY_STORAGE_KEY/);
-  assert.doesNotMatch(safeStorage, /mes-admin:table-|mes_table_(?:width|sort|cols)_/);
-  assert.doesNotMatch(table, /mes-admin:table-|mes_table_(?:width|sort|cols)_/);
+  assert.match(schema, /sunxu-web:table-density/);
+  assert.match(schema, /normalizeTableWidthStorageKey/);
+  assert.match(schema, /normalizeTableSortStorageKey/);
+  assert.doesNotMatch(schema, /\bmes\b|__mes_|mes_table_|mes-admin:/);
+  assert.doesNotMatch(safeStorage, /migrateLegacyStorageOnce|mes-admin:table-|mes_table_/);
+  assert.doesNotMatch(density, /migrateLegacyStorageOnce/);
+  assert.doesNotMatch(table, /migrateLegacyStorageOnce|mes-admin:table-|mes_table_/);
 });
 
 test('catalog loads shared business styles while importing source modules', async () => {
@@ -80,7 +98,7 @@ test('catalog lazily loads route pages and defers the GLB viewer until requested
   assert.match(app, /正在加载组件示例/);
   assert.match(businessPage, /IntersectionObserver/);
   assert.match(businessPage, /rootMargin: '900px 0px'/);
-  assert.equal((businessPage.match(/<DeferredCatalogDemo component=\{/g) ?? []).length, 119);
+  assert.equal((businessPage.match(/<DeferredCatalogDemo component=\{/g) ?? []).length, 118);
   assert.doesNotMatch(businessPage, /import\s+\{\s*MaterialSelectorDemo\s*\}\s+from/);
   assert.match(viewer, /打开三维预览/);
   assert.match(viewer, /!viewerOpen \?/);
@@ -94,7 +112,6 @@ test('Node ESM package conditions point to generated explicit named-export wrapp
     ['.', 'index.mjs'],
     ['./business', 'business.mjs'],
     ['./business/accounting', 'business-accounting.mjs'],
-    ['./mes', 'mes.mjs'],
   ]) {
     assert.equal(pkg.exports[entry].node.import, `./dist/node/${file}`);
   }

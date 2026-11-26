@@ -1,4 +1,4 @@
-.sxw-mes-announcement-banner {
+.sxw-announcement-banner {
   box-sizing: border-box;
   position: relative;
   display: flex;
@@ -17,12 +17,12 @@
   transition: border-color 0.18s ease, background-color 0.18s ease;
 }
 
-.sxw-mes-announcement-banner:hover {
+.sxw-announcement-banner:hover {
   background-color: color-mix(in srgb, var(--sxw-surface) 94%, var(--sxw-primary));
   border-color: var(--sxw-primary);
 }
 
-.sxw-mes-announcement-banner__content {
+.sxw-announcement-banner__content {
   display: flex;
   flex: 1 1 auto;
   align-items: center;
@@ -37,26 +37,26 @@
   border: 0;
 }
 
-.sxw-mes-announcement-banner__content:focus-visible {
+.sxw-announcement-banner__content:focus-visible {
   outline: 2px solid var(--sxw-primary);
   outline-offset: 2px;
   border-radius: 4px;
 }
 
-.sxw-mes-announcement-banner__icon {
+.sxw-announcement-banner__icon {
   flex: 0 0 auto;
   color: var(--sxw-primary);
   font-size: 16px;
 }
 
-.sxw-mes-announcement-banner__label {
+.sxw-announcement-banner__label {
   flex: 0 0 auto;
   color: var(--sxw-text);
   font-size: 13px;
   font-weight: 600;
 }
 
-.sxw-mes-announcement-banner__priority {
+.sxw-announcement-banner__priority {
   flex: 0 0 auto;
   height: 20px;
   padding: 0 6px;
@@ -66,19 +66,19 @@
   border-radius: 4px;
 }
 
-.sxw-mes-announcement-banner__priority--important {
+.sxw-announcement-banner__priority--important {
   color: var(--sxw-warning);
   background: color-mix(in srgb, var(--sxw-warning) 10%, var(--sxw-surface));
   border-color: color-mix(in srgb, var(--sxw-warning) 35%, var(--sxw-surface));
 }
 
-.sxw-mes-announcement-banner__priority--urgent {
+.sxw-announcement-banner__priority--urgent {
   color: var(--sxw-error);
   background: color-mix(in srgb, var(--sxw-error) 10%, var(--sxw-surface));
   border-color: color-mix(in srgb, var(--sxw-error) 35%, var(--sxw-surface));
 }
 
-.sxw-mes-announcement-banner__marquee {
+.sxw-announcement-banner__marquee {
   position: relative;
   flex: 1 1 auto;
   height: 22px;
@@ -86,7 +86,7 @@
   overflow: hidden;
 }
 
-.sxw-mes-announcement-banner__track {
+.sxw-announcement-banner__track {
   position: absolute;
   inset: 0;
   display: flex;
@@ -94,7 +94,7 @@
   transition: transform 0.5s ease-in-out;
 }
 
-.sxw-mes-announcement-banner__item {
+.sxw-announcement-banner__item {
   height: 22px;
   overflow: hidden;
   color: var(--sxw-text-secondary);
@@ -104,13 +104,13 @@
   white-space: nowrap;
 }
 
-.sxw-mes-announcement-banner__count {
+.sxw-announcement-banner__count {
   flex: 0 0 auto;
   color: var(--sxw-text-muted);
   font-size: 12px;
 }
 
-.sxw-mes-announcement-banner__close.ant-btn {
+.sxw-announcement-banner__close.ant-btn {
   flex: 0 0 auto;
   width: 24px;
   min-width: 24px;
@@ -119,8 +119,8 @@
 }
 
 @media (prefers-reduced-motion: reduce) {
-  .sxw-mes-announcement-banner,
-  .sxw-mes-announcement-banner__track {
+  .sxw-announcement-banner,
+  .sxw-announcement-banner__track {
     transition: none;
   }
 }

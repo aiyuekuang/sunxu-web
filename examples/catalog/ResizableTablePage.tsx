@@ -264,7 +264,7 @@ export function ResizableTablePage() {
       { title: '单位', dataIndex: 'materialUnit', width: 84, search: false },
       { title: '规格型号', dataIndex: 'materialSpec', search: false, ellipsis: true },
       { title: '物料编码', dataIndex: 'materialCode', width: 148, search: false },
-      { title: '物料名称', dataIndex: 'materialName', width: 160, search: false },
+      { title: '物料名称', dataIndex: 'materialName', search: false },
       { title: '创建时间', dataIndex: 'createdAt', valueType: 'dateTime', width: 168, search: false },
       {
         title: '关键字',
@@ -367,7 +367,7 @@ export function ResizableTablePage() {
         <Typography.Text type="secondary" role="note">
           兼容旧宿主的局部高度适配示例。新建单列表视口页请使用 CRUD 列表工作台的 fill 模式。
         </Typography.Text>
-        <div className="sxw-mes-fit-table-boundary sxw-catalog-fit-table-boundary">
+        <div className="sxw-catalog-fit-table-boundary">
           <KeyboardTableRegion
             label="物料台账，可用左右方向键查看全部列"
             className="sxw-catalog-fit-table-region"
@@ -406,8 +406,8 @@ export function ResizableTablePage() {
                 scroll={{ x: 'max-content' }}
                 fitContainerHeight={{ bottomOffset: 12, minBodyHeight: 120 }}
                 resizable={{
-                  persistenceKey: 'sxw_catalog_mes_material_table',
-                  sortPersistenceKey: 'sxw_catalog_mes_material_sort',
+                  persistenceKey: 'sxw_catalog_material_table',
+                  sortPersistenceKey: 'sxw_catalog_material_sort',
                   serverSortFields: ['materialCode', 'materialName', 'quantity', 'createdAt'],
                 }}
                 materialColumnPriority={{
@@ -470,7 +470,7 @@ export function ResizableTablePage() {
                 dataSource={materials.slice(0, 4)}
                 pagination={{ defaultPageSize: 4, pageSize: 4 }}
                 scroll={{ x: 688 }}
-                resizable={{ persistenceKey: 'sxw_catalog_mes_local_detail_table' }}
+                resizable={{ persistenceKey: 'sxw_catalog_local_detail_table' }}
                 materialColumnPriority="preserve"
               />
             </BusinessUiProvider>

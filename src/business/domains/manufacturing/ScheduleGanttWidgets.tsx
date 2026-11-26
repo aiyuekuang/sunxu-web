@@ -38,11 +38,11 @@ export const GanttNowLine = memo(function GanttNowLine({
   return (
     <Tooltip title={`当前时刻: ${now.format('HH:mm')}`}>
       <div
-        className="sunxu-mes-schedule-now-line"
+        className="sxw-schedule-now-line"
         style={{ left: getPosition(now), height }}
       >
         <div
-          className="sunxu-mes-schedule-now-marker"
+          className="sxw-schedule-now-marker"
           aria-hidden="true"
         />
       </div>
@@ -148,7 +148,7 @@ export const GanttHeatmapCell = memo(function GanttHeatmapCell({
   return (
     <Tooltip title={tooltip} mouseEnterDelay={0.15}>
       <div
-        className={`sunxu-mes-schedule-heatmap-cell${
+        className={`sxw-schedule-heatmap-cell${
           overload ? ' is-overloaded' : ''
         }${hasData ? '' : ' is-empty'}`}
         style={{
@@ -160,26 +160,26 @@ export const GanttHeatmapCell = memo(function GanttHeatmapCell({
         onClick={hasData ? onClick : undefined}
       >
         {overload && (
-          <span className="sunxu-mes-schedule-heatmap-warning">⚠️</span>
+          <span className="sxw-schedule-heatmap-warning">⚠️</span>
         )}
-        <div className="sunxu-mes-schedule-heatmap-value">
-          <span className="sunxu-mes-schedule-heatmap-primary">
+        <div className="sxw-schedule-heatmap-value">
+          <span className="sxw-schedule-heatmap-primary">
             {primaryText}
           </span>
           {secondaryText && (
-            <span className="sunxu-mes-schedule-heatmap-secondary">
+            <span className="sxw-schedule-heatmap-secondary">
               {secondaryText}
             </span>
           )}
         </div>
         {hasData && (
-          <div className="sunxu-mes-schedule-heatmap-track">
+          <div className="sxw-schedule-heatmap-track">
             <div
-              className="sunxu-mes-schedule-heatmap-fill"
+              className="sxw-schedule-heatmap-fill"
               style={{
                 width: `${fillPercent}%`,
                 background: overload
-                  ? 'var(--sunxu-mes-schedule-heat-overload, #ff3141)'
+                  ? 'var(--sxw-schedule-heat-overload, #ff3141)'
                   : strong,
               }}
             />

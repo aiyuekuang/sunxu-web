@@ -1,6 +1,6 @@
 # Sunxu Web 组件使用规范
 
-本规范将 Web 项目中的页面场景映射到 Sunxu Web 原子组件、通用复合组件、业务复合组件和上游 Ant Design / Ant Design Pro Components。多个项目接入同一组件库时，同一业务任务复用同一权威组件、契约和视觉行为；业务差异由宿主提供的数据、能力接口和明确配置承接。`sunxu-web/business` 是业务复合组件的权威入口；旧 `sunxu-web/mes` 只做迁移兼容转发，组件范围按稳定职责和业务领域确定。新增组件不得以宿主产品划分实现。
+本规范将 Web 项目中的页面场景映射到 Sunxu Web 原子组件、通用复合组件、业务复合组件和上游 Ant Design / Ant Design Pro Components。多个项目接入同一组件库时，同一业务任务复用同一权威组件、契约和视觉行为；业务差异由宿主提供的数据、能力接口和明确配置承接。`sunxu-web/business/<domain>` 是业务复合组件的权威入口；完整 `sunxu-web/business` 只用于跨领域组合。组件范围按稳定职责和业务领域确定，不按宿主产品划分。新增组件不得以宿主产品划分实现。
 
 ## MUST / ALLOWED / EXCEPTION
 
@@ -10,7 +10,7 @@
 
 Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页面模板使用 Ant Design Pro Components。原子组件和通用复合组件由 Sunxu Web 统一维护，业务复合组件按业务领域组织；Button、Input、Select、Modal、Drawer、Table 等基础控件通过根层直通出口提供，始终由上游维护实现。
 
-消费端统一从 Sunxu Web 导入当前覆盖的 UI 组件：原子与通用复合组件、AntD/Pro/图标出口使用 `sunxu-web`；业务复合组件按稳定领域使用 `sunxu-web/business/<domain>`，例如 `sunxu-web/business/accounting`、`sunxu-web/business/inventory`。完整 `sunxu-web/business` 入口保留给需要多个领域的既有调用。旧 `sunxu-web/mes` 调用逐步迁移到领域入口；兼容入口只转发实现，不得保留独立契约。规范出口使用中性名称，应用名称、品牌文案、业务服务、权限结果和副作用由 props、插槽或宿主能力提供。应用入口仍显式导入 `sunxu-web/styles.css`。新增接入项目使用的上游 UI 组件时，同步加入 `src/upstream.ts` 和覆盖清单。
+消费端统一从 Sunxu Web 导入当前覆盖的 UI 组件：原子与通用复合组件、AntD/Pro/图标出口使用 `sunxu-web`；业务复合组件按稳定领域使用 `sunxu-web/business/<domain>`，例如 `sunxu-web/business/accounting`、`sunxu-web/business/inventory`。完整 `sunxu-web/business` 入口只用于确实需要多个领域的组合。库内不提供产品专属入口、旧名称别名或兼容契约。公开组件名、DOM 样式钩子、CSS 变量和存储键使用中性命名；应用品牌、文案及业务差异由 props、插槽或宿主能力提供。旧持久化数据如需保留，由消费宿主在启动时一次性迁移，组件库不识别产品旧键。应用入口仍显式导入 `sunxu-web/styles.css`。新增接入项目使用的上游 UI 组件时，同步加入 `src/upstream.ts` 和覆盖清单。
 
 ## 场景与组件映射
 
@@ -19,7 +19,7 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 | 默认当前业务日期 | `todayBusinessDate`（`sunxu-web/business`） | 按 `Asia/Shanghai` 生成 `YYYY-MM-DD`；不得从 UTC ISO 字符串截取日期 |
 | CRUD 列表工作台 | `CrudListWorkbench`；字段、请求、权限和编辑流程由宿主提供 | 页面级工作台使用主题容器面，视图/筛选/操作栏与结果区保持同一表面；内嵌工作台透明并继承父面。工作台不渲染页级标题；当前导航已说明任务时不重复标题，需要标题时由宿主在工作台外组合 `PageHeader`。ProTable 列能表达的查询字段优先用 `proTableSearch` 和列 schema；外部业务控件用工作台筛选插槽，不复制 ProTable 查询表单。只有现有业务确需可调整列宽等表格扩展时才使用 `renderTable`；筛选与列表级操作由工作台紧邻结果区承载；新增使用 `onCreate`，由组件固定文案为“新增”；行内标准操作用 `RowActions` 的 `kind` 固定文案 |
 | 列表/明细需要保留扩展表格能力 | `ResizableProTable` / `ResizableTable`（`sunxu-web/business`） | 组件承接列宽、列序/显隐、排序、行号、密度、空态和导出布局等表格交互；请求、查询字段、授权、动作和记录仍由宿主提供。完整宿主菜单列需用 `markCompleteActionMenuColumn` 标记，避免再次嵌套；标准行操作使用共享菜单。用于工作台时仅通过 `renderTable` 接入，工作台不渲染页级标题，只负责筛选与紧邻表格的列表操作工具栏 |
-| 列表单关键词跨字段搜索 | `DocumentKeywordSearch`（`sunxu-web/business`） | 在列表标题/工具栏中直接使用；可搜索范围写在 placeholder 中，保留稳定的 `aria-label`，不得加可见标题前缀。`DocumentTableTitle` 仅为兼容旧调用保留且不再渲染标题 |
+| 列表单关键词跨字段搜索 | `DocumentKeywordSearch`（`sunxu-web/business/documents`） | 在列表工具栏中直接使用；可搜索范围写在 placeholder 中，保留稳定的 `aria-label`，不得加可见标题前缀。标题属于宿主页头职责，不通过搜索组件重复渲染 |
 | 采购申请列表展开行的只读物料明细 | `PurchaseRequisitionItemsTable`（`sunxu-web/business`） | 固定优先显示物料身份、单位和数量，再显示供应商/采购日期等上下文，最后显示行号、备注和审计时间；宿主传入行数据和格式函数，不在展开表中复制列渲染或数量回退逻辑 |
 | 同单位/同币种字段与表格列一一对应 | `TableSummary`（默认 `fixed`）+ AntD `Table.Summary.Cell` | 可加字段放在对应列下方并固定在表格底部；汇总单元格按最终可见列顺序提供 |
 | 多单位/多货主汇总较长，且要跟随结果行滚动 | `TableSummary fixed={false}` + AntD `Table.Summary.Cell` | 在数据行后显示并随表格纵向、横向滚动；用合并单元格承载分组摘要，固定操作列保持空白；由上游提供全筛选结果口径 |

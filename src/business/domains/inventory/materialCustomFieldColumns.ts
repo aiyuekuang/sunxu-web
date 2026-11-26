@@ -87,7 +87,7 @@ export function createMaterialCustomFieldColumns<T>(
 ): ProColumns<T>[] {
   const titlePrefix = options.prefixTitle ?? '物料';
   return getVisibleMaterialCustomFields(schema).map((field) => {
-    const column: ProColumns<T> & { __mesAmountVisibilityRevision?: string } = {
+    const column: ProColumns<T> & { __sxwAmountVisibilityRevision?: string } = {
       title: `${titlePrefix}·${field.label}`,
       key: `material-custom-${field.fieldKey}`,
       width: resolveMaterialCustomFieldWidth(field),
@@ -113,7 +113,7 @@ export function createMaterialCustomFieldColumns<T>(
       },
     };
     if (field.dataType === 'money' && options.amountVisibilityRevision) {
-      column.__mesAmountVisibilityRevision = options.amountVisibilityRevision;
+      column.__sxwAmountVisibilityRevision = options.amountVisibilityRevision;
     }
     return column;
   });

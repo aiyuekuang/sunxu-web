@@ -8,6 +8,7 @@ import { message } from 'antd';
 import { type ReactNode, useMemo, useRef } from 'react';
 import { PermissionButton } from '../shared/PermissionButton';
 import { ResizableProTable } from '../shared/ResizableTable';
+import { RELATION_SORT_KEY_PREFIX } from '../../table/tableHelpers';
 
 type AccountingCrudResponse<T> = {
   list?: T[];
@@ -57,9 +58,8 @@ function resolveSortQuery(sort?: Record<string, unknown>) {
   if (!activeSort) return {};
   const [field, order] = activeSort;
   const trimmed = field.trim();
-  const relationPrefix = '__mes_relation_sort__';
-  const normalizedField = trimmed.startsWith(relationPrefix)
-    ? trimmed.slice(relationPrefix.length) || trimmed
+  const normalizedField = trimmed.startsWith(RELATION_SORT_KEY_PREFIX)
+    ? trimmed.slice(RELATION_SORT_KEY_PREFIX.length) || trimmed
     : (trimmed.split(',').map((value) => value.trim()).filter(Boolean).pop() ??
         trimmed)
         .split('.')

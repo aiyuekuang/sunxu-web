@@ -1,5 +1,5 @@
 /**
- * MES component façade for the upstream controls used by the current admin UI.
+ * Direct upstream exports for controls used by consuming projects.
  * These are direct re-exports: Ant Design owns their state and accessibility behavior.
  */
 

@@ -18,7 +18,7 @@ function hasDetailFields(schema: CustomFieldSchema | null) {
 }
 
 /**
- * Hide document-row expand controls until the MES schema confirms detail fields exist.
+ * Hide document-row expand controls until the host schema confirms detail fields exist.
  * Schema loading and errors remain host API owned; request races are isolated on unmount/change.
  */
 export function useDocumentCustomFieldDetailVisibility(

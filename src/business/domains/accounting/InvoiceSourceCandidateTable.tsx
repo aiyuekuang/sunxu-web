@@ -161,7 +161,7 @@ export function InvoiceSourceCandidateTable({
         {lines.length ? (
           <ProTable<BusinessInvoiceSourceCandidateLine>
             rowKey={(_line, index) => String(index)}
-            className="mes-expanded-detail-table"
+            className="sxw-expanded-detail-table"
             search={false}
             options={false}
             headerTitle={false}

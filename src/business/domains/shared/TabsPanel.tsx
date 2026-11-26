@@ -50,13 +50,13 @@ export function TabsPanel({ items, defaultActiveKey, tabsProps }: TabsPanelProps
       );
     }
 
-    return { key: item.key, label, children: <div className="mes-tabs-panel-content">{content}</div> };
+    return { key: item.key, label, children: <div className="sxw-tabs-panel-content">{content}</div> };
   });
 
   return (
-    <Card className="mes-tabs-panel" style={{ marginBottom: 16 }}>
+    <Card className="sxw-tabs-panel" style={{ marginBottom: 16 }}>
       <Tabs
-        className={['mes-tabs-panel-tabs', tabsClassName].filter(Boolean).join(' ')}
+        className={['sxw-tabs-panel-tabs', tabsClassName].filter(Boolean).join(' ')}
         defaultActiveKey={defaultActiveKey ?? items[0]?.key}
         items={tabItems}
         {...restTabsProps}

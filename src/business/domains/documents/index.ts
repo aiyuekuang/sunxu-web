@@ -9,7 +9,6 @@ export * from './DocumentViewSwitchPresets';
 export * from './SendActionModal';
 export * from './SendAttachmentRow';
 export * from './send-action-modal-types';
-export * from './DocumentTableTitle';
 export * from './DocumentModalForm';
 export * from './DocumentLineBatchSettingsButton';
 export * from './DocumentLineQuantityInput';
@@ -84,6 +83,12 @@ export * from './report-dynamic-fields-types';
 export * from './report-log-detail-drawer-types';
 export * from './detail-ledger-components-types';
 export * from './master-data-quick-create-types';
+export { useDocumentCustomFieldDetailVisibility } from '../../hooks/useDocumentCustomFieldDetailVisibility';
+export {
+  mergeDocumentModalPanelStyle,
+  mergeDocumentModalStyles,
+} from '../../documentModalStyles';
+export type { DocumentModalStyleOptions } from '../../documentModalStyles';
 export * from './EntityThumbnail';
 export * from './TableLongText';
 export * from './UserText';

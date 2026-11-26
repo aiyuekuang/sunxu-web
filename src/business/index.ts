@@ -65,7 +65,6 @@ export * from './domains/sales/QuotationFormDrawer';
 export * from './domains/sales/quotation-form-drawer-types';
 export * from './domains/sales/QuotationBindMaterialsModal';
 export * from './domains/sales/quotation-bind-materials-modal-types';
-export * from './domains/documents/DocumentTableTitle';
 export * from './domains/documents/DocumentModalForm';
 export {
   mergeDocumentModalPanelStyle,
@@ -277,7 +276,7 @@ export type {
 export * from './domains/inventory/MaterialTablePicker';
 export * from './domains/inventory/material-table-picker-types';
 export * from './domains/inventory/BatchMaterialAddButton';
-export * from './domains/manufacturing/batch-material-add-types';
+export * from './domains/inventory/batch-material-add-types';
 export type {
   WorkOrderScanSelectCapabilities,
   WorkOrderScanRecord,
@@ -308,7 +307,6 @@ export * from './domains/accounting/product-cost-results-table-types';
 export * from './domains/manufacturing/OperationConfigHelp';
 export * from './domains/manufacturing/operation-config-help-types';
 export * from './domains/application/IntegrationGuideLink';
-export * from './domains/application/IntegrationGuideContent';
 export * from './domains/application/ServerInfoCard';
 export * from './domains/application/server-info-card-types';
 export * from './domains/inventory/StockBusinessDateField';

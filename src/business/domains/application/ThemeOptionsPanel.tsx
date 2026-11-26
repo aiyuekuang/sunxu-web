@@ -29,26 +29,26 @@ export function ThemeOptionsPanel({
 }: ThemeOptionsPanelProps) {
 	const { token } = theme.useToken();
 	const style = {
-		"--sxw-mes-theme-text": token.colorText,
-		"--sxw-mes-theme-hover": token.colorFillQuaternary,
-		"--sxw-mes-theme-focus": token.colorPrimaryBorder,
-		"--sxw-mes-theme-active-border": token.colorPrimaryBorder,
-		"--sxw-mes-theme-active-bg": token.colorPrimaryBg,
-		"--sxw-mes-theme-radius": `${token.borderRadiusLG}px`,
+		"--sxw-theme-text": token.colorText,
+		"--sxw-theme-hover": token.colorFillQuaternary,
+		"--sxw-theme-focus": token.colorPrimaryBorder,
+		"--sxw-theme-active-border": token.colorPrimaryBorder,
+		"--sxw-theme-active-bg": token.colorPrimaryBg,
+		"--sxw-theme-radius": `${token.borderRadiusLG}px`,
 	} as CSSProperties;
 
 	return (
-		<div className="sxw-mes-theme-options" style={style}>
-			<div className="sxw-mes-theme-options__title">{title}</div>
-			<div className="sxw-mes-theme-options__list">
+		<div className="sxw-theme-options" style={style}>
+			<div className="sxw-theme-options__title">{title}</div>
+			<div className="sxw-theme-options__list">
 				{options.map((option) => {
 					const selected = option.key === currentKey;
 					return (
 						<button
 							aria-pressed={selected}
 							className={[
-								"sxw-mes-theme-options__item",
-								selected ? "sxw-mes-theme-options__item--selected" : null,
+								"sxw-theme-options__item",
+								selected ? "sxw-theme-options__item--selected" : null,
 							]
 								.filter(Boolean)
 								.join(" ")}
@@ -58,20 +58,20 @@ export function ThemeOptionsPanel({
 						>
 							<span
 								aria-hidden="true"
-								className="sxw-mes-theme-options__swatch"
+								className="sxw-theme-options__swatch"
 								style={{
 									backgroundColor: option.swatch,
 									borderRadius: token.borderRadiusSM,
 									boxShadow: `inset 0 0 0 1px ${token.colorBgContainer}`,
 								}}
 							/>
-							<span className="sxw-mes-theme-options__label">
+							<span className="sxw-theme-options__label">
 								{option.label}
 							</span>
 							{selected ? (
 								<CheckOutlined
 									aria-hidden="true"
-									className="sxw-mes-theme-options__check"
+									className="sxw-theme-options__check"
 									style={{ color: token.colorPrimary }}
 								/>
 							) : null}

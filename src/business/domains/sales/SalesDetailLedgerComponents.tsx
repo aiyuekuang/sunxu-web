@@ -87,7 +87,7 @@ function withAmountVisibilityRevision<T extends object>(
 ): ProColumns<T> {
   return {
     ...column,
-    __mesAmountVisibilityRevision: revision,
+    __sxwAmountVisibilityRevision: revision,
   } as ProColumns<T>;
 }
 

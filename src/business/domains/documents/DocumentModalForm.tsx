@@ -29,7 +29,7 @@ export type DocumentModalFormProps<T, U> = ModalFormProps<T, U> & {
 
 /**
  * host document editor modal with the current tab containment, minimize/restore,
- * and draft-preserving behavior used by mes-admin.
+ * and draft-preserving behavior expected by host applications.
  */
 /**
  * @sunxu-layer business
@@ -73,12 +73,12 @@ export function DocumentModalForm<
 
   const titleText = typeof title === 'string' ? title : '未完成单据';
   const titleNode = (
-    <div className="sxw-mes-document-modal__title">
-      <span className="sxw-mes-document-modal__title-text">{title}</span>
-      <span className="sxw-mes-document-modal__window-controls">
+    <div className="sxw-document-modal__title">
+      <span className="sxw-document-modal__title-text">{title}</span>
+      <span className="sxw-document-modal__window-controls">
         <button
           type="button"
-          className="sxw-mes-document-modal__window-button"
+          className="sxw-document-modal__window-button"
           title="最小化"
           aria-label="最小化单据窗口"
           onClick={() => setMinimized(true)}
@@ -87,7 +87,7 @@ export function DocumentModalForm<
         </button>
         <button
           type="button"
-          className="sxw-mes-document-modal__window-button sxw-mes-document-modal__window-button--close"
+          className="sxw-document-modal__window-button sxw-document-modal__window-button--close"
           title="关闭"
           aria-label="关闭单据窗口"
           onClick={() => onOpenChange?.(false)}
@@ -100,7 +100,7 @@ export function DocumentModalForm<
 
   const formChildren =
     isFullScreen && typeof children !== 'function' ? (
-      <div className="sxw-mes-document-modal__form-content document-form-content">
+      <div className="sxw-document-modal__form-content document-form-content">
         {children}
       </div>
     ) : (
@@ -112,15 +112,15 @@ export function DocumentModalForm<
       {minimized && open ? (
         <button
           type="button"
-          className="sxw-mes-document-modal__restore"
+          className="sxw-document-modal__restore"
           title="点击还原"
           aria-label={`还原单据窗口：${titleText}`}
           onClick={() => setMinimized(false)}
         >
-          <span className="sxw-mes-document-modal__restore-title">
+          <span className="sxw-document-modal__restore-title">
             {titleText}
           </span>
-          <span className="sxw-mes-document-modal__restore-hint">
+          <span className="sxw-document-modal__restore-hint">
             点击还原
           </span>
         </button>
@@ -150,9 +150,9 @@ export function DocumentModalForm<
             : modalProps?.style,
           rootClassName: [
             shouldUseViewportFullscreen
-              ? 'sxw-mes-document-modal-root--viewport'
+              ? 'sxw-document-modal-root--viewport'
               : shouldRenderInsideTab
-                ? 'sxw-mes-document-modal-root'
+                ? 'sxw-document-modal-root'
                 : '',
             modalProps?.rootClassName ?? '',
           ]
@@ -164,7 +164,7 @@ export function DocumentModalForm<
             minimized,
           ),
           className: [
-            isFullScreen ? 'sxw-mes-document-modal' : '',
+            isFullScreen ? 'sxw-document-modal' : '',
             // Keep the host's established selector hook during migration.
             isFullScreen ? 'document-form-modal' : '',
             modalProps?.className ?? '',
@@ -173,7 +173,7 @@ export function DocumentModalForm<
             .join(' '),
           wrapClassName: [
             modalProps?.wrapClassName ?? '',
-            minimized ? 'sxw-mes-document-modal--minimized' : '',
+            minimized ? 'sxw-document-modal--minimized' : '',
           ]
             .filter(Boolean)
             .join(' '),

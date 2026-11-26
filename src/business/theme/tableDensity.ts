@@ -1,8 +1,8 @@
 import { useSyncExternalStore } from 'react';
-import { LEGACY_TABLE_DENSITY_STORAGE_KEY } from '../compat/legacyStorageKeys';
+import { TABLE_DENSITY_STORAGE_KEY } from '../utils/storageSchema';
 import { safeLocalStorageSetItem } from '../utils/safeStorage';
 
-export const TABLE_DENSITY_STORAGE_KEY = LEGACY_TABLE_DENSITY_STORAGE_KEY;
+export { TABLE_DENSITY_STORAGE_KEY };
 
 export type TableDensityKey = 'large' | 'middle' | 'small' | 'zero';
 
@@ -84,10 +84,15 @@ function readStoredTableDensityKey(): TableDensityKey {
   return DEFAULT_TABLE_DENSITY_KEY;
 }
 
-let currentKey = readStoredTableDensityKey();
+let currentKey: TableDensityKey = DEFAULT_TABLE_DENSITY_KEY;
+let currentKeyInitialized = false;
 const listeners = new Set<() => void>();
 
 export function getTableDensityKey(): TableDensityKey {
+  if (!currentKeyInitialized) {
+    currentKey = readStoredTableDensityKey();
+    currentKeyInitialized = true;
+  }
   return currentKey;
 }
 
@@ -102,8 +107,9 @@ export function getAntdTableSize(key: TableDensityKey): AntdTableSize {
 }
 
 export function setTableDensityKey(key: TableDensityKey): void {
-  if (key === currentKey) return;
+  if (key === getTableDensityKey()) return;
   currentKey = key;
+  currentKeyInitialized = true;
   safeLocalStorageSetItem(TABLE_DENSITY_STORAGE_KEY, key);
   listeners.forEach((listener) => {
     listener();

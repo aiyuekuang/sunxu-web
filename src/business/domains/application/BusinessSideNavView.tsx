@@ -69,19 +69,19 @@ function SecondaryNavItem({
   return (
     <a
       aria-current={item.active ? 'page' : undefined}
-      className={`mes-business-side-nav-secondary-item ${
-        item.active ? 'mes-business-side-nav-secondary-item-active' : ''
+      className={`sxw-business-side-nav-secondary-item ${
+        item.active ? 'sxw-business-side-nav-secondary-item-active' : ''
       }`}
       href={item.path}
       onClick={(event) => navigateFromLink(event, item.path, onNavigate)}
       title={item.path}
     >
-      <span className="mes-business-side-nav-item-text">
-        <span className="mes-business-side-nav-item-name">{item.title}</span>
+      <span className="sxw-business-side-nav-item-text">
+        <span className="sxw-business-side-nav-item-name">{item.title}</span>
       </span>
       <RightOutlined
         aria-hidden="true"
-        className="mes-business-side-nav-secondary-arrow"
+        className="sxw-business-side-nav-secondary-arrow"
       />
     </a>
   );
@@ -98,7 +98,7 @@ function SectionList({
 }) {
   if (sections.length === 0) {
     return fallbackItem ? (
-      <div className="mes-business-side-nav-section-items">
+      <div className="sxw-business-side-nav-section-items">
         <SecondaryNavItem item={fallbackItem} onNavigate={onNavigate} />
       </div>
     ) : null;
@@ -107,11 +107,11 @@ function SectionList({
   return (
     <>
       {sections.map((section) => (
-        <section className="mes-business-side-nav-section" key={section.key}>
-          <div className="mes-business-side-nav-section-title">
+        <section className="sxw-business-side-nav-section" key={section.key}>
+          <div className="sxw-business-side-nav-section-title">
             {section.title}
           </div>
-          <div className="mes-business-side-nav-section-items">
+          <div className="sxw-business-side-nav-section-items">
             {section.items.map((item) => (
               <SecondaryNavItem item={item} key={item.key} onNavigate={onNavigate} />
             ))}
@@ -130,9 +130,9 @@ function CollapsedSubMenu({
   onNavigate: (path: string) => void;
 }) {
   return (
-    <div className="mes-business-side-nav-popover-panel">
-      <div className="mes-business-side-nav-popover-title">{item.title}</div>
-      <div className="mes-business-side-nav-popover-list">
+    <div className="sxw-business-side-nav-popover-panel">
+      <div className="sxw-business-side-nav-popover-title">{item.title}</div>
+      <div className="sxw-business-side-nav-popover-list">
         <SectionList
           fallbackItem={item.fallbackItem}
           onNavigate={onNavigate}
@@ -158,17 +158,17 @@ function PrimaryNavItem({
     <button
       aria-label={item.title}
       aria-current={item.active ? 'page' : undefined}
-      className={`mes-business-side-nav-primary-item ${
-        item.active ? 'mes-business-side-nav-primary-item-active' : ''
+      className={`sxw-business-side-nav-primary-item ${
+        item.active ? 'sxw-business-side-nav-primary-item-active' : ''
       }`}
       onClick={() => onPrimarySelect(item.key)}
       type="button"
     >
-      <span className="mes-business-side-nav-primary-icon">
+      <span className="sxw-business-side-nav-primary-icon">
         {item.icon}
       </span>
       {!collapsed ? (
-        <span className="mes-business-side-nav-primary-title">
+        <span className="sxw-business-side-nav-primary-title">
           {item.title}
         </span>
       ) : null}
@@ -185,7 +185,7 @@ function PrimaryNavItem({
         destroyOnHidden
         mouseEnterDelay={0.08}
         placement="rightTop"
-        rootClassName="mes-business-side-nav-popover"
+        rootClassName="sxw-business-side-nav-popover"
         trigger="hover"
       >
         {content}
@@ -219,14 +219,14 @@ export function BusinessSideNavView({
 }: BusinessSideNavViewProps) {
   return (
     <aside
-      className={`mes-business-side-nav ${
-        collapsed ? 'mes-business-side-nav-collapsed' : ''
+      className={`sxw-business-side-nav ${
+        collapsed ? 'sxw-business-side-nav-collapsed' : ''
       }`}
     >
-      <div className="mes-business-side-nav-primary">
+      <div className="sxw-business-side-nav-primary">
         <nav
           aria-label="一级业务导航"
-          className="mes-business-side-nav-primary-list"
+          className="sxw-business-side-nav-primary-list"
         >
           {primaryItems.map((item) => (
             <PrimaryNavItem
@@ -245,7 +245,7 @@ export function BusinessSideNavView({
           >
             <button
               aria-label={collapsed ? '展开菜单' : '收起菜单'}
-              className="mes-business-side-nav-collapse-button"
+              className="sxw-business-side-nav-collapse-button"
               onClick={() => onCollapse(!collapsed)}
               type="button"
             >
@@ -256,14 +256,14 @@ export function BusinessSideNavView({
       </div>
 
       {!collapsed ? (
-        <div className="mes-business-side-nav-secondary">
+        <div className="sxw-business-side-nav-secondary">
           {search}
-          <div className="mes-business-side-nav-secondary-head">
-            <span className="mes-business-side-nav-secondary-title">
+          <div className="sxw-business-side-nav-secondary-head">
+            <span className="sxw-business-side-nav-secondary-title">
               {activePrimaryTitle}
             </span>
             {sections.length > 0 ? (
-              <span className="mes-business-side-nav-secondary-count">
+              <span className="sxw-business-side-nav-secondary-count">
                 {sections.reduce((sum, section) => sum + section.items.length, 0)}
                 个入口
               </span>
@@ -271,7 +271,7 @@ export function BusinessSideNavView({
           </div>
           <nav
             aria-label={`${activePrimaryTitle || '当前业务'}任务导航`}
-            className="mes-business-side-nav-secondary-list"
+            className="sxw-business-side-nav-secondary-list"
           >
             <SectionList
               fallbackItem={fallbackItem}

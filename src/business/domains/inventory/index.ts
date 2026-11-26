@@ -56,3 +56,5 @@ export * from './drawing-files-types';
 export * from './MaterialDrawingsPanel';
 export * from './material-drawings-panel-types';
 export * from './GlbModelViewer';
+
+export * from './batch-material-add-types';

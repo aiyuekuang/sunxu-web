@@ -55,9 +55,9 @@ export function BatchReleaseModal({
         creatorButtonProps={{ creatorButtonText: capabilities.labels.addLine }}
         containerStyle={{ minWidth: 0, width: '100%' }}
         itemRender={({ listDom, action }) => (
-          <div className="sunxu-mes-batch-release-row">
-            <div className="sunxu-mes-batch-release-fields">{listDom}</div>
-            {action ? <div className="sunxu-mes-batch-release-remove">{action}</div> : null}
+          <div className="sxw-batch-release-row">
+            <div className="sxw-batch-release-fields">{listDom}</div>
+            {action ? <div className="sxw-batch-release-remove">{action}</div> : null}
           </div>
         )}
       >

@@ -1,20 +1,20 @@
-.sxw-mes-drawing-gallery {
+.sxw-drawing-gallery {
   display: flex;
   flex-direction: column;
   gap: 12px;
 }
 
-.sxw-mes-drawing-gallery-empty {
+.sxw-drawing-gallery-empty {
   padding: 8px 0;
 }
 
-.sxw-mes-drawing-source-group {
+.sxw-drawing-source-group {
   border: 1px solid #f0f0f0;
   border-radius: 8px;
   background: #fff;
 }
 
-.sxw-mes-drawing-source-header {
+.sxw-drawing-source-header {
   display: flex;
   align-items: center;
   justify-content: space-between;
@@ -24,21 +24,21 @@
   background: #fafafa;
 }
 
-.sxw-mes-drawing-source-title {
+.sxw-drawing-source-title {
   display: flex;
   min-width: 0;
   flex-direction: column;
   gap: 2px;
 }
 
-.sxw-mes-drawing-file-grid {
+.sxw-drawing-file-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
   gap: 12px;
   padding: 12px;
 }
 
-.sxw-mes-drawing-file-card {
+.sxw-drawing-file-card {
   display: grid;
   grid-template-columns: 72px minmax(0, 1fr) auto;
   align-items: center;
@@ -51,12 +51,12 @@
   transition: border-color 0.2s, box-shadow 0.2s;
 }
 
-.sxw-mes-drawing-file-card:hover {
+.sxw-drawing-file-card:hover {
   border-color: #91caff;
   box-shadow: 0 2px 8px rgba(5, 145, 255, 0.08);
 }
 
-.sxw-mes-drawing-file-thumb {
+.sxw-drawing-file-thumb {
   display: inline-flex;
   width: 72px;
   height: 56px;
@@ -70,53 +70,53 @@
   cursor: pointer;
 }
 
-.sxw-mes-drawing-file-thumb .ant-image,
-.sxw-mes-drawing-file-thumb .ant-image-img,
-.sxw-mes-drawing-file-thumb-image {
+.sxw-drawing-file-thumb .ant-image,
+.sxw-drawing-file-thumb .ant-image-img,
+.sxw-drawing-file-thumb-image {
   width: 100%;
   height: 100%;
 }
 
-.sxw-mes-drawing-file-thumb .ant-image-img {
+.sxw-drawing-file-thumb .ant-image-img {
   object-fit: cover;
 }
 
-.sxw-mes-drawing-file-icon {
+.sxw-drawing-file-icon {
   color: #64748b;
   font-size: 24px;
 }
 
-.sxw-mes-drawing-file-info {
+.sxw-drawing-file-info {
   min-width: 0;
 }
 
-.sxw-mes-drawing-file-name {
+.sxw-drawing-file-name {
   display: block;
   max-width: 100%;
 }
 
-.sxw-mes-drawing-file-kind {
+.sxw-drawing-file-kind {
   margin-top: 4px;
   color: rgba(0, 0, 0, 0.45);
   font-size: 12px;
   line-height: 1.4;
 }
 
-.sxw-mes-drawing-file-actions {
+.sxw-drawing-file-actions {
   justify-self: end;
 }
 
-.sxw-mes-pdf-preview-page-count,
-.sxw-mes-pdf-preview-zoom {
+.sxw-pdf-preview-page-count,
+.sxw-pdf-preview-zoom {
   min-width: 72px;
   text-align: center;
 }
 
-.sxw-mes-pdf-preview-zoom {
+.sxw-pdf-preview-zoom {
   min-width: 48px;
 }
 
-.sxw-mes-pdf-preview-toolbar {
+.sxw-pdf-preview-toolbar {
   position: sticky;
   top: 0;
   z-index: 2;
@@ -130,7 +130,7 @@
   background: #fff;
 }
 
-.sxw-mes-pdf-preview-stage {
+.sxw-pdf-preview-stage {
   display: block;
   min-height: 0;
   flex: 1 1 auto;
@@ -142,17 +142,17 @@
   scrollbar-gutter: stable both-edges;
 }
 
-.sxw-mes-pdf-preview-stage .react-pdf__Document {
+.sxw-pdf-preview-stage .react-pdf__Document {
   width: fit-content;
   max-width: none;
   margin-inline: auto;
 }
 
-.sxw-mes-pdf-preview-empty {
+.sxw-pdf-preview-empty {
   margin: 80px auto;
 }
 
-.sxw-mes-pdf-preview-page {
+.sxw-pdf-preview-page {
   width: fit-content;
   margin-inline: auto;
   overflow: hidden;
@@ -161,39 +161,39 @@
   box-shadow: 0 10px 28px rgba(15, 23, 42, 0.14);
 }
 
-.sxw-mes-pdf-preview-page .react-pdf__Page__canvas,
-.sxw-mes-pdf-preview-page .react-pdf__Page__textContent,
-.sxw-mes-pdf-preview-page .react-pdf__Page__annotations {
+.sxw-pdf-preview-page .react-pdf__Page__canvas,
+.sxw-pdf-preview-page .react-pdf__Page__textContent,
+.sxw-pdf-preview-page .react-pdf__Page__annotations {
   display: block;
   height: auto !important;
   max-width: none;
 }
 
 @media (max-width: 768px) {
-  .sxw-mes-drawing-source-header {
+  .sxw-drawing-source-header {
     align-items: flex-start;
     flex-direction: column;
   }
 
-  .sxw-mes-drawing-file-grid {
+  .sxw-drawing-file-grid {
     grid-template-columns: 1fr;
   }
 
-  .sxw-mes-drawing-file-card {
+  .sxw-drawing-file-card {
     grid-template-columns: 64px minmax(0, 1fr);
   }
 
-  .sxw-mes-drawing-file-thumb {
+  .sxw-drawing-file-thumb {
     width: 64px;
     height: 52px;
   }
 
-  .sxw-mes-drawing-file-actions {
+  .sxw-drawing-file-actions {
     grid-column: 2;
     justify-self: start;
   }
 
-  .sxw-mes-pdf-preview-stage {
+  .sxw-pdf-preview-stage {
     min-height: 320px;
     padding: 12px;
   }

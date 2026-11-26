@@ -58,12 +58,12 @@ export function DocumentCustomFieldPanel({
 
   return (
     <div
-      className="mes-document-custom-field-panel"
+      className="sxw-document-custom-field-panel"
       hidden={!visible}
       aria-hidden={!visible}
     >
       {title ? (
-        <div className="mes-document-custom-field-panel__title">{title}</div>
+        <div className="sxw-document-custom-field-panel__title">{title}</div>
       ) : null}
       <React.Fragment key={identity}>
         {renderCustomFieldPanel({

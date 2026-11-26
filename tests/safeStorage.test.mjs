@@ -92,9 +92,19 @@ test('reads return a default signal when browser storage is unavailable', () => 
   }
 });
 
+test('does not interpret host-owned legacy preference keys', () => {
+  const storage = createStorage([
+    ['mes_table_width_/orders:abc123', '{"name":180}'],
+  ]);
+  setWindow({ localStorage: storage });
+
+  assert.equal(storageApi.safeLocalStorageGetItem('sunxu-web:table-width:/orders:abc123'), null);
+  assert.equal(storage.getItem('mes_table_width_/orders:abc123'), '{"name":180}');
+});
+
 test('writes retry after evicting only rebuildable table UI caches', () => {
   const storage = createStorage([
-    ['mes-admin:table-width:old-page', '{"name":180}'],
+    ['sunxu-web:table-width:old-page', '{"name":180}'],
     ['business:data', 'preserve'],
   ]);
   let writeAttempts = 0;
@@ -109,14 +119,14 @@ test('writes retry after evicting only rebuildable table UI caches', () => {
   setWindow({ localStorage: storage });
 
   assert.equal(
-    storageApi.safeLocalStorageSetItem('mes-admin:table-sort:new-page', '{"field":"name"}'),
+    storageApi.safeLocalStorageSetItem('sunxu-web:table-sort:new-page', '{"field":"name"}'),
     true,
   );
   assert.equal(writeAttempts, 2);
-  assert.equal(storage.entries.has('mes-admin:table-width:old-page'), false);
+  assert.equal(storage.entries.has('sunxu-web:table-width:old-page'), false);
   assert.equal(storage.getItem('business:data'), 'preserve');
   assert.equal(
-    storage.getItem('mes-admin:table-sort:new-page'),
+    storage.getItem('sunxu-web:table-sort:new-page'),
     '{"field":"name"}',
   );
 });

@@ -97,27 +97,27 @@ export function StatCard({
       ? calculateCompare(value, prev, percentCompare)
       : null;
   const valueStyle = color
-    ? ({ '--sunxu-mes-large-screen-stat-value-color': color } as CSSProperties)
+    ? ({ '--sxw-large-screen-stat-value-color': color } as CSSProperties)
     : undefined;
 
   return (
-    <div className={`sunxu-mes-screen-stat-card${pulse ? ' is-pulsing' : ''}`}>
-      <div className="sunxu-mes-screen-stat-label">{label}</div>
+    <div className={`sxw-screen-stat-card${pulse ? ' is-pulsing' : ''}`}>
+      <div className="sxw-screen-stat-label">{label}</div>
       <div
-        className="sunxu-mes-screen-stat-value"
+        className="sxw-screen-stat-value"
         style={valueStyle}
       >
         {formattedValue}
         {suffix && (
-          <span className="sunxu-mes-screen-stat-suffix">{suffix}</span>
+          <span className="sxw-screen-stat-suffix">{suffix}</span>
         )}
       </div>
       {compare && (
-        <div className={`sunxu-mes-screen-stat-compare ${compare.dir}`}>
+        <div className={`sxw-screen-stat-compare ${compare.dir}`}>
           {compare.text}
         </div>
       )}
-      {hint && <div className="sunxu-mes-screen-stat-hint">{hint}</div>}
+      {hint && <div className="sxw-screen-stat-hint">{hint}</div>}
     </div>
   );
 }
@@ -140,11 +140,11 @@ export interface PanelHeaderProps {
  */
 export function PanelHeader({ title, tag, icon, extra }: PanelHeaderProps) {
   return (
-    <div className="sunxu-mes-screen-panel-header">
-      {icon && <span className="sunxu-mes-screen-panel-icon">{icon}</span>}
-      <span className="sunxu-mes-screen-panel-title">{title}</span>
-      {tag && <span className="sunxu-mes-screen-panel-tag">{tag}</span>}
-      {extra && <span className="sunxu-mes-screen-panel-extra">{extra}</span>}
+    <div className="sxw-screen-panel-header">
+      {icon && <span className="sxw-screen-panel-icon">{icon}</span>}
+      <span className="sxw-screen-panel-title">{title}</span>
+      {tag && <span className="sxw-screen-panel-tag">{tag}</span>}
+      {extra && <span className="sxw-screen-panel-extra">{extra}</span>}
     </div>
   );
 }
@@ -157,7 +157,7 @@ export interface EmptyChartProps {
 function NoDataIcon() {
   return (
     <svg
-      className="sunxu-mes-screen-empty-icon"
+      className="sxw-screen-empty-icon"
       viewBox="0 0 36 36"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -239,9 +239,9 @@ function NoDataIcon() {
  */
 export function EmptyChart({ text = '暂无数据' }: EmptyChartProps) {
   return (
-    <div className="sunxu-mes-screen-empty">
+    <div className="sxw-screen-empty">
       <NoDataIcon />
-      <div className="sunxu-mes-screen-empty-text">{text}</div>
+      <div className="sxw-screen-empty-text">{text}</div>
     </div>
   );
 }

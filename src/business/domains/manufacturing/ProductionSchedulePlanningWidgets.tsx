@@ -76,7 +76,7 @@ export const CapacityBar = memo(function CapacityBar({
   const { token } = theme.useToken();
   if (loading) {
     return (
-      <div className="sunxu-mes-capacity-loading">
+      <div className="sxw-capacity-loading">
         <Spin size="small" />
       </div>
     );
@@ -88,9 +88,9 @@ export const CapacityBar = memo(function CapacityBar({
   const { labels } = capabilities;
 
   return (
-    <div className="sunxu-mes-capacity-bar">
+    <div className="sxw-capacity-bar">
       <div
-        className="sunxu-mes-capacity-label"
+        className="sxw-capacity-label"
         style={{
           width: resourcePanelWidth,
           minWidth: resourcePanelWidth,
@@ -100,7 +100,7 @@ export const CapacityBar = memo(function CapacityBar({
         {labels.summaryTitle}
       </div>
       <div
-        className="sunxu-mes-capacity-timeline"
+        className="sxw-capacity-timeline"
         style={{ width: timelineWidth, height: barHeight }}
       >
         {data.map((point) => {
@@ -144,7 +144,7 @@ export const CapacityBar = memo(function CapacityBar({
                   {noCapacityWithLoad && (
                     <div>{labels.noCapacityRisk}</div>
                   )}
-                  <div className="sunxu-mes-capacity-note">
+                  <div className="sxw-capacity-note">
                     {labels.equipmentLaneNote}
                   </div>
                   <div>
@@ -165,7 +165,7 @@ export const CapacityBar = memo(function CapacityBar({
               }
             >
               <div
-                className="sunxu-mes-capacity-column"
+                className="sxw-capacity-column"
                 style={{
                   left: capabilities.getDatePosition(point.date),
                   bottom: 4,
@@ -178,7 +178,7 @@ export const CapacityBar = memo(function CapacityBar({
           );
         })}
         <div
-          className="sunxu-mes-capacity-threshold"
+          className="sxw-capacity-threshold"
           style={{
             bottom:
               4 +
@@ -399,7 +399,7 @@ export function GanttBar<TEntry>({
     <GanttTooltip model={tooltipModel} disabled={tooltipDisabled}>
       <button
         type="button"
-        className="sunxu-mes-gantt-bar"
+        className="sxw-gantt-bar"
         data-entry-id={layout.id}
         aria-label={presentation.ariaLabel}
         title={tooltipDisabled ? undefined : presentation.title}
@@ -468,7 +468,7 @@ export function GanttBar<TEntry>({
         {setupWidth > 0 && (
           <span
             aria-hidden="true"
-            className="sunxu-mes-gantt-setup-track"
+            className="sxw-gantt-setup-track"
             style={{
               width: setupWidth,
               background: presentation.setupBackground,
@@ -478,7 +478,7 @@ export function GanttBar<TEntry>({
         )}
         <span
           aria-hidden="true"
-          className="sunxu-mes-gantt-duration-track"
+          className="sxw-gantt-duration-track"
           style={{
             left: trackInset,
             bottom: durationBarBottom,
@@ -491,12 +491,12 @@ export function GanttBar<TEntry>({
           }}
         >
           <span
-            className="sunxu-mes-gantt-track-fill"
+            className="sxw-gantt-track-fill"
             style={{ backgroundColor: presentation.actualTrackColor }}
           />
           {showProgress && presentation.progressPercent > 0 && !presentation.isBuffer && (
             <span
-              className="sunxu-mes-gantt-track-progress"
+              className="sxw-gantt-track-progress"
               style={{
                 width: `${Math.min(presentation.progressPercent, 100)}%`,
                 backgroundColor: presentation.actualProgressColor,
@@ -506,7 +506,7 @@ export function GanttBar<TEntry>({
         </span>
         {showOrderNo && (
           <span
-            className="sunxu-mes-gantt-order-no"
+            className="sxw-gantt-order-no"
             style={{
               left: barPadding,
               bottom: Math.max(0, durationBarBottom - 1),
@@ -520,7 +520,7 @@ export function GanttBar<TEntry>({
         )}
         {!presentation.isBuffer && (
           <span
-            className="sunxu-mes-gantt-bar-content"
+            className="sxw-gantt-bar-content"
             style={{
               paddingLeft: barPadding,
               paddingRight: barPadding,
@@ -530,10 +530,10 @@ export function GanttBar<TEntry>({
             }}
           >
             {showPrimaryText && (
-              <span className="sunxu-mes-gantt-primary-row">
+              <span className="sxw-gantt-primary-row">
                 {showOutsourcingChip && (
                   <span
-                    className="sunxu-mes-gantt-outsource-chip"
+                    className="sxw-gantt-outsource-chip"
                     style={{
                       color: presentation.outsourcingColor,
                       backgroundColor: presentation.outsourcingBackgroundColor,
@@ -542,12 +542,12 @@ export function GanttBar<TEntry>({
                     {presentation.outsourcingLabel}
                   </span>
                 )}
-                <span className="sunxu-mes-gantt-primary-text" style={{ fontSize: titleFontSize, lineHeight: titleLineHeight }}>
+                <span className="sxw-gantt-primary-text" style={{ fontSize: titleFontSize, lineHeight: titleLineHeight }}>
                   {denseLabel}
                 </span>
                 {showStatusChip && (
                   <span
-                    className="sunxu-mes-gantt-status-chip"
+                    className="sxw-gantt-status-chip"
                     style={{ color: presentation.scheduleStatus.color, backgroundColor: `${presentation.scheduleStatus.color}14` }}
                   >
                     {presentation.scheduleStatus.label}
@@ -555,7 +555,7 @@ export function GanttBar<TEntry>({
                 )}
                 {(presentation.hasDependencyConflict || presentation.hasDependencyWarning) && width >= 112 && (
                   <span
-                    className="sunxu-mes-gantt-dependency-chip"
+                    className="sxw-gantt-dependency-chip"
                     style={{
                       color: presentation.hasDependencyConflict ? token.colorError : token.colorWarning,
                       backgroundColor: presentation.hasDependencyConflict ? token.colorErrorBg : token.colorWarningBg,
@@ -567,12 +567,12 @@ export function GanttBar<TEntry>({
               </span>
             )}
             {showSecondaryText && (
-              <span className="sunxu-mes-gantt-secondary-row">
-                <span className="sunxu-mes-gantt-secondary-text">
+              <span className="sxw-gantt-secondary-row">
+                <span className="sxw-gantt-secondary-text">
                   {width >= 156 ? presentation.secondaryLabel : presentation.compactSecondaryLabel}
                 </span>
                 {showTimeLabel && (
-                  <span className="sunxu-mes-gantt-time-text" style={{ lineHeight: secondaryLineHeight }}>
+                  <span className="sxw-gantt-time-text" style={{ lineHeight: secondaryLineHeight }}>
                     {presentation.timeRangeLabel}
                   </span>
                 )}
@@ -584,12 +584,12 @@ export function GanttBar<TEntry>({
           <>
             <span
               aria-hidden="true"
-              className="sunxu-mes-gantt-resize-handle is-start"
+              className="sxw-gantt-resize-handle is-start"
               onMouseDown={(event) => handleResize(event, 'resize-left')}
             />
             <span
               aria-hidden="true"
-              className="sunxu-mes-gantt-resize-handle is-end"
+              className="sxw-gantt-resize-handle is-end"
               onMouseDown={(event) => handleResize(event, 'resize-right')}
             />
           </>
@@ -688,7 +688,7 @@ export function GanttContextMenu<TEntry>({
   return (
     <div
       ref={menuRef}
-      className="sunxu-mes-gantt-context-menu"
+      className="sxw-gantt-context-menu"
       role="menu"
       aria-label={capabilities.menuLabel}
       onKeyDown={handleMenuKeyDown}
@@ -717,7 +717,7 @@ export function GanttContextMenu<TEntry>({
             onClose();
           }}
         >
-          {item.icon ? <span className="sunxu-mes-gantt-menu-icon">{item.icon}</span> : null}
+          {item.icon ? <span className="sxw-gantt-menu-icon">{item.icon}</span> : null}
           <span>{item.label}</span>
         </button>
       ))}
@@ -734,7 +734,7 @@ function InspectorItem({
 }) {
   const { token } = theme.useToken();
   return (
-    <div className="sunxu-mes-gantt-inspector-item">
+    <div className="sxw-gantt-inspector-item">
       <span style={{ color: token.colorTextTertiary }}>{label}</span>
       <span style={{ color: token.colorText }}>{value ?? '-'}</span>
     </div>
@@ -768,11 +768,11 @@ export function GanttInspector<TEntry>({
   );
 
   return (
-    <aside className="sunxu-mes-gantt-inspector">
-      <div className="sunxu-mes-gantt-inspector-header">
-        <div className="sunxu-mes-gantt-inspector-heading">
-          <div className="sunxu-mes-gantt-inspector-kicker">{model.kicker}</div>
-          <div className="sunxu-mes-gantt-inspector-title">{model.title}</div>
+    <aside className="sxw-gantt-inspector">
+      <div className="sxw-gantt-inspector-header">
+        <div className="sxw-gantt-inspector-heading">
+          <div className="sxw-gantt-inspector-kicker">{model.kicker}</div>
+          <div className="sxw-gantt-inspector-title">{model.title}</div>
         </div>
         <Button
           aria-label={model.labels.close}
@@ -783,24 +783,24 @@ export function GanttInspector<TEntry>({
         />
       </div>
 
-      <div className="sunxu-mes-gantt-inspector-body">
-        <div className="sunxu-mes-gantt-inspector-hero">
-          <div className="sunxu-mes-gantt-inspector-hero-copy">
-            <div className="sunxu-mes-gantt-inspector-main">{model.heroTitle}</div>
+      <div className="sxw-gantt-inspector-body">
+        <div className="sxw-gantt-inspector-hero">
+          <div className="sxw-gantt-inspector-hero-copy">
+            <div className="sxw-gantt-inspector-main">{model.heroTitle}</div>
             {model.heroSubtitle ? (
-              <div className="sunxu-mes-gantt-inspector-sub">{model.heroSubtitle}</div>
+              <div className="sxw-gantt-inspector-sub">{model.heroSubtitle}</div>
             ) : null}
           </div>
-          <Tag color={model.status.color} className="sunxu-mes-gantt-inspector-tag">
+          <Tag color={model.status.color} className="sxw-gantt-inspector-tag">
             {model.status.label}
           </Tag>
         </div>
 
         {model.sections.map((section, index) => (
           <React.Fragment key={section.key}>
-            {index > 0 ? <Divider className="sunxu-mes-gantt-inspector-divider" /> : null}
-            <section className="sunxu-mes-gantt-inspector-section">
-              <div className="sunxu-mes-gantt-inspector-section-title">
+            {index > 0 ? <Divider className="sxw-gantt-inspector-divider" /> : null}
+            <section className="sxw-gantt-inspector-section">
+              <div className="sxw-gantt-inspector-section-title">
                 {section.icon}
                 <span>{section.title}</span>
               </div>
@@ -813,9 +813,9 @@ export function GanttInspector<TEntry>({
 
         {model.dependency ? (
           <>
-            <Divider className="sunxu-mes-gantt-inspector-divider" />
-            <section className="sunxu-mes-gantt-inspector-section">
-              <div className="sunxu-mes-gantt-inspector-section-title">
+            <Divider className="sxw-gantt-inspector-divider" />
+            <section className="sxw-gantt-inspector-section">
+              <div className="sxw-gantt-inspector-section-title">
                 <span>{model.dependency.title}</span>
               </div>
               {model.dependency.fields.map((field) => (
@@ -827,7 +827,7 @@ export function GanttInspector<TEntry>({
                   showIcon
                   message={model.dependency.guidance.title}
                   description={model.dependency.guidance.description}
-                  className="sunxu-mes-gantt-inspector-guidance"
+                  className="sxw-gantt-inspector-guidance"
                   action={
                     model.dependency.guidance.actions?.length ? (
                       <Space orientation="vertical" size={8}>
@@ -842,7 +842,7 @@ export function GanttInspector<TEntry>({
         ) : null}
       </div>
 
-      <div className="sunxu-mes-gantt-inspector-footer">
+      <div className="sxw-gantt-inspector-footer">
         {model.footerActions.map(renderAction)}
       </div>
     </aside>
@@ -903,8 +903,8 @@ export function GanttToolbar({
   };
 
   return (
-    <div className="sunxu-mes-gantt-toolbar">
-      <div className="sunxu-mes-gantt-toolbar-main">
+    <div className="sxw-gantt-toolbar">
+      <div className="sxw-gantt-toolbar-main">
         <Space size="small" wrap>
           {state.drillPath.length > 1 ? (
             <Breadcrumb
@@ -924,7 +924,7 @@ export function GanttToolbar({
                     pathItem.name
                   ),
               }))}
-              className="sunxu-mes-gantt-breadcrumb"
+              className="sxw-gantt-breadcrumb"
             />
           ) : null}
           <Space.Compact>
@@ -938,7 +938,7 @@ export function GanttToolbar({
             <Button
               aria-label={labels.dateRangeTitle}
               title={labels.dateRangeTitle}
-              className="sunxu-mes-gantt-date-range"
+              className="sxw-gantt-date-range"
               disabled
             >
               {labels.productionDate(dateRange)}
@@ -954,7 +954,7 @@ export function GanttToolbar({
           <Button onClick={goToToday}>{labels.today}</Button>
         </Space>
 
-        <Space size={8} wrap className="sunxu-mes-gantt-toolbar-controls">
+        <Space size={8} wrap className="sxw-gantt-toolbar-controls">
           <Segmented
             size="small"
             value={state.zoom}
@@ -969,7 +969,7 @@ export function GanttToolbar({
           />
           <span
             aria-hidden="true"
-            className="sunxu-mes-gantt-toolbar-separator"
+            className="sxw-gantt-toolbar-separator"
             style={{ backgroundColor: token.colorBorderSecondary }}
           />
           <Tooltip title={labels.filters}>
@@ -1013,7 +1013,7 @@ export function GanttToolbar({
           </Tooltip>
           <span
             aria-hidden="true"
-            className="sunxu-mes-gantt-toolbar-separator"
+            className="sxw-gantt-toolbar-separator"
             style={{ backgroundColor: token.colorBorderSecondary }}
           />
           <Button
@@ -1031,13 +1031,13 @@ export function GanttToolbar({
 
       {showFilters ? (
         <div
-          className="sunxu-mes-gantt-filter-row"
+          className="sxw-gantt-filter-row"
           style={{
             backgroundColor: token.colorFillQuaternary,
             borderRadius: token.borderRadiusSM,
           }}
         >
-          <span className="sunxu-mes-gantt-filter-caption">{labels.filters}</span>
+          <span className="sxw-gantt-filter-caption">{labels.filters}</span>
           <Select
             size="small"
             placeholder={labels.workCenterType}
@@ -1047,7 +1047,7 @@ export function GanttToolbar({
             options={[...capabilities.workCenterTypeOptions]}
             value={state.workCenterType}
             onChange={(value) => onStateChange({ workCenterType: value })}
-            className="sunxu-mes-gantt-filter-select"
+            className="sxw-gantt-filter-select"
             variant="filled"
           />
           <Select
@@ -1061,7 +1061,7 @@ export function GanttToolbar({
             onChange={(value) =>
               onStateChange({ statusFilter: value.length ? value : undefined })
             }
-            className="sunxu-mes-gantt-filter-select is-status"
+            className="sxw-gantt-filter-select is-status"
             options={[...capabilities.statusOptions]}
             variant="filled"
           />
@@ -1077,7 +1077,7 @@ export function GanttToolbar({
             filterOption={(input, option) =>
               String(option?.label ?? '').toLowerCase().includes(input.toLowerCase())
             }
-            className="sunxu-mes-gantt-filter-select is-customer"
+            className="sxw-gantt-filter-select is-customer"
             variant="filled"
           />
           <Input
@@ -1090,7 +1090,7 @@ export function GanttToolbar({
             onChange={(event) =>
               onStateChange({ keyword: event.target.value || undefined })
             }
-            className="sunxu-mes-gantt-keyword"
+            className="sxw-gantt-keyword"
             variant="filled"
           />
           {filtersActive ? (
@@ -1164,7 +1164,7 @@ export const UnscheduledPanel = memo(function UnscheduledPanel({
         </Space>
       }
       size="small"
-      className="sunxu-mes-unscheduled-panel"
+      className="sxw-unscheduled-panel"
       styles={{ body: { padding: 8 } }}
     >
       <Input.Search
@@ -1181,7 +1181,7 @@ export const UnscheduledPanel = memo(function UnscheduledPanel({
         style={{ marginBottom: 8 }}
       />
       {loading ? (
-        <div className="sunxu-mes-unscheduled-loading">
+        <div className="sxw-unscheduled-loading">
           <Spin size="small" />
         </div>
       ) : workOrders.length === 0 ? (
@@ -1190,7 +1190,7 @@ export const UnscheduledPanel = memo(function UnscheduledPanel({
           image={Empty.PRESENTED_IMAGE_SIMPLE}
         />
       ) : (
-        <div className="sunxu-mes-unscheduled-list">
+        <div className="sxw-unscheduled-list">
           {workOrders.map((workOrder) => {
             const sourceHint = [
               workOrder.customer?.name,
@@ -1210,19 +1210,19 @@ export const UnscheduledPanel = memo(function UnscheduledPanel({
             return (
               <div
                 key={workOrder.id}
-                className="sunxu-mes-unscheduled-work-order"
+                className="sxw-unscheduled-work-order"
                 draggable
                 onDragStart={(event) =>
                   capabilities.beginScheduleDrag(workOrder, event)
                 }
               >
-                <div className="sunxu-mes-unscheduled-heading">
+                <div className="sxw-unscheduled-heading">
                   <Typography.Text strong style={{ fontSize: 12 }}>
                     {workOrder.orderNo}
                   </Typography.Text>
                   <DragOutlined
                     aria-hidden="true"
-                    className="sunxu-mes-unscheduled-grip"
+                    className="sxw-unscheduled-grip"
                   />
                 </div>
                 <Typography.Text type="secondary" style={{ fontSize: 11 }} ellipsis>
@@ -1243,7 +1243,7 @@ export const UnscheduledPanel = memo(function UnscheduledPanel({
                     {capabilities.labels.sourceRemark}：{workOrder.sourceRemark}
                   </Typography.Text>
                 ) : null}
-                <div className="sunxu-mes-unscheduled-footer">
+                <div className="sxw-unscheduled-footer">
                   <Typography.Text type="secondary" style={{ fontSize: 11 }}>
                     {workOrder.plannedQty}{' '}
                     {capabilities.formatUnit(workOrder.material?.unit)}
@@ -1263,7 +1263,7 @@ export const UnscheduledPanel = memo(function UnscheduledPanel({
                   <Button
                     type="link"
                     size="small"
-                    className="sunxu-mes-unscheduled-schedule-action"
+                    className="sxw-unscheduled-schedule-action"
                     onClick={() => capabilities.activateWorkOrder?.(workOrder)}
                   >
                     {capabilities.labels.scheduleAction}

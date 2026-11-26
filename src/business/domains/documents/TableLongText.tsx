@@ -32,7 +32,7 @@ export function TableLongText({
   modalTitle = '完整内容',
 }: TableLongTextProps) {
   return (
-    <span className="mes-table-long-text">
+    <span className="sxw-table-long-text">
       <LongText
         value={value}
         displayMode={displayMode}

@@ -12,8 +12,8 @@
 - **通用复合组件**组合原子组件，提供可复用的搜索、筛选、表格、表单和页面模式。
 - **业务复合组件**按稳定业务任务组合原子与通用复合组件，覆盖采购、库存、生产、质量、财务等业务需求；宿主通过类型明确的数据、能力接口和回调提供服务、授权、路由及副作用。
 - 多个项目接入时，同一业务任务使用同一权威实现、公开契约和视觉状态。组件目录按层级和业务领域组织，不按宿主产品划分专用组件集。
-- `sunxu-web/business/<domain>` 是新增消费代码的权威业务入口（`accounting`、`application`、`documents`、`inventory`、`manufacturing`、`printing`、`procurement`、`quality`、`sales`、`shared`）；`sunxu-web/business` 保留完整 API 入口。`sunxu-web/mes` 与旧产品前缀名称只由 `business/compat` 转发，不限制组件可服务的宿主。所有已知消费端切换到中性入口后，在下一次主版本移除这些兼容名称和 `/mes` 子路径；迁移前必须保持同实现、只读转发并由回归用例保护。
-- 公开 API、组件名和新样式契约必须中性。现有 MES 消费端全局样式仍依赖部分历史 `mes-*` DOM 类与 `--mes-*` CSS 变量，因此这些运行时钩子暂时保留以避免视觉回归；它们不是新组件的命名范式。新增实现不得引入此类前缀，所有已知消费端迁移这些样式依赖后，于下一次主版本清理旧钩子。
+- `sunxu-web/business/<domain>` 是新增消费代码的权威业务入口（`accounting`、`application`、`documents`、`inventory`、`manufacturing`、`printing`、`procurement`、`quality`、`sales`、`shared`）；`sunxu-web/business` 仅供跨领域组合使用。库内不提供产品专属子路径、产品前缀 API 别名或兼容转发；消费端直接使用根出口或稳定业务领域入口。
+- 公开 API、DOM 样式钩子、CSS 变量和存储键统一使用中性命名。业务品牌、应用文案和业务差异由宿主通过 props、插槽或能力注入；旧持久化偏好只通过一次性数据迁移保留。
 
 ## 组件目录
 
@@ -42,7 +42,6 @@
 | `StatusTabs` | 在互斥状态中选择当前结果集合 | AntD `Segmented` |
 | `StatusTag` | 以 Ant Design 实底颜色呈现单条只读状态 | AntD `Tag`，固定 `variant="solid"` |
 | `StatusDisplay` | 将宿主状态字典映射为统一标签、徽标或文本呈现 | `StatusTag` / AntD `Badge`；字典、值和文案由宿主提供 |
-| `MesStatusTag` | 旧 API 兼容适配器；迁移到 `StatusDisplay` 后删除 | 转发到 `StatusDisplay`，不维护独立状态逻辑 |
 | `ReportQuickRangeButtons` | 受控选择报表快捷范围；只报告被选中的选项 key | AntD `Segmented`；日期范围匹配和日期语义由宿主提供 |
 | `ConfigEntryLink` / `ConfigEntryFieldLabel` | 在授权且有目标地址时，把配置入口附在字段标签旁 | AntD `Typography.Link` / `Space`；路由与权限结果由宿主传入 |
 | `ConfigurableProFormSelect` | 将宿主 ProForm 远程选择器与空候选配置入口及回访刷新组合 | Pro Components `ProFormSelect`；请求、依赖规则、权限和路由由宿主传入 |
@@ -381,7 +380,7 @@
 - **导出布局**：有 `request` 的表默认产出当前可见列、列序和排序布局；仅用本地 `dataSource` 的表需显式设 `exportLayoutEnabled`。`useTableExportLayout()` 读取当前表布局，表格边界在导出按钮点击捕获阶段激活对应布局，避免同一路由多个表格串用。导出 API 和服务仍由宿主实现；布局只能表达用户选择，不能扩大后端允许导出的字段集合。
 - **行操作和编辑宿主接缝**：`TableActions` 将有效按钮、链接、权限按钮和确认操作统一收入“更多”菜单；权限判断、确认和结果仍归动作节点/宿主。`BusinessUiProvider` 可选注入 `isTableActionColumn(column)` 识别宿主操作列，避免嵌套菜单；列渲染器已提供完整菜单时使用内部标记跳过通用二次包装。`resolveRowEditAction(columns, record)` 只返回宿主当前可见且允许执行的编辑回调，表格双击才调用它。未提供时不产生编辑副作用。不得在 Sunxu 中硬编码 Umi `useAccess`、权限码、host API、路由或业务动作。
 - **金额显隐刷新**：`BusinessUiProvider.amountVisibilityRevision` 由宿主在全局金额显示状态变化时更新，即使宿主权限仍要求遮罩也必须同步更新。`ResizableProTable`、`ResizableTable` 会将版本附到自定义 render 列，让缓存列回调及时替换并保留已保存的列宽；金额格式和权限仍由宿主的 `maskAmount` 与各页面权限策略决定。目录页“业务表格组件”可切换“显示金额”查看这一行为。
-- **密度和局部溢出**：ProTable 工具栏提供“宽松 / 中等 / 紧凑 / 0 间距”密度菜单；存量密度、列宽、排序和列显隐偏好继续读写历史存储键，这些键集中在 `src/business/compat/legacyStorageKeys.ts`，用于避免升级后重置用户偏好，不构成 MES 组件归属或宿主权限契约。主题 token 同步控制单元格纵向间距。列宽总和超过可视区时，仅表格容器横向滚动，页面保持视口宽度；宿主若需要纯键盘浏览，应提供命名且可聚焦的表格滚动区域。`TableActions` 的 `max` 只为旧调用签名兼容，不改变全动作收纳策略。
+- **密度和局部溢出**：ProTable 工具栏提供“宽松 / 中等 / 紧凑 / 0 间距”密度菜单；密度、列宽、排序、列显隐和打印偏好使用 `sunxu-web:*` 中性存储键，升级时通过 `src/business/utils/storageSchema.ts` 执行一次性数据迁移，保留既有用户设置。主题 token 同步控制单元格纵向间距。列宽总和超过可视区时，仅表格容器横向滚动，页面保持视口宽度；宿主若需要纯键盘浏览，应提供命名且可聚焦的表格滚动区域。`TableActions` 的 `max` 只为旧调用签名兼容，不改变全动作收纳策略。
 - **本次行为边界**：排序恢复与宽度持久化使用稳定的列 schema 输入，排序指示在最终渲染列上合并，避免服务端排序状态更新把已保存列宽重置为默认值。此项是适配层修正，保留业务排序与列宽行为。
 - **fill 分页视觉验收**：真实 Catalog 路由“业务表格组件”的 `fitContainerHeight` 表格与“CRUD 列表工作台”的 `fill` 适配器均验证短数据；截图和几何数据见 [`docs/verification/resizable-fill-pagination-2026-11-23/README.md`](./verification/resizable-fill-pagination-2026-11-23/README.md)。Admin 真实业务路由需由测试环境加载更新后的共享包后复验。
 - **目录示例和证据**：真实 Catalog 路由“业务表格组件”覆盖 ProTable 与原生 Table、服务端/本地排序、列宽拖拽和刷新、列显隐与导出列数、密度、双击编辑回调、空态、汇总、视口内纵向高度及 375px 键盘横向滚动。截图、几何、接缝审计、build/typecheck 与未验收项见 [`docs/verification/mes-resizable-table-2026-11-20/README.md`](./verification/mes-resizable-table-2026-11-20/README.md)。宿主业务权限解析接线、读屏器、深色主题、844×390 横屏和自定义溢出容器仍为 `UNVERIFIED`。
@@ -396,7 +395,6 @@
 #### 状态、报表范围、配置入口、字典字段与导出
 
 - **`StatusDisplay`**：根出口公开；必填 `enumMap: Readonly<Record<string, { text: string; status?: string; color?: string }>>` 与可选 `value` 构成输入。`mode` 默认 `tag`，也可用 `badge` 或 `text`；`label` 覆盖当前文案，`emptyLabel` 和 `unknownLabel` 配置空值与未映射值（默认分别为 `-` 和原始值）。`size="small"` 只调整标签尺寸。预设状态色映射到 Ant Design 语义令牌，字典显式颜色保留。组件不监听状态变化，也不拥有状态字典、授权或业务动作。
-- **`MesStatusTag`**：迁移兼容 API 保留 `value/enumMap/children/className/style`，语义与旧状态回退行为一致，内部只委托 `StatusDisplay`。新代码不得使用；消费端迁移后删除。
 - **`ReportQuickRangeButtons`**：受控 API 为可选 `value?: [string, string]`、`label`（默认“快捷筛选”）、必填 `options: readonly { key, label }[]`、`matchValue(value) => key | null` 和 `onSelect(key)`。当前范围是否匹配某选项及 key 的日期含义完全由宿主定义；组件仅用 AntD `Segmented` 展示选择并回传存在于 options 的字符串 key。无匹配时不选中；不解析日期、不自动刷新报表、不拥有清空或请求动作。`label` 作为 Segmented 的 `aria-label`；选项沿用上游键盘行为。组件不额外包装选项，宿主需确保选项数和标签长度适合其可用宽度，窄容器可在外层安排换行或横向滚动。
 - **`ConfigEntryLink` / `ConfigEntryFieldLabel`**：Link 接收 `href?`、`permitted?`（默认 false）、必填 `label`、`actionText?`（默认“去配置”）和 `onOpen?`；仅当权限为真且 href 非空时渲染。它使用新标签页链接、`rel="noreferrer"`、阻止点击冒泡，并调用宿主 `onOpen`。可访问名称包含可见操作文案和目标说明（“${actionText}：新标签页打开${label}”）。FieldLabel 接收 `children` 及同一 href/permission/onOpen，另有可选 `show`（默认 true）；通过 Space 将字段文字与链接并排显示，仅当 `show && permitted && href` 时显示链接，否则原样渲染 children。`ConfigurableProFormSelect` 与两个字典选择器通过 `show` 传递已计算的候选/字段显示状态。FieldLabel 的 Space 不换行，长标签应由宿主检查窄宽度。组件不做权限计算、不生成 URL、不执行导航状态更新或返回后刷新。
 - **`ConfigurableProFormSelect`**：保留 ProFormSelect 的其他公开 props，另需 `label: ReactNode`、必填宿主 `request` 和 `configEntry`，可选 `configWhen(params)` 与 `emptyText`（默认“暂无可选数据”）。在字段无值、非禁用/只读且依赖条件成立时，用移除 `keyWords/keyword/search/searchText` 的参数向宿主 request 探测基础候选；仅空数组显示配置标签，请求失败隐藏入口并继续向 ProForm 抛出查询错误。实际候选搜索保留其余参数和错误；搜索中不以关键词结果切换配置标签。配置标签打开时记录回访意图，窗口重新获得 focus 后递增刷新版本以重新请求；源请求前移除内部 `configEntryRefreshVersion`。字段校验、候选服务、路由和授权由宿主提供；组件内的 focus listener 在卸载时清理。ProForm 标签和 Select 键盘/表单状态由上游提供；目录无障碍名称来自表单 label。
@@ -424,13 +422,11 @@
 - `DocumentModalForm<T, U>` 保持 Pro `ModalForm` 的泛型和其余 props 透传。默认宽度为 `100vw` 并实际铺满当前工作区，默认 `getContainer` 为 `false`，不穿透 keep-alive 标签容器；只有显式 `viewportFullscreen` 且仍采用默认标签容器时才固定到视口。最小化时取消遮罩并隐藏弹窗，但保持表单挂载与草稿；左下角还原条回到同一组件所在工作区。`open` 变化时清除最小化状态。默认 `destroyOnHidden=true`、`mask.closable=false`、`closable=false`，标题栏提供带无障碍名称的最小化和关闭按钮；可通过调用方 `modalProps.mask` 覆盖遮罩行为。完整宽度子节点由组件提供 `20px 24px 24px` 内边距，render-function children 原样透传；调用方自定义 Modal 语义样式槽及浮层 `style` 会与默认布局合并。固定数值宽度使用普通 Modal 布局；显式自定义 `getContainer` 保留自定义挂载容器，但仍应用完整宽度布局。完整宽度 Modal 保留 `document-form-modal` class 供业务宿主现有全局样式过渡使用。组件不负责草稿保存、请求、权限、路由或业务校验。
 - `DocumentLineQuantityInput` 是受控数值编辑器：有效数值变化立即交给宿主，清空时只保留本地空草稿、不发送 `null`；失焦时恢复宿主当前值。`InputNumber` 的范围、精度、步长和外观 props 继续透传。
 - `StatusDisplay` 是状态字典到视图的唯一映射复合组件，所有宿主使用同一实现。标签模式组合 `StatusTag`，徽标模式组合 Ant Design `Badge`，文本模式输出带语义色的内联文本；三种模式都保留状态文字，颜色不单独表达状态。根宽度随内容，组件不设固定宽度或主动换行；窄容器内的换行由父布局决定。宿主传入值、字典、回退文案和颜色；组件不内置领域状态、授权、请求或状态迁移。目录示例覆盖已映射、空值、未知值、颜色覆盖和三种模式；实际视口与几何证据见 `docs/verification/component-normalization-2026-11-26/`。
-- `MesStatusTag` 暂时保留旧 `value/enumMap/children` 调用，通过参数映射委托 `StatusDisplay`；未知值、空值和 `children` 回退规则保持兼容。不得新增调用，消费端迁移后移除。
 - `TableLongText` 保留业务表格现有的 `mes-table-long-text` class，默认使用 `LongText` 的两行换行模式；可用 `maxLines` 调整行数，也可显式选择 `displayMode="truncate"` 使用 64 字符截断和对话框。两行模式的全文 Popover 支持鼠标悬停、触摸点击和键盘 Enter/Space 打开，Escape 关闭；点击不冒泡到可点击表格行。`isTableLongTextValue` 只接受 string/number。
 - `AmountText` 保留 `value/prefix/precision/placeholder` API；默认前缀为 `¥`、精度为 2、占位符为 `-`，使用 `zh-CN` 分组格式化，空值和非数字显示占位符。格式化后的字符串交给 `BusinessUiProvider.maskAmount`；没有宿主能力时 fail closed，空值为 `-`、金额为 `****`。金额显隐状态和权限仍由业务宿主管理。
 - `AmountPolicySnapshotTag` 保留嵌套快照解析、默认规则文案、版本展示、公式回退、数量/金额详情 Popover；显式 `mask` 优先，否则使用宿主金额脱敏能力。快照输入接受根对象、`priceSnapshot`、`amountPolicySnapshot` 与 `result` 嵌套形态，未识别有效 `policyCode` 时显示 `-`。
 - `DateText` 保留 `date/datetime/time` 三种格式（`YYYY-MM-DD`、`YYYY-MM-DD HH:mm`、`HH:mm`），默认 datetime；空值和无效日期显示 `-` 或调用方占位符。`UserText` 优先显示 `realName`，回退 `username`，再回退 `—` 或调用方占位符。
 - `DocumentKeywordSearch` 是单一关键词快捷搜索的唯一公开控件，保留受控 `value`（默认 `''`）、`placeholder`（默认“输入单号、客户、供应商或物料搜索”）、`loading`（默认 `false`）和必填 `onSearch`。`value` 变化会同步草稿；输入只暂存在组件状态，清空立即回调空字符串，提交时 trim 首尾空格。AntD `Input.Search` 提供 Enter/搜索按钮提交及清除按钮，输入通过 `aria-label="关键字搜索"` 提供稳定名称，宽度为 `clamp(160px, 20vw, 256px)`。跨字段搜索范围写入 placeholder；关键词只用于当前查询，不写入个人视图或持久筛选状态。业务字段筛选、查询执行与保存行为归宿主。
-- `DocumentTableTitle` 已弃用，仅作为旧调用的兼容适配器保留。`title` prop 仍接受 `ReactNode` 以保持旧调用可编译，但不再渲染；新代码直接使用 `DocumentKeywordSearch` 并提供搜索范围 placeholder。
 - `DefaultRouteHint` 仅在有 `materialId` 且没有 `routeId` 时调用必填的 `requestCandidates({ materialId, customerId, routeSelectionDate })`；取首个 `recommended` 候选，组合路线编码/名称、版本和原因。没有推荐路线时显示业务指引；请求错误静默隐藏，条件变化或卸载会丢弃迟到响应。服务请求和错误策略留在宿主。
 - `CustomerMaterialCell` 支持 `combined/internal/customer` 三种模式。combined 时客户别名优先并在下一行保留内部物料值；缺少别名或两者相同则不重复显示。拆分模式可仅在名称字段按对应来源显示规格。`customerMaterialSortValue` 与主值一致，别名优先回落内部快照。内部 `materialId` 是权威身份；客户别名是销售单据的冻结快照，客户输出打印模板不应使用此比较单元格。
 - `EntityThumbnail` 保留缩略图优先、预览图回退、主题 `controlHeight` 默认方形尺寸（显式 `size` 覆盖）、无图 Tooltip 图标、损坏图 SVG fallback 和 AntD 图片预览。图片存在时点击/双击停止冒泡，避免触发行选择或编辑；无图提示沿用源实现，不截断行事件。
@@ -715,10 +711,9 @@
 - `BomExpansionCreateModal` 默认展开深度 8；打开时重置物料行、数量错误、预览和建议日期。保留物料批量添加、重复料/非正数量/空行校验、预览来源明细、来源排序与前两条摘要、警告前五条和总数、需求汇总、建议采购/到货日期、备注，以及必须先预览并有结果才可创建请购单。物料请求、预览/创建、权限、单位字典、数量格式、字段帮助和消息由 capabilities / `BusinessUiProvider` 注入；复用 `OrderItemEditor`、`BatchMaterialAddButton`、`ResizableTable` 与 `DocumentModalForm`。`BomExpansionCreateModalDemo` 展示预览与请购回调；真实宿主接线及视口验收为 `UNVERIFIED`。来源 SHA-256：`33790018f0fab4c7b42ab3defda57dd351873ea61f6cf8ded0bc30356f335cf3`。
 - `BomExplosionTree` 复制来源节点颜色、4 位数量格式、万/亿摘要、前 5 条展开告警、Tooltip 文案和 LR 方向、初始 3 层、节点展开/收起与 roam 参数；图高限制为 520–1800px。用户偏好减少动态效果时将图表动画时长设为 0。为避免将来源的 ECharts runtime 加入 Sunxu 包，宿主必须提供 `renderChart({ option, style, notMerge, lazyUpdate, showLoading, ariaLabel })`；组件仍生成完整图表配置，不在 Sunxu 调用 host API 或直接依赖 ECharts。`loading` 且无数据时显示 Spin，无数据时显示 Empty。来源文件 SHA-256：`3b787f4224bd677ebbc214d8c054d5de87becf492c4bc5d0c59e7842abcb564b`。
 - `IntegrationGuideLink` 默认保留来源“接入说明”按钮、840px 弹窗、滚动正文和“关闭”按钮；宿主通过 `title`、`children` 注入主题内容，可覆写标签和宽度。来源 `IntegrationGuideLink.tsx` SHA-256：`8299c0a8bd4209dbac50692fea06635f4681f1deba1eb1353c0e353c4c62fd06`。
-- `IntegrationGuideContent` 完整保留 API、Webhook、群机器人、设备点位、同步与运行记录五类指南正文及每类内容的 Ant Design 呈现；`topic` 由宿主路由选择，组件只提供静态业务集成知识，不读 API、不持有路由。Catalog 以 Tabs 展示五类内容。来源 `content.tsx` SHA-256：`5abe2e47d6dec9f7ac5b871808516efdc79c084de5101a25652a2f5aedf2a3bd`；视觉/路由验收 `UNVERIFIED`。
 - `ServerInfoCard` 在挂载时请求一次主机指标并订阅实时推送，卸载时取消订阅；首次加载显示 Spinner，请求失败显示宿主格式化的错误，实时到达后标记“实时”并覆盖旧值。保留 CPU/内存/磁盘使用率、负载、OS/Node 运行信息、文件总量、各实体/MIME 分布与孤儿文件统计。REST/WebSocket 订阅（包括重连后重订阅）、文件统计、字节/数量/运行时间/平台/错误格式均由 `ServerInfoCardCapabilities` 或 props 提供。Catalog Demo 覆盖本地数据、实时推送和请求失败；真实服务器接线与视口为 `UNVERIFIED`。源文件 SHA-256：`abbf2799e34a40b1245f38278686aaa67b6a2a99378fcfce66ae9da373baf689`。
 - `CompleteMaintenanceFields` 必须位于有效 ProForm/Form 上下文；模板步骤按来源顺序生成结果和备注字段，`required !== false` 的步骤要求填写结果，`photoRequired` 步骤要求上传至少 1 张现场照片且最多 5 张，照片不自动上传。整体备注始终保留；无步骤时显示可直接完成的提示。父级提交负责上传图片和构造维护完成 DTO；字段 help 三个 key 由 `getFieldHelpProps` 注入。源文件 SHA-256：`c5221d428efe4d4c5bc8b5e705deee24696dbccac0b9a5ef50ed20c0c8edcec4`。
-- `BomComponentsDemo` 与 `IntegrationGuideLinkDemo` 已接入 Catalog；图表 renderer 示例用原生可展开树验证宿主插槽的数据形状。受当前 UV 暂停约束，所有新组件的真实浏览器渲染、视口几何、键盘/读屏和业务宿主能力接线仍为 `UNVERIFIED`。
+- `BomComponentsDemo` 与 `IntegrationGuideLinkDemo` 已接入 Catalog；图表 renderer 示例用原生可展开树验证宿主插槽的数据形状。业务集成说明正文与主题属于宿主产品内容，库只提供可注入 children 的 `IntegrationGuideLink` 弹窗。
 - `CompleteMaintenanceFieldsDemo` 已接入 Catalog，覆盖模板来源、必填/可选步骤与必拍照片。真实业务上传/提交接线、视口几何、键盘/读屏和组件渲染均为 `UNVERIFIED`。
 
 #### 业务批号与成品追溯
@@ -775,7 +770,7 @@
 - **`HeaderActionButton`**：只承载一个图标操作，必须提供 `aria-label`；尺寸、颜色、hover/focus-visible/pressed 由 AntD Button 和语义主题 token 决定。Tooltip、Popover、Badge、权限和动作由宿主组合；禁用态及 ref 继续透传给 AntD Button。控件宽高随应用 `controlHeight` token，间距由父级工具栏拥有。
 - **`NotificationPanel`**：宿主以受控 `open/onOpenChange` 注入弹层状态，以 `items/unreadCount/loading` 提供当前通知快照，并注入单条已读、全部已读和查看全部动作。组件覆盖加载、空、已读/未读及按钮状态；时间文案和通知跳转由宿主生成。通知列表固定最多 5 条时关闭虚拟滚动，弹层宽度为 `min(360px, 视口宽度 - 16px)`；重复行由 `Listy` 项和原生按钮表达。
 - **`ThemeOptionsPanel`**：`options/currentKey/onSelect` 控制主题标签、色样和选中按钮；组件只呈现 `aria-pressed`、主题 token hover/focus/selected 状态，不写入主题偏好或修改 ProLayout。面板宽度为 `min(260px, 视口宽度 - 16px)`。
-- **`AppDownloadPanel`** 与 **`SupportQRCode`**：二维码始终由宿主通过 `qrCode` slot 提供；下载面板要求 `applicationName` 和 `appStoreSearchName`，可选 `appStoreInstruction` 与 `serverAddressInstruction`，接收加载、下载地址、版本和服务器地址；支持二维码接收账号及 vertical/horizontal 布局。未加载、加载中、无下载项及可复制文本由组件呈现，发布请求、应用商店名称、二维码内容和联系数据仍由宿主拥有。下载面板宽度上限 280px；支持卡片受父容器限制，横向模式可换行。旧 `MesAppDownloadPanel` 仅在兼容入口保留历史品牌和指引，迁移后应改用 `AppDownloadPanel`。
+- **`AppDownloadPanel`** 与 **`SupportQRCode`**：二维码始终由宿主通过 `qrCode` slot 提供；下载面板要求 `applicationName` 和 `appStoreSearchName`，可选 `appStoreInstruction` 与 `serverAddressInstruction`，接收加载、下载地址、版本和服务器地址；支持二维码接收账号及 vertical/horizontal 布局。未加载、加载中、无下载项及可复制文本由组件呈现，发布请求、应用商店名称、二维码内容和联系数据仍由宿主拥有。下载面板宽度上限 280px；支持卡片受父容器限制，横向模式可换行。
 - **`AnnouncementBanner`**：接收公告快照、可见状态和 `onOpen`；保留优先级标签、多个公告轮播、数量、关闭当前公告和读屏名称。空列表/宿主隐藏时不渲染。
 - **`MenuSearchInput`** 与 **`BusinessSideNavView`**：菜单搜索为受控输入，宿主传入过滤候选及路径选择回调；侧栏只呈现宿主给出的主次菜单、当前选中项、折叠状态和导航回调，权限过滤、路由判断与菜单快捷键留在宿主。
 - **目录和证据**：`ApplicationShellComponentsDemo` 展示以上组件的公开 props 和宿主注入边界；SSR 契约测试覆盖 accessible name、通知加载/空/未读、主题选择语义、二维码 slot、公告隐藏/优先级、搜索候选和侧栏折叠。真实目录路由截图、键盘交互、窄屏几何和 DOM 溢出未取得，均为 `UNVERIFIED`。

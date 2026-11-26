@@ -12,7 +12,6 @@ export * from './ThemeOptionsPanel';
 export * from './BackupDirectoryPicker';
 export * from './backup-directory-picker-types';
 export * from './IntegrationGuideLink';
-export * from './IntegrationGuideContent';
 export * from './ServerInfoCard';
 export * from './server-info-card-types';
 export * from './LargeScreenWidgets';

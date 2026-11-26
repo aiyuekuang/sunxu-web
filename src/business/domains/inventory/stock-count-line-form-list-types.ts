@@ -1,7 +1,7 @@
 import type { ProFormSelectProps } from '@ant-design/pro-components';
 import type { ReactNode } from 'react';
 import type { FormInstance } from 'antd';
-import type { BatchMaterialRecord } from '../manufacturing/batch-material-add-types';
+import type { BatchMaterialRecord } from './batch-material-add-types';
 import type { DocumentLineCustomFieldSchema } from '../documents/document-line-custom-field-types';
 
 export type StockCountLineSelectRequest = NonNullable<

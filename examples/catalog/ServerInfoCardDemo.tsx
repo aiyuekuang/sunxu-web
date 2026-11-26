@@ -27,7 +27,7 @@ const initialStats: ServerSystemStats = {
     usagePercent: 66,
   },
   os: {
-    hostname: 'mes-app-node-01',
+    hostname: 'sunxu-app-node-01',
     platform: 'linux',
     arch: 'x64',
     release: '6.8.0',

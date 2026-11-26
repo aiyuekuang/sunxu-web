@@ -1,7 +1,7 @@
 import { useMemo, useState } from 'react';
 import { App, Button, Modal, Space, Typography } from 'antd';
 import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
-import drawingPdfUrl from './fixtures/mes-drawing-sample.pdf?url&no-inline';
+import drawingPdfUrl from './fixtures/drawing-sample.pdf?url&no-inline';
 import { SectionCard } from '../../src';
 import { BusinessUiProvider } from '../../src/business';
 import { CreateInquiryDrawer } from '../../src/business/domains/procurement/CreateInquiryDrawer';

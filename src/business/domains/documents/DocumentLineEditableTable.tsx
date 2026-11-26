@@ -19,7 +19,7 @@ import {
   ResizableTable as Table,
   type ResizableTableConfig,
 } from '../shared/ResizableTable';
-import { LEGACY_DOCUMENT_LINE_TABLE_WIDTH_PREFIX } from '../../compat/legacyStorageKeys';
+import { DOCUMENT_LINE_TABLE_WIDTH_PREFIX } from '../../utils/storageSchema';
 import './DocumentLineEditableTable.css';
 
 export interface DocumentLineRow {
@@ -152,7 +152,7 @@ function createPersistenceKey<T extends DocumentLineRow>(
       (key) => !DYNAMIC_COLUMN_PREFIXES.some((prefix) => key.startsWith(prefix)),
     )
     .join('|');
-  return `${LEGACY_DOCUMENT_LINE_TABLE_WIDTH_PREFIX}${pathname}:${hashTableKey(stableKeys)}`;
+  return `${DOCUMENT_LINE_TABLE_WIDTH_PREFIX}${pathname}:${hashTableKey(stableKeys)}`;
 }
 
 function resolveResizableConfig<T extends DocumentLineRow>(
@@ -584,7 +584,7 @@ export function DocumentLineEditableTable<T extends DocumentLineRow>({
     () =>
       toolbarActions
         ? [
-            <div key="document-line-toolbar-actions" className="mes-document-line-editable-table-toolbar">
+            <div key="document-line-toolbar-actions" className="sxw-document-line-editable-table-toolbar">
               {toolbarActions}
             </div>,
           ]
@@ -596,8 +596,8 @@ export function DocumentLineEditableTable<T extends DocumentLineRow>({
     <section
       ref={tableScrollRegionRef}
       className={[
-        'mes-document-line-editable-table',
-        density === 'compact' ? 'mes-document-line-editable-table-compact' : '',
+        'sxw-document-line-editable-table',
+        density === 'compact' ? 'sxw-document-line-editable-table-compact' : '',
         className,
       ]
         .filter(Boolean)

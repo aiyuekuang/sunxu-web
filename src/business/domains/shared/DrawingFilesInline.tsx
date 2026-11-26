@@ -415,7 +415,7 @@ export function PdfPreviewDrawer({
         },
       }}
     >
-      <Space className="sxw-mes-pdf-preview-toolbar" size={8} wrap>
+      <Space className="sxw-pdf-preview-toolbar" size={8} wrap>
         <Button
           icon={<LeftOutlined />}
           disabled={pageNumber <= 1 || numPages <= 0}
@@ -423,7 +423,7 @@ export function PdfPreviewDrawer({
         >
           上一页
         </Button>
-        <Typography.Text className="sxw-mes-pdf-preview-page-count">
+        <Typography.Text className="sxw-pdf-preview-page-count">
           {numPages > 0 ? `${pageNumber} / ${numPages}` : '加载中'}
         </Typography.Text>
         <Button
@@ -447,7 +447,7 @@ export function PdfPreviewDrawer({
             }
           />
         </Tooltip>
-        <Typography.Text className="sxw-mes-pdf-preview-zoom">
+        <Typography.Text className="sxw-pdf-preview-zoom">
           {Math.round(scale * 100)}%
         </Typography.Text>
         <Tooltip title="放大">
@@ -478,10 +478,10 @@ export function PdfPreviewDrawer({
           }
         />
       ) : (
-        <div ref={stageRef} className="sxw-mes-pdf-preview-stage">
+        <div ref={stageRef} className="sxw-pdf-preview-stage">
           {loading || !pdfUrl || !stageContentWidth || !PdfDocument || !PdfPage ? (
             <Empty
-              className="sxw-mes-pdf-preview-empty"
+              className="sxw-pdf-preview-empty"
               image={Empty.PRESENTED_IMAGE_SIMPLE}
               description="正在加载 PDF"
             />
@@ -496,7 +496,7 @@ export function PdfPreviewDrawer({
               }
               error={
                 <Alert
-                  className="sxw-mes-pdf-preview-empty"
+                  className="sxw-pdf-preview-empty"
                   showIcon
                   type="error"
                   message="PDF 解析失败，请下载后查看"
@@ -516,7 +516,7 @@ export function PdfPreviewDrawer({
                 scale={pageWidth ? undefined : scale}
                 renderAnnotationLayer
                 renderTextLayer
-                className="sxw-mes-pdf-preview-page"
+                className="sxw-pdf-preview-page"
               />
             </PdfDocument>
           )}
@@ -882,7 +882,7 @@ export function DrawingFilesGallery({
 
   if (normalizedGroups.length === 0) {
     return (
-      <div className="sxw-mes-drawing-gallery-empty">
+      <div className="sxw-drawing-gallery-empty">
         <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={emptyText} />
       </div>
     );
@@ -890,15 +890,15 @@ export function DrawingFilesGallery({
 
   return (
     <>
-      <div className="sxw-mes-drawing-gallery">
+      <div className="sxw-drawing-gallery">
         {normalizedGroups.map((group) => {
           const groupImageUrls = group.urls.filter(
             (url) => getFileKind(url) === 'image',
           );
           return (
-            <section className="sxw-mes-drawing-source-group" key={group.key}>
-              <div className="sxw-mes-drawing-source-header">
-                <div className="sxw-mes-drawing-source-title">
+            <section className="sxw-drawing-source-group" key={group.key}>
+              <div className="sxw-drawing-source-header">
+                <div className="sxw-drawing-source-title">
                   <Typography.Text strong>{group.title}</Typography.Text>
                   {group.description ? (
                     <Typography.Text type="secondary">
@@ -922,7 +922,7 @@ export function DrawingFilesGallery({
                   ) : null}
                 </Space>
               </div>
-              <div className="sxw-mes-drawing-file-grid">
+              <div className="sxw-drawing-file-grid">
                 {group.urls.map((url) => {
                   const name = getDisplayName(
                     url,
@@ -932,10 +932,10 @@ export function DrawingFilesGallery({
                   const isImage = kind === 'image';
                   const isPdf = kind === 'pdf';
                   return (
-                    <div className="sxw-mes-drawing-file-card" key={url}>
+                    <div className="sxw-drawing-file-card" key={url}>
                       <button
                         type="button"
-                        className="sxw-mes-drawing-file-thumb"
+                        className="sxw-drawing-file-thumb"
                         onClick={() =>
                           isImage
                             ? previewImage(url)
@@ -949,22 +949,22 @@ export function DrawingFilesGallery({
                             src={url}
                             alt={name}
                             preview={false}
-                            className="sxw-mes-drawing-file-thumb-image"
+                            className="sxw-drawing-file-thumb-image"
                           />
                         ) : (
-                          <span className="sxw-mes-drawing-file-icon">
+                          <span className="sxw-drawing-file-icon">
                             {getFileIcon(kind)}
                           </span>
                         )}
                       </button>
-                      <div className="sxw-mes-drawing-file-info">
+                      <div className="sxw-drawing-file-info">
                         <Typography.Text
                           ellipsis={{ tooltip: name }}
-                          className="sxw-mes-drawing-file-name"
+                          className="sxw-drawing-file-name"
                         >
                           {name}
                         </Typography.Text>
-                        <div className="sxw-mes-drawing-file-kind">
+                        <div className="sxw-drawing-file-kind">
                           {kind === 'image'
                             ? '图片图纸'
                             : kind === 'pdf'
@@ -972,7 +972,7 @@ export function DrawingFilesGallery({
                               : '附件'}
                         </div>
                       </div>
-                      <Space className="sxw-mes-drawing-file-actions" size={4} wrap>
+                      <Space className="sxw-drawing-file-actions" size={4} wrap>
                         {isImage ? (
                           <Button
                             size="small"

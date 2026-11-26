@@ -121,8 +121,8 @@ test('business side navigation renders expanded and collapsed visual states', ()
   assert.match(expanded, /销售管理任务导航/);
   assert.match(expanded, /菜单搜索/);
   assert.match(expanded, /销售订单/);
-  assert.doesNotMatch(expanded, /mes-business-side-nav-collapsed/);
-  assert.match(collapsed, /mes-business-side-nav-collapsed/);
+  assert.doesNotMatch(expanded, /sxw-business-side-nav-collapsed/);
+  assert.match(collapsed, /sxw-business-side-nav-collapsed/);
   assert.doesNotMatch(collapsed, /销售管理任务导航/);
 });
 
@@ -132,8 +132,8 @@ test('business navigation layout keeps both rails and result lists shrinkable', 
     'utf8',
   );
 
-  assert.match(css, /\.mes-business-side-nav\s*\{[^}]*width:\s*100%/s);
-  assert.match(css, /\.mes-business-side-nav-secondary\s*\{[^}]*min-width:\s*0/s);
-  assert.match(css, /\.mes-business-side-nav-secondary-list\s*\{[^}]*overflow-y:\s*auto/s);
+  assert.match(css, /\.sxw-business-side-nav\s*\{[^}]*width:\s*100%/s);
+  assert.match(css, /\.sxw-business-side-nav-secondary\s*\{[^}]*min-width:\s*0/s);
+  assert.match(css, /\.sxw-business-side-nav-secondary-list\s*\{[^}]*overflow-y:\s*auto/s);
   assert.match(css, /@media\s*\(prefers-reduced-motion:\s*reduce\)/);
 });

@@ -216,7 +216,7 @@ function WorkOrderProductionComponentsDemoContent() {
         </Card>
         <Card title="临时报工码打印资格">
           <div>工序 1 · 车削加工：{canPrintTemporaryReportQr(operations[0], 'released') ? '允许打印' : '当前不可打印'}</div>
-          <div>扫码地址：{buildTemporaryReportPortalUrl({ token: 'demo-token', expiresAt: '2026-11-30T00:00:00.000Z' }, 'https://mes.example.com')}</div>
+          <div>扫码地址：{buildTemporaryReportPortalUrl({ token: 'demo-token', expiresAt: '2026-11-30T00:00:00.000Z' }, 'https://example.com')}</div>
         </Card>
         <WorkOrderMaterialShortageSection
           detail={shortageDetail}

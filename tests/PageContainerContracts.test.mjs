@@ -47,7 +47,7 @@ test('list toolbar stays between the page header and its semantic results region
   assert.match(html, /<section class="sxw-list-screen__results">/);
 });
 
-test('MES detail container preserves breadcrumb, header, approval, body, and footer slots', () => {
+test('business detail container preserves breadcrumb, header, approval, body, and footer slots', () => {
   const html = renderToStaticMarkup(
     React.createElement(
       DetailPageContainer,
@@ -75,7 +75,7 @@ test('MES detail container preserves breadcrumb, header, approval, body, and foo
   const bodyIndex = html.indexOf('详情内容');
   const footerIndex = html.indexOf('保存');
 
-  assert.match(html, /<main class="sxw-screen sxw-screen--frame-none sxw-screen--fill sxw-detail-screen sxw-mes-detail-page">/);
+  assert.match(html, /<main class="sxw-screen sxw-screen--frame-none sxw-screen--fill sxw-detail-screen sxw-detail-page">/);
   assert.ok(breadcrumbIndex >= 0 && headerIndex > breadcrumbIndex);
   assert.ok(approvalIndex > headerIndex);
   assert.ok(bodyIndex > approvalIndex);
@@ -86,7 +86,7 @@ test('MES detail container preserves breadcrumb, header, approval, body, and foo
   assert.match(html, /编辑/);
 });
 
-test('MES detail content composes host slots without adding a screen or scroll container', () => {
+test('business detail content composes host slots without adding a screen or scroll container', () => {
   const html = renderToStaticMarkup(
     React.createElement(
       DetailPageContent,
@@ -100,10 +100,10 @@ test('MES detail content composes host slots without adding a screen or scroll c
 
   assert.match(html, /^<header>宿主详情标题<\/header><aside>宿主审批面板<\/aside>/);
   assert.match(html, /<article>详情正文<\/article>$/);
-  assert.doesNotMatch(html, /sxw-detail-screen|sxw-screen|sxw-mes-detail-page__approval/);
+  assert.doesNotMatch(html, /sxw-detail-screen|sxw-screen|sxw-detail-page__approval/);
 });
 
-test('MES detail state preserves loading, error retry, and empty presentation', () => {
+test('business detail state preserves loading, error retry, and empty presentation', () => {
   const loadingHtml = renderToStaticMarkup(
     React.createElement(DetailPageState, { state: 'loading' }),
   );

@@ -1,4 +1,4 @@
-.mes-material-table-picker {
+.sxw-material-table-picker {
   display: flex;
   width: 100%;
   height: 100%;
@@ -6,36 +6,36 @@
   gap: 12px;
 }
 
-.mes-material-table-picker__type-filter {
+.sxw-material-table-picker__type-filter {
   flex: 0 0 176px;
   min-width: 0;
   padding-right: 8px;
   overflow: auto;
-  border-right: 1px solid var(--mes-border-subtle, #f0f0f0);
+  border-right: 1px solid var(--sxw-border-subtle, #f0f0f0);
 }
 
-.mes-material-table-picker__type-filter-title {
+.sxw-material-table-picker__type-filter-title {
   margin-bottom: 8px;
   font-weight: 600;
 }
 
-.mes-material-table-picker__type-filter .ant-btn {
+.sxw-material-table-picker__type-filter .ant-btn {
   text-align: left;
 }
 
-.mes-material-table-picker__type-filter .ant-tree {
+.sxw-material-table-picker__type-filter .ant-tree {
   width: 100%;
 }
 
-.mes-material-table-picker__type-filter .ant-tree-title {
+.sxw-material-table-picker__type-filter .ant-tree-title {
   white-space: nowrap;
 }
 
-.mes-material-table-picker__content,
-.mes-material-table-picker__tabs.ant-tabs,
-.mes-material-table-picker__tabs .ant-tabs-content-holder,
-.mes-material-table-picker__tabs .ant-tabs-content,
-.mes-material-table-picker__panel {
+.sxw-material-table-picker__content,
+.sxw-material-table-picker__tabs.ant-tabs,
+.sxw-material-table-picker__tabs .ant-tabs-content-holder,
+.sxw-material-table-picker__tabs .ant-tabs-content,
+.sxw-material-table-picker__panel {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -44,7 +44,7 @@
 }
 
 /* Inactive panes must remain hidden when users switch back to the active tab. */
-.mes-material-table-picker__tabs .ant-tabs-tabpane-active {
+.sxw-material-table-picker__tabs .ant-tabs-tabpane-active {
   display: flex;
   flex: 1 1 auto;
   flex-direction: column;
@@ -52,12 +52,12 @@
   min-height: 0;
 }
 
-.mes-material-table-picker__tabs .ant-tabs-nav {
+.sxw-material-table-picker__tabs .ant-tabs-nav {
   flex: 0 0 auto;
   margin-bottom: 8px;
 }
 
-.mes-material-table-picker__catalog-search {
+.sxw-material-table-picker__catalog-search {
   flex: 0 0 auto;
   width: min(360px, 100%);
   margin-bottom: 8px;

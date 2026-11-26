@@ -331,9 +331,9 @@ export function CustomFieldValuePanel({
 
   return (
     <Spin spinning={loading}>
-      <div className="mes-custom-field-panel">
+      <div className="sxw-custom-field-panel">
         {showStandaloneHeader ? (
-          <div className="mes-custom-field-panel-header">
+          <div className="sxw-custom-field-panel-header">
             {title ? <Typography.Text strong>{title}</Typography.Text> : <span />}
             {editButton}
           </div>
@@ -342,7 +342,7 @@ export function CustomFieldValuePanel({
         {loadError ? (
           <Alert type="error" showIcon message={loadError} />
         ) : detailFields.length === 0 ? (
-          <div className="mes-custom-field-panel-empty">
+          <div className="sxw-custom-field-panel-empty">
             <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description={emptyDescription}>
               {emptyExtra}
             </Empty>

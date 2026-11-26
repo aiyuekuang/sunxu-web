@@ -162,7 +162,7 @@ export function DetailPageContainer({
 }: DetailPageContainerProps) {
   return (
     <DetailScreenContainer
-      className={['sxw-mes-detail-page', className].filter(Boolean).join(' ')}
+      className={['sxw-detail-page', className].filter(Boolean).join(' ')}
       as={as}
       frame={frame}
       fill={fill}
@@ -177,7 +177,7 @@ export function DetailPageContainer({
         breadcrumbs={breadcrumbs}
         header={header}
         approval={approval}
-        approvalClassName="sxw-mes-detail-page__approval"
+        approvalClassName="sxw-detail-page__approval"
       >
         {children}
       </DetailPageContent>

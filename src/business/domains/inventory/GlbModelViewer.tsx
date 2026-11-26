@@ -292,12 +292,12 @@ export function GlbModelViewer({ url, name }: GlbModelViewerProps) {
 
   return (
     <section
-      className="mes-glb-model-viewer"
+      className="sxw-glb-model-viewer"
       aria-label={name + ' 3D查看器'}
       style={{ background: token.colorFillQuaternary }}
     >
       <div
-        className="mes-glb-model-viewer-toolbar"
+        className="sxw-glb-model-viewer-toolbar"
         style={{
           background: token.colorBgContainer,
           borderBottomColor: token.colorBorderSecondary,
@@ -337,25 +337,25 @@ export function GlbModelViewer({ url, name }: GlbModelViewerProps) {
           </Button>
         </Space>
         <span
-          className="mes-glb-model-viewer-hint"
+          className="sxw-glb-model-viewer-hint"
           style={{ color: token.colorTextSecondary }}
         >
           拖拽旋转 · 滚轮缩放
         </span>
       </div>
-      <div ref={canvasContainerRef} className="mes-glb-model-viewer-canvas">
+      <div ref={canvasContainerRef} className="sxw-glb-model-viewer-canvas">
         {loading ? (
-          <div className="mes-glb-model-viewer-status">
+          <div className="sxw-glb-model-viewer-status">
             <Spin description="正在加载3D模型" />
           </div>
         ) : null}
         {error ? (
-          <div className="mes-glb-model-viewer-status">
+          <div className="sxw-glb-model-viewer-status">
             <Alert type="warning" showIcon message={error} />
           </div>
         ) : null}
         {!loading && !error && !modelRef.current ? (
-          <div className="mes-glb-model-viewer-status">
+          <div className="sxw-glb-model-viewer-status">
             <Empty image={Empty.PRESENTED_IMAGE_SIMPLE} description="暂无模型" />
           </div>
         ) : null}

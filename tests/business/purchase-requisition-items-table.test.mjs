@@ -73,7 +73,7 @@ test('expanded requisition item columns put material identity and quantities fir
 
   assert.ok(headingOffsets.every((offset) => offset >= 0));
   assert.deepEqual(headingOffsets, [...headingOffsets].sort((a, b) => a - b));
-  assert.match(html, /mes-expanded-detail-table/);
+  assert.match(html, /sxw-expanded-detail-table/);
   assert.match(html, /AL-001/);
   assert.match(html, /单位:件/);
   assert.match(html, /数量:12/);

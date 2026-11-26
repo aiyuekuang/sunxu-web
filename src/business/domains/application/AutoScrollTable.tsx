@@ -193,13 +193,13 @@ export function AutoScrollTable<T>({
 
   return (
     <div
-      className={`sunxu-mes-screen-autoscroll-wrap${className ? ` ${className}` : ''}`}
+      className={`sxw-screen-autoscroll-wrap${className ? ` ${className}` : ''}`}
     >
       {canScroll ? (
-        <div className="sunxu-mes-screen-autoscroll-controls">
+        <div className="sxw-screen-autoscroll-controls">
           <button
             type="button"
-            className="sunxu-mes-screen-autoscroll-toggle"
+            className="sxw-screen-autoscroll-toggle"
             aria-label={paused ? '继续自动滚动' : '暂停自动滚动'}
             title={paused ? '继续自动滚动' : '暂停自动滚动'}
             onClick={() => setUserPaused(!paused)}
@@ -213,15 +213,15 @@ export function AutoScrollTable<T>({
         </div>
       ) : null}
       <div
-        className="sunxu-mes-screen-autoscroll-table"
+        className="sxw-screen-autoscroll-table"
         role="table"
         aria-label={ariaLabel}
         aria-rowcount={data.length + 1}
         aria-colcount={columns.length}
       >
-      <div className="sunxu-mes-screen-autoscroll-head" role="rowgroup">
+      <div className="sxw-screen-autoscroll-head" role="rowgroup">
         <div
-          className="sunxu-mes-screen-autoscroll-head-row"
+          className="sxw-screen-autoscroll-head-row"
           style={{ gridTemplateColumns }}
           role="row"
           aria-rowindex={1}
@@ -229,7 +229,7 @@ export function AutoScrollTable<T>({
           {columns.map((column) => (
             <div
               key={column.dataIndex ? String(column.dataIndex) : column.title}
-              className="sunxu-mes-screen-autoscroll-head-cell"
+              className="sxw-screen-autoscroll-head-cell"
               style={{
                 textAlign: column.align ?? 'left',
                 justifyContent:
@@ -247,9 +247,9 @@ export function AutoScrollTable<T>({
         </div>
       </div>
 
-      <div className="sunxu-mes-screen-autoscroll-body" ref={containerRef} role="rowgroup">
+      <div className="sxw-screen-autoscroll-body" ref={containerRef} role="rowgroup">
         <div
-          className="sunxu-mes-screen-autoscroll-track"
+          className="sxw-screen-autoscroll-track"
           role="presentation"
           style={{
             transform: `translateY(${translateY}px)`,
@@ -266,7 +266,7 @@ export function AutoScrollTable<T>({
             return (
               <div
                 key={key}
-                className={`sunxu-mes-screen-autoscroll-row${extraClass ? ` ${extraClass}` : ''}`}
+                className={`sxw-screen-autoscroll-row${extraClass ? ` ${extraClass}` : ''}`}
                 style={{ height: rowHeight, gridTemplateColumns }}
                 role="row"
                 aria-rowindex={rowIndex + 2}
@@ -287,7 +287,7 @@ export function AutoScrollTable<T>({
                   return (
                     <div
                       key={columnKey}
-                      className="sunxu-mes-screen-autoscroll-cell"
+                      className="sxw-screen-autoscroll-cell"
                       style={{
                         textAlign: column.align ?? 'left',
                         justifyContent:

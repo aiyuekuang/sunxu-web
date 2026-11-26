@@ -59,8 +59,8 @@ export function LargeScreenComponentsDemo() {
               flexDirection: 'column',
               gap: 8,
               padding: 16,
-              background: 'var(--sunxu-mes-large-screen-bg, #020617)',
-              color: 'var(--sunxu-mes-large-screen-text, #f1f5f9)',
+              background: 'var(--sxw-large-screen-bg, #020617)',
+              color: 'var(--sxw-large-screen-text, #f1f5f9)',
             }}
           >
             <ScreenHeader
@@ -106,9 +106,9 @@ export function LargeScreenComponentsDemo() {
                   minWidth: 0,
                   flexDirection: 'column',
                   overflow: 'hidden',
-                  border: '1px solid var(--sunxu-mes-large-screen-border, #334155)',
+                  border: '1px solid var(--sxw-large-screen-border, #334155)',
                   borderRadius: 6,
-                  background: 'var(--sunxu-mes-large-screen-panel-bg, #0f172a)',
+                  background: 'var(--sxw-large-screen-panel-bg, #0f172a)',
                 }}
               >
                 <PanelHeader
@@ -133,9 +133,9 @@ export function LargeScreenComponentsDemo() {
                   display: 'flex',
                   minWidth: 0,
                   flexDirection: 'column',
-                  border: '1px solid var(--sunxu-mes-large-screen-border, #334155)',
+                  border: '1px solid var(--sxw-large-screen-border, #334155)',
                   borderRadius: 6,
-                  background: 'var(--sunxu-mes-large-screen-panel-bg, #0f172a)',
+                  background: 'var(--sxw-large-screen-panel-bg, #0f172a)',
                 }}
               >
                 <PanelHeader title="异常监控" tag="实时" />

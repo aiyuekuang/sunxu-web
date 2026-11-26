@@ -11,7 +11,7 @@ interface UseScanGunOptions {
 
 const DEFAULT_END_KEYS: string[] = ['Enter', 'NumpadEnter', 'Tab'];
 
-/** Keyboard-wedge scanner listener copied from the MES source contract. */
+/** Collects keyboard-wedge scanner input and reports complete codes. */
 export function useScanGun({
   enabled = true,
   onScan,

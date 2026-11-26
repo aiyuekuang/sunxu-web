@@ -1,6 +1,6 @@
 {
   "name": "sunxu-web",
-  "version": "0.4.11",
+  "version": "0.5.0",
   "private": false,
   "description": "Shared React web components, page containers, and reusable business UI",
   "license": "MIT",
@@ -109,14 +109,6 @@
       },
       "import": "./dist/business-shared.js",
       "require": "./dist/business-shared.cjs"
-    },
-    "./mes": {
-      "types": "./dist/types/business/compat/mesEntry.d.ts",
-      "node": {
-        "import": "./dist/node/mes.mjs"
-      },
-      "import": "./dist/mes.js",
-      "require": "./dist/mes.cjs"
     },
     "./styles.css": {
       "default": "./dist/sunxu-web.css"

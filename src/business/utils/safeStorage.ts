@@ -1,7 +1,7 @@
 import {
-  LEGACY_TABLE_CACHE_CAPACITY_PROBE_KEY,
-  LEGACY_TABLE_CACHE_KEY_PREFIXES,
-} from '../compat/legacyStorageKeys';
+  TABLE_CACHE_CAPACITY_PROBE_KEY,
+  TABLE_CACHE_KEY_PREFIXES,
+} from './storageSchema';
 
 /**
  * localStorage 容错写入工具。
@@ -33,7 +33,7 @@ function getLocalStorage(): Storage | undefined {
 }
 
 function isTableCacheKey(key: string): boolean {
-  return LEGACY_TABLE_CACHE_KEY_PREFIXES.some((prefix) => key.startsWith(prefix));
+  return TABLE_CACHE_KEY_PREFIXES.some((prefix) => key.startsWith(prefix));
 }
 
 function isQuotaExceededError(error: unknown): boolean {
@@ -139,7 +139,7 @@ export function ensureTableCacheCapacity(): boolean {
   }
 
   const wrote = safeLocalStorageSetItem(
-    LEGACY_TABLE_CACHE_CAPACITY_PROBE_KEY,
+    TABLE_CACHE_CAPACITY_PROBE_KEY,
     TABLE_CACHE_CAPACITY_PROBE_VALUE,
   );
   if (!wrote) {
@@ -149,7 +149,7 @@ export function ensureTableCacheCapacity(): boolean {
 
   const storage = getLocalStorage();
   try {
-    storage?.removeItem(LEGACY_TABLE_CACHE_CAPACITY_PROBE_KEY);
+    storage?.removeItem(TABLE_CACHE_CAPACITY_PROBE_KEY);
   } catch {
     // 探针残留不影响业务；下次预检会覆盖同一 key。
   }

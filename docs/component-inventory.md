@@ -25,7 +25,6 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `DocumentLedgerViewSwitch`（`sunxu-web/business`） | 单据列表与只读明细间的受控切换；页面状态、路由和列表刷新由宿主管理 |
 | `DocumentLineQuantityInput`（`sunxu-web/business`） | 可清空的数量编辑草稿；有效值由宿主控制，空值失焦时恢复最近有效值 |
 | `StatusDisplay`（`sunxu-web`） | 唯一状态字典映射组件；支持 Tag、Badge、文本三种呈现 |
-| `MesStatusTag`（旧 `sunxu-web/mes` 兼容入口） | 已委托 `StatusDisplay`；迁移期保留空/未知状态与 children 文案回退。所有已知消费端迁到中性入口后，在下一次主版本移除 |
 | `ReportQuickRangeButtons`（`sunxu-web/business`） | 报表快捷范围的受控 Segmented 选择；匹配规则、日期范围和数据刷新由宿主提供 |
 | `ConfigEntryLink`、`ConfigEntryFieldLabel`（`sunxu-web/business`） | 在字段标签旁提供宿主授权的配置页新标签页链接；目标路由与权限结果由宿主提供 |
 | `DetailPageContainer`、`DetailPageContent`、`DetailPageState`（`sunxu-web/business`） | 组合业务详情页容器/内容/加载错误空状态；错误和空状态支持宿主注入重试/返回；请求、路由、权限、重试决策与审批服务由宿主保留 |
@@ -107,7 +106,6 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `BomWorkspaceDetail`（`sunxu-web/business`） | 保留 BOM 详情、有效版本解析、多级展开树/图、警告重试、导出和完整详情导航；BOM 服务、权限、图表 renderer 与路由由宿主注入 |
 | `BomIssueOperationSelect`、`useBomIssueOperationOptions`（`sunxu-web/business`） | 保留按候选路线展开工序、同一路线单一投料点、历史未识别绑定和搜索；路线候选/详情服务及生效日期由宿主注入 |
 | `IntegrationGuideLink`（`sunxu-web/business`） | 保留接入说明按钮和可滚动弹窗；标题、指南正文与主题内容由业务宿主传入 |
-| `IntegrationGuideContent`（`sunxu-web/business`） | 将 API、Webhook、群机器人、设备点位、同步与运行记录五类业务集成指南内容作为静态主题组件导出；页面路由/主题选择由宿主负责 |
 | `ServerInfoCard`（`sunxu-web/business`） | 展示 CPU、内存、磁盘、系统运行环境和文件存储统计，并标注实时数据；REST/WebSocket 与格式化由宿主注入 |
 | `DashboardShortcutConfigModal`（`sunxu-web/business`） | 维护仪表盘固定/自定义快捷入口、显隐/排序、编辑和权限结果；保存、入口定义和反馈由宿主注入 |
 | `CompleteMaintenanceFields`（`sunxu-web/business`） | 保留保养步骤结果/备注、必拍照片校验和整体完成备注；设备字段帮助文案由业务宿主注入 |

@@ -40,7 +40,7 @@ function ActionButton({
   return (
     <button
       type="button"
-      className="sunxu-mes-screen-action-button"
+      className="sxw-screen-action-button"
       aria-label={label}
       title={label}
       onClick={onClick}
@@ -108,27 +108,27 @@ export function ScreenHeader({
   };
 
   return (
-    <header className="sunxu-mes-screen-header">
-      <div className="sunxu-mes-screen-header-clock">
-        <span className="sunxu-mes-screen-clock">{clock}</span>
+    <header className="sxw-screen-header">
+      <div className="sxw-screen-header-clock">
+        <span className="sxw-screen-clock">{clock}</span>
         {lastUpdated && (
-          <span className="sunxu-mes-screen-updated-hint">{formatUpdated(lastUpdated)}</span>
+          <span className="sxw-screen-updated-hint">{formatUpdated(lastUpdated)}</span>
         )}
       </div>
 
-      <h1 className="sunxu-mes-screen-title">{title}</h1>
+      <h1 className="sxw-screen-title">{title}</h1>
 
-      <div className="sunxu-mes-screen-actions">
+      <div className="sxw-screen-actions">
         {onToggleVoice && (
           <ActionButton
             label={voiceEnabled ? '关闭语音播报' : '开启语音播报'}
             onClick={onToggleVoice}
           >
             {voiceEnabled ? (
-              <SoundOutlined className="sunxu-mes-screen-action-icon" aria-hidden="true" />
+              <SoundOutlined className="sxw-screen-action-icon" aria-hidden="true" />
             ) : (
               <AudioMutedOutlined
-                className="sunxu-mes-screen-action-icon"
+                className="sxw-screen-action-icon"
                 aria-hidden="true"
               />
             )}
@@ -136,7 +136,7 @@ export function ScreenHeader({
         )}
         {voiceEnabled && onOpenVoiceSettings && (
           <ActionButton label="语音播报设置" onClick={onOpenVoiceSettings}>
-            <SettingOutlined className="sunxu-mes-screen-action-icon" aria-hidden="true" />
+            <SettingOutlined className="sxw-screen-action-icon" aria-hidden="true" />
           </ActionButton>
         )}
         {onToggleAutoPlay && (
@@ -145,10 +145,10 @@ export function ScreenHeader({
             onClick={onToggleAutoPlay}
           >
             {autoPlaying ? (
-              <PauseOutlined className="sunxu-mes-screen-action-icon" aria-hidden="true" />
+              <PauseOutlined className="sxw-screen-action-icon" aria-hidden="true" />
             ) : (
               <CaretRightOutlined
-                className="sunxu-mes-screen-action-icon"
+                className="sxw-screen-action-icon"
                 aria-hidden="true"
               />
             )}
@@ -158,24 +158,24 @@ export function ScreenHeader({
           label="返回首页"
           onClick={() => navigate(backPath)}
         >
-          <HomeOutlined className="sunxu-mes-screen-action-icon" aria-hidden="true" />
+          <HomeOutlined className="sxw-screen-action-icon" aria-hidden="true" />
         </ActionButton>
         {showRefresh && onRefresh && (
           <ActionButton label="刷新" onClick={onRefresh}>
-            <ReloadOutlined className="sunxu-mes-screen-action-icon" aria-hidden="true" />
+            <ReloadOutlined className="sxw-screen-action-icon" aria-hidden="true" />
           </ActionButton>
         )}
         {isFullscreen ? (
           <ActionButton label="退出全屏" onClick={toggleFullscreen}>
             <FullscreenExitOutlined
-              className="sunxu-mes-screen-action-icon"
+              className="sxw-screen-action-icon"
               aria-hidden="true"
             />
           </ActionButton>
         ) : (
           <ActionButton label="全屏" onClick={toggleFullscreen}>
             <FullscreenOutlined
-              className="sunxu-mes-screen-action-icon"
+              className="sxw-screen-action-icon"
               aria-hidden="true"
             />
           </ActionButton>

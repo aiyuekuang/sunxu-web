@@ -111,7 +111,7 @@ export function BackupDirectoryPicker({
         style={{ display: 'block', marginTop: 8 }}
       >
         浏览的是 host 服务所在机器的文件系统。Linux 从 / 开始；Windows
-        从服务系统盘开始，其他盘可输入绝对路径（如 D:\mes-backups）。Docker
+        从服务系统盘开始，其他盘可输入绝对路径（如 D:\backups）。Docker
         部署只能看到容器内路径，请选择已挂载的持久化目录。
       </Typography.Text>
 

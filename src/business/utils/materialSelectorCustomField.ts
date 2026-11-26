@@ -78,7 +78,7 @@ export function formatCustomFieldDisplay(
   }
 }
 
-/** MES custom-field display contract shared by selector options. */
+/** Shared custom-field display contract for material selector options. */
 export function resolveMaterialSelectorCustomField(
   field: MaterialSelectorCustomFieldDefinition,
   source: MaterialSelectorCustomFieldSource,

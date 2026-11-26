@@ -10,10 +10,11 @@
 ## 组件归一化调整（2026-11-26）
 
 - 后续架构决策取代 2026-11-19 将组件分成“通用层 + MES UI 套件”的产品边界：库内按原子、通用复合、业务复合分层，并按业务领域归类；相同业务任务在所有宿主使用同一权威实现、契约和视觉行为。
-- 业务 UI 源码由 `src/mes/**` 移至 `src/business/domains/**`，公开入口新增 `sunxu-web/business`；旧 `sunxu-web/mes` 路径现由 `src/business/compat/mesEntry.ts` 转发到同一实现。MES Admin 仍大量依赖旧入口，因此继续保留到所有已知消费端迁移完成，并在下一次主版本移除；源码不再保留 `src/mes` 组件目录。
-- 状态字典标签、徽标和文本收敛到根出口 `StatusDisplay`。原 `MesStatusTag` 只保留迁移适配并委托同一实现；多处业务类型改用根出口 `StatusMap`。
+- 业务 UI 源码位于 `src/business/domains/**`，按稳定业务领域导出为 `sunxu-web/business/<domain>`；跨领域组合使用完整 `sunxu-web/business`。不提供 `sunxu-web/mes` 子路径、不保留产品专属组件别名或兼容层。
+- 状态字典标签、徽标和文本收敛到根出口 `StatusDisplay`；业务状态类型使用中性 `StatusMap`。
 - 重复的上下文帮助浮层收敛到根出口 `ContextualHelp`；导入流程和业务表单改为复用该实现。
-- 已更新工程指南、设计规范、组件契约、组件使用映射、组件来源清单和目录示例。组件内历史 `Mes` 命名与宿主适配 API 仍按迁移兼容策略逐步归一化。
+- `IntegrationGuideContent` 的接口字段、事件和接入说明属于宿主产品知识，已从业务组件库移回宿主路由；库保留接收 `children` 的通用 `IntegrationGuideLink`。
+- 已更新工程指南、设计规范、组件契约、组件使用映射、组件来源清单和目录示例。消费端统一改用根出口和稳定领域入口；旧用户持久化偏好由宿主启动时一次性迁移，组件库不识别产品旧键，也不保留旧组件 API。
 
 ## 适配策略
 
@@ -54,11 +55,11 @@
 
 ## MES UI 套件扩展（2026-11-19，已由 2026-11-26 归一化决策取代）
 
-- 用户决定将 Sunxu Web 扩展为“通用组件层 + MES UI 套件”，先按当前 MES 实现补全组件库，再逐项替换 MES 消费端。
+- 当时曾决定将 Sunxu Web 扩展为“通用组件层 + MES UI 套件”，本节以下记录该阶段的实施过程；该产品边界已被 2026-11-26 的通用领域架构取代。
 - MES 当前使用的 Ant Design、Pro Components 和图标组件由 `src/upstream.ts` 直通导出；它们仍由上游实现和维护，不在 Sunxu 再造包装组件。
-- 当时基于 MES 实现核对的业务 UI 位于 `src/mes/**`，从 `sunxu-web/mes` 子路径导出；该产品命名目录已在 2026-11-26 归并到 `src/business/**`，由 `sunxu-web/business` 作为业务组件权威入口。API 请求、路由、权限判断与业务副作用始终由宿主通过 props、回调或适配器注入。
+- 当时基于 MES 实现核对的业务 UI 位于 `src/mes/**`，从 `sunxu-web/mes` 子路径导出；该产品命名目录已在 2026-11-26 归并到 `src/business/domains/**`，由中性根/领域出口发布。API 请求、路由、权限判断与业务副作用始终由宿主通过 props、回调或适配器注入。
 - 页面路由和页面控制器仍留在 `mes-admin`。迁移范围以 [MES 当前组件导入快照](./migrations/mes-admin-component-usage-2026-11-19.json) 和 [MES 公共组件逐文件清单](./migrations/mes-admin-src-components-2026-11-19.json) 为准；每条记录须映射到通用层、MES 套件、上游直通出口或宿主控制器，不得静默丢弃。
-- 已建立独立 `sunxu-web/mes` 运行时出口，已迁入 `TableLongText`、`DocumentLineBatchSettingsButton`、`DocumentLineQuantityInput`、`PermissionButton`、`StatusDisplay` 与 `DocumentModalForm` 等 MES 兼容适配；组件逐条覆盖仍在进行中。
+- 当时建立过独立 `sunxu-web/mes` 运行时出口并逐步迁入组件；该出口和产品别名已于 2026-11-26 删除，当前公开 API 以根出口和 `sunxu-web/business/<domain>` 为准。
 - `DocumentModalForm` 按当前 MES 行为重新适配到 Sunxu 命名空间和 Ant Design tokens，保留完整 `ModalForm` props、标签工作区定位、视口全屏选项、最小化草稿保留、还原条、open 状态重置及语义样式槽合并；请求和路由仍由宿主控制。最终读屏器流程为 `UNVERIFIED`。
 - MES `ResizableTable.tsx` 以 `mes-admin` 分支 `main-买断版本` 的提交 `e185f6b68b6d8ef94ed0b5312340e1952be5f2f1` 为行为基线（源文件 SHA-256 `f86cf0b9bc988036ddcce0246b48627ea80dcf25607d8db29cc721f99e542c3e`，3,699 行）。Sunxu 版本为 3,780 行的适配移植：列宽钩子、MES 表格工具、列状态/导出布局、Umi 权限接缝改为 `BusinessUiProvider` 能力注入；不读取或修改 `mes-admin` 工作区文件，也没有将来源文件原样不加处理地复制进通用层。
 - 套件导出 `ResizableProTable` / `ResizableTable`、`TableActions`、`TableDensityOption`、`TableEmpty` 和 `useTableExportLayout`。保留源行为后，排序标记改为叠加到最终表格列，避免 ProTable 恢复已保存排序时改变列宽 hook 的输入并把已保存宽度覆盖回默认值。

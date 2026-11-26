@@ -25,7 +25,6 @@ export * from './AllowedEquipmentPriorityField';
 export * from './allowed-equipment-priority-types';
 export * from './CompleteMaintenanceFields';
 export * from './complete-maintenance-fields-types';
-export * from './batch-material-add-types';
 export type {
   WorkOrderScanSelectCapabilities,
   WorkOrderScanRecord,

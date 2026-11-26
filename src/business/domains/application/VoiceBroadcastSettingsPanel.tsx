@@ -47,12 +47,12 @@ export function VoiceBroadcastSettingsPanel({
   };
 
   return (
-    <section className="sxw-mes-voice-panel" aria-label="语音播报设置">
-      <div className="sxw-mes-voice-panel-head">
+    <section className="sxw-voice-panel" aria-label="语音播报设置">
+      <div className="sxw-voice-panel-head">
         <span>语音播报设置</span>
         <button
           type="button"
-          className="sxw-mes-voice-panel-close"
+          className="sxw-voice-panel-close"
           aria-label="关闭语音播报设置"
           onClick={onClose}
         >
@@ -60,13 +60,13 @@ export function VoiceBroadcastSettingsPanel({
         </button>
       </div>
 
-      <div className="sxw-mes-voice-panel-section">播报间隔</div>
-      <div className="sxw-mes-voice-panel-row">
+      <div className="sxw-voice-panel-section">播报间隔</div>
+      <div className="sxw-voice-panel-row">
         {intervalOptions.map((seconds) => (
           <button
             key={seconds}
             type="button"
-            className={`sxw-mes-voice-interval-btn${
+            className={`sxw-voice-interval-btn${
               settings.minIntervalSec === seconds ? ' active' : ''
             }`}
             aria-pressed={settings.minIntervalSec === seconds}
@@ -77,19 +77,19 @@ export function VoiceBroadcastSettingsPanel({
         ))}
       </div>
 
-      <div className="sxw-mes-voice-panel-section">播报事件类型</div>
+      <div className="sxw-voice-panel-section">播报事件类型</div>
       {eventGroups.map((group) => (
         <div key={group}>
-          <div className="sxw-mes-voice-panel-group">
+          <div className="sxw-voice-panel-group">
             {eventGroupLabels[group]}
           </div>
-          <div className="sxw-mes-voice-panel-types">
+          <div className="sxw-voice-panel-types">
             {eventTypeOptions
               .filter((option) => option.group === group)
               .map((option) => (
                 <label
                   key={option.value}
-                  className="sxw-mes-voice-type-item"
+                  className="sxw-voice-type-item"
                 >
                   <input
                     type="checkbox"
@@ -105,14 +105,14 @@ export function VoiceBroadcastSettingsPanel({
         </div>
       ))}
 
-      <div className="sxw-mes-voice-panel-hint">
+      <div className="sxw-voice-panel-hint">
         只播开启之后新出现的事件，同一事件只播一次；异常优先播报，生产动态较多时可单独关闭。
         当前待播 {queueLength} 条。
       </div>
 
       <button
         type="button"
-        className="sxw-mes-voice-reset-btn"
+        className="sxw-voice-reset-btn"
         onClick={() => {
           const confirmed = confirmReset
             ? confirmReset(RESET_CONFIRM)

@@ -4,7 +4,7 @@ import { defineConfig } from 'vite';
 export default defineConfig({
   plugins: [react()],
   build: {
-    emptyOutDir: false,
+    emptyOutDir: true,
     lib: {
       entry: {
         index: 'src/index.ts',
@@ -19,7 +19,6 @@ export default defineConfig({
         businessQuality: 'src/business/domains/quality/index.ts',
         businessSales: 'src/business/domains/sales/index.ts',
         businessShared: 'src/business/domains/shared/index.ts',
-        mes: 'src/business/compat/mesEntry.ts',
       },
       name: 'SunxuWeb',
       formats: ['es', 'cjs'],

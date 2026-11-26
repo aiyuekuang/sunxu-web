@@ -83,7 +83,7 @@ export function AnnouncementBanner({
   return (
     <div
       className={[
-        'sxw-mes-announcement-banner',
+        'sxw-announcement-banner',
         className,
       ]
         .filter(Boolean)
@@ -91,31 +91,31 @@ export function AnnouncementBanner({
     >
       <button
         aria-label={`查看公告：${announcementText}`}
-        className="sxw-mes-announcement-banner__content"
+        className="sxw-announcement-banner__content"
         onClick={() => onOpen(currentItem.id)}
         title={announcementText}
         type="button"
       >
         <NotificationOutlined
           aria-hidden="true"
-          className="sxw-mes-announcement-banner__icon"
+          className="sxw-announcement-banner__icon"
         />
-        <span className="sxw-mes-announcement-banner__label">公告</span>
+        <span className="sxw-announcement-banner__label">公告</span>
         {priorityLabel ? (
           <span
-            className={`sxw-mes-announcement-banner__priority sxw-mes-announcement-banner__priority--${currentItem.priority}`}
+            className={`sxw-announcement-banner__priority sxw-announcement-banner__priority--${currentItem.priority}`}
           >
             {priorityLabel}
           </span>
         ) : null}
-        <span className="sxw-mes-announcement-banner__marquee">
+        <span className="sxw-announcement-banner__marquee">
           <span
-            className="sxw-mes-announcement-banner__track"
+            className="sxw-announcement-banner__track"
             style={{ transform: `translateY(-${currentIndex * 22}px)` }}
           >
             {visibleItems.map((item) => (
               <span
-                className="sxw-mes-announcement-banner__item"
+                className="sxw-announcement-banner__item"
                 key={item.id}
               >
                 {getAnnouncementText(item)}
@@ -125,13 +125,13 @@ export function AnnouncementBanner({
         </span>
       </button>
       {visibleItems.length > 1 ? (
-        <span className="sxw-mes-announcement-banner__count">
+        <span className="sxw-announcement-banner__count">
           {currentIndex + 1}/{visibleItems.length}
         </span>
       ) : null}
       <Button
         aria-label="隐藏当前公告"
-        className="sxw-mes-announcement-banner__close"
+        className="sxw-announcement-banner__close"
         icon={<CloseOutlined aria-hidden="true" />}
         onClick={handleClose}
         size="small"

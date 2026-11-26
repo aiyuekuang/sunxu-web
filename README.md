@@ -32,7 +32,7 @@ export function App() {
 
 组件示例和 API 对照见 [`examples/catalog`](./examples/catalog)。唯一权威设计规范见 [`design-system/sunxu-web/MASTER.md`](./design-system/sunxu-web/MASTER.md)；[`docs/design-system.md`](./docs/design-system.md) 是规范导航页。组件 API、迁移映射和依赖版本分别以 [`docs/component-contracts.md`](./docs/component-contracts.md)、[`docs/component-inventory.md`](./docs/component-inventory.md) 和 [`docs/dependencies.md`](./docs/dependencies.md) 为准。
 
-原子与通用复合组件、AntD/Pro/图标从 `sunxu-web` 根出口导入；新业务复合组件按领域从 `sunxu-web/business/<domain>` 导入，需要跨领域时可用完整 `sunxu-web/business` 入口。请求、路由、授权决策和业务副作用由宿主提供。旧 `sunxu-web/mes` 仅从 `business/compat` 转发同一实现，所有已知消费端迁到中性入口后于下一次主版本移除。组件映射、覆盖进度和消费端门禁见 [`docs/component-usage-policy.md`](./docs/component-usage-policy.md)、[`docs/component-inventory.md`](./docs/component-inventory.md) 与 [`eslint-plugin-sunxu-web`](./tooling/eslint-plugin-sunxu-web/README.md)。
+原子与通用复合组件、AntD/Pro/图标从 `sunxu-web` 根出口导入；新业务复合组件按领域从 `sunxu-web/business/<domain>` 导入，需要跨领域时可用完整 `sunxu-web/business` 入口。请求、路由、授权决策和业务副作用由宿主提供。发布包不提供产品专属子路径或兼容层；所有消费端直接使用根出口或领域入口。旧持久化偏好仅通过一次性数据迁移保留。组件映射、覆盖进度和消费端门禁见 [`docs/component-usage-policy.md`](./docs/component-usage-policy.md)、[`docs/component-inventory.md`](./docs/component-inventory.md) 与 [`eslint-plugin-sunxu-web`](./tooling/eslint-plugin-sunxu-web/README.md)。
 
 ## 页面组合
 

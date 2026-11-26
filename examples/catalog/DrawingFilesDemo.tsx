@@ -9,8 +9,8 @@ import {
   type DrawingFileGroup,
   type DrawingFilesCapabilities,
 } from '../../src/business';
-import drawingImageUrl from './fixtures/mes-drawing-sample.png';
-import drawingPdfUrl from './fixtures/mes-drawing-sample.pdf?url&no-inline';
+import drawingImageUrl from './fixtures/drawing-sample.png';
+import drawingPdfUrl from './fixtures/drawing-sample.pdf?url&no-inline';
 import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 
 const orderHeaderImageUrl = `${drawingImageUrl}?source=order`;

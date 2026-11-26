@@ -90,6 +90,7 @@ function getColumnTitle(column: PrioritizableColumn): string {
 }
 
 const ROW_NUMBER_TITLES = new Set(['序号', '行号', '行次', '#']);
+const ROW_INDEX_COLUMN_KEY = '__sxw_row_index__';
 
 /**
  * 表格组件自动注入的展示序号列（行号 / 序号）：没有业务字段归属，在列设置里不可见，
@@ -100,7 +101,7 @@ const ROW_NUMBER_TITLES = new Set(['序号', '行号', '行次', '#']);
  */
 function isInjectedRowNumberColumn(column: PrioritizableColumn): boolean {
   const identity = getColumnIdentity(column);
-  if (identity === '__mes_row_index__') return true;
+  if (identity === ROW_INDEX_COLUMN_KEY) return true;
   // valueType=index/indexBorder 是 ProTable 专门的行号渲染类型，本身就是结构列。
   if (column.valueType === 'index' || column.valueType === 'indexBorder') {
     return true;
@@ -115,7 +116,7 @@ function isStructuralColumn(column: PrioritizableColumn): boolean {
   const identity = getColumnIdentity(column);
   const title = getColumnTitle(column);
   return (
-    identity === '__mes_row_index__' ||
+    identity === ROW_INDEX_COLUMN_KEY ||
     identity === 'index' ||
     title === '序号' ||
     isInjectedRowNumberColumn(column)

@@ -284,12 +284,12 @@ export function MaterialSelectorDemo() {
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Paragraph
           type="secondary"
-          data-mes-selector-part="intro"
+          data-sxw-selector-part="intro"
           style={{ marginBottom: 0 }}
         >
           搜索、筛选和扫码验证复用既有交互；候选、分类、字典、扫码枪与配置权限由宿主注入。
         </Typography.Paragraph>
-        <div data-mes-selector-part="host-controls">
+        <div data-sxw-selector-part="host-controls">
           <Space wrap size={12}>
             <Button size="small" onClick={() => setSimulateEmpty((value) => !value)}>
               {simulateEmpty ? '恢复示例候选' : '演示无物料候选'}
@@ -312,7 +312,7 @@ export function MaterialSelectorDemo() {
           materialSelectCapabilities={materialSelectCapabilities}
         >
           <DemoScanBridge handlersRef={scanHandlersRef} />
-          <Form form={form} layout="vertical" data-mes-selector-part="form">
+          <Form form={form} layout="vertical" data-sxw-selector-part="form">
             <MaterialSelectField
               name="materialId"
               label="单选物料"
@@ -333,11 +333,11 @@ export function MaterialSelectorDemo() {
           <Typography.Text
             type="secondary"
             role="status"
-            data-mes-selector-part="form-status"
+            data-sxw-selector-part="form-status"
           >
             表单选中：单选 {selectedMaterialSummary}；多选 {selectedRelatedSummary}
           </Typography.Text>
-          <div data-mes-selector-part="cascade">
+          <div data-sxw-selector-part="cascade">
             <Space orientation="vertical" size={8} style={{ width: '100%' }}>
               <Typography.Text strong>带级联筛选的主数据场景</Typography.Text>
               <MaterialFilteredSelect

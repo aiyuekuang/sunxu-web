@@ -70,7 +70,7 @@ export function DetailTable<T extends Record<string, unknown>>({
 
   return (
     <ResizableProTable<T>
-      className={mergeClassName('mes-detail-table', className)}
+      className={mergeClassName('sxw-detail-table', className)}
       search={false}
       columns={tableColumns}
       fitContainerHeight={false}

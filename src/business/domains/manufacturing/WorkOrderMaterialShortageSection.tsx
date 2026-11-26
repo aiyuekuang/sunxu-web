@@ -306,7 +306,7 @@ function ProductionSupplyItemsPanel({ orderId, capabilities }: { orderId: string
   return (
     <Table<ProductionSupplyItemWithCustomFields>
       rowKey="id"
-      className="mes-expanded-detail-table"
+      className="sxw-expanded-detail-table"
       size="small"
       loading={loading}
       pagination={false}

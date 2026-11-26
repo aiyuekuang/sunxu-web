@@ -75,9 +75,9 @@ export function ScreenScaler({ children }: { children: React.ReactNode }) {
   }, []);
 
   return (
-    <div ref={viewportRef} className="sunxu-mes-screen-scaler-viewport">
+    <div ref={viewportRef} className="sxw-screen-scaler-viewport">
       <div
-        className="sunxu-mes-screen-scaler-canvas"
+        className="sxw-screen-scaler-canvas"
         style={{
           width: layout.width,
           height: layout.height,

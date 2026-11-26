@@ -14,7 +14,7 @@ import {
 } from './BatchMaterialAddButton';
 import { DocumentLineCustomFieldFormItems } from '../documents/DocumentLineCustomFieldFormItems';
 import { MaterialTablePicker } from './MaterialTablePicker';
-import type { BatchMaterialRecord } from '../manufacturing/batch-material-add-types';
+import type { BatchMaterialRecord } from './batch-material-add-types';
 import type {
   StockCountLineConfigEntryLabelProps,
   StockCountLineConfigTarget,

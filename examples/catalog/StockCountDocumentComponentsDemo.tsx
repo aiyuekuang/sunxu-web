@@ -6,7 +6,7 @@ import { SectionCard } from '../../src/components/SectionCard';
 import { BusinessUiProvider } from '../../src/business/providers/BusinessUiProvider';
 import { CreateStockCountModal } from '../../src/business/domains/inventory/CreateStockCountModal';
 import { StockCountDetailDrawer } from '../../src/business/domains/inventory/StockCountDetailDrawer';
-import type { BatchMaterialRecord } from '../../src/business/domains/manufacturing/batch-material-add-types';
+import type { BatchMaterialRecord } from '../../src/business/domains/inventory/batch-material-add-types';
 import type { DocumentLineCustomFieldSchema } from '../../src/business/domains/documents/document-line-custom-field-types';
 import type {
   MaterialTablePickerCapabilities,

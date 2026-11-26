@@ -84,7 +84,6 @@ const BomWorkspaceDetailDemo = lazy(() => import('./BomWorkspaceDetailDemo').the
 const BomVersionHistoryDrawerDemo = lazy(() => import('./BomVersionHistoryDrawerDemo').then((module) => ({ default: module.BomVersionHistoryDrawerDemo })));
 const BomIssueOperationSelectDemo = lazy(() => import('./BomIssueOperationSelectDemo').then((module) => ({ default: module.BomIssueOperationSelectDemo })));
 const IntegrationGuideLinkDemo = lazy(() => import('./IntegrationGuideLinkDemo').then((module) => ({ default: module.IntegrationGuideLinkDemo })));
-const IntegrationGuideContentDemo = lazy(() => import('./IntegrationGuideContentDemo').then((module) => ({ default: module.IntegrationGuideContentDemo })));
 const ServerInfoCardDemo = lazy(() => import('./ServerInfoCardDemo').then((module) => ({ default: module.ServerInfoCardDemo })));
 const CompleteMaintenanceFieldsDemo = lazy(() => import('./CompleteMaintenanceFieldsDemo').then((module) => ({ default: module.CompleteMaintenanceFieldsDemo })));
 const EquipmentFaultVerifyModalDemo = lazy(() => import('./EquipmentFaultVerifyModalDemo').then((module) => ({ default: module.EquipmentFaultVerifyModalDemo })));
@@ -406,7 +405,7 @@ export function BusinessComponentsPage() {
 
   useEffect(() => {
     const viewport = tableHostRef.current?.querySelector<HTMLElement>(
-      '.sxw-mes-component-suite__table-content',
+      '.sxw-business-suite__table-content',
     );
     if (!viewport) return;
 
@@ -472,7 +471,7 @@ export function BusinessComponentsPage() {
           onKeyDown={(event) => {
             if (event.target !== event.currentTarget) return;
             const viewport = event.currentTarget.querySelector<HTMLElement>(
-              '.sxw-mes-component-suite__table-content',
+              '.sxw-business-suite__table-content',
             );
             if (!viewport || viewport.scrollWidth <= viewport.clientWidth + 1) {
               return;
@@ -499,7 +498,7 @@ export function BusinessComponentsPage() {
             dataSource={lines}
             pagination={false}
             tableLayout="fixed"
-            classNames={{ content: 'sxw-mes-component-suite__table-content' }}
+            classNames={{ content: 'sxw-business-suite__table-content' }}
             scroll={{ x: 566 }}
           />
         </div>
@@ -872,7 +871,7 @@ export function BusinessComponentsPage() {
         </Space>
       </SectionCard>
 
-      <div className="sxw-mes-document-modal-demo">
+      <div className="sxw-document-modal-demo">
         <SectionCard title="单据编辑弹窗">
           <Typography.Paragraph type="secondary">
             对比工作区全屏、视口全屏和固定宽度；最小化会保留表单草稿。
@@ -957,7 +956,6 @@ export function BusinessComponentsPage() {
       <DeferredCatalogDemo component={EquipmentFaultVerifyModalDemo} />
       <DeferredCatalogDemo component={TemplatePrintComponentsDemo} />
       <DeferredCatalogDemo component={IntegrationGuideLinkDemo} />
-      <DeferredCatalogDemo component={IntegrationGuideContentDemo} />
       <DeferredCatalogDemo component={ServerInfoCardDemo} />
       <DeferredCatalogDemo component={ImportDrawerDemo} />
       <DeferredCatalogDemo component={ImportWorkbenchDrawerDemo} />

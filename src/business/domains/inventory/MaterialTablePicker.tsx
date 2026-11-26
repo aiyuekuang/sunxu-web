@@ -685,7 +685,7 @@ export function MaterialTablePicker<
         </Button>
       )}
       <Modal
-        className="mes-material-table-picker-modal"
+        className="sxw-material-table-picker-modal"
         title={title ?? (mode === 'multiple' ? '批量选择物料' : '选择物料')}
         open={isOpen}
         width={width}
@@ -725,12 +725,12 @@ export function MaterialTablePicker<
         {!capabilities ? (
           <Empty description="物料选择器服务未配置" />
         ) : (
-          <div className="mes-material-table-picker">
+          <div className="sxw-material-table-picker">
             <aside
               aria-label="业务分类筛选"
-              className="mes-material-table-picker__type-filter"
+              className="sxw-material-table-picker__type-filter"
             >
-              <div className="mes-material-table-picker__type-filter-title">
+              <div className="sxw-material-table-picker__type-filter-title">
                 业务分类
               </div>
               <Spin spinning={categoryTreeLoading} size="small">
@@ -749,9 +749,9 @@ export function MaterialTablePicker<
                 />
               </Spin>
             </aside>
-            <div className="mes-material-table-picker__content">
+            <div className="sxw-material-table-picker__content">
               <Tabs
-                className="mes-material-table-picker__tabs"
+                className="sxw-material-table-picker__tabs"
                 activeKey={activeTab}
                 onChange={setActiveTab}
                 items={[
@@ -759,8 +759,8 @@ export function MaterialTablePicker<
                     key: 'catalog',
                     label: '物料目录',
                     children: (
-                      <div className="mes-material-table-picker__panel">
-                        <div className="mes-material-table-picker__catalog-search">
+                      <div className="sxw-material-table-picker__panel">
+                        <div className="sxw-material-table-picker__catalog-search">
                           <Input.Search
                             allowClear
                             aria-label="搜索物料名称或编码"
@@ -817,7 +817,7 @@ export function MaterialTablePicker<
                           label: `已选物料 (${selectedRowKeys.length})`,
                           children:
                             selectedMaterials.length > 0 ? (
-                              <div className="mes-material-table-picker__panel">
+                              <div className="sxw-material-table-picker__panel">
                                 <ProTable<TMaterial>
                                   rowKey="id"
                                   columns={selectedColumns}

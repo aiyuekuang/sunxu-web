@@ -57,21 +57,21 @@
   outline-offset: 2px;
 }
 
-.sxw-mes-document-modal-root,
-.sxw-mes-document-modal-root--viewport {
+.sxw-document-modal-root,
+.sxw-document-modal-root--viewport {
   position: absolute;
   inset: 0;
   z-index: 1000;
   pointer-events: none;
 }
 
-.sxw-mes-document-modal-root--viewport {
+.sxw-document-modal-root--viewport {
   position: fixed;
   height: 100vh;
   height: 100dvh;
 }
 
-.sxw-mes-document-modal--minimized {
+.sxw-document-modal--minimized {
   display: none !important;
 }
 
@@ -103,7 +103,7 @@
   min-height: 100%;
 }
 
-.sxw-mes-document-modal__restore {
+.sxw-document-modal__restore {
   position: fixed;
   left: 16px;
   bottom: 16px;
@@ -127,18 +127,18 @@
     color 0.2s;
 }
 
-.sxw-mes-document-modal__restore:hover {
+.sxw-document-modal__restore:hover {
   color: var(--ant-color-primary, #1677ff);
   border-color: var(--ant-color-primary, #1677ff);
 }
 
-.sxw-mes-document-modal__restore:focus-visible,
-.sxw-mes-document-modal__window-button:focus-visible {
+.sxw-document-modal__restore:focus-visible,
+.sxw-document-modal__window-button:focus-visible {
   outline: 2px solid var(--ant-color-primary, #1677ff);
   outline-offset: 2px;
 }
 
-.sxw-mes-document-modal__restore-title {
+.sxw-document-modal__restore-title {
   max-width: 240px;
   overflow: hidden;
   font-weight: 500;
@@ -146,18 +146,18 @@
   white-space: nowrap;
 }
 
-.sxw-mes-document-modal__restore-hint {
+.sxw-document-modal__restore-hint {
   color: var(--ant-color-text-tertiary, #999);
   font-size: 12px;
 }
 
-.sxw-mes-document-modal__title {
+.sxw-document-modal__title {
   display: flex;
   align-items: center;
   justify-content: space-between;
 }
 
-.sxw-mes-document-modal__title-text {
+.sxw-document-modal__title-text {
   min-width: 0;
   flex: 1;
   overflow: hidden;
@@ -165,13 +165,13 @@
   white-space: nowrap;
 }
 
-.sxw-mes-document-modal__window-controls {
+.sxw-document-modal__window-controls {
   display: inline-flex;
   align-items: center;
   margin: -8px -16px -8px 0;
 }
 
-.sxw-mes-document-modal__window-button {
+.sxw-document-modal__window-button {
   display: inline-flex;
   width: 44px;
   height: 36px;
@@ -187,16 +187,16 @@
     color 0.15s;
 }
 
-.sxw-mes-document-modal__window-button:hover {
+.sxw-document-modal__window-button:hover {
   background: var(--ant-color-fill-tertiary, rgb(0 0 0 / 6%));
 }
 
-.sxw-mes-document-modal__window-button--close:hover {
+.sxw-document-modal__window-button--close:hover {
   color: #fff;
   background: var(--ant-color-error, #e81123);
 }
 
-.sxw-mes-document-modal-demo {
+.sxw-document-modal-demo {
   position: relative;
   min-height: 480px;
 }

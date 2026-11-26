@@ -200,7 +200,7 @@ function InvoiceSourceBatchGroupTable({
       {group.lines.length ? (
         <ProTable
           rowKey={(_line, index) => String(index)}
-          className="mes-expanded-detail-table"
+          className="sxw-expanded-detail-table"
           search={false}
           options={false}
           headerTitle={false}

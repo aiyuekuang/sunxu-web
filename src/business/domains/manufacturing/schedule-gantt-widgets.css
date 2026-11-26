@@ -1,24 +1,24 @@
-.sunxu-mes-schedule-now-line {
+.sxw-schedule-now-line {
   position: absolute;
   z-index: 10;
   top: 0;
   width: 2px;
-  background: var(--sunxu-mes-schedule-now-line, #ff3141);
+  background: var(--sxw-schedule-now-line, #ff3141);
   cursor: pointer;
   pointer-events: auto;
 }
 
-.sunxu-mes-schedule-now-marker {
+.sxw-schedule-now-marker {
   position: absolute;
   top: -4px;
   inset-inline-start: -4px;
   width: 0;
   height: 0;
-  border-top: 6px solid var(--sunxu-mes-schedule-now-line, #ff3141);
+  border-top: 6px solid var(--sxw-schedule-now-line, #ff3141);
   border-inline: 5px solid transparent;
 }
 
-.sunxu-mes-schedule-heatmap-cell {
+.sxw-schedule-heatmap-cell {
   position: relative;
   display: flex;
   flex: 0 0 auto;
@@ -27,26 +27,26 @@
   box-sizing: border-box;
   padding: 7px 8px 6px;
   border-inline-end: 1px solid
-    var(--sunxu-mes-schedule-heat-cell-border, #eef0f3);
+    var(--sxw-schedule-heat-cell-border, #eef0f3);
   cursor: pointer;
   transition: filter 0.12s ease;
 }
 
-.sunxu-mes-schedule-heatmap-cell.is-empty {
-  color: var(--sunxu-mes-schedule-heat-empty-text, #c4c8ce);
+.sxw-schedule-heatmap-cell.is-empty {
+  color: var(--sxw-schedule-heat-empty-text, #c4c8ce);
   cursor: default;
 }
 
-.sunxu-mes-schedule-heatmap-cell:not(.is-empty):hover {
+.sxw-schedule-heatmap-cell:not(.is-empty):hover {
   filter: brightness(0.96);
 }
 
-.sunxu-mes-schedule-heatmap-cell.is-overloaded {
+.sxw-schedule-heatmap-cell.is-overloaded {
   box-shadow: inset 0 0 0 2px
-    var(--sunxu-mes-schedule-heat-overload, #ff3141);
+    var(--sxw-schedule-heat-overload, #ff3141);
 }
 
-.sunxu-mes-schedule-heatmap-warning {
+.sxw-schedule-heatmap-warning {
   position: absolute;
   top: 3px;
   inset-inline-end: 5px;
@@ -54,35 +54,35 @@
   line-height: 1;
 }
 
-.sunxu-mes-schedule-heatmap-value {
+.sxw-schedule-heatmap-value {
   display: flex;
   gap: 5px;
   align-items: baseline;
   min-width: 0;
 }
 
-.sunxu-mes-schedule-heatmap-primary {
+.sxw-schedule-heatmap-primary {
   font-size: 15px;
   font-weight: 700;
   letter-spacing: -0.2px;
   line-height: 1.15;
 }
 
-.sunxu-mes-schedule-heatmap-secondary {
+.sxw-schedule-heatmap-secondary {
   font-size: 11px;
   opacity: 0.85;
   white-space: nowrap;
 }
 
-.sunxu-mes-schedule-heatmap-track {
+.sxw-schedule-heatmap-track {
   height: 4px;
   overflow: hidden;
   margin-top: 4px;
   border-radius: 2px;
-  background: var(--sunxu-mes-schedule-heat-track, rgba(0, 0, 0, 0.06));
+  background: var(--sxw-schedule-heat-track, rgba(0, 0, 0, 0.06));
 }
 
-.sunxu-mes-schedule-heatmap-fill {
+.sxw-schedule-heatmap-fill {
   height: 100%;
   border-radius: 2px;
 }

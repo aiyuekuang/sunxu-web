@@ -25,7 +25,7 @@ export function LabelTemplatesDemo() {
         <EquipmentLabel items={[{ code: 'LATHE-01', name: '数控车床 01', model: 'XK-500', workCenterName: '车削中心' }]} renderBarcode={renderBarcode} />
         <PackageUnitLabel items={[{ id: 'package-1', packageNo: 'PK-2026-001', materialName: '铝合金型材', materialCode: 'M-001', totalQty: 12, unit: 'PC', warehouseName: '原材料仓' }]} unitLabelMap={{ PC: '件' }} renderBarcode={renderBarcode} />
         <ToolingLabel items={[{ toolingCode: 'TOOL-01', name: '冲压模具', spec: 'A 型', type: '模具' }]} renderBarcode={renderBarcode} />
-        <WorkOrderLabel items={[{ id: 'work-order-1', orderNo: 'WO-2026-001', materialName: '铝合金型材', materialCode: 'M-001', plannedQty: 20, unit: 'PC' }]} unitLabelMap={{ PC: '件' }} buildQrValue={(_type, id) => `/mes/work-orders/${id}`} renderBarcode={renderBarcode} />
+        <WorkOrderLabel items={[{ id: 'work-order-1', orderNo: 'WO-2026-001', materialName: '铝合金型材', materialCode: 'M-001', plannedQty: 20, unit: 'PC' }]} unitLabelMap={{ PC: '件' }} buildQrValue={(_type, id) => `/work-orders/${id}`} renderBarcode={renderBarcode} />
       </Space>
     </SectionCard>
   );

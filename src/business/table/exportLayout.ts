@@ -40,7 +40,7 @@ type ExportColumnCandidate = ExportColumnSelection & {
 };
 
 const activeLayoutsByRoute = new Map<string, TableExportLayout>();
-const INTERNAL_COLUMN_KEY_PREFIX = '__mes_';
+const INTERNAL_COLUMN_KEY_PREFIX = '__sxw_';
 
 function currentRouteKey(): string {
   return typeof window === 'undefined' ? 'ssr' : window.location.pathname;

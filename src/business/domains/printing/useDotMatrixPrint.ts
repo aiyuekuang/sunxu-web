@@ -15,6 +15,7 @@ import {
   safeLocalStorageGetItem,
   safeLocalStorageSetItem,
 } from '../../utils/safeStorage';
+import { PRINTING_STORAGE_KEYS } from '../../utils/storageSchema';
 import { DOT_MATRIX_STYLES } from './dotmatrix-styles';
 
 /**
@@ -36,9 +37,9 @@ export type DotMatrixPaperKey =
   | (typeof DOT_MATRIX_PAPER_PRESETS)[number]['key']
   | 'custom';
 
-const PAPER_STORAGE_KEY = 'mes-dotmatrix-paper';
-const CUSTOM_STORAGE_KEY = 'mes-dotmatrix-paper-custom';
-const COMPANY_STORAGE_KEY = 'mes-dotmatrix-company';
+const PAPER_STORAGE_KEY = PRINTING_STORAGE_KEYS.dotMatrixPaper;
+const CUSTOM_STORAGE_KEY = PRINTING_STORAGE_KEYS.dotMatrixPaperCustom;
+const COMPANY_STORAGE_KEY = PRINTING_STORAGE_KEYS.dotMatrixCompany;
 const DEFAULT_PAPER: DotMatrixPaperKey = '241x140';
 const DEFAULT_CUSTOM = { width: 241, height: 140 };
 

@@ -196,42 +196,42 @@ const FORMULA_OPERATORS: FormulaOperator[] = [
 // The original workbench styles lived in the host application global stylesheet.
 // Keep the isolated suite component self-contained without requiring a global CSS entry.
 const FORMULA_DESIGNER_STYLES = `
-.mes-formula-designer { margin-bottom: 16px; }
-.mes-formula-actions { margin-top: -8px; }
-.mes-formula-preview-summary { margin-top: 12px; padding: 10px 12px; border: 1px solid var(--mes-border-subtle, var(--ant-color-border-secondary, #f0f0f0)); border-radius: 6px; background: var(--mes-bg-elevated, var(--ant-color-bg-container, #fff)); }
-.mes-formula-workbench { display: grid; grid-template-columns: 300px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); height: clamp(540px, 72vh, 680px); }
-.mes-formula-workbench-collapsed { grid-template-columns: 56px minmax(0, 1fr); }
-.mes-formula-library { display: flex; flex-direction: column; min-width: 0; overflow: hidden; border-right: 1px solid var(--mes-border-subtle, var(--ant-color-border-secondary, #f0f0f0)); background: var(--mes-bg-elevated, var(--ant-color-bg-container, #fff)); }
-.mes-formula-library-header { display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 8px 12px; border-bottom: 1px solid var(--mes-border-subtle, var(--ant-color-border-secondary, #f0f0f0)); }
-.mes-formula-workbench-collapsed .mes-formula-library-header { justify-content: center; padding: 8px; }
-.mes-formula-library-icons { display: grid; gap: 8px; justify-content: center; padding: 10px 8px; }
-.mes-formula-library-icons .ant-btn { width: 40px; height: 40px; }
-.mes-formula-library .ant-tabs { flex: none; padding: 0 12px; }
-.mes-formula-library .ant-tabs-nav { margin-bottom: 10px; }
-.mes-formula-library > .ant-input-affix-wrapper { flex: none; width: calc(100% - 24px); margin: 0 12px; }
-.mes-formula-library-content { flex: 1; min-height: 0; padding: 12px; overflow: auto; }
-.mes-formula-library-loading { min-height: 160px; }
-.mes-formula-library-groups { width: 100%; }
-.mes-formula-token-list, .mes-formula-function-list { display: grid; gap: 4px; margin: 6px 0 14px; }
-.mes-formula-operator-panel { display: flex; flex-wrap: wrap; gap: 6px; }
-.mes-formula-operator-panel .ant-btn { min-width: 34px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
-.mes-formula-token-list .ant-btn, .mes-formula-function-list .ant-btn { height: auto; min-height: 44px; padding: 8px 10px; text-align: left; white-space: normal; }
-.mes-formula-disabled-token { display: block; }
-.mes-formula-token-list .ant-btn > span, .mes-formula-function-list .ant-btn > span { display: grid; gap: 2px; width: 100%; }
-.mes-formula-token-main { color: rgba(0, 0, 0, .88); font-size: 13px; line-height: 1.4; }
-.mes-formula-token-meta { color: rgba(0, 0, 0, .45); font-size: 12px; line-height: 1.4; }
-.mes-formula-editor-panel { display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 16px; overflow: auto; background: var(--ant-color-bg-container, #fff); }
-.mes-formula-editor-header { display: flex; gap: 12px; align-items: center; justify-content: space-between; }
-.mes-formula-editor-panel .ant-input { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
-.mes-formula-editor-preview { padding: 12px; border: 1px solid var(--mes-border-subtle, var(--ant-color-border-secondary, #f0f0f0)); border-radius: 6px; background: var(--mes-bg-elevated, var(--ant-color-bg-container, #fff)); }
-.mes-formula-editor-preview-body { margin-top: 10px; }
+.sxw-formula-designer { margin-bottom: 16px; }
+.sxw-formula-actions { margin-top: -8px; }
+.sxw-formula-preview-summary { margin-top: 12px; padding: 10px 12px; border: 1px solid var(--sxw-border-subtle, var(--ant-color-border-secondary, #f0f0f0)); border-radius: 6px; background: var(--sxw-bg-elevated, var(--ant-color-bg-container, #fff)); }
+.sxw-formula-workbench { display: grid; grid-template-columns: 300px minmax(0, 1fr); grid-template-rows: minmax(0, 1fr); height: clamp(540px, 72vh, 680px); }
+.sxw-formula-workbench-collapsed { grid-template-columns: 56px minmax(0, 1fr); }
+.sxw-formula-library { display: flex; flex-direction: column; min-width: 0; overflow: hidden; border-right: 1px solid var(--sxw-border-subtle, var(--ant-color-border-secondary, #f0f0f0)); background: var(--sxw-bg-elevated, var(--ant-color-bg-container, #fff)); }
+.sxw-formula-library-header { display: flex; align-items: center; justify-content: space-between; min-height: 48px; padding: 8px 12px; border-bottom: 1px solid var(--sxw-border-subtle, var(--ant-color-border-secondary, #f0f0f0)); }
+.sxw-formula-workbench-collapsed .sxw-formula-library-header { justify-content: center; padding: 8px; }
+.sxw-formula-library-icons { display: grid; gap: 8px; justify-content: center; padding: 10px 8px; }
+.sxw-formula-library-icons .ant-btn { width: 40px; height: 40px; }
+.sxw-formula-library .ant-tabs { flex: none; padding: 0 12px; }
+.sxw-formula-library .ant-tabs-nav { margin-bottom: 10px; }
+.sxw-formula-library > .ant-input-affix-wrapper { flex: none; width: calc(100% - 24px); margin: 0 12px; }
+.sxw-formula-library-content { flex: 1; min-height: 0; padding: 12px; overflow: auto; }
+.sxw-formula-library-loading { min-height: 160px; }
+.sxw-formula-library-groups { width: 100%; }
+.sxw-formula-token-list, .sxw-formula-function-list { display: grid; gap: 4px; margin: 6px 0 14px; }
+.sxw-formula-operator-panel { display: flex; flex-wrap: wrap; gap: 6px; }
+.sxw-formula-operator-panel .ant-btn { min-width: 34px; font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
+.sxw-formula-token-list .ant-btn, .sxw-formula-function-list .ant-btn { height: auto; min-height: 44px; padding: 8px 10px; text-align: left; white-space: normal; }
+.sxw-formula-disabled-token { display: block; }
+.sxw-formula-token-list .ant-btn > span, .sxw-formula-function-list .ant-btn > span { display: grid; gap: 2px; width: 100%; }
+.sxw-formula-token-main { color: rgba(0, 0, 0, .88); font-size: 13px; line-height: 1.4; }
+.sxw-formula-token-meta { color: rgba(0, 0, 0, .45); font-size: 12px; line-height: 1.4; }
+.sxw-formula-editor-panel { display: flex; flex-direction: column; gap: 12px; min-width: 0; padding: 16px; overflow: auto; background: var(--ant-color-bg-container, #fff); }
+.sxw-formula-editor-header { display: flex; gap: 12px; align-items: center; justify-content: space-between; }
+.sxw-formula-editor-panel .ant-input { font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, 'Liberation Mono', 'Courier New', monospace; }
+.sxw-formula-editor-preview { padding: 12px; border: 1px solid var(--sxw-border-subtle, var(--ant-color-border-secondary, #f0f0f0)); border-radius: 6px; background: var(--sxw-bg-elevated, var(--ant-color-bg-container, #fff)); }
+.sxw-formula-editor-preview-body { margin-top: 10px; }
 @media (max-width: 768px) {
-  .mes-formula-modal { max-width: calc(100vw - 16px); }
-  .mes-formula-workbench, .mes-formula-workbench-collapsed { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; height: auto; min-height: 0; max-height: none; }
-  .mes-formula-library { max-height: 260px; border-right: 0; border-bottom: 1px solid var(--mes-border-subtle, var(--ant-color-border-secondary, #f0f0f0)); }
-  .mes-formula-workbench-collapsed .mes-formula-library { max-height: 56px; }
-  .mes-formula-library-icons { display: flex; justify-content: flex-start; padding: 0 8px 8px; }
-  .mes-formula-editor-panel { min-height: 360px; }
+  .sxw-formula-modal { max-width: calc(100vw - 16px); }
+  .sxw-formula-workbench, .sxw-formula-workbench-collapsed { grid-template-columns: minmax(0, 1fr); grid-template-rows: none; height: auto; min-height: 0; max-height: none; }
+  .sxw-formula-library { max-height: 260px; border-right: 0; border-bottom: 1px solid var(--sxw-border-subtle, var(--ant-color-border-secondary, #f0f0f0)); }
+  .sxw-formula-workbench-collapsed .sxw-formula-library { max-height: 56px; }
+  .sxw-formula-library-icons { display: flex; justify-content: flex-start; padding: 0 8px 8px; }
+  .sxw-formula-editor-panel { min-height: 360px; }
 }
 `;
 
@@ -663,7 +663,7 @@ export default function FormulaDesigner({
       );
     }
     return (
-      <div className="mes-formula-token-list">
+      <div className="sxw-formula-token-list">
         {fields.map((field) => {
           const button = (
             <Button
@@ -675,15 +675,15 @@ export default function FormulaDesigner({
                 insertToken(getReferenceExpression?.(field) ?? field.key)
               }
             >
-              <span className="mes-formula-token-main">{field.label}</span>
-              <span className="mes-formula-token-meta">
+              <span className="sxw-formula-token-main">{field.label}</span>
+              <span className="sxw-formula-token-meta">
                 {field.key} · {DATA_TYPE_LABELS[field.dataType]}
               </span>
             </Button>
           );
           return field.disabled ? (
             <Tooltip key={field.key} title={field.disabledReason}>
-              <span className="mes-formula-disabled-token">{button}</span>
+              <span className="sxw-formula-disabled-token">{button}</span>
             </Tooltip>
           ) : (
             button
@@ -700,7 +700,7 @@ export default function FormulaDesigner({
       );
     }
     return (
-      <div className="mes-formula-function-list">
+      <div className="sxw-formula-function-list">
         {filteredFunctions.map((item) => (
           <Button
             key={item.name}
@@ -709,8 +709,8 @@ export default function FormulaDesigner({
             disabled={disabled}
             onClick={() => insertToken(item.template)}
           >
-            <span className="mes-formula-token-main">{item.signature}</span>
-            <span className="mes-formula-token-meta">
+            <span className="sxw-formula-token-main">{item.signature}</span>
+            <span className="sxw-formula-token-meta">
               {item.description} 示例：{item.example}
             </span>
           </Button>
@@ -729,7 +729,7 @@ export default function FormulaDesigner({
       );
     }
     return (
-      <div className="mes-formula-operator-panel">
+      <div className="sxw-formula-operator-panel">
         {filteredOperators.map((operator) => (
           <Tooltip key={operator.token} title={operator.description}>
             <Button
@@ -758,7 +758,7 @@ export default function FormulaDesigner({
     if (loading) {
       return (
         <Spin spinning>
-          <div className="mes-formula-library-loading" />
+          <div className="sxw-formula-library-loading" />
         </Spin>
       );
     }
@@ -773,7 +773,7 @@ export default function FormulaDesigner({
       <Space
         orientation="vertical"
         size={6}
-        className="mes-formula-library-groups"
+        className="sxw-formula-library-groups"
       >
         {filteredSystemFields.length > 0 && (
           <div>
@@ -893,7 +893,7 @@ export default function FormulaDesigner({
   ];
 
   return (
-    <div className="mes-formula-designer">
+    <div className="sxw-formula-designer">
       <style>{FORMULA_DESIGNER_STYLES}</style>
       <ProFormTextArea
         name={fieldName}
@@ -905,7 +905,7 @@ export default function FormulaDesigner({
           disabled,
         }}
       />
-      <div className="mes-formula-actions">
+      <div className="sxw-formula-actions">
         <Space size={[8, 8]} wrap>
           <Button
             type="primary"
@@ -932,10 +932,10 @@ export default function FormulaDesigner({
           </Tooltip>
         </Space>
       </div>
-      <div className="mes-formula-preview-summary">{renderPreviewResult()}</div>
+      <div className="sxw-formula-preview-summary">{renderPreviewResult()}</div>
 
       <Modal
-        className="mes-formula-modal"
+        className="sxw-formula-modal"
         styles={mergeDocumentModalStyles(
           { body: { padding: 0 } },
           { variant: 'formula-workbench' },
@@ -977,12 +977,12 @@ export default function FormulaDesigner({
         <div
           className={
             libraryCollapsed
-              ? 'mes-formula-workbench mes-formula-workbench-collapsed'
-              : 'mes-formula-workbench'
+              ? 'sxw-formula-workbench sxw-formula-workbench-collapsed'
+              : 'sxw-formula-workbench'
           }
         >
-          <aside className="mes-formula-library">
-            <div className="mes-formula-library-header">
+          <aside className="sxw-formula-library">
+            <div className="sxw-formula-library-header">
               {!libraryCollapsed && (
                 <Typography.Text strong>可选内容</Typography.Text>
               )}
@@ -1004,7 +1004,7 @@ export default function FormulaDesigner({
             </div>
 
             {libraryCollapsed ? (
-              <div className="mes-formula-library-icons">
+              <div className="sxw-formula-library-icons">
                 {libraryTabs.map((item) => (
                   <Tooltip key={item.key} title={item.label} placement="right">
                     <Button
@@ -1036,15 +1036,15 @@ export default function FormulaDesigner({
                   placeholder="搜索字段、函数、运算符"
                   onChange={(event) => setLibraryKeyword(event.target.value)}
                 />
-                <div className="mes-formula-library-content">
+                <div className="sxw-formula-library-content">
                   {renderLibraryContent()}
                 </div>
               </>
             )}
           </aside>
 
-          <section className="mes-formula-editor-panel">
-            <div className="mes-formula-editor-header">
+          <section className="sxw-formula-editor-panel">
+            <div className="sxw-formula-editor-header">
               <Space>
                 <CodeOutlined />
                 <Typography.Text strong>公式</Typography.Text>
@@ -1067,12 +1067,12 @@ export default function FormulaDesigner({
               onChange={(event) => updateExpression(event.target.value)}
             />
 
-            <div className="mes-formula-editor-preview">
+            <div className="sxw-formula-editor-preview">
               <Space align="center">
                 <CheckCircleOutlined />
                 <Typography.Text strong>预览结果</Typography.Text>
               </Space>
-              <div className="mes-formula-editor-preview-body">
+              <div className="sxw-formula-editor-preview-body">
                 {renderPreviewResult()}
               </div>
             </div>

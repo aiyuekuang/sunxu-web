@@ -15,6 +15,7 @@ import {
   safeLocalStorageGetItem,
   safeLocalStorageSetItem,
 } from '../../utils/safeStorage';
+import { PRINTING_STORAGE_KEYS } from '../../utils/storageSchema';
 import { LABEL_STYLES } from './label-styles';
 
 /**
@@ -67,8 +68,8 @@ export type LabelSizeKey =
   | (typeof LABEL_SIZE_PRESETS)[number]['key']
   | 'custom';
 
-const STORAGE_KEY = 'mes-label-size';
-const CUSTOM_STORAGE_KEY = 'mes-label-size-custom';
+const STORAGE_KEY = PRINTING_STORAGE_KEYS.labelSize;
+const CUSTOM_STORAGE_KEY = PRINTING_STORAGE_KEYS.labelSizeCustom;
 const DEFAULT_SIZE: LabelSizeKey = '60x40';
 const DEFAULT_CUSTOM = { width: 60, height: 40 };
 

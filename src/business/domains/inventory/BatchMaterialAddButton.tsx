@@ -1,7 +1,7 @@
 import { App } from 'antd';
 import type { MaterialFilteredSelectOption } from './material-select-types';
 import { MaterialTablePicker } from './MaterialTablePicker';
-import type { BatchMaterialAddButtonProps, BatchMaterialRecord } from '../manufacturing/batch-material-add-types';
+import type { BatchMaterialAddButtonProps, BatchMaterialRecord } from './batch-material-add-types';
 
 function readRecord(value: unknown): Record<string, unknown> | undefined {
   return value && typeof value === 'object' && !Array.isArray(value)

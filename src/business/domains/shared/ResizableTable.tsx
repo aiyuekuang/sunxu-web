@@ -37,12 +37,14 @@ import {
 import { TableDensityOption } from '../../table/TableDensityOption';
 import { TableEmpty } from '../../table/TableEmpty';
 import {
-  LEGACY_TABLE_COLUMN_KEY_PREFIX,
-  LEGACY_TABLE_SORT_KEY_PREFIX,
-  LEGACY_TABLE_SORT_STORAGE_PREFIX,
-  LEGACY_TABLE_WIDTH_KEY_PREFIX,
-  LEGACY_TABLE_WIDTH_STORAGE_PREFIX,
-} from '../../compat/legacyStorageKeys';
+  normalizeTableSortStorageKey,
+  normalizeTableWidthStorageKey,
+  TABLE_COLUMN_KEY_PREFIX,
+  TABLE_SORT_KEY_PREFIX,
+  TABLE_SORT_STORAGE_PREFIX,
+  TABLE_WIDTH_KEY_PREFIX,
+  TABLE_WIDTH_STORAGE_PREFIX,
+} from '../../utils/storageSchema';
 import {
   isTableLongTextValue,
   TableLongText,
@@ -94,7 +96,7 @@ import 'use-antd-resizable-header/dist/style.css';
 const DEFAULT_PAGE_SIZE = 20;
 const COMPACT_TABLE_ACTION_COLUMN_WIDTH = 48;
 const isCompactTableActionMode = true;
-const AMOUNT_VISIBILITY_REVISION_KEY = '__mesAmountVisibilityRevision';
+const AMOUNT_VISIBILITY_REVISION_KEY = '__sxwAmountVisibilityRevision';
 
 type AmountVisibilityAwareColumn = {
   render?: unknown;
@@ -324,35 +326,35 @@ const FIT_CONTAINER_STYLE: React.CSSProperties = {
   flexDirection: 'column',
   minHeight: 0,
 };
-const FIT_CONTAINER_CLASS_NAME = 'mes-fit-pro-table';
+const FIT_CONTAINER_CLASS_NAME = 'sxw-fit-pro-table';
 const FIT_CONTAINER_HORIZONTAL_SCROLL_CLASS_NAME =
-  'mes-fit-pro-table-horizontal-scroll';
+  'sxw-fit-pro-table-horizontal-scroll';
 const FIT_CONTAINER_TABLE_CLASSES = {
-  tableRoot: 'mes-fit-pro-table__table-root',
-  tableSection: 'mes-fit-pro-table__table-section',
-  spinRoot: 'mes-fit-pro-table__spin-root',
-  spinContainer: 'mes-fit-pro-table__spin-container',
+  tableRoot: 'sxw-fit-pro-table__table-root',
+  tableSection: 'sxw-fit-pro-table__table-section',
+  spinRoot: 'sxw-fit-pro-table__spin-root',
+  spinContainer: 'sxw-fit-pro-table__spin-container',
 } as const;
 const FIT_BOUNDARY_SELECTOR =
-  '.sxw-mes-fit-table-boundary, .ant-modal-body, .ant-drawer-body, .ant-splitter-panel, .ant-pro-page-container, .ant-pro-layout-content, .runtime-keep-alive-layout, .runtime-keep-alive-layout-no';
+  '.sxw-fit-table-boundary, .ant-modal-body, .ant-drawer-body, .ant-splitter-panel, .ant-pro-page-container, .ant-pro-layout-content, .runtime-keep-alive-layout, .runtime-keep-alive-layout-no';
 const COLUMN_SETTING_RESET_BUTTON_CLASS =
   'ant-pro-table-column-setting-action-rest-button';
-const TABLE_SPACER_COLUMN_KEY = '__mes_table_spacer__';
-const EDITABLE_ROW_CLASS_NAME = 'mes-table-row-editable';
-const WRAP_TEXT_CELL_CLASS_NAME = 'mes-table-wrap-cell';
-const HEADER_ELLIPSIS_CLASS_NAME = 'mes-table-header-ellipsis';
-const EXPANDED_ROW_CLASS_NAME = 'mes-table-expanded-row';
+const TABLE_SPACER_COLUMN_KEY = '__sxw_table_spacer__';
+const EDITABLE_ROW_CLASS_NAME = 'sxw-table-row-editable';
+const WRAP_TEXT_CELL_CLASS_NAME = 'sxw-table-wrap-cell';
+const HEADER_ELLIPSIS_CLASS_NAME = 'sxw-table-header-ellipsis';
+const EXPANDED_ROW_CLASS_NAME = 'sxw-table-expanded-row';
 const DOUBLE_CLICK_EDIT_TITLE = '双击编辑';
-const COLUMN_SETTING_DEFAULT_HIDDEN_FLAG = '__mesColumnSettingDefaultHidden';
+const COLUMN_SETTING_DEFAULT_HIDDEN_FLAG = '__sxwColumnSettingDefaultHidden';
 const PRESERVE_PERSISTED_FLEX_WIDTH = Symbol('preservePersistedFlexWidth');
 const RESIZABLE_GENERATED_COLUMN_KEY_PREFIX = 'resizable-col-id';
-const RESIZABLE_ADAPTIVE_COLUMN_FLAG = '__mesResizableAdaptive';
-const RESIZABLE_DUPLICATE_COLUMN_KEY_PREFIX = '__mes-column-';
+const RESIZABLE_ADAPTIVE_COLUMN_FLAG = '__sxwResizableAdaptive';
+const RESIZABLE_DUPLICATE_COLUMN_KEY_PREFIX = '__sxw-column-';
 /**
  * ProTable 初始化服务端排序时按 dataIndex 建立状态，但列渲染时按 key
  * 匹配状态。排序列统一 key 后，保留原 key 供个人视图/列设置做别名迁移。
  */
-const PRO_TABLE_ORIGINAL_COLUMN_KEY = '__mesOriginalColumnKey';
+const PRO_TABLE_ORIGINAL_COLUMN_KEY = '__sxwOriginalColumnKey';
 const ROW_DOUBLE_CLICK_IGNORE_SELECTOR = [
   'a',
   'button',
@@ -1300,24 +1302,24 @@ function createPersistenceKey(columns: object[] | undefined) {
       ? 'ssr'
       : normalizePathnameForKey(window.location.pathname);
   const signature = collectLeafKeys(columns).join('|');
-  return `${LEGACY_TABLE_WIDTH_STORAGE_PREFIX}${pathname}:${hashText(signature)}`;
+  return `${TABLE_WIDTH_STORAGE_PREFIX}${pathname}:${hashText(signature)}`;
 }
 
 function createSortPersistenceKey(persistenceKey: string | false | undefined) {
   if (typeof persistenceKey !== 'string') return undefined;
-  if (persistenceKey.startsWith(LEGACY_TABLE_WIDTH_KEY_PREFIX)) {
+  if (persistenceKey.startsWith(TABLE_WIDTH_KEY_PREFIX)) {
     return persistenceKey.replace(
-      LEGACY_TABLE_WIDTH_KEY_PREFIX,
-      LEGACY_TABLE_SORT_KEY_PREFIX,
+      TABLE_WIDTH_KEY_PREFIX,
+      TABLE_SORT_KEY_PREFIX,
     );
   }
-  if (persistenceKey.startsWith(LEGACY_TABLE_WIDTH_STORAGE_PREFIX)) {
+  if (persistenceKey.startsWith(TABLE_WIDTH_STORAGE_PREFIX)) {
     return persistenceKey.replace(
-      LEGACY_TABLE_WIDTH_STORAGE_PREFIX,
-      LEGACY_TABLE_SORT_STORAGE_PREFIX,
+      TABLE_WIDTH_STORAGE_PREFIX,
+      TABLE_SORT_STORAGE_PREFIX,
     );
   }
-  return `${LEGACY_TABLE_SORT_KEY_PREFIX}${persistenceKey}`;
+  return normalizeTableSortStorageKey(persistenceKey);
 }
 
 function readPersistedSort(
@@ -3202,12 +3204,15 @@ function ResizableProTableInner<
     [columnsExposedToColumnSetting, mergedSearch],
   );
   const tablePersistenceKey = useMemo(
-    () =>
-      config.persistenceKey === undefined
-        ? createPersistenceKey(
-            columnsWithGlobalActionMode as object[] | undefined,
-          )
-        : config.persistenceKey,
+    () => {
+      const key =
+        config.persistenceKey === undefined
+          ? createPersistenceKey(
+              columnsWithGlobalActionMode as object[] | undefined,
+            )
+          : config.persistenceKey;
+      return typeof key === 'string' ? normalizeTableWidthStorageKey(key) : key;
+    },
     [columnsWithGlobalActionMode, config.persistenceKey],
   );
   const renderConfig = useMemo(
@@ -3221,7 +3226,9 @@ function ResizableProTableInner<
     () =>
       config.sortPersistenceKey === undefined
         ? createSortPersistenceKey(tablePersistenceKey)
-        : config.sortPersistenceKey || undefined,
+        : typeof config.sortPersistenceKey === 'string'
+          ? normalizeTableSortStorageKey(config.sortPersistenceKey)
+          : undefined,
     [config.sortPersistenceKey, tablePersistenceKey],
   );
   const legacySortPersistenceKey = useMemo(
@@ -3523,7 +3530,7 @@ function ResizableProTableInner<
     <TableDensityProvider density={tableDensityKey}>
       <TableExportLayoutBoundary
         layout={exportLayout}
-        className="sxw-mes-resizable-table"
+        className="sxw-resizable-table"
       >
         {tableWithFitContainer}
       </TableExportLayoutBoundary>
@@ -3557,19 +3564,21 @@ function ResizableProTableEnabled<
   const persistenceKey =
     config.persistenceKey === undefined
       ? createPersistenceKey(normalizedColumns)
-      : config.persistenceKey;
+      : typeof config.persistenceKey === 'string'
+        ? normalizeTableWidthStorageKey(config.persistenceKey)
+        : config.persistenceKey;
   const hookColumns = useMemo(
     () => toHookColumns(normalizedColumns),
     [normalizedColumns],
   );
   const columnsStatePersistenceKey = useMemo(() => {
     if (typeof persistenceKey !== 'string') return undefined;
-    return persistenceKey.startsWith(LEGACY_TABLE_WIDTH_KEY_PREFIX)
+    return persistenceKey.startsWith(TABLE_WIDTH_KEY_PREFIX)
       ? persistenceKey.replace(
-          LEGACY_TABLE_WIDTH_KEY_PREFIX,
-          LEGACY_TABLE_COLUMN_KEY_PREFIX,
+          TABLE_WIDTH_KEY_PREFIX,
+          TABLE_COLUMN_KEY_PREFIX,
         )
-      : `${LEGACY_TABLE_COLUMN_KEY_PREFIX}${persistenceKey}`;
+      : `${TABLE_COLUMN_KEY_PREFIX}${persistenceKey}`;
   }, [persistenceKey]);
   const columnsStateDefaultValue = useMemo(
     () =>
@@ -3845,19 +3854,24 @@ function ResizableTableInner<T extends object>({
     [locale, emptyGuidance],
   );
   const tablePersistenceKey = useMemo(
-    () =>
-      config.persistenceKey === undefined
-        ? createPersistenceKey(
-            columnsWithGlobalActionMode as object[] | undefined,
-          )
-        : config.persistenceKey,
+    () => {
+      const key =
+        config.persistenceKey === undefined
+          ? createPersistenceKey(
+              columnsWithGlobalActionMode as object[] | undefined,
+            )
+          : config.persistenceKey;
+      return typeof key === 'string' ? normalizeTableWidthStorageKey(key) : key;
+    },
     [columnsWithGlobalActionMode, config.persistenceKey],
   );
   const sortPersistenceKey = useMemo(
     () =>
       config.sortPersistenceKey === undefined
         ? createSortPersistenceKey(tablePersistenceKey)
-        : config.sortPersistenceKey || undefined,
+        : typeof config.sortPersistenceKey === 'string'
+          ? normalizeTableSortStorageKey(config.sortPersistenceKey)
+          : undefined,
     [config.sortPersistenceKey, tablePersistenceKey],
   );
   const legacySortPersistenceKey = useMemo(
@@ -3923,7 +3937,7 @@ function ResizableTableInner<T extends object>({
   if (!config.enabled) {
     return (
       <TableDensityProvider density={tableDensityKey}>
-        <div className="sxw-mes-resizable-table" style={{ display: 'contents' }}>
+        <div className="sxw-resizable-table" style={{ display: 'contents' }}>
           <Table<T>
             columns={columnsWithPersistedSort}
             components={components}
@@ -3944,7 +3958,7 @@ function ResizableTableInner<T extends object>({
 
   return (
     <TableDensityProvider density={tableDensityKey}>
-      <div className="sxw-mes-resizable-table" style={{ display: 'contents' }}>
+      <div className="sxw-resizable-table" style={{ display: 'contents' }}>
         <ResizableTableEnabled<T>
           columns={columnsWithPersistedSort}
           components={components}
@@ -3984,7 +3998,9 @@ function ResizableTableEnabled<T extends object>({
   const persistenceKey =
     config.persistenceKey === undefined
       ? createPersistenceKey(normalizedColumns)
-      : config.persistenceKey;
+      : typeof config.persistenceKey === 'string'
+        ? normalizeTableWidthStorageKey(config.persistenceKey)
+        : config.persistenceKey;
   const hookColumns = useMemo(
     () =>
       ensureVisibleFlexHookColumn(

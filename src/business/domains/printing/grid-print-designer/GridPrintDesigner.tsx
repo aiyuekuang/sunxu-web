@@ -613,7 +613,7 @@ const DEFAULT_NO_CELL_BORDER = {
   bottom: false,
   left: false,
 } satisfies NonNullable<GridCellStyle['border']>;
-const GRID_DND_MIME = 'application/x-mes-print-grid';
+const GRID_DND_MIME = 'application/x-sunxu-web-print-grid';
 const GRID_MM_TO_PX = 4.2;
 const GRID_EDITOR_FONT_SCALE = 0.72;
 const MIN_GRID_TRACK_PX = 8;

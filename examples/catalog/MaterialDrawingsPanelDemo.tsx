@@ -7,8 +7,8 @@ import {
 } from '../../src/business';
 import { MaterialDrawingsPanel } from '../../src/business/domains/inventory/MaterialDrawingsPanel';
 import type { MaterialDrawingsPanelCapabilities } from '../../src/business/domains/inventory/material-drawings-panel-types';
-import drawingImageUrl from './fixtures/mes-drawing-sample.png';
-import drawingPdfUrl from './fixtures/mes-drawing-sample.pdf?url&no-inline';
+import drawingImageUrl from './fixtures/drawing-sample.png';
+import drawingPdfUrl from './fixtures/drawing-sample.pdf?url&no-inline';
 import pdfWorkerUrl from 'pdfjs-dist/build/pdf.worker.min.mjs?url';
 
 const demoMaterialId = 'material-demo-001';
