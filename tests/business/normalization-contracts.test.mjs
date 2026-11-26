@@ -62,7 +62,44 @@ test('legacy table preference identifiers stay isolated in the compatibility lay
 
 test('catalog loads shared business styles while importing source modules', async () => {
   const entry = await read('examples/catalog/main.tsx');
+  assert.match(entry, /import ['"]\.\.\/\.\.\/src\/styles\.css['"]/);
   assert.match(entry, /import ['"]\.\.\/\.\.\/src\/business\/tableStyles\.css['"]/);
+  assert.doesNotMatch(entry, /import ['"]\.\.\/\.\.\/src['"]/);
+});
+
+test('catalog lazily loads route pages and defers the GLB viewer until requested', async () => {
+  const app = await read('examples/catalog/CatalogApp.tsx');
+  const businessPage = await read('examples/catalog/BusinessComponentsPage.tsx');
+  const viewer = await read('examples/catalog/GlbModelViewerDemo.tsx');
+
+  assert.match(app, /lazy\(\(\)\s*=>\s*import\('\.\/BusinessComponentsPage'\)/);
+  for (const routePage of ['TokensPage', 'ContainersPage', 'MappingsPage', 'StatesPage']) {
+    assert.match(app, new RegExp(`lazy\\(\\(\\)\\s*=>\\s*import\\('./${routePage}'\\)`));
+  }
+  assert.match(app, /<Suspense fallback={<CatalogPageLoading \/>}>/);
+  assert.match(app, /正在加载组件示例/);
+  assert.match(businessPage, /IntersectionObserver/);
+  assert.match(businessPage, /rootMargin: '900px 0px'/);
+  assert.equal((businessPage.match(/<DeferredCatalogDemo component=\{/g) ?? []).length, 119);
+  assert.doesNotMatch(businessPage, /import\s+\{\s*MaterialSelectorDemo\s*\}\s+from/);
+  assert.match(viewer, /打开三维预览/);
+  assert.match(viewer, /!viewerOpen \?/);
+});
+
+test('Node ESM package conditions point to generated explicit named-export wrappers', async () => {
+  const pkg = JSON.parse(await read('package.json'));
+  const generator = await read('tooling/generate-node-esm-entries.mjs');
+
+  for (const [entry, file] of [
+    ['.', 'index.mjs'],
+    ['./business', 'business.mjs'],
+    ['./business/accounting', 'business-accounting.mjs'],
+    ['./mes', 'mes.mjs'],
+  ]) {
+    assert.equal(pkg.exports[entry].node.import, `./dist/node/${file}`);
+  }
+  assert.match(generator, /export const \$\{name\} = entry/);
+  assert.match(generator, /dist\/node/);
 });
 
 test('application download copy is supplied by the consuming project', async () => {

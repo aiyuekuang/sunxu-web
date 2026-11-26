@@ -1,0 +1,1083 @@
+{
+  "targetUrl": "http://127.0.0.1:4173/",
+  "testedAt": "2026-11-26T13:37:47.063Z",
+  "overviewDesktop": {
+    "route": "overview",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "scrollHeight": 900
+    },
+    "mainScroll": {
+      "clientWidth": 1216,
+      "scrollWidth": 1216,
+      "scrollHeight": 844
+    },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 56,
+      "width": 224,
+      "height": 844
+    },
+    "main": {
+      "x": 224,
+      "y": 56,
+      "width": 1216,
+      "height": 844
+    },
+    "surface": {
+      "x": 248,
+      "y": 80,
+      "width": 1168,
+      "height": 796
+    },
+    "title": "组件总览"
+  },
+  "overviewMobile": {
+    "route": "overview",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "document": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 1298
+    },
+    "mainScroll": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 1243
+    },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 56,
+      "width": 390,
+      "height": 1242.5625
+    },
+    "surface": {
+      "x": 16,
+      "y": 72,
+      "width": 358,
+      "height": 1210.5625
+    },
+    "title": "组件总览"
+  },
+  "initial": {
+    "jsResourceCount": 57,
+    "uncompressedTransferBytes": 308029,
+    "encodedBodyBytes": 290929,
+    "gzipEstimateBytes": 287371,
+    "routeChunkCount": 0,
+    "routeChunks": [],
+    "threeResourceCount": 0,
+    "jsResources": [
+      {
+        "url": "http://127.0.0.1:4173/assets/index-CH_Da0rL.js",
+        "transferSize": 42584,
+        "encodedBodySize": 42284
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/rolldown-runtime-XKyaHtl9.js",
+        "transferSize": 1026,
+        "encodedBodySize": 726
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/jsx-runtime-aVhcWyzW.js",
+        "transferSize": 3554,
+        "encodedBodySize": 3254
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/useSize-yb2CixN8.js",
+        "transferSize": 5220,
+        "encodedBodySize": 4920
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/SizeContext-Cym6Pbb9.js",
+        "transferSize": 101469,
+        "encodedBodySize": 101169
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/Context-CZeIBHG8.js",
+        "transferSize": 447,
+        "encodedBodySize": 147
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/AntdIconLight-CGsU40nf.js",
+        "transferSize": 2555,
+        "encodedBodySize": 2255
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/CheckCircleFilled-CHu3NGhO.js",
+        "transferSize": 1186,
+        "encodedBodySize": 886
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/CloseCircleFilled-1-fHyWC3.js",
+        "transferSize": 1047,
+        "encodedBodySize": 747
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/ExclamationCircleFilled-BiZyGGRx.js",
+        "transferSize": 1143,
+        "encodedBodySize": 843
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/InfoCircleFilled-CCKaiFfr.js",
+        "transferSize": 1136,
+        "encodedBodySize": 836
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/LoadingOutlined-BXXcRp2p.js",
+        "transferSize": 1225,
+        "encodedBodySize": 925
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/useZIndex-BUAuX_3L.js",
+        "transferSize": 834,
+        "encodedBodySize": 534
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/ContextIsolator-BlY7Drsz.js",
+        "transferSize": 14430,
+        "encodedBodySize": 14130
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/context-iITHsXdB.js",
+        "transferSize": 9080,
+        "encodedBodySize": 8780
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/validateMessagesContext-BZK8ihm0.js",
+        "transferSize": 451,
+        "encodedBodySize": 151
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/context-nHbMlMfG.js",
+        "transferSize": 2182,
+        "encodedBodySize": 1882
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/theme-Bnwl4ceo.js",
+        "transferSize": 3852,
+        "encodedBodySize": 3552
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/compact-item-CzMFeujF.js",
+        "transferSize": 1092,
+        "encodedBodySize": 792
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/useMergedMask-CASr8hdX.js",
+        "transferSize": 812,
+        "encodedBodySize": 512
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/style-DkotrRf_.js",
+        "transferSize": 4452,
+        "encodedBodySize": 4152
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/util-sty2XhOw.js",
+        "transferSize": 4042,
+        "encodedBodySize": 3742
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/useLocale-CZArw_Ko.js",
+        "transferSize": 712,
+        "encodedBodySize": 412
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/util-Bhkeqp5g.js",
+        "transferSize": 526,
+        "encodedBodySize": 226
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/RightOutlined-DCnVtlbh.js",
+        "transferSize": 1090,
+        "encodedBodySize": 790
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/wave-BSUhy4I1.js",
+        "transferSize": 2254,
+        "encodedBodySize": 1954
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/KeyCode-Bm8t-2oB.js",
+        "transferSize": 1452,
+        "encodedBodySize": 1152
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/collapse-evkw6DSZ.js",
+        "transferSize": 538,
+        "encodedBodySize": 238
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/ColorPresets-Ce4sEeVW.js",
+        "transferSize": 4765,
+        "encodedBodySize": 4465
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/Button-LJHB3NvF.js",
+        "transferSize": 6373,
+        "encodedBodySize": 6073
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/ActionButton-B1xKwyoS.js",
+        "transferSize": 905,
+        "encodedBodySize": 605
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/CloseOutlined-BKdsemt-.js",
+        "transferSize": 990,
+        "encodedBodySize": 690
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/context-BhjV77kW.js",
+        "transferSize": 787,
+        "encodedBodySize": 487
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/useClosable-BmY8tvUu.js",
+        "transferSize": 1027,
+        "encodedBodySize": 727
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/motion-9JVl_eRd.js",
+        "transferSize": 800,
+        "encodedBodySize": 500
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/colors-BNbZI2lN.js",
+        "transferSize": 793,
+        "encodedBodySize": 493
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/roundedArrow-B47S8D9M.js",
+        "transferSize": 954,
+        "encodedBodySize": 654
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/es-Cg5tgPXb.js",
+        "transferSize": 2884,
+        "encodedBodySize": 2584
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/tooltip-Wf10dZhA.js",
+        "transferSize": 5752,
+        "encodedBodySize": 5452
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/CheckOutlined-D3gQxogF.js",
+        "transferSize": 1092,
+        "encodedBodySize": 792
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/PlusOutlined-D6im5jgw.js",
+        "transferSize": 1047,
+        "encodedBodySize": 747
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/es-CS0P95nO.js",
+        "transferSize": 4785,
+        "encodedBodySize": 4485
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/TextArea-BwCjkcfj.js",
+        "transferSize": 2190,
+        "encodedBodySize": 1890
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/style-d8sGiT0T.js",
+        "transferSize": 1148,
+        "encodedBodySize": 848
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/useModal-nMk2906M.js",
+        "transferSize": 9077,
+        "encodedBodySize": 8777
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/typography-Dps8RYZ5.js",
+        "transferSize": 31801,
+        "encodedBodySize": 31501
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/row-DBLOfvse.js",
+        "transferSize": 369,
+        "encodedBodySize": 69
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/useForceUpdate-REKrbWB1.js",
+        "transferSize": 454,
+        "encodedBodySize": 154
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/Addon-DU6pqCFp.js",
+        "transferSize": 1339,
+        "encodedBodySize": 1039
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/row-D774WwUb.js",
+        "transferSize": 2446,
+        "encodedBodySize": 2146
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/app-ClGrRgWq.js",
+        "transferSize": 2557,
+        "encodedBodySize": 2257
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/context-TZmyW-Id.js",
+        "transferSize": 1488,
+        "encodedBodySize": 1188
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/useStyle-DsDQkhZk.js",
+        "transferSize": 1424,
+        "encodedBodySize": 1124
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/useRefFunction-BnFYzwlh.js",
+        "transferSize": 524,
+        "encodedBodySize": 224
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/WorkspaceFrame-B8mTY0ho.js",
+        "transferSize": 603,
+        "encodedBodySize": 303
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/zh_CN-BnAAxasO.js",
+        "transferSize": 2771,
+        "encodedBodySize": 2471
+      },
+      {
+        "url": "http://127.0.0.1:4173/assets/ProCard-YQjIQ9ki.js",
+        "transferSize": 6493,
+        "encodedBodySize": 6193
+      }
+    ],
+    "gzipEstimateKB": 280.6
+  },
+  "loadingState": {
+    "route": "business-loading",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "scrollHeight": 900
+    },
+    "mainScroll": {
+      "clientWidth": 1216,
+      "scrollWidth": 1216,
+      "scrollHeight": 844
+    },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 56,
+      "width": 224,
+      "height": 844
+    },
+    "main": {
+      "x": 224,
+      "y": 56,
+      "width": 1216,
+      "height": 844
+    },
+    "surface": {
+      "x": 248,
+      "y": 80,
+      "width": 1168,
+      "height": 796
+    },
+    "title": "业务复合组件"
+  },
+  "businessFirstDemoMs": 1901,
+  "initialBusinessSlots": {
+    "deferred": 115,
+    "loading": 0,
+    "firstDemoVisible": true
+  },
+  "businessDesktop": {
+    "route": "business-suite",
+    "viewport": {
+      "width": 1440,
+      "height": 900
+    },
+    "document": {
+      "clientWidth": 1440,
+      "scrollWidth": 1440,
+      "scrollHeight": 61750
+    },
+    "mainScroll": {
+      "clientWidth": 1216,
+      "scrollWidth": 1216,
+      "scrollHeight": 61694
+    },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 1440,
+      "height": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 56,
+      "width": 224,
+      "height": 844
+    },
+    "main": {
+      "x": 224,
+      "y": 56,
+      "width": 1216,
+      "height": 61694.2734375
+    },
+    "surface": {
+      "x": 248,
+      "y": 80,
+      "width": 1168,
+      "height": 61646.2734375
+    },
+    "title": "业务复合组件"
+  },
+  "businessMobile": {
+    "route": "business-suite",
+    "viewport": {
+      "width": 390,
+      "height": 844
+    },
+    "document": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 87943
+    },
+    "mainScroll": {
+      "clientWidth": 390,
+      "scrollWidth": 390,
+      "scrollHeight": 87887
+    },
+    "header": {
+      "x": 0,
+      "y": 0,
+      "width": 390,
+      "height": 56
+    },
+    "sidebar": {
+      "x": 0,
+      "y": 0,
+      "width": 0,
+      "height": 0
+    },
+    "main": {
+      "x": 0,
+      "y": 56,
+      "width": 390,
+      "height": 87887.140625
+    },
+    "surface": {
+      "x": 16,
+      "y": 72,
+      "width": 358,
+      "height": 87855.140625
+    },
+    "title": "业务复合组件"
+  },
+  "routeChecks": [
+    {
+      "route": "tokens",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 930
+      },
+      "mainScroll": {
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "scrollHeight": 874
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 844
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 873.96875
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 825.96875
+      },
+      "title": "主题与 Token"
+    },
+    {
+      "route": "containers",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 1110
+      },
+      "mainScroll": {
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "scrollHeight": 1055
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 844
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 1054.5625
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 1006.5625
+      },
+      "title": "页面容器"
+    },
+    {
+      "route": "mappings",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 941
+      },
+      "mainScroll": {
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "scrollHeight": 885
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 844
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 884.78125
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 836.78125
+      },
+      "title": "组件映射"
+    },
+    {
+      "route": "states",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 1092
+      },
+      "mainScroll": {
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "scrollHeight": 1036
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 844
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 1036.0546875
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 988.0546875
+      },
+      "title": "信息与状态"
+    },
+    {
+      "route": "text-controls",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 900
+      },
+      "mainScroll": {
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "scrollHeight": 844
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 844
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 844
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 796
+      },
+      "title": "选择与文本"
+    },
+    {
+      "route": "editable-table",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 900
+      },
+      "mainScroll": {
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "scrollHeight": 844
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 844
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 844
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 796
+      },
+      "title": "可编辑明细"
+    },
+    {
+      "route": "crud-workbench",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 1497
+      },
+      "mainScroll": {
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "scrollHeight": 1442
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 844
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 1441.703125
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 1393.703125
+      },
+      "title": "CRUD 列表工作台"
+    },
+    {
+      "route": "table-summary",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 1446
+      },
+      "mainScroll": {
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "scrollHeight": 1391
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 844
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 1390.546875
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 1342.546875
+      },
+      "title": "表格合计与结果摘要"
+    },
+    {
+      "route": "host-controls",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 1727
+      },
+      "mainScroll": {
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "scrollHeight": 1671
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 844
+      },
+      "main": {
+        "x": 224,
+        "y": -764.5,
+        "width": 1216,
+        "height": 1671.03125
+      },
+      "surface": {
+        "x": 248,
+        "y": -740.5,
+        "width": 1168,
+        "height": 1623.03125
+      },
+      "title": "宿主注入能力"
+    },
+    {
+      "route": "resizable-table",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "scrollHeight": 1163
+      },
+      "mainScroll": {
+        "clientWidth": 1216,
+        "scrollWidth": 1216,
+        "scrollHeight": 1107
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 844
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 1106.984375
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 1058.984375
+      },
+      "title": "扩展表格组件"
+    }
+  ],
+  "threeBeforePreview": [],
+  "threeAfterPreview": [
+    "http://127.0.0.1:4173/assets/OrbitControls-DnYFJgLv.js",
+    "http://127.0.0.1:4173/assets/three.module-C0S06CcT.js",
+    "http://127.0.0.1:4173/assets/GLTFLoader-DHTI6G5O.js"
+  ],
+  "progressiveLoad": {
+    "scrollSteps": 209,
+    "placeholderCount": 0,
+    "busySlotCount": 0,
+    "loadingSlotCount": 0,
+    "pageScrollHeight": 83917,
+    "mainScrollWidth": 394,
+    "mainClientWidth": 390,
+    "uniqueDemoChunkCount": 119,
+    "uniqueDemoChunks": [
+      "http://127.0.0.1:4173/assets/MaterialSelectorDemo-BFBeua02.js",
+      "http://127.0.0.1:4173/assets/DrawingFilesDemo-D04nf-wt.js",
+      "http://127.0.0.1:4173/assets/MaterialDrawingsPanelDemo-Bw-eK_fs.js",
+      "http://127.0.0.1:4173/assets/GlbModelViewerDemo-DujuGzNW.js",
+      "http://127.0.0.1:4173/assets/MasterDataQuickCreateSelectDemo-ChJypQ-u.js",
+      "http://127.0.0.1:4173/assets/AccountingSelectorFieldsDemo-BQNPuEef.js",
+      "http://127.0.0.1:4173/assets/QuickDateRangePickerDemo-D5Qs0tNA.js",
+      "http://127.0.0.1:4173/assets/PurchaseReceiptCapacitySummaryDemo-zTMEp7T-.js",
+      "http://127.0.0.1:4173/assets/PurchaseReceiptBatchNoButtonDemo-CaP6U6o_.js",
+      "http://127.0.0.1:4173/assets/PurchaseInquiryAndOrderFilterComponentsDemo-DQTpS1ZV.js",
+      "http://127.0.0.1:4173/assets/PurchaseReturnEditDrawerDemo-BkTlmbqy.js",
+      "http://127.0.0.1:4173/assets/CustomerMaterialDispositionComponentsDemo-C-9Kvwba.js",
+      "http://127.0.0.1:4173/assets/BusinessInvoiceCoverageCardDemo-Dc33e-Eg.js",
+      "http://127.0.0.1:4173/assets/BusinessInvoiceWorkflowComponentsDemo-BUw4Flgu.js",
+      "http://127.0.0.1:4173/assets/BusinessInvoiceLedgerAndImportDemo-D9frCqhM.js",
+      "http://127.0.0.1:4173/assets/ScanAwareInputDemo-CjjSWqVR.js",
+      "http://127.0.0.1:4173/assets/WarehouseRemoteSelectDemo-peacK3ck.js",
+      "http://127.0.0.1:4173/assets/BatchSuggestInputDemo-DHxKElHj.js",
+      "http://127.0.0.1:4173/assets/ReasonActionModalDemo-CZ0SHW4g.js",
+      "http://127.0.0.1:4173/assets/DetailDocumentActionsDemo-OJsZfPZE.js",
+      "http://127.0.0.1:4173/assets/WorkOrderScanSelectDemo-B6QNHJMn.js",
+      "http://127.0.0.1:4173/assets/DocumentViewLegacyRedirectDemo-WxXp3g3t.js",
+      "http://127.0.0.1:4173/assets/DocumentFilterDrawerDemo-BtWeSxrw.js",
+      "http://127.0.0.1:4173/assets/DetailLedgerFilterDrawerDemo-Di1B5JkA.js",
+      "http://127.0.0.1:4173/assets/DocumentViewBarDemo-T7MZSHAX.js",
+      "http://127.0.0.1:4173/assets/PriceControlPrecheckButtonDemo-D1UYG5c1.js",
+      "http://127.0.0.1:4173/assets/MaterialSupplierPriceTiersModalDemo-BuUdDU6v.js",
+      "http://127.0.0.1:4173/assets/MaterialPriceSectionDemo-8F8JCX4S.js",
+      "http://127.0.0.1:4173/assets/CustomFieldFormSectionDemo-BoWG5DaK.js",
+      "http://127.0.0.1:4173/assets/FormulaDesignerDemo-CPoDaLhh.js",
+      "http://127.0.0.1:4173/assets/DocumentLineCustomFieldFormItemsDemo-DExBh4Cm.js",
+      "http://127.0.0.1:4173/assets/DocumentLineCustomFieldColumnsDemo-DCc3vRvg.js",
+      "http://127.0.0.1:4173/assets/PurchaseRequisitionItemsTableDemo-Sb9V_DMb.js",
+      "http://127.0.0.1:4173/assets/DocumentDetailLedgerTableDemo-B2EKioOP.js",
+      "http://127.0.0.1:4173/assets/DocumentDetailLedgersDemo-CM6cIgbn.js",
+      "http://127.0.0.1:4173/assets/BusinessOperationalDetailLedgersDemo-BcC5ncuu.js",
+      "http://127.0.0.1:4173/assets/PurchaseOrderDetailLedgerDemo-C-E0yPyF.js",
+      "http://127.0.0.1:4173/assets/PrintLayoutsDemo-BPUVRuxa.js",
+      "http://127.0.0.1:4173/assets/BusinessPrintTemplatesDemo-T3nI0bsz.js",
+      "http://127.0.0.1:4173/assets/PrintJobActionsDemo-CzVK68-q.js",
+      "http://127.0.0.1:4173/assets/GridPrintDesignerDemo-DZ93nqPX.js",
+      "http://127.0.0.1:4173/assets/OrderItemEditorDemo-DjNu7Mvb.js",
+      "http://127.0.0.1:4173/assets/ApplicationShellComponentsDemo-BOAR1nj2.js",
+      "http://127.0.0.1:4173/assets/AccountingCrudPageDemo-DJuVga1p.js",
+      "http://127.0.0.1:4173/assets/CustomFieldValuePanelDemo-UpXz0u36.js",
+      "http://127.0.0.1:4173/assets/ApprovalPanelDemo-CQ9X54wS.js",
+      "http://127.0.0.1:4173/assets/BomCostSnapshotEditorDemo-g7SvCc0z.js",
+      "http://127.0.0.1:4173/assets/BomComponentsDemo-BxCFAwyD.js",
+      "http://127.0.0.1:4173/assets/BomWorkspaceDetailDemo-CgcVWjVh.js",
+      "http://127.0.0.1:4173/assets/BomVersionHistoryDrawerDemo-B_zQfRd5.js",
+      "http://127.0.0.1:4173/assets/BomIssueOperationSelectDemo-MBHGdsD7.js",
+      "http://127.0.0.1:4173/assets/CompleteMaintenanceFieldsDemo-_On2MTIw.js",
+      "http://127.0.0.1:4173/assets/EquipmentFaultVerifyModalDemo-D-59Eg9p.js",
+      "http://127.0.0.1:4173/assets/TemplatePrintComponentsDemo-D5oo0agS.js",
+      "http://127.0.0.1:4173/assets/IntegrationGuideLinkDemo-CRSoHHHu.js",
+      "http://127.0.0.1:4173/assets/IntegrationGuideContentDemo-tcZQnW5p.js",
+      "http://127.0.0.1:4173/assets/ServerInfoCardDemo-Czm408z8.js",
+      "http://127.0.0.1:4173/assets/ImportDrawerDemo-DGdtgtrI.js",
+      "http://127.0.0.1:4173/assets/ImportWorkbenchDrawerDemo-DjpS8C_5.js",
+      "http://127.0.0.1:4173/assets/BomImportWorkbenchDrawerDemo-BYaStSrA.js",
+      "http://127.0.0.1:4173/assets/BackupDirectoryPickerDemo-DRR3rITA.js",
+      "http://127.0.0.1:4173/assets/AllowedEquipmentPriorityFieldDemo-EERqfhZR.js",
+      "http://127.0.0.1:4173/assets/MasterDataQuickCreateDrawersDemo-BSscSPqJ.js",
+      "http://127.0.0.1:4173/assets/DocumentBomOpenButtonDemo-BRrGVETz.js",
+      "http://127.0.0.1:4173/assets/LabelTemplatesDemo-DTD10bcv.js",
+      "http://127.0.0.1:4173/assets/DocumentViewSortModalDemo-CUjprZgW.js",
+      "http://127.0.0.1:4173/assets/MaterialTablePickerDemo-B82Ap8Ms.js",
+      "http://127.0.0.1:4173/assets/BatchMaterialAddButtonDemo-myAdQNCw.js",
+      "http://127.0.0.1:4173/assets/StockOperationsFieldsDemo-Up_yMVG0.js",
+      "http://127.0.0.1:4173/assets/DashboardShortcutConfigModalDemo-9Xb4wuD4.js",
+      "http://127.0.0.1:4173/assets/LargeScreenComponentsDemo-BjwLiykr.js",
+      "http://127.0.0.1:4173/assets/VoiceBroadcastSettingsPanelDemo-D3I4FQd6.js",
+      "http://127.0.0.1:4173/assets/StockCountLineFormListDemo-BLwygVve.js",
+      "http://127.0.0.1:4173/assets/StockCountDocumentComponentsDemo-CRzIkOWl.js",
+      "http://127.0.0.1:4173/assets/StockCountDetailLedgerDemo-TRGBwDNo.js",
+      "http://127.0.0.1:4173/assets/StockTransferDetailLedgerDemo-D-dOD1PV.js",
+      "http://127.0.0.1:4173/assets/StockConversionDetailLedgerDemo-D3OJQRNX.js",
+      "http://127.0.0.1:4173/assets/ScheduleComponentsDemo-D7I-qtkk.js",
+      "http://127.0.0.1:4173/assets/TraceTimelineDrawerDemo-OyCwfKvp.js",
+      "http://127.0.0.1:4173/assets/QualityInspectionItemResultFieldsDemo-V0m-VoTF.js",
+      "http://127.0.0.1:4173/assets/QualityInspectionWorkflowDemo-CK_oCfpu.js",
+      "http://127.0.0.1:4173/assets/ProcessOperationInspectionRulesFormDemo-Czf73DO1.js",
+      "http://127.0.0.1:4173/assets/FqcRulesPanelDemo-wN5t-ZHg.js",
+      "http://127.0.0.1:4173/assets/QualityInspectionAiAnalysisCardDemo-C-j4GbAS.js",
+      "http://127.0.0.1:4173/assets/QualityInspectionOqcSourceDeliveryCardDemo-CKPEM7jV.js",
+      "http://127.0.0.1:4173/assets/QualityTemplateItemsEditorDemo-Bsut5KnG.js",
+      "http://127.0.0.1:4173/assets/ScrapDeductionPolicySectionsDemo-zT4VMhBc.js",
+      "http://127.0.0.1:4173/assets/IncomingInspectionPolicyCardDemo-Csz_TdOs.js",
+      "http://127.0.0.1:4173/assets/SaleReturnComponentsDemo-D5QBMsto.js",
+      "http://127.0.0.1:4173/assets/DocumentViewSwitchPresetsDemo-NLTmvgGX.js",
+      "http://127.0.0.1:4173/assets/SalesOutboundComponentsDemo-DXMUJOqw.js",
+      "http://127.0.0.1:4173/assets/SalesDeliveryComponentsDemo-DGLLnR5A.js",
+      "http://127.0.0.1:4173/assets/SalesDetailLedgerComponentsDemo-BJzgJcgb.js",
+      "http://127.0.0.1:4173/assets/PackageManagementComponentsDemo-BTw9r6vm.js",
+      "http://127.0.0.1:4173/assets/FundsExpenseComponentsDemo-BHVNdhXf.js",
+      "http://127.0.0.1:4173/assets/CustomerOrderPortalQrModalDemo-BbZ7pC8w.js",
+      "http://127.0.0.1:4173/assets/PurchaseWorkflowComponentsDemo-CG1jdOYI.js",
+      "http://127.0.0.1:4173/assets/BomExpansionCreateModalDemo-T6TvCdMX.js",
+      "http://127.0.0.1:4173/assets/ReverseLandedCostModalDemo-BPc_GKGp.js",
+      "http://127.0.0.1:4173/assets/LandedCostComponentsDemo-CrLNd4qc.js",
+      "http://127.0.0.1:4173/assets/WorkOrderProductionComponentsDemo-BBzli7bc.js",
+      "http://127.0.0.1:4173/assets/WorkOrderReportingComponentsDemo-BmO-ZrVC.js",
+      "http://127.0.0.1:4173/assets/OutsourcingComponentsDemo-IFd3AIAt.js",
+      "http://127.0.0.1:4173/assets/ReportLogDetailDrawerDemo-BoobCL93.js",
+      "http://127.0.0.1:4173/assets/ReportDynamicFieldsDemo-2JNnJdFz.js",
+      "http://127.0.0.1:4173/assets/WorkOrderFilterDrawerDemo-BpOB8aZW.js",
+      "http://127.0.0.1:4173/assets/WorkOrderSupportComponentsDemo-h6RqgcLt.js",
+      "http://127.0.0.1:4173/assets/ProductionScheduleComponentsDemo-pW4pxBAX.js",
+      "http://127.0.0.1:4173/assets/ProductionShiftCalendarComponentsDemo-stolmfh1.js",
+      "http://127.0.0.1:4173/assets/ProductionScheduleWorkflowsDemo-CwAlpV5C.js",
+      "http://127.0.0.1:4173/assets/PaymentStatementActionComponentsDemo-q6oB4R7J.js",
+      "http://127.0.0.1:4173/assets/AccountingWorkflowComponentsDemo-BXGbMY8G.js",
+      "http://127.0.0.1:4173/assets/AccountingInventoryProductCostDemo-C3qgO514.js",
+      "http://127.0.0.1:4173/assets/AccountingLedgerImportAndAccrualDemo-Du9j5z3x.js",
+      "http://127.0.0.1:4173/assets/ScheduleRescheduleComponentsDemo-BtIJBMgo.js",
+      "http://127.0.0.1:4173/assets/QuotationComponentsDemo-Ciw7gpsB.js",
+      "http://127.0.0.1:4173/assets/FinanceActionComponentsDemo-DSCK7ag1.js",
+      "http://127.0.0.1:4173/assets/ProductionBomSelectDemo-NkQuB5aK.js",
+      "http://127.0.0.1:4173/assets/MaterialSupplierPriceTierSummaryDemo--6k5a0KB.js"
+    ]
+  },
+  "errors": {
+    "page": [],
+    "console": [
+      "[use-antd-resizable-header] 请不要在所有列上添加 `width` 属性，这将导致表格无法自适应"
+    ]
+  },
+  "failedJsResponses": []
+}

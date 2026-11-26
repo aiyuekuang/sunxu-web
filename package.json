@@ -16,66 +16,105 @@
   "exports": {
     ".": {
       "types": "./dist/types/index.d.ts",
+      "node": {
+        "import": "./dist/node/index.mjs"
+      },
       "import": "./dist/index.js",
       "require": "./dist/index.cjs"
     },
     "./business": {
       "types": "./dist/types/business/index.d.ts",
+      "node": {
+        "import": "./dist/node/business.mjs"
+      },
       "import": "./dist/business.js",
       "require": "./dist/business.cjs"
     },
     "./business/accounting": {
       "types": "./dist/types/business/domains/accounting/index.d.ts",
+      "node": {
+        "import": "./dist/node/business-accounting.mjs"
+      },
       "import": "./dist/business-accounting.js",
       "require": "./dist/business-accounting.cjs"
     },
     "./business/application": {
       "types": "./dist/types/business/domains/application/index.d.ts",
+      "node": {
+        "import": "./dist/node/business-application.mjs"
+      },
       "import": "./dist/business-application.js",
       "require": "./dist/business-application.cjs"
     },
     "./business/documents": {
       "types": "./dist/types/business/domains/documents/index.d.ts",
+      "node": {
+        "import": "./dist/node/business-documents.mjs"
+      },
       "import": "./dist/business-documents.js",
       "require": "./dist/business-documents.cjs"
     },
     "./business/inventory": {
       "types": "./dist/types/business/domains/inventory/index.d.ts",
+      "node": {
+        "import": "./dist/node/business-inventory.mjs"
+      },
       "import": "./dist/business-inventory.js",
       "require": "./dist/business-inventory.cjs"
     },
     "./business/manufacturing": {
       "types": "./dist/types/business/domains/manufacturing/index.d.ts",
+      "node": {
+        "import": "./dist/node/business-manufacturing.mjs"
+      },
       "import": "./dist/business-manufacturing.js",
       "require": "./dist/business-manufacturing.cjs"
     },
     "./business/printing": {
       "types": "./dist/types/business/domains/printing/index.d.ts",
+      "node": {
+        "import": "./dist/node/business-printing.mjs"
+      },
       "import": "./dist/business-printing.js",
       "require": "./dist/business-printing.cjs"
     },
     "./business/procurement": {
       "types": "./dist/types/business/domains/procurement/index.d.ts",
+      "node": {
+        "import": "./dist/node/business-procurement.mjs"
+      },
       "import": "./dist/business-procurement.js",
       "require": "./dist/business-procurement.cjs"
     },
     "./business/quality": {
       "types": "./dist/types/business/domains/quality/index.d.ts",
+      "node": {
+        "import": "./dist/node/business-quality.mjs"
+      },
       "import": "./dist/business-quality.js",
       "require": "./dist/business-quality.cjs"
     },
     "./business/sales": {
       "types": "./dist/types/business/domains/sales/index.d.ts",
+      "node": {
+        "import": "./dist/node/business-sales.mjs"
+      },
       "import": "./dist/business-sales.js",
       "require": "./dist/business-sales.cjs"
     },
     "./business/shared": {
       "types": "./dist/types/business/domains/shared/index.d.ts",
+      "node": {
+        "import": "./dist/node/business-shared.mjs"
+      },
       "import": "./dist/business-shared.js",
       "require": "./dist/business-shared.cjs"
     },
     "./mes": {
       "types": "./dist/types/business/compat/mesEntry.d.ts",
+      "node": {
+        "import": "./dist/node/mes.mjs"
+      },
       "import": "./dist/mes.js",
       "require": "./dist/mes.cjs"
     },
@@ -90,7 +129,7 @@
     "dev": "vite --config vite.config.ts",
     "test": "node --test --test-concurrency=1",
     "typecheck": "tsc --noEmit",
-    "build:lib": "vite build --config vite.lib.config.ts && node -e \"require('node:fs').rmSync('dist/types', { recursive: true, force: true })\" && tsc -p tsconfig.build.json",
+    "build:lib": "vite build --config vite.lib.config.ts && node -e \"require('node:fs').rmSync('dist/types', { recursive: true, force: true })\" && tsc -p tsconfig.build.json && node tooling/generate-node-esm-entries.mjs",
     "build:catalog": "vite build --config vite.config.ts",
     "build": "npm run build:lib && npm run build:catalog",
     "prepare": "npm run build:lib",

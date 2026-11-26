@@ -1,4 +1,4 @@
-import { App, Segmented, Space, Typography } from 'antd';
+import { App, Button, Segmented, Space, Typography } from 'antd';
 import { useState } from 'react';
 import { SectionCard } from '../../src';
 import { GlbModelViewer } from '../../src/business/domains/inventory/GlbModelViewer';
@@ -39,6 +39,7 @@ const demoModelUrl =
 
 function GlbModelViewerDemoContent() {
   const [state, setState] = useState<'model' | 'error'>('model');
+  const [viewerOpen, setViewerOpen] = useState(false);
   const url =
     state === 'model'
       ? demoModelUrl
@@ -48,24 +49,32 @@ function GlbModelViewerDemoContent() {
     <SectionCard title="GLB 三维模型查看器">
       <Space orientation="vertical" size={12} style={{ width: '100%' }}>
         <Typography.Paragraph type="secondary">
-          three 和 OrbitControls / GLTFLoader 在查看器挂载后按需加载；MaterialDrawingsPanel 的宿主通过 renderModelPreview 插槽传入此组件，并负责解析文件访问 URL。
+          打开预览后才加载 three 和 OrbitControls / GLTFLoader；MaterialDrawingsPanel 的宿主通过 renderModelPreview 插槽传入此组件，并负责解析文件访问 URL。
         </Typography.Paragraph>
-        <Segmented
-          aria-label="三维查看状态"
-          value={state}
-          options={[
-            { label: '演示模型', value: 'model' },
-            { label: '加载失败', value: 'error' },
-          ]}
-          onChange={(value) => setState(value as typeof state)}
-        />
-        <div style={{ width: '100%', height: 420, minHeight: 320 }}>
-          <GlbModelViewer
-            key={url}
-            url={url}
-            name={state === 'model' ? '目录演示三角模型' : '损坏模型示例'}
-          />
-        </div>
+        {!viewerOpen ? (
+          <Button type="primary" onClick={() => setViewerOpen(true)}>
+            打开三维预览
+          </Button>
+        ) : (
+          <>
+            <Segmented
+              aria-label="三维查看状态"
+              value={state}
+              options={[
+                { label: '演示模型', value: 'model' },
+                { label: '加载失败', value: 'error' },
+              ]}
+              onChange={(value) => setState(value as typeof state)}
+            />
+            <div style={{ width: '100%', height: 420, minHeight: 320 }}>
+              <GlbModelViewer
+                key={url}
+                url={url}
+                name={state === 'model' ? '目录演示三角模型' : '损坏模型示例'}
+              />
+            </div>
+          </>
+        )}
         <Typography.Text type="secondary">
           接入插槽：renderModelPreview: (url, name) =&gt; &lt;GlbModelViewer url=&#123;url&#125; name=&#123;name&#125; /&gt;
         </Typography.Text>

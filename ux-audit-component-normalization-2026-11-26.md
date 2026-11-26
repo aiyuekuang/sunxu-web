@@ -28,13 +28,24 @@
 - `npm run build`：组件库 ESM / CJS、类型声明和组件目录均构建成功。包导出清单的类型、ESM、CJS 目标都存在；10 个领域 CJS 出口均非空；旧 `/mes` 与新 `/business` 实际加载结果符合兼容边界。
 - 浏览器目录证据见 `docs/verification/ux-audit-component-normalization-2026-11-26-evidence/committed-render-evidence/`。状态映射与帮助提示覆盖桌面 1280×900 和窄屏 390×844，页面无横向溢出、没有运行时异常；窄屏帮助触发区为 44×44px。业务复合组件目录另有桌面 1440×900 与窄屏 390×844 的真实渲染记录，页面无横向溢出。
 - 业务组件示例页面总高约 59,506px（桌面）/83,534px（窄屏）；记录截图是滚动到宿主集成演示区，不代表首屏。Ant Design 弃用、表格适配、重复 key 和表单状态警告仍在目录控制台出现，没有捕获 `pageerror`；本次未对其作基线归因。
-- 目录生产包主 chunk 为 3,286.92 kB（gzip 954.78 kB），超过 Vite 500 kB 建议值；这是可运行组件目录，不是发布的业务域包。目录仍可构建，但首次加载与长页面导航值得后续单独优化。
+- 当时目录生产包主 chunk 为 3,286.92 kB（gzip 954.78 kB），超过 Vite 500 kB 建议值；后续拆分和加载验收见下方“二次完善”。
 
 ## 未验证边界
 
-- 直接用 Node 原生 ESM 加载 `dist/business.js` 会在上游 `@ant-design/pro-components` 的 `antd/locale/zh_CN` 扩展名解析处失败。组件库构建、CJS 加载和目录浏览器构建通过；原生 Node ESM / SSR 兼容未验证，当前项目也未声明此能力范围。
+- 原始 ESM 产物 `dist/business.js` 不能被 Node 原生 ESM 直接加载；二次完善新增 Node 条件入口并验证了所有公开包子路径。直接导入内部 `dist/*.js` 文件仍不属于公开包契约。
 - 真实消费项目的运行页面、CSS 迁移和后端服务链路未在本仓变更中验证。完成它们需要消费端切换到 `sunxu-web/business/<domain>` 后按各自 API 与权限状态验收；本次未修改 MES 来源仓或其他消费端。
 
 ## 后续迁移门槛
 
-所有已知消费端迁到中性领域入口并移除对旧 CSS 钩子的依赖后，方可在下一主版本删除 `/mes`、`Mes*` 别名、历史 DOM class 和 `--mes-*` 变量。目录 chunk 与原生 Node ESM 需要分别确认产品支持范围，再决定是否单独优化；不应把它们误认为这次业务组件迁移已完成的消费端验收。
+所有已知消费端迁到中性领域入口并移除对旧 CSS 钩子的依赖后，方可在下一主版本删除 `/mes`、`Mes*` 别名、历史 DOM class 和 `--mes-*` 变量。目录加载与包入口修复不会替代真实消费端验收。
+
+## 二次完善：目录加载与 Node ESM（2026-11-26）
+
+- 目录主入口直接加载 CSS，不再导入完整组件根出口；12 个导航页面均按路由加载，119 个业务示例按距视口 900 px 的范围渐进加载，并以占位卡保留长页面的大致布局。GLB 示例只有在点击“打开三维预览”后才挂载查看器。
+- 最新生产目录入口为 129.88 kB（gzip 42.58 kB）；业务复合页路由 chunk 为 100.89 kB（gzip 24.54 kB）。首屏实际请求 57 个 JS 资源，按本地产物重新 gzip 的总量约 280.6 kB；没有请求路由页面 chunk 或 three 资源。Vite 仍提示 three 动态 chunk 为 724.07 kB（gzip 184.65 kB），其请求被限制在打开三维预览之后。
+- Node 条件出口为根入口、业务聚合、十个业务领域和兼容 `/mes` 共 13 个 JS 子路径。`build:lib` 依据 CJS 入口生成显式命名导出 ESM 桥接文件；所有 13 个子路径均通过 Node 原生 ESM 按包名实际导入验证，根入口与业务聚合的 CommonJS `require` 也通过，`npm pack --dry-run` 包清单包含 13 个桥接入口。浏览器继续走原有 ESM 入口。
+- `npm test`：80 项通过；`npm run typecheck` 与 `npm run build` 通过。构建仍报告 three 动态 chunk 超过 Vite 的 500 kB 提示阈值。
+- 生产预览实测桌面 1440×900 的 12 个导航页面，以及窄屏 390×844 的组件总览和业务复合页。路由加载提示通过 1.2 秒延迟复现并截图；渐进滚动加载了 119 个示例模块，最终无占位项或加载项，JS 响应无失败、无页面异常。三维预览打开前未请求 three / OrbitControls / GLTFLoader，打开后加载 3 个资源并绘制模型。所有状态下 `documentElement.scrollWidth` 等于视口宽度；业务长页的内部 `.sxw-docs-main` 在全部模块加载后的 `scrollWidth` 为 394 px / `clientWidth` 390 px，页面本身没有横向溢出。
+- 目录控制台保留一条 `use-antd-resizable-header` 关于所有表格列均设置 `width` 的既有建议；无 `pageerror`。截图和完整 DOM / 资源记录见 [`docs/verification/catalog-loading-2026-11-26/`](docs/verification/catalog-loading-2026-11-26/)。
+
+真实消费项目的请求、权限、成功 / 失败流程仍为 **UNVERIFIED**：本仓工程约束明确禁止修改 MES 来源仓，且本次没有后端接口或数据库变更。该边界不能由目录预览代替。

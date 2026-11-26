@@ -1,5 +1,6 @@
-import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
-import { Button, Form, Input, Segmented, Switch } from 'antd';
+import { lazy, Suspense, useCallback, useEffect, useMemo, useRef, useState } from 'react';
+import type { ComponentType } from 'react';
+import { Button, Form, Input, Segmented, Spin, Switch } from 'antd';
 import { SectionCard, Space, StatusDisplay, Table, Typography } from '../../src';
 import type { StatusMap } from '../../src/components/StatusDisplay';
 import type { TableProps } from 'antd';
@@ -29,127 +30,125 @@ import {
   type CustomFieldPanelRenderProps,
   type HostRouteAdapter,
 } from '../../src/business';
-import { MaterialSelectorDemo } from './MaterialSelectorDemo';
-import { DrawingFilesDemo } from './DrawingFilesDemo';
-import { MaterialDrawingsPanelDemo } from './MaterialDrawingsPanelDemo';
-import { GlbModelViewerDemo } from './GlbModelViewerDemo';
-import { MasterDataQuickCreateSelectDemo } from './MasterDataQuickCreateSelectDemo';
-import { AccountingSelectorFieldsDemo } from './AccountingSelectorFieldsDemo';
-import { QuickDateRangePickerDemo } from './QuickDateRangePickerDemo';
-import { PurchaseReceiptCapacitySummaryDemo } from './PurchaseReceiptCapacitySummaryDemo';
-import { PurchaseReceiptBatchNoButtonDemo } from './PurchaseReceiptBatchNoButtonDemo';
-import { BusinessInvoiceCoverageCardDemo } from './BusinessInvoiceCoverageCardDemo';
-import { BusinessInvoiceWorkflowComponentsDemo } from './BusinessInvoiceWorkflowComponentsDemo';
-import { BusinessInvoiceLedgerAndImportDemo } from './BusinessInvoiceLedgerAndImportDemo';
-import { PurchaseInquiryAndOrderFilterComponentsDemo } from './PurchaseInquiryAndOrderFilterComponentsDemo';
-import { PurchaseReturnEditDrawerDemo } from './PurchaseReturnEditDrawerDemo';
-import { CustomerMaterialDispositionComponentsDemo } from './CustomerMaterialDispositionComponentsDemo';
-import { ScanAwareInputDemo } from './ScanAwareInputDemo';
-import { WarehouseRemoteSelectDemo } from './WarehouseRemoteSelectDemo';
-import { BatchSuggestInputDemo } from './BatchSuggestInputDemo';
-import { ReasonActionModalDemo } from './ReasonActionModalDemo';
-import { DetailDocumentActionsDemo } from './DetailDocumentActionsDemo';
-import { WorkOrderScanSelectDemo } from './WorkOrderScanSelectDemo';
-import { DocumentViewLegacyRedirectDemo } from './DocumentViewLegacyRedirectDemo';
-import { DocumentFilterDrawerDemo } from './DocumentFilterDrawerDemo';
-import { DetailLedgerFilterDrawerDemo } from './DetailLedgerFilterDrawerDemo';
-import { DocumentViewBarDemo } from './DocumentViewBarDemo';
-import { PriceControlPrecheckButtonDemo } from './PriceControlPrecheckButtonDemo';
-import { ProductionBomSelectDemo } from './ProductionBomSelectDemo';
-import { MaterialSupplierPriceTierSummaryDemo } from './MaterialSupplierPriceTierSummaryDemo';
-import { MaterialSupplierPriceTiersModalDemo } from './MaterialSupplierPriceTiersModalDemo';
-import { MaterialPriceSectionDemo } from './MaterialPriceSectionDemo';
-import { CustomFieldFormSectionDemo } from './CustomFieldFormSectionDemo';
-import { FormulaDesignerDemo } from './FormulaDesignerDemo';
-import {
-  DocumentLineCustomFieldFormItemsDemo,
-} from './DocumentLineCustomFieldFormItemsDemo';
-import { DocumentLineCustomFieldColumnsDemo } from './DocumentLineCustomFieldColumnsDemo';
-import { DocumentDetailLedgerTableDemo } from './DocumentDetailLedgerTableDemo';
-import { PurchaseRequisitionItemsTableDemo } from './PurchaseRequisitionItemsTableDemo';
-import { DocumentDetailLedgersDemo } from './DocumentDetailLedgersDemo';
-import { BusinessOperationalDetailLedgersDemo } from './BusinessOperationalDetailLedgersDemo';
-import { PurchaseOrderDetailLedgerDemo } from './PurchaseOrderDetailLedgerDemo';
-import { PrintLayoutsDemo } from './PrintLayoutsDemo';
-import { BusinessPrintTemplatesDemo } from './BusinessPrintTemplatesDemo';
-import { GridPrintDesignerDemo } from './GridPrintDesignerDemo';
-import { PrintJobActionsDemo } from './PrintJobActionsDemo';
-import { OrderItemEditorDemo } from './OrderItemEditorDemo';
-import { ApplicationShellComponentsDemo } from './ApplicationShellComponentsDemo';
-import { AccountingCrudPageDemo } from './AccountingCrudPageDemo';
-import { CustomFieldValuePanelDemo } from './CustomFieldValuePanelDemo';
-import { ApprovalPanelDemo } from './ApprovalPanelDemo';
-import { BomCostSnapshotEditorDemo } from './BomCostSnapshotEditorDemo';
-import { BomComponentsDemo } from './BomComponentsDemo';
-import { BomWorkspaceDetailDemo } from './BomWorkspaceDetailDemo';
-import { BomVersionHistoryDrawerDemo } from './BomVersionHistoryDrawerDemo';
-import { BomIssueOperationSelectDemo } from './BomIssueOperationSelectDemo';
-import { IntegrationGuideLinkDemo } from './IntegrationGuideLinkDemo';
-import { IntegrationGuideContentDemo } from './IntegrationGuideContentDemo';
-import { ServerInfoCardDemo } from './ServerInfoCardDemo';
-import { CompleteMaintenanceFieldsDemo } from './CompleteMaintenanceFieldsDemo';
-import { EquipmentFaultVerifyModalDemo } from './EquipmentFaultVerifyModalDemo';
-import { TemplatePrintComponentsDemo } from './TemplatePrintComponentsDemo';
-import { ImportDrawerDemo } from './ImportDrawerDemo';
-import { ImportWorkbenchDrawerDemo } from './ImportWorkbenchDrawerDemo';
-import { BomImportWorkbenchDrawerDemo } from './BomImportWorkbenchDrawerDemo';
-import { BackupDirectoryPickerDemo } from './BackupDirectoryPickerDemo';
-import { AllowedEquipmentPriorityFieldDemo } from './AllowedEquipmentPriorityFieldDemo';
-import { MasterDataQuickCreateDrawersDemo } from './MasterDataQuickCreateDrawersDemo';
-import { DocumentBomOpenButtonDemo } from './DocumentBomOpenButtonDemo';
-import { LabelTemplatesDemo } from './LabelTemplatesDemo';
-import { DocumentViewSortModalDemo } from './DocumentViewSortModalDemo';
-import { MaterialTablePickerDemo } from './MaterialTablePickerDemo';
-import { BatchMaterialAddButtonDemo } from './BatchMaterialAddButtonDemo';
-import { StockOperationsFieldsDemo } from './StockOperationsFieldsDemo';
-import { LargeScreenComponentsDemo } from './LargeScreenComponentsDemo';
-import { DashboardShortcutConfigModalDemo } from './DashboardShortcutConfigModalDemo';
-import { VoiceBroadcastSettingsPanelDemo } from './VoiceBroadcastSettingsPanelDemo';
-import { StockCountLineFormListDemo } from './StockCountLineFormListDemo';
-import { StockCountDocumentComponentsDemo } from './StockCountDocumentComponentsDemo';
-import { StockCountDetailLedgerDemo } from './StockCountDetailLedgerDemo';
-import { StockTransferDetailLedgerDemo } from './StockTransferDetailLedgerDemo';
-import { StockConversionDetailLedgerDemo } from './StockConversionDetailLedgerDemo';
-import { ScheduleComponentsDemo } from './ScheduleComponentsDemo';
-import { TraceTimelineDrawerDemo } from './TraceTimelineDrawerDemo';
-import { QualityInspectionItemResultFieldsDemo } from './QualityInspectionItemResultFieldsDemo';
-import { QualityInspectionWorkflowDemo } from './QualityInspectionWorkflowDemo';
-import { ProcessOperationInspectionRulesFormDemo } from './ProcessOperationInspectionRulesFormDemo';
-import { FqcRulesPanelDemo } from './FqcRulesPanelDemo';
-import { IncomingInspectionPolicyCardDemo } from './IncomingInspectionPolicyCardDemo';
-import { SaleReturnComponentsDemo } from './SaleReturnComponentsDemo';
-import { DocumentViewSwitchPresetsDemo } from './DocumentViewSwitchPresetsDemo';
-import { SalesOutboundComponentsDemo } from './SalesOutboundComponentsDemo';
-import { PurchaseWorkflowComponentsDemo } from './PurchaseWorkflowComponentsDemo';
-import { BomExpansionCreateModalDemo } from './BomExpansionCreateModalDemo';
-import { ReverseLandedCostModalDemo } from './ReverseLandedCostModalDemo';
-import { LandedCostComponentsDemo } from './LandedCostComponentsDemo';
-import { WorkOrderReportingComponentsDemo } from './WorkOrderReportingComponentsDemo';
-import WorkOrderProductionComponentsDemo from './WorkOrderProductionComponentsDemo';
-import { OutsourcingComponentsDemo } from './OutsourcingComponentsDemo';
-import { ReportLogDetailDrawerDemo } from './ReportLogDetailDrawerDemo';
-import { ReportDynamicFieldsDemo } from './ReportDynamicFieldsDemo';
-import { AccountingWorkflowComponentsDemo } from './AccountingWorkflowComponentsDemo';
-import { AccountingInventoryProductCostDemo } from './AccountingInventoryProductCostDemo';
-import { AccountingLedgerImportAndAccrualDemo } from './AccountingLedgerImportAndAccrualDemo';
-import { ScheduleRescheduleComponentsDemo } from './ScheduleRescheduleComponentsDemo';
-import { QuotationComponentsDemo } from './QuotationComponentsDemo';
-import { FinanceActionComponentsDemo } from './FinanceActionComponentsDemo';
-import { WorkOrderFilterDrawerDemo } from './WorkOrderFilterDrawerDemo';
-import { WorkOrderSupportComponentsDemo } from './WorkOrderSupportComponentsDemo';
-import { ProductionScheduleComponentsDemo } from './ProductionScheduleComponentsDemo';
-import ProductionScheduleWorkflowsDemo from './ProductionScheduleWorkflowsDemo';
-import { ProductionShiftCalendarComponentsDemo } from './ProductionShiftCalendarComponentsDemo';
-import { PaymentStatementActionComponentsDemo } from './PaymentStatementActionComponentsDemo';
-import { SalesDeliveryComponentsDemo } from './SalesDeliveryComponentsDemo';
-import { SalesDetailLedgerComponentsDemo } from './SalesDetailLedgerComponentsDemo';
-import { PackageManagementComponentsDemo } from './PackageManagementComponentsDemo';
-import { FundsExpenseComponentsDemo } from './FundsExpenseComponentsDemo';
-import { QualityInspectionAiAnalysisCardDemo } from './QualityInspectionAiAnalysisCardDemo';
-import { CustomerOrderPortalQrModalDemo } from './CustomerOrderPortalQrModalDemo';
-import { QualityInspectionOqcSourceDeliveryCardDemo } from './QualityInspectionOqcSourceDeliveryCardDemo';
-import { QualityTemplateItemsEditorDemo } from './QualityTemplateItemsEditorDemo';
-import { ScrapDeductionPolicySectionsDemo } from './ScrapDeductionPolicySectionsDemo';
+const MaterialSelectorDemo = lazy(() => import('./MaterialSelectorDemo').then((module) => ({ default: module.MaterialSelectorDemo })));
+const DrawingFilesDemo = lazy(() => import('./DrawingFilesDemo').then((module) => ({ default: module.DrawingFilesDemo })));
+const MaterialDrawingsPanelDemo = lazy(() => import('./MaterialDrawingsPanelDemo').then((module) => ({ default: module.MaterialDrawingsPanelDemo })));
+const GlbModelViewerDemo = lazy(() => import('./GlbModelViewerDemo').then((module) => ({ default: module.GlbModelViewerDemo })));
+const MasterDataQuickCreateSelectDemo = lazy(() => import('./MasterDataQuickCreateSelectDemo').then((module) => ({ default: module.MasterDataQuickCreateSelectDemo })));
+const AccountingSelectorFieldsDemo = lazy(() => import('./AccountingSelectorFieldsDemo').then((module) => ({ default: module.AccountingSelectorFieldsDemo })));
+const QuickDateRangePickerDemo = lazy(() => import('./QuickDateRangePickerDemo').then((module) => ({ default: module.QuickDateRangePickerDemo })));
+const PurchaseReceiptCapacitySummaryDemo = lazy(() => import('./PurchaseReceiptCapacitySummaryDemo').then((module) => ({ default: module.PurchaseReceiptCapacitySummaryDemo })));
+const PurchaseReceiptBatchNoButtonDemo = lazy(() => import('./PurchaseReceiptBatchNoButtonDemo').then((module) => ({ default: module.PurchaseReceiptBatchNoButtonDemo })));
+const BusinessInvoiceCoverageCardDemo = lazy(() => import('./BusinessInvoiceCoverageCardDemo').then((module) => ({ default: module.BusinessInvoiceCoverageCardDemo })));
+const BusinessInvoiceWorkflowComponentsDemo = lazy(() => import('./BusinessInvoiceWorkflowComponentsDemo').then((module) => ({ default: module.BusinessInvoiceWorkflowComponentsDemo })));
+const BusinessInvoiceLedgerAndImportDemo = lazy(() => import('./BusinessInvoiceLedgerAndImportDemo').then((module) => ({ default: module.BusinessInvoiceLedgerAndImportDemo })));
+const PurchaseInquiryAndOrderFilterComponentsDemo = lazy(() => import('./PurchaseInquiryAndOrderFilterComponentsDemo').then((module) => ({ default: module.PurchaseInquiryAndOrderFilterComponentsDemo })));
+const PurchaseReturnEditDrawerDemo = lazy(() => import('./PurchaseReturnEditDrawerDemo').then((module) => ({ default: module.PurchaseReturnEditDrawerDemo })));
+const CustomerMaterialDispositionComponentsDemo = lazy(() => import('./CustomerMaterialDispositionComponentsDemo').then((module) => ({ default: module.CustomerMaterialDispositionComponentsDemo })));
+const ScanAwareInputDemo = lazy(() => import('./ScanAwareInputDemo').then((module) => ({ default: module.ScanAwareInputDemo })));
+const WarehouseRemoteSelectDemo = lazy(() => import('./WarehouseRemoteSelectDemo').then((module) => ({ default: module.WarehouseRemoteSelectDemo })));
+const BatchSuggestInputDemo = lazy(() => import('./BatchSuggestInputDemo').then((module) => ({ default: module.BatchSuggestInputDemo })));
+const ReasonActionModalDemo = lazy(() => import('./ReasonActionModalDemo').then((module) => ({ default: module.ReasonActionModalDemo })));
+const DetailDocumentActionsDemo = lazy(() => import('./DetailDocumentActionsDemo').then((module) => ({ default: module.DetailDocumentActionsDemo })));
+const WorkOrderScanSelectDemo = lazy(() => import('./WorkOrderScanSelectDemo').then((module) => ({ default: module.WorkOrderScanSelectDemo })));
+const DocumentViewLegacyRedirectDemo = lazy(() => import('./DocumentViewLegacyRedirectDemo').then((module) => ({ default: module.DocumentViewLegacyRedirectDemo })));
+const DocumentFilterDrawerDemo = lazy(() => import('./DocumentFilterDrawerDemo').then((module) => ({ default: module.DocumentFilterDrawerDemo })));
+const DetailLedgerFilterDrawerDemo = lazy(() => import('./DetailLedgerFilterDrawerDemo').then((module) => ({ default: module.DetailLedgerFilterDrawerDemo })));
+const DocumentViewBarDemo = lazy(() => import('./DocumentViewBarDemo').then((module) => ({ default: module.DocumentViewBarDemo })));
+const PriceControlPrecheckButtonDemo = lazy(() => import('./PriceControlPrecheckButtonDemo').then((module) => ({ default: module.PriceControlPrecheckButtonDemo })));
+const ProductionBomSelectDemo = lazy(() => import('./ProductionBomSelectDemo').then((module) => ({ default: module.ProductionBomSelectDemo })));
+const MaterialSupplierPriceTierSummaryDemo = lazy(() => import('./MaterialSupplierPriceTierSummaryDemo').then((module) => ({ default: module.MaterialSupplierPriceTierSummaryDemo })));
+const MaterialSupplierPriceTiersModalDemo = lazy(() => import('./MaterialSupplierPriceTiersModalDemo').then((module) => ({ default: module.MaterialSupplierPriceTiersModalDemo })));
+const MaterialPriceSectionDemo = lazy(() => import('./MaterialPriceSectionDemo').then((module) => ({ default: module.MaterialPriceSectionDemo })));
+const CustomFieldFormSectionDemo = lazy(() => import('./CustomFieldFormSectionDemo').then((module) => ({ default: module.CustomFieldFormSectionDemo })));
+const FormulaDesignerDemo = lazy(() => import('./FormulaDesignerDemo').then((module) => ({ default: module.FormulaDesignerDemo })));
+const DocumentLineCustomFieldFormItemsDemo = lazy(() => import('./DocumentLineCustomFieldFormItemsDemo').then((module) => ({ default: module.DocumentLineCustomFieldFormItemsDemo })));
+const DocumentLineCustomFieldColumnsDemo = lazy(() => import('./DocumentLineCustomFieldColumnsDemo').then((module) => ({ default: module.DocumentLineCustomFieldColumnsDemo })));
+const DocumentDetailLedgerTableDemo = lazy(() => import('./DocumentDetailLedgerTableDemo').then((module) => ({ default: module.DocumentDetailLedgerTableDemo })));
+const PurchaseRequisitionItemsTableDemo = lazy(() => import('./PurchaseRequisitionItemsTableDemo').then((module) => ({ default: module.PurchaseRequisitionItemsTableDemo })));
+const DocumentDetailLedgersDemo = lazy(() => import('./DocumentDetailLedgersDemo').then((module) => ({ default: module.DocumentDetailLedgersDemo })));
+const BusinessOperationalDetailLedgersDemo = lazy(() => import('./BusinessOperationalDetailLedgersDemo').then((module) => ({ default: module.BusinessOperationalDetailLedgersDemo })));
+const PurchaseOrderDetailLedgerDemo = lazy(() => import('./PurchaseOrderDetailLedgerDemo').then((module) => ({ default: module.PurchaseOrderDetailLedgerDemo })));
+const PrintLayoutsDemo = lazy(() => import('./PrintLayoutsDemo').then((module) => ({ default: module.PrintLayoutsDemo })));
+const BusinessPrintTemplatesDemo = lazy(() => import('./BusinessPrintTemplatesDemo').then((module) => ({ default: module.BusinessPrintTemplatesDemo })));
+const GridPrintDesignerDemo = lazy(() => import('./GridPrintDesignerDemo').then((module) => ({ default: module.GridPrintDesignerDemo })));
+const PrintJobActionsDemo = lazy(() => import('./PrintJobActionsDemo').then((module) => ({ default: module.PrintJobActionsDemo })));
+const OrderItemEditorDemo = lazy(() => import('./OrderItemEditorDemo').then((module) => ({ default: module.OrderItemEditorDemo })));
+const ApplicationShellComponentsDemo = lazy(() => import('./ApplicationShellComponentsDemo').then((module) => ({ default: module.ApplicationShellComponentsDemo })));
+const AccountingCrudPageDemo = lazy(() => import('./AccountingCrudPageDemo').then((module) => ({ default: module.AccountingCrudPageDemo })));
+const CustomFieldValuePanelDemo = lazy(() => import('./CustomFieldValuePanelDemo').then((module) => ({ default: module.CustomFieldValuePanelDemo })));
+const ApprovalPanelDemo = lazy(() => import('./ApprovalPanelDemo').then((module) => ({ default: module.ApprovalPanelDemo })));
+const BomCostSnapshotEditorDemo = lazy(() => import('./BomCostSnapshotEditorDemo').then((module) => ({ default: module.BomCostSnapshotEditorDemo })));
+const BomComponentsDemo = lazy(() => import('./BomComponentsDemo').then((module) => ({ default: module.BomComponentsDemo })));
+const BomWorkspaceDetailDemo = lazy(() => import('./BomWorkspaceDetailDemo').then((module) => ({ default: module.BomWorkspaceDetailDemo })));
+const BomVersionHistoryDrawerDemo = lazy(() => import('./BomVersionHistoryDrawerDemo').then((module) => ({ default: module.BomVersionHistoryDrawerDemo })));
+const BomIssueOperationSelectDemo = lazy(() => import('./BomIssueOperationSelectDemo').then((module) => ({ default: module.BomIssueOperationSelectDemo })));
+const IntegrationGuideLinkDemo = lazy(() => import('./IntegrationGuideLinkDemo').then((module) => ({ default: module.IntegrationGuideLinkDemo })));
+const IntegrationGuideContentDemo = lazy(() => import('./IntegrationGuideContentDemo').then((module) => ({ default: module.IntegrationGuideContentDemo })));
+const ServerInfoCardDemo = lazy(() => import('./ServerInfoCardDemo').then((module) => ({ default: module.ServerInfoCardDemo })));
+const CompleteMaintenanceFieldsDemo = lazy(() => import('./CompleteMaintenanceFieldsDemo').then((module) => ({ default: module.CompleteMaintenanceFieldsDemo })));
+const EquipmentFaultVerifyModalDemo = lazy(() => import('./EquipmentFaultVerifyModalDemo').then((module) => ({ default: module.EquipmentFaultVerifyModalDemo })));
+const TemplatePrintComponentsDemo = lazy(() => import('./TemplatePrintComponentsDemo').then((module) => ({ default: module.TemplatePrintComponentsDemo })));
+const ImportDrawerDemo = lazy(() => import('./ImportDrawerDemo').then((module) => ({ default: module.ImportDrawerDemo })));
+const ImportWorkbenchDrawerDemo = lazy(() => import('./ImportWorkbenchDrawerDemo').then((module) => ({ default: module.ImportWorkbenchDrawerDemo })));
+const BomImportWorkbenchDrawerDemo = lazy(() => import('./BomImportWorkbenchDrawerDemo').then((module) => ({ default: module.BomImportWorkbenchDrawerDemo })));
+const BackupDirectoryPickerDemo = lazy(() => import('./BackupDirectoryPickerDemo').then((module) => ({ default: module.BackupDirectoryPickerDemo })));
+const AllowedEquipmentPriorityFieldDemo = lazy(() => import('./AllowedEquipmentPriorityFieldDemo').then((module) => ({ default: module.AllowedEquipmentPriorityFieldDemo })));
+const MasterDataQuickCreateDrawersDemo = lazy(() => import('./MasterDataQuickCreateDrawersDemo').then((module) => ({ default: module.MasterDataQuickCreateDrawersDemo })));
+const DocumentBomOpenButtonDemo = lazy(() => import('./DocumentBomOpenButtonDemo').then((module) => ({ default: module.DocumentBomOpenButtonDemo })));
+const LabelTemplatesDemo = lazy(() => import('./LabelTemplatesDemo').then((module) => ({ default: module.LabelTemplatesDemo })));
+const DocumentViewSortModalDemo = lazy(() => import('./DocumentViewSortModalDemo').then((module) => ({ default: module.DocumentViewSortModalDemo })));
+const MaterialTablePickerDemo = lazy(() => import('./MaterialTablePickerDemo').then((module) => ({ default: module.MaterialTablePickerDemo })));
+const BatchMaterialAddButtonDemo = lazy(() => import('./BatchMaterialAddButtonDemo').then((module) => ({ default: module.BatchMaterialAddButtonDemo })));
+const StockOperationsFieldsDemo = lazy(() => import('./StockOperationsFieldsDemo').then((module) => ({ default: module.StockOperationsFieldsDemo })));
+const LargeScreenComponentsDemo = lazy(() => import('./LargeScreenComponentsDemo').then((module) => ({ default: module.LargeScreenComponentsDemo })));
+const DashboardShortcutConfigModalDemo = lazy(() => import('./DashboardShortcutConfigModalDemo').then((module) => ({ default: module.DashboardShortcutConfigModalDemo })));
+const VoiceBroadcastSettingsPanelDemo = lazy(() => import('./VoiceBroadcastSettingsPanelDemo').then((module) => ({ default: module.VoiceBroadcastSettingsPanelDemo })));
+const StockCountLineFormListDemo = lazy(() => import('./StockCountLineFormListDemo').then((module) => ({ default: module.StockCountLineFormListDemo })));
+const StockCountDocumentComponentsDemo = lazy(() => import('./StockCountDocumentComponentsDemo').then((module) => ({ default: module.StockCountDocumentComponentsDemo })));
+const StockCountDetailLedgerDemo = lazy(() => import('./StockCountDetailLedgerDemo').then((module) => ({ default: module.StockCountDetailLedgerDemo })));
+const StockTransferDetailLedgerDemo = lazy(() => import('./StockTransferDetailLedgerDemo').then((module) => ({ default: module.StockTransferDetailLedgerDemo })));
+const StockConversionDetailLedgerDemo = lazy(() => import('./StockConversionDetailLedgerDemo').then((module) => ({ default: module.StockConversionDetailLedgerDemo })));
+const ScheduleComponentsDemo = lazy(() => import('./ScheduleComponentsDemo').then((module) => ({ default: module.ScheduleComponentsDemo })));
+const TraceTimelineDrawerDemo = lazy(() => import('./TraceTimelineDrawerDemo').then((module) => ({ default: module.TraceTimelineDrawerDemo })));
+const QualityInspectionItemResultFieldsDemo = lazy(() => import('./QualityInspectionItemResultFieldsDemo').then((module) => ({ default: module.QualityInspectionItemResultFieldsDemo })));
+const QualityInspectionWorkflowDemo = lazy(() => import('./QualityInspectionWorkflowDemo').then((module) => ({ default: module.QualityInspectionWorkflowDemo })));
+const ProcessOperationInspectionRulesFormDemo = lazy(() => import('./ProcessOperationInspectionRulesFormDemo').then((module) => ({ default: module.ProcessOperationInspectionRulesFormDemo })));
+const FqcRulesPanelDemo = lazy(() => import('./FqcRulesPanelDemo').then((module) => ({ default: module.FqcRulesPanelDemo })));
+const IncomingInspectionPolicyCardDemo = lazy(() => import('./IncomingInspectionPolicyCardDemo').then((module) => ({ default: module.IncomingInspectionPolicyCardDemo })));
+const SaleReturnComponentsDemo = lazy(() => import('./SaleReturnComponentsDemo').then((module) => ({ default: module.SaleReturnComponentsDemo })));
+const DocumentViewSwitchPresetsDemo = lazy(() => import('./DocumentViewSwitchPresetsDemo').then((module) => ({ default: module.DocumentViewSwitchPresetsDemo })));
+const SalesOutboundComponentsDemo = lazy(() => import('./SalesOutboundComponentsDemo').then((module) => ({ default: module.SalesOutboundComponentsDemo })));
+const PurchaseWorkflowComponentsDemo = lazy(() => import('./PurchaseWorkflowComponentsDemo').then((module) => ({ default: module.PurchaseWorkflowComponentsDemo })));
+const BomExpansionCreateModalDemo = lazy(() => import('./BomExpansionCreateModalDemo').then((module) => ({ default: module.BomExpansionCreateModalDemo })));
+const ReverseLandedCostModalDemo = lazy(() => import('./ReverseLandedCostModalDemo').then((module) => ({ default: module.ReverseLandedCostModalDemo })));
+const LandedCostComponentsDemo = lazy(() => import('./LandedCostComponentsDemo').then((module) => ({ default: module.LandedCostComponentsDemo })));
+const WorkOrderReportingComponentsDemo = lazy(() => import('./WorkOrderReportingComponentsDemo').then((module) => ({ default: module.WorkOrderReportingComponentsDemo })));
+const WorkOrderProductionComponentsDemo = lazy(() => import('./WorkOrderProductionComponentsDemo'));
+const OutsourcingComponentsDemo = lazy(() => import('./OutsourcingComponentsDemo').then((module) => ({ default: module.OutsourcingComponentsDemo })));
+const ReportLogDetailDrawerDemo = lazy(() => import('./ReportLogDetailDrawerDemo').then((module) => ({ default: module.ReportLogDetailDrawerDemo })));
+const ReportDynamicFieldsDemo = lazy(() => import('./ReportDynamicFieldsDemo').then((module) => ({ default: module.ReportDynamicFieldsDemo })));
+const AccountingWorkflowComponentsDemo = lazy(() => import('./AccountingWorkflowComponentsDemo').then((module) => ({ default: module.AccountingWorkflowComponentsDemo })));
+const AccountingInventoryProductCostDemo = lazy(() => import('./AccountingInventoryProductCostDemo').then((module) => ({ default: module.AccountingInventoryProductCostDemo })));
+const AccountingLedgerImportAndAccrualDemo = lazy(() => import('./AccountingLedgerImportAndAccrualDemo').then((module) => ({ default: module.AccountingLedgerImportAndAccrualDemo })));
+const ScheduleRescheduleComponentsDemo = lazy(() => import('./ScheduleRescheduleComponentsDemo').then((module) => ({ default: module.ScheduleRescheduleComponentsDemo })));
+const QuotationComponentsDemo = lazy(() => import('./QuotationComponentsDemo').then((module) => ({ default: module.QuotationComponentsDemo })));
+const FinanceActionComponentsDemo = lazy(() => import('./FinanceActionComponentsDemo').then((module) => ({ default: module.FinanceActionComponentsDemo })));
+const WorkOrderFilterDrawerDemo = lazy(() => import('./WorkOrderFilterDrawerDemo').then((module) => ({ default: module.WorkOrderFilterDrawerDemo })));
+const WorkOrderSupportComponentsDemo = lazy(() => import('./WorkOrderSupportComponentsDemo').then((module) => ({ default: module.WorkOrderSupportComponentsDemo })));
+const ProductionScheduleComponentsDemo = lazy(() => import('./ProductionScheduleComponentsDemo').then((module) => ({ default: module.ProductionScheduleComponentsDemo })));
+const ProductionScheduleWorkflowsDemo = lazy(() => import('./ProductionScheduleWorkflowsDemo'));
+const ProductionShiftCalendarComponentsDemo = lazy(() => import('./ProductionShiftCalendarComponentsDemo').then((module) => ({ default: module.ProductionShiftCalendarComponentsDemo })));
+const PaymentStatementActionComponentsDemo = lazy(() => import('./PaymentStatementActionComponentsDemo').then((module) => ({ default: module.PaymentStatementActionComponentsDemo })));
+const SalesDeliveryComponentsDemo = lazy(() => import('./SalesDeliveryComponentsDemo').then((module) => ({ default: module.SalesDeliveryComponentsDemo })));
+const SalesDetailLedgerComponentsDemo = lazy(() => import('./SalesDetailLedgerComponentsDemo').then((module) => ({ default: module.SalesDetailLedgerComponentsDemo })));
+const PackageManagementComponentsDemo = lazy(() => import('./PackageManagementComponentsDemo').then((module) => ({ default: module.PackageManagementComponentsDemo })));
+const FundsExpenseComponentsDemo = lazy(() => import('./FundsExpenseComponentsDemo').then((module) => ({ default: module.FundsExpenseComponentsDemo })));
+const QualityInspectionAiAnalysisCardDemo = lazy(() => import('./QualityInspectionAiAnalysisCardDemo').then((module) => ({ default: module.QualityInspectionAiAnalysisCardDemo })));
+const CustomerOrderPortalQrModalDemo = lazy(() => import('./CustomerOrderPortalQrModalDemo').then((module) => ({ default: module.CustomerOrderPortalQrModalDemo })));
+const QualityInspectionOqcSourceDeliveryCardDemo = lazy(() => import('./QualityInspectionOqcSourceDeliveryCardDemo').then((module) => ({ default: module.QualityInspectionOqcSourceDeliveryCardDemo })));
+const QualityTemplateItemsEditorDemo = lazy(() => import('./QualityTemplateItemsEditorDemo').then((module) => ({ default: module.QualityTemplateItemsEditorDemo })));
+const ScrapDeductionPolicySectionsDemo = lazy(() => import('./ScrapDeductionPolicySectionsDemo').then((module) => ({ default: module.ScrapDeductionPolicySectionsDemo })));
 
 type BusinessLine = {
   id: string;
@@ -434,32 +433,32 @@ export function BusinessComponentsPage() {
 
   return (
     <Space orientation="vertical" size={16} style={{ width: '100%' }}>
-      <MaterialSelectorDemo />
-      <DrawingFilesDemo />
-      <MaterialDrawingsPanelDemo />
-      <GlbModelViewerDemo />
-      <MasterDataQuickCreateSelectDemo />
-      <AccountingSelectorFieldsDemo />
-      <QuickDateRangePickerDemo />
-      <PurchaseReceiptCapacitySummaryDemo />
-      <PurchaseReceiptBatchNoButtonDemo />
-      <PurchaseInquiryAndOrderFilterComponentsDemo />
-      <PurchaseReturnEditDrawerDemo />
-      <CustomerMaterialDispositionComponentsDemo />
-      <BusinessInvoiceCoverageCardDemo />
-      <BusinessInvoiceWorkflowComponentsDemo />
-      <BusinessInvoiceLedgerAndImportDemo />
-      <ScanAwareInputDemo />
-      <WarehouseRemoteSelectDemo />
-      <BatchSuggestInputDemo />
-      <ReasonActionModalDemo />
-      <DetailDocumentActionsDemo />
-      <WorkOrderScanSelectDemo />
-      <DocumentViewLegacyRedirectDemo />
-      <DocumentFilterDrawerDemo />
-      <DetailLedgerFilterDrawerDemo />
-      <DocumentViewBarDemo />
-      <PriceControlPrecheckButtonDemo />
+      <DeferredCatalogDemo component={MaterialSelectorDemo} />
+      <DeferredCatalogDemo component={DrawingFilesDemo} />
+      <DeferredCatalogDemo component={MaterialDrawingsPanelDemo} />
+      <DeferredCatalogDemo component={GlbModelViewerDemo} />
+      <DeferredCatalogDemo component={MasterDataQuickCreateSelectDemo} />
+      <DeferredCatalogDemo component={AccountingSelectorFieldsDemo} />
+      <DeferredCatalogDemo component={QuickDateRangePickerDemo} />
+      <DeferredCatalogDemo component={PurchaseReceiptCapacitySummaryDemo} />
+      <DeferredCatalogDemo component={PurchaseReceiptBatchNoButtonDemo} />
+      <DeferredCatalogDemo component={PurchaseInquiryAndOrderFilterComponentsDemo} />
+      <DeferredCatalogDemo component={PurchaseReturnEditDrawerDemo} />
+      <DeferredCatalogDemo component={CustomerMaterialDispositionComponentsDemo} />
+      <DeferredCatalogDemo component={BusinessInvoiceCoverageCardDemo} />
+      <DeferredCatalogDemo component={BusinessInvoiceWorkflowComponentsDemo} />
+      <DeferredCatalogDemo component={BusinessInvoiceLedgerAndImportDemo} />
+      <DeferredCatalogDemo component={ScanAwareInputDemo} />
+      <DeferredCatalogDemo component={WarehouseRemoteSelectDemo} />
+      <DeferredCatalogDemo component={BatchSuggestInputDemo} />
+      <DeferredCatalogDemo component={ReasonActionModalDemo} />
+      <DeferredCatalogDemo component={DetailDocumentActionsDemo} />
+      <DeferredCatalogDemo component={WorkOrderScanSelectDemo} />
+      <DeferredCatalogDemo component={DocumentViewLegacyRedirectDemo} />
+      <DeferredCatalogDemo component={DocumentFilterDrawerDemo} />
+      <DeferredCatalogDemo component={DetailLedgerFilterDrawerDemo} />
+      <DeferredCatalogDemo component={DocumentViewBarDemo} />
+      <DeferredCatalogDemo component={PriceControlPrecheckButtonDemo} />
 
       <SectionCard title="表格长文本">
         <Typography.Paragraph type="secondary">
@@ -927,100 +926,145 @@ export function BusinessComponentsPage() {
         </DocumentModalForm>
       </div>
 
-      <ProductionBomSelectDemo />
-      <MaterialSupplierPriceTierSummaryDemo />
-      <MaterialSupplierPriceTiersModalDemo />
-      <MaterialPriceSectionDemo />
-      <CustomFieldFormSectionDemo />
-      <FormulaDesignerDemo />
-      <DocumentLineCustomFieldFormItemsDemo />
-      <DocumentLineCustomFieldColumnsDemo />
-      <PurchaseRequisitionItemsTableDemo />
-      <DocumentDetailLedgerTableDemo />
-      <DocumentDetailLedgersDemo />
-      <BusinessOperationalDetailLedgersDemo />
-      <PurchaseOrderDetailLedgerDemo />
-      <PrintLayoutsDemo />
-      <BusinessPrintTemplatesDemo />
-      <GridPrintDesignerDemo />
-      <PrintJobActionsDemo />
-      <OrderItemEditorDemo />
-      <ApplicationShellComponentsDemo />
-      <AccountingCrudPageDemo />
-      <CustomFieldValuePanelDemo />
-      <ApprovalPanelDemo />
-      <BomCostSnapshotEditorDemo />
-      <BomComponentsDemo />
-      <BomWorkspaceDetailDemo />
-      <BomVersionHistoryDrawerDemo />
-      <BomIssueOperationSelectDemo />
-      <CompleteMaintenanceFieldsDemo />
-      <EquipmentFaultVerifyModalDemo />
-      <TemplatePrintComponentsDemo />
-      <IntegrationGuideLinkDemo />
-      <IntegrationGuideContentDemo />
-      <ServerInfoCardDemo />
-      <ImportDrawerDemo />
-      <ImportWorkbenchDrawerDemo />
-      <BomImportWorkbenchDrawerDemo />
-      <BackupDirectoryPickerDemo />
-      <AllowedEquipmentPriorityFieldDemo />
-      <MasterDataQuickCreateDrawersDemo />
-      <DocumentBomOpenButtonDemo />
-      <LabelTemplatesDemo />
-      <DocumentViewSortModalDemo />
-      <MaterialTablePickerDemo />
-      <BatchMaterialAddButtonDemo />
-      <StockOperationsFieldsDemo />
-      <LargeScreenComponentsDemo />
-      <DashboardShortcutConfigModalDemo />
-      <VoiceBroadcastSettingsPanelDemo />
-      <StockCountLineFormListDemo />
-      <StockCountDocumentComponentsDemo />
-      <StockCountDetailLedgerDemo />
-      <StockTransferDetailLedgerDemo />
-      <StockConversionDetailLedgerDemo />
-      <ScheduleComponentsDemo />
-      <TraceTimelineDrawerDemo />
-      <QualityInspectionItemResultFieldsDemo />
-      <QualityInspectionWorkflowDemo />
-      <ProcessOperationInspectionRulesFormDemo />
-      <FqcRulesPanelDemo />
-      <QualityInspectionAiAnalysisCardDemo />
-      <QualityInspectionOqcSourceDeliveryCardDemo />
-      <QualityTemplateItemsEditorDemo />
-      <ScrapDeductionPolicySectionsDemo />
-      <IncomingInspectionPolicyCardDemo />
-      <SaleReturnComponentsDemo />
-      <DocumentViewSwitchPresetsDemo />
-      <SalesOutboundComponentsDemo />
-      <SalesDeliveryComponentsDemo />
-      <SalesDetailLedgerComponentsDemo />
-      <PackageManagementComponentsDemo />
-      <FundsExpenseComponentsDemo />
-      <CustomerOrderPortalQrModalDemo />
-      <PurchaseWorkflowComponentsDemo />
-      <BomExpansionCreateModalDemo />
-      <ReverseLandedCostModalDemo />
-      <LandedCostComponentsDemo />
-      <WorkOrderReportingComponentsDemo />
-      <WorkOrderProductionComponentsDemo />
-      <OutsourcingComponentsDemo />
-      <ReportLogDetailDrawerDemo />
-      <ReportDynamicFieldsDemo />
-      <WorkOrderFilterDrawerDemo />
-      <WorkOrderSupportComponentsDemo />
-      <ProductionScheduleComponentsDemo />
-      <ProductionScheduleWorkflowsDemo />
-      <ProductionShiftCalendarComponentsDemo />
-      <PaymentStatementActionComponentsDemo />
-      <AccountingWorkflowComponentsDemo />
-      <AccountingInventoryProductCostDemo />
-      <AccountingLedgerImportAndAccrualDemo />
-      <ScheduleRescheduleComponentsDemo />
-      <QuotationComponentsDemo />
-      <FinanceActionComponentsDemo />
+      <DeferredCatalogDemo component={ProductionBomSelectDemo} />
+      <DeferredCatalogDemo component={MaterialSupplierPriceTierSummaryDemo} />
+      <DeferredCatalogDemo component={MaterialSupplierPriceTiersModalDemo} />
+      <DeferredCatalogDemo component={MaterialPriceSectionDemo} />
+      <DeferredCatalogDemo component={CustomFieldFormSectionDemo} />
+      <DeferredCatalogDemo component={FormulaDesignerDemo} />
+      <DeferredCatalogDemo component={DocumentLineCustomFieldFormItemsDemo} />
+      <DeferredCatalogDemo component={DocumentLineCustomFieldColumnsDemo} />
+      <DeferredCatalogDemo component={PurchaseRequisitionItemsTableDemo} />
+      <DeferredCatalogDemo component={DocumentDetailLedgerTableDemo} />
+      <DeferredCatalogDemo component={DocumentDetailLedgersDemo} />
+      <DeferredCatalogDemo component={BusinessOperationalDetailLedgersDemo} />
+      <DeferredCatalogDemo component={PurchaseOrderDetailLedgerDemo} />
+      <DeferredCatalogDemo component={PrintLayoutsDemo} />
+      <DeferredCatalogDemo component={BusinessPrintTemplatesDemo} />
+      <DeferredCatalogDemo component={GridPrintDesignerDemo} />
+      <DeferredCatalogDemo component={PrintJobActionsDemo} />
+      <DeferredCatalogDemo component={OrderItemEditorDemo} />
+      <DeferredCatalogDemo component={ApplicationShellComponentsDemo} />
+      <DeferredCatalogDemo component={AccountingCrudPageDemo} />
+      <DeferredCatalogDemo component={CustomFieldValuePanelDemo} />
+      <DeferredCatalogDemo component={ApprovalPanelDemo} />
+      <DeferredCatalogDemo component={BomCostSnapshotEditorDemo} />
+      <DeferredCatalogDemo component={BomComponentsDemo} />
+      <DeferredCatalogDemo component={BomWorkspaceDetailDemo} />
+      <DeferredCatalogDemo component={BomVersionHistoryDrawerDemo} />
+      <DeferredCatalogDemo component={BomIssueOperationSelectDemo} />
+      <DeferredCatalogDemo component={CompleteMaintenanceFieldsDemo} />
+      <DeferredCatalogDemo component={EquipmentFaultVerifyModalDemo} />
+      <DeferredCatalogDemo component={TemplatePrintComponentsDemo} />
+      <DeferredCatalogDemo component={IntegrationGuideLinkDemo} />
+      <DeferredCatalogDemo component={IntegrationGuideContentDemo} />
+      <DeferredCatalogDemo component={ServerInfoCardDemo} />
+      <DeferredCatalogDemo component={ImportDrawerDemo} />
+      <DeferredCatalogDemo component={ImportWorkbenchDrawerDemo} />
+      <DeferredCatalogDemo component={BomImportWorkbenchDrawerDemo} />
+      <DeferredCatalogDemo component={BackupDirectoryPickerDemo} />
+      <DeferredCatalogDemo component={AllowedEquipmentPriorityFieldDemo} />
+      <DeferredCatalogDemo component={MasterDataQuickCreateDrawersDemo} />
+      <DeferredCatalogDemo component={DocumentBomOpenButtonDemo} />
+      <DeferredCatalogDemo component={LabelTemplatesDemo} />
+      <DeferredCatalogDemo component={DocumentViewSortModalDemo} />
+      <DeferredCatalogDemo component={MaterialTablePickerDemo} />
+      <DeferredCatalogDemo component={BatchMaterialAddButtonDemo} />
+      <DeferredCatalogDemo component={StockOperationsFieldsDemo} />
+      <DeferredCatalogDemo component={LargeScreenComponentsDemo} />
+      <DeferredCatalogDemo component={DashboardShortcutConfigModalDemo} />
+      <DeferredCatalogDemo component={VoiceBroadcastSettingsPanelDemo} />
+      <DeferredCatalogDemo component={StockCountLineFormListDemo} />
+      <DeferredCatalogDemo component={StockCountDocumentComponentsDemo} />
+      <DeferredCatalogDemo component={StockCountDetailLedgerDemo} />
+      <DeferredCatalogDemo component={StockTransferDetailLedgerDemo} />
+      <DeferredCatalogDemo component={StockConversionDetailLedgerDemo} />
+      <DeferredCatalogDemo component={ScheduleComponentsDemo} />
+      <DeferredCatalogDemo component={TraceTimelineDrawerDemo} />
+      <DeferredCatalogDemo component={QualityInspectionItemResultFieldsDemo} />
+      <DeferredCatalogDemo component={QualityInspectionWorkflowDemo} />
+      <DeferredCatalogDemo component={ProcessOperationInspectionRulesFormDemo} />
+      <DeferredCatalogDemo component={FqcRulesPanelDemo} />
+      <DeferredCatalogDemo component={QualityInspectionAiAnalysisCardDemo} />
+      <DeferredCatalogDemo component={QualityInspectionOqcSourceDeliveryCardDemo} />
+      <DeferredCatalogDemo component={QualityTemplateItemsEditorDemo} />
+      <DeferredCatalogDemo component={ScrapDeductionPolicySectionsDemo} />
+      <DeferredCatalogDemo component={IncomingInspectionPolicyCardDemo} />
+      <DeferredCatalogDemo component={SaleReturnComponentsDemo} />
+      <DeferredCatalogDemo component={DocumentViewSwitchPresetsDemo} />
+      <DeferredCatalogDemo component={SalesOutboundComponentsDemo} />
+      <DeferredCatalogDemo component={SalesDeliveryComponentsDemo} />
+      <DeferredCatalogDemo component={SalesDetailLedgerComponentsDemo} />
+      <DeferredCatalogDemo component={PackageManagementComponentsDemo} />
+      <DeferredCatalogDemo component={FundsExpenseComponentsDemo} />
+      <DeferredCatalogDemo component={CustomerOrderPortalQrModalDemo} />
+      <DeferredCatalogDemo component={PurchaseWorkflowComponentsDemo} />
+      <DeferredCatalogDemo component={BomExpansionCreateModalDemo} />
+      <DeferredCatalogDemo component={ReverseLandedCostModalDemo} />
+      <DeferredCatalogDemo component={LandedCostComponentsDemo} />
+      <DeferredCatalogDemo component={WorkOrderReportingComponentsDemo} />
+      <DeferredCatalogDemo component={WorkOrderProductionComponentsDemo} />
+      <DeferredCatalogDemo component={OutsourcingComponentsDemo} />
+      <DeferredCatalogDemo component={ReportLogDetailDrawerDemo} />
+      <DeferredCatalogDemo component={ReportDynamicFieldsDemo} />
+      <DeferredCatalogDemo component={WorkOrderFilterDrawerDemo} />
+      <DeferredCatalogDemo component={WorkOrderSupportComponentsDemo} />
+      <DeferredCatalogDemo component={ProductionScheduleComponentsDemo} />
+      <DeferredCatalogDemo component={ProductionScheduleWorkflowsDemo} />
+      <DeferredCatalogDemo component={ProductionShiftCalendarComponentsDemo} />
+      <DeferredCatalogDemo component={PaymentStatementActionComponentsDemo} />
+      <DeferredCatalogDemo component={AccountingWorkflowComponentsDemo} />
+      <DeferredCatalogDemo component={AccountingInventoryProductCostDemo} />
+      <DeferredCatalogDemo component={AccountingLedgerImportAndAccrualDemo} />
+      <DeferredCatalogDemo component={ScheduleRescheduleComponentsDemo} />
+      <DeferredCatalogDemo component={QuotationComponentsDemo} />
+      <DeferredCatalogDemo component={FinanceActionComponentsDemo} />
 
     </Space>
+  );
+}
+
+
+function DeferredCatalogDemo({ component: Demo }: { component: ComponentType }) {
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    const container = containerRef.current;
+    if (!container) return undefined;
+    if (typeof IntersectionObserver === 'undefined') {
+      setShouldLoad(true);
+      return undefined;
+    }
+
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry?.isIntersecting) return;
+        observer.disconnect();
+        setShouldLoad(true);
+      },
+      { rootMargin: '900px 0px' },
+    );
+    observer.observe(container);
+    return () => observer.disconnect();
+  }, []);
+
+  return (
+    <div ref={containerRef} className="sxw-catalog-demo-slot" aria-busy={!shouldLoad}>
+      {shouldLoad ? (
+        <Suspense
+          fallback={(
+            <div className="sxw-catalog-demo-loading" role="status">
+              <Spin size="small" />
+              <Typography.Text type="secondary">正在加载示例…</Typography.Text>
+            </div>
+          )}
+        >
+          <Demo />
+        </Suspense>
+      ) : (
+        <div className="sxw-catalog-demo-placeholder" aria-hidden="true" />
+      )}
+    </div>
   );
 }

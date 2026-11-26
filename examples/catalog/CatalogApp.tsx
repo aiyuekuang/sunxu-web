@@ -1,4 +1,4 @@
-import { useMemo, useState } from 'react';
+import { lazy, Suspense, useMemo, useState } from 'react';
 import {
   App as AntdApp,
   Button,
@@ -6,12 +6,10 @@ import {
   Col,
   Descriptions,
   Drawer,
-  Form,
   Input,
   Menu,
   Row,
-  Select,
-  Space,
+  Spin,
   Switch,
   Tag,
   Typography,
@@ -26,32 +24,47 @@ import {
   MoonOutlined,
   SunOutlined,
 } from '@ant-design/icons';
-import { ProCard, ProTable } from '@ant-design/pro-components';
-import type { ProColumns } from '@ant-design/pro-components';
-import {
-  ChartPanel,
-  DetailCard,
-  FilterBar,
-  FormScreenContainer,
-  ListScreenContainer,
-  MetricCard,
-  PermissionGuard,
-  ProfileIdentity,
-  SectionCard,
-  SettingsRow,
-  StatusTag,
-  StatusTabs,
-  SunxuWebProvider,
-} from '../../src';
-import { componentMappings, type ComponentMapping, type MappingStatus } from './componentMappings';
-import { CrudListWorkbenchPage } from './CrudListWorkbenchPage';
-import { EditableDetailTablePage } from './EditableDetailTablePage';
-import { TextControlsPage } from './TextControlsPage';
-import { BusinessComponentsPage } from './BusinessComponentsPage';
-import { TableSummaryPage } from './TableSummaryPage';
-import { ResizableTablePage } from './ResizableTablePage';
-import { HostInjectedControlsDemo } from './HostInjectedControlsDemo';
-import { SunxuWebProviderDemo } from './SunxuWebProviderDemo';
+import { SectionCard, SunxuWebProvider } from '../../src';
+import { componentMappings, type ComponentMapping } from './componentMappings';
+const CrudListWorkbenchPage = lazy(() =>
+  import('./CrudListWorkbenchPage').then((module) => ({
+    default: module.CrudListWorkbenchPage,
+  })),
+);
+const EditableDetailTablePage = lazy(() =>
+  import('./EditableDetailTablePage').then((module) => ({
+    default: module.EditableDetailTablePage,
+  })),
+);
+const TextControlsPage = lazy(() =>
+  import('./TextControlsPage').then((module) => ({
+    default: module.TextControlsPage,
+  })),
+);
+const BusinessComponentsPage = lazy(() =>
+  import('./BusinessComponentsPage').then((module) => ({
+    default: module.BusinessComponentsPage,
+  })),
+);
+const TableSummaryPage = lazy(() =>
+  import('./TableSummaryPage').then((module) => ({
+    default: module.TableSummaryPage,
+  })),
+);
+const ResizableTablePage = lazy(() =>
+  import('./ResizableTablePage').then((module) => ({
+    default: module.ResizableTablePage,
+  })),
+);
+const HostInjectedControlsDemo = lazy(() =>
+  import('./HostInjectedControlsDemo').then((module) => ({
+    default: module.HostInjectedControlsDemo,
+  })),
+);
+const TokensPage = lazy(() => import('./TokensPage').then((module) => ({ default: module.TokensPage })));
+const ContainersPage = lazy(() => import('./ContainersPage').then((module) => ({ default: module.ContainersPage })));
+const MappingsPage = lazy(() => import('./MappingsPage').then((module) => ({ default: module.MappingsPage })));
+const StatesPage = lazy(() => import('./StatesPage').then((module) => ({ default: module.StatesPage })));
 
 type PageKey = 'overview' | 'tokens' | 'containers' | 'mappings' | 'states' | 'text-controls' | 'editable-table' | 'crud-workbench' | 'table-summary' | 'business-suite' | 'host-controls' | 'resizable-table';
 
@@ -71,57 +84,6 @@ const navItems: MenuProps['items'] = [
     { key: 'host-controls', icon: <AppstoreOutlined aria-hidden="true" />, label: '宿主注入能力' },
     { key: 'resizable-table', icon: <BarsOutlined aria-hidden="true" />, label: '扩展表格组件' },
   ] },
-];
-
-const demoRows = [
-  { code: 'EX-001', name: '筛选与结果区', status: '进行中', owner: '容器示例' },
-  { code: 'EX-002', name: '固定表单操作', status: '待处理', owner: '表单示例' },
-  { code: 'EX-003', name: '详情信息分组', status: '已完成', owner: '详情示例' },
-  { code: 'EX-004', name: '受控状态切换', status: '进行中', owner: '筛选示例' },
-];
-
-const demoColumns: ProColumns<(typeof demoRows)[number]>[] = [
-  { title: '编号', dataIndex: 'code', width: 120 },
-  { title: '示例任务', dataIndex: 'name', ellipsis: true },
-  {
-    title: '状态',
-    dataIndex: 'status',
-    width: 112,
-    render: (_, record) => <Tag color={record.status === '已完成' ? 'success' : record.status === '进行中' ? 'processing' : 'default'}>{record.status}</Tag>,
-  },
-  { title: '组件契约', dataIndex: 'owner', width: 132 },
-];
-
-const mappingColumns: ProColumns<ComponentMapping>[] = [
-  { title: 'Sunxu 组件 / 任务', dataIndex: 'source', width: 260, ellipsis: true },
-  { title: 'Web 权威实现', dataIndex: 'target', width: 280, ellipsis: true },
-  {
-    title: '处理方式',
-    dataIndex: 'status',
-    width: 124,
-    render: (_, row) => <Tag color={statusColor[row.status]}>{row.status}</Tag>,
-  },
-  { title: '职责说明', dataIndex: 'note', ellipsis: true },
-];
-
-const statusColor: Record<MappingStatus, string> = {
-  ADAPTED: 'success',
-  UPSTREAM: 'processing',
-  HOST: 'gold',
-  DEFERRED: 'default',
-};
-
-const colorTokens = [
-  { name: 'Primary', light: '#007D35', dark: '#1F7A45' },
-  { name: 'Primary surface', light: '#E6F7EC', dark: '#10271A' },
-  { name: 'Workspace', light: '#F5F6F8', dark: '#0F0F0F' },
-  { name: 'Surface', light: '#FFFFFF', dark: '#1C1C1E' },
-  { name: 'Text', light: '#1A1A1A', dark: '#F5F5F5' },
-  { name: 'Border', light: '#EBEBEB', dark: '#2C2C2E' },
-  { name: 'Success', light: '#00B578', dark: '#00D68F' },
-  { name: 'Warning', light: '#FF8F1F', dark: '#FFAA00' },
-  { name: 'Error', light: '#FF3141', dark: '#FF4D4F' },
-  { name: 'Info', light: '#1677FF', dark: '#4096FF' },
 ];
 
 function CatalogWorkspace({
@@ -250,31 +212,33 @@ function CatalogWorkspace({
               </div>
             </div>
 
-            {page === 'overview' ? (
-              <OverviewPage onNavigate={openPage} />
-            ) : page === 'tokens' ? (
-              <TokensPage appearance={appearance} />
-            ) : page === 'containers' ? (
-              <ContainersPage onMessage={(text) => message.success(text)} />
-            ) : page === 'mappings' ? (
-              <MappingsPage dataSource={filteredMappings} search={search} />
-            ) : page === 'text-controls' ? (
-              <TextControlsPage />
-            ) : page === 'editable-table' ? (
-              <EditableDetailTablePage />
-            ) : page === 'crud-workbench' ? (
-              <CrudListWorkbenchPage />
-            ) : page === 'table-summary' ? (
-              <TableSummaryPage />
-            ) : page === 'business-suite' ? (
-              <BusinessComponentsPage />
-            ) : page === 'host-controls' ? (
-              <HostInjectedControlsDemo />
-            ) : page === 'resizable-table' ? (
-              <ResizableTablePage />
-            ) : (
-              <StatesPage onMessage={(text) => message.info(text)} />
-            )}
+            <Suspense fallback={<CatalogPageLoading />}>
+              {page === 'overview' ? (
+                <OverviewPage onNavigate={openPage} />
+              ) : page === 'tokens' ? (
+                <TokensPage appearance={appearance} />
+              ) : page === 'containers' ? (
+                <ContainersPage onMessage={(text) => message.success(text)} />
+              ) : page === 'mappings' ? (
+                <MappingsPage dataSource={filteredMappings} search={search} />
+              ) : page === 'text-controls' ? (
+                <TextControlsPage />
+              ) : page === 'editable-table' ? (
+                <EditableDetailTablePage />
+              ) : page === 'crud-workbench' ? (
+                <CrudListWorkbenchPage />
+              ) : page === 'table-summary' ? (
+                <TableSummaryPage />
+              ) : page === 'business-suite' ? (
+                <BusinessComponentsPage />
+              ) : page === 'host-controls' ? (
+                <HostInjectedControlsDemo />
+              ) : page === 'resizable-table' ? (
+                <ResizableTablePage />
+              ) : (
+                <StatesPage onMessage={(text) => message.info(text)} />
+              )}
+            </Suspense>
           </div>
         </main>
       </div>
@@ -289,6 +253,15 @@ function CatalogWorkspace({
       >
         {menu}
       </Drawer>
+    </div>
+  );
+}
+
+function CatalogPageLoading() {
+  return (
+    <div className="sxw-docs-route-loading" role="status" aria-live="polite">
+      <Spin size="small" />
+      <Typography.Text type="secondary">正在加载组件示例…</Typography.Text>
     </div>
   );
 }
@@ -339,275 +312,6 @@ function OverviewPage({ onNavigate }: { onNavigate: (key: string) => void }) {
           表单和详情页使用独立滚动内容与固定 footer；所有流程动作由宿主回调驱动。
         </Typography.Text>
       </SectionCard>
-    </div>
-  );
-}
-
-function TokensPage({ appearance }: { appearance: 'light' | 'dark' }) {
-  return (
-    <div className="sxw-docs-page-content">
-      <SectionCard title="语义色">
-        <div className="sxw-token-grid">
-          {colorTokens.map((token) => {
-            const color = appearance === 'dark' ? token.dark : token.light;
-            return (
-              <div className="sxw-token-swatch" key={token.name}>
-                <span className="sxw-token-swatch__color" style={{ backgroundColor: color }} />
-                <span className="sxw-token-swatch__meta">
-                  <strong>{token.name}</strong>
-                  <code>{color}</code>
-                </span>
-              </div>
-            );
-          })}
-        </div>
-      </SectionCard>
-      <Row gutter={[12, 12]}>
-        <Col xs={24} lg={12}>
-          <SectionCard title="尺寸与间距">
-            <Descriptions
-              size="small"
-              column={1}
-              items={[
-                { key: 'spacing', label: '间距', children: '4 / 8 / 12 / 16 / 20 / 24 / 32 / 40 / 48 px' },
-                { key: 'controls', label: '控件高度', children: '32 px 紧凑 · 36 px 标准 · 40 px 舒适' },
-                { key: 'radius', label: '圆角', children: '4 / 6 / 10 / 14 px' },
-                { key: 'motion', label: '动效', children: '150 / 220 / 300 ms；支持减少动态效果' },
-              ]}
-            />
-          </SectionCard>
-        </Col>
-        <Col xs={24} lg={12}>
-          <SectionCard title="字体与几何">
-            <div className="sxw-token-type-sample">
-              <Typography.Title level={3}>标题 24 px</Typography.Title>
-              <Typography.Paragraph>正文 14 px · 使用系统 UI 字体栈</Typography.Paragraph>
-              <Typography.Text type="secondary">说明文本 12–13 px · 只保留能帮助判断或操作的内容</Typography.Text>
-            </div>
-          </SectionCard>
-        </Col>
-      </Row>
-      <SunxuWebProviderDemo appearance={appearance} />
-      <Typography.Paragraph className="sxw-docs-note">
-        Light / Dark 色值继承自 Sunxu；主题算法、控件状态和组件 token 由 Ant Design ConfigProvider 管理。
-      </Typography.Paragraph>
-    </div>
-  );
-}
-
-function ContainersPage({ onMessage }: { onMessage: (text: string) => void }) {
-  const [status, setStatus] = useState('全部');
-  const [filter, setFilter] = useState('');
-  const [form] = Form.useForm();
-  const visibleRows = demoRows.filter((row) =>
-    (status === '全部' || row.status === status) &&
-    `${row.code} ${row.name}`.toLowerCase().includes(filter.toLowerCase()),
-  );
-
-  return (
-    <div className="sxw-docs-page-content">
-      <SectionCard title="列表容器">
-        <ListScreenContainer
-          as="section"
-          title="示例记录"
-          headingLevel={2}
-          toolbar={
-            <FilterBar
-              ariaLabel="示例记录筛选"
-              actions={<Button type="primary" onClick={() => onMessage('操作由宿主项目提供')}>新建示例</Button>}
-            >
-              <Input.Search
-                aria-label="搜索示例记录"
-                placeholder="编号或名称"
-                allowClear
-                value={filter}
-                onChange={(event) => setFilter(event.target.value)}
-              />
-              <StatusTabs
-                ariaLabel="按状态筛选"
-                value={status}
-                onChange={setStatus}
-                items={[
-                  { key: '全部', label: '全部', count: demoRows.length },
-                  { key: '进行中', label: '进行中' },
-                  { key: '待处理', label: '待处理' },
-                  { key: '已完成', label: '已完成' },
-                ]}
-              />
-            </FilterBar>
-          }
-        >
-          <ProTable
-            rowKey="code"
-            columns={demoColumns}
-            dataSource={visibleRows}
-            search={false}
-            options={false}
-            toolBarRender={false}
-            scroll={{ x: 620 }}
-            pagination={{ pageSize: 5, showSizeChanger: false }}
-          />
-        </ListScreenContainer>
-      </SectionCard>
-
-      <SectionCard title="表单容器" subtitle="字段滚动区与流程 footer 分离">
-        <div className="sxw-form-preview-frame">
-          <FormScreenContainer
-            as="section"
-            title="编辑示例"
-            headingLevel={2}
-            footer={
-              <Space>
-                <Button onClick={() => form.resetFields()}>取消</Button>
-                <Button type="primary" onClick={() => form.submit()}>保存</Button>
-              </Space>
-            }
-          >
-            <Form
-              form={form}
-              layout="vertical"
-              initialValues={{ title: '组件契约示例', category: '页面容器' }}
-              onFinish={() => onMessage('表单提交回调由宿主项目提供')}
-            >
-              <Form.Item label="名称" name="title" rules={[{ required: true, message: '请输入名称' }]}>
-                <Input />
-              </Form.Item>
-              <Form.Item label="分类" name="category">
-                <Select options={[{ value: '页面容器' }, { value: '筛选与列表' }, { value: '信息与状态' }]} />
-              </Form.Item>
-            </Form>
-          </FormScreenContainer>
-        </div>
-      </SectionCard>
-    </div>
-  );
-}
-
-function MappingsPage({ dataSource, search }: { dataSource: ComponentMapping[]; search: string }) {
-  return (
-    <div className="sxw-docs-page-content">
-      <ProCard variant="outlined" className="sxw-mapping-table-card">
-        <div className="sxw-mapping-summary">
-          <Typography.Text>
-            {search ? `“${search}”匹配 ${dataSource.length} 项` : `当前映射 ${dataSource.length} 项`}
-          </Typography.Text>
-          <Space wrap size={4}>
-            {!search && <Tag color="cyan">源组件适配：4 项</Tag>}
-            <Tag color="success">ADAPTED：Sunxu Web</Tag>
-            <Tag color="processing">UPSTREAM：AntD / Pro</Tag>
-            <Tag color="gold">HOST：宿主</Tag>
-            <Tag>DEFERRED：暂缓</Tag>
-          </Space>
-        </div>
-        <ProTable<ComponentMapping>
-          rowKey="source"
-          columns={mappingColumns}
-          dataSource={dataSource}
-          search={false}
-          options={false}
-          toolBarRender={false}
-          scroll={{ x: 760 }}
-          pagination={{ pageSize: 12, showSizeChanger: false }}
-          locale={{ emptyText: search ? '没有匹配的组件' : '没有组件映射' }}
-          size="small"
-        />
-      </ProCard>
-      <Typography.Paragraph className="sxw-docs-note">
-        同职责的 Ant Design / Pro Components 组件由上游拥有；Sunxu Web 仅维护有稳定跨项目价值的页面组合契约。
-      </Typography.Paragraph>
-    </div>
-  );
-}
-
-function StatesPage({ onMessage }: { onMessage: (text: string) => void }) {
-  const [chartState, setChartState] = useState<'ready' | 'loading' | 'empty' | 'error'>('ready');
-  const [permitted, setPermitted] = useState(true);
-
-  return (
-    <div className="sxw-docs-page-content">
-      <SectionCard title="状态标签">
-        <Space size={[8, 8]} wrap>
-          <StatusTag color="grey">草稿</StatusTag>
-          <StatusTag color="purple">审批中</StatusTag>
-          <StatusTag color="blue">已确认</StatusTag>
-          <StatusTag color="orange">生产中</StatusTag>
-          <StatusTag color="cyan">已发货</StatusTag>
-          <StatusTag color="green">已完工</StatusTag>
-          <StatusTag color="red">已取消</StatusTag>
-        </Space>
-      </SectionCard>
-
-      <SectionCard title="状态预览">
-        <div className="sxw-state-toolbar">
-          <Typography.Text>图表面板状态</Typography.Text>
-          <Select
-            aria-label="选择图表面板状态"
-            value={chartState}
-            onChange={setChartState}
-            options={[
-              { value: 'ready', label: '内容' },
-              { value: 'loading', label: '加载中' },
-              { value: 'empty', label: '空结果' },
-              { value: 'error', label: '错误' },
-            ]}
-            style={{ width: 140 }}
-          />
-        </div>
-        <ChartPanel
-          title="宿主提供的可视化插槽"
-          state={chartState}
-          emptyDescription="当前筛选没有结果"
-          errorDescription="数据暂时不可用"
-          onRetry={() => setChartState('loading')}
-        >
-          <div className="sxw-chart-placeholder" aria-label="示例图表区域">
-            <div className="sxw-chart-placeholder__bars"><i /><i /><i /><i /><i /></div>
-            <Typography.Text type="secondary">此区域由宿主图表组件渲染</Typography.Text>
-          </div>
-        </ChartPanel>
-      </SectionCard>
-
-      <Row gutter={[12, 12]}>
-        <Col xs={24} lg={12}>
-          <SectionCard title="身份摘要">
-            <ProfileIdentity
-              displayName="示例用户"
-              metadata={<span>组织名称 · 岗位名称由宿主字段提供</span>}
-              onAvatarPress={() => onMessage('头像选择由宿主负责')}
-            />
-          </SectionCard>
-        </Col>
-        <Col xs={24} lg={12}>
-          <SectionCard title="设置行与授权结果">
-            <SettingsRow label="主题偏好" value="跟随项目设置" showDisclosure onClick={() => onMessage('主题偏好由宿主项目管理')} />
-            <div className="sxw-state-permission">
-              <Switch checked={permitted} aria-label="切换宿主授权结果" onChange={setPermitted} />
-              <span>宿主传入的 permitted</span>
-            </div>
-            <PermissionGuard
-              permitted={permitted}
-              fallback={<Typography.Text type="secondary">宿主提供的无权内容替代项</Typography.Text>}
-            >
-              <Button onClick={() => onMessage('业务动作仍由宿主处理')}>授权状态允许时显示的操作</Button>
-            </PermissionGuard>
-          </SectionCard>
-        </Col>
-      </Row>
-
-      <Row gutter={[12, 12]}>
-        <Col xs={24} md={12}>
-          <MetricCard title="示例统计值" value={128} suffix="项" />
-        </Col>
-        <Col xs={24} md={12}>
-          <DetailCard
-            title="详情字段组合"
-            items={[
-              { key: 'name', label: '对象', children: '示例记录' },
-              { key: 'state', label: '状态', children: '可用' },
-            ]}
-          />
-        </Col>
-      </Row>
     </div>
   );
 }
