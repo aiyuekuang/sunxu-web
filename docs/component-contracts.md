@@ -579,9 +579,9 @@
 #### `ProductionShiftCalendar` 班次与例外日历
 
 - 班次表单保留归属范围、班次名称/类型、计薪系数、工作日、开始/结束时间、跨天、休息时段、生效日期和启用状态；结束日期早于开始日期时阻止提交。工作中心/供应商切换及空值序列化沿用 MES 行为。
-- 例外表单保留固定节假日/维护/加班类型、单日或日期范围、全天/时段及班次关联；日期顺序、必填日期/时间和非全天时段校验不变。班次和例外列表都保留服务端筛选/分页、刷新、授权创建/编辑/删除、删除确认与变更记录入口。
+- 例外表单保留固定节假日/维护/加班类型、单日或日期范围、全天/时段及班次关联；归属改变时清空旧班次并重载匹配选项。编辑到历史归属错配记录时显示提示、清除旧班次关联，保存后改为对当前归属下全部班次生效；日期顺序、必填日期/时间和非全天时段校验不变。例外默认启用，具备编辑权限的用户可在列表确认后停用/启用；停用记录保留在管理列表和历史中，但不再参与排产或产能计算。班次和例外列表都保留服务端筛选/分页、刷新、授权创建/编辑/删除、删除确认与变更记录入口。
 - `ProductionShiftCalendarCapabilities` 注入读写 API、归属/班次选项、权限、字段帮助、消息、删除确认和历史查询；UI 不访问 MES API 或权限码。`shiftPermissions` 与 `exceptionPermissions` 分别控制两张表的新增、编辑、删除和历史入口；未提供时兼容使用 `permissions`。非全天例外的开始/结束时间必填消息可分别通过 `messages.exceptionStartTimeRequired` 与 `messages.exceptionEndTimeRequired` 覆盖；未提供时沿用 `messages.allDayTimeRequired`。Catalog 的 `ProductionShiftCalendarComponentsDemo` 使用本地确定性数据。
-- 五个源文件 SHA-256：日历 `274ea16f10ed7b30152f6c4bf21752808b9a60efe65ae44a26e423c47418d163`、班次表单 `888ef4738315e6d45de2027e3977c7778cfb226bd54b8bfa873fd234aaea32b2`、班次列表 `c832820b47e7367af04be59f6c8aea480ab765e5470b857c8eabb05cc7ebad54`、例外表单 `dd7ab48d0d3843f855197bf2a8c833c7dacafcf987a28e207a74b865add19ce7`、例外列表 `0dfe53bf40ebca8eab167d63a9612312f018aae11c05c07e143055463c1ac715`。真实 API/权限接线和浏览器视口验收为 `UNVERIFIED`。
+- `ProductionShiftCalendarComponents.tsx` SHA-256: `cf879e50ab137690cda6a885aa4f925e35c162ef2162582ba5d846f7cb65f489`。Catalog 本地演示包含停用态和历史错配例外；真实 MES 路由/API/权限接线为 `UNVERIFIED`。
 
 #### MES 首页快捷入口与工单生产组件
 

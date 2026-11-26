@@ -12,9 +12,11 @@ import {
   ProFormTextArea,
 } from '@ant-design/pro-components';
 import {
+  Alert,
   Button,
   DatePicker,
   Form,
+  Popconfirm,
   Space,
   Tag,
   TimePicker,
@@ -110,6 +112,16 @@ function getResourceScope(
   if (fixedSupplierId || supplierId) return 'supplier';
   if (workCenterId) return 'workCenter';
   return 'company';
+}
+
+function hasMatchingExceptionShiftScope(record: CalendarExceptionRecord) {
+  if (!record.shiftCalendarId) return true;
+  const shiftCalendar = record.shiftCalendar;
+  if (!shiftCalendar) return false;
+  return (
+    (record.workCenterId ?? null) === (shiftCalendar.workCenterId ?? null) &&
+    (record.supplierId ?? null) === (shiftCalendar.supplierId ?? null)
+  );
 }
 
 function getScopePayload(
@@ -456,6 +468,10 @@ export function ExceptionFormModal({
   const scopeLocked = Boolean(fixedSupplierId);
   const dateFormat = CALENDAR_DATE_FORMAT;
   const [form] = Form.useForm();
+  const hasMismatchedShiftScope = Boolean(
+    editingException?.shiftCalendarId &&
+      !hasMatchingExceptionShiftScope(editingException),
+  );
   const initialValues = useMemo(() => {
     if (!editingException) {
       return {
@@ -479,10 +495,12 @@ export function ExceptionFormModal({
       ),
       workCenterId: editingException.workCenterId || undefined,
       supplierId: editingException.supplierId || fixedSupplierId || undefined,
-      shiftCalendarId: editingException.shiftCalendarId || undefined,
+      shiftCalendarId: hasMismatchedShiftScope
+        ? undefined
+        : editingException.shiftCalendarId || undefined,
       remarks: editingException.remarks,
     };
-  }, [dateFormat, editingException, fixedSupplierId]);
+  }, [dateFormat, editingException, fixedSupplierId, hasMismatchedShiftScope]);
   const ownerContextKey = `${open ? 'open' : 'closed'}:${editingException?.id ?? 'new'}:${fixedSupplierId ?? ''}`;
   const ownerValues = {
     resourceScope: initialValues.resourceScope as CalendarResourceScope | undefined,
@@ -741,20 +759,32 @@ export function ExceptionFormModal({
           </ProFormDependency>
         </>
       ) : null}
-      <ProFormDependency name={['resourceScope', 'workCenterId', 'supplierId']}>
-        {({ resourceScope, workCenterId, supplierId }) => (
-          <ProFormSelect
-            name="shiftCalendarId"
-            {...fieldProps(capabilities, 'exceptionShiftCalendarId')}
-            placeholder="不选则对所有班次生效"
-            showSearch
-            fieldProps={{ allowClear: true }}
-            request={() => resolveShiftOptions(
-              resourceScope as CalendarResourceScope | undefined,
-              workCenterId as string | undefined,
-              supplierId as string | undefined,
-            )}
-          />
+      <ProFormDependency name={['resourceScope', 'workCenterId', 'supplierId', 'shiftCalendarId']}>
+        {({ resourceScope, workCenterId, supplierId, shiftCalendarId }) => (
+          <>
+            {hasMismatchedShiftScope && !shiftCalendarId ? (
+              <Alert
+                type="warning"
+                showIcon
+                message="原例外关联的班次与当前归属不一致"
+                description="保存修改时会清除这条班次关联，使例外对当前归属下的所有班次生效；如需限定班次，请重新选择归属匹配的班次。"
+                style={{ marginBottom: 16 }}
+              />
+            ) : null}
+            <ProFormSelect
+              key={`${resourceScope ?? 'company'}:${workCenterId ?? ''}:${supplierId ?? ''}`}
+              name="shiftCalendarId"
+              {...fieldProps(capabilities, 'exceptionShiftCalendarId')}
+              placeholder="不选则对所有班次生效"
+              showSearch
+              fieldProps={{ allowClear: true }}
+              request={() => resolveShiftOptions(
+                resourceScope as CalendarResourceScope | undefined,
+                workCenterId as string | undefined,
+                supplierId as string | undefined,
+              )}
+            />
+          </>
         )}
       </ProFormDependency>
       <ProFormTextArea
@@ -942,13 +972,14 @@ export function ShiftTable({ capabilities, refreshKey, supplierId }: CalendarTab
 /**
  * @sunxu-component mes-specific
  * @sunxu-domain production-schedule
- * @sunxu-reason Keeps server-filtered calendar exceptions, fixed HOLIDAY/MAINTENANCE/OVERTIME behavior, pagination, refresh, permission-filtered actions and injected audit history.
+ * @sunxu-reason Keeps server-filtered calendar exceptions, fixed HOLIDAY/MAINTENANCE/OVERTIME behavior, permission-controlled activation, pagination, refresh, and injected audit history.
  */
 export function ExceptionTable({ capabilities, refreshKey, supplierId }: CalendarTableProps) {
   const actionRef = useRef<ActionType>(null);
   const [modalOpen, setModalOpen] = useState(false);
   const [editingException, setEditingException] = useState<CalendarExceptionRecord | null>(null);
   const [historyTarget, setHistoryTarget] = useState<CalendarHistoryTarget | null>(null);
+  const [updatingExceptionId, setUpdatingExceptionId] = useState<string | null>(null);
   const can = capabilities.exceptionPermissions ?? capabilities.permissions;
   const lastRefreshContext = useRef({ refreshKey, supplierId });
   const fixedSupplierId = supplierId;
@@ -969,6 +1000,20 @@ export function ExceptionTable({ capabilities, refreshKey, supplierId }: Calenda
     await capabilities.deleteCalendarException(record.id);
     capabilities.notifySuccess(capabilities.messages.deleted);
     actionRef.current?.reload();
+  };
+
+  const handleToggleActive = async (record: CalendarExceptionRecord) => {
+    const isActive = record.isActive === false;
+    setUpdatingExceptionId(record.id);
+    try {
+      await capabilities.updateCalendarException(record.id, { isActive });
+      capabilities.notifySuccess(isActive ? '日历例外已启用' : '日历例外已停用');
+      actionRef.current?.reload();
+    } catch (error) {
+      capabilities.notifyError(error instanceof Error ? error.message : '更新日历例外状态失败');
+    } finally {
+      setUpdatingExceptionId(null);
+    }
   };
 
   const columns = useMemo<ProColumns<CalendarExceptionRecord>[]>(() => [
@@ -1001,6 +1046,27 @@ export function ExceptionTable({ capabilities, refreshKey, supplierId }: Calenda
         return '-';
       },
     },
+    {
+      title: '状态', dataIndex: 'isActive', width: 122, search: false,
+      render: (_, record) => {
+        const isActive = record.isActive !== false;
+        return (
+          <Space size={4}>
+            <Tag color={isActive ? 'success' : 'default'}>{isActive ? '启用' : '停用'}</Tag>
+            {can.edit ? (
+              <Popconfirm
+                title={isActive ? '停用后该例外不再参与排产和产能计算，确定停用吗？' : '启用后该例外将重新参与排产和产能计算，确定启用吗？'}
+                onConfirm={() => handleToggleActive(record)}
+              >
+                <Button type="link" size="small" loading={updatingExceptionId === record.id}>
+                  {isActive ? '停用' : '启用'}
+                </Button>
+              </Popconfirm>
+            ) : null}
+          </Space>
+        );
+      },
+    },
     { title: '工作中心', dataIndex: ['workCenter', 'name'], width: 140, search: false, render: (_, record) => ownerText(record) },
     { title: '供应商', dataIndex: ['supplier', 'name'], width: 160, search: false, render: (_, record) => record.supplier?.name ?? '—' },
     {
@@ -1018,7 +1084,7 @@ export function ExceptionTable({ capabilities, refreshKey, supplierId }: Calenda
         remove: () => { void handleDelete(record); },
       }),
     },
-  ], [capabilities.exceptionTypeDisplay, capabilities.requestResourceOptions, can, handleDelete]);
+  ], [capabilities.exceptionTypeDisplay, capabilities.requestResourceOptions, can, handleDelete, handleToggleActive, updatingExceptionId]);
 
   const request = async (params: Record<string, unknown>) => {
     const requestParams: ShiftCalendarListParams = {
@@ -1046,7 +1112,7 @@ export function ExceptionTable({ capabilities, refreshKey, supplierId }: Calenda
         resizable={{ serverSortFields: [], sortPersistenceKey: false }}
         pagination={{ defaultPageSize: 10, showSizeChanger: { getPopupContainer: (trigger) => trigger.ownerDocument.body } }}
         fitContainerHeight={false}
-        scroll={{ x: 1120 }}
+        scroll={{ x: 1260 }}
         toolBarRender={() => can.create ? [<Button key="create" type="primary" icon={<PlusOutlined />} onClick={() => { setEditingException(null); setModalOpen(true); }}>新增</Button>] : []}
       />
       <ExceptionFormModal

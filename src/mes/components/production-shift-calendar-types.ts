@@ -51,8 +51,9 @@ export interface CalendarExceptionRecord {
   endTime?: string | null;
   type: CalendarExceptionType;
   shiftCalendarId?: string | null;
-  shiftCalendar?: Pick<ShiftCalendarRecord, 'id' | 'name'> | null;
+  shiftCalendar?: Pick<ShiftCalendarRecord, 'id' | 'name' | 'workCenterId' | 'supplierId'> | null;
   remarks?: string | null;
+  isActive?: boolean | null;
 }
 
 export interface CalendarPage<T> {
@@ -99,6 +100,9 @@ export interface CalendarExceptionUpsertPayload {
   shiftCalendarId?: string | null;
   remarks?: string | null;
 }
+
+export type CalendarExceptionUpdatePayload =
+  Partial<CalendarExceptionUpsertPayload> & { isActive?: boolean };
 
 export type ShiftCalendarFieldHelpKey =
   | 'code'
@@ -196,7 +200,7 @@ export interface ProductionShiftCalendarCapabilities {
   updateShiftCalendar: (id: string, payload: ShiftCalendarUpsertPayload) => Promise<unknown>;
   deleteShiftCalendar: (id: string) => Promise<unknown>;
   createCalendarException: (payload: CalendarExceptionUpsertPayload) => Promise<unknown>;
-  updateCalendarException: (id: string, payload: CalendarExceptionUpsertPayload) => Promise<unknown>;
+  updateCalendarException: (id: string, payload: CalendarExceptionUpdatePayload) => Promise<unknown>;
   deleteCalendarException: (id: string) => Promise<unknown>;
   confirmDelete: (confirmation: CalendarDeleteConfirmation) => Promise<boolean>;
   notifySuccess: (message: string) => void;
