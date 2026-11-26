@@ -71,8 +71,8 @@
 | `PurchaseReturnOutboundModal` | 录入采购退货出库、退款账户、日期、批次/仓位并显示库存预览 | AntD `Modal` / ProForm + MES 库存选择器；账户/出库服务、权限、日期规范化和成功提示由宿主注入 |
 | `PurchaseReturnEditDrawer` | 编辑采购退货来源行/独立退货明细、扣款及自定义字段 | Pro `DrawerForm` / AntD Form / MES 库存选择器；订单与仓位候选、服务、价格权限、金额计算、字典和提示由宿主注入 |
 | `PurchaseReceiptActionModal` / `PurchaseOrderViewSwitch` / `SendPurchaseOrderModal` | 承载采购入库动作、采购订单视图切换和发送采购订单 | Pro `ModalForm` / AntD；采购动作 API、授权结果、邮件发送/附件、通知与刷新由宿主注入 |
-| `RequisitionFormModal` / `CreateInquiryDrawer` / `ConvertToOrderDrawer` | 编辑请购单、从请购创建询价和转换采购订单 | ProForm / AntD Drawer；字典、候选查询、权限、路由及提交服务由宿主注入 |
-| `BomExpansionCreateModal` | 从选定物料预览 BOM 展开结果与来源/警告，并生成请购单 | MES `OrderItemEditor` / `BatchMaterialAddButton` / `ResizableTable` / `DocumentModalForm`；预览/创建、物料候选、权限、字典与反馈由宿主注入 |
+| `RequisitionFormModal` / `CreateInquiryDrawer` / `ConvertToOrderDrawer` | 编辑请购单、从请购创建询价和转换采购订单；新建请购/询价可选填单号，留空自动生成 | ProForm / AntD Drawer；字典、候选查询、权限、路由及提交服务由宿主注入 |
+| `BomExpansionCreateModal` | 从选定物料预览 BOM 展开结果与来源/警告，并生成请购单；可选填申请号，留空自动生成 | MES `OrderItemEditor` / `BatchMaterialAddButton` / `ResizableTable` / `DocumentModalForm`；预览/创建、物料候选、权限、字典与反馈由宿主注入 |
 | `BomImportWorkbenchDrawer` | 选择 BOM 导入映射方案，预览源/映射行，确认或忽略待建物料候选并执行导入 | AntD Drawer / `ModalForm` / MES `ResizableTable`；映射/预览/执行/候选服务、字典、字段帮助和消息由宿主注入 |
 | `PurchaseInquiryActionModals` | 登记报价、比价定标、绑定物料并从询价转换订单 | ProForm / AntD Modal + MES `MaterialFilteredSelect`；详情/比价/报价/绑定/转换服务、权限、配置入口和提示由宿主注入 |
 | `PurchaseOrderFilterDrawer` / `PurchaseOrderDetailFilterDrawer` | 编辑采购订单列表和详情台账的筛选条件 | AntD Drawer / ProForm；远程候选、状态选项、条件值与查询/重置回调由宿主注入 |
@@ -81,7 +81,7 @@
 | `SaleOrderShipActionModal` / `SaleDeliveryDocumentActionsDropdown` / `ConvertToProductionDrawer` | 提供销售订单出库入口、出库单动作菜单和转生产抽屉 | AntD / MES `DocumentModalForm`；编辑器、单据/审批/转换 API、权限、字典、打印和导航由宿主注入 |
 | `SaleDeliveryItemsPanel` / `SaleDeliveryEditorModal` / `ProductSerialPicker` / `PackageUnitPickerModal` / `SaleOrderLineEditableTable` | 编辑销售出库明细和订单行，选择可用成品序列号及包装单元 | ProForm / AntD / MES 表格；出库/订单记录、库存/价格、权限、字典、自定义字段与物料/BOM/图纸选择器由宿主注入 |
 | `CustomerOrderPortalQrModal` | 展示客户订单门户二维码，维护门户字段/可见订单数量/已发货订单天数，并切换客户库存可见性 | AntD Modal / Form；二维码生成/重生成、配置、权限、URL 与 QR renderer 由宿主注入 |
-| `SendQuotationModal` / `QuotationFormDrawer` / `QuotationBindMaterialsModal` | 编辑/发送报价、选择绑定的客户物料并生成分享/发送内容 | Sunxu MES 单据表单与明细编辑器；客户/人员/价格/字典/权限/上传/发送与绑定 API 由宿主注入 |
+| `SendQuotationModal` / `QuotationFormDrawer` / `QuotationBindMaterialsModal` | 编辑/发送报价、选择绑定的客户物料并生成分享/发送内容；新建报价可选填报价单号，留空自动生成 | Sunxu MES 单据表单与明细编辑器；客户/人员/价格/字典/权限/上传/发送与绑定 API 由宿主注入 |
 | MES 单据视图切换预设 | 为采购申请/订单/退料/入库、销售订单/出库/退货、报价和生产领料保留各自的无障碍名称 | `createDocumentViewSwitch` 工厂；受控视图状态由宿主管理 |
 | `BusinessInvoiceCoverageCard` | 展示采购/销售来源单据的开票覆盖、关联发票、待定价与待红冲信息，并续填草稿或生成发票 | AntD `Card` / `Alert` / `Modal` / `App` + MES `ResizableProTable`；权限、覆盖/生成请求及保留返回地址的发票导航由 `MesUiProvider.businessInvoiceCoverageCapabilities` 注入 |
 | `BusinessInvoiceLineTable` | 显示业务发票行、金额/数量及自定义字段；保留采购/销售列变体 | MES `ResizableTable`；金额/单位格式、明细列和价格可见性由宿主提供 |

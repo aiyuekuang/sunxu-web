@@ -94,6 +94,7 @@ export interface QuotationItemDraft extends OrderItemDraft {
 }
 
 export interface QuotationFormValues {
+  quotationNo?: string;
   customerId?: string;
   salesRepId?: string;
   paymentTerms?: string;
@@ -131,6 +132,7 @@ export interface QuotationItemPayload {
 }
 
 export interface QuotationMutationPayload {
+  quotationNo?: string;
   customerId?: string;
   salesRepId?: string;
   quotationDate?: string;

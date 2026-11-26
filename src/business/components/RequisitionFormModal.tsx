@@ -1,6 +1,7 @@
 import {
   ProFormDatePicker,
   type ProFormRef,
+  ProFormText,
   ProFormTextArea,
 } from '@ant-design/pro-components';
 import {
@@ -53,6 +54,7 @@ import {
 type RequisitionSubmitMode = 'draft' | 'submit';
 
 interface RequisitionFormValues {
+  prNo?: string;
   documentDate?: Dayjs;
   remarks?: string;
 }
@@ -436,6 +438,7 @@ export function RequisitionFormModal({
         },
       }}
       initialValues={{
+        prNo: isEdit ? undefined : '',
         documentDate: isEdit ? toDatePickerValue(requisition?.documentDate) : dayjs(),
         remarks: isEdit ? requisition?.remarks ?? undefined : undefined,
       }}
@@ -479,6 +482,9 @@ export function RequisitionFormModal({
         setSubmitting(true);
         try {
           const payload = {
+            ...(!isEdit && values.prNo?.trim()
+              ? { prNo: values.prNo.trim() }
+              : {}),
             documentDate: toPayloadDate(values.documentDate),
             items: payloadItems,
             remarks: values.remarks,
@@ -518,6 +524,14 @@ export function RequisitionFormModal({
       <div className="document-form-layout">
         <section className="document-form-section">
           <div className="document-form-section-title">单据信息</div>
+          {!isEdit && (
+            <ProFormText
+              name="prNo"
+              label="采购申请号"
+              placeholder="选填，留空由系统自动生成"
+              fieldProps={{ maxLength: 64, autoComplete: 'off' }}
+            />
+          )}
           <ProFormDatePicker
             name="documentDate"
             label="制单日期"

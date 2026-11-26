@@ -1,6 +1,7 @@
 import {
   ProFormDatePicker,
   ProFormGroup,
+  ProFormText,
   ProFormTextArea,
 } from '@ant-design/pro-components';
 import { Checkbox, InputNumber } from 'antd';
@@ -21,6 +22,7 @@ type InquiryLineDraft = {
 };
 
 type CreateInquiryFormValues = {
+  inquiryNo?: string;
   supplierIds?: string[];
   quoteDeadline?: unknown;
   remarks?: string;
@@ -113,6 +115,7 @@ export function CreateInquiryDrawer({
         }
         const inquiry = await capabilities.createFromRequisition({
           requisitionId: requisition.id,
+          inquiryNo: values.inquiryNo?.trim() || undefined,
           supplierIds: values.supplierIds,
           quoteDeadline: normalizeDateValue(values.quoteDeadline),
           remarks: values.remarks,
@@ -132,6 +135,12 @@ export function CreateInquiryDrawer({
         <section className="document-form-section">
           <div className="document-form-section-title">询价信息</div>
           <ProFormGroup size={FORM_GROUP_SIZE}>
+            <ProFormText
+              name="inquiryNo"
+              label="询价单号"
+              placeholder="选填，留空自动生成"
+              fieldProps={{ maxLength: 64, autoComplete: 'off' }}
+            />
             <ProFormDatePicker
               name="quoteDeadline"
               label="报价截止日期"

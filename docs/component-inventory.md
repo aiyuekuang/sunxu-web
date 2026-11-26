@@ -66,10 +66,10 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `PackageSpecManager`、`PackageUnitCreateDrawer`（`sunxu-web/business`） | 保留包装规格维护、可包装来源筛选、箱规建议、创建校验和权限门控；数据请求、字典、配置入口和消息由宿主注入 |
 | `CustomerOrderPortalQrModal`（`sunxu-web/business`） | 保留客户门户二维码、全局展示配置、字段选择和库存可见性设置；权限、请求、门户 URL、二维码 renderer 与消息由宿主注入 |
 | `VoiceBroadcastSettingsPanel`（`sunxu-web/business`） | 保留大屏语音播报间隔、异常/生产事件类型设置、待播数量提示与清理已播记录；偏好存储和清理确认由宿主注入 |
-| `SendQuotationModal`、`QuotationFormDrawer`、`QuotationBindMaterialsModal`（`sunxu-web/business`） | 保留报价编辑、邮件/分享发送、客户料号与物料绑定流程；价格、权限、字典、API 和上传由宿主注入 |
-| `PurchaseReceiptActionModal`、`PurchaseOrderViewSwitch`、`SendPurchaseOrderModal`、`RequisitionFormModal`、`CreateInquiryDrawer`、`ConvertToOrderDrawer`、`SendActionModal`、`SendAttachmentRow`（`sunxu-web/business`） | 保留采购收货动作、采购单发送、请购编辑/询价/转订单和通用邮件附件交互；所有请求、权限、附件下载与副作用由宿主注入 |
+| `SendQuotationModal`、`QuotationFormDrawer`、`QuotationBindMaterialsModal`（`sunxu-web/business`） | 保留报价编辑、邮件/分享发送、客户料号与物料绑定流程；新建时可选填报价单号，留空自动生成；价格、权限、字典、API 和上传由宿主注入 |
+| `PurchaseReceiptActionModal`、`PurchaseOrderViewSwitch`、`SendPurchaseOrderModal`、`RequisitionFormModal`、`CreateInquiryDrawer`、`ConvertToOrderDrawer`、`SendActionModal`、`SendAttachmentRow`（`sunxu-web/business`） | 保留采购收货动作、采购单发送、请购编辑/询价/转订单和通用邮件附件交互；新建请购/询价支持手填单号并默认自动生成；所有请求、权限、附件下载与副作用由宿主注入 |
 | `PurchaseInquiryActionModals`、`PurchaseOrderFilterDrawer`、`PurchaseOrderDetailFilterDrawer`（`sunxu-web/business`） | 保留询价报价登记/比价/定标/物料绑定/转订单，以及采购订单列表和详情筛选；服务、选项、权限、查询与重置由宿主注入 |
-| `BomExpansionCreateModal`（`sunxu-web/business`） | 保留 BOM 展开预览、来源/告警核对、物料行调整与生成请购单；预览/创建服务、物料候选、权限、单位字典和反馈由宿主注入 |
+| `BomExpansionCreateModal`（`sunxu-web/business`） | 保留 BOM 展开预览、来源/告警核对、物料行调整与生成请购单；申请号可选填，留空自动生成；预览/创建服务、物料候选、权限、单位字典和反馈由宿主注入 |
 | `BomImportWorkbenchDrawer`（`sunxu-web/business`） | 保留 BOM 映射方案、mapped data 行诊断、物料候选确认/忽略与执行；导入服务、字典、字段帮助和反馈由宿主注入 |
 | `BusinessInvoiceCoverageCard`（`sunxu-web/business`） | 保留采购/销售来源单据发票覆盖、金额权限显隐、待定价拦截、待红冲提示、草稿续填和发票生成；权限、请求及携带来源返回地址的导航由 MES 宿主注入 |
 | `BusinessInvoiceCreateDrawer`、`BusinessInvoiceEditDrawer`、`BusinessInvoiceLineFormList`、`BusinessInvoiceMatchDrawer`、`InvoiceSourceCandidateTable`、`InvoiceSourceBatchModal`（`sunxu-web/business`） | 保留发票创建/编辑、来源匹配、明细表单、候选筛选、分组拆并/移动及批量预检；API、权限、字典、格式与通知由宿主注入 |

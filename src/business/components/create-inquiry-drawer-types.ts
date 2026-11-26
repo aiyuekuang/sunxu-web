@@ -19,6 +19,7 @@ export interface InquiryRequisition {
 
 export interface CreateInquiryInput {
   requisitionId: string;
+  inquiryNo?: string;
   supplierIds?: string[];
   quoteDeadline?: string;
   remarks?: string;

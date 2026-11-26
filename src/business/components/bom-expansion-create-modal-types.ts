@@ -63,6 +63,7 @@ export interface BomRequisitionPreviewResponse {
 
 export interface CreateRequisitionFromBomRequest
   extends BomRequisitionPreviewRequest {
+  prNo?: string;
   suggestedPurchaseDate?: string;
   expectedArrivalDate?: string;
   remarks?: string;

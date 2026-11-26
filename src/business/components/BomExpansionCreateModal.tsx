@@ -1,5 +1,8 @@
 import { ApartmentOutlined } from '@ant-design/icons';
-import { ProFormTextArea } from '@ant-design/pro-components';
+import {
+  ProFormText,
+  ProFormTextArea,
+} from '@ant-design/pro-components';
 import { Alert, Button, DatePicker, InputNumber, Space, Typography } from 'antd';
 import type { ColumnsType } from 'antd/es/table';
 import dayjs from 'dayjs';
@@ -25,6 +28,7 @@ import type {
 } from './bom-expansion-create-modal-types';
 
 interface BomExpansionFormValues {
+  prNo?: string;
   remarks?: string;
 }
 
@@ -244,6 +248,7 @@ export function BomExpansionCreateModal<TResult>({
           const result = await capabilities.createFromBom({
             items: payloadItems,
             maxDepth,
+            prNo: values.prNo?.trim() || undefined,
             suggestedPurchaseDate,
             expectedArrivalDate,
             remarks: values.remarks,
@@ -390,6 +395,16 @@ export function BomExpansionCreateModal<TResult>({
               </Space>
             </section>
           ) : null}
+
+          <section className="document-form-section">
+            <div className="document-form-section-title">申请信息</div>
+            <ProFormText
+              name="prNo"
+              label="采购申请号"
+              placeholder="选填，留空由系统自动生成"
+              fieldProps={{ maxLength: 64, autoComplete: 'off' }}
+            />
+          </section>
 
           <section className="document-form-section">
             <div className="document-form-section-title">备注</div>

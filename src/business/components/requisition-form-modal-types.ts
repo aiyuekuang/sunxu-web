@@ -70,6 +70,7 @@ export interface RequisitionFormLinePayload {
 
 export interface RequisitionFormPayload {
   id?: string;
+  prNo?: string;
   documentDate?: string;
   remarks?: string;
   items: RequisitionFormLinePayload[];

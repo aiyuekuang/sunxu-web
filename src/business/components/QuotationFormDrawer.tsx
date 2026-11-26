@@ -4,6 +4,7 @@ import {
   ProFormDatePicker,
   ProFormGroup,
   ProFormSelect,
+  ProFormText,
   ProFormTextArea,
 } from '@ant-design/pro-components';
 import { Button, Input, Modal, Segmented, Space, Spin, Upload } from 'antd';
@@ -499,6 +500,7 @@ export function QuotationFormDrawer(props: QuotationFormDrawerProps) {
     formRef.current?.resetFields();
     formRef.current?.setFieldsValue({
       quotationDate: dayjs(),
+      quotationNo: undefined,
       customerId: undefined,
       salesRepId: undefined,
       paymentTerms: undefined,
@@ -989,6 +991,9 @@ export function QuotationFormDrawer(props: QuotationFormDrawerProps) {
         );
 
         const payload: QuotationMutationPayload = {
+          ...(!quotationId
+            ? { quotationNo: values.quotationNo?.trim() || undefined }
+            : {}),
           customerId: values.customerId,
           salesRepId: values.salesRepId,
           quotationDate: toDateString(values.quotationDate),
@@ -1040,6 +1045,15 @@ export function QuotationFormDrawer(props: QuotationFormDrawerProps) {
           <section className="document-form-section">
             <div className="document-form-section-title">报价信息</div>
             <ProFormGroup size={[24, 0]}>
+              {!quotationId ? (
+                <ProFormText
+                  name="quotationNo"
+                  label="报价单号"
+                  extra="选填，留空由系统自动生成"
+                  width="sm"
+                  fieldProps={{ maxLength: 64, autoComplete: 'off' }}
+                />
+              ) : null}
               <MasterDataQuickCreateSelect
                 name="customerId"
                 quickCreateEntity="customer"
