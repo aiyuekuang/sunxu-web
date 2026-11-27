@@ -21,9 +21,9 @@
 |---|---|---|
 | `SunxuWebProvider` | 主题基础；应用主题和 Ant Design 上下文 | AntD `ConfigProvider` / `App` + Sunxu semantic tokens |
 | Root upstream exports | `ConfigProvider`, `notification`, `Pagination`, Pro `SettingDrawer`, and the published feedback/input/table types | Direct Ant Design / Pro Components exports; state and behavior remain upstream |
-| `ScreenContainer` | 页面根结构；提供一致的工作区内边距 | `main` + `--sxw-space-*` |
+| `ScreenContainer` | 页面根结构；提供一致的工作区内边距，并管理页面级直接子模块间距 | `main` + `--sxw-page-gap` |
 | `PageHeader` | 识别当前页面并放置页级动作 | AntD `Breadcrumb` / `Typography`；`headingLevel` 默认 1 |
-| `ListScreenContainer` | 组织特殊列表的标题、紧邻工具栏和结果区 | `ScreenContainer` + `PageHeader`；标准 CRUD 列表优先用 `CrudListWorkbench` |
+| `ListScreenContainer` | 组织特殊列表的标题、紧邻工具栏和单一结果区 | `ScreenContainer` + `PageHeader`；标准 CRUD 列表优先用 `CrudListWorkbench` |
 | `CrudListWorkbench` | 组合分类/状态、轻筛选、高级筛选、视图插槽与表格结果适配器；不渲染页级标题 | `ListScreenContainer` + `FilterBar` + `StatusTabs` + Pro Components 3 ProTable |
 | `PaginationSummary` | 在分页栏左侧显示宿主提供的筛选结果摘要 | AntD `Pagination.showTotal`；统计口径由宿主提供 |
 | `SavedViewBar` | 选择和管理受控的系统/个人列表视图；排序动作置于标签下方的独立操作行，窄屏不遮挡标签 | AntD Tabs / Dropdown / Modal；视图数据和持久化由宿主提供 |
@@ -208,6 +208,7 @@
 ### 页面容器
 
 - **API**：`ScreenContainer` 接收 `children`、`className`、`style`、语义根元素 `as`（`main | section`，默认 `main`）、`frame`（`inherit | page | none`，默认 `inherit`）和 `fill`（布尔，默认 `false`）。List/Form/Detail 容器同样接受 `frame` / `fill`，以及插槽 `toolbar` / `children` / `footer`；页级 `title`、`description`、`actions` 仅在有内容时渲染，`PageHeader` 也可只显示有业务价值的描述或面包屑；`headingLevel` 可用于嵌套预览，默认 `1`。
+- **页面层级与间距**：`ScreenContainer` 是多模块页面的根容器，直接子模块按 DOM 顺序纵向排列，页面级间距由根容器的 `--sxw-page-gap` 统一拥有；默认回退为 `16px`，工作区宽度不超过 `767px` 时为 `12px`。`ListScreenContainer` 的根间距只分隔页头、紧邻工具栏和结果区；`children` 表示一个完整的结果内容，内部结果包装层不额外布局或添加间距。指标、对比、趋势、明细等多个并列页面模块应作为 `ScreenContainer` 的直接子项组合；不要把它们塞进 `ListScreenContainer` 后再给页面补局部 margin。若单一结果本身由多个子块组成，由该结果组件定义内部布局。
 - **外框**：`frame="inherit"` 跟随 `SunxuWebProvider.workspaceFrame`；`frame="page"` 自己拥有外框；`frame="none"` 假定父级/宿主拥有外框。嵌套容器必须使用 `frame="none"` 或 `layout="embedded"`，不得叠加第二层工作区外框；具体内容面是否保留内部 padding 由复合组件契约定义。
 - **填充高度**：`fill` 让容器成为确定高度的纵向 flex 容器（`height: 100%; min-height: 0; overflow: hidden`），`ListScreenContainer` 的 results 区同时成为可收缩的 flex 子项。仅在单列表视口页使用；长页面保持默认，由页面整体滚动。
 - **状态**：容器不管理请求、加载、空结果或表单提交；对应内容由宿主传入。Form/Detail 的 footer 单独固定，内容滚动区不得覆盖它。

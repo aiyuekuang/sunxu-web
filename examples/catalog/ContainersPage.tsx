@@ -1,8 +1,15 @@
 import { useState } from 'react';
-import { Button, Form, Input, Select, Space, Tag } from 'antd';
+import { Button, Form, Input, Select, Space, Tag, Typography } from 'antd';
 import { ProTable } from '@ant-design/pro-components';
 import type { ProColumns } from '@ant-design/pro-components';
-import { FilterBar, FormScreenContainer, ListScreenContainer, SectionCard, StatusTabs } from '../../src';
+import {
+  FilterBar,
+  FormScreenContainer,
+  ListScreenContainer,
+  ScreenContainer,
+  SectionCard,
+  StatusTabs,
+} from '../../src';
 
 const demoRows = [
   { code: 'EX-001', name: '筛选与结果区', status: '进行中', owner: '容器示例' },
@@ -34,7 +41,7 @@ export function ContainersPage({ onMessage }: { onMessage: (text: string) => voi
 
   return (
     <div className="sxw-docs-page-content">
-      <SectionCard title="列表容器">
+      <SectionCard title="列表容器" subtitle="工具栏紧邻一个结果区">
         <ListScreenContainer
           as="section"
           title="示例记录"
@@ -77,6 +84,15 @@ export function ContainersPage({ onMessage }: { onMessage: (text: string) => voi
           />
         </ListScreenContainer>
       </SectionCard>
+
+      <ScreenContainer as="section" frame="none">
+        <Typography.Text type="secondary">
+          多模块统计页：概览、对比、趋势和明细是页面级区块，间距由 ScreenContainer 统一管理。
+        </Typography.Text>
+        <SectionCard title="统计概览">当前业务周期的汇总指标由宿主提供。</SectionCard>
+        <SectionCard title="组内对比">对比结果与趋势沿用同一统计周期。</SectionCard>
+        <SectionCard title="趋势与明细">趋势图、筛选和结果表按页面任务组合。</SectionCard>
+      </ScreenContainer>
 
       <SectionCard title="表单容器" subtitle="字段滚动区与流程 footer 分离">
         <div className="sxw-form-preview-frame">

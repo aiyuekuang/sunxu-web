@@ -26,7 +26,8 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 | 简短筛选摘要不需要跟随结果行滚动 | `PaginationSummary` + `paginationSummary` 插槽 | 放在分页栏左侧；只承载紧凑摘要。汇总来自上游同一查询，不使用当前页数据累加，也不与列合计重复展示同一指标 |
 | 单列表视口页（整页只有一张列表） | `CrudListWorkbench` + `layout="page" fill` | 分页和表头必须保持可见；工作台统一拥有表体纵向滚动高度，适配器只配置横向滚动；不得用页面级 `:has()` CSS、`table-viewport-page` 类、`ResizableProTable.fitContainerHeight` 或外部高度测量控制表体 |
 | 页面内嵌列表（Tab 面板、卡片、长页面中的子列表） | `CrudListWorkbench` + `layout="embedded"` | 不拥有页面外框、不渲染页头、不强制 `min-height: 100%`；不得再包一层页面容器 |
-| 特殊或只读列表 | `ListScreenContainer`；若有筛选，工具须在结果区紧邻 `toolbar` 内 | 表格按场景用 ProTable 或 AntD Table；不得把列表操作单独放在远置的页头行 |
+| 多模块统计/分析工作区（指标、对比、趋势、明细等并列区块） | `ScreenContainer` | 区块作为页面根容器的直接子项，由共享页面间距统一分隔；不要用 `ListScreenContainer` 包住多个页面模块，也不要为页面补局部 margin |
+| 特殊或只读列表 | `ListScreenContainer`；若有筛选，工具须在结果区紧邻 `toolbar` 内 | `children` 表示一个完整结果区；若结果需要多个内部子块，由结果组件自己组合布局。不得把列表操作单独放在远置的页头行 |
 | 列表筛选 | `CrudListWorkbench` 组合 ProTable 原生查询表单、`FilterBar` 轻筛选与可选高级筛选抽屉 | 少量外部快捷筛选默认同行展示；宽度不足时自动移入可展开区域。筛选值、查询和请求仍由宿主管理 |
 | 互斥状态筛选 | `StatusTabs` | 不用可导航的页面 Tab 冒充结果集合筛选；不在标签旁堆叠重复说明 |
 | 只读状态标签 | `StatusTag` | 状态文案和语义颜色由宿主映射；不以颜色代替状态文字；筛选使用 `StatusTabs` |

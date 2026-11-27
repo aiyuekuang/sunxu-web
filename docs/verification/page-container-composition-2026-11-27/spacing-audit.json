@@ -1,0 +1,728 @@
+{
+  "schema_version": 1,
+  "target": "sunxu-web component catalog: http://127.0.0.1:4173/",
+  "intent": "verify single-result list container and multi-module page container composition",
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "route": "/",
+        "state": "已选择页面容器目录；默认浅色主题",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 1484.984375,
+          "width": 1216,
+          "height": 1428.984375
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 1460.984375,
+          "width": 1168,
+          "height": 1380.984375
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 24,
+          "right": 24,
+          "bottom": 24.0,
+          "left": 24
+        },
+        "expected": {
+          "kind": "token",
+          "value": "catalog workspace padding: 24px desktop / 16px narrow",
+          "source": "examples/catalog/catalog.css:145-159,574-582"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "检查无标注全页截图；背景色带和内容面边界在四侧均可见",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "./docs/verification/page-container-composition-2026-11-27/desktop.png",
+        "screenshot_sha256": "8cc7d48201275936e219ca0599cd20a6b805f57467da5f7cbaa1df59c69373a0",
+        "status": "PASS"
+      },
+      {
+        "route": "/",
+        "state": "已选择页面容器目录；默认浅色主题",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 0,
+          "top": 56,
+          "right": 390,
+          "bottom": 1602.984375,
+          "width": 390,
+          "height": 1546.984375
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 16,
+          "top": 72,
+          "right": 374,
+          "bottom": 1586.984375,
+          "width": 358,
+          "height": 1514.984375
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 16,
+          "right": 16,
+          "bottom": 16.0,
+          "left": 16
+        },
+        "expected": {
+          "kind": "token",
+          "value": "catalog workspace padding: 24px desktop / 16px narrow",
+          "source": "examples/catalog/catalog.css:145-159,574-582"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "检查无标注全页截图；背景色带和内容面边界在四侧均可见",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        },
+        "screenshot": "./docs/verification/page-container-composition-2026-11-27/narrow.png",
+        "screenshot_sha256": "768595119ea787f1814618d46d6d91c25d8fbfc9ece6d2ad75247c0f923c1205",
+        "status": "PASS"
+      }
+    ]
+  },
+  "seams": [
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "next": "section.sxw-screen.sxw-screen--frame-none",
+      "previous_rect": {
+        "left": 273,
+        "top": 220.28125,
+        "right": 1391,
+        "bottom": 667.421875,
+        "width": 1118,
+        "height": 447.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 683.421875,
+        "right": 1391,
+        "bottom": 1041.84375,
+        "width": 1118,
+        "height": 358.421875
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "catalog page content grid gap: 16px",
+        "source": "examples/catalog/catalog.css:237-243"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/desktop.png",
+      "screenshot_sha256": "8cc7d48201275936e219ca0599cd20a6b805f57467da5f7cbaa1df59c69373a0",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": "section.sxw-screen.sxw-screen--frame-none",
+      "next": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "previous_rect": {
+        "left": 273,
+        "top": 683.421875,
+        "right": 1391,
+        "bottom": 1041.84375,
+        "width": 1118,
+        "height": 358.421875
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 1057.84375,
+        "right": 1391,
+        "bottom": 1435.984375,
+        "width": 1118,
+        "height": 378.140625
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "catalog page content grid gap: 16px",
+        "source": "examples/catalog/catalog.css:237-243"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/desktop.png",
+      "screenshot_sha256": "8cc7d48201275936e219ca0599cd20a6b805f57467da5f7cbaa1df59c69373a0",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": "header.sxw-page-header",
+      "next": "div.sxw-list-screen__toolbar",
+      "previous_rect": {
+        "left": 290,
+        "top": 277.421875,
+        "right": 1374,
+        "bottom": 309.421875,
+        "width": 1084,
+        "height": 32
+      },
+      "next_rect": {
+        "left": 290,
+        "top": 321.421875,
+        "right": 1374,
+        "bottom": 357.421875,
+        "width": 1084,
+        "height": 36
+      },
+      "gap_px": 12,
+      "expected": {
+        "kind": "token",
+        "value": "--sxw-list-gap: 12px",
+        "source": "src/styles.css:323-325"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 12
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/desktop.png",
+      "screenshot_sha256": "8cc7d48201275936e219ca0599cd20a6b805f57467da5f7cbaa1df59c69373a0",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": "div.sxw-list-screen__toolbar",
+      "next": "section.sxw-list-screen__results",
+      "previous_rect": {
+        "left": 290,
+        "top": 321.421875,
+        "right": 1374,
+        "bottom": 357.421875,
+        "width": 1084,
+        "height": 36
+      },
+      "next_rect": {
+        "left": 290,
+        "top": 365.421875,
+        "right": 1374,
+        "bottom": 650.421875,
+        "width": 1084,
+        "height": 285
+      },
+      "gap_px": 8,
+      "expected": {
+        "kind": "contract",
+        "value": "--sxw-list-gap 12px with toolbar bottom compensation -4px; rendered gap 8px",
+        "source": "src/styles.css:323-325, 411-416"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 8
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/desktop.png",
+      "screenshot_sha256": "8cc7d48201275936e219ca0599cd20a6b805f57467da5f7cbaa1df59c69373a0",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": "span.ant-typography.ant-typography-secondary.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "next": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "previous_rect": {
+        "left": 273,
+        "top": 683.421875,
+        "right": 1391,
+        "bottom": 705.421875,
+        "width": 1118,
+        "height": 22
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 721.421875,
+        "right": 1391,
+        "bottom": 817.5625,
+        "width": 1118,
+        "height": 96.140625
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "token",
+        "value": "--sxw-page-gap: 16px desktop / 12px at max-width 767px",
+        "source": "src/styles.css:204-210, 1057-1061"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/desktop.png",
+      "screenshot_sha256": "8cc7d48201275936e219ca0599cd20a6b805f57467da5f7cbaa1df59c69373a0",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "next": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "previous_rect": {
+        "left": 273,
+        "top": 721.421875,
+        "right": 1391,
+        "bottom": 817.5625,
+        "width": 1118,
+        "height": 96.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 833.5625,
+        "right": 1391,
+        "bottom": 929.703125,
+        "width": 1118,
+        "height": 96.140625
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "token",
+        "value": "--sxw-page-gap: 16px desktop / 12px at max-width 767px",
+        "source": "src/styles.css:204-210, 1057-1061"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/desktop.png",
+      "screenshot_sha256": "8cc7d48201275936e219ca0599cd20a6b805f57467da5f7cbaa1df59c69373a0",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "next": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "previous_rect": {
+        "left": 273,
+        "top": 833.5625,
+        "right": 1391,
+        "bottom": 929.703125,
+        "width": 1118,
+        "height": 96.140625
+      },
+      "next_rect": {
+        "left": 273,
+        "top": 945.703125,
+        "right": 1391,
+        "bottom": 1041.84375,
+        "width": 1118,
+        "height": 96.140625
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "token",
+        "value": "--sxw-page-gap: 16px desktop / 12px at max-width 767px",
+        "source": "src/styles.css:204-210, 1057-1061"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/desktop.png",
+      "screenshot_sha256": "8cc7d48201275936e219ca0599cd20a6b805f57467da5f7cbaa1df59c69373a0",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "next": "section.sxw-screen.sxw-screen--frame-none",
+      "previous_rect": {
+        "left": 33,
+        "top": 256.28125,
+        "right": 357,
+        "bottom": 791.421875,
+        "width": 324,
+        "height": 535.140625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 807.421875,
+        "right": 357,
+        "bottom": 1175.84375,
+        "width": 324,
+        "height": 368.421875
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "catalog page content grid gap: 16px",
+        "source": "examples/catalog/catalog.css:237-243"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/narrow.png",
+      "screenshot_sha256": "768595119ea787f1814618d46d6d91c25d8fbfc9ece6d2ad75247c0f923c1205",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous": "section.sxw-screen.sxw-screen--frame-none",
+      "next": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "previous_rect": {
+        "left": 33,
+        "top": 807.421875,
+        "right": 357,
+        "bottom": 1175.84375,
+        "width": 324,
+        "height": 368.421875
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 1191.84375,
+        "right": 357,
+        "bottom": 1569.984375,
+        "width": 324,
+        "height": 378.140625
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "catalog page content grid gap: 16px",
+        "source": "examples/catalog/catalog.css:237-243"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 16
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/narrow.png",
+      "screenshot_sha256": "768595119ea787f1814618d46d6d91c25d8fbfc9ece6d2ad75247c0f923c1205",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous": "header.sxw-page-header",
+      "next": "div.sxw-list-screen__toolbar",
+      "previous_rect": {
+        "left": 50,
+        "top": 313.421875,
+        "right": 340,
+        "bottom": 345.421875,
+        "width": 290,
+        "height": 32
+      },
+      "next_rect": {
+        "left": 50,
+        "top": 357.421875,
+        "right": 340,
+        "bottom": 481.421875,
+        "width": 290,
+        "height": 124
+      },
+      "gap_px": 12,
+      "expected": {
+        "kind": "token",
+        "value": "--sxw-list-gap: 12px",
+        "source": "src/styles.css:323-325"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 12
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/narrow.png",
+      "screenshot_sha256": "768595119ea787f1814618d46d6d91c25d8fbfc9ece6d2ad75247c0f923c1205",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous": "div.sxw-list-screen__toolbar",
+      "next": "section.sxw-list-screen__results",
+      "previous_rect": {
+        "left": 50,
+        "top": 357.421875,
+        "right": 340,
+        "bottom": 481.421875,
+        "width": 290,
+        "height": 124
+      },
+      "next_rect": {
+        "left": 50,
+        "top": 489.421875,
+        "right": 340,
+        "bottom": 774.421875,
+        "width": 290,
+        "height": 285
+      },
+      "gap_px": 8,
+      "expected": {
+        "kind": "contract",
+        "value": "--sxw-list-gap 12px with toolbar bottom compensation -4px; rendered gap 8px",
+        "source": "src/styles.css:323-325, 411-416"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 8
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/narrow.png",
+      "screenshot_sha256": "768595119ea787f1814618d46d6d91c25d8fbfc9ece6d2ad75247c0f923c1205",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous": "span.ant-typography.ant-typography-secondary.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "next": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "previous_rect": {
+        "left": 33,
+        "top": 807.421875,
+        "right": 357,
+        "bottom": 851.421875,
+        "width": 324,
+        "height": 44
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 863.421875,
+        "right": 357,
+        "bottom": 959.5625,
+        "width": 324,
+        "height": 96.140625
+      },
+      "gap_px": 12,
+      "expected": {
+        "kind": "token",
+        "value": "--sxw-page-gap: 16px desktop / 12px at max-width 767px",
+        "source": "src/styles.css:204-210, 1057-1061"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 12
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/narrow.png",
+      "screenshot_sha256": "768595119ea787f1814618d46d6d91c25d8fbfc9ece6d2ad75247c0f923c1205",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "next": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "previous_rect": {
+        "left": 33,
+        "top": 863.421875,
+        "right": 357,
+        "bottom": 959.5625,
+        "width": 324,
+        "height": 96.140625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 971.5625,
+        "right": 357,
+        "bottom": 1067.703125,
+        "width": 324,
+        "height": 96.140625
+      },
+      "gap_px": 12,
+      "expected": {
+        "kind": "token",
+        "value": "--sxw-page-gap: 16px desktop / 12px at max-width 767px",
+        "source": "src/styles.css:204-210, 1057-1061"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 12
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/narrow.png",
+      "screenshot_sha256": "768595119ea787f1814618d46d6d91c25d8fbfc9ece6d2ad75247c0f923c1205",
+      "status": "PASS"
+    },
+    {
+      "route": "/",
+      "state": "已选择页面容器目录；默认浅色主题",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "next": "div.ant-card.ant-card-bordered.ant-pro-card.sxw-section-card.css-dev-only-do-not-override-i19pbt.css-dev-only-do-not-override-i19pbt.css-var-_r_0_",
+      "previous_rect": {
+        "left": 33,
+        "top": 971.5625,
+        "right": 357,
+        "bottom": 1067.703125,
+        "width": 324,
+        "height": 96.140625
+      },
+      "next_rect": {
+        "left": 33,
+        "top": 1079.703125,
+        "right": 357,
+        "bottom": 1175.84375,
+        "width": 324,
+        "height": 96.140625
+      },
+      "gap_px": 12,
+      "expected": {
+        "kind": "token",
+        "value": "--sxw-page-gap: 16px desktop / 12px at max-width 767px",
+        "source": "src/styles.css:204-210, 1057-1061"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "检查无标注全页截图；相邻模块间有连续可见的背景留白",
+        "observed_clear_band_px": 12
+      },
+      "executed_command": "cd /Users/suconnect/.codex/skills/playwright-skill && node run.js /tmp/playwright-test-sunxu-containers.js",
+      "screenshot": "./docs/verification/page-container-composition-2026-11-27/narrow.png",
+      "screenshot_sha256": "768595119ea787f1814618d46d6d91c25d8fbfc9ece6d2ad75247c0f923c1205",
+      "status": "PASS"
+    }
+  ]
+}
