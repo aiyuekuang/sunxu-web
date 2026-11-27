@@ -1,0 +1,9 @@
+{
+  "requestedUrl": "http://103.236.92.32:53196/",
+  "httpStatus": 200,
+  "finalUrl": "http://103.236.92.32:53196/user/login?redirect=%2F",
+  "pageTitle": "登录 - MES 管理系统",
+  "visiblePage": "MES 管理系统 login form",
+  "authenticatedBusinessRouteVerified": false,
+  "productionWritesPerformed": false
+}

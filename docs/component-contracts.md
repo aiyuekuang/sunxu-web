@@ -588,9 +588,9 @@
 #### `ProductionShiftCalendar` 班次与例外日历
 
 - 班次表单保留归属范围、班次名称/类型、计薪系数、工作日、开始/结束时间、跨天、休息时段、生效日期和启用状态；结束日期早于开始日期时阻止提交。工作中心/供应商切换及空值序列化沿用业务行为。
-- 例外表单保留固定节假日/维护/加班类型、单日或日期范围、全天/时段及班次关联；日期顺序、必填日期/时间和非全天时段校验不变。班次和例外列表都保留服务端筛选/分页、刷新、授权创建/编辑/删除、删除确认与变更记录入口。
-- `ProductionShiftCalendarCapabilities` 注入读写 API、归属/班次选项、权限、字段帮助、消息、删除确认和历史查询；UI 不访问 host API 或权限码。`shiftPermissions` 与 `exceptionPermissions` 分别控制两张表的新增、编辑、删除和历史入口；未提供时兼容使用 `permissions`。非全天例外的开始/结束时间必填消息可分别通过 `messages.exceptionStartTimeRequired` 与 `messages.exceptionEndTimeRequired` 覆盖；未提供时沿用 `messages.allDayTimeRequired`。Catalog 的 `ProductionShiftCalendarComponentsDemo` 使用本地确定性数据。
-- 五个源文件 SHA-256：日历 `274ea16f10ed7b30152f6c4bf21752808b9a60efe65ae44a26e423c47418d163`、班次表单 `888ef4738315e6d45de2027e3977c7778cfb226bd54b8bfa873fd234aaea32b2`、班次列表 `c832820b47e7367af04be59f6c8aea480ab765e5470b857c8eabb05cc7ebad54`、例外表单 `dd7ab48d0d3843f855197bf2a8c833c7dacafcf987a28e207a74b865add19ce7`、例外列表 `0dfe53bf40ebca8eab167d63a9612312f018aae11c05c07e143055463c1ac715`。真实 API/权限接线和浏览器视口验收为 `UNVERIFIED`。
+- 例外表单保留固定节假日/维护/加班类型、单日或日期范围、全天/时段及班次关联；日期顺序、必填日期/时间和非全天时段校验不变。班次和例外列表都保留服务端筛选/分页、刷新、授权创建/编辑/删除、删除确认与变更记录入口。例外状态列默认把缺省状态视为启用；具备例外编辑权限的用户可以确认后启用/停用，状态写入只提交 `{ isActive }`；停用例外仍保留在管理列表，但后端排产和产能查询会排除它。
+- `ProductionShiftCalendarCapabilities` 注入读写 API、归属/班次选项、权限、字段帮助、消息、删除确认和历史查询；UI 不访问 host API 或权限码。`shiftPermissions` 与 `exceptionPermissions` 分别控制两张表的新增、编辑、删除、例外启停和历史入口；未提供时兼容使用 `permissions`。非全天例外的开始/结束时间必填消息可分别通过 `messages.exceptionStartTimeRequired` 与 `messages.exceptionEndTimeRequired` 覆盖；未提供时沿用 `messages.allDayTimeRequired`。Catalog 的 `ProductionShiftCalendarComponentsDemo` 使用本地确定性数据，包含停用状态与启停操作。
+- 当前共享实现 `ProductionShiftCalendarComponents.tsx` SHA-256：`980d9e458e16892eb933595730b6912dc9586262251589f15df33a86fadce072`。Catalog 确定性演示已验证 1440×900 与 1024×768 的状态列、确认启停和横向滚动；截图、DOM 几何、交互结果与线上登录页证据见 `docs/verification/calendar-exception-status-2026-11-27/`。真实 MES 业务路由、权限账户和 API 写入仍为 `UNVERIFIED`。
 
 #### 业务首页快捷入口与工单生产组件
 

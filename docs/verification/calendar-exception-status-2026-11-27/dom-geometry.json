@@ -1,0 +1,90 @@
+{
+  "localUrl": "http://127.0.0.1:5173/",
+  "localHttpStatus": 200,
+  "pageTitle": "榫序 Web 组件目录",
+  "route": "组件库 / 业务复合组件 / ProductionShiftCalendarComponentsDemo",
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 900
+    },
+    "narrow": {
+      "width": 1024,
+      "height": 768
+    }
+  },
+  "desktop": {
+    "buttonName": "停用 2026-11-22 维护例外",
+    "buttonRect": {
+      "x": 1265,
+      "y": 1253.5703125,
+      "width": 44,
+      "height": 32
+    },
+    "rowText": "1\t装配中心\t—\t-\t2026-11-22\t全天\t维护\t\n启用\n停用\n\t\n周末设备保养\n\t",
+    "tableClientWidth": 1086,
+    "tableScrollWidth": 1302,
+    "tableScrollLeft": 0,
+    "tableViewportRect": {
+      "x": 289,
+      "y": 1223.1484375,
+      "width": 1086,
+      "height": 199.421875
+    },
+    "horizontallyClipped": false
+  },
+  "narrow": {
+    "buttonName": "停用 2026-11-22 维护例外",
+    "buttonRect": {
+      "x": 645,
+      "y": 368.078125,
+      "width": 44,
+      "height": 32
+    },
+    "rowText": "1\t装配中心\t—\t-\t2026-11-22\t全天\t维护\t\n启用\n停用\n\t\n周末设备保养\n\t",
+    "tableClientWidth": 710,
+    "tableScrollWidth": 1302,
+    "tableScrollLeft": 592,
+    "tableViewportRect": {
+      "x": 261,
+      "y": 337.65625,
+      "width": 710,
+      "height": 199.421875
+    },
+    "horizontallyClipped": false
+  },
+  "statusButtonCount": 4,
+  "disableConfirmationObserved": true,
+  "enableConfirmationObserved": true,
+  "disabledAfterUpdate": "1\t装配中心\t—\t-\t2026-11-22\t全天\t维护\t\n停用\n启用\n\t\n周末设备保养\n\t",
+  "restoredAfterUpdate": "1\t装配中心\t—\t-\t2026-11-22\t全天\t维护\t\n启用\n停用\n\t\n周末设备保养\n\t",
+  "disabledFixtureText": "4\t机加工中心\t—\t-\t2026-11-30\t全天\t维护\t\n停用\n启用\n\t\n已停用，不参与排产和产能计算\n\t",
+  "keyboardActivation": "Enter opened confirmation and Enter confirmed deactivation",
+  "uncaughtPageExceptions": [],
+  "consoleDiagnostics": [
+    {
+      "type": "error",
+      "text": "Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead."
+    },
+    {
+      "type": "error",
+      "text": "Warning: [antd: Alert] `message` is deprecated. Please use `title` instead."
+    },
+    {
+      "type": "error",
+      "text": "[use-antd-resizable-header] 请不要在所有列上添加 `width` 属性，这将导致表格无法自适应"
+    },
+    {
+      "type": "error",
+      "text": "Warning: [antd: Form.Item] `labelAlign=left|right` is deprecated. Please use `labelAlign=start|end` instead."
+    },
+    {
+      "type": "error",
+      "text": "Warning: [antd: message] Static function can not consume context like dynamic theme. Please use 'App' component instead."
+    }
+  ],
+  "screenshots": [
+    "calendar-status-1440x900.png",
+    "calendar-status-1024x768.png"
+  ]
+}

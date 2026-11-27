@@ -230,6 +230,17 @@ const initialExceptions: CalendarExceptionRecord[] = [
     shiftCalendar: { id: 'shift-machining-disabled', name: '机加工临时两班制' },
     remarks: '旧班次保留关联，编辑时可清除',
   },
+  {
+    id: 'exception-disabled-maintenance',
+    workCenterId: 'wc-machining',
+    workCenter: { id: 'wc-machining', name: '机加工中心' },
+    startDate: '2026-11-30',
+    endDate: '2026-11-30',
+    isAllDay: true,
+    type: 'maintenance',
+    isActive: false,
+    remarks: '已停用，不参与排产和产能计算',
+  },
 ];
 
 function matchesOwner(
@@ -302,6 +313,7 @@ export function ProductionShiftCalendarComponentsDemo() {
           ...payload,
           id: `demo-exception-${nextId.current++}`,
           type: payload.type,
+          isActive: true,
           workCenter: workCenters.find((item) => item.value === payload.workCenterId)
             ? { id: payload.workCenterId!, name: workCenters.find((item) => item.value === payload.workCenterId)?.label }
             : undefined,

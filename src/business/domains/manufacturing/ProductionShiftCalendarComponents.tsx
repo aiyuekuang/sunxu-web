@@ -15,6 +15,7 @@ import {
   Button,
   DatePicker,
   Form,
+  Popconfirm,
   Space,
   Tag,
   TimePicker,
@@ -949,6 +950,7 @@ export function ExceptionTable({ capabilities, refreshKey, supplierId }: Calenda
   const [modalOpen, setModalOpen] = useState(false);
   const [editingException, setEditingException] = useState<CalendarExceptionRecord | null>(null);
   const [historyTarget, setHistoryTarget] = useState<CalendarHistoryTarget | null>(null);
+  const [updatingExceptionId, setUpdatingExceptionId] = useState<string | null>(null);
   const can = capabilities.exceptionPermissions ?? capabilities.permissions;
   const lastRefreshContext = useRef({ refreshKey, supplierId });
   const fixedSupplierId = supplierId;
@@ -969,6 +971,20 @@ export function ExceptionTable({ capabilities, refreshKey, supplierId }: Calenda
     await capabilities.deleteCalendarException(record.id);
     capabilities.notifySuccess(capabilities.messages.deleted);
     actionRef.current?.reload();
+  };
+
+  const handleToggleActive = async (record: CalendarExceptionRecord) => {
+    const isActive = record.isActive === false;
+    setUpdatingExceptionId(record.id);
+    try {
+      await capabilities.updateCalendarException(record.id, { isActive });
+      capabilities.notifySuccess(isActive ? '日历例外已启用' : '日历例外已停用');
+      actionRef.current?.reload();
+    } catch (error) {
+      capabilities.notifyError(error instanceof Error ? error.message : '更新日历例外状态失败');
+    } finally {
+      setUpdatingExceptionId(null);
+    }
   };
 
   const columns = useMemo<ProColumns<CalendarExceptionRecord>[]>(() => [
@@ -1008,6 +1024,37 @@ export function ExceptionTable({ capabilities, refreshKey, supplierId }: Calenda
       valueEnum: Object.fromEntries(EXCEPTION_TYPE_VALUES.map((value) => [value, capabilities.exceptionTypeDisplay[value].label])),
       render: (_, record) => <Tag color={capabilities.exceptionTypeDisplay[record.type].color}>{capabilities.exceptionTypeDisplay[record.type].label}</Tag>,
     },
+    {
+      title: '状态', dataIndex: 'isActive', width: 130, search: false,
+      render: (_, record) => {
+        const isActive = record.isActive !== false;
+        const action = isActive ? '停用' : '启用';
+        const date = record.startDate?.slice(0, 10) ?? record.exceptionDate?.slice(0, 10) ?? record.id;
+        const typeLabel = capabilities.exceptionTypeDisplay[record.type].label;
+        return (
+          <Space size={4}>
+            <Tag color={isActive ? 'success' : 'default'}>{isActive ? '启用' : '停用'}</Tag>
+            {can.edit ? (
+              <Popconfirm
+                title={isActive ? '停用后该例外不再参与排产和产能计算，确定停用吗？' : '启用后该例外将重新参与排产和产能计算，确定启用吗？'}
+                okText="确定"
+                cancelText="取消"
+                onConfirm={() => handleToggleActive(record)}
+              >
+                <Button
+                  type="link"
+                  size="small"
+                  loading={updatingExceptionId === record.id}
+                  aria-label={`${action} ${date} ${typeLabel}例外`}
+                >
+                  {action}
+                </Button>
+              </Popconfirm>
+            ) : null}
+          </Space>
+        );
+      },
+    },
     { title: '班次', dataIndex: ['shiftCalendar', 'name'], width: 140, search: false, render: (_, record) => record.shiftCalendar?.name ?? '-' },
     { title: '备注', dataIndex: 'remarks', width: 200, search: false, ellipsis: true },
     {
@@ -1018,7 +1065,7 @@ export function ExceptionTable({ capabilities, refreshKey, supplierId }: Calenda
         remove: () => { void handleDelete(record); },
       }),
     },
-  ], [capabilities.exceptionTypeDisplay, capabilities.requestResourceOptions, can, handleDelete]);
+  ], [capabilities.exceptionTypeDisplay, capabilities.requestResourceOptions, can, handleDelete, handleToggleActive, updatingExceptionId]);
 
   const request = async (params: Record<string, unknown>) => {
     const requestParams: ShiftCalendarListParams = {
@@ -1046,7 +1093,7 @@ export function ExceptionTable({ capabilities, refreshKey, supplierId }: Calenda
         resizable={{ serverSortFields: [], sortPersistenceKey: false }}
         pagination={{ defaultPageSize: 10, showSizeChanger: { getPopupContainer: (trigger) => trigger.ownerDocument.body } }}
         fitContainerHeight={false}
-        scroll={{ x: 1120 }}
+        scroll={{ x: 1260 }}
         toolBarRender={() => can.create ? [<Button key="create" type="primary" icon={<PlusOutlined />} onClick={() => { setEditingException(null); setModalOpen(true); }}>新增</Button>] : []}
       />
       <ExceptionFormModal
