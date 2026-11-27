@@ -58,6 +58,8 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 
 `CrudListWorkbench` 是所有同类列表结构的组合根；用它的独立插槽表达场景，不按“只有 Tab”“Tab + 树”“Tab + 树 + 视图”分别造组件。上游宿主定义 Tab 项、树数据/选中值、视图范围与字段 schema；工作台只按这些公开配置组织稳定的区域。`primaryTabs` 仅代表当前结果集的范围切换；切换不同页面、权限归口或工作流的页级导航继续由宿主导航组件负责。`facetSidebar` 代表与 Tab 不同维度的目录/队列，工作台统一拥有面板表面、宽度和窄屏抽屉；传入的树内容不再自包相同卡片。`viewBar` 的快照按当前业务范围隔离，关键词保持临时条件。
 
+这套业务维度与 Sunxu 原生端共用同一语义：页面导航、结果范围/状态、独立 Facet、已有视图能力、临时关键词和结果区各有唯一归属。跨端统一的是数据含义、筛选状态和配置边界，不强求控件布局一致；Web 可用左侧树/抽屉，原生端按窄屏选择交互呈现层级筛选。宿主定义上游数据结构、可用能力和权限，组件库按平台公开契约组织呈现，不为组合排列新增工作台变体，也不把某端缺失的 API 假写为已有能力。原生端现有控件映射见 [Sunxu 组件使用规范](https://github.com/aiyuekuang/sunxu/blob/main/docs/component-usage-policy.md)。
+
 ```tsx
 <CrudListWorkbench
   primaryTabs={scopeTabs}

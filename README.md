@@ -34,7 +34,7 @@ export function App() {
 
 原子与通用复合组件、AntD/Pro/图标从 `sunxu-web` 根出口导入；新业务复合组件按领域从 `sunxu-web/business/<domain>` 导入，需要跨领域时可用完整 `sunxu-web/business` 入口。请求、路由、授权决策和业务副作用由宿主提供。发布包不提供产品专属子路径或兼容层；所有消费端直接使用根出口或领域入口。旧持久化偏好仅通过一次性数据迁移保留。组件映射、覆盖进度和消费端门禁见 [`docs/component-usage-policy.md`](./docs/component-usage-policy.md)、[`docs/component-inventory.md`](./docs/component-inventory.md) 与 [`eslint-plugin-sunxu-web`](./tooling/eslint-plugin-sunxu-web/README.md)。
 
-## 页面组合
+## 简单列表容器示例
 
 ```tsx
 import {
@@ -78,6 +78,8 @@ export function RecordsPage() {
 ```
 
 列表容器让工具栏紧邻结果区；数据请求、筛选值、授权决策和“新建”行为仍由宿主负责。根出口对 Ant Design / Pro Components 只做直通导出，不复制基础控件；业务复合组件按领域从 `sunxu-web/business/<domain>` 导入，在不同宿主间复用。
+
+标准 CRUD 列表优先使用 `CrudListWorkbench`：同一结果集可按需组合范围 Tab、独立目录/队列 Facet、宿主已有的视图、单一关键词、筛选和结果渲染器。组合维度是业务配置，不按 Tab/树/视图的排列新造工作台；状态、数据、权限、请求和持久化仍由宿主管理。跨端业务语义与原生端一致，界面按 Web/移动端适配；完整规则见[组件使用规范](https://github.com/aiyuekuang/sunxu-web/blob/main/docs/component-usage-policy.md)。
 
 ## 本地开发
 
