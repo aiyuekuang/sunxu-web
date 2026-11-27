@@ -27,6 +27,7 @@
 | `CrudListWorkbench` | 组合分类/状态、轻筛选、高级筛选、视图插槽与表格结果适配器；不渲染页级标题 | `ListScreenContainer` + `FilterBar` + `StatusTabs` + Pro Components 3 ProTable |
 | `PaginationSummary` | 在分页栏左侧显示宿主提供的筛选结果摘要 | AntD `Pagination.showTotal`；统计口径由宿主提供 |
 | `SavedViewBar` | 选择和管理受控的系统/个人列表视图；排序动作置于标签下方的独立操作行，窄屏不遮挡标签 | AntD Tabs / Dropdown / Modal；视图数据和持久化由宿主提供 |
+| `DocumentKeywordSearch` | 列表工具栏单一关键词跨业务字段搜索；可选放大镜收起态 | AntD 6.7 `Input.Search` + `Button`；搜索字段和查询由宿主提供 |
 | `FormScreenContainer` | 分离可滚动表单内容和固定 footer | `ScreenContainer` + `StickyActionBar`；ProForm 归宿主 |
 | `DetailScreenContainer` | 组织详情内容和固定操作区 | `ScreenContainer` + `PageHeader` |
 | `DetailPageContainer` / `DetailPageContent` / `DetailPageState` | 组合业务详情页面框架、纯内容插槽及加载/错误/空状态；错误和空状态可显示宿主注入的重试/返回操作 | `DetailScreenContainer` + `DetailHeader` / AntD `Spin`、`Empty`、`Button`；状态与重试决策由宿主提供 |
@@ -427,7 +428,11 @@
 - `AmountText` 保留 `value/prefix/precision/placeholder` API；默认前缀为 `¥`、精度为 2、占位符为 `-`，使用 `zh-CN` 分组格式化，空值和非数字显示占位符。格式化后的字符串交给 `BusinessUiProvider.maskAmount`；没有宿主能力时 fail closed，空值为 `-`、金额为 `****`。金额显隐状态和权限仍由业务宿主管理。
 - `AmountPolicySnapshotTag` 保留嵌套快照解析、默认规则文案、版本展示、公式回退、数量/金额详情 Popover；显式 `mask` 优先，否则使用宿主金额脱敏能力。快照输入接受根对象、`priceSnapshot`、`amountPolicySnapshot` 与 `result` 嵌套形态，未识别有效 `policyCode` 时显示 `-`。
 - `DateText` 保留 `date/datetime/time` 三种格式（`YYYY-MM-DD`、`YYYY-MM-DD HH:mm`、`HH:mm`），默认 datetime；空值和无效日期显示 `-` 或调用方占位符。`UserText` 优先显示 `realName`，回退 `username`，再回退 `—` 或调用方占位符。
-- `DocumentKeywordSearch` 是单一关键词快捷搜索的唯一公开控件，保留受控 `value`（默认 `''`）、`placeholder`（默认“输入单号、客户、供应商或物料搜索”）、`loading`（默认 `false`）和必填 `onSearch`。`value` 变化会同步草稿；输入只暂存在组件状态，清空立即回调空字符串，提交时 trim 首尾空格。AntD `Input.Search` 提供 Enter/搜索按钮提交及清除按钮，输入通过 `aria-label="关键字搜索"` 提供稳定名称，宽度为 `clamp(160px, 20vw, 256px)`。跨字段搜索范围写入 placeholder；关键词只用于当前查询，不写入个人视图或持久筛选状态。业务字段筛选、查询执行与保存行为归宿主。
+- `DocumentKeywordSearch` 是列表单一关键词跨业务字段搜索的唯一公开控件，保留受控 `value`（默认 `''`）、`placeholder`（默认“输入单号、客户、供应商或物料搜索”）、`loading`（默认 `false`）、`mode`（`expanded` 默认常驻，或 `collapsible` 默认只显示放大镜）和必填 `onSearch`。`value` 变化会同步草稿；输入只暂存在组件状态，清空立即回调空字符串，提交时 trim 首尾空格。AntD `Input.Search` 提供 Enter/搜索按钮提交及清除按钮，输入通过 `aria-label="关键字搜索"` 提供稳定名称，宽度为 `clamp(160px, 20vw, 256px)`。跨字段搜索范围写入 placeholder；关键词只用于当前查询，不写入个人视图或持久筛选状态。业务字段筛选、查询执行与保存行为归宿主。
+- **收起模式状态与键盘**：`collapsible` 无已提交关键词时默认收起；放大镜按钮有“展开关键词搜索”名称、`aria-expanded` 和 `aria-controls`，激活后展开并把焦点放入输入框。清空后仍保持展开，可通过“收起关键词搜索”按钮关闭，关闭会丢弃未提交草稿并把焦点还给放大镜；存在已提交关键词时不提供收起按钮，确保当前过滤条件始终可见。输入继续使用 AntD 原生 Enter/搜索图标/清除行为，不覆盖输入法组合键处理。
+- **组件规格**：业务任务是在列表结果区旁按单号、人员、物料等主字段快速缩小结果；组件只负责临时草稿、提交和展开，不定义字段映射、结构化过滤、保存视图、请求、权限或空态。所有者为列表结果区紧邻工具栏。解剖为搜索输入、AntD 搜索/清除操作和可选展开/收起图标按钮；内部间距 4px 归组件，外部与筛选/列表动作间距归宿主工具栏。窄容器内输入宽度受 `max-width:100%` 限制，父级选择收起模式。AntD token/组件负责默认、hover、pressed、focus-visible、清除与加载状态；展开/收起/空词/草稿/已提交词由本组件管理；不提供 disabled/read-only 状态，宿主可直接不渲染；请求错误、无结果和结果陈旧状态由宿主列表反馈。没有自定义颜色、字体或动画。Catalog 例展示常驻与收起用法；清单页不请求业务 API。
+- **方案取舍**：没有把所有搜索默认藏在图标里，因为高频查询和当前生效关键词需要持续可见；也没有要求所有工具栏长期展开，因为复杂筛选占满空间时搜索可作为次级工具。采用默认 `expanded`，由宿主仅在工具栏空间确实紧张时指定 `collapsible`。
+- **文本原型**：`[放大镜（展开关键词搜索）]` → `[输入单号、报工人、产品或工序] [搜索] [清除] [收起关键词搜索]`；有已提交词时一直显示输入框和当前词。
 - `DefaultRouteHint` 仅在有 `materialId` 且没有 `routeId` 时调用必填的 `requestCandidates({ materialId, customerId, routeSelectionDate })`；取首个 `recommended` 候选，组合路线编码/名称、版本和原因。没有推荐路线时显示业务指引；请求错误静默隐藏，条件变化或卸载会丢弃迟到响应。服务请求和错误策略留在宿主。
 - `CustomerMaterialCell` 支持 `combined/internal/customer` 三种模式。combined 时客户别名优先并在下一行保留内部物料值；缺少别名或两者相同则不重复显示。拆分模式可仅在名称字段按对应来源显示规格。`customerMaterialSortValue` 与主值一致，别名优先回落内部快照。内部 `materialId` 是权威身份；客户别名是销售单据的冻结快照，客户输出打印模板不应使用此比较单元格。
 - `EntityThumbnail` 保留缩略图优先、预览图回退、主题 `controlHeight` 默认方形尺寸（显式 `size` 覆盖）、无图 Tooltip 图标、损坏图 SVG fallback 和 AntD 图片预览。图片存在时点击/双击停止冒泡，避免触发行选择或编辑；无图提示沿用源实现，不截断行事件。

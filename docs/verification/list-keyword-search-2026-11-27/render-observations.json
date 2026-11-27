@@ -1,0 +1,124 @@
+{
+  "status": "PASS WITH UNVERIFIED",
+  "route": "CatalogApp / business-suite / 列表关键词搜索",
+  "targetUrl": "http://127.0.0.1:4173/",
+  "tool": "Playwright Chromium via /Users/suconnect/.codex/skills/playwright-skill/run.js",
+  "authPreflight": {
+    "access": "public local runtime",
+    "initialNavigationCount": 1,
+    "authenticationSignal": false
+  },
+  "viewports": {
+    "desktop": {
+      "width": 1440,
+      "height": 1000,
+      "documentScrollWidth": 1440,
+      "sectionRect": {
+        "left": 273,
+        "top": 380.9765625,
+        "right": 1391,
+        "bottom": 619.1171875,
+        "width": 1118,
+        "height": 238.140625
+      },
+      "collapsedState": {
+        "inputDisplay": "none",
+        "expandButtonRect": {
+          "left": 340,
+          "top": 522.1171875,
+          "right": 376,
+          "bottom": 558.1171875,
+          "width": 36,
+          "height": 36
+        }
+      },
+      "expandedState": {
+        "inputRect": {
+          "left": 352,
+          "right": 533,
+          "width": 181
+        },
+        "sectionRect": {
+          "left": 273,
+          "right": 1391,
+          "width": 1118
+        },
+        "documentScrollWidth": 1440
+      },
+      "screenshots": {
+        "collapsed": {
+          "file": "desktop-collapsed.png",
+          "sha256": "00443710a5d082aea6d87a365852d992dbe8f2e9298d5d982badf47cbc937c33"
+        },
+        "expanded": {
+          "file": "desktop-expanded.png",
+          "sha256": "ba157a7b6631023e75e903198567bd96ce68ca78da388907070c0a00c622375f"
+        }
+      }
+    },
+    "mobile": {
+      "width": 375,
+      "height": 812,
+      "documentScrollWidth": 375,
+      "workspaceRect": {
+        "left": 0,
+        "right": 375,
+        "width": 375
+      },
+      "mainRect": {
+        "left": 0,
+        "right": 375,
+        "width": 375
+      },
+      "surfaceRect": {
+        "left": 16,
+        "right": 359,
+        "width": 343
+      },
+      "sectionRect": {
+        "left": 33,
+        "top": 239.140625,
+        "right": 342,
+        "bottom": 573.28125,
+        "width": 309,
+        "height": 334.140625
+      },
+      "inputRect": {
+        "left": 112,
+        "top": 453.28125,
+        "right": 197,
+        "bottom": 475.28125,
+        "width": 85,
+        "height": 22
+      },
+      "screenshots": {
+        "collapsed": {
+          "file": "mobile-collapsed.png",
+          "sha256": "495ba7e2ab3a658d2acb1cd24401d22897799d811f42db69c2dc89ba686c5cf3"
+        },
+        "expanded": {
+          "file": "mobile-expanded.png",
+          "sha256": "e0d3503975ef52a2267c9cbe45aae052e83ee26c264dfc815674e55c3b646323"
+        }
+      }
+    }
+  },
+  "interaction": {
+    "focusAfterExpand": "关键字搜索",
+    "submittedInput": "  临时工  ",
+    "hostQueryAfterEnter": "临时工",
+    "collapseHiddenWhileQueryActive": true,
+    "clearImmediatelyResetsHostQuery": true,
+    "inputRemainsOpenAfterClear": true,
+    "focusReturnsToExpandButtonAfterCollapse": "展开关键词搜索",
+    "collapseRestoresMagnifier": true
+  },
+  "console": {
+    "pageErrors": 0,
+    "existingAntdDeprecationWarning": "[antd: List] The List component is deprecated; use Listy in AntD 6.6+."
+  },
+  "unverified": [
+    "Expanded input/search-button/collapse-button seam DOM rectangles and full workspace surface-frame screenshot evidence.",
+    "Dark theme, assistive technology, loading state, and real MES consumer route."
+  ]
+}

@@ -31,6 +31,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `HeaderActionButton`（`sunxu-web`） | 统一顶栏纯图标按钮的主题、焦点与按压呈现；无障碍名称必填，提示、徽标、弹层和动作由宿主组合 |
 | `AnnouncementBanner`（`sunxu-web/business`） | 呈现公告优先级、轮播摘要、数量和隐藏操作；公告数据、可见权限、轮询与详情路由由宿主保留 |
 | `MenuSearchInput`（`sunxu-web/business`） | 呈现受控菜单搜索框和上下文候选；菜单过滤、快捷键、授权和导航由宿主保留 |
+| `DocumentKeywordSearch`（`sunxu-web/business/documents`） | 列表单关键词跨业务字段查询；默认常驻，窄工具栏可显式使用可收起的放大镜形态，业务字段与请求由宿主提供 |
 | `BusinessSideNavView`（`sunxu-web/business`） | 呈现业务主/次级导航、折叠态和当前选中项；菜单数据、权限过滤、路径判断和导航由宿主保留 |
 | `NotificationPanel`（`sunxu-web/business`） | 呈现通知列表、未读/加载/空状态和操作入口；通知服务、已读状态、权限与导航由宿主保留 |
 | `ThemeOptionsPanel`（`sunxu-web/business`） | 呈现主题选项、色样和当前选择；主题持久化与应用配置由宿主保留 |

@@ -290,6 +290,7 @@ export function BusinessComponentsPage() {
   const [permissionAction, setPermissionAction] = useState('尚未触发操作');
   const [showAmounts, setShowAmounts] = useState(false);
   const [documentKeyword, setDocumentKeyword] = useState('');
+  const [collapsibleKeyword, setCollapsibleKeyword] = useState('');
   const [documentKeywordLoading, setDocumentKeywordLoading] = useState(false);
   const [documentActionResult, setDocumentActionResult] = useState('尚未触发单据动作');
   const [actionIntentCount, setActionIntentCount] = useState(0);
@@ -513,17 +514,30 @@ export function BusinessComponentsPage() {
         ) : null}
       </SectionCard>
 
-      <SectionCard title="单据关键词搜索">
+      <SectionCard title="列表关键词搜索">
         <Typography.Paragraph type="secondary">
-          搜索范围直接写在输入提示中；关键词是当前查询的临时条件，不写入个人视图。清空立即通知宿主，提交时去除首尾空格。
+          搜索范围直接写在输入提示中。主任务默认常驻；空间紧张时可收起，展开后自动聚焦，已提交关键词会保持可见。关键词是当前查询的临时条件，不写入个人视图。
         </Typography.Paragraph>
         <Space orientation="vertical" size={12} style={{ width: '100%' }}>
-          <DocumentKeywordSearch
-            value={documentKeyword}
-            loading={documentKeywordLoading}
-            placeholder="输入采购订单号、供应商、物料或行备注搜索"
-            onSearch={setDocumentKeyword}
-          />
+          <Space wrap size={8}>
+            <Typography.Text>常驻</Typography.Text>
+            <DocumentKeywordSearch
+              value={documentKeyword}
+              loading={documentKeywordLoading}
+              placeholder="输入单号、报工人、产品或工序搜索"
+              onSearch={setDocumentKeyword}
+            />
+          </Space>
+          <Space wrap size={8}>
+            <Typography.Text>可收起</Typography.Text>
+            <DocumentKeywordSearch
+              value={collapsibleKeyword}
+              loading={documentKeywordLoading}
+              mode="collapsible"
+              placeholder="输入单号、报工人、产品或工序搜索"
+              onSearch={setCollapsibleKeyword}
+            />
+          </Space>
           <Space wrap size={8}>
             <Button
               size="small"
@@ -531,8 +545,12 @@ export function BusinessComponentsPage() {
             >
               {documentKeywordLoading ? '结束加载态' : '演示加载态'}
             </Button>
-            <Typography.Text type="secondary">当前宿主查询词：</Typography.Text>
-            <Typography.Text code>{documentKeyword || '（空）'}</Typography.Text>
+            <Typography.Text type="secondary">
+              常驻查询词：<Typography.Text code>{documentKeyword || '（空）'}</Typography.Text>
+            </Typography.Text>
+            <Typography.Text type="secondary">
+              可收起查询词：<Typography.Text code>{collapsibleKeyword || '（空）'}</Typography.Text>
+            </Typography.Text>
           </Space>
         </Space>
       </SectionCard>
