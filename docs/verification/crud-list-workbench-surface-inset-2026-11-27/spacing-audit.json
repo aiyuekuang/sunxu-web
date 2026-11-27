@@ -1,0 +1,1188 @@
+{
+  "schema_version": 1,
+  "audit_level": "E2",
+  "business_goal": "Make list controls and results comfortably inset inside the page-level workbench content surface while preserving the host workspace frame and the embedded-list contract.",
+  "route_status": "PUBLIC_CATALOG_RENDERED; Tel Admin /crm/recycle-bin is UNVERIFIED: local dev configuration proxies /api and /gateway to remote services, and no authenticated test session was provided; route was not opened.",
+  "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "route": "/catalog · CRUD 列表工作台",
+        "state": "desktop-category-host",
+        "workspace": "catalog host surface",
+        "content": "page-level white workbench surface",
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-category-host.png",
+        "screenshot_sha256": "504179b1550170d8a6c3b9275dcd0460792394aa9d88f8475a68ec5cd9ae3d33",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "workspace_rect": {
+          "left": 273,
+          "top": 346.421875,
+          "right": 1391,
+          "bottom": 904.421875,
+          "width": 1118,
+          "height": 558
+        },
+        "content_rect": {
+          "left": 285,
+          "top": 358.421875,
+          "right": 1379,
+          "bottom": 892.421875,
+          "width": 1094,
+          "height": 534
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 12,
+          "right": 12,
+          "bottom": 12,
+          "left": 12
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "12px visible catalog host frame",
+          "source": "examples/catalog/catalog.css .sxw-crud-workbench-example__surface-host and its narrow viewport rule"
+        },
+        "status": "PASS",
+        "visual": {
+          "status": "PASS",
+          "method": "Rendered screenshot inspected at 100%; the gray catalog host surface is visible on all four sides of the white workbench surface.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        }
+      },
+      {
+        "route": "/catalog · CRUD 列表工作台",
+        "state": "desktop-complex-host",
+        "workspace": "catalog host surface",
+        "content": "page-level white workbench surface",
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-complex-host.png",
+        "screenshot_sha256": "1062532bdf86ea9149ad93c95bfdf2e16152f9119e8380b8d402936e887ab5a2",
+        "viewport": {
+          "width": 1440,
+          "height": 1000
+        },
+        "workspace_rect": {
+          "left": 273,
+          "top": 345.921875,
+          "right": 1391,
+          "bottom": 1011.921875,
+          "width": 1118,
+          "height": 666
+        },
+        "content_rect": {
+          "left": 285,
+          "top": 357.921875,
+          "right": 1379,
+          "bottom": 999.921875,
+          "width": 1094,
+          "height": 642
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 12,
+          "right": 12,
+          "bottom": 12,
+          "left": 12
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "12px visible catalog host frame",
+          "source": "examples/catalog/catalog.css .sxw-crud-workbench-example__surface-host and its narrow viewport rule"
+        },
+        "status": "PASS",
+        "visual": {
+          "status": "PASS",
+          "method": "Rendered screenshot inspected at 100%; the gray catalog host surface is visible on all four sides of the white workbench surface.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        }
+      },
+      {
+        "route": "/catalog · CRUD 列表工作台",
+        "state": "tablet-complex-host",
+        "workspace": "catalog host surface",
+        "content": "page-level white workbench surface",
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/tablet-complex-host.png",
+        "screenshot_sha256": "8db405f520f41055f01a4403695dc3c18a3f75bc25afaa5367ceec0625000ac5",
+        "viewport": {
+          "width": 1024,
+          "height": 900
+        },
+        "workspace_rect": {
+          "left": 245,
+          "top": 195.921875,
+          "right": 987,
+          "bottom": 911.921875,
+          "width": 742,
+          "height": 716
+        },
+        "content_rect": {
+          "left": 257,
+          "top": 207.921875,
+          "right": 975,
+          "bottom": 899.921875,
+          "width": 718,
+          "height": 692
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 12,
+          "right": 12,
+          "bottom": 12,
+          "left": 12
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "12px visible catalog host frame",
+          "source": "examples/catalog/catalog.css .sxw-crud-workbench-example__surface-host and its narrow viewport rule"
+        },
+        "status": "PASS",
+        "visual": {
+          "status": "PASS",
+          "method": "Rendered screenshot inspected at 100%; the gray catalog host surface is visible on all four sides of the white workbench surface.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        }
+      },
+      {
+        "route": "/catalog · CRUD 列表工作台",
+        "state": "mobile-category-host",
+        "workspace": "catalog host surface",
+        "content": "page-level white workbench surface",
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/mobile-category-host.png",
+        "screenshot_sha256": "a60f25b5772f6027b7ed903d34e9ff40569f85c167daa63b1faee248b4e510f3",
+        "viewport": {
+          "width": 390,
+          "height": 844
+        },
+        "workspace_rect": {
+          "left": 33,
+          "top": 197.921875,
+          "right": 357,
+          "bottom": 851.921875,
+          "width": 324,
+          "height": 654
+        },
+        "content_rect": {
+          "left": 41,
+          "top": 205.921875,
+          "right": 349,
+          "bottom": 843.921875,
+          "width": 308,
+          "height": 638
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "top",
+          "right",
+          "bottom",
+          "left"
+        ],
+        "insets_px": {
+          "top": 8,
+          "right": 8,
+          "bottom": 8,
+          "left": 8
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "8px visible catalog host frame",
+          "source": "examples/catalog/catalog.css .sxw-crud-workbench-example__surface-host and its narrow viewport rule"
+        },
+        "status": "PASS",
+        "visual": {
+          "status": "PASS",
+          "method": "Rendered screenshot inspected at 100%; the gray catalog host surface is visible on all four sides of the white workbench surface.",
+          "painted_frame_sides": [
+            "top",
+            "right",
+            "bottom",
+            "left"
+          ]
+        }
+      }
+    ]
+  },
+  "seams": [
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "desktop-category-host",
+      "previous": "page-surface left edge",
+      "next": "toolbar",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-category-host.png",
+      "screenshot_sha256": "504179b1550170d8a6c3b9275dcd0460792394aa9d88f8475a68ec5cd9ae3d33",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 285,
+        "top": 382.421875,
+        "right": 285,
+        "bottom": 480.421875,
+        "width": 0,
+        "height": 98
+      },
+      "next_rect": {
+        "left": 309,
+        "top": 382.421875,
+        "right": 1355,
+        "bottom": 480.421875,
+        "width": 1046,
+        "height": 98
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "desktop-category-host",
+      "previous": "page-surface left edge",
+      "next": "primaryTabs",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-category-host.png",
+      "screenshot_sha256": "504179b1550170d8a6c3b9275dcd0460792394aa9d88f8475a68ec5cd9ae3d33",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 285,
+        "top": 382.421875,
+        "right": 285,
+        "bottom": 436.421875,
+        "width": 0,
+        "height": 54
+      },
+      "next_rect": {
+        "left": 309,
+        "top": 382.421875,
+        "right": 1181,
+        "bottom": 436.421875,
+        "width": 872,
+        "height": 54
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "desktop-category-host",
+      "previous": "page-surface left edge",
+      "next": "search",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-category-host.png",
+      "screenshot_sha256": "504179b1550170d8a6c3b9275dcd0460792394aa9d88f8475a68ec5cd9ae3d33",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 285,
+        "top": 444.421875,
+        "right": 285,
+        "bottom": 480.421875,
+        "width": 0,
+        "height": 36
+      },
+      "next_rect": {
+        "left": 309,
+        "top": 444.421875,
+        "right": 629,
+        "bottom": 480.421875,
+        "width": 320,
+        "height": 36
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "desktop-category-host",
+      "previous": "page-surface left edge",
+      "next": "table",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-category-host.png",
+      "screenshot_sha256": "504179b1550170d8a6c3b9275dcd0460792394aa9d88f8475a68ec5cd9ae3d33",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 285,
+        "top": 488.421875,
+        "right": 285,
+        "bottom": 868.421875,
+        "width": 0,
+        "height": 380
+      },
+      "next_rect": {
+        "left": 309,
+        "top": 488.421875,
+        "right": 1355,
+        "bottom": 868.421875,
+        "width": 1046,
+        "height": 380
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "desktop-category-host",
+      "previous": "page-surface top edge",
+      "next": "workbench toolbar",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-category-host.png",
+      "screenshot_sha256": "504179b1550170d8a6c3b9275dcd0460792394aa9d88f8475a68ec5cd9ae3d33",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 309,
+        "top": 358.421875,
+        "right": 1355,
+        "bottom": 358.421875,
+        "width": 1046,
+        "height": 0
+      },
+      "next_rect": {
+        "left": 309,
+        "top": 382.421875,
+        "right": 1355,
+        "bottom": 480.421875,
+        "width": 1046,
+        "height": 98
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm the toolbar begins after the page surface top inset.",
+        "exception": "Toolbar intentionally shares the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "desktop-category-host",
+      "previous": "results bottom",
+      "next": "page-surface bottom edge",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-category-host.png",
+      "screenshot_sha256": "504179b1550170d8a6c3b9275dcd0460792394aa9d88f8475a68ec5cd9ae3d33",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 309,
+        "top": 488.421875,
+        "right": 1355,
+        "bottom": 868.421875,
+        "width": 1046,
+        "height": 380
+      },
+      "next_rect": {
+        "left": 309,
+        "top": 892.421875,
+        "right": 1355,
+        "bottom": 892.421875,
+        "width": 1046,
+        "height": 0
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm the result region ends before the page surface bottom edge.",
+        "exception": "Results intentionally share the page surface; the measured trailing inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "desktop-complex-host",
+      "previous": "page-surface left edge",
+      "next": "toolbar",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-complex-host.png",
+      "screenshot_sha256": "1062532bdf86ea9149ad93c95bfdf2e16152f9119e8380b8d402936e887ab5a2",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 285,
+        "top": 381.921875,
+        "right": 285,
+        "bottom": 561.921875,
+        "width": 0,
+        "height": 180
+      },
+      "next_rect": {
+        "left": 309,
+        "top": 381.921875,
+        "right": 1355,
+        "bottom": 561.921875,
+        "width": 1046,
+        "height": 180
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "desktop-complex-host",
+      "previous": "page-surface left edge",
+      "next": "search",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-complex-host.png",
+      "screenshot_sha256": "1062532bdf86ea9149ad93c95bfdf2e16152f9119e8380b8d402936e887ab5a2",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 285,
+        "top": 525.921875,
+        "right": 285,
+        "bottom": 561.921875,
+        "width": 0,
+        "height": 36
+      },
+      "next_rect": {
+        "left": 309,
+        "top": 525.921875,
+        "right": 629,
+        "bottom": 561.921875,
+        "width": 320,
+        "height": 36
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "desktop-complex-host",
+      "previous": "page-surface left edge",
+      "next": "facet",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-complex-host.png",
+      "screenshot_sha256": "1062532bdf86ea9149ad93c95bfdf2e16152f9119e8380b8d402936e887ab5a2",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 285,
+        "top": 569.921875,
+        "right": 285,
+        "bottom": 739.921875,
+        "width": 0,
+        "height": 170
+      },
+      "next_rect": {
+        "left": 309,
+        "top": 569.921875,
+        "right": 541,
+        "bottom": 739.921875,
+        "width": 232,
+        "height": 170
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "desktop-complex-host",
+      "previous": "page-surface top edge",
+      "next": "workbench toolbar",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-complex-host.png",
+      "screenshot_sha256": "1062532bdf86ea9149ad93c95bfdf2e16152f9119e8380b8d402936e887ab5a2",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 309,
+        "top": 357.921875,
+        "right": 1355,
+        "bottom": 357.921875,
+        "width": 1046,
+        "height": 0
+      },
+      "next_rect": {
+        "left": 309,
+        "top": 381.921875,
+        "right": 1355,
+        "bottom": 561.921875,
+        "width": 1046,
+        "height": 180
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm the toolbar begins after the page surface top inset.",
+        "exception": "Toolbar intentionally shares the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "desktop-complex-host",
+      "previous": "results bottom",
+      "next": "page-surface bottom edge",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-complex-host.png",
+      "screenshot_sha256": "1062532bdf86ea9149ad93c95bfdf2e16152f9119e8380b8d402936e887ab5a2",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 557,
+        "top": 569.921875,
+        "right": 1355,
+        "bottom": 975.921875,
+        "width": 798,
+        "height": 406
+      },
+      "next_rect": {
+        "left": 557,
+        "top": 999.921875,
+        "right": 1355,
+        "bottom": 999.921875,
+        "width": 798,
+        "height": 0
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm the result region ends before the page surface bottom edge.",
+        "exception": "Results intentionally share the page surface; the measured trailing inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "tablet-complex-host",
+      "previous": "page-surface left edge",
+      "next": "toolbar",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/tablet-complex-host.png",
+      "screenshot_sha256": "8db405f520f41055f01a4403695dc3c18a3f75bc25afaa5367ceec0625000ac5",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 257,
+        "top": 231.921875,
+        "right": 257,
+        "bottom": 461.921875,
+        "width": 0,
+        "height": 230
+      },
+      "next_rect": {
+        "left": 281,
+        "top": 231.921875,
+        "right": 951,
+        "bottom": 461.921875,
+        "width": 670,
+        "height": 230
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "tablet-complex-host",
+      "previous": "page-surface left edge",
+      "next": "search",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/tablet-complex-host.png",
+      "screenshot_sha256": "8db405f520f41055f01a4403695dc3c18a3f75bc25afaa5367ceec0625000ac5",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 257,
+        "top": 381.921875,
+        "right": 257,
+        "bottom": 417.921875,
+        "width": 0,
+        "height": 36
+      },
+      "next_rect": {
+        "left": 281,
+        "top": 381.921875,
+        "right": 951,
+        "bottom": 417.921875,
+        "width": 670,
+        "height": 36
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "tablet-complex-host",
+      "previous": "page-surface left edge",
+      "next": "table",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/tablet-complex-host.png",
+      "screenshot_sha256": "8db405f520f41055f01a4403695dc3c18a3f75bc25afaa5367ceec0625000ac5",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 257,
+        "top": 469.921875,
+        "right": 257,
+        "bottom": 875.921875,
+        "width": 0,
+        "height": 406
+      },
+      "next_rect": {
+        "left": 281,
+        "top": 469.921875,
+        "right": 951,
+        "bottom": 875.921875,
+        "width": 670,
+        "height": 406
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "tablet-complex-host",
+      "previous": "page-surface top edge",
+      "next": "workbench toolbar",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/tablet-complex-host.png",
+      "screenshot_sha256": "8db405f520f41055f01a4403695dc3c18a3f75bc25afaa5367ceec0625000ac5",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 281,
+        "top": 207.921875,
+        "right": 951,
+        "bottom": 207.921875,
+        "width": 670,
+        "height": 0
+      },
+      "next_rect": {
+        "left": 281,
+        "top": 231.921875,
+        "right": 951,
+        "bottom": 461.921875,
+        "width": 670,
+        "height": 230
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm the toolbar begins after the page surface top inset.",
+        "exception": "Toolbar intentionally shares the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "tablet-complex-host",
+      "previous": "results bottom",
+      "next": "page-surface bottom edge",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/tablet-complex-host.png",
+      "screenshot_sha256": "8db405f520f41055f01a4403695dc3c18a3f75bc25afaa5367ceec0625000ac5",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 281,
+        "top": 469.921875,
+        "right": 951,
+        "bottom": 875.921875,
+        "width": 670,
+        "height": 406
+      },
+      "next_rect": {
+        "left": 281,
+        "top": 899.921875,
+        "right": 951,
+        "bottom": 899.921875,
+        "width": 670,
+        "height": 0
+      },
+      "gap_px": 24,
+      "expected": {
+        "kind": "contract",
+        "value": "24px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm the result region ends before the page surface bottom edge.",
+        "exception": "Results intentionally share the page surface; the measured trailing inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "mobile-category-host",
+      "previous": "page-surface left edge",
+      "next": "toolbar",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/mobile-category-host.png",
+      "screenshot_sha256": "a60f25b5772f6027b7ed903d34e9ff40569f85c167daa63b1faee248b4e510f3",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 41,
+        "top": 221.921875,
+        "right": 41,
+        "bottom": 439.921875,
+        "width": 0,
+        "height": 218
+      },
+      "next_rect": {
+        "left": 57,
+        "top": 221.921875,
+        "right": 333,
+        "bottom": 439.921875,
+        "width": 276,
+        "height": 218
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "mobile-category-host",
+      "previous": "page-surface left edge",
+      "next": "primaryTabs",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/mobile-category-host.png",
+      "screenshot_sha256": "a60f25b5772f6027b7ed903d34e9ff40569f85c167daa63b1faee248b4e510f3",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 41,
+        "top": 221.921875,
+        "right": 41,
+        "bottom": 275.921875,
+        "width": 0,
+        "height": 54
+      },
+      "next_rect": {
+        "left": 57,
+        "top": 221.921875,
+        "right": 333,
+        "bottom": 275.921875,
+        "width": 276,
+        "height": 54
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "mobile-category-host",
+      "previous": "page-surface left edge",
+      "next": "search",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/mobile-category-host.png",
+      "screenshot_sha256": "a60f25b5772f6027b7ed903d34e9ff40569f85c167daa63b1faee248b4e510f3",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 41,
+        "top": 319.921875,
+        "right": 41,
+        "bottom": 355.921875,
+        "width": 0,
+        "height": 36
+      },
+      "next_rect": {
+        "left": 57,
+        "top": 319.921875,
+        "right": 333,
+        "bottom": 355.921875,
+        "width": 276,
+        "height": 36
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "mobile-category-host",
+      "previous": "page-surface left edge",
+      "next": "table",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/mobile-category-host.png",
+      "screenshot_sha256": "a60f25b5772f6027b7ed903d34e9ff40569f85c167daa63b1faee248b4e510f3",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "horizontal",
+      "previous_rect": {
+        "left": 41,
+        "top": 447.921875,
+        "right": 41,
+        "bottom": 827.921875,
+        "width": 0,
+        "height": 380
+      },
+      "next_rect": {
+        "left": 57,
+        "top": 447.921875,
+        "right": 333,
+        "bottom": 827.921875,
+        "width": 276,
+        "height": 380
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm controls sit inside the white page surface with the measured clear inset.",
+        "exception": "Controls intentionally share the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "mobile-category-host",
+      "previous": "page-surface top edge",
+      "next": "workbench toolbar",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/mobile-category-host.png",
+      "screenshot_sha256": "a60f25b5772f6027b7ed903d34e9ff40569f85c167daa63b1faee248b4e510f3",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 57,
+        "top": 205.921875,
+        "right": 333,
+        "bottom": 205.921875,
+        "width": 276,
+        "height": 0
+      },
+      "next_rect": {
+        "left": 57,
+        "top": 221.921875,
+        "right": 333,
+        "bottom": 439.921875,
+        "width": 276,
+        "height": 218
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm the toolbar begins after the page surface top inset.",
+        "exception": "Toolbar intentionally shares the page surface; the measured inset is component-owned internal padding."
+      }
+    },
+    {
+      "route": "/catalog · CRUD 列表工作台",
+      "state": "mobile-category-host",
+      "previous": "results bottom",
+      "next": "page-surface bottom edge",
+      "executed_command": "node /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/sunxu-surface-audit.js",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/mobile-category-host.png",
+      "screenshot_sha256": "a60f25b5772f6027b7ed903d34e9ff40569f85c167daa63b1faee248b4e510f3",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "axis": "vertical",
+      "previous_rect": {
+        "left": 57,
+        "top": 447.921875,
+        "right": 333,
+        "bottom": 827.921875,
+        "width": 276,
+        "height": 380
+      },
+      "next_rect": {
+        "left": 57,
+        "top": 843.921875,
+        "right": 333,
+        "bottom": 843.921875,
+        "width": 276,
+        "height": 0
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "16px",
+        "source": "src/styles.css .sxw-crud-list-workbench--page-surface uses --sxw-workspace-gutter; docs/component-contracts.md"
+      },
+      "status": "PASS",
+      "visual": {
+        "relationship": "joined",
+        "status": "PASS",
+        "method": "Rendered Chromium screenshot inspected at 100%; confirm the result region ends before the page surface bottom edge.",
+        "exception": "Results intentionally share the page surface; the measured trailing inset is component-owned internal padding."
+      }
+    }
+  ]
+}

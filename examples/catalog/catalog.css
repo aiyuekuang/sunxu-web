@@ -367,7 +367,8 @@ body {
   color: var(--docs-secondary);
 }
 
-.sxw-docs-page-content .sxw-list-screen,
+/* Keep the docs canvas flush, while a page-level workbench owns its own content inset. */
+.sxw-docs-page-content .sxw-list-screen:not(.sxw-crud-list-workbench--page-surface),
 .sxw-docs-page-content .sxw-form-screen {
   box-sizing: border-box;
   width: 100%;

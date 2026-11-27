@@ -210,7 +210,7 @@
   padding: var(--sxw-workspace-gutter, 24px);
 }
 
-/* The host shell already owns the workspace frame; never add a second inset. */
+/* Generic host-framed screens do not add a second workspace frame. */
 .sxw-screen--frame-none {
   padding: 0;
 }
@@ -423,6 +423,8 @@
 
 /* A page-level list is one content surface; embedded lists inherit their parent surface. */
 .sxw-crud-list-workbench--page-surface {
+  /* A page surface owns its content inset even when the host owns the outer frame. */
+  padding: var(--sxw-workspace-gutter, 24px);
   background-color: var(--sxw-surface);
   border-radius: var(--ant-border-radius-lg, 10px);
 }

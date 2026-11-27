@@ -1,0 +1,999 @@
+{
+  "route": "/catalog · CRUD 列表工作台",
+  "source": "Rendered public component catalog, host-frame state simulated by sxw-screen--frame-none; catalog-only reset is now scoped away from page surface.",
+  "records": [
+    {
+      "state": "desktop-category-container",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "root": {
+        "rect": {
+          "left": 285,
+          "top": 358.421875,
+          "right": 1379,
+          "bottom": 892.421875,
+          "width": 1094,
+          "height": 534
+        },
+        "style": {
+          "padding": "24px",
+          "paddingTop": "24px",
+          "paddingRight": "24px",
+          "paddingBottom": "24px",
+          "paddingLeft": "24px",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderRadius": "8px",
+          "overflowX": "visible",
+          "overflowY": "visible"
+        },
+        "className": "sxw-screen sxw-list-screen sxw-crud-list-workbench sxw-crud-list-workbench--page-surface"
+      },
+      "workspace": {
+        "rect": {
+          "left": 273,
+          "top": 346.421875,
+          "right": 1391,
+          "bottom": 904.421875,
+          "width": 1118,
+          "height": 558
+        },
+        "style": {
+          "padding": "12px",
+          "paddingTop": "12px",
+          "paddingRight": "12px",
+          "paddingBottom": "12px",
+          "paddingLeft": "12px",
+          "backgroundColor": "rgb(245, 246, 248)",
+          "borderRadius": "8px",
+          "overflowX": "visible",
+          "overflowY": "visible"
+        },
+        "className": "sxw-crud-workbench-example__surface-host"
+      },
+      "children": {
+        "toolbar": {
+          "rect": {
+            "left": 309,
+            "top": 382.421875,
+            "right": 1355,
+            "bottom": 480.421875,
+            "width": 1046,
+            "height": 98
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "primaryTabs": {
+          "rect": {
+            "left": 309,
+            "top": 382.421875,
+            "right": 1181,
+            "bottom": 436.421875,
+            "width": 872,
+            "height": 54
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "search": {
+          "rect": {
+            "left": 309,
+            "top": 444.421875,
+            "right": 629,
+            "bottom": 480.421875,
+            "width": 320,
+            "height": 36
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "table": {
+          "rect": {
+            "left": 309,
+            "top": 488.421875,
+            "right": 1355,
+            "bottom": 868.421875,
+            "width": 1046,
+            "height": 380
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "facet": {
+          "rect": null,
+          "style": null
+        }
+      },
+      "overflow": {
+        "documentClientWidth": 1440,
+        "documentScrollWidth": 1440,
+        "bodyClientWidth": 1440,
+        "bodyScrollWidth": 1440,
+        "documentClientHeight": 1000,
+        "documentScrollHeight": 1545
+      },
+      "bodyBackground": "rgb(245, 246, 248)",
+      "screenshot": {
+        "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-category-container.png",
+        "sha256": "504179b1550170d8a6c3b9275dcd0460792394aa9d88f8475a68ec5cd9ae3d33"
+      }
+    },
+    {
+      "state": "desktop-category-host",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "root": {
+        "rect": {
+          "left": 285,
+          "top": 358.421875,
+          "right": 1379,
+          "bottom": 892.421875,
+          "width": 1094,
+          "height": 534
+        },
+        "style": {
+          "padding": "24px",
+          "paddingTop": "24px",
+          "paddingRight": "24px",
+          "paddingBottom": "24px",
+          "paddingLeft": "24px",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderRadius": "8px",
+          "overflowX": "visible",
+          "overflowY": "visible"
+        },
+        "className": "sxw-screen sxw-list-screen sxw-crud-list-workbench sxw-crud-list-workbench--page-surface sxw-screen--frame-none"
+      },
+      "workspace": {
+        "rect": {
+          "left": 273,
+          "top": 346.421875,
+          "right": 1391,
+          "bottom": 904.421875,
+          "width": 1118,
+          "height": 558
+        },
+        "style": {
+          "padding": "12px",
+          "paddingTop": "12px",
+          "paddingRight": "12px",
+          "paddingBottom": "12px",
+          "paddingLeft": "12px",
+          "backgroundColor": "rgb(245, 246, 248)",
+          "borderRadius": "8px",
+          "overflowX": "visible",
+          "overflowY": "visible"
+        },
+        "className": "sxw-crud-workbench-example__surface-host"
+      },
+      "children": {
+        "toolbar": {
+          "rect": {
+            "left": 309,
+            "top": 382.421875,
+            "right": 1355,
+            "bottom": 480.421875,
+            "width": 1046,
+            "height": 98
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "primaryTabs": {
+          "rect": {
+            "left": 309,
+            "top": 382.421875,
+            "right": 1181,
+            "bottom": 436.421875,
+            "width": 872,
+            "height": 54
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "search": {
+          "rect": {
+            "left": 309,
+            "top": 444.421875,
+            "right": 629,
+            "bottom": 480.421875,
+            "width": 320,
+            "height": 36
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "table": {
+          "rect": {
+            "left": 309,
+            "top": 488.421875,
+            "right": 1355,
+            "bottom": 868.421875,
+            "width": 1046,
+            "height": 380
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "facet": {
+          "rect": null,
+          "style": null
+        }
+      },
+      "overflow": {
+        "documentClientWidth": 1440,
+        "documentScrollWidth": 1440,
+        "bodyClientWidth": 1440,
+        "bodyScrollWidth": 1440,
+        "documentClientHeight": 1000,
+        "documentScrollHeight": 1545
+      },
+      "bodyBackground": "rgb(245, 246, 248)",
+      "screenshot": {
+        "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-category-host.png",
+        "sha256": "504179b1550170d8a6c3b9275dcd0460792394aa9d88f8475a68ec5cd9ae3d33"
+      }
+    },
+    {
+      "state": "desktop-complex-host",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "root": {
+        "rect": {
+          "left": 285,
+          "top": 357.921875,
+          "right": 1379,
+          "bottom": 999.921875,
+          "width": 1094,
+          "height": 642
+        },
+        "style": {
+          "padding": "24px",
+          "paddingTop": "24px",
+          "paddingRight": "24px",
+          "paddingBottom": "24px",
+          "paddingLeft": "24px",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderRadius": "8px",
+          "overflowX": "visible",
+          "overflowY": "visible"
+        },
+        "className": "sxw-screen sxw-list-screen sxw-crud-list-workbench sxw-crud-list-workbench--page-surface sxw-crud-list-workbench--with-facet"
+      },
+      "workspace": {
+        "rect": {
+          "left": 273,
+          "top": 345.921875,
+          "right": 1391,
+          "bottom": 1011.921875,
+          "width": 1118,
+          "height": 666
+        },
+        "style": {
+          "padding": "12px",
+          "paddingTop": "12px",
+          "paddingRight": "12px",
+          "paddingBottom": "12px",
+          "paddingLeft": "12px",
+          "backgroundColor": "rgb(245, 246, 248)",
+          "borderRadius": "8px",
+          "overflowX": "visible",
+          "overflowY": "visible"
+        },
+        "className": "sxw-crud-workbench-example__surface-host"
+      },
+      "children": {
+        "toolbar": {
+          "rect": {
+            "left": 309,
+            "top": 381.921875,
+            "right": 1355,
+            "bottom": 561.921875,
+            "width": 1046,
+            "height": 180
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "primaryTabs": {
+          "rect": null,
+          "style": null
+        },
+        "search": {
+          "rect": {
+            "left": 309,
+            "top": 525.921875,
+            "right": 629,
+            "bottom": 561.921875,
+            "width": 320,
+            "height": 36
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "table": {
+          "rect": {
+            "left": 557,
+            "top": 569.921875,
+            "right": 1355,
+            "bottom": 975.921875,
+            "width": 798,
+            "height": 406
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "facet": {
+          "rect": {
+            "left": 309,
+            "top": 569.921875,
+            "right": 541,
+            "bottom": 739.921875,
+            "width": 232,
+            "height": 170
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "auto",
+            "overflowY": "auto"
+          }
+        }
+      },
+      "overflow": {
+        "documentClientWidth": 1440,
+        "documentScrollWidth": 1440,
+        "bodyClientWidth": 1440,
+        "bodyScrollWidth": 1440,
+        "documentClientHeight": 1000,
+        "documentScrollHeight": 1653
+      },
+      "bodyBackground": "rgb(245, 246, 248)",
+      "screenshot": {
+        "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-complex-host.png",
+        "sha256": "1062532bdf86ea9149ad93c95bfdf2e16152f9119e8380b8d402936e887ab5a2"
+      }
+    },
+    {
+      "state": "tablet-complex-host",
+      "viewport": {
+        "width": 1024,
+        "height": 900
+      },
+      "root": {
+        "rect": {
+          "left": 257,
+          "top": 207.921875,
+          "right": 975,
+          "bottom": 899.921875,
+          "width": 718,
+          "height": 692
+        },
+        "style": {
+          "padding": "24px",
+          "paddingTop": "24px",
+          "paddingRight": "24px",
+          "paddingBottom": "24px",
+          "paddingLeft": "24px",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderRadius": "8px",
+          "overflowX": "visible",
+          "overflowY": "visible"
+        },
+        "className": "sxw-screen sxw-list-screen sxw-crud-list-workbench sxw-crud-list-workbench--page-surface"
+      },
+      "workspace": {
+        "rect": {
+          "left": 245,
+          "top": 195.921875,
+          "right": 987,
+          "bottom": 911.921875,
+          "width": 742,
+          "height": 716
+        },
+        "style": {
+          "padding": "12px",
+          "paddingTop": "12px",
+          "paddingRight": "12px",
+          "paddingBottom": "12px",
+          "paddingLeft": "12px",
+          "backgroundColor": "rgb(245, 246, 248)",
+          "borderRadius": "8px",
+          "overflowX": "visible",
+          "overflowY": "visible"
+        },
+        "className": "sxw-crud-workbench-example__surface-host"
+      },
+      "children": {
+        "toolbar": {
+          "rect": {
+            "left": 281,
+            "top": 231.921875,
+            "right": 951,
+            "bottom": 461.921875,
+            "width": 670,
+            "height": 230
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "primaryTabs": {
+          "rect": null,
+          "style": null
+        },
+        "search": {
+          "rect": {
+            "left": 281,
+            "top": 381.921875,
+            "right": 951,
+            "bottom": 417.921875,
+            "width": 670,
+            "height": 36
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "table": {
+          "rect": {
+            "left": 281,
+            "top": 469.921875,
+            "right": 951,
+            "bottom": 875.921875,
+            "width": 670,
+            "height": 406
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "facet": {
+          "rect": null,
+          "style": null
+        }
+      },
+      "overflow": {
+        "documentClientWidth": 1024,
+        "documentScrollWidth": 1024,
+        "bodyClientWidth": 1024,
+        "bodyScrollWidth": 1024,
+        "documentClientHeight": 900,
+        "documentScrollHeight": 1723
+      },
+      "bodyBackground": "rgb(245, 246, 248)",
+      "screenshot": {
+        "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/tablet-complex-host.png",
+        "sha256": "8db405f520f41055f01a4403695dc3c18a3f75bc25afaa5367ceec0625000ac5"
+      }
+    },
+    {
+      "state": "mobile-category-host",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "root": {
+        "rect": {
+          "left": 41,
+          "top": 205.921875,
+          "right": 349,
+          "bottom": 843.921875,
+          "width": 308,
+          "height": 638
+        },
+        "style": {
+          "padding": "16px",
+          "paddingTop": "16px",
+          "paddingRight": "16px",
+          "paddingBottom": "16px",
+          "paddingLeft": "16px",
+          "backgroundColor": "rgb(255, 255, 255)",
+          "borderRadius": "8px",
+          "overflowX": "visible",
+          "overflowY": "visible"
+        },
+        "className": "sxw-screen sxw-list-screen sxw-crud-list-workbench sxw-crud-list-workbench--page-surface"
+      },
+      "workspace": {
+        "rect": {
+          "left": 33,
+          "top": 197.921875,
+          "right": 357,
+          "bottom": 851.921875,
+          "width": 324,
+          "height": 654
+        },
+        "style": {
+          "padding": "8px",
+          "paddingTop": "8px",
+          "paddingRight": "8px",
+          "paddingBottom": "8px",
+          "paddingLeft": "8px",
+          "backgroundColor": "rgb(245, 246, 248)",
+          "borderRadius": "8px",
+          "overflowX": "visible",
+          "overflowY": "visible"
+        },
+        "className": "sxw-crud-workbench-example__surface-host"
+      },
+      "children": {
+        "toolbar": {
+          "rect": {
+            "left": 57,
+            "top": 221.921875,
+            "right": 333,
+            "bottom": 439.921875,
+            "width": 276,
+            "height": 218
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "primaryTabs": {
+          "rect": {
+            "left": 57,
+            "top": 221.921875,
+            "right": 333,
+            "bottom": 275.921875,
+            "width": 276,
+            "height": 54
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "search": {
+          "rect": {
+            "left": 57,
+            "top": 319.921875,
+            "right": 333,
+            "bottom": 355.921875,
+            "width": 276,
+            "height": 36
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "table": {
+          "rect": {
+            "left": 57,
+            "top": 447.921875,
+            "right": 333,
+            "bottom": 827.921875,
+            "width": 276,
+            "height": 380
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "visible",
+            "overflowY": "visible"
+          }
+        },
+        "facet": {
+          "rect": null,
+          "style": null
+        }
+      },
+      "overflow": {
+        "documentClientWidth": 390,
+        "documentScrollWidth": 390,
+        "bodyClientWidth": 390,
+        "bodyScrollWidth": 390,
+        "documentClientHeight": 844,
+        "documentScrollHeight": 1749
+      },
+      "bodyBackground": "rgb(245, 246, 248)",
+      "screenshot": {
+        "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/mobile-category-host.png",
+        "sha256": "a60f25b5772f6027b7ed903d34e9ff40569f85c167daa63b1faee248b4e510f3"
+      }
+    },
+    {
+      "state": "desktop-embedded",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "root": {
+        "rect": {
+          "left": 290,
+          "top": 640.203125,
+          "right": 1374,
+          "bottom": 1000.203125,
+          "width": 1084,
+          "height": 360
+        },
+        "style": {
+          "padding": "0px",
+          "paddingTop": "0px",
+          "paddingRight": "0px",
+          "paddingBottom": "0px",
+          "paddingLeft": "0px",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "overflowX": "hidden",
+          "overflowY": "hidden"
+        },
+        "className": "sxw-screen sxw-screen--frame-none sxw-screen--fill sxw-list-screen sxw-crud-list-workbench sxw-crud-list-workbench--embedded sxw-crud-list-workbench--fill"
+      },
+      "workspace": {
+        "rect": {
+          "left": 290,
+          "top": 640.203125,
+          "right": 1374,
+          "bottom": 1000.203125,
+          "width": 1084,
+          "height": 360
+        },
+        "style": {
+          "padding": "0px",
+          "paddingTop": "0px",
+          "paddingRight": "0px",
+          "paddingBottom": "0px",
+          "paddingLeft": "0px",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "overflowX": "visible",
+          "overflowY": "visible"
+        },
+        "className": ""
+      },
+      "children": {
+        "toolbar": {
+          "rect": null,
+          "style": null
+        },
+        "primaryTabs": {
+          "rect": null,
+          "style": null
+        },
+        "search": {
+          "rect": null,
+          "style": null
+        },
+        "table": {
+          "rect": {
+            "left": 290,
+            "top": 640.203125,
+            "right": 1374,
+            "bottom": 1000.203125,
+            "width": 1084,
+            "height": 360
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "hidden",
+            "overflowY": "hidden"
+          }
+        },
+        "facet": {
+          "rect": null,
+          "style": null
+        }
+      },
+      "overflow": {
+        "documentClientWidth": 1440,
+        "documentScrollWidth": 1440,
+        "bodyClientWidth": 1440,
+        "bodyScrollWidth": 1440,
+        "documentClientHeight": 1000,
+        "documentScrollHeight": 1545
+      },
+      "bodyBackground": "rgb(245, 246, 248)",
+      "screenshot": {
+        "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-embedded.png",
+        "sha256": "9ccbf914444093456940814ac22b070aae6edb74968b0528b163ae13f18b426e"
+      }
+    },
+    {
+      "state": "mobile-embedded",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "root": {
+        "rect": {
+          "left": 50,
+          "top": 434.203125,
+          "right": 340,
+          "bottom": 794.203125,
+          "width": 290,
+          "height": 360
+        },
+        "style": {
+          "padding": "0px",
+          "paddingTop": "0px",
+          "paddingRight": "0px",
+          "paddingBottom": "0px",
+          "paddingLeft": "0px",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "overflowX": "hidden",
+          "overflowY": "hidden"
+        },
+        "className": "sxw-screen sxw-screen--frame-none sxw-screen--fill sxw-list-screen sxw-crud-list-workbench sxw-crud-list-workbench--embedded sxw-crud-list-workbench--fill"
+      },
+      "workspace": {
+        "rect": {
+          "left": 50,
+          "top": 434.203125,
+          "right": 340,
+          "bottom": 794.203125,
+          "width": 290,
+          "height": 360
+        },
+        "style": {
+          "padding": "0px",
+          "paddingTop": "0px",
+          "paddingRight": "0px",
+          "paddingBottom": "0px",
+          "paddingLeft": "0px",
+          "backgroundColor": "rgba(0, 0, 0, 0)",
+          "borderRadius": "0px",
+          "overflowX": "visible",
+          "overflowY": "visible"
+        },
+        "className": ""
+      },
+      "children": {
+        "toolbar": {
+          "rect": null,
+          "style": null
+        },
+        "primaryTabs": {
+          "rect": null,
+          "style": null
+        },
+        "search": {
+          "rect": null,
+          "style": null
+        },
+        "table": {
+          "rect": {
+            "left": 50,
+            "top": 434.203125,
+            "right": 340,
+            "bottom": 794.203125,
+            "width": 290,
+            "height": 360
+          },
+          "style": {
+            "padding": "0px",
+            "paddingTop": "0px",
+            "paddingRight": "0px",
+            "paddingBottom": "0px",
+            "paddingLeft": "0px",
+            "backgroundColor": "rgba(0, 0, 0, 0)",
+            "borderRadius": "0px",
+            "overflowX": "hidden",
+            "overflowY": "hidden"
+          }
+        },
+        "facet": {
+          "rect": null,
+          "style": null
+        }
+      },
+      "overflow": {
+        "documentClientWidth": 390,
+        "documentScrollWidth": 390,
+        "bodyClientWidth": 390,
+        "bodyScrollWidth": 390,
+        "documentClientHeight": 844,
+        "documentScrollHeight": 1749
+      },
+      "bodyBackground": "rgb(245, 246, 248)",
+      "screenshot": {
+        "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/mobile-embedded.png",
+        "sha256": "1630fcf91745d6a168e076bf1e799660ef0ab3f67e4568ab6069a79cb2f828d5"
+      }
+    }
+  ],
+  "screenshots": {
+    "desktop-category-container": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-category-container.png",
+      "sha256": "504179b1550170d8a6c3b9275dcd0460792394aa9d88f8475a68ec5cd9ae3d33"
+    },
+    "desktop-category-host": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-category-host.png",
+      "sha256": "504179b1550170d8a6c3b9275dcd0460792394aa9d88f8475a68ec5cd9ae3d33"
+    },
+    "desktop-complex-host": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-complex-host.png",
+      "sha256": "1062532bdf86ea9149ad93c95bfdf2e16152f9119e8380b8d402936e887ab5a2"
+    },
+    "tablet-complex-host": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/tablet-complex-host.png",
+      "sha256": "8db405f520f41055f01a4403695dc3c18a3f75bc25afaa5367ceec0625000ac5"
+    },
+    "mobile-category-host": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/mobile-category-host.png",
+      "sha256": "a60f25b5772f6027b7ed903d34e9ff40569f85c167daa63b1faee248b4e510f3"
+    },
+    "desktop-embedded": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/desktop-embedded.png",
+      "sha256": "9ccbf914444093456940814ac22b070aae6edb74968b0528b163ae13f18b426e"
+    },
+    "mobile-embedded": {
+      "path": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/crud-list-workbench-surface-inset-2026-11-27/screenshots/mobile-embedded.png",
+      "sha256": "1630fcf91745d6a168e076bf1e799660ef0ab3f67e4568ab6069a79cb2f828d5"
+    }
+  },
+  "consoleErrors": [
+    "[use-antd-resizable-header] 请不要在所有列上添加 `width` 属性，这将导致表格无法自适应"
+  ],
+  "pageErrors": []
+}
