@@ -9,7 +9,6 @@ import {
   App,
   Button,
   Form,
-  Input,
   InputNumber,
   Modal,
   Popover,
@@ -19,6 +18,7 @@ import {
   Typography,
 } from 'antd';
 import type { ColumnsType, TableRowSelection } from 'antd/es/table/interface';
+import { ListKeywordSearch } from '../../../components/ListKeywordSearch';
 import { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import {
   ResizableProTable as ProTable,
@@ -712,18 +712,18 @@ export function AllowedEquipmentPriorityField({
         okText="确定"
         cancelText="取消"
       >
-        <Input.Search
-          allowClear
-          placeholder="搜索设备名称或编号"
-          aria-label="搜索设备名称或编号"
-          value={keywordDraft}
-          onChange={(event) => setKeywordDraft(event.target.value)}
-          onSearch={(value) => {
-            setKeyword(value.trim());
-            actionRef.current?.reloadAndRest?.();
-          }}
-          style={{ maxWidth: 360, marginBottom: 12 }}
-        />
+        <div style={{ width: 320, maxWidth: '100%', marginBottom: 12 }}>
+          <ListKeywordSearch
+            ariaLabel="搜索设备名称或编号"
+            placeholder="搜索设备名称或编号"
+            value={keywordDraft}
+            onChange={(event) => setKeywordDraft(event.target.value)}
+            onSearch={(value) => {
+              setKeyword(value.trim());
+              actionRef.current?.reloadAndRest?.();
+            }}
+          />
+        </div>
         <ProTable<EquipmentOption>
           key={`${equipmentType ?? ''}-${workCenterId ?? ''}`}
           actionRef={actionRef}

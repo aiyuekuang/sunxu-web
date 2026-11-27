@@ -54,6 +54,7 @@ import type {
   UnscheduledPanelProps,
   UnscheduledWorkOrder,
 } from './production-schedule-planning-types';
+import { ListKeywordSearch } from '../../../components/ListKeywordSearch';
 import './production-schedule-planning.css';
 
 function formatPercent(value: number) {
@@ -1167,19 +1168,19 @@ export const UnscheduledPanel = memo(function UnscheduledPanel({
       className="sxw-unscheduled-panel"
       styles={{ body: { padding: 8 } }}
     >
-      <Input.Search
-        aria-label={capabilities.labels.searchPlaceholder}
-        placeholder={capabilities.labels.searchPlaceholder}
-        size="small"
-        allowClear
-        value={keyword}
-        onChange={(event) => handleKeywordChange(event.target.value)}
-        onSearch={(value) => {
-          clearTimeout(debounceTimer.current);
-          setDebouncedKeyword(value);
-        }}
-        style={{ marginBottom: 8 }}
-      />
+      <div style={{ marginBottom: 8 }}>
+        <ListKeywordSearch
+          ariaLabel={capabilities.labels.searchPlaceholder}
+          placeholder={capabilities.labels.searchPlaceholder}
+          size="small"
+          value={keyword}
+          onChange={(event) => handleKeywordChange(event.target.value)}
+          onSearch={(value) => {
+            clearTimeout(debounceTimer.current);
+            setDebouncedKeyword(value);
+          }}
+        />
+      </div>
       {loading ? (
         <div className="sxw-unscheduled-loading">
           <Spin size="small" />

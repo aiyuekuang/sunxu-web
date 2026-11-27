@@ -30,6 +30,7 @@ type ProductBaseType = 'raw' | 'semi' | 'finished';
 type ProductStatus = 'active' | 'inactive';
 type ProductCategory = 'all' | ProductBaseType;
 type StatusFilter = 'all' | ProductStatus;
+type ProductSource = 'all' | 'inHouse' | 'purchased';
 type LayoutMode = 'light' | 'category' | 'complex' | 'pro-search';
 
 type DemoProduct = {
@@ -40,14 +41,15 @@ type DemoProduct = {
   specification: string;
   unit: string;
   status: ProductStatus;
+  source: Exclude<ProductSource, 'all'>;
   price: number;
 };
 
 type ProductSnapshot = {
   baseType: ProductCategory;
   status: StatusFilter;
+  source: ProductSource;
   unit?: string;
-  keyword: string;
   code: string;
   missingSpecification: boolean;
 };
@@ -61,15 +63,15 @@ const baseTypeLabels: Record<ProductBaseType, string> = {
 };
 
 const seedProducts: DemoProduct[] = [
-  { id: 'p-001', name: '上肢关节康复器', code: 'CRM-P-000002', baseType: 'finished', specification: '单关节', unit: '个', status: 'active', price: 1280 },
-  { id: 'p-002', name: '上肢综合训练器', code: 'CRM-P-000003', baseType: 'finished', specification: '标准型', unit: '台', status: 'active', price: 3680 },
-  { id: 'p-003', name: '下肢关节康复运动器', code: 'CRM-P-000004', baseType: 'finished', specification: '双关节', unit: '台', status: 'active', price: 2860 },
-  { id: 'p-004', name: '倾斜床', code: 'CRM-P-000005', baseType: 'finished', specification: '—', unit: '台', status: 'inactive', price: 5200 },
-  { id: 'p-005', name: '康复训练器支架', code: 'CRM-S-000012', baseType: 'semi', specification: '钢制 1.2m', unit: '件', status: 'active', price: 320 },
-  { id: 'p-006', name: '控制面板组件', code: 'CRM-S-000013', baseType: 'semi', specification: '触控版', unit: '件', status: 'active', price: 460 },
-  { id: 'p-007', name: '不锈钢管材', code: 'CRM-R-000018', baseType: 'raw', specification: '304 / 30mm', unit: '米', status: 'active', price: 42 },
-  { id: 'p-008', name: '包装纸箱', code: 'CRM-R-000021', baseType: 'raw', specification: '—', unit: '个', status: 'inactive', price: 8 },
-  { id: 'p-009', name: '医用诊疗床', code: 'CRM-P-000008', baseType: 'finished', specification: '电动三段', unit: '台', status: 'active', price: 7800 },
+  { id: 'p-001', name: '上肢关节康复器', code: 'CRM-P-000002', baseType: 'finished', specification: '单关节', unit: '个', status: 'active', source: 'inHouse', price: 1280 },
+  { id: 'p-002', name: '上肢综合训练器', code: 'CRM-P-000003', baseType: 'finished', specification: '标准型', unit: '台', status: 'active', source: 'inHouse', price: 3680 },
+  { id: 'p-003', name: '下肢关节康复运动器', code: 'CRM-P-000004', baseType: 'finished', specification: '双关节', unit: '台', status: 'active', source: 'inHouse', price: 2860 },
+  { id: 'p-004', name: '倾斜床', code: 'CRM-P-000005', baseType: 'finished', specification: '—', unit: '台', status: 'inactive', source: 'purchased', price: 5200 },
+  { id: 'p-005', name: '康复训练器支架', code: 'CRM-S-000012', baseType: 'semi', specification: '钢制 1.2m', unit: '件', status: 'active', source: 'inHouse', price: 320 },
+  { id: 'p-006', name: '控制面板组件', code: 'CRM-S-000013', baseType: 'semi', specification: '触控版', unit: '件', status: 'active', source: 'purchased', price: 460 },
+  { id: 'p-007', name: '不锈钢管材', code: 'CRM-R-000018', baseType: 'raw', specification: '304 / 30mm', unit: '米', status: 'active', source: 'purchased', price: 42 },
+  { id: 'p-008', name: '包装纸箱', code: 'CRM-R-000021', baseType: 'raw', specification: '—', unit: '个', status: 'inactive', source: 'purchased', price: 8 },
+  { id: 'p-009', name: '医用诊疗床', code: 'CRM-P-000008', baseType: 'finished', specification: '电动三段', unit: '台', status: 'active', source: 'inHouse', price: 7800 },
 ];
 
 const baseTypeTabs = [
@@ -82,8 +84,8 @@ const baseTypeTabs = [
 const initialSnapshot: ProductSnapshot = {
   baseType: 'all',
   status: 'active',
+  source: 'all',
   unit: undefined,
-  keyword: '',
   code: '',
   missingSpecification: false,
 };
@@ -124,13 +126,18 @@ function isStatusFilter(value: string): value is StatusFilter {
   return value === 'all' || value === 'active' || value === 'inactive';
 }
 
+function isProductSource(value: string): value is ProductSource {
+  return value === 'all' || value === 'inHouse' || value === 'purchased';
+}
+
 export function CrudListWorkbenchPage() {
   const { message, modal } = AntdApp.useApp();
   const actionRef = useRef<ActionType | undefined>(undefined);
   const [layoutMode, setLayoutMode] = useState<LayoutMode>('category');
   const [products, setProducts] = useState(seedProducts);
   const [snapshot, setSnapshot] = useState<ProductSnapshot>(initialSnapshot);
-  const [keywordDraft, setKeywordDraft] = useState(initialSnapshot.keyword);
+  const [keyword, setKeyword] = useState('');
+  const [keywordDraft, setKeywordDraft] = useState('');
   const [dirty, setDirty] = useState(false);
   const [views, setViews] = useState(initialViews);
   const [activeViewId, setActiveViewId] = useState('enabled-products');
@@ -156,17 +163,18 @@ export function CrudListWorkbenchPage() {
   const visibleProducts = useMemo(
     () =>
       products.filter((product) => {
-        const normalizedKeyword = snapshot.keyword.trim().toLowerCase();
+        const normalizedKeyword = keyword.trim().toLowerCase();
         return (
           (snapshot.baseType === 'all' || product.baseType === snapshot.baseType) &&
           (snapshot.status === 'all' || product.status === snapshot.status) &&
+          (snapshot.source === 'all' || product.source === snapshot.source) &&
           (!snapshot.unit || product.unit === snapshot.unit) &&
           (!normalizedKeyword || product.name.toLowerCase().includes(normalizedKeyword)) &&
           (!snapshot.code || product.code.toLowerCase().includes(snapshot.code.toLowerCase())) &&
           (!snapshot.missingSpecification || product.specification === '—')
         );
       }),
-    [products, snapshot],
+    [keyword, products, snapshot],
   );
 
   const openEditor = (product?: DemoProduct) => {
@@ -196,18 +204,21 @@ export function CrudListWorkbenchPage() {
   };
 
   const saveProduct = async (values: Omit<DemoProduct, 'id'>) => {
+    const source = editingId
+      ? products.find((product) => product.id === editingId)?.source ?? 'inHouse'
+      : 'inHouse';
     if (editingId) {
       setProducts((current) =>
         current.map((product) =>
           product.id === editingId
-            ? { ...values, id: editingId, specification: values.specification || '—' }
+            ? { ...values, id: editingId, source, specification: values.specification || '—' }
             : product,
         ),
       );
       message.success('产品已更新');
     } else {
       setProducts((current) => [
-        { ...values, id: `p-${Date.now()}`, specification: values.specification || '—' },
+        { ...values, id: `p-${Date.now()}`, source, specification: values.specification || '—' },
         ...current,
       ]);
       message.success('产品已新增');
@@ -331,7 +342,6 @@ export function CrudListWorkbenchPage() {
 
   const applyView = (view: DemoSavedView) => {
     setSnapshot({ ...view.snapshot });
-    setKeywordDraft(view.snapshot.keyword);
     restoreDraft(view.snapshot);
     setActiveViewId(view.id);
     setDirty(false);
@@ -439,7 +449,7 @@ export function CrudListWorkbenchPage() {
               : undefined
           }
           primaryTabs={
-            isCategory
+            isCategory || isComplex
               ? {
                   ariaLabel: '按产品分类筛选',
                   value: snapshot.baseType,
@@ -467,23 +477,31 @@ export function CrudListWorkbenchPage() {
                 }
               : undefined
           }
-          search={
+          keywordSearch={
             isProSearch
               ? undefined
               : (
-                  <Input.Search
-                    aria-label="搜索产品名称"
-                    placeholder="产品名称"
-                    allowClear
-                    style={{ width: '100%' }}
-                    value={keywordDraft}
-                    onChange={(event) => {
-                      const keyword = event.target.value;
-                      setKeywordDraft(keyword);
-                      if (!keyword) updateSnapshot({ keyword: '' });
-                    }}
-                    onSearch={(keyword) => updateSnapshot({ keyword: keyword.trim() })}
-                  />
+                  {
+                    ariaLabel: '搜索产品名称',
+                    placeholder: '产品名称',
+                    value: keywordDraft,
+                    onChange: (event) => {
+                      const nextKeyword = event.target.value;
+                      setKeywordDraft(nextKeyword);
+                      if (!nextKeyword) {
+                        setKeyword('');
+                        actionRef.current?.setPageInfo?.({ current: 1 });
+                        setSelectedKeys([]);
+                      }
+                    },
+                    onSearch: (nextKeyword, _event, info) => {
+                      if (info?.source === 'clear') return;
+                      setKeywordDraft(nextKeyword);
+                      setKeyword(nextKeyword.trim());
+                      setSelectedKeys([]);
+                      actionRef.current?.setPageInfo?.({ current: 1 });
+                    },
+                  }
                 )
           }
           quickFilters={isProSearch ? undefined : quickFilters}
@@ -565,25 +583,22 @@ export function CrudListWorkbenchPage() {
               : undefined
           }
           appliedFilters={!isProSearch && activeFilterCount ? appliedFilterTags : undefined}
-          facetLabel="产品分类"
+          facetLabel="供应来源"
           facetSidebar={
             isComplex ? (
-              <div className="sxw-crud-workbench-example__facet">
-                <Tree
-                  aria-label="产品分类"
-                  selectedKeys={snapshot.baseType === 'all' ? ['all'] : [snapshot.baseType]}
-                  treeData={[
-                    { title: '全部产品', key: 'all' },
-                    { title: '原材料', key: 'raw' },
-                    { title: '半成品', key: 'semi' },
-                    { title: '成品', key: 'finished' },
-                  ]}
-                  onSelect={(keys) => {
-                    const selected = String(keys[0] ?? 'all');
-                    if (isProductCategory(selected)) updateSnapshot({ baseType: selected });
-                  }}
-                />
-              </div>
+              <Tree
+                aria-label="供应来源"
+                selectedKeys={[snapshot.source]}
+                treeData={[
+                  { title: '全部来源', key: 'all' },
+                  { title: '自制', key: 'inHouse' },
+                  { title: '外购', key: 'purchased' },
+                ]}
+                onSelect={(keys) => {
+                  const selected = String(keys[0] ?? 'all');
+                  if (isProductSource(selected)) updateSnapshot({ source: selected });
+                }}
+              />
             ) : undefined
           }
           renderTable={

@@ -19,7 +19,9 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 | 默认当前业务日期 | `todayBusinessDate`（`sunxu-web/business`） | 按 `Asia/Shanghai` 生成 `YYYY-MM-DD`；不得从 UTC ISO 字符串截取日期 |
 | CRUD 列表工作台 | `CrudListWorkbench`；字段、请求、权限和编辑流程由宿主提供 | 页面级工作台使用主题容器面，视图/筛选/操作栏与结果区保持同一表面；内嵌工作台透明并继承父面。工作台不渲染页级标题；当前导航已说明任务时不重复标题，需要标题时由宿主在工作台外组合 `PageHeader`。ProTable 列能表达的查询字段优先用 `proTableSearch` 和列 schema；外部业务控件用工作台筛选插槽，不复制 ProTable 查询表单。只有现有业务确需可调整列宽等表格扩展时才使用 `renderTable`；筛选与列表级操作由工作台紧邻结果区承载；新增使用 `onCreate`，由组件固定文案为“新增”；行内标准操作用 `RowActions` 的 `kind` 固定文案 |
 | 列表/明细需要保留扩展表格能力 | `ResizableProTable` / `ResizableTable`（`sunxu-web/business/shared/table`） | 组件承接列宽、列序/显隐、排序、行号、密度、空态和导出布局等表格交互；请求、查询字段、授权、动作和记录仍由宿主提供。Ant Design 根主题若需与表格密度联动，使用共享 `useTableDensityKey` / `getTableDensityTokens`；旧产品存储键由宿主启动时一次性迁移。完整宿主菜单列需用 `markCompleteActionMenuColumn` 标记，避免再次嵌套；标准行操作使用共享菜单。用于工作台时仅通过 `renderTable` 接入，工作台不渲染页级标题，只负责筛选与紧邻表格的列表操作工具栏 |
-| 列表单关键词跨字段搜索 | `DocumentKeywordSearch`（`sunxu-web/business/documents`） | 放在结果区紧邻工具栏；可搜索范围写在 placeholder 中，保留稳定的 `aria-label`，不得加可见标题前缀。默认 `mode="expanded"`，用于高频、主任务或当前值必须始终可见的查询；工具栏空间确实紧张时显式用 `mode="collapsible"`，提交查询后组件保持展开，清空后由用户收起。标题属于宿主页头职责，不通过搜索组件重复渲染 |
+| 列表单关键词搜索 | `CrudListWorkbench.keywordSearch`（底层唯一通用控件 `ListKeywordSearch`） | 搜索是列表的单一高频条件时用结构化插槽；字段与请求由宿主定义，关键词保留为临时查询，不能暗中加入保存视图快照。默认展开；仅在实测工具栏空间仍不足时设 `mode="collapsible"`，有生效关键词时保持可见 |
+| 有单据领域草稿语义的关键词搜索 | `DocumentKeywordSearch`（`sunxu-web/business/documents`） | 这是 `ListKeywordSearch` 的薄领域适配，不另维护输入样式；只保留单据默认提示和既有草稿/提交语义。可搜索范围写在 placeholder 中，标题属于宿主页头职责 |
+| 自定义复合筛选工具栏中包含单关键词 | `ListKeywordSearch`（`sunxu-web/components`） | 仅当搜索必须和 Form.Item 或其他业务控件绑定为同一组合时使用；应继续由 `CrudListWorkbench.search` 承载组合，关键词输入仍复用同一控件。其他列表不得自绘或另封同义搜索框 |
 | 采购申请列表展开行的只读物料明细 | `PurchaseRequisitionItemsTable`（`sunxu-web/business`） | 固定优先显示物料身份、单位和数量，再显示供应商/采购日期等上下文，最后显示行号、备注和审计时间；宿主传入行数据和格式函数，不在展开表中复制列渲染或数量回退逻辑 |
 | 同单位/同币种字段与表格列一一对应 | `TableSummary`（默认 `fixed`）+ AntD `Table.Summary.Cell` | 可加字段放在对应列下方并固定在表格底部；汇总单元格按最终可见列顺序提供 |
 | 多单位/多货主汇总较长，且要跟随结果行滚动 | `TableSummary fixed={false}` + AntD `Table.Summary.Cell` | 在数据行后显示并随表格纵向、横向滚动；用合并单元格承载分组摘要，固定操作列保持空白；由上游提供全筛选结果口径 |
@@ -51,6 +53,23 @@ Sunxu Web 的基础控件权威来源是 Ant Design，复杂表单和数据页�
 | AntD 或 ProForm 日期/日期时间范围需要通用快捷预设 | `QuickDateRangePicker` / `QuickProFormDateRangePicker` / `QuickProFormDateTimeRangePicker`（`sunxu-web`） | 调用方专用预设优先，缺少的通用预设自动补齐；业务日期条件和报表请求仍由宿主管理 |
 | 业务图纸上传、订单附件行关联、图纸分组预览与打印 | `DrawingFilesInline` / `FileUrlsInline` / `DrawingFilesGallery`（`sunxu-web/business`） | 使用 `BusinessUiProvider.drawingFilesCapabilities` 注入授权上传、文件代理下载、原名解析和 PDF worker；分组打印回调、权限与业务保存由宿主决定 |
 | 远程搜索候选 | `RemoteSelect` | 非远程/本地选项直接使用 AntD Select；请求和分页由宿主管理 |
+
+### 列表工作台组合规则
+
+`CrudListWorkbench` 是所有同类列表结构的组合根；用它的独立插槽表达场景，不按“只有 Tab”“Tab + 树”“Tab + 树 + 视图”分别造组件。上游宿主定义 Tab 项、树数据/选中值、视图范围与字段 schema；工作台只按这些公开配置组织稳定的区域。`primaryTabs` 仅代表当前结果集的范围切换；切换不同页面、权限归口或工作流的页级导航继续由宿主导航组件负责。`facetSidebar` 代表与 Tab 不同维度的目录/队列，工作台统一拥有面板表面、宽度和窄屏抽屉；传入的树内容不再自包相同卡片。`viewBar` 的快照按当前业务范围隔离，关键词保持临时条件。
+
+```tsx
+<CrudListWorkbench
+  primaryTabs={scopeTabs}
+  facetSidebar={<BusinessTree data={treeData} value={selectedNode} onChange={selectNode} />}
+  viewBar={<SavedViewBar {...viewConfig} />}
+  keywordSearch={keywordConfig}
+  advancedFilters={filterConfig}
+  tableProps={tableConfig}
+/>
+```
+
+结果需要保留领域卡片和专属行操作时，以 `results` 替代 `tableProps`，仍复用同一 Tab、Facet、视图、搜索和工具栏区域；宿主继续拥有卡片数据、加载/错误/空态、分页及行操作。表格和卡片不是两种工作台，差异只在结果渲染器。`layout="embedded"` 仅控制是否继承外部页面面板，不改变上述组合契约。
 | 表格长文本最多显示两行并可查看全文 | `LongText` | 默认用 `displayMode="wrap"`；需要旧式截断时显式用 `displayMode="truncate"` |
 | 表格行操作收纳 | `RowActions` | 操作语义（权限、确认、跳转）由宿主决定；行内需要平铺展示的主操作直接用 AntD Button |
 | 图表区域含加载/空/错误状态 | `ChartPanel` | 普通图表无需额外容器时直接渲染；图表引擎和数据由宿主提供 |

@@ -16,6 +16,8 @@ import {
 import { ProTable } from '@ant-design/pro-components';
 import type { ProTableProps } from '@ant-design/pro-components';
 import { FilterBar } from './FilterBar';
+import { ListKeywordSearch } from './ListKeywordSearch';
+import type { ListKeywordSearchControlledProps, ListKeywordSearchProps } from './ListKeywordSearch';
 import { withPaginationSummary } from './PaginationSummary';
 import { ListScreenContainer } from './PageContainers';
 import type { ListScreenContainerProps } from './PageContainers';
@@ -48,7 +50,7 @@ export type CrudListAdvancedFilters = {
   /** Promote the host's draft to applied query params. ProTable re-requests when `tableProps.params` changes. */
   onApply: () => void | boolean | Promise<void | boolean>;
   onApplyError?: (error: unknown) => void;
-  /** Clear the draft only; the existing result set remains applied until `onApply`. */
+  /** Restore or reset conditions according to the host's established filter semantics. */
   onReset?: () => void;
   /** Restore draft controls from the currently applied query after dismissal. */
   onCancel?: () => void;
@@ -80,27 +82,35 @@ export type CrudListWorkbenchTableRenderProps<
   paginationSummary?: ReactNode;
 };
 
-export type CrudListWorkbenchProps<
-  T extends object,
-  Params extends Record<string, unknown> = Record<string, unknown>,
-> = Omit<ListScreenContainerProps, 'actions' | 'children' | 'title' | 'toolbar'> & {
+export type CrudListKeywordSearchConfig = ListKeywordSearchProps &
+  ListKeywordSearchControlledProps;
+
+type CrudListWorkbenchSearchSlot =
+  | {
+      /** The canonical control for one temporary keyword query. */
+      keywordSearch: CrudListKeywordSearchConfig;
+      search?: never;
+    }
+  | {
+      /** Form-bound search composition; keyword input must reuse ListKeywordSearch. */
+      search?: ReactNode;
+      keywordSearch?: never;
+    };
+
+type CrudListWorkbenchCommonProps = {
   /** @deprecated The workbench no longer renders a page title; use a host-level PageHeader if needed. */
   title?: ReactNode;
-  /** High-frequency, mutually exclusive top-level categories. */
+  /** Mutually exclusive scopes within this result set, such as customer type. */
   primaryTabs?: CrudListPrimaryTabs;
   /** Common status filter, rendered on the right side of the primary toolbar. */
   statusFilters?: StatusTabsProps;
   /** One or two frequently used controls, such as owner or date range. */
   quickFilters?: ReactNode;
-  /** Host-owned keyword/search control; fills the slot, capped at 320px on desktop. */
-  search?: ReactNode;
   /** Optional host-owned actions placed beside search and filters. */
   filterActions?: ReactNode;
   /** Host-owned summary/chips for currently applied query conditions. */
   appliedFilters?: ReactNode;
-  /** Host-provided full-filter summary displayed beside the pagination controls. */
-  paginationSummary?: ReactNode;
-  /** Optional system/personal view manager, commonly `SavedViewBar`. */
+  /** Optional system/personal views scoped by the host to the active list scope. */
   viewBar?: ReactNode;
   /** Optional create action. The workbench renders the standard “新增” button. */
   onCreate?: () => void;
@@ -110,19 +120,11 @@ export type CrudListWorkbenchProps<
   toolbarActions?: ReactNode;
   /** Optional advanced filter drawer. Field schema and values stay with the host. */
   advancedFilters?: CrudListAdvancedFilters;
-  /** Optional hierarchy/category facet. It becomes a left drawer below the effective-width breakpoint. */
+  /** Optional second-dimension hierarchy/category facet; it becomes a left drawer below the effective-width breakpoint. */
   facetSidebar?: ReactNode;
   facetLabel?: string;
   facetSidebarBreakpoint?: number;
   filterBarLabel?: string;
-  /** Use ProTable's column-driven QueryFilter, including its native responsive/collapse behavior. */
-  proTableSearch?: ProTableProps<T, Params>['search'];
-  /**
-   * Render a host table adapter (for example, a resizable ProTable) inside the
-   * workbench result area. The adapter receives normalized table props while
-   * filters, actions, and toolbar remain owned by this component.
-   */
-  renderTable?: (props: CrudListWorkbenchTableRenderProps<T, Params>) => ReactNode;
   /** Automatically move inline quick filters into an expandable row when they do not fit. Defaults to true. */
   responsiveQuickFilters?: boolean;
   /**
@@ -135,8 +137,39 @@ export type CrudListWorkbenchProps<
    * visible while the table body scrolls. Use it for single-list viewport pages.
    */
   fill?: boolean;
-  tableProps: CrudListWorkbenchTableProps<T, Params>;
 };
+
+type CrudListWorkbenchTableResult<
+  T extends object,
+  Params extends Record<string, unknown>,
+> = {
+  /** Use ProTable as the result renderer. */
+  tableProps: CrudListWorkbenchTableProps<T, Params>;
+  results?: never;
+  /** Use ProTable's column-driven QueryFilter, including its native responsive/collapse behavior. */
+  proTableSearch?: ProTableProps<T, Params>['search'];
+  /** Render a host table adapter while keeping filters and list actions in this workbench. */
+  renderTable?: (props: CrudListWorkbenchTableRenderProps<T, Params>) => ReactNode;
+  /** Host-provided full-filter summary displayed beside the pagination controls. */
+  paginationSummary?: ReactNode;
+};
+
+type CrudListWorkbenchCustomResults = {
+  /** Render non-table results in the shared workbench; the host owns their state and pagination. */
+  results: ReactNode;
+  tableProps?: never;
+  proTableSearch?: never;
+  renderTable?: never;
+  paginationSummary?: never;
+};
+
+export type CrudListWorkbenchProps<
+  T extends object,
+  Params extends Record<string, unknown> = Record<string, unknown>,
+> = Omit<ListScreenContainerProps, 'actions' | 'children' | 'title' | 'toolbar'> &
+  CrudListWorkbenchSearchSlot &
+  CrudListWorkbenchCommonProps &
+  (CrudListWorkbenchTableResult<T, Params> | CrudListWorkbenchCustomResults);
 
 const TABLE_MIN_BODY_HEIGHT = 80;
 const DEFAULT_PAGINATION_SPACE = 64;
@@ -393,37 +426,41 @@ function useFillTableHeight(
 export function CrudListWorkbench<
   T extends object,
   Params extends Record<string, unknown> = Record<string, unknown>,
->({
-  headingLevel,
-  description,
-  breadcrumbs,
-  className,
-  as = 'section',
-  primaryTabs,
-  statusFilters,
-  quickFilters,
-  search,
-  filterActions,
-  appliedFilters,
-  paginationSummary,
-  viewBar,
-  toolbarActions,
-  onCreate,
-  onCreateDisabled = false,
-  advancedFilters,
-  facetSidebar,
-  facetLabel = '分类筛选',
-  facetSidebarBreakpoint = 1024,
-  filterBarLabel = '列表筛选',
-  proTableSearch,
-  renderTable,
-  responsiveQuickFilters = true,
-  layout = 'page',
-  fill = false,
-  tableProps,
-}: CrudListWorkbenchProps<T, Params>) {
+>(props: CrudListWorkbenchProps<T, Params>) {
+  const {
+    headingLevel,
+    description,
+    breadcrumbs,
+    className,
+    as = 'section',
+    primaryTabs,
+    statusFilters,
+    quickFilters,
+    keywordSearch,
+    search,
+    filterActions,
+    appliedFilters,
+    paginationSummary,
+    viewBar,
+    toolbarActions,
+    onCreate,
+    onCreateDisabled = false,
+    advancedFilters,
+    facetSidebar,
+    facetLabel = '分类筛选',
+    facetSidebarBreakpoint = 1024,
+    filterBarLabel = '列表筛选',
+    proTableSearch,
+    renderTable,
+    responsiveQuickFilters = true,
+    layout = 'page',
+    fill = false,
+  } = props;
+  const hasCustomResults = 'results' in props;
+  const results = hasCustomResults ? props.results : undefined;
+  const tableProps = 'tableProps' in props ? props.tableProps : undefined;
   const layoutRef = useRef<HTMLDivElement>(null);
-  const tableContainerRef = useRef<HTMLDivElement>(null);
+  const resultContainerRef = useRef<HTMLDivElement>(null);
   const filterBarRef = useRef<HTMLDivElement>(null);
   const quickFiltersRef = useRef<HTMLDivElement>(null);
   const filterActionsRef = useRef<HTMLDivElement>(null);
@@ -439,33 +476,38 @@ export function CrudListWorkbench<
   const [applyingFilters, setApplyingFilters] = useState(false);
   const [filterApplyError, setFilterApplyError] = useState(false);
   const fillTableHeight = useFillTableHeight(
-    fill,
-    tableProps.pagination !== false,
-    tableProps.scroll?.y,
-    tableContainerRef,
+    fill && !hasCustomResults,
+    tableProps?.pagination !== false,
+    tableProps?.scroll?.y,
+    resultContainerRef,
   );
   const resolvedScroll =
-    fillTableHeight !== undefined && tableProps.scroll?.y === undefined
-      ? { ...(tableProps.scroll ?? {}), y: fillTableHeight }
-      : tableProps.scroll;
+    fillTableHeight !== undefined && tableProps?.scroll?.y === undefined
+      ? { ...(tableProps?.scroll ?? {}), y: fillTableHeight }
+      : tableProps?.scroll;
   const resolvedCardProps =
-    tableProps.cardProps === undefined
+    tableProps?.cardProps === undefined
       ? { styles: { body: { paddingInline: 16 } } }
-      : tableProps.cardProps;
-  const fillTableLayout = fill ? addFillTableLayout(tableProps) : undefined;
+      : tableProps?.cardProps;
+  const fillTableLayout = tableProps && fill ? addFillTableLayout(tableProps) : undefined;
   const resolvedPagination = useMemo(
-    () => withPaginationSummary(tableProps.pagination, paginationSummary),
-    [paginationSummary, tableProps.pagination],
+    () =>
+      tableProps
+        ? withPaginationSummary(tableProps.pagination, paginationSummary)
+        : undefined,
+    [paginationSummary, tableProps?.pagination],
   );
-  const resolvedFillCardProps = fill
+  const resolvedFillCardProps = tableProps && fill
     ? addFillCardLayout<T, Params>(resolvedCardProps)
     : resolvedCardProps;
   const resolvedCardPropsWithFill = resolvedFillCardProps;
 
   const hasFacetSidebar = facetSidebar !== undefined && facetSidebar !== null;
   const hasQuickFilters = quickFilters !== undefined && quickFilters !== null;
+  const hasSearch = Boolean(keywordSearch || search);
+  const resolvedSearch = keywordSearch ? <ListKeywordSearch {...keywordSearch} /> : search;
   const hasSearchRow = Boolean(
-    search || quickFilters || filterActions || advancedFilters || toolbarActions || onCreate,
+    hasSearch || quickFilters || filterActions || advancedFilters || toolbarActions || onCreate,
   );
   const filterOpen = advancedFilters?.open ?? uncontrolledFilterOpen;
 
@@ -506,7 +548,7 @@ export function CrudListWorkbench<
     const update = () => {
       const quickWidth = quickFiltersRef.current?.scrollWidth;
       const actionsWidth = filterActionsRef.current?.scrollWidth ?? 0;
-      const minimumSearchWidth = search ? 180 : 0;
+      const minimumSearchWidth = hasSearch ? 180 : 0;
       if (quickWidth) {
         requiredFilterRowWidthRef.current =
           minimumSearchWidth + quickWidth + actionsWidth + 16;
@@ -530,10 +572,10 @@ export function CrudListWorkbench<
   }, [
     advancedFilters,
     filterActions,
+    hasSearch,
     hasQuickFilters,
     quickFilters,
     responsiveQuickFilters,
-    search,
     toolbarActions,
     onCreate,
   ]);
@@ -693,8 +735,8 @@ export function CrudListWorkbench<
             }
           >
             <div className="sxw-crud-list-workbench__filter-controls">
-              {search ? (
-                <div className="sxw-crud-list-workbench__search">{search}</div>
+              {resolvedSearch ? (
+                <div className="sxw-crud-list-workbench__search">{resolvedSearch}</div>
               ) : null}
               {hasQuickFilters && !quickFiltersAutoCollapsed ? (
                 <div
@@ -725,18 +767,20 @@ export function CrudListWorkbench<
       </div>
     ) : undefined;
 
-  const renderTableProps: CrudListWorkbenchTableRenderProps<T, Params> = {
-    ...tableProps,
-    ...(fillTableLayout ?? {}),
-    cardProps: resolvedCardPropsWithFill,
-    search: proTableSearch ?? false,
-    headerTitle: false,
-    toolBarRender: false,
-    toolbar: undefined,
-    paginationSummary,
-    options: tableProps.options ?? false,
-    scroll: resolvedScroll,
-  };
+  const renderTableProps: CrudListWorkbenchTableRenderProps<T, Params> | undefined = tableProps
+    ? {
+        ...tableProps,
+        ...(fillTableLayout ?? {}),
+        cardProps: resolvedCardPropsWithFill,
+        search: proTableSearch ?? false,
+        headerTitle: false,
+        toolBarRender: false,
+        toolbar: undefined,
+        paginationSummary,
+        options: tableProps.options ?? false,
+        scroll: resolvedScroll,
+      }
+    : undefined;
 
   return (
     <>
@@ -776,27 +820,27 @@ export function CrudListWorkbench<
               {facetSidebar}
             </aside>
           ) : null}
-          <div ref={tableContainerRef} className="sxw-crud-list-workbench__table">
-            {renderTable ? (
-              mergeRenderedTableScroll(
-                renderTable(renderTableProps),
-                resolvedScroll,
-                fill,
+          <div ref={resultContainerRef} className="sxw-crud-list-workbench__results">
+            {hasCustomResults ? (
+              results
+            ) : tableProps ? (
+              renderTable && renderTableProps ? (
+                mergeRenderedTableScroll(renderTable(renderTableProps), resolvedScroll, fill)
+              ) : (
+                <ProTable<T, Params>
+                  {...tableProps}
+                  {...(fillTableLayout ?? {})}
+                  cardProps={resolvedCardPropsWithFill}
+                  search={proTableSearch ?? false}
+                  headerTitle={false}
+                  toolBarRender={false}
+                  toolbar={undefined}
+                  pagination={resolvedPagination}
+                  options={tableProps.options ?? false}
+                  scroll={resolvedScroll}
+                />
               )
-            ) : (
-              <ProTable<T, Params>
-                {...tableProps}
-                {...(fillTableLayout ?? {})}
-                cardProps={resolvedCardPropsWithFill}
-                search={proTableSearch ?? false}
-                headerTitle={false}
-                toolBarRender={false}
-                toolbar={undefined}
-                pagination={resolvedPagination}
-                options={tableProps.options ?? false}
-                scroll={resolvedScroll}
-              />
-            )}
+            ) : null}
           </div>
         </div>
       </ListScreenContainer>

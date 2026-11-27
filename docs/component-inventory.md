@@ -11,7 +11,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `ScreenContainer` | Web 工作区主区和统一内边距 |
 | `PageHeader` | 有条件渲染的页面标题、说明、面包屑和操作插槽 |
 | `ListScreenContainer` | 标题 → 紧邻列表工具栏 → 结果区 |
-| `CrudListWorkbench` | 页面级以主题容器面组合分类/状态、视图、筛选和结果区；有分类/状态行时视图栏紧随其后，否则排在筛选行之前；内嵌模式继承父表面；不渲染页级标题；结果卡片默认使用 16px 水平内边距；fill 模式由工作台测量并归一化最终表格的纵向滚动高度，短数据分页固定在结果区底部，同时保留适配器横向滚动配置 |
+| `CrudListWorkbench` | 单一复合工作台，按需组合列表范围/状态 Tab、关键词、快捷/高级筛选、左侧目录、保存视图与结果区；结果可用 ProTable、表格适配器或业务卡片；有范围/状态行时视图栏紧随其后；内嵌模式继承父表面；不渲染页级标题；Facet 外观和间距由工作台统一拥有 |
 | `SavedViewBar` | 受控系统/个人视图切换和管理操作；排序及保存动作在标签下方独立呈现 |
 | `EditableDetailTable` | 受控重复明细编辑、行选择和批量字段设置 |
 | `BatchFieldSettingsButton` | 选择批量覆盖字段并在确认后生成宿主 patch |
@@ -31,7 +31,8 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `HeaderActionButton`（`sunxu-web`） | 统一顶栏纯图标按钮的主题、焦点与按压呈现；无障碍名称必填，提示、徽标、弹层和动作由宿主组合 |
 | `AnnouncementBanner`（`sunxu-web/business`） | 呈现公告优先级、轮播摘要、数量和隐藏操作；公告数据、可见权限、轮询与详情路由由宿主保留 |
 | `MenuSearchInput`（`sunxu-web/business`） | 呈现受控菜单搜索框和上下文候选；菜单过滤、快捷键、授权和导航由宿主保留 |
-| `DocumentKeywordSearch`（`sunxu-web/business/documents`） | 列表单关键词跨业务字段查询；默认常驻，窄工具栏可显式使用可收起的放大镜形态，业务字段与请求由宿主提供 |
+| `ListKeywordSearch`（`sunxu-web/components`） | 列表单关键词查询的唯一通用输入外观；清除、提交和可选紧凑态共用同一契约；关键词字段、草稿、请求由宿主保留 |
+| `DocumentKeywordSearch`（`sunxu-web/business/documents`） | 单据领域的薄适配，复用 `ListKeywordSearch` 外观，只增加单据默认提示和草稿/提交语义；业务字段与请求由宿主提供 |
 | `BusinessSideNavView`（`sunxu-web/business`） | 呈现业务主/次级导航、折叠态和当前选中项；菜单数据、权限过滤、路径判断和导航由宿主保留 |
 | `NotificationPanel`（`sunxu-web/business`） | 呈现通知列表、未读/加载/空状态和操作入口；通知服务、已读状态、权限与导航由宿主保留 |
 | `ThemeOptionsPanel`（`sunxu-web/business`） | 呈现主题选项、色样和当前选择；主题持久化与应用配置由宿主保留 |
@@ -201,9 +202,9 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `ConfigProvider`, `notification`, `Pagination`, `SettingDrawer` | 按需直通 Ant Design / Pro Components 根导出；不增加宿主配置状态或反馈行为 |
 | `MessageInstance`, `NotificationInstance`, `InputRef`, `TablePaginationConfig` | 按需直通 Ant Design 类型导出，供宿主从 `sunxu-web` 根入口引用 |
 
-`CrudListWorkbench` 的 Facet 轨道负责与结果区保持单一 16px 间距并提供受限高度内的溢出滚动；宿主侧栏卡片负责自身边框和内边距，宽度应适配轨道。可运行组合示例见目录的“CRUD 列表工作台”页。
+`CrudListWorkbench` 是列表结构的唯一复合根：同一数据集的分类用 `primaryTabs`，状态用 `statusFilters`，另一业务维度的目录树用 `facetSidebar`，复用查询用 `viewBar`，临时关键词用 `keywordSearch`，高级条件用 `advancedFilters`；切换到不同业务流程的页面导航由宿主保留。Facet 轨道、面板表面与结果区之间的 16px 间距由工作台统一拥有；宿主只提供树/队列内容，不再包同类边框卡片。宽度不足时同一 Facet 内容移入抽屉。可运行组合示例见目录的“CRUD 列表工作台”页。
 
-`CrudListWorkbench` 的搜索插槽约束搜索控件不超出筛选行；标准桌面基准宽度为 320px，窄工作区按可用宽度收缩。可运行组合示例见目录的“CRUD 列表工作台”页。
+`CrudListWorkbench.keywordSearch` 渲染唯一通用的 `ListKeywordSearch`，标准桌面基准宽度为 320px，窄工作区按可用宽度收缩。只有 Form.Item 等业务绑定必须与输入组成同一组合时才用自定义 `search` 插槽，仍复用相同的 `ListKeywordSearch`；可运行组合示例见目录的“CRUD 列表工作台”页。
 
 标准新增入口通过 `onCreate` 提供，组件统一文案和位置；`RowActions` 的 `kind` 统一查看、编辑和删除文案，领域操作仍由宿主命名。
 

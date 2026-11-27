@@ -905,17 +905,13 @@ export function PurchaseOrderDetailLedger({
         as="section"
         layout="page"
         fill
-        search={
-          <Input.Search
-            aria-label="关键字搜索"
-            allowClear
-            placeholder="输入采购订单号、供应商、物料或行备注搜索"
-            value={keywordDraft}
-            style={{ width: 'clamp(160px, 20vw, 256px)' }}
-            onChange={(event) => handleKeywordChange(event.target.value)}
-            onSearch={handleKeywordSearch}
-          />
-        }
+        keywordSearch={{
+          ariaLabel: '关键字搜索',
+          placeholder: '输入采购订单号、供应商、物料或行备注搜索',
+          value: keywordDraft,
+          onChange: (event) => handleKeywordChange(event.target.value),
+          onSearch: handleKeywordSearch,
+        }}
         viewBar={
           <DocumentViewBar
             controller={savedViewController}

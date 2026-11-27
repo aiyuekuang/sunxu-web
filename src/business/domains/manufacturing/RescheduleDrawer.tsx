@@ -3,6 +3,7 @@ import {
   ExclamationCircleFilled,
   HistoryOutlined,
   PushpinOutlined,
+  SearchOutlined,
   ThunderboltOutlined,
 } from '@ant-design/icons';
 import {
@@ -1333,8 +1334,10 @@ export function RescheduleDrawer({
                 >
                   只看待重确认
                 </Checkbox>
-                <Input.Search
+                <Input
                   allowClear
+                  aria-label="搜索工单、工序、工作中心、设备或原因"
+                  prefix={<SearchOutlined aria-hidden="true" />}
                   style={{ width: 320 }}
                   placeholder="搜索工单、工序、工作中心、设备或原因"
                   value={impactFilter.keyword}

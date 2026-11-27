@@ -8,6 +8,7 @@ export * from './ErrorBoundary';
 export * from './FilterBar';
 export * from './HeaderActionButton';
 export * from './LongText';
+export * from './ListKeywordSearch';
 export * from './MetricCard';
 export * from './PageContainers';
 export * from './PageHeader';

@@ -20,6 +20,7 @@ import {
   Typography,
 } from 'antd';
 import type { TablePaginationConfig } from 'antd';
+import { ListKeywordSearch } from '../../../components/ListKeywordSearch';
 import dayjs from 'dayjs';
 import React, { useCallback, useEffect, useMemo, useRef, useState } from 'react';
 import { EntityThumbnail } from '../documents/EntityThumbnail';
@@ -414,7 +415,7 @@ export function EntryList({ onEdit, onRefresh, refreshKey, initialEntryId, initi
   };
   return <Space orientation="vertical" style={{ width: '100%' }} size="middle">
     <Space wrap><Typography.Title level={5} style={{ margin: 0 }}>排产列表</Typography.Title><Space.Compact>{STATUS_TABS.map((tab) => <Button key={tab.key} type={status === tab.key ? 'primary' : 'default'} onClick={() => { setStatus(tab.key); setPage(1); setSelectedKeys([]); setSelectedRows([]); }}>{tab.label}</Button>)}</Space.Compact></Space>
-    <Space wrap>{entryId && <Tag closable onClose={(event) => { event.preventDefault(); setEntryId(undefined); }}>待办定位</Tag>}<Input.Search aria-label="搜索排产记录" allowClear value={keyword} onChange={(event) => setKeyword(event.target.value)} onSearch={() => setDebouncedKeyword(keyword.trim())} placeholder="搜索计划号/工单号/物料/工序/设备/执行人" style={{ width: 320 }} /><DatePicker.RangePicker aria-label="排产记录日期范围" presets={capabilities.dateRangePresets?.map((preset) => ({ label: preset.label, value: preset.value.map((value) => dayjs(value)) as [dayjs.Dayjs, dayjs.Dayjs] }))} value={range} onChange={(dates) => { setRange(dates as [dayjs.Dayjs | null, dayjs.Dayjs | null]); setPage(1); }} allowClear /></Space>
+    <Space wrap>{entryId && <Tag closable onClose={(event) => { event.preventDefault(); setEntryId(undefined); }}>待办定位</Tag>}<div style={{ width: 320, maxWidth: '100%' }}><ListKeywordSearch ariaLabel="搜索排产记录" value={keyword} onChange={(event) => setKeyword(event.target.value)} onSearch={(value) => setDebouncedKeyword(value.trim())} placeholder="搜索计划号/工单号/物料/工序/设备/执行人" /></div><DatePicker.RangePicker aria-label="排产记录日期范围" presets={capabilities.dateRangePresets?.map((preset) => ({ label: preset.label, value: preset.value.map((value) => dayjs(value)) as [dayjs.Dayjs, dayjs.Dayjs] }))} value={range} onChange={(dates) => { setRange(dates as [dayjs.Dayjs | null, dayjs.Dayjs | null]); setPage(1); }} allowClear /></Space>
     {batchActions}
     {Boolean(error) && <Alert type="error" showIcon message="排产列表加载失败" action={<Button size="small" onClick={() => actionRef.current?.reload()}>重试</Button>} />}
     <ResizableProTable<ScheduleEntryRecord, EntryListTableParams>

@@ -311,21 +311,19 @@ export function FqcRulesPanel({
     <CrudListWorkbench<FqcControlRuleRecord>
       as="section"
       layout={layout}
-      search={
-        <Input.Search
-          aria-label="关键字搜索"
-          allowClear
-          placeholder="规则编码或物料搜索"
-          value={keywordDraft}
-          style={{ width: 'clamp(160px, 20vw, 256px)' }}
-          onChange={(event) => {
-            const value = event.target.value;
-            setKeywordDraft(value);
-            if (!value) setKeyword('');
-          }}
-          onSearch={(value) => setKeyword(value.trim())}
-        />
-      }
+      keywordSearch={{
+        ariaLabel: '关键字搜索',
+        placeholder: '规则编码或物料搜索',
+        value: keywordDraft,
+        onChange: (event) => {
+          const value = event.target.value;
+          setKeywordDraft(value);
+          if (!value) setKeyword('');
+        },
+        onSearch: (value, _event, info) => {
+          if (info?.source !== 'clear') setKeyword(value.trim());
+        },
+      }}
       toolbarActions={
         <Space size={8} wrap>
           <PermissionButton

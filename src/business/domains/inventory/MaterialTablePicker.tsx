@@ -3,7 +3,6 @@ import {
   App,
   Button,
   Empty,
-  Input,
   InputNumber,
   Modal,
   Space,
@@ -22,6 +21,7 @@ import React, {
 import { useMaterialTablePickerCapabilities } from '../../providers/BusinessUiProvider';
 import { EntityThumbnail } from '../documents/EntityThumbnail';
 import { ResizableProTable as ProTable } from '../shared/ResizableTable';
+import { ListKeywordSearch } from '../../../components/ListKeywordSearch';
 import type {
   MaterialCategoryNode,
   MaterialPickerRecord,
@@ -761,9 +761,8 @@ export function MaterialTablePicker<
                     children: (
                       <div className="sxw-material-table-picker__panel">
                         <div className="sxw-material-table-picker__catalog-search">
-                          <Input.Search
-                            allowClear
-                            aria-label="搜索物料名称或编码"
+                          <ListKeywordSearch
+                            ariaLabel="搜索物料名称或编码"
                             placeholder="搜索物料名称或编码"
                             value={catalogKeywordDraft}
                             onChange={(event) => {
@@ -771,9 +770,9 @@ export function MaterialTablePicker<
                               setCatalogKeywordDraft(nextValue);
                               if (!nextValue) setCatalogKeyword('');
                             }}
-                            onSearch={(searchValue) =>
-                              setCatalogKeyword(searchValue.trim())
-                            }
+                            onSearch={(searchValue, _event, info) => {
+                              if (info?.source !== 'clear') setCatalogKeyword(searchValue.trim());
+                            }}
                           />
                         </div>
                         <ProTable<TMaterial>

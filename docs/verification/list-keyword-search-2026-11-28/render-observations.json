@@ -1,0 +1,563 @@
+{
+  "targetUrl": "http://127.0.0.1:4174/",
+  "generatedAt": "2026-11-27T17:08:09.323Z",
+  "cases": [
+    {
+      "route": "/",
+      "case": "BusinessComponentsPage: expanded default + collapsed example",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentScrollWidth": 1440,
+      "card": {
+        "x": 273,
+        "y": 363.921875,
+        "width": 1118,
+        "height": 272.140625,
+        "right": 1391,
+        "bottom": 636.0625
+      },
+      "expandedDefault": {
+        "root": {
+          "x": 290,
+          "y": 457.0625,
+          "width": 320,
+          "height": 36,
+          "right": 610,
+          "bottom": 493.0625
+        },
+        "input": {
+          "x": 290,
+          "y": 457.0625,
+          "width": 320,
+          "height": 36,
+          "right": 610,
+          "bottom": 493.0625
+        },
+        "visible": true,
+        "mode": "expanded"
+      },
+      "collapsedExample": {
+        "root": {
+          "x": 290,
+          "y": 539.0625,
+          "width": 36,
+          "height": 36,
+          "right": 326,
+          "bottom": 575.0625
+        },
+        "toggle": {
+          "x": 290,
+          "y": 539.0625,
+          "width": 36,
+          "height": 36,
+          "right": 326,
+          "bottom": 575.0625
+        },
+        "inputVisible": false,
+        "mode": "collapsible"
+      },
+      "searchLandmarkRoleCount": 2,
+      "interactions": {
+        "clearCommitsEmptyQuery": true,
+        "closeReturnsFocusToMagnifier": "展开关键词搜索",
+        "expandMovesFocusToInput": "关键字搜索"
+      }
+    },
+    {
+      "route": "/",
+      "case": "DocumentKeywordSearch: committed keyword stays expanded",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentScrollWidth": 1440,
+      "root": {
+        "x": 290,
+        "y": 847.3984375,
+        "width": 320,
+        "height": 36,
+        "right": 610,
+        "bottom": 883.3984375,
+        "mode": "collapsible",
+        "expanded": "true"
+      },
+      "input": {
+        "x": 302,
+        "y": 854.3984375,
+        "width": 245,
+        "height": 22,
+        "right": 547,
+        "bottom": 876.3984375
+      },
+      "committedQueryVisible": true,
+      "collapseButtonVisible": false
+    },
+    {
+      "route": "/",
+      "case": "DocumentKeywordSearch: committed keyword stays visible on mobile",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "documentScrollWidth": 375,
+      "bodyScrollWidth": 375,
+      "card": {
+        "x": 33,
+        "y": 473.859375,
+        "width": 309,
+        "height": 338.140625,
+        "right": 342,
+        "bottom": 812
+      },
+      "root": {
+        "x": 50,
+        "y": 715,
+        "width": 275,
+        "height": 36,
+        "right": 325,
+        "bottom": 751,
+        "mode": "collapsible",
+        "expanded": "true"
+      },
+      "input": {
+        "x": 62,
+        "y": 722,
+        "width": 200,
+        "height": 22,
+        "right": 262,
+        "bottom": 744
+      },
+      "committedQueryVisible": true
+    },
+    {
+      "case": "DocumentKeywordSearch: cleared query collapses and returns focus",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentScrollWidth": 1440,
+      "root": {
+        "x": 290,
+        "y": 847.4609375,
+        "width": 36,
+        "height": 36,
+        "right": 326,
+        "bottom": 883.4609375
+      },
+      "toggle": {
+        "x": 290,
+        "y": 847.4609375,
+        "width": 36,
+        "height": 36,
+        "right": 326,
+        "bottom": 883.4609375
+      },
+      "ariaExpanded": "false",
+      "focusLabel": "展开关键词搜索",
+      "inputVisible": false
+    },
+    {
+      "route": "/",
+      "case": "CrudListWorkbench: complex view compact entry, host draft, applied search",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "documentScrollWidth": 1440,
+      "workbench": {
+        "x": 285,
+        "y": 335.921875,
+        "width": 1094,
+        "height": 493,
+        "right": 1379,
+        "bottom": 828.921875
+      },
+      "toolbar": {
+        "x": 309,
+        "y": 525.921875,
+        "width": 1046,
+        "height": 36,
+        "right": 1355,
+        "bottom": 561.921875
+      },
+      "searchSlot": {
+        "x": 309,
+        "y": 525.921875,
+        "width": 320,
+        "height": 36,
+        "right": 629,
+        "bottom": 561.921875
+      },
+      "searchRoot": {
+        "x": 309,
+        "y": 525.921875,
+        "width": 320,
+        "height": 36,
+        "right": 629,
+        "bottom": 561.921875,
+        "mode": "collapsible",
+        "expanded": "true"
+      },
+      "input": {
+        "x": 321,
+        "y": 532.921875,
+        "width": 245,
+        "height": 22,
+        "right": 566,
+        "bottom": 554.921875
+      },
+      "appliedResultVisible": true,
+      "closeButtonVisible": false,
+      "rowCount": 3,
+      "interactions": {
+        "collapsedWorkbenchGeometry": {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "documentScrollWidth": 1440,
+          "searchSlot": {
+            "x": 309,
+            "y": 548.421875,
+            "width": 36,
+            "height": 36,
+            "right": 345,
+            "bottom": 584.421875
+          },
+          "searchRoot": {
+            "x": 309,
+            "y": 548.421875,
+            "width": 36,
+            "height": 36,
+            "right": 345,
+            "bottom": 584.421875,
+            "mode": "collapsible",
+            "expanded": "false"
+          },
+          "toggle": {
+            "x": 309,
+            "y": 548.421875,
+            "width": 36,
+            "height": 36,
+            "right": 345,
+            "bottom": 584.421875,
+            "ariaLabel": "展开关键词搜索",
+            "ariaExpanded": "false",
+            "ariaControls": "sxw-list-keyword-search-_r_gl_"
+          }
+        },
+        "expandedWorkbenchGeometry": {
+          "viewport": {
+            "width": 1440,
+            "height": 1000
+          },
+          "documentScrollWidth": 1440,
+          "searchSlot": {
+            "x": 309,
+            "y": 525.921875,
+            "width": 320,
+            "height": 36,
+            "right": 629,
+            "bottom": 561.921875
+          },
+          "searchRoot": {
+            "x": 309,
+            "y": 525.921875,
+            "width": 320,
+            "height": 36,
+            "right": 629,
+            "bottom": 561.921875,
+            "mode": "collapsible",
+            "expanded": "true"
+          },
+          "input": {
+            "x": 321,
+            "y": 532.921875,
+            "width": 205,
+            "height": 22,
+            "right": 526,
+            "bottom": 554.921875,
+            "ariaLabel": "搜索产品名称"
+          }
+        },
+        "draftRestoredAfterClose": true,
+        "rowsBeforeImeSubmit": 6,
+        "rowsAfterImeSubmit": 6,
+        "imeEnterDidNotCommit": true,
+        "appliedKeywordRemainsVisible": true
+      }
+    },
+    {
+      "route": "/",
+      "case": "CrudListWorkbench: applied keyword remains visible at narrow viewport",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "documentScrollWidth": 375,
+      "bodyScrollWidth": 375,
+      "workbench": {
+        "x": 41,
+        "y": 367.921875,
+        "width": 293,
+        "height": 643,
+        "right": 334,
+        "bottom": 1010.921875
+      },
+      "searchSlot": {
+        "x": 57,
+        "y": 631.921875,
+        "width": 261,
+        "height": 36,
+        "right": 318,
+        "bottom": 667.921875
+      },
+      "input": {
+        "x": 69,
+        "y": 638.921875,
+        "width": 186,
+        "height": 22,
+        "right": 255,
+        "bottom": 660.921875
+      },
+      "appliedResultVisible": true
+    },
+    {
+      "route": "/",
+      "case": "CrudListWorkbench: desktop pointer at 320px, collapsed search",
+      "viewport": {
+        "width": 320,
+        "height": 812
+      },
+      "pointerCoarse": false,
+      "documentScrollWidth": 320,
+      "bodyScrollWidth": 320,
+      "searchSlot": {
+        "x": 57,
+        "y": 432.921875,
+        "width": 36,
+        "height": 36,
+        "right": 93,
+        "bottom": 468.921875
+      },
+      "search": {
+        "x": 57,
+        "y": 432.921875,
+        "width": 36,
+        "height": 36,
+        "right": 93,
+        "bottom": 468.921875,
+        "mode": "collapsible",
+        "expanded": "false"
+      },
+      "toggle": {
+        "x": 57,
+        "y": 432.921875,
+        "width": 36,
+        "height": 36,
+        "right": 93,
+        "bottom": 468.921875,
+        "ariaLabel": "展开关键词搜索"
+      }
+    },
+    {
+      "route": "/",
+      "case": "CrudListWorkbench: desktop pointer at 320px, expanded search",
+      "viewport": {
+        "width": 320,
+        "height": 812
+      },
+      "pointerCoarse": false,
+      "documentScrollWidth": 320,
+      "bodyScrollWidth": 320,
+      "searchSlot": {
+        "x": 57,
+        "y": 263.921875,
+        "width": 206,
+        "height": 36,
+        "right": 263,
+        "bottom": 299.921875
+      },
+      "search": {
+        "x": 57,
+        "y": 263.921875,
+        "width": 206,
+        "height": 36,
+        "right": 263,
+        "bottom": 299.921875,
+        "mode": "collapsible",
+        "expanded": "true"
+      },
+      "input": {
+        "x": 69,
+        "y": 270.921875,
+        "width": 91,
+        "height": 22,
+        "right": 160,
+        "bottom": 292.921875,
+        "ariaLabel": "搜索产品名称"
+      }
+    },
+    {
+      "route": "/",
+      "case": "Touch pointer 375px: named search landmark and expanded/collapsible wrapper",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "pointerCoarse": true,
+      "documentScrollWidth": 375,
+      "bodyScrollWidth": 375,
+      "searchLandmarkCount": 2,
+      "root": {
+        "x": 50,
+        "y": 18900.5625,
+        "width": 44,
+        "height": 44,
+        "right": 94,
+        "bottom": 18944.5625,
+        "mode": "collapsible",
+        "expanded": "false"
+      },
+      "toggle": {
+        "x": 50,
+        "y": 18900.5625,
+        "width": 44,
+        "height": 44,
+        "right": 94,
+        "bottom": 18944.5625,
+        "ariaLabel": "展开关键词搜索",
+        "ariaExpanded": "false",
+        "ariaControls": "sxw-list-keyword-search-_r_1u_"
+      },
+      "searchLandmarkRoleCount": 2
+    },
+    {
+      "route": "/",
+      "case": "Touch pointer 375px: collapsible search expanded",
+      "viewport": {
+        "width": 375,
+        "height": 812
+      },
+      "pointerCoarse": true,
+      "documentScrollWidth": 375,
+      "bodyScrollWidth": 375,
+      "searchLandmarkAccessibleName": "关键字搜索",
+      "root": {
+        "x": 50,
+        "y": 474.0625,
+        "width": 275,
+        "height": 44,
+        "right": 325,
+        "bottom": 518.0625,
+        "expanded": "true"
+      },
+      "input": {
+        "x": 62,
+        "y": 485.0625,
+        "width": 152,
+        "height": 22,
+        "right": 214,
+        "bottom": 507.0625,
+        "ariaLabel": "关键字搜索"
+      },
+      "closeButton": {
+        "x": 281,
+        "y": 474.0625,
+        "width": 44,
+        "height": 44,
+        "right": 325,
+        "bottom": 518.0625
+      }
+    },
+    {
+      "route": "/",
+      "case": "Touch pointer 320px: expanded component bounds and page overflow source",
+      "viewport": {
+        "width": 320,
+        "height": 812
+      },
+      "pointerCoarse": true,
+      "documentScrollWidth": 320,
+      "bodyScrollWidth": 336,
+      "card": {
+        "x": 33,
+        "y": 1726.9375,
+        "width": 254,
+        "height": 398.140625,
+        "right": 287,
+        "bottom": 2125.078125
+      },
+      "root": {
+        "x": 50,
+        "y": 1990.078125,
+        "width": 220,
+        "height": 44,
+        "right": 270,
+        "bottom": 2034.078125,
+        "expanded": "true"
+      },
+      "input": {
+        "x": 62,
+        "y": 2001.078125,
+        "width": 97,
+        "height": 22,
+        "right": 159,
+        "bottom": 2023.078125,
+        "ariaLabel": "关键字搜索"
+      },
+      "componentOverflow": false,
+      "pageOverflowSources": [
+        {
+          "element": "ant-tabs-nav-list",
+          "x": 50,
+          "y": 868.65625,
+          "width": 312,
+          "height": 40,
+          "right": 362,
+          "bottom": 908.65625
+        }
+      ]
+    },
+    {
+      "route": "/",
+      "case": "Touch pointer 320px: collapsed component bounds and icon target size",
+      "viewport": {
+        "width": 320,
+        "height": 812
+      },
+      "pointerCoarse": true,
+      "documentScrollWidth": 320,
+      "bodyScrollWidth": 336,
+      "root": {
+        "x": 50,
+        "y": 470.078125,
+        "width": 44,
+        "height": 44,
+        "right": 94,
+        "bottom": 514.078125,
+        "expanded": "false"
+      },
+      "toggle": {
+        "x": 50,
+        "y": 470.078125,
+        "width": 44,
+        "height": 44,
+        "right": 94,
+        "bottom": 514.078125,
+        "ariaLabel": "展开关键词搜索",
+        "ariaExpanded": "false",
+        "ariaControls": "sxw-list-keyword-search-_r_1u_"
+      },
+      "componentOverflow": false
+    }
+  ],
+  "consoleErrors": [
+    "Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead.",
+    "[use-antd-resizable-header] 请不要在所有列上添加 `width` 属性，这将导致表格无法自适应",
+    "Warning: [antd: List] The `List` component is deprecated and will be removed in the next major version. If you're using version 6.6.0 or later, please use `Listy` instead."
+  ],
+  "pageErrors": []
+}

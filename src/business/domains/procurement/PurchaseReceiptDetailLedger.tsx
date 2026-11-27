@@ -1,7 +1,8 @@
 import type { ProColumns } from '@ant-design/pro-components';
-import { Button, Input, Space, Typography } from 'antd';
+import { Button, Space, Typography } from 'antd';
 import { useMemo, useState } from 'react';
 import { DocumentDetailLedgerTable } from '../documents/DocumentDetailLedgerTable';
+import { ListKeywordSearch } from '../../../components/ListKeywordSearch';
 import { restoreDetailLedgerDateRange } from '../documents/DetailLedgerFilterDrawer';
 import { StatusDisplay } from '../../../components/StatusDisplay';
 import { useSalesDetailLedgerBatchPrint } from '../sales/SalesDetailLedgerComponents';
@@ -112,7 +113,7 @@ export function PurchaseReceiptDetailLedger({ capabilities: c, initialDateRange,
   return <>
     <DocumentDetailLedgerTable<PurchaseReceiptDetailLedgerRow, PurchaseReceiptDetailLedgerQuery, PurchaseReceiptDetailLedgerResponse>
       tableActionRef={tableActionRef} filterFormRef={filterFormRef} savedView={c.savedViewController ? { controller: c.savedViewController } : undefined} rowKey="ledgerRowId"
-      rowSelection={batchPrint.rowSelection} tableAlertOptionRender={batchPrint.tableAlertOptionRender} headerTitle={<Space wrap><Typography.Text strong>入库流水</Typography.Text><Input.Search allowClear placeholder="输入采购入库单号、采购订单、供应商或物料搜索" value={keywordDraft} onChange={(e) => { setKeywordDraft(e.target.value); if (!e.target.value) { setKeyword(''); c.onKeywordSearch(''); } }} onSearch={(v) => { setKeyword(v); setKeywordDraft(v); c.onKeywordSearch(v); }} style={{ width: 360 }} /></Space>}
+      rowSelection={batchPrint.rowSelection} tableAlertOptionRender={batchPrint.tableAlertOptionRender} headerTitle={<Space wrap><Typography.Text strong>入库流水</Typography.Text><div style={{ width: 320, maxWidth: '100%' }}><ListKeywordSearch ariaLabel="搜索采购入库流水" placeholder="输入采购入库单号、采购订单、供应商或物料搜索" value={keywordDraft} onChange={(e) => { setKeywordDraft(e.target.value); if (!e.target.value) { setKeyword(''); c.onKeywordSearch(''); } }} onSearch={(v, _event, info) => { if (info?.source === 'clear') return; setKeyword(v); setKeywordDraft(v); c.onKeywordSearch(v); }} /></div></Space>}
       showHeaderTitle initialQuery={{ orderBy: 'receiptDate', orderDir: 'DESC' }} initialFilters={initialFilters} transientQueryParams={{ keyword }} onTransientQueryReset={() => { setKeyword(''); setKeywordDraft(''); c.onKeywordSearch(''); }}
       apiFn={responseAdapter} buildQuery={buildQuery} columns={columns} exportFn={async (q) => { const blob = await c.exportExcel(q); if (!(blob instanceof Blob)) throw new Error('采购入库单明细导出响应不是文件'); return blob; }}
       exportFileName={c.exportFileName ?? `采购入库单明细_${Date.now()}.xlsx`} exportPermission={c.exportPermission} createPermission={c.canCreate ? c.createPermission : undefined} onCreate={onCreate} showExport={c.canExport}
