@@ -1,0 +1,27 @@
+{
+  "viewport": 390,
+  "htmlWidth": 390,
+  "bodyWidth": 394,
+  "scrollHeight": 83727,
+  "scrollY": 73800,
+  "annotations": [
+    {
+      "class": "sunxu-mes-gantt-order-no",
+      "text": "WO-2026-0196",
+      "x": 182,
+      "y": 520,
+      "width": 86,
+      "height": 12,
+      "fontSize": "10px"
+    },
+    {
+      "class": "sunxu-mes-gantt-status-chip",
+      "text": "待确认",
+      "x": 420,
+      "y": 489,
+      "width": 42,
+      "height": 14,
+      "fontSize": "10px"
+    }
+  ]
+}

@@ -1,0 +1,345 @@
+{
+  "target": "http://127.0.0.1:4173/",
+  "screens": [
+    {
+      "name": "overview",
+      "screenshot": "overview-desktop.png",
+      "title": "榫序 Web 组件目录",
+      "heading": "组件总览",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "viewportOverflow": false
+      },
+      "shell": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 1000,
+        "clientHeight": 1000
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 55,
+        "clientHeight": 55
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 944,
+        "scrollWidth": 223,
+        "clientWidth": 223,
+        "scrollHeight": 944,
+        "clientHeight": 944
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 944,
+        "scrollWidth": 1216,
+        "clientWidth": 1216,
+        "scrollHeight": 944,
+        "clientHeight": 944
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 896,
+        "scrollWidth": 1166,
+        "clientWidth": 1166,
+        "scrollHeight": 894,
+        "clientHeight": 894
+      },
+      "horizontalScrollContainers": []
+    },
+    {
+      "name": "editable-table",
+      "screenshot": "editable-detail-desktop.png",
+      "title": "榫序 Web 组件目录",
+      "heading": "可编辑明细",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "viewportOverflow": false
+      },
+      "shell": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 1000,
+        "clientHeight": 1000
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 55,
+        "clientHeight": 55
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 944,
+        "scrollWidth": 223,
+        "clientWidth": 223,
+        "scrollHeight": 944,
+        "clientHeight": 944
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 944,
+        "scrollWidth": 1216,
+        "clientWidth": 1216,
+        "scrollHeight": 944,
+        "clientHeight": 944
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 896,
+        "scrollWidth": 1166,
+        "clientWidth": 1166,
+        "scrollHeight": 894,
+        "clientHeight": 894
+      },
+      "horizontalScrollContainers": []
+    },
+    {
+      "name": "business-suite",
+      "screenshot": "business-components-desktop.png",
+      "title": "榫序 Web 组件目录",
+      "heading": "业务复合组件",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "viewportOverflow": false
+      },
+      "shell": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 61129,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 61129,
+        "clientHeight": 61129
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 55,
+        "clientHeight": 55
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 944,
+        "scrollWidth": 223,
+        "clientWidth": 223,
+        "scrollHeight": 944,
+        "clientHeight": 944
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 61073,
+        "scrollWidth": 1216,
+        "clientWidth": 1216,
+        "scrollHeight": 61073,
+        "clientHeight": 61073
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 61025,
+        "scrollWidth": 1166,
+        "clientWidth": 1166,
+        "scrollHeight": 61023,
+        "clientHeight": 61023
+      },
+      "horizontalScrollContainers": []
+    },
+    {
+      "name": "resizable-table",
+      "screenshot": "resizable-table-desktop.png",
+      "title": "榫序 Web 组件目录",
+      "heading": "扩展表格组件",
+      "viewport": {
+        "width": 1440,
+        "height": 1000
+      },
+      "document": {
+        "clientWidth": 1440,
+        "scrollWidth": 1440,
+        "viewportOverflow": false
+      },
+      "shell": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 1000,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 1000,
+        "clientHeight": 1000
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 1440,
+        "height": 56,
+        "scrollWidth": 1440,
+        "clientWidth": 1440,
+        "scrollHeight": 55,
+        "clientHeight": 55
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 56,
+        "width": 224,
+        "height": 944,
+        "scrollWidth": 223,
+        "clientWidth": 223,
+        "scrollHeight": 944,
+        "clientHeight": 944
+      },
+      "main": {
+        "x": 224,
+        "y": 56,
+        "width": 1216,
+        "height": 944,
+        "scrollWidth": 1216,
+        "clientWidth": 1216,
+        "scrollHeight": 944,
+        "clientHeight": 944
+      },
+      "surface": {
+        "x": 248,
+        "y": 80,
+        "width": 1168,
+        "height": 896,
+        "scrollWidth": 1166,
+        "clientWidth": 1166,
+        "scrollHeight": 894,
+        "clientHeight": 894
+      },
+      "horizontalScrollContainers": []
+    },
+    {
+      "name": "editable-detail-mobile",
+      "screenshot": "editable-detail-mobile.png",
+      "title": "榫序 Web 组件目录",
+      "heading": "可编辑明细",
+      "viewport": {
+        "width": 390,
+        "height": 844
+      },
+      "document": {
+        "clientWidth": 390,
+        "scrollWidth": 390,
+        "viewportOverflow": false
+      },
+      "shell": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 844,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 844,
+        "clientHeight": 844
+      },
+      "header": {
+        "x": 0,
+        "y": 0,
+        "width": 390,
+        "height": 56,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 55,
+        "clientHeight": 55
+      },
+      "sidebar": {
+        "x": 0,
+        "y": 0,
+        "width": 0,
+        "height": 0,
+        "scrollWidth": 0,
+        "clientWidth": 0,
+        "scrollHeight": 0,
+        "clientHeight": 0
+      },
+      "main": {
+        "x": 0,
+        "y": 56,
+        "width": 390,
+        "height": 788,
+        "scrollWidth": 390,
+        "clientWidth": 390,
+        "scrollHeight": 788,
+        "clientHeight": 788
+      },
+      "surface": {
+        "x": 16,
+        "y": 72,
+        "width": 358,
+        "height": 756,
+        "scrollWidth": 356,
+        "clientWidth": 356,
+        "scrollHeight": 754,
+        "clientHeight": 754
+      },
+      "horizontalScrollContainers": [
+        {
+          "tag": "div",
+          "className": "ant-table-content sxw-editable-detail-table__content",
+          "scrollWidth": 1028,
+          "clientWidth": 241
+        }
+      ]
+    }
+  ],
+  "consoleErrors": [
+    "[use-antd-resizable-header] 请不要在所有列上添加 `width` 属性，这将导致表格无法自适应"
+  ]
+}

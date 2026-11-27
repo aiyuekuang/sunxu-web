@@ -1,0 +1,423 @@
+[
+  {
+    "key": "overview",
+    "label": "组件总览",
+    "viewport": 320,
+    "htmlWidth": 320,
+    "bodyWidth": 320,
+    "header": {
+      "x": 0,
+      "right": 320,
+      "width": 320,
+      "height": 56,
+      "text": "榫 榫序 Web"
+    },
+    "brand": {
+      "x": 12,
+      "right": 142,
+      "width": 130,
+      "height": 36,
+      "text": "榫 榫序 Web"
+    },
+    "search": {
+      "x": 150,
+      "right": 256,
+      "width": 106,
+      "height": 36,
+      "text": ""
+    },
+    "main": {
+      "x": 0,
+      "right": 320,
+      "width": 320,
+      "height": 1419,
+      "text": "SUNXU WEB / DOCUMENTATION 组件总览 面向多个 React Web 项目的共享组件与页面容器。 Ant D"
+    },
+    "surface": {
+      "x": 16,
+      "right": 304,
+      "width": 288,
+      "height": 1387,
+      "text": "SUNXU WEB / DOCUMENTATION 组件总览 面向多个 React Web 项目的共享组件与页面容器。 Ant D"
+    },
+    "h1": {
+      "x": 33,
+      "right": 287,
+      "width": 254,
+      "height": 32,
+      "text": "组件总览"
+    },
+    "offRight": []
+  },
+  {
+    "key": "containers",
+    "label": "页面容器",
+    "viewport": 320,
+    "htmlWidth": 320,
+    "bodyWidth": 320,
+    "header": {
+      "x": 0,
+      "right": 320,
+      "width": 320,
+      "height": 56,
+      "text": "榫 榫序 Web"
+    },
+    "brand": {
+      "x": 12,
+      "right": 142,
+      "width": 130,
+      "height": 36,
+      "text": "榫 榫序 Web"
+    },
+    "search": {
+      "x": 150,
+      "right": 256,
+      "width": 106,
+      "height": 36,
+      "text": ""
+    },
+    "main": {
+      "x": 0,
+      "right": 320,
+      "width": 320,
+      "height": 1203,
+      "text": "SUNXU WEB / DOCUMENTATION 页面容器 让标题、工具栏、结果区、滚动内容和固定操作各有明确归属。 Ant D"
+    },
+    "surface": {
+      "x": 16,
+      "right": 304,
+      "width": 288,
+      "height": 1171,
+      "text": "SUNXU WEB / DOCUMENTATION 页面容器 让标题、工具栏、结果区、滚动内容和固定操作各有明确归属。 Ant D"
+    },
+    "h1": {
+      "x": 33,
+      "right": 287,
+      "width": 254,
+      "height": 32,
+      "text": "页面容器"
+    },
+    "offRight": [
+      {
+        "x": 170,
+        "right": 426,
+        "width": 256,
+        "height": 237,
+        "text": ""
+      },
+      {
+        "x": 426,
+        "right": 538,
+        "width": 112,
+        "height": 237,
+        "text": ""
+      },
+      {
+        "x": 538,
+        "right": 670,
+        "width": 132,
+        "height": 237,
+        "text": ""
+      },
+      {
+        "x": 426,
+        "right": 538,
+        "width": 112,
+        "height": 47,
+        "text": "状态"
+      },
+      {
+        "x": 538,
+        "right": 670,
+        "width": 132,
+        "height": 47,
+        "text": "组件契约"
+      },
+      {
+        "x": 170,
+        "right": 426,
+        "width": 256,
+        "height": 0,
+        "text": "示例任务"
+      },
+      {
+        "x": 426,
+        "right": 538,
+        "width": 112,
+        "height": 0,
+        "text": "状态"
+      },
+      {
+        "x": 538,
+        "right": 670,
+        "width": 132,
+        "height": 0,
+        "text": "组件契约"
+      }
+    ]
+  },
+  {
+    "key": "text-controls",
+    "label": "选择与文本",
+    "viewport": 320,
+    "htmlWidth": 320,
+    "bodyWidth": 320,
+    "header": {
+      "x": 0,
+      "right": 320,
+      "width": 320,
+      "height": 56,
+      "text": "榫 榫序 Web"
+    },
+    "brand": {
+      "x": 12,
+      "right": 142,
+      "width": 130,
+      "height": 36,
+      "text": "榫 榫序 Web"
+    },
+    "search": {
+      "x": 150,
+      "right": 256,
+      "width": 106,
+      "height": 36,
+      "text": ""
+    },
+    "main": {
+      "x": 0,
+      "right": 320,
+      "width": 320,
+      "height": 788,
+      "text": "SUNXU WEB / DOCUMENTATION 选择与文本 查看远程候选搜索与长文本展开的公开组件契约。 Ant Design"
+    },
+    "surface": {
+      "x": 16,
+      "right": 304,
+      "width": 288,
+      "height": 756,
+      "text": "SUNXU WEB / DOCUMENTATION 选择与文本 查看远程候选搜索与长文本展开的公开组件契约。 Ant Design"
+    },
+    "h1": {
+      "x": 33,
+      "right": 287,
+      "width": 254,
+      "height": 32,
+      "text": "选择与文本"
+    },
+    "offRight": []
+  },
+  {
+    "key": "crud-workbench",
+    "label": "CRUD 列表工作台",
+    "viewport": 320,
+    "htmlWidth": 320,
+    "bodyWidth": 320,
+    "header": {
+      "x": 0,
+      "right": 320,
+      "width": 320,
+      "height": 56,
+      "text": "榫 榫序 Web"
+    },
+    "brand": {
+      "x": 12,
+      "right": 142,
+      "width": 130,
+      "height": 36,
+      "text": "榫 榫序 Web"
+    },
+    "search": {
+      "x": 150,
+      "right": 256,
+      "width": 106,
+      "height": 36,
+      "text": ""
+    },
+    "main": {
+      "x": 0,
+      "right": 320,
+      "width": 320,
+      "height": 1724,
+      "text": "SUNXU WEB / DOCUMENTATION CRUD 列表工作台 组合分类、快捷筛选、视图、筛选抽屉与 ProTable；"
+    },
+    "surface": {
+      "x": 16,
+      "right": 304,
+      "width": 288,
+      "height": 1692,
+      "text": "SUNXU WEB / DOCUMENTATION CRUD 列表工作台 组合分类、快捷筛选、视图、筛选抽屉与 ProTable；"
+    },
+    "h1": {
+      "x": 33,
+      "right": 287,
+      "width": 254,
+      "height": 32,
+      "text": "CRUD 列表工作台"
+    },
+    "offRight": [
+      {
+        "x": 301,
+        "right": 455,
+        "width": 154,
+        "height": 332,
+        "text": ""
+      },
+      {
+        "x": 455,
+        "right": 594,
+        "width": 138,
+        "height": 332,
+        "text": ""
+      },
+      {
+        "x": 594,
+        "right": 662,
+        "width": 68,
+        "height": 332,
+        "text": ""
+      },
+      {
+        "x": 662,
+        "right": 760,
+        "width": 98,
+        "height": 332,
+        "text": ""
+      },
+      {
+        "x": 760,
+        "right": 843,
+        "width": 83,
+        "height": 332,
+        "text": ""
+      },
+      {
+        "x": 843,
+        "right": 955,
+        "width": 112,
+        "height": 332,
+        "text": ""
+      },
+      {
+        "x": 955,
+        "right": 1061,
+        "width": 107,
+        "height": 332,
+        "text": ""
+      },
+      {
+        "x": 301,
+        "right": 455,
+        "width": 154,
+        "height": 47,
+        "text": "产品编码"
+      }
+    ]
+  },
+  {
+    "key": "resizable-table",
+    "label": "MES 表格组件",
+    "viewport": 320,
+    "htmlWidth": 320,
+    "bodyWidth": 320,
+    "header": {
+      "x": 0,
+      "right": 320,
+      "width": 320,
+      "height": 56,
+      "text": "榫 榫序 Web"
+    },
+    "brand": {
+      "x": 12,
+      "right": 142,
+      "width": 130,
+      "height": 36,
+      "text": "榫 榫序 Web"
+    },
+    "search": {
+      "x": 150,
+      "right": 256,
+      "width": 106,
+      "height": 36,
+      "text": ""
+    },
+    "main": {
+      "x": 0,
+      "right": 320,
+      "width": 320,
+      "height": 1283,
+      "text": "SUNXU WEB / DOCUMENTATION MES 表格组件 查看 MES 表格列宽、排序、行号、空态和导出布局；单列表视"
+    },
+    "surface": {
+      "x": 16,
+      "right": 304,
+      "width": 288,
+      "height": 1251,
+      "text": "SUNXU WEB / DOCUMENTATION MES 表格组件 查看 MES 表格列宽、排序、行号、空态和导出布局；单列表视"
+    },
+    "h1": {
+      "x": 33,
+      "right": 287,
+      "width": 254,
+      "height": 32,
+      "text": "MES 表格组件"
+    },
+    "offRight": [
+      {
+        "x": 290,
+        "right": 438,
+        "width": 148,
+        "height": 27,
+        "text": ""
+      },
+      {
+        "x": 438,
+        "right": 558,
+        "width": 120,
+        "height": 27,
+        "text": ""
+      },
+      {
+        "x": 558,
+        "right": 642,
+        "width": 84,
+        "height": 27,
+        "text": ""
+      },
+      {
+        "x": 642,
+        "right": 742,
+        "width": 100,
+        "height": 27,
+        "text": ""
+      },
+      {
+        "x": 742,
+        "right": 842,
+        "width": 100,
+        "height": 27,
+        "text": ""
+      },
+      {
+        "x": 842,
+        "right": 1122,
+        "width": 280,
+        "height": 27,
+        "text": ""
+      },
+      {
+        "x": 1122,
+        "right": 1290,
+        "width": 168,
+        "height": 27,
+        "text": ""
+      },
+      {
+        "x": 1290,
+        "right": 1458,
+        "width": 168,
+        "height": 27,
+        "text": ""
+      }
+    ]
+  }
+]
