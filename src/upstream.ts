@@ -204,15 +204,19 @@ export {
 
 export type {
   CollapseProps,
+  InputRef,
   MenuProps,
   SelectProps,
   TableColumnsType,
+  TablePaginationConfig,
   UploadFile,
 } from 'antd';
 
 export type { ColumnsType } from 'antd/es/table';
 export type { DataNode } from 'antd/es/tree';
 export type { RcFile } from 'antd/es/upload/interface';
+export type { MessageInstance } from 'antd/es/message/interface';
+export type { NotificationInstance } from 'antd/es/notification/interface';
 
 export {
   App,
@@ -227,6 +231,7 @@ export {
   Col,
   Collapse,
   ColorPicker,
+  ConfigProvider,
   DatePicker,
   Descriptions,
   Divider,
@@ -243,8 +248,10 @@ export {
   List,
   Modal,
   message,
+  notification,
   Popconfirm,
   Popover,
+  Pagination,
   Progress,
   Radio,
   Result,
@@ -269,3 +276,5 @@ export {
   Upload,
   theme,
 } from 'antd';
+
+export { SettingDrawer } from '@ant-design/pro-components';

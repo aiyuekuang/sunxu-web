@@ -20,6 +20,7 @@
 | 组件 | Layer / 稳定任务 | Source of truth |
 |---|---|---|
 | `SunxuWebProvider` | 主题基础；应用主题和 Ant Design 上下文 | AntD `ConfigProvider` / `App` + Sunxu semantic tokens |
+| Root upstream exports | `ConfigProvider`, `notification`, `Pagination`, Pro `SettingDrawer`, and the published feedback/input/table types | Direct Ant Design / Pro Components exports; state and behavior remain upstream |
 | `ScreenContainer` | 页面根结构；提供一致的工作区内边距 | `main` + `--sxw-space-*` |
 | `PageHeader` | 识别当前页面并放置页级动作 | AntD `Breadcrumb` / `Typography`；`headingLevel` 默认 1 |
 | `ListScreenContainer` | 组织特殊列表的标题、紧邻工具栏和结果区 | `ScreenContainer` + `PageHeader`；标准 CRUD 列表优先用 `CrudListWorkbench` |

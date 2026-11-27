@@ -34,6 +34,7 @@ export const componentMappings: ComponentMapping[] = [
   { source: 'ActionMenu', target: 'AntD Dropdown + Menu', status: 'UPSTREAM', note: '菜单行为和键盘状态由上游负责。' },
   { source: 'AppText', target: 'AntD Typography', status: 'UPSTREAM', note: '使用 Text、Title 和 Paragraph。' },
   { source: 'AppToast / ToastHost / MessageAlert', target: 'AntD App.useApp()', status: 'UPSTREAM', note: '使用当前 ConfigProvider 上下文内的 message / notification。' },
+  { source: '宿主配置、分页与反馈 API', target: 'sunxu-web ConfigProvider / notification / Pagination / SettingDrawer', status: 'UPSTREAM', note: '按需从 Sunxu 根入口直通导出；应用主题、分页数据、配置状态和通知内容仍由宿主提供。' },
   { source: 'Avatar', target: 'AntD Avatar', status: 'UPSTREAM', note: '身份布局由 ProfileIdentity 组合。' },
   { source: 'AudioPlayer', target: 'HTML audio', status: 'HOST', note: '音源、播放状态和错误由宿主提供。' },
   { source: 'Badge', target: 'AntD Badge', status: 'UPSTREAM', note: '沿用上游语义和状态样式。' },

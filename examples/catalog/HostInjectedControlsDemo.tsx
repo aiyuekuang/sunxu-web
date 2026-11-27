@@ -1,5 +1,12 @@
 import { useCallback, useMemo, useState } from 'react';
-import { ProForm } from '@ant-design/pro-components';
+import {
+  App,
+  Button as SunxuButton,
+  Pagination,
+  ProForm,
+  SettingDrawer,
+  notification as sunxuNotification,
+} from '../../src';
 import {
   Alert,
   Button,
@@ -43,6 +50,13 @@ const quickRanges = [
 type QuickRangeKey = (typeof quickRanges)[number]['key'];
 
 export function HostInjectedControlsDemo() {
+  const [layoutSettings, setLayoutSettings] = useState<Record<string, unknown>>({
+    navTheme: 'light', colorPrimary: '#1677ff', layout: 'mix', contentWidth: 'Fluid',
+    fixedHeader: true, fixSiderbar: true, splitMenus: false,
+  });
+  const [rootPaginationPage, setRootPaginationPage] = useState(1);
+  const [rootNotification, notificationContextHolder] = sunxuNotification.useNotification();
+  const app = App.useApp();
   const [quickRange, setQuickRange] = useState<[string, string]>(['2026-11-21', '2026-11-21']);
   const [quickRangeMessage, setQuickRangeMessage] = useState('宿主当前范围：2026-11-21 至 2026-11-21');
   const [configPermitted, setConfigPermitted] = useState(true);
@@ -103,6 +117,28 @@ export function HostInjectedControlsDemo() {
 
   return (
     <div className="sxw-docs-page-content">
+      <SectionCard title="根入口上游控件">
+        {notificationContextHolder}
+        <Space wrap>
+          <SunxuButton onClick={() => rootNotification.info({ title: '已通过 Sunxu 根入口调用 notification' })}>
+            显示通知
+          </SunxuButton>
+          <SunxuButton onClick={() => app.message.success('App.useApp 仍使用当前主题上下文')}>
+            显示主题消息
+          </SunxuButton>
+        </Space>
+        <Space orientation="vertical" size={4} style={{ marginTop: 16 }}>
+          <Pagination current={rootPaginationPage} pageSize={5} total={20} onChange={setRootPaginationPage} />
+          <Typography.Text type="secondary">宿主当前页：{rootPaginationPage}</Typography.Text>
+        </Space>
+        <SettingDrawer
+          enableDarkTheme
+          hideHintAlert
+          hideCopyButton
+          settings={layoutSettings as never}
+          onSettingChange={(next) => setLayoutSettings(next as Record<string, unknown>)}
+        />
+      </SectionCard>
       <SectionCard title="宿主注入能力组件">
         <Typography.Paragraph type="secondary">
           组件按统一契约呈现状态、日期快捷范围、字典和操作反馈；状态字典、候选请求、授权、下载及路由由宿主提供。
