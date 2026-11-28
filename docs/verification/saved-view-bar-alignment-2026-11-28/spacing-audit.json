@@ -1,0 +1,570 @@
+{
+  "schema_version": 1,
+  "surface_frame_gate": {
+    "status": "PASS",
+    "rows": [
+      {
+        "route": "CatalogApp → CRUD 列表工作台",
+        "state": "复杂视图；8 个合成视图；系统默认视图选中",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 1620.7,
+          "width": 1216,
+          "height": 1564.7
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 1596.7,
+          "width": 1168,
+          "height": 1516.7
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "left",
+          "right",
+          "top",
+          "bottom"
+        ],
+        "insets_px": {
+          "left": 24,
+          "right": 24,
+          "top": 24,
+          "bottom": 24.0
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "Catalog work area keeps the separated panel inset at 24px on all sides",
+          "source": "design-system/sunxu-web/MASTER.md:68,72; examples/catalog/catalog.css:145-159 and responsive rules"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "inspected unannotated full-page Chromium screenshot",
+          "painted_frame_sides": [
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/saved-view-bar-alignment-2026-11-28/after-system-1440.png",
+        "screenshot_sha256": "7f8c4b3a4450115cd3056468e4998a80b8c21b03b7da20871e3e4b906a76759c",
+        "status": "PASS"
+      },
+      {
+        "route": "CatalogApp → CRUD 列表工作台",
+        "state": "复杂视图；8 个合成视图；系统默认视图选中",
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 208,
+          "top": 56,
+          "right": 1024,
+          "bottom": 1764.7,
+          "width": 816,
+          "height": 1708.7
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 224,
+          "top": 72,
+          "right": 1008,
+          "bottom": 1748.7,
+          "width": 784,
+          "height": 1676.7
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "left",
+          "right",
+          "top",
+          "bottom"
+        ],
+        "insets_px": {
+          "left": 16,
+          "right": 16,
+          "top": 16,
+          "bottom": 16.0
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "Catalog work area keeps the separated panel inset at 16px on all sides",
+          "source": "design-system/sunxu-web/MASTER.md:68,72; examples/catalog/catalog.css:145-159 and responsive rules"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "inspected unannotated full-page Chromium screenshot",
+          "painted_frame_sides": [
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/saved-view-bar-alignment-2026-11-28/after-system-1024.png",
+        "screenshot_sha256": "5b2b8dfddeec3075fd16c5f9e4940b2756d475be8431d756b2d444388338f526",
+        "status": "PASS"
+      },
+      {
+        "route": "CatalogApp → CRUD 列表工作台",
+        "state": "复杂视图；8 个合成视图；个人视图选中且保存禁用",
+        "viewport": {
+          "width": 1440,
+          "height": 900
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 224,
+          "top": 56,
+          "right": 1440,
+          "bottom": 1620.7,
+          "width": 1216,
+          "height": 1564.7
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 248,
+          "top": 80,
+          "right": 1416,
+          "bottom": 1596.7,
+          "width": 1168,
+          "height": 1516.7
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "left",
+          "right",
+          "top",
+          "bottom"
+        ],
+        "insets_px": {
+          "left": 24,
+          "right": 24,
+          "top": 24,
+          "bottom": 24.0
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "Catalog work area keeps the separated panel inset at 24px on all sides",
+          "source": "design-system/sunxu-web/MASTER.md:68,72; examples/catalog/catalog.css:145-159 and responsive rules"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "inspected unannotated full-page Chromium screenshot",
+          "painted_frame_sides": [
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/saved-view-bar-alignment-2026-11-28/after-personal-1440.png",
+        "screenshot_sha256": "2513bb5e5c1c45cf210d69e08c69847b7bcb97a6ad87c740d80d16a8b7d83120",
+        "status": "PASS"
+      },
+      {
+        "route": "CatalogApp → CRUD 列表工作台",
+        "state": "复杂视图；8 个合成视图；个人视图选中且保存禁用",
+        "viewport": {
+          "width": 1024,
+          "height": 768
+        },
+        "workspace": ".sxw-docs-main",
+        "workspace_rect": {
+          "left": 208,
+          "top": 56,
+          "right": 1024,
+          "bottom": 1764.7,
+          "width": 816,
+          "height": 1708.7
+        },
+        "content": ".sxw-docs-surface",
+        "content_rect": {
+          "left": 224,
+          "top": 72,
+          "right": 1008,
+          "bottom": 1748.7,
+          "width": 784,
+          "height": 1676.7
+        },
+        "relationship": "separate",
+        "required_sides": [
+          "left",
+          "right",
+          "top",
+          "bottom"
+        ],
+        "insets_px": {
+          "left": 16,
+          "right": 16,
+          "top": 16,
+          "bottom": 16.0
+        },
+        "expected": {
+          "kind": "contract",
+          "value": "Catalog work area keeps the separated panel inset at 16px on all sides",
+          "source": "design-system/sunxu-web/MASTER.md:68,72; examples/catalog/catalog.css:145-159 and responsive rules"
+        },
+        "visual": {
+          "status": "PASS",
+          "method": "inspected unannotated full-page Chromium screenshot",
+          "painted_frame_sides": [
+            "left",
+            "right",
+            "top",
+            "bottom"
+          ]
+        },
+        "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/saved-view-bar-alignment-2026-11-28/after-personal-1024.png",
+        "screenshot_sha256": "ebd5622e95284f5c43fda68fbceff40d2e4acbc51211e6aef29232c98263c37e",
+        "status": "PASS"
+      }
+    ]
+  },
+  "seams": [
+    {
+      "route": "CatalogApp → CRUD 列表工作台 → 复杂视图",
+      "state": "复杂视图；8 个合成视图；系统默认视图选中",
+      "previous": "SavedViewBar Tabs 导航",
+      "next": "SavedViewBar 排序/保存/另存操作组",
+      "axis": "horizontal",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "previous_rect": {
+        "left": 309,
+        "top": 444.42,
+        "right": 1209,
+        "bottom": 484.42,
+        "width": 900,
+        "height": 40
+      },
+      "next_rect": {
+        "left": 1225,
+        "top": 452.42,
+        "right": 1355,
+        "bottom": 484.42,
+        "width": 130,
+        "height": 32
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "Tabs and operations share a full-width bottom divider and align to the same baseline",
+        "source": "docs/component-contracts.md:250; src/styles.css:799-817,1115-1124,1197-1206"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "inspected rendered screenshot and measured DOM edges against the shared divider",
+        "observed_clear_band_px": 16
+      },
+      "alignment": {
+        "divider_y": 484.42,
+        "tabs_bottom_y": 484.42,
+        "actions_bottom_y": 484.42,
+        "actions_to_divider_delta_px": 0.0,
+        "tabs_to_divider_delta_px": 0.0
+      },
+      "visible_action_buttons": [
+        {
+          "text": "排序",
+          "disabled": false,
+          "rect": {
+            "left": 1225,
+            "top": 452.42,
+            "right": 1291,
+            "bottom": 484.42,
+            "width": 66,
+            "height": 32
+          }
+        },
+        {
+          "text": "另存为",
+          "disabled": false,
+          "rect": {
+            "left": 1297,
+            "top": 452.42,
+            "right": 1355,
+            "bottom": 484.42,
+            "width": 58,
+            "height": 32
+          }
+        }
+      ],
+      "document_scroll_width": 1440,
+      "executed_command": "Playwright via /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/playwright-test-saved-view-bar.js; local Catalog route, finite selection interactions, no authentication",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/saved-view-bar-alignment-2026-11-28/after-system-1440.png",
+      "screenshot_sha256": "7f8c4b3a4450115cd3056468e4998a80b8c21b03b7da20871e3e4b906a76759c",
+      "status": "PASS"
+    },
+    {
+      "route": "CatalogApp → CRUD 列表工作台 → 复杂视图",
+      "state": "复杂视图；8 个合成视图；系统默认视图选中",
+      "previous": "SavedViewBar Tabs 导航",
+      "next": "SavedViewBar 排序/保存/另存操作组",
+      "axis": "vertical",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "previous_rect": {
+        "left": 281,
+        "top": 494.42,
+        "right": 951,
+        "bottom": 534.42,
+        "width": 670,
+        "height": 40
+      },
+      "next_rect": {
+        "left": 281,
+        "top": 542.42,
+        "right": 951,
+        "bottom": 574.42,
+        "width": 670,
+        "height": 32
+      },
+      "gap_px": 8.0,
+      "expected": {
+        "kind": "contract",
+        "value": "Below the 900px workbench breakpoint, operations stack 8px below tabs and the shared divider follows the full group",
+        "source": "docs/component-contracts.md:250; src/styles.css:799-817,1115-1124,1197-1206"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "inspected rendered screenshot and measured DOM edges against the shared divider",
+        "observed_clear_band_px": 8.0
+      },
+      "alignment": {
+        "divider_y": 574.42,
+        "tabs_bottom_y": 534.42,
+        "actions_bottom_y": 574.42,
+        "actions_to_divider_delta_px": 0.0,
+        "tabs_to_divider_delta_px": 40.0
+      },
+      "visible_action_buttons": [
+        {
+          "text": "排序",
+          "disabled": false,
+          "rect": {
+            "left": 821,
+            "top": 542.42,
+            "right": 887,
+            "bottom": 574.42,
+            "width": 66,
+            "height": 32
+          }
+        },
+        {
+          "text": "另存为",
+          "disabled": false,
+          "rect": {
+            "left": 893,
+            "top": 542.42,
+            "right": 951,
+            "bottom": 574.42,
+            "width": 58,
+            "height": 32
+          }
+        }
+      ],
+      "document_scroll_width": 1024,
+      "executed_command": "Playwright via /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/playwright-test-saved-view-bar.js; local Catalog route, finite selection interactions, no authentication",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/saved-view-bar-alignment-2026-11-28/after-system-1024.png",
+      "screenshot_sha256": "5b2b8dfddeec3075fd16c5f9e4940b2756d475be8431d756b2d444388338f526",
+      "status": "PASS"
+    },
+    {
+      "route": "CatalogApp → CRUD 列表工作台 → 复杂视图",
+      "state": "复杂视图；8 个合成视图；个人视图选中且保存禁用",
+      "previous": "SavedViewBar Tabs 导航",
+      "next": "SavedViewBar 排序/保存/另存操作组",
+      "axis": "horizontal",
+      "viewport": {
+        "width": 1440,
+        "height": 900
+      },
+      "previous_rect": {
+        "left": 309,
+        "top": 444.42,
+        "right": 1137,
+        "bottom": 484.42,
+        "width": 828,
+        "height": 40
+      },
+      "next_rect": {
+        "left": 1153,
+        "top": 452.42,
+        "right": 1355,
+        "bottom": 484.42,
+        "width": 202,
+        "height": 32
+      },
+      "gap_px": 16,
+      "expected": {
+        "kind": "contract",
+        "value": "Tabs and operations share a full-width bottom divider and align to the same baseline",
+        "source": "docs/component-contracts.md:250; src/styles.css:799-817,1115-1124,1197-1206"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "inspected rendered screenshot and measured DOM edges against the shared divider",
+        "observed_clear_band_px": 16
+      },
+      "alignment": {
+        "divider_y": 484.42,
+        "tabs_bottom_y": 484.42,
+        "actions_bottom_y": 484.42,
+        "actions_to_divider_delta_px": 0.0,
+        "tabs_to_divider_delta_px": 0.0
+      },
+      "visible_action_buttons": [
+        {
+          "text": "排序",
+          "disabled": false,
+          "rect": {
+            "left": 1153,
+            "top": 452.42,
+            "right": 1219,
+            "bottom": 484.42,
+            "width": 66,
+            "height": 32
+          }
+        },
+        {
+          "text": "保存",
+          "disabled": true,
+          "rect": {
+            "left": 1225,
+            "top": 452.42,
+            "right": 1291,
+            "bottom": 484.42,
+            "width": 66,
+            "height": 32
+          }
+        },
+        {
+          "text": "另存为",
+          "disabled": false,
+          "rect": {
+            "left": 1297,
+            "top": 452.42,
+            "right": 1355,
+            "bottom": 484.42,
+            "width": 58,
+            "height": 32
+          }
+        }
+      ],
+      "document_scroll_width": 1440,
+      "executed_command": "Playwright via /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/playwright-test-saved-view-bar.js; local Catalog route, finite selection interactions, no authentication",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/saved-view-bar-alignment-2026-11-28/after-personal-1440.png",
+      "screenshot_sha256": "2513bb5e5c1c45cf210d69e08c69847b7bcb97a6ad87c740d80d16a8b7d83120",
+      "status": "PASS"
+    },
+    {
+      "route": "CatalogApp → CRUD 列表工作台 → 复杂视图",
+      "state": "复杂视图；8 个合成视图；个人视图选中且保存禁用",
+      "previous": "SavedViewBar Tabs 导航",
+      "next": "SavedViewBar 排序/保存/另存操作组",
+      "axis": "vertical",
+      "viewport": {
+        "width": 1024,
+        "height": 768
+      },
+      "previous_rect": {
+        "left": 281,
+        "top": 494.42,
+        "right": 951,
+        "bottom": 534.42,
+        "width": 670,
+        "height": 40
+      },
+      "next_rect": {
+        "left": 281,
+        "top": 542.42,
+        "right": 951,
+        "bottom": 574.42,
+        "width": 670,
+        "height": 32
+      },
+      "gap_px": 8.0,
+      "expected": {
+        "kind": "contract",
+        "value": "Below the 900px workbench breakpoint, operations stack 8px below tabs and the shared divider follows the full group",
+        "source": "docs/component-contracts.md:250; src/styles.css:799-817,1115-1124,1197-1206"
+      },
+      "visual": {
+        "relationship": "separate",
+        "status": "PASS",
+        "method": "inspected rendered screenshot and measured DOM edges against the shared divider",
+        "observed_clear_band_px": 8.0
+      },
+      "alignment": {
+        "divider_y": 574.42,
+        "tabs_bottom_y": 534.42,
+        "actions_bottom_y": 574.42,
+        "actions_to_divider_delta_px": 0.0,
+        "tabs_to_divider_delta_px": 40.0
+      },
+      "visible_action_buttons": [
+        {
+          "text": "排序",
+          "disabled": false,
+          "rect": {
+            "left": 749,
+            "top": 542.42,
+            "right": 815,
+            "bottom": 574.42,
+            "width": 66,
+            "height": 32
+          }
+        },
+        {
+          "text": "保存",
+          "disabled": true,
+          "rect": {
+            "left": 821,
+            "top": 542.42,
+            "right": 887,
+            "bottom": 574.42,
+            "width": 66,
+            "height": 32
+          }
+        },
+        {
+          "text": "另存为",
+          "disabled": false,
+          "rect": {
+            "left": 893,
+            "top": 542.42,
+            "right": 951,
+            "bottom": 574.42,
+            "width": 58,
+            "height": 32
+          }
+        }
+      ],
+      "document_scroll_width": 1024,
+      "executed_command": "Playwright via /Users/suconnect/.codex/skills/playwright-skill/run.js /tmp/playwright-test-saved-view-bar.js; local Catalog route, finite selection interactions, no authentication",
+      "screenshot": "/Users/suconnect/Desktop/code/sunxu-web/docs/verification/saved-view-bar-alignment-2026-11-28/after-personal-1024.png",
+      "screenshot_sha256": "ebd5622e95284f5c43fda68fbceff40d2e4acbc51211e6aef29232c98263c37e",
+      "status": "PASS"
+    }
+  ]
+}

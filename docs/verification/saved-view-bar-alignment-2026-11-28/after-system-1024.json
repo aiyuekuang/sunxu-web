@@ -1,0 +1,169 @@
+{
+  "name": "after-system-1024",
+  "geometry": {
+    "viewport": {
+      "width": 1024,
+      "height": 768
+    },
+    "document": {
+      "clientWidth": 1024,
+      "scrollWidth": 1024
+    },
+    "workspaceRect": {
+      "left": 208,
+      "top": 56,
+      "right": 1024,
+      "bottom": 1764.7,
+      "width": 816,
+      "height": 1708.7
+    },
+    "workspaceStyle": {
+      "display": "block",
+      "alignItems": "normal",
+      "alignSelf": "auto",
+      "borderBottomWidth": "0px",
+      "borderBottomStyle": "none",
+      "borderBottomColor": "rgb(26, 26, 26)",
+      "marginBlock": "0px 0px",
+      "paddingBlock": "16px 16px",
+      "backgroundColor": "rgb(245, 246, 248)"
+    },
+    "contentRect": {
+      "left": 224,
+      "top": 72,
+      "right": 1008,
+      "bottom": 1748.7,
+      "width": 784,
+      "height": 1676.7
+    },
+    "contentStyle": {
+      "display": "block",
+      "alignItems": "normal",
+      "alignSelf": "auto",
+      "borderBottomWidth": "1px",
+      "borderBottomStyle": "solid",
+      "borderBottomColor": "rgb(235, 235, 235)",
+      "marginBlock": "0px 0px",
+      "paddingBlock": "20px 20px",
+      "backgroundColor": "rgb(255, 255, 255)"
+    },
+    "workbenchRect": {
+      "left": 257,
+      "top": 368.42,
+      "right": 975,
+      "bottom": 1101.42,
+      "width": 718,
+      "height": 733
+    },
+    "barRect": {
+      "left": 281,
+      "top": 494.42,
+      "right": 951,
+      "bottom": 575.42,
+      "width": 670,
+      "height": 81
+    },
+    "rowRect": {
+      "left": 281,
+      "top": 494.42,
+      "right": 951,
+      "bottom": 575.42,
+      "width": 670,
+      "height": 81
+    },
+    "rowStyle": {
+      "display": "grid",
+      "alignItems": "end",
+      "alignSelf": "auto",
+      "borderBottomWidth": "1px",
+      "borderBottomStyle": "solid",
+      "borderBottomColor": "rgb(235, 235, 235)",
+      "marginBlock": "0px 0px",
+      "paddingBlock": "0px 0px",
+      "backgroundColor": "rgba(0, 0, 0, 0)"
+    },
+    "tabsRect": {
+      "left": 281,
+      "top": 494.42,
+      "right": 951,
+      "bottom": 534.42,
+      "width": 670,
+      "height": 40
+    },
+    "headerRect": {
+      "left": 281,
+      "top": 494.42,
+      "right": 951,
+      "bottom": 534.42,
+      "width": 670,
+      "height": 40
+    },
+    "headerStyle": {
+      "display": "flex",
+      "alignItems": "center",
+      "alignSelf": "auto",
+      "borderBottomWidth": "0px",
+      "borderBottomStyle": "none",
+      "borderBottomColor": "rgb(26, 26, 26)",
+      "marginBlock": "0px 0px",
+      "paddingBlock": "0px 0px",
+      "backgroundColor": "rgba(0, 0, 0, 0)"
+    },
+    "headerBeforeStyle": {
+      "display": "none",
+      "borderBottomWidth": "1px",
+      "borderBottomStyle": "solid",
+      "content": "\"\""
+    },
+    "actionsRect": {
+      "left": 281,
+      "top": 542.42,
+      "right": 951,
+      "bottom": 574.42,
+      "width": 670,
+      "height": 32
+    },
+    "actionsStyle": {
+      "display": "flex",
+      "alignItems": "center",
+      "alignSelf": "auto",
+      "borderBottomWidth": "0px",
+      "borderBottomStyle": "none",
+      "borderBottomColor": "rgb(26, 26, 26)",
+      "marginBlock": "0px 0px",
+      "paddingBlock": "0px 0px",
+      "backgroundColor": "rgba(0, 0, 0, 0)"
+    },
+    "selectedView": "启用产品\n默认",
+    "actionButtons": [
+      {
+        "text": "排序",
+        "disabled": false,
+        "rect": {
+          "left": 821,
+          "top": 542.42,
+          "right": 887,
+          "bottom": 574.42,
+          "width": 66,
+          "height": 32
+        }
+      },
+      {
+        "text": "另存为",
+        "disabled": false,
+        "rect": {
+          "left": 893,
+          "top": 542.42,
+          "right": 951,
+          "bottom": 574.42,
+          "width": 58,
+          "height": 32
+        }
+      }
+    ],
+    "visibleTabs": 8,
+    "rowBottomDividerTop": 574.42,
+    "tabDividerDelta": 40,
+    "actionDividerDelta": 0
+  }
+}

@@ -247,8 +247,8 @@
 - **API**：`views: { id, name, scope: system | personal, isDefault? }[]`、`onChange` 必填；`activeViewId`、`dirty`、`loading` 受控；`onSave`、`onSaveAs`、`onRename`、`onDelete`、`onSetDefault`、`onReorder` 可选。操作回调可以同步或返回 Promise；返回 `false` 或 reject 表示未成功。
 - **状态/恢复**：加载中有 Spin 并禁止重复变更；回调失败保留当前视图，显示通用恢复提示并把原错误传给 `onActionError`。删除个人视图要求二次确认；系统视图不可重命名/删除；仅个人视图可保存覆盖。
 - **持久化与快照**：不读写本地存储或调用 API。宿主提供系统/个人视图和访问权限，并只保存允许的筛选、排序、列可见性/顺序/固定状态；不保存授权决定、选择行、临时抽屉草稿或业务动作。
-- **布局与可访问性**：视图标签按基线业务的紧凑间距排列，当前标签文字下方显示主题色指示线；每个可管理视图在标签内提供菜单。宽屏中标签和排序、保存、另存动作同处一行，按钮保持自身宽度；标签超出可用空间时使用 Ant Design Tabs 的溢出菜单，操作按钮不被挤到下一行。列表工作区窄于 900px 时，操作区移至标签下方，标签仍保持单行；选中标签自动滚动到可见位置。管理菜单、排序和命名弹窗提供可读名称及键盘可操作的按钮。
-- **证据**：`examples/catalog` CRUD 列表工作台的复杂视图真实路由，以及桌面/窄工作区同行与换行几何验收记录于 `docs/verification/saved-view-bar-inline-2026-11-28/README.md`；管理菜单、排序、未保存、另存和切换确认的既有截图与 DOM 几何数据见 `docs/verification/saved-view-bar-mes-alignment-2026-11-16/`。未覆盖的键盘读屏流程、深色主题和其他视口仍标 `UNVERIFIED`。
+- **布局与可访问性**：视图标签按基线业务的紧凑间距排列，当前标签文字下方显示主题色指示线；每个可管理视图在标签内提供菜单。标签与右侧操作共用一条跨整栏的底部分隔线；标签导航底边和操作按钮底边对齐，操作区不得以独立列的居中位置形成第二条视觉基线。宽屏中标签和排序、保存、另存动作同处一行，按钮保持自身宽度；标签超出可用空间时使用 Ant Design Tabs 的溢出菜单，操作按钮不被挤到下一行。列表工作区窄于 900px 时，操作区移至标签下方，标签仍保持单行，分隔线位于整个组合栏底部；选中标签自动滚动到可见位置。管理菜单、排序和命名弹窗提供可读名称及键盘可操作的按钮。
+- **证据**：`examples/catalog` CRUD 列表工作台的复杂视图真实路由，以及桌面/窄工作区同行与换行几何验收记录于 `docs/verification/saved-view-bar-inline-2026-11-28/README.md`；共享分隔线和底边对齐的修复前后截图及 DOM 审计账本见 `docs/verification/saved-view-bar-alignment-2026-11-28/README.md`；管理菜单、排序、未保存、另存和切换确认的既有截图与 DOM 几何数据见 `docs/verification/saved-view-bar-mes-alignment-2026-11-16/`。Tel Admin 真实业务路由需要经授权的测试会话继续验收；未覆盖的键盘读屏流程、深色主题和其他视口仍标 `UNVERIFIED`。
 
 ### `SectionCard`
 

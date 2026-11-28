@@ -320,6 +320,7 @@ export function SavedViewBar({
                 indicator: 'sxw-saved-view-bar__tabs-indicator',
                 header: 'sxw-saved-view-bar__tabs-header',
               }}
+              styles={{ header: { marginBlockEnd: 0 } }}
               items={tabItems}
               onChange={requestChange}
               size="small"

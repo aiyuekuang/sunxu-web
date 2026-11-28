@@ -12,7 +12,7 @@ Sunxu Web 将现有 React Native 组件的稳定用户任务映射到 Web 端的
 | `PageHeader` | 有条件渲染的页面标题、说明、面包屑和操作插槽 |
 | `ListScreenContainer` | 标题 → 紧邻列表工具栏 → 结果区 |
 | `CrudListWorkbench` | 单一复合工作台，按需组合列表范围/状态 Tab、关键词、快捷/高级筛选、左侧目录、保存视图与结果区；结果可用 ProTable、表格适配器或业务卡片；有范围/状态行时视图栏紧随其后；内嵌模式继承父表面；不渲染页级标题；Facet 外观和间距由工作台统一拥有 |
-| `SavedViewBar` | 受控系统/个人视图切换和管理操作；宽屏标签与操作同一行，视图溢出使用 Ant Design Tabs 菜单；窄容器下操作移至标签下方 |
+| `SavedViewBar` | 受控系统/个人视图切换和管理操作；标签与操作共用全宽底部分隔线并对齐底边；宽屏同一行，视图溢出使用 Ant Design Tabs 菜单；窄容器下操作移至标签下方 |
 | `EditableDetailTable` | 受控重复明细编辑、行选择和批量字段设置 |
 | `BatchFieldSettingsButton` | 选择批量覆盖字段并在确认后生成宿主 patch |
 | `RemoteSelect` | 搜索候选时由宿主请求并由组件防抖的 Select |

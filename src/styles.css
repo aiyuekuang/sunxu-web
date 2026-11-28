@@ -800,10 +800,10 @@
   display: grid;
   grid-template-columns: minmax(0, 1fr) auto;
   min-width: 0;
-  align-items: center;
+  align-items: end;
   column-gap: 16px;
   row-gap: 6px;
-  padding-block: 0 2px;
+  border-block-end: 1px solid var(--sxw-border);
 }
 
 .sxw-saved-view-bar__tabs {
@@ -813,8 +813,8 @@
   overflow: hidden;
 }
 
-.sxw-saved-view-bar__tabs-header {
-  margin: 0;
+.sxw-saved-view-bar__tabs-header::before {
+  display: none;
 }
 
 .sxw-saved-view-bar__tabs-item {
