@@ -797,11 +797,12 @@
 }
 
 .sxw-saved-view-bar__row {
-  display: flex;
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
   min-width: 0;
-  align-items: stretch;
-  flex-direction: column;
-  gap: 6px;
+  align-items: center;
+  column-gap: 16px;
+  row-gap: 6px;
   padding-block: 0 2px;
 }
 
@@ -843,7 +844,8 @@
 .sxw-saved-view-bar__actions {
   flex: 0 0 auto;
   justify-content: flex-end;
-  width: 100%;
+  justify-self: end;
+  width: auto;
   white-space: nowrap;
 }
 
@@ -1111,13 +1113,13 @@
   }
 
   .sxw-saved-view-bar__row {
-    align-items: stretch;
-    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
     gap: 8px;
   }
 
   .sxw-saved-view-bar__actions {
     justify-content: flex-end;
+    justify-self: stretch;
     width: 100%;
   }
 
@@ -1193,13 +1195,14 @@
   }
 
   .sxw-saved-view-bar__row {
-    align-items: stretch;
-    flex-direction: column;
+    grid-template-columns: minmax(0, 1fr);
     gap: 8px;
   }
 
   .sxw-saved-view-bar__actions {
     justify-content: flex-end;
+    justify-self: stretch;
+    width: 100%;
   }
 
   .sxw-saved-view-bar__tabs,

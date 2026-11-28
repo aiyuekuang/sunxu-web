@@ -116,6 +116,30 @@ const initialViews: DemoSavedView[] = [
     scope: 'personal',
     snapshot: { ...initialSnapshot, baseType: 'finished', status: 'all' },
   },
+  {
+    id: 'recent-changes',
+    name: '近期变更',
+    scope: 'system',
+    snapshot: { ...initialSnapshot, status: 'all' },
+  },
+  {
+    id: 'raw-materials',
+    name: '原料检查',
+    scope: 'system',
+    snapshot: { ...initialSnapshot, baseType: 'raw', status: 'all' },
+  },
+  {
+    id: 'inactive-review',
+    name: '停用复核',
+    scope: 'system',
+    snapshot: { ...initialSnapshot, status: 'inactive' },
+  },
+  {
+    id: 'specification-review',
+    name: '产品规格复核',
+    scope: 'system',
+    snapshot: { ...initialSnapshot, status: 'all', missingSpecification: true },
+  },
 ];
 
 function isProductCategory(value: string): value is ProductCategory {

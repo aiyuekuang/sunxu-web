@@ -27,7 +27,7 @@
 | `CrudListWorkbench` | 以一个组合根按需承载列表分类/状态、关键词、筛选、左侧目录、视图与结果区；结果区可用表格适配器或业务卡片，不按组合排列创建不同工作台 | `ListScreenContainer` + `FilterBar` + `StatusTabs` + `ListKeywordSearch` + Pro Components 3 ProTable |
 | `ListKeywordSearch` | 统一单一关键词列表查询的输入、清空、提交和可选折叠呈现；查询字段、草稿与请求由宿主提供 | AntD 6.7 `Input.Search` + `Button` |
 | `PaginationSummary` | 在分页栏左侧显示宿主提供的筛选结果摘要 | AntD `Pagination.showTotal`；统计口径由宿主提供 |
-| `SavedViewBar` | 选择和管理受控的系统/个人列表视图；排序动作置于标签下方的独立操作行，窄屏不遮挡标签 | AntD Tabs / Dropdown / Modal；视图数据和持久化由宿主提供 |
+| `SavedViewBar` | 选择和管理受控的系统/个人列表视图；宽屏把视图标签与操作放在同一行，标签超宽时由 Ant Design Tabs 提供溢出菜单 | AntD Tabs / Dropdown / Modal；视图数据和持久化由宿主提供 |
 | `DocumentKeywordSearch` | 提供单据搜索文案和临时草稿语义；复用通用列表关键词呈现 | `ListKeywordSearch`；单据字段和查询由宿主提供 |
 | `FormScreenContainer` | 分离可滚动表单内容和固定 footer | `ScreenContainer` + `StickyActionBar`；ProForm 归宿主 |
 | `DetailScreenContainer` | 组织详情内容和固定操作区 | `ScreenContainer` + `PageHeader` |
@@ -247,8 +247,8 @@
 - **API**：`views: { id, name, scope: system | personal, isDefault? }[]`、`onChange` 必填；`activeViewId`、`dirty`、`loading` 受控；`onSave`、`onSaveAs`、`onRename`、`onDelete`、`onSetDefault`、`onReorder` 可选。操作回调可以同步或返回 Promise；返回 `false` 或 reject 表示未成功。
 - **状态/恢复**：加载中有 Spin 并禁止重复变更；回调失败保留当前视图，显示通用恢复提示并把原错误传给 `onActionError`。删除个人视图要求二次确认；系统视图不可重命名/删除；仅个人视图可保存覆盖。
 - **持久化与快照**：不读写本地存储或调用 API。宿主提供系统/个人视图和访问权限，并只保存允许的筛选、排序、列可见性/顺序/固定状态；不保存授权决定、选择行、临时抽屉草稿或业务动作。
-- **布局与可访问性**：视图标签按基线业务的紧凑间距排列，当前标签文字下方显示主题色指示线；每个可管理视图在标签内提供菜单。排序、保存、另存动作放在标签下方的独立操作行，避免挤占标签命中区；窄屏横向滚动的标签与操作行分离，选中标签自动滚动到可见位置；管理菜单、排序和命名弹窗提供可读名称及键盘可操作的按钮。
-- **证据**：`examples/catalog` CRUD 列表工作台的复杂视图真实路由，以及桌面/窄屏标签栏、管理菜单、排序、未保存、另存和切换确认的截图与 DOM 几何数据记录于 `docs/verification/saved-view-bar-mes-alignment-2026-11-16/`；排序控件与导航底线间距在宽/窄视口验证。未覆盖的键盘读屏流程、深色主题和其他视口仍标 `UNVERIFIED`。
+- **布局与可访问性**：视图标签按基线业务的紧凑间距排列，当前标签文字下方显示主题色指示线；每个可管理视图在标签内提供菜单。宽屏中标签和排序、保存、另存动作同处一行，按钮保持自身宽度；标签超出可用空间时使用 Ant Design Tabs 的溢出菜单，操作按钮不被挤到下一行。列表工作区窄于 900px 时，操作区移至标签下方，标签仍保持单行；选中标签自动滚动到可见位置。管理菜单、排序和命名弹窗提供可读名称及键盘可操作的按钮。
+- **证据**：`examples/catalog` CRUD 列表工作台的复杂视图真实路由，以及桌面/窄工作区同行与换行几何验收记录于 `docs/verification/saved-view-bar-inline-2026-11-28/README.md`；管理菜单、排序、未保存、另存和切换确认的既有截图与 DOM 几何数据见 `docs/verification/saved-view-bar-mes-alignment-2026-11-16/`。未覆盖的键盘读屏流程、深色主题和其他视口仍标 `UNVERIFIED`。
 
 ### `SectionCard`
 
